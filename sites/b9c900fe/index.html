@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>北辰新闻网 — 首页</title>
+<meta name="description" content="北辰新闻网提供国内、财经、科技等领域的新闻报道与深度观察。">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Heiti SC",sans-serif;color:#222;background:#f4f4f4;line-height:1.7;font-size:15px}
+a{color:#222;text-decoration:none}
+a:hover{color:#c0261f}
+img,svg{display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{background:#fafafa;border-bottom:1px solid #e7e7e7}
+.topbar{display:flex;justify-content:space-between;align-items:center;height:36px;font-size:12px;color:#8a8a8a;flex-wrap:wrap}
+.topbar a{color:#8a8a8a;margin-left:14px}
+.masthead{display:flex;align-items:center;gap:16px;padding:20px 16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-name{font-size:30px;font-weight:700;letter-spacing:3px;color:#c0261f;line-height:1.2}
+.logo-sub{font-size:12px;color:#aaa;letter-spacing:4px}
+.search{margin-left:auto;display:flex;border:1px solid #ddd;background:#fff}
+.search input{border:0;padding:9px 12px;width:200px;outline:none;font-size:13px;font-family:inherit}
+.search button{border:0;background:#c0261f;color:#fff;padding:0 20px;font-size:13px;cursor:pointer;font-family:inherit}
+.mainnav{background:#c0261f;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.mainnav .wrap{display:flex;flex-wrap:wrap;padding:0 16px}
+.mainnav a{color:#fff;padding:12px 22px;font-size:16px}
+.mainnav a:hover,.mainnav a.on{background:#9c1b16;color:#fff}
+.bulletin{background:#fff;border-bottom:1px solid #eee;font-size:13px;color:#666;padding:8px 0}
+.bulletin b{color:#c0261f;margin-right:8px}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:24px;margin:20px auto;max-width:1100px;padding:0 16px}
+.card{background:#fff;border:1px solid #e9e9e9;margin-bottom:20px}
+.card-hd{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 16px}
+.card-hd h2{font-size:18px;border-left:4px solid #c0261f;padding-left:10px;line-height:1.3}
+.card-hd span a{font-size:12px;color:#999}
+.card-bd{padding:16px}
+.lead{text-align:center;padding:22px 16px 18px;border-bottom:1px solid #eee}
+.lead h1{font-size:30px;line-height:1.4;font-weight:700}
+.lead h1 a:hover{color:#c0261f}
+.lead p{color:#777;font-size:14px;margin-top:10px;text-align:left}
+.lead .sub{margin-top:12px;font-size:14px;color:#555}
+.lead .sub a{margin:0 10px}
+.feature{display:grid;grid-template-columns:300px 1fr;gap:18px;padding:16px;border-bottom:1px solid #f0f0f0}
+.feature:last-child{border-bottom:0}
+.feature h3{font-size:20px;margin-bottom:8px}
+.feature p{color:#777;font-size:14px}
+.meta-s{font-size:12px;color:#aaa;margin-top:10px}
+.meta-s em{font-style:normal;color:#c0261f;margin-right:10px}
+.thumb{width:100%;height:170px;border:1px solid #eee}
+.news-list{list-style:none}
+.news-list li{padding:10px 0;border-bottom:1px dashed #ececec;display:flex;gap:12px;align-items:baseline}
+.news-list li:last-child{border-bottom:0}
+.news-list li a{flex:1;font-size:16px}
+.news-list li a::before{content:"·";color:#c0261f;margin-right:8px;font-weight:700}
+.news-list time{font-size:12px;color:#bbb;white-space:nowrap}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.rank{list-style:none;counter-reset:r}
+.rank li{counter-increment:r;padding:9px 0;border-bottom:1px dashed #ececec;display:flex;gap:10px}
+.rank li:last-child{border-bottom:0}
+.rank li::before{content:counter(r);background:#ddd;color:#fff;width:20px;height:20px;border-radius:2px;font-size:12px;text-align:center;line-height:20px;flex:none;margin-top:3px}
+.rank li:nth-child(-n+3)::before{background:#c0261f}
+.tags a{display:inline-block;border:1px solid #e0e0e0;color:#666;font-size:13px;padding:4px 10px;margin:0 8px 8px 0;background:#fcfcfc}
+.tags a:hover{border-color:#c0261f;color:#c0261f}
+.weather{display:flex;align-items:center;gap:14px}
+.weather .t{font-size:34px;color:#c0261f;font-weight:700}
+.weather small{display:block;color:#999;font-size:12px}
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pics figcaption{font-size:14px;padding:8px 2px;text-align:center}
+footer{background:#2b2b2b;color:#9b9b9b;margin-top:26px;padding:28px 0 20px;font-size:13px}
+footer a{color:#9b9b9b}
+footer a:hover{color:#fff}
+.fcols{display:flex;flex-wrap:wrap;gap:40px;padding-bottom:18px;border-bottom:1px solid #3c3c3c}
+.fcols h4{color:#ddd;font-size:14px;margin-bottom:8px}
+.fcols ul{list-style:none}
+.copy{padding-top:16px;line-height:2;color:#7d7d7d}
+@media(max-width:880px){.layout{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.search{display:none}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap topbar">
+<span>2025年11月18日 星期二 农历十月廿九 多云转晴</span>
+<span><a href="guonei.html">国内</a><a href="caijing.html">财经</a><a href="keji.html">科技</a><a href="about.html">关于我们</a></span>
+</div></div>
+
+<div class="wrap masthead">
+  <div class="logo">
+    <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true">
+      <circle cx="27" cy="27" r="26" fill="#c0261f"/>
+      <path d="M14 36 L27 14 L40 36 Z" fill="#fff" opacity=".9"/>
+      <circle cx="27" cy="22" r="4" fill="#c0261f"/>
+      <rect x="14" y="38" width="26" height="3" fill="#fff" opacity=".8"/>
+    </svg>
+    <div>
+      <div class="logo-name">北辰新闻网</div>
+      <div class="logo-sub">记录时代 服务生活</div>
+    </div>
+  </div>
+  <form class="search" onsubmit="return false">
+    <input type="text" placeholder="搜索新闻关键词" aria-label="搜索新闻">
+    <button type="submit">搜索</button>
+  </form>
+</div>
+
+<nav class="mainnav"><div class="wrap">
+  <a class="on" href="index.html">首页</a>
+  <a href="guonei.html">国内</a>
+  <a href="caijing.html">财经</a>
+  <a href="keji.html">科技</a>
+  <a href="about.html">关于我们</a>
+</div></nav>
+
+<div class="bulletin"><div class="wrap"><b>最新</b>京津冀城际铁路新线今日开通运营，全程缩短至五十二分钟　|　冬季供暖进入高峰期，多地启动用能保障预案</div></div>
+
+<div class="layout">
+<main>
+  <section class="card">
+    <div class="lead">
+      <h1><a href="article.html">多地出台稳就业新举措 高校毕业生服务窗口延伸至社区</a></h1>
+      <p>本网讯　进入第四季度以来，多个省份陆续发布促进高质量充分就业的配套措施，把招聘服务、技能培训和创业扶持送到街道和社区。记者在走访中发现，不少地方把"家门口的就业驿站"开进了居民楼下。</p>
+      <div class="sub"><a href="guonei.html">十四个城市试点"一站式"用工服务</a>｜<a href="caijing.html">前十月城镇新增就业超额完成年度目标</a></div>
+    </div>
+
+    <article class="feature">
+      <svg class="thumb" viewBox="0 0 300 170" role="img" aria-label="城市轨道交通示意图">
+        <rect width="300" height="170" fill="#eef3f8"/>
+        <rect y="120" width="300" height="50" fill="#d8e3ee"/>
+        <g fill="#b9c9da"><rect x="20" y="50" width="34" height="70"/><rect x="62" y="30" width="28" height="90"/><rect x="98" y="62" width="40" height="58"/><rect x="230" y="44" width="30" height="76"/><rect x="266" y="70" width="24" height="50"/></g>
+        <rect x="140" y="88" width="86" height="34" rx="8" fill="#c0261f"/>
+        <rect x="150" y="96" width="18" height="14" fill="#fff" opacity=".85"/>
+        <rect x="176" y="96" width="18" height="14" fill="#fff" opacity=".85"/>
+        <rect x="202" y="96" width="14" height="14" fill="#fff" opacity=".85"/>
+        <rect x="120" y="122" width="170" height="4" fill="#9fb2c4"/>
+      </svg>
+      <div>
+        <h3><a href="article.html">城际铁路新线开通 环城通勤圈再扩容</a></h3>
+        <p>随着新线投入运营，沿线三座卫星城与中心城区实现一小时内通达。运营方表示，早晚高峰将加密至每八分钟一班，并与地铁实行同站换乘。</p>
+        <div class="meta-s"><em>国内</em>2025-11-18 07:20　来源：本网综合</div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <svg class="thumb" viewBox="0 0 300 170" role="img" aria-label="数据增长柱状图">
+        <rect width="300" height="170" fill="#fdf3f2"/>
+        <g fill="#e8a7a3"><rect x="34" y="104" width="30" height="46"/><rect x="80" y="86" width="30" height="64"/><rect x="126" y="66" width="30" height="84"/></g>
+        <g fill="#c0261f"><rect x="172" y="50" width="30" height="100"/><rect x="218" y="34" width="30" height="116"/></g>
+        <path d="M30 118 L95 96 L140 78 L186 58 L242 40" fill="none" stroke="#8c1b16" stroke-width="3"/>
+        <rect x="24" y="150" width="252" height="2" fill="#d9b3b0"/>
+      </svg>
+      <div>
+        <h3><a href="caijing.html">十月份社会消费品零售总额同比回升 服务消费拉动明显</a></h3>
+        <p>统计数据显示，餐饮、文旅、健身等服务类消费持续活跃，假日效应带动县域市场销售额明显增长。多家连锁零售企业表示，将继续下沉布局。</p>
+        <div class="meta-s"><em>财经</em>2025-11-17 19:05　来源：经济观察部</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><h2>要闻速览</h2><span><a href="guonei.html">更多 &gt;</a></span></div>
+    <div class="card-bd">
+      <div class="two-col">
+        <ul class="news-list">
+          <li><a href="article.html">秋粮收购进度过半 主产区仓容准备充足</a><time>11-18</time></li>
+          <li><a href="guonei.html">全国首批社区养老食堂评价规范发布</a><time>11-18</time></li>
+          <li><a href="guonei.html">中小学课后服务新增三十余门实践课程</a><time>11-17</time></li>
+          <li><a href="keji.html">国产大型装备完成高海拔环境测试</a><time>11-17</time></li>
+          <li><a href="caijing.html">多家银行下调中长期存款挂牌利率</a><time>11-16</time></li>
+          <li><a href="guonei.html">城市内涝治理三年行动交出阶段答卷</a><time>11-16</time></li>
+        </ul>
+        <ul class="news-list">
+          <li><a href="keji.html">新一代气象卫星完成首轮在轨测试</a><time>11-18</time></li>
+          <li><a href="caijing.html">跨境电商综试区再添十二个新成员</a><time>11-17</time></li>
+          <li><a href="guonei.html">冬季供暖首周投诉量同比下降一成八</a><time>11-17</time></li>
+          <li><a href="article.html">灵活就业人员参保办理推行"掌上办"</a><time>11-16</time></li>
+          <li><a href="keji.html">智慧农业示范区水肥一体化覆盖率超七成</a><time>11-15</time></li>
+          <li><a href="caijing.html">制造业采购经理指数连续三月处于扩张区间</a><time>11-15</time></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><h2>图片新闻</h2><span><a href="keji.html">更多 &gt;</a></span></div>
+    <div class="card-bd">
+      <div class="pics">
+        <figure>
+          <svg class="thumb" viewBox="0 0 300 170" role="img" aria-label="田间收割示意图">
+            <rect width="300" height="170" fill="#f3f7ea"/>
+            <circle cx="248" cy="38" r="20" fill="#f0c04a"/>
+            <rect y="112" width="300" height="58" fill="#cfdca8"/>
+            <g stroke="#a9bc74" stroke-width="3">
+              <path d="M20 112 V84"/><path d="M48 112 V78"/><path d="M76 112 V86"/><path d="M104 112 V80"/><path d="M132 112 V85"/>
+            </g>
+            <rect x="170" y="78" width="78" height="34" rx="5" fill="#5a7d3a"/>
+            <circle cx="188" cy="118" r="12" fill="#3f5a28"/><circle cx="236" cy="118" r="12" fill="#3f5a28"/>
+          </svg>
+          <figcaption><a href="guonei.html">秋收一线：高标准农田里的"机器声"</a></figcaption>
+        </figure>
+        <figure>
+          <svg class="thumb" viewBox="0 0 300 170" role="img" aria-label="实验室研究示意图">
+            <rect width="300" height="170" fill="#eef1fa"/>
+            <rect x="40" y="30" width="110" height="110" rx="6" fill="#fff" stroke="#c3cbe6" stroke-width="2"/>
+            <g fill="#8f9fd0"><rect x="56" y="52" width="78" height="8"/><rect x="56" y="70" width="60" height="8"/><rect x="56" y="88" width="70" height="8"/><rect x="56" y="106" width="44" height="8"/></g>
+            <circle cx="214" cy="74" r="34" fill="none" stroke="#c0261f" stroke-width="4"/>
+            <path d="M238 98 L268 128" stroke="#c0261f" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+          <figcaption><a href="keji.html">走进重点实验室：一块芯片的三百次测试</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<aside>
+  <section class="card">
+    <div class="card-hd"><h2>今日天气</h2></div>
+    <div class="card-bd weather">
+      <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="26" cy="24" r="13" fill="#f0bb3c"/>
+        <path d="M22 44a11 11 0 0 1 1-21 15 15 0 0 1 28 4 9 9 0 0 1-2 17Z" fill="#cdd8e4"/>
+      </svg>
+      <div>
+        <span class="t">12℃</span>
+        <small>多云转晴　3℃ / 12℃　西北风 3 级</small>
+        <small>空气质量：良　适宜户外活动</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><h2>阅读排行</h2></div>
+    <div class="card-bd">
+      <ul class="rank">
+        <li><a href="article.html">社区就业驿站如何把岗位送到楼下</a></li>
+        <li><a href="caijing.html">十月物价总体平稳 鲜菜价格回落</a></li>
+        <li><a href="keji.html">国产工业软件走出"试用期"</a></li>
+        <li><a href="guonei.html">老旧小区加装电梯的协商之道</a></li>
+        <li><a href="keji.html">县域直播间里的新农人</a></li>
+        <li><a href="caijing.html">新能源汽车下乡成绩单出炉</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><h2>专题</h2></div>
+    <div class="card-bd">
+      <svg viewBox="0 0 300 120" style="width:100%;height:110px;border:1px solid #eee" role="img" aria-label="专题封面">
+        <rect width="300" height="120" fill="#c0261f"/>
+        <g fill="#fff" opacity=".18"><circle cx="40" cy="96" r="52"/><circle cx="268" cy="20" r="40"/></g>
+        <text x="150" y="56" fill="#fff" font-size="24" text-anchor="middle" font-family="sans-serif">民生观察</text>
+        <text x="150" y="86" fill="#ffd9d7" font-size="13" text-anchor="middle" font-family="sans-serif">我家门口的那些变化</text>
+      </svg>
+      <ul class="news-list" style="margin-top:10px">
+        <li><a href="guonei.html">菜市场改造后，摊主与居民的新约定</a></li>
+        <li><a href="article.html">零工市场升级：从路边等活到线上派单</a></li>
+        <li><a href="guonei.html">一条背街小巷的十个月</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-hd"><h2>热门话题</h2></div>
+    <div class="card-bd tags">
+      <a href="guonei.html">乡村振兴</a><a href="caijing.html">消费复苏</a><a href="keji.html">人工智能应用</a>
+      <a href="guonei.html">养老服务</a><a href="caijing.html">中小微企业</a><a href="keji.html">低空经济</a>
+      <a href="guonei.html">城市更新</a><a href="caijing.html">绿色金融</a>
+    </div>
+  </section>
+</aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>网站导航</h4><ul><li><a href="index.html">首页</a></li><li><a href="guonei.html">国内新闻</a></li><li><a href="caijing.html">财经</a></li><li><a href="keji.html">科技</a></li></ul></div>
+      <div><h4>关于本网</h4><ul><li><a href="about.html">网站简介</a></li><li><a href="about.html#team">采编团队</a></li><li><a href="about.html#contact">联系我们</a></li></ul></div>
+      <div><h4>服务说明</h4><ul><li><a href="about.html#copyright">版权声明</a></li><li><a href="about.html#correction">更正与答复</a></li><li><a href="about.html#report">不良信息举报</a></li></ul></div>
+    </div>
+    <div class="copy">
+      本网刊载内容仅供参考，转载请注明出处。读者来信与线索：bianji@beichennews.example<br>
+      举报电话：010-8888 0000　工作时间 9:00—18:00<br>
+      © 2025 北辰新闻网　版权所有
+    </div>
+  </div>
+</footer>
+</body>
+</html>

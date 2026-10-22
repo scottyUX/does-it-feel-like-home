@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>庭院故事 · 云栖竹径 | 百年江南水院与主厨匠心</title>
+<style>
+  :root {
+    --bg-paper: #f7f4ed;
+    --bg-paper-dark: #efeae0;
+    --bg-ink: #1b2220;
+    --text-main: #222926;
+    --text-muted: #5e6864;
+    --text-light: #f4f1ea;
+    --cinnabar: #a63429;
+    --cinnabar-dark: #85251c;
+    --celadon: #486b5c;
+    --celadon-light: #dce5e0;
+    --gold: #b08d57;
+    --gold-light: #d8c39e;
+    --border-subtle: #dcd4c6;
+    --shadow-soft: 0 10px 30px rgba(27, 34, 32, 0.07);
+    --serif: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+    --sans: "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: var(--sans);
+    line-height: 1.75;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .top-notice {
+    background-color: var(--bg-ink);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.06em;
+  }
+
+  .solar-badge {
+    display: inline-block;
+    background-color: var(--cinnabar);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-right: 10px;
+    font-family: var(--serif);
+    font-size: 0.8rem;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 244, 237, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 40px;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-seal {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-title {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--bg-ink);
+    line-height: 1.2;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.22em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    color: var(--text-main);
+    padding: 8px 4px;
+    position: relative;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--cinnabar);
+    font-weight: 600;
+  }
+
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cinnabar);
+  }
+
+  .btn-reserve {
+    background-color: var(--cinnabar);
+    color: #fff;
+    font-family: var(--serif);
+    padding: 10px 24px;
+    border-radius: 2px;
+    letter-spacing: 0.15em;
+    font-size: 0.95rem;
+    border: 1px solid var(--cinnabar);
+  }
+
+  .page-banner {
+    background: var(--bg-ink);
+    color: var(--text-light);
+    padding: 64px 32px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .page-banner h1 {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+    color: var(--gold-light);
+  }
+
+  .page-banner p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #b8c2be;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+
+  /* 缘起故事 */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .story-content h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--bg-ink);
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+
+  .story-content p {
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    font-size: 1rem;
+  }
+
+  .story-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .stat-box strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--cinnabar);
+  }
+
+  .stat-box span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* 主厨介绍 */
+  .chef-section {
+    background: var(--bg-paper-dark);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .chef-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .chef-portrait {
+    text-align: center;
+    background: var(--bg-paper);
+    padding: 28px;
+    border: 1px solid var(--gold);
+  }
+
+  .chef-title-tag {
+    display: inline-block;
+    background: var(--celadon);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .chef-info h3 {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--bg-ink);
+    margin-bottom: 16px;
+    letter-spacing: 0.12em;
+  }
+
+  .chef-quote {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--cinnabar);
+    padding: 14px 20px;
+    background: var(--bg-paper);
+    border-left: 3px solid var(--cinnabar);
+    margin-bottom: 20px;
+  }
+
+  /* 庭院四景互动导览 */
+  .courtyard-tour {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 36px;
+    margin-top: 40px;
+  }
+
+  .space-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .space-btn {
+    text-align: left;
+    padding: 18px 22px;
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .space-btn strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--bg-ink);
+    margin-bottom: 4px;
+  }
+
+  .space-btn span {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .space-btn.active {
+    background: var(--bg-ink);
+    border-color: var(--gold);
+  }
+
+  .space-btn.active strong {
+    color: var(--gold-light);
+  }
+
+  .space-btn.active span {
+    color: #c2ccc8;
+  }
+
+  .space-display {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 36px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* 食材溯源四方图 */
+  .origin-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .origin-item {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .origin-region {
+    display: inline-block;
+    font-family: var(--serif);
+    color: #fff;
+    background: var(--celadon);
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .origin-item h4 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--bg-ink);
+  }
+
+  .origin-item p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .footer {
+    background-color: var(--bg-ink);
+    color: var(--text-light);
+    padding: 72px 32px 36px;
+    border-top: 4px solid var(--gold);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+
+  .footer-col p,
+  .footer-col li {
+    color: #b8c2be;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+    list-style: none;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #7d8984;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 960px) {
+    .story-grid,
+    .chef-card,
+    .courtyard-tour,
+    .origin-grid,
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+    .navbar {
+      padding: 14px 20px;
+      height: auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      order: 3;
+      gap: 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-notice">
+    <div>
+      <span class="solar-badge">百年庭院 · 宋韵造园</span>
+      <span>前身为民国江南藏书楼旧址，修旧如旧，竹影临水</span>
+    </div>
+    <div>
+      <span>庭院参观及雅宴预约：0571-8798-6688</span>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <svg class="brand-seal" viewBox="0 0 100 100" aria-label="云栖印章">
+        <rect x="4" y="4" width="92" height="92" rx="6" fill="#a63429" stroke="#8a271d" stroke-width="3"/>
+        <rect x="10" y="10" width="80" height="80" fill="none" stroke="#f7f4ed" stroke-width="2"/>
+        <text x="50" y="44" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">云栖</text>
+        <text x="50" y="78" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">竹径</text>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">云栖竹径</span>
+        <span class="brand-subtitle">江南时令 · 宋韵雅宴</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="menu.html">时令食单</a></li>
+      <li><a href="about.html" class="active">庭院故事</a></li>
+      <li><a href="reservation.html">雅座预订</a></li>
+    </ul>
+
+    <div>
+      <a href="reservation.html" class="btn-reserve">立即订座</a>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <h1>一院竹风 · 廿载江南味</h1>
+    <p>从一座隐于西湖群山的百年江南老宅，到承载四时节气美学的文人食府，云栖竹径始终守候着慢火细作的东方待客之道。</p>
+  </section>
+
+  <!-- 庭院缘起 -->
+  <section class="section">
+    <div class="story-grid">
+      <div class="story-content">
+        <span style="color: var(--cinnabar); font-family: var(--serif); letter-spacing: 0.2em;">缘起 · 龙井山麓的隐逸雅集</span>
+        <h2>在翠竹与流水之间，<br>重拾江南家宴的温度</h2>
+        <p>
+          二〇〇六年春，云栖竹径创立于杭州西湖龙井路十八号。庭院原为一座三进式晚清江南水院，院内古竹参天，引九溪山泉穿堂而过。我们历时三年修缮，保留了原有的青砖黛瓦、花窗美人靠与曲水荷池。
+        </p>
+        <p>
+          在快节奏的现代都市里，我们依然坚持最笨拙的古法：每日清晨五点，采买专员分赴德清河埠、临安竹林与西湖茶山；后厨不设任何半成品包，每一盅清汤皆由三年老母鸡与金华火腿文火慢吊六小时以上。
+        </p>
+        <div class="story-stats">
+          <div class="stat-box">
+            <strong>十九载</strong>
+            <span>深耕江南时令菜</span>
+          </div>
+          <div class="stat-box">
+            <strong>廿四节气</strong>
+            <span>全年更替当季食单</span>
+          </div>
+          <div class="stat-box">
+            <strong>八座雅轩</strong>
+            <span>独立临水私密包厢</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <svg viewBox="0 0 500 400" width="100%" style="border: 1px solid var(--border-subtle); background: #efeae0; box-shadow: var(--shadow-soft);">
+          <!-- 水墨庭院建筑插画 -->
+          <rect x="16" y="16" width="468" height="368" fill="none" stroke="#b08d57" stroke-width="1.5"/>
+          <circle cx="380" cy="95" r="38" fill="#f7f4ed"/>
+          <path d="M16,250 Q140,170 280,230 T484,200 L484,384 L16,384 Z" fill="#dce5e0"/>
+          <path d="M90,210 Q250,150 410,210 L385,220 Q250,175 115,220 Z" fill="#1b2220"/>
+          <rect x="135" y="220" width="230" height="95" fill="#f7f4ed" stroke="#1b2220" stroke-width="2"/>
+          <circle cx="250" cy="268" r="32" fill="#dce5e0" stroke="#b08d57" stroke-width="2"/>
+          <rect x="160" y="245" width="32" height="45" fill="none" stroke="#486b5c" stroke-width="1.5"/>
+          <rect x="308" y="245" width="32" height="45" fill="none" stroke="#486b5c" stroke-width="1.5"/>
+          <path d="M16,315 L484,315 L484,384 L16,384 Z" fill="#759687" opacity="0.35"/>
+          <path d="M190,340 Q250,315 310,340" fill="none" stroke="#1b2220" stroke-width="3"/>
+          <text x="250" y="368" text-anchor="middle" font-family="serif" font-size="15" fill="#1b2220" letter-spacing="4">云栖三进水院 · 听竹轩实景手绘</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 行政总厨介绍 -->
+  <section class="chef-section">
+    <div class="section">
+      <div class="chef-card">
+        <div class="chef-portrait">
+          <svg viewBox="0 0 200 220" width="180" height="200">
+            <circle cx="100" cy="95" r="70" fill="#dce5e0" stroke="#486b5c" stroke-width="2"/>
+            <circle cx="100" cy="72" r="24" fill="#283330"/>
+            <path d="M56,145 Q100,105 144,145 Z" fill="#283330"/>
+            <rect x="135" y="150" width="36" height="36" fill="#a63429"/>
+            <text x="153" y="174" text-anchor="middle" fill="#fff" font-family="serif" font-size="14">鹤年</text>
+            <text x="100" y="205" text-anchor="middle" fill="#1b2220" font-family="serif" font-size="15" font-weight="bold">沈鹤年 总厨</text>
+          </svg>
+        </div>
+
+        <div class="chef-info">
+          <span class="chef-title-tag">淮扬与杭帮菜非遗传承名厨 · 从厨三十八年</span>
+          <h3>沈鹤年 · 云栖竹径主理总厨</h3>
+          <div class="chef-quote">
+            “好菜三分在灶火，七分在山野与四时。厨师的手艺不是为了掩盖食材，而是帮春笋、河虾与茶芽说出它们原本的清甜。”
+          </div>
+          <p style="color: var(--text-muted); margin-bottom: 14px;">
+            沈鹤年先生生于扬州烹饪世家，十八岁拜入杭州西湖国宾馆名厨门下，兼修淮扬刀工与杭帮清鲜之法。曾多次主理江南文化雅集国宴，于二〇〇六年携手创立云栖竹径。
+          </p>
+          <p style="color: var(--text-muted);">
+            他坚持带着年轻厨师团队每个节气走访太湖渔村、天目山竹林与绍兴酒坊，整理复原了《南宋山家清供》中的十余道失传江南古菜，让千年宋韵在当代餐桌上重焕生机。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 园林四景互动导览 -->
+  <section class="section">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <span style="color: var(--cinnabar); font-family: var(--serif); letter-spacing: 0.25em;">移步换景 · 空间美学</span>
+      <h2 style="font-family: var(--serif); font-size: 2.1rem; margin: 10px 0; letter-spacing: 0.14em;">云栖庭院四景导览</h2>
+      <p style="color: var(--text-muted);">点击左侧雅座区域，预览不同用餐空间的景致与礼遇规格。</p>
+    </div>
+
+    <div class="courtyard-tour">
+      <div class="space-nav">
+        <button class="space-btn active" data-space="bamboo">
+          <strong>一进 · 翠竹散座大厅</strong>
+          <span>适合 2-4 人小聚 · 落地花窗赏竹</span>
+        </button>
+        <button class="space-btn" data-space="water">
+          <strong>二进 · 枕水临荷包厢群</strong>
+          <span>适合 6-10 人家宴 · 独立亲水露台</span>
+        </button>
+        <button class="space-btn" data-space="pavilion">
+          <strong>三进 · 听松大观宴会厅</strong>
+          <span>适合 12-16 人商务与寿宴 · 专属茶席</span>
+        </button>
+        <button class="space-btn" data-space="tea">
+          <strong>后苑 · 云山宋韵茶寮</strong>
+          <span>餐前点茶与餐后品茗 · 古琴雅集</span>
+        </button>
+      </div>
+
+      <div class="space-display" id="spacePanel">
+        <div>
+          <span id="spaceBadge" style="display:inline-block; background:var(--celadon-light); color:var(--celadon); padding:4px 12px; font-size:0.82rem; margin-bottom:12px;">可容纳 2-4 位宾客 · 无最低消费</span>
+          <h3 id="spaceTitle" style="font-family:var(--serif); font-size:1.75rem; color:var(--bg-ink); margin-bottom:14px;">一进 · 翠竹散座大厅</h3>
+          <p id="spaceDesc" style="color:var(--text-muted); margin-bottom:24px; line-height:1.85;">
+            步入月洞门即为首进竹院，十二席原木散座之间以湘妃竹屏风与宣纸纱帘轻盈隔断，既有开阔通透的山林呼吸感，又兼顾交谈私密。每桌皆设鲜切青竹花器，适合知己对酌或伴侣雅聚。
+          </p>
+          <div id="spaceFeatures" style="background:var(--bg-paper); padding:18px 22px; border-left:3px solid var(--gold); font-size:0.92rem; color:var(--text-main);">
+            ✦ 空间配置：全景落地格栅花窗 · 桌间距逾2.5米 · 免费奉送迎宾时令茶点
+          </div>
+        </div>
+
+        <div style="margin-top: 28px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-subtle); padding-top:20px;">
+          <span style="font-size:0.88rem; color:var(--text-muted);">建议提前 1-3 天预订窗边景观位</span>
+          <a href="reservation.html" class="btn-reserve">预订此区域席位</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四方食材溯源 -->
+  <section class="section" style="padding-top: 0;">
+    <div style="text-align: center;">
+      <span style="color: var(--cinnabar); font-family: var(--serif); letter-spacing: 0.25em;">山海风物 · 产地直达</span>
+      <h2 style="font-family: var(--serif); font-size: 2.1rem; margin: 10px 0; letter-spacing: 0.14em;">云栖四方寻味图谱</h2>
+    </div>
+
+    <div class="origin-grid">
+      <div class="origin-item">
+        <span class="origin-region">西湖狮峰山</span>
+        <h4>明前头采群体种龙井</h4>
+        <p>海拔二百米核心产区，茶农清晨手工采摘一芽一叶，既可入盏清饮，亦是龙井虾仁的点睛之笔。</p>
+      </div>
+      <div class="origin-item">
+        <span class="origin-region">临安天目山</span>
+        <h4>高山春雷笋与扁尖</h4>
+        <p>富含腐殖质的竹林红壤，孕育出白如玉、脆如梨的春笋，清晨出土三小时内直达云栖后厨。</p>
+      </div>
+      <div class="origin-item">
+        <span class="origin-region">太湖与高邮湖</span>
+        <h4>活水白鱼与满膏大闸蟹</h4>
+        <p>只取生态水域自然生长的河虾、白鱼与湖蟹，活水车恒温运输，确保上桌一刻的极致鲜甜。</p>
+      </div>
+      <div class="origin-item">
+        <span class="origin-region">金华与绍兴</span>
+        <h4>三年陈火腿与冬酿花雕</h4>
+        <p>金华两头乌后腿经三十六个月发酵，配绍兴鉴湖水手工冬酿花雕，成就江南菜醇厚绵长的底味。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-title">云栖竹径 · 江南雅宴</div>
+        <p>隐于西湖群山之间，以二十四节气为轴，寻访江南山海风物，呈献清雅本真的东方食礼。</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">快速导航</div>
+        <ul>
+          <li><a href="index.html">首页总览</a></li>
+          <li><a href="menu.html">时令食单</a></li>
+          <li><a href="about.html">庭院故事</a></li>
+          <li><a href="reservation.html">雅座预订</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">营业时间</div>
+        <ul>
+          <li>午市雅集：11:00 - 14:30</li>
+          <li>午后茶歇：14:30 - 16:30</li>
+          <li>晚市雅宴：17:00 - 21:30</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">寻访竹径</div>
+        <p>地址：浙江省杭州市西湖区龙井路十八号</p>
+        <p>订座专线：0571-8798-6688</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 杭州云栖竹径餐饮文化有限公司 版权所有</span>
+      <span>欢迎预约餐前庭院导览与宋韵点茶体验</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var spaceData = {
+        bamboo: {
+          badge: "可容纳 2-4 位宾客 · 无最低消费",
+          title: "一进 · 翠竹散座大厅",
+          desc: "步入月洞门即为首进竹院，十二席原木散座之间以湘妃竹屏风与宣纸纱帘轻盈隔断，既有开阔通透的山林呼吸感，又兼顾交谈私密。每桌皆设鲜切青竹花器，适合知己对酌或伴侣雅聚。",
+          features: "✦ 空间配置：全景落地格栅花窗 · 桌间距逾2.5米 · 免费奉送迎宾时令茶点"
+        },
+        water: {
+          badge: "可容纳 6-10 位宾客 · 设6间独立包厢",
+          title: "二进 · 枕水临荷包厢群",
+          desc: "围绕中庭锦鲤荷池而建的六座临水包厢（听竹、枕水、观荷、咏梅、抚琴、抱月），每间均带私属亲水美人靠露台。宾客可在餐前凭栏喂鱼、品茗听雨，是家庭聚会与亲友小宴的首选。",
+          features: "✦ 空间配置：独立洗手间与备餐间 · 临水赏景露台 · 专属侍茶师全程服务"
+        },
+        pavilion: {
+          badge: "可容纳 12-16 位宾客 · 尊享主包厢",
+          title: "三进 · 听松大观宴会厅",
+          desc: "位于庭院最深处的独栋两层水榭，挑高四米五，整面楠木雕花屏风气派非凡。厅内设有独立宋式茶席区与古琴演奏台，主厨可现场为宾客堂灼东海黄鱼或分切东坡慢火肉。",
+          features: "✦ 空间配置：独立宋式会客茶厅 · 主厨堂做服务 · 定制手写毛笔宣纸菜单"
+        },
+        tea: {
+          badge: "下午茶及餐前雅集 · 可容纳 2-8 位",
+          title: "后苑 · 云山宋韵茶寮",
+          desc: "背靠龙井茶山竹林的半山茶寮，每日午后开放。提供全套宋代七汤点茶体验、围炉煮茶及手作苏式船点。凡预订晚市包厢之宾客，均可提前一小时免费于茶寮小憩品茗。",
+          features: "✦ 空间配置：山泉活水煮茶炉 · 每周五至周日古琴现场抚曲 · 狮峰茶园直供新茶"
+        }
+      };
+
+      var buttons = document.querySelectorAll('.space-btn');
+      var badgeEl = document.getElementById('spaceBadge');
+      var titleEl = document.getElementById('spaceTitle');
+      var descEl = document.getElementById('spaceDesc');
+      var featuresEl = document.getElementById('spaceFeatures');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var key = btn.getAttribute('data-space');
+          var info = spaceData[key];
+          if (info) {
+            badgeEl.textContent = info.badge;
+            titleEl.textContent = info.title;
+            descEl.textContent = info.desc;
+            featuresEl.textContent = info.features;
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

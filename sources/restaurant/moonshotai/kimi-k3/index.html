@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江南食府 · 首页</title>
+<style>
+  :root{
+    --zhu:#9e2b25;
+    --zhu-deep:#7c1f1b;
+    --jin:#c8a45a;
+    --ink:#2b2b2b;
+    --mi:#f7f3ea;
+    --mi-2:#efe7d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+    background:var(--mi);
+    color:var(--ink);
+    line-height:1.8;
+  }
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* 顶部导航 */
+  header{
+    background:var(--zhu);
+    color:#fff;
+    position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 0;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-seal{
+    width:44px;height:44px;background:var(--jin);color:var(--zhu-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:bold;border-radius:6px;
+    border:2px solid #fff3;
+  }
+  .logo-text{font-size:22px;letter-spacing:6px;font-weight:bold;}
+  .logo-sub{font-size:11px;letter-spacing:3px;color:#f3dfae;display:block;}
+  nav ul{display:flex;gap:8px;list-style:none;flex-wrap:wrap;}
+  nav a{
+    display:block;padding:8px 16px;font-size:15px;letter-spacing:2px;
+    border-radius:4px;transition:background .2s;
+  }
+  nav a:hover{background:rgba(255,255,255,.15);}
+  nav a.active{background:var(--jin);color:var(--zhu-deep);font-weight:bold;}
+
+  /* 主视觉 */
+  .hero{
+    background:linear-gradient(160deg,#7c1f1b 0%,#9e2b25 55%,#b0402f 100%);
+    color:#fff;
+    padding:72px 0 0;
+    overflow:hidden;
+  }
+  .hero-inner{display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
+  .hero-text{flex:1;min-width:300px;padding-bottom:56px;}
+  .hero-tag{
+    display:inline-block;border:1px solid var(--jin);color:var(--jin);
+    padding:4px 14px;font-size:13px;letter-spacing:4px;margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:46px;letter-spacing:8px;line-height:1.3;margin-bottom:18px;
+  }
+  .hero p{color:#f0e2cd;font-size:16px;max-width:480px;margin-bottom:32px;}
+  .btn{
+    display:inline-block;padding:12px 34px;letter-spacing:4px;font-size:15px;
+    border-radius:2px;transition:all .2s;
+  }
+  .btn-jin{background:var(--jin);color:var(--zhu-deep);font-weight:bold;}
+  .btn-jin:hover{background:#dab96f;}
+  .btn-line{border:1px solid #fff;color:#fff;margin-left:14px;}
+  .btn-line:hover{background:rgba(255,255,255,.12);}
+  .hero-art{flex:1;min-width:300px;display:flex;justify-content:center;}
+  .hero-art svg{max-width:100%;height:auto;display:block;}
+
+  /* 区块通用 */
+  section{padding:72px 0;}
+  .sec-title{text-align:center;margin-bottom:48px;}
+  .sec-title .en{
+    color:var(--jin);font-size:13px;letter-spacing:6px;margin-bottom:8px;
+  }
+  .sec-title h2{font-size:32px;letter-spacing:6px;color:var(--zhu);}
+  .sec-title .line{
+    width:64px;height:3px;background:var(--jin);margin:16px auto 0;
+  }
+
+  /* 招牌菜 */
+  .dish-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;
+  }
+  .dish-card{
+    background:#fff;border:1px solid #e6dcc4;border-radius:6px;overflow:hidden;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .dish-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(124,31,27,.15);}
+  .dish-img{background:var(--mi-2);display:flex;align-items:center;justify-content:center;padding:28px;}
+  .dish-body{padding:20px 22px 24px;}
+  .dish-body h3{font-size:19px;color:var(--zhu);letter-spacing:2px;margin-bottom:6px;}
+  .dish-body p{font-size:14px;color:#666;margin-bottom:12px;min-height:44px;}
+  .price{color:var(--jin);font-size:18px;font-weight:bold;letter-spacing:1px;}
+  .more-link{text-align:center;margin-top:40px;}
+  .more-link a{
+    display:inline-block;border:1px solid var(--zhu);color:var(--zhu);
+    padding:10px 40px;letter-spacing:4px;transition:all .2s;
+  }
+  .more-link a:hover{background:var(--zhu);color:#fff;}
+
+  /* 故事带 */
+  .story-band{background:var(--zhu-deep);color:#f0e2cd;}
+  .story-inner{display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+  .story-inner svg{flex:0 0 220px;max-width:100%;}
+  .story-text{flex:1;min-width:280px;}
+  .story-text h2{font-size:28px;letter-spacing:5px;color:var(--jin);margin-bottom:16px;}
+  .story-text p{margin-bottom:14px;font-size:15px;}
+  .story-text a{color:var(--jin);border-bottom:1px solid var(--jin);letter-spacing:2px;}
+
+  /* 到店信息 */
+  .info-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;
+  }
+  .info-card{
+    background:#fff;border-top:4px solid var(--jin);padding:32px 28px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);text-align:center;
+  }
+  .info-card .icon{margin-bottom:14px;}
+  .info-card h3{color:var(--zhu);letter-spacing:3px;margin-bottom:12px;font-size:18px;}
+  .info-card p{font-size:14px;color:#555;}
+
+  /* 页脚 */
+  footer{background:#241f1c;color:#c9bda6;padding:48px 0 24px;font-size:14px;}
+  .foot-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:32px;margin-bottom:32px;
+  }
+  .foot-grid h4{color:var(--jin);letter-spacing:3px;margin-bottom:14px;font-size:15px;}
+  .foot-grid p,.foot-grid a{color:#c9bda6;font-size:13px;line-height:2;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{
+    border-top:1px solid #3a332e;padding-top:20px;text-align:center;
+    font-size:12px;letter-spacing:2px;color:#8a7f6e;
+  }
+
+  @media (max-width:640px){
+    .hero h1{font-size:34px;letter-spacing:5px;}
+    .logo-text{font-size:18px;letter-spacing:3px;}
+    nav a{padding:6px 10px;font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <span class="logo-seal">江</span>
+      <span>
+        <span class="logo-text">江南食府</span>
+        <span class="logo-sub">地道杭帮菜 · 始于 1987</span>
+      </span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="contact.html">订座联系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <span class="hero-tag">一城一味 · 四季江南</span>
+      <h1>一箸江南味<br>半盏岁月香</h1>
+      <p>三十余年守一味初心。江南食府以时令湖鲜、山野时蔬入馔，循古法烹制杭帮经典，让您在觥筹交错间，尝尽江南的温润与鲜甜。</p>
+      <a class="btn btn-jin" href="menu.html">浏览菜单</a>
+      <a class="btn btn-line" href="contact.html">立即订座</a>
+    </div>
+    <div class="hero-art">
+      <svg width="380" height="320" viewBox="0 0 380 320" fill="none" role="img" aria-label="江南菜肴插画">
+        <circle cx="190" cy="150" r="120" fill="#ffffff14"/>
+        <ellipse cx="190" cy="215" rx="130" ry="24" fill="#00000022"/>
+        <path d="M90 170 Q90 235 190 235 Q290 235 290 170 Z" fill="#f3e3c3"/>
+        <ellipse cx="190" cy="170" rx="100" ry="20" fill="#e8d2a8"/>
+        <ellipse cx="190" cy="166" rx="88" ry="15" fill="#b0402f"/>
+        <circle cx="160" cy="160" r="10" fill="#f7f3ea"/>
+        <circle cx="195" cy="156" r="10" fill="#f7f3ea"/>
+        <circle cx="228" cy="162" r="10" fill="#f7f3ea"/>
+        <circle cx="178" cy="168" r="9" fill="#f7f3ea"/>
+        <circle cx="212" cy="170" r="9" fill="#f7f3ea"/>
+        <path d="M150 150 Q160 138 172 148" stroke="#7c9a4e" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M210 146 Q222 136 234 148" stroke="#7c9a4e" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <rect x="262" y="96" width="6" height="90" rx="3" transform="rotate(18 265 140)" fill="#c8a45a"/>
+        <rect x="278" y="92" width="6" height="90" rx="3" transform="rotate(18 281 136)" fill="#c8a45a"/>
+        <path d="M120 110 Q126 96 120 84 M140 104 Q146 90 140 78" stroke="#f0e2cd" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-title">
+      <div class="en">招 牌 推 荐</div>
+      <h2>镇店四味</h2>
+      <div class="line"></div>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card">
+        <div class="dish-img">
+          <svg width="140" height="110" viewBox="0 0 140 110" role="img" aria-label="西湖醋鱼">
+            <ellipse cx="70" cy="88" rx="58" ry="12" fill="#00000015"/>
+            <ellipse cx="70" cy="62" rx="52" ry="26" fill="#f7f3ea" stroke="#d8c69a" stroke-width="2"/>
+            <path d="M34 60 Q50 42 78 44 Q104 46 110 58 Q100 74 70 74 Q44 74 34 60 Z" fill="#8a5a3b"/>
+            <path d="M104 56 L118 48 L114 62 Z" fill="#8a5a3b"/>
+            <path d="M40 58 Q60 50 92 54" stroke="#6f452c" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="46" cy="56" r="2.5" fill="#2b2b2b"/>
+            <path d="M50 48 Q58 40 66 46" stroke="#7c9a4e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="dish-body">
+          <h3>西湖醋鱼</h3>
+          <p>选用鲜活草鱼，饿养去腥，糖醋芡汁清亮挂喉，鲜嫩中透着蟹味。</p>
+          <span class="price">¥128 / 例</span>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img">
+          <svg width="140" height="110" viewBox="0 0 140 110" role="img" aria-label="东坡肉">
+            <ellipse cx="70" cy="88" rx="54" ry="12" fill="#00000015"/>
+            <rect x="34" y="40" width="72" height="44" rx="6" fill="#a03a28"/>
+            <rect x="34" y="40" width="72" height="12" rx="6" fill="#d98a6a"/>
+            <path d="M40 58 H100 M40 68 H100" stroke="#7c2418" stroke-width="2" opacity=".5"/>
+            <path d="M34 52 H106" stroke="#7c2418" stroke-width="2" opacity=".4"/>
+            <path d="M30 84 Q70 96 110 84" stroke="#c8a45a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="118" cy="46" r="4" fill="#7c9a4e"/>
+            <circle cx="124" cy="54" r="3" fill="#7c9a4e"/>
+          </svg>
+        </div>
+        <div class="dish-body">
+          <h3>东坡肉</h3>
+          <p>五花三层层层分明，绍酒慢煨四小时，入口即化，肥而不腻。</p>
+          <span class="price">¥88 / 例</span>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img">
+          <svg width="140" height="110" viewBox="0 0 140 110" role="img" aria-label="龙井虾仁">
+            <ellipse cx="70" cy="88" rx="56" ry="12" fill="#00000015"/>
+            <ellipse cx="70" cy="60" rx="52" ry="24" fill="#f7f3ea" stroke="#d8c69a" stroke-width="2"/>
+            <path d="M44 62 Q44 48 56 48 Q66 48 64 58 Q62 68 52 68 Q44 68 44 62 Z" fill="#f2a68c"/>
+            <path d="M70 54 Q74 42 86 44 Q96 46 92 56 Q88 66 78 64 Q68 62 70 54 Z" fill="#f2a68c"/>
+            <path d="M58 74 Q64 64 76 68 Q84 72 78 79 Q70 85 62 81 Q56 78 58 74 Z" fill="#f2a68c"/>
+            <path d="M48 46 Q56 38 66 42 M80 40 Q90 34 98 42" stroke="#5c7a3d" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="dish-body">
+          <h3>龙井虾仁</h3>
+          <p>明前龙井嫩芽配手剥河虾仁，茶香清雅，虾仁玉白弹嫩。</p>
+          <span class="price">¥98 / 例</span>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img">
+          <svg width="140" height="110" viewBox="0 0 140 110" role="img" aria-label="松鼠桂鱼">
+            <ellipse cx="70" cy="88" rx="58" ry="12" fill="#00000015"/>
+            <ellipse cx="70" cy="64" rx="54" ry="24" fill="#f7f3ea" stroke="#d8c69a" stroke-width="2"/>
+            <path d="M28 60 Q44 40 76 42 Q106 44 112 58 Q104 74 72 75 Q40 76 28 60 Z" fill="#e09a3c"/>
+            <path d="M40 52 L52 66 M54 48 L66 68 M70 46 L80 68 M86 48 L94 64" stroke="#b76e22" stroke-width="3" stroke-linecap="round"/>
+            <path d="M106 54 L120 44 L118 60 Z" fill="#e09a3c"/>
+            <circle cx="40" cy="56" r="2.5" fill="#2b2b2b"/>
+            <circle cx="58" cy="58" r="3" fill="#c0392b"/>
+            <circle cx="88" cy="56" r="3" fill="#7c9a4e"/>
+          </svg>
+        </div>
+        <div class="dish-body">
+          <h3>松鼠桂鱼</h3>
+          <p>桂鱼剞花炸至金黄蓬松，浇以酸甜茄汁，形如松鼠，外酥里嫩。</p>
+          <span class="price">¥158 / 例</span>
+        </div>
+      </div>
+    </div>
+    <div class="more-link">
+      <a href="menu.html">查看完整菜单</a>
+    </div>
+  </div>
+</section>
+
+<section class="story-band">
+  <div class="wrap story-inner">
+    <svg width="220" height="200" viewBox="0 0 220 200" role="img" aria-label="江南水乡插画">
+      <rect x="20" y="60" width="180" height="100" rx="4" fill="#00000022"/>
+      <path d="M30 60 L110 20 L190 60 Z" fill="#c8a45a"/>
+      <rect x="44" y="76" width="36" height="52" fill="#f3e3c3"/>
+      <rect x="98" y="76" width="24" height="52" fill="#f3e3c3"/>
+      <rect x="140" y="76" width="36" height="52" fill="#f3e3c3"/>
+      <path d="M20 150 Q60 138 110 150 Q160 162 200 150 L200 168 L20 168 Z" fill="#f0e2cd44"/>
+      <circle cx="176" cy="40" r="14" fill="#f0e2cd"/>
+      <path d="M60 168 Q70 176 60 184 M100 168 Q110 176 100 184 M140 168 Q150 176 140 184" stroke="#c8a45a" stroke-width="2" fill="none"/>
+    </svg>
+    <div class="story-text">
+      <h2>三十七年，只为一桌好菜</h2>
+      <p>1987 年，老师傅陈守味在河坊街支起第一口灶。三十七年来，我们坚持每日清晨采买湖鲜时蔬，高汤现吊、酱卤自酿，不用隔夜食材。</p>
+      <p>从一张八仙桌到如今的江南食府，变的是门脸，不变的是灶上的火候与心里那杆秤。</p>
+      <a href="about.html">了解我们的故事 →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-title">
+      <div class="en">到 店 指 南</div>
+      <h2>恭候光临</h2>
+      <div class="line"></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="地址图标">
+            <path d="M22 4 C14 4 8 10 8 18 C8 28 22 40 22 40 C22 40 36 28 36 18 C36 10 30 4 22 4 Z" fill="none" stroke="#9e2b25" stroke-width="2.5"/>
+            <circle cx="22" cy="18" r="5" fill="#c8a45a"/>
+          </svg>
+        </div>
+        <h3>餐厅地址</h3>
+        <p>杭州市上城区河坊街 128 号<br>（近吴山广场地铁站 D 口）</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="营业时间图标">
+            <circle cx="22" cy="22" r="17" fill="none" stroke="#9e2b25" stroke-width="2.5"/>
+            <path d="M22 12 V22 L30 27" stroke="#c8a45a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>营业时间</h3>
+        <p>午市 11:00 – 14:00<br>晚市 17:00 – 21:30（全年无休）</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">
+          <svg width="44" height="44" viewBox="0 0 44 44" role="img" aria-label="订座电话图标">
+            <path d="M10 6 H18 L21 14 L16 17 C18 22 22 26 27 28 L30 23 L38 26 V34 C38 36 36 38 34 38 C19 36 8 25 6 10 C6 8 8 6 10 6 Z" fill="none" stroke="#9e2b25" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h3>订座热线</h3>
+        <p>0571-8888-6666<br>包厢宴请请提前一日预约</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>江南食府</h4>
+        <p>一箸江南味，半盏岁月香。<br>地道杭帮菜，恭候四方客。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <p>
+          <a href="index.html">首页</a><br>
+          <a href="menu.html">菜单</a><br>
+          <a href="about.html">关于我们</a><br>
+          <a href="contact.html">订座联系</a>
+        </p>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <p>杭州市上城区河坊街 128 号<br>电话：0571-8888-6666<br>午市 11:00–14:00 · 晚市 17:00–21:30</p>
+      </div>
+    </div>
+    <div class="foot-bottom">江南食府 © 版权所有 · 浙ICP备00000000号</div>
+  </div>
+</footer>
+
+</body>
+</html>

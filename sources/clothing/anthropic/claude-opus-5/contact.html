@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>门店与客服 · 素棠 SUTANG</title>
+<meta name="description" content="素棠线下门店地址、营业时间、客服联系方式与配送说明。">
+<style>
+:root{--ink:#2b2724;--soft:#6f655e;--line:#e4ddd4;--bg:#faf7f3;--accent:#9c5a4a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Songti SC","STSong","Microsoft YaHei",serif;background:var(--bg);color:var(--ink);line-height:1.9}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.topbar{background:var(--ink);color:#f6f1ea;font-size:12.5px;letter-spacing:2px;text-align:center;padding:8px 12px}
+header{position:sticky;top:0;z-index:40;background:rgba(250,247,243,.95);border-bottom:1px solid var(--line)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1140px;margin:0 auto;padding:0 24px}
+.logo{font-size:23px;letter-spacing:6px;font-weight:600}
+.logo span{display:block;font-size:10px;letter-spacing:4px;color:var(--soft);font-family:"Microsoft YaHei",sans-serif;font-weight:400;margin-top:-4px}
+nav ul{display:flex;gap:30px;list-style:none;font-size:15px;letter-spacing:1.5px}
+nav a{padding:6px 0;border-bottom:1px solid transparent}
+nav a:hover,nav a.on{border-bottom-color:var(--accent);color:var(--accent)}
+.navtools{font-size:13px;color:var(--soft)}
+.crumb{font-size:13px;color:var(--soft);padding:22px 0;font-family:"Microsoft YaHei",sans-serif}
+h1{font-size:34px;letter-spacing:6px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.sub{color:var(--soft);font-size:15px;margin:16px 0 42px}
+h2{font-size:24px;letter-spacing:4px;margin:44px 0 18px}
+.stores{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.store{background:#fff;border:1px solid var(--line);padding:24px}
+.store h3{font-size:19px;letter-spacing:3px;margin-bottom:6px}
+.store .city{font-size:12px;letter-spacing:3px;color:var(--accent);font-family:"Microsoft YaHei",sans-serif}
+.store dl{font-size:14px;font-family:"Microsoft YaHei",sans-serif;margin-top:12px;color:var(--soft)}
+.store dt{float:left;clear:left;width:62px;color:var(--ink)}
+.store dd{margin-left:62px;margin-bottom:4px}
+.svc{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:start}
+.form{background:#fff;border:1px solid var(--line);padding:28px}
+.form label{display:block;font-size:14px;margin-bottom:6px;letter-spacing:1px}
+.form input,.form select,.form textarea{width:100%;border:1px solid var(--line);background:#faf7f3;padding:10px 12px;font-size:14px;font-family:"Microsoft YaHei",sans-serif;margin-bottom:16px;color:var(--ink)}
+.form textarea{height:100px;resize:vertical}
+.btn{display:inline-block;padding:12px 34px;background:var(--ink);color:#fff;letter-spacing:3px;font-size:14px;border:1px solid var(--ink);cursor:pointer;font-family:inherit}
+.btn:hover{background:transparent;color:var(--ink)}
+.info{background:#f1ebe4;border:1px solid var(--line);padding:26px}
+.info h3{font-size:18px;letter-spacing:3px;margin-bottom:12px}
+.info p{font-size:14px;color:var(--soft);margin-bottom:12px}
+.info strong{color:var(--ink);letter-spacing:1px}
+.faq{border-top:1px solid var(--line);margin-top:10px}
+.faq div{border-bottom:1px solid var(--line);padding:18px 0}
+.faq b{display:block;letter-spacing:2px;margin-bottom:4px}
+.faq p{color:var(--soft);font-size:15px}
+.mapbox{background:#fff;border:1px solid var(--line);padding:18px;margin-top:18px}
+footer{background:#f1ebe4;border-top:1px solid var(--line);padding:48px 0 28px;margin-top:66px;font-family:"Microsoft YaHei",sans-serif}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;max-width:1140px;margin:0 auto;padding:0 24px}
+.fgrid h5{font-size:14px;letter-spacing:3px;margin-bottom:14px;font-family:"Songti SC",serif}
+.fgrid ul{list-style:none;font-size:13px;color:var(--soft);line-height:2.2}
+.fbot{text-align:center;color:#8d837b;font-size:12.5px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}
+@media(max-width:900px){.stores,.svc,.fgrid{grid-template-columns:1fr}.navrow{height:auto;flex-wrap:wrap;gap:10px;padding:12px 24px}.navtools{display:none}nav ul{gap:16px;font-size:14px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="topbar">全场满 399 元包邮 · 新客首单立减 50 元 · 七天无理由退换</div>
+<header>
+  <div class="navrow">
+    <a class="logo" href="index.html">素棠<span>SUTANG STUDIO</span></a>
+    <nav><ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="products.html">全部商品</a></li>
+      <li><a href="lookbook.html">搭配专栏</a></li>
+      <li><a href="about.html">品牌故事</a></li>
+      <li><a class="on" href="contact.html">门店与客服</a></li>
+    </ul></nav>
+    <div class="navtools">购物袋（0）</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="crumb"><a href="index.html">首页</a> / 门店与客服</div>
+  <h1>门店与客服</h1>
+  <p class="sub">欢迎到店试穿。门店与线上同款同价，也可以把线上订单带到店里换码。</p>
+
+  <h2>线下门店</h2>
+  <div class="stores">
+    <div class="store">
+      <div class="city">杭州</div>
+      <h3>湖滨银泰店</h3>
+      <dl>
+        <dt>地址</dt><dd>上城区延安路 98 号二层 L223</dd>
+        <dt>电话</dt><dd>0571-8726 1680</dd>
+        <dt>营业</dt><dd>10:00–22:00（全年无休）</dd>
+        <dt>服务</dt><dd>免费改裤长・尺码顾问驻店</dd>
+      </dl>
+    </div>
+    <div class="store">
+      <div class="city">上海</div>
+      <h3>安福路店</h3>
+      <dl>
+        <dt>地址</dt><dd>徐汇区安福路 216 号沿街一层</dd>
+        <dt>电话</dt><dd>021-5468 1680</dd>
+        <dt>营业</dt><dd>11:00–21:00</dd>
+        <dt>服务</dt><dd>预约式一对一试衣</dd>
+      </dl>
+    </div>
+    <div class="store">
+      <div class="city">成都</div>
+      <h3>太古里店</h3>
+      <dl>
+        <dt>地址</dt><dd>锦江区中纱帽街 8 号西区 3 号楼</dd>
+        <dt>电话</dt><dd>028-8651 1680</dd>
+        <dt>营业</dt><dd>10:30–22:00</dd>
+        <dt>服务</dt><dd>免费改裤长</dd>
+      </dl>
+    </div>
+    <div class="store">
+      <div class="city">南京</div>
+      <h3>德基广场店</h3>
+      <dl>
+        <dt>地址</dt><dd>玄武区中山路 18 号一期四层</dd>
+        <dt>电话</dt><dd>025-8362 1680</dd>
+        <dt>营业</dt><dd>10:00–22:00</dd>
+        <dt>服务</dt><dd>会员专属搭配预约</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="mapbox">
+    <svg viewBox="0 0 900 220" width="100%" role="img" aria-label="门店城市分布示意图">
+      <rect width="900" height="220" fill="#f4efe8"/>
+      <path d="M40 180h820" stroke="#ddd0c2" stroke-width="2"/>
+      <g font-family="sans-serif" font-size="15" fill="#2b2724">
+        <circle cx="180" cy="110" r="9" fill="#9c5a4a"/><text x="155" y="150">杭州 4 店</text>
+        <circle cx="400" cy="80" r="9" fill="#9c5a4a"/><text x="375" y="150">上海 2 店</text>
+        <circle cx="620" cy="120" r="9" fill="#9c5a4a"/><text x="595" y="150">成都 2 店</text>
+        <circle cx="800" cy="95" r="9" fill="#9c5a4a"/><text x="775" y="150">南京 1 店</text>
+      </g>
+      <path d="M180 110L400 80L620 120L800 95" stroke="#c9b3a4" stroke-width="2" fill="none" stroke-dasharray="7 6"/>
+    </svg>
+  </div>
+
+  <h2>在线留言</h2>
+  <div class="svc">
+    <form class="form" onsubmit="return false">
+      <label for="n">称呼</label>
+      <input id="n" type="text" placeholder="怎么称呼您">
+      <label for="p">手机号或微信</label>
+      <input id="p" type="text" placeholder="方便我们回复您">
+      <label for="t">咨询类型</label>
+      <select id="t">
+        <option>尺码建议</option>
+        <option>订单与物流</option>
+        <option>退换货</option>
+        <option>门店预约试衣</option>
+        <option>其他</option>
+      </select>
+      <label for="m">想说的话</label>
+      <textarea id="m" placeholder="例如：身高 163cm，体重 52kg，平时穿 M 码，想买双面呢大衣"></textarea>
+      <button class="btn" type="submit">提交留言</button>
+    </form>
+    <div>
+      <div class="info">
+        <h3>直接联系我们</h3>
+        <p><strong>客服热线</strong><br>400-826-1680（每日 9:00–21:00）</p>
+        <p><strong>邮箱</strong><br>hello@sutang-studio.cn</p>
+        <p><strong>微信公众号</strong><br>素棠衣橱（可直接在后台留言）</p>
+        <p style="margin:0"><strong>售后寄回地址</strong><br>浙江省杭州市余杭区仓前街道文一西路 1500 号素棠仓储部收</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>常见问题</h2>
+  <div class="faq">
+    <div><b>多久发货？配送要几天？</b><p>现货商品下午三点前付款当日发出，默认顺丰。江浙沪次日达，其他地区一般 2–4 天。</p></div>
+    <div><b>满多少包邮？偏远地区呢？</b><p>全场满 399 元包邮。新疆、西藏、内蒙古部分地区满 599 元包邮，不满需补 20 元运费。</p></div>
+    <div><b>怎么申请退换货？</b><p>签收七天内在订单页申请，或联系客服。吊牌完好、未经洗涤穿着即可受理，首次换码免运费。</p></div>
+    <div><b>线上买的能去门店换吗？</b><p>可以。携带订单号到任意门店，店员会协助试穿并办理换码，库存以门店现货为准。</p></div>
+    <div><b>尺码不知道怎么选？</b><p>可查看 <a href="size.html" style="border-bottom:1px solid var(--accent);color:var(--accent)">尺码与量体指南</a>，或把身高体重发给客服，我们按款式版型给建议。</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="fgrid">
+    <div><h5>素棠 SUTANG</h5><ul><li>成立于 2016 年，杭州</li><li>做适合中国女性身形的日常衣服</li><li>客服时间：每日 9:00–21:00</li></ul></div>
+    <div><h5>购物指南</h5><ul><li><a href="products.html">全部商品</a></li><li><a href="size.html">尺码与量体</a></li><li><a href="contact.html">配送与运费</a></li></ul></div>
+    <div><h5>关于我们</h5><ul><li><a href="about.html">品牌故事</a></li><li><a href="lookbook.html">搭配专栏</a></li><li><a href="contact.html">线下门店</a></li></ul></div>
+    <div><h5>联系方式</h5><ul><li>客服热线 400-826-1680</li><li>邮箱 hello@sutang-studio.cn</li><li>微信公众号：素棠衣橱</li></ul></div>
+  </div>
+  <div class="wrap"><div class="fbot">素棠服饰（杭州）有限公司 · 浙ICP备16000000号 · 本站商品图为插画示意</div></div>
+</footer>
+</body>
+</html>

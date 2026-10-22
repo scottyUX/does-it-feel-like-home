@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线预订 · 听雨轩</title>
+<meta name="description" content="听雨轩在线订座：填写用餐日期、人数与座位偏好，店堂两小时内来电确认。">
+<style>
+  :root{--ink:#23282a;--ink-soft:#4d5659;--paper:#f6f2e9;--paper-2:#efe8da;--jade:#2f6b5c;--jade-dark:#214d42;--red:#9c3b2e;--gold2:#b08b45;--line:#ddd3c0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Songti SC","STSong","SimSun",serif;background:var(--paper);color:var(--ink);line-height:1.85;}
+  a{color:inherit;text-decoration:none;}
+  svg{display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  header{position:sticky;top:0;z-index:50;background:rgba(246,242,233,.94);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo .mark{width:40px;height:40px;flex:none;}
+  .logo .txt b{display:block;font-size:21px;letter-spacing:4px;line-height:1.2;}
+  .logo .txt span{font-size:11px;letter-spacing:3px;color:var(--ink-soft);font-family:"Heiti SC","Microsoft YaHei",sans-serif;}
+  nav ul{display:flex;gap:30px;list-style:none;font-size:15px;letter-spacing:2px;}
+  nav a{display:inline-block;padding:6px 0;border-bottom:2px solid transparent;}
+  nav a:hover,nav a.on{color:var(--jade);border-bottom-color:var(--jade);}
+  .nav-tel{font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:13px;color:var(--red);letter-spacing:1px;}
+
+  .page-top{background:var(--paper-2);border-bottom:1px solid var(--line);padding:56px 0 50px;text-align:center;}
+  .page-top span{font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:12px;letter-spacing:6px;color:var(--gold2);}
+  .page-top h1{font-size:38px;letter-spacing:10px;font-weight:normal;margin-top:8px;}
+  .page-top p{color:var(--ink-soft);font-size:14px;margin-top:12px;}
+  .crumb{font-size:13px;color:var(--ink-soft);font-family:"Heiti SC","Microsoft YaHei",sans-serif;margin-top:16px;}
+  .crumb a:hover{color:var(--jade);}
+
+  section{padding:62px 0;}
+  .band{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .sec-head{text-align:center;margin-bottom:42px;}
+  .sec-head span{font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:12px;letter-spacing:6px;color:var(--gold2);}
+  .sec-head h2{font-size:32px;letter-spacing:8px;font-weight:normal;margin-top:8px;}
+  .sec-head .rule{width:54px;height:1px;background:var(--gold2);margin:18px auto 0;}
+
+  .grid{display:grid;grid-template-columns:1.5fr .9fr;gap:40px;align-items:start;}
+  form{background:#fff;border:1px solid var(--line);padding:34px 36px 38px;}
+  form h2{font-size:25px;letter-spacing:6px;font-weight:normal;}
+  .hint{font-size:13px;color:var(--ink-soft);margin:6px 0 24px;font-family:"Heiti SC","Microsoft YaHei",sans-serif;}
+  .fr{margin-bottom:20px;}
+  .fr.half{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  label{display:block;font-size:14px;letter-spacing:2px;margin-bottom:7px;}
+  label i{color:var(--red);font-style:normal;}
+  input[type=text],input[type=tel],input[type=date],select,textarea{
+    width:100%;padding:11px 13px;border:1px solid var(--line);background:#fdfcf8;
+    font-family:inherit;font-size:15px;color:var(--ink);border-radius:0;}
+  textarea{min-height:110px;resize:vertical;line-height:1.7;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--jade);}
+  .checks{display:flex;flex-wrap:wrap;gap:10px 22px;}
+  .checks label{font-size:14px;margin:0;display:flex;align-items:center;gap:7px;color:var(--ink-soft);}
+  .checks input{width:15px;height:15px;accent-color:#2f6b5c;}
+  .submit{width:100%;padding:14px;background:var(--jade);color:#fff;border:none;font-family:inherit;
+    font-size:17px;letter-spacing:6px;cursor:pointer;}
+  .submit:hover{background:var(--jade-dark);}
+  .tip{font-size:13px;color:var(--ink-soft);margin-top:14px;text-align:center;}
+
+  aside .box{background:#fff;border:1px solid var(--line);padding:24px 26px;margin-bottom:22px;}
+  aside h3{font-size:20px;letter-spacing:4px;font-weight:normal;margin-bottom:10px;}
+  aside p{font-size:14px;color:var(--ink-soft);}
+  .big-tel{font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:24px;color:var(--red);letter-spacing:1px;}
+  aside ul{list-style:none;margin-top:4px;}
+  aside li{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px dashed var(--line);}
+  aside li span:last-child{color:var(--jade);font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:13.5px;}
+
+  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .room{background:#fff;border:1px solid var(--line);}
+  .room .pic{width:100%;height:160px;}
+  .room .bd{padding:22px 24px 26px;}
+  .room h3{font-size:20px;letter-spacing:3px;font-weight:normal;margin-bottom:6px;}
+  .room .meta{font-family:"Heiti SC","Microsoft YaHei",sans-serif;font-size:12px;letter-spacing:2px;color:var(--red);margin-bottom:10px;}
+  .room p{font-size:14px;color:var(--ink-soft);}
+
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;}
+  .faq .it{border-top:1px solid var(--line);padding-top:16px;}
+  .faq b{display:block;font-size:18px;font-weight:normal;letter-spacing:2px;margin-bottom:6px;}
+  .faq p{font-size:14px;color:var(--ink-soft);}
+
+  footer{background:#23282a;color:#cfc9bd;padding:50px 0 24px;font-size:14px;}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;}
+  footer h4{font-size:16px;letter-spacing:4px;font-weight:normal;color:#fff;margin-bottom:14px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:8px;}
+  footer a:hover{color:#fff;}
+  .fbot{border-top:1px solid #39403f;margin-top:34px;padding-top:18px;font-size:12.5px;color:#8d8679;letter-spacing:1px;}
+
+  @media(max-width:900px){
+    .nav{height:auto;flex-wrap:wrap;gap:12px;padding:14px 0;}
+    .nav-tel{order:3;}
+    nav ul{gap:18px;flex-wrap:wrap;font-size:14px;}
+    .grid,.rooms,.faq,.fgrid,.fr.half{grid-template-columns:1fr;}
+    form{padding:26px 22px 30px;}
+    .page-top h1{font-size:30px;letter-spacing:6px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <svg class="mark" viewBox="0 0 48 48" role="img" aria-label="听雨轩标识">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="#2f6b5c" stroke-width="1.6"/>
+        <path d="M12 18h24M16 24h16M20 30h8" stroke="#b08b45" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M24 8v6M24 34v6" stroke="#9c3b2e" stroke-width="1.4"/>
+      </svg>
+      <span class="txt"><b>听雨轩</b><span>JIANGNAN  CUISINE</span></span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li><a href="about.html">品牌故事</a></li>
+        <li><a class="on" href="reserve.html">在线预订</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+      </ul>
+    </nav>
+    <div class="nav-tel">订座专线 0571-8866 2048</div>
+  </div>
+</header>
+
+<div class="page-top">
+  <span>RESERVATION</span>
+  <h1>在线预订</h1>
+  <p>留下信息，店堂会在两小时内来电与您确认</p>
+  <div class="crumb"><a href="index.html">首页</a> ／ 在线预订</div>
+</div>
+
+<section>
+  <div class="wrap grid">
+    <form>
+      <h2>填写订座信息</h2>
+      <div class="hint">带 <i style="color:#9c3b2e;font-style:normal">*</i> 为必填。午市 11:00–14:00，晚市 17:00–21:30。</div>
+
+      <div class="fr half">
+        <div>
+          <label for="name">称呼 <i>*</i></label>
+          <input id="name" name="name" type="text" placeholder="如：王先生 / 李女士" required>
+        </div>
+        <div>
+          <label for="tel">手机号码 <i>*</i></label>
+          <input id="tel" name="tel" type="tel" placeholder="便于来电确认" required>
+        </div>
+      </div>
+
+      <div class="fr half">
+        <div>
+          <label for="date">用餐日期 <i>*</i></label>
+          <input id="date" name="date" type="date" required>
+        </div>
+        <div>
+          <label for="time">用餐时段 <i>*</i></label>
+          <select id="time" name="time" required>
+            <option value="">请选择</option>
+            <option>午市 11:00</option>
+            <option>午市 11:30</option>
+            <option>午市 12:00</option>
+            <option>午市 12:30</option>
+            <option>晚市 17:00</option>
+            <option>晚市 17:30</option>
+            <option>晚市 18:00</option>
+            <option>晚市 18:30</option>
+            <option>晚市 19:00</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fr half">
+        <div>
+          <label for="num">用餐人数 <i>*</i></label>
+          <select id="num" name="num" required>
+            <option value="">请选择</option>
+            <option>2 人</option>
+            <option>3–4 人</option>
+            <option>5–6 人</option>
+            <option>7–10 人</option>
+            <option>11–16 人</option>
+            <option>16 人以上（宴席）</option>
+          </select>
+        </div>
+        <div>
+          <label for="room">座位偏好</label>
+          <select id="room" name="room">
+            <option>不限</option>
+            <option>店堂散座</option>
+            <option>天井临河席</option>
+            <option>二楼包厢「桂影」</option>
+            <option>二楼包厢「听雨」</option>
+            <option>大包厢「河畔厅」</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fr">
+        <label>其他需要</label>
+        <div class="checks">
+          <label><input type="checkbox" name="need"> 儿童座椅</label>
+          <label><input type="checkbox" name="need"> 少油少盐</label>
+          <label><input type="checkbox" name="need"> 忌辛辣</label>
+          <label><input type="checkbox" name="need"> 生日布置</label>
+          <label><input type="checkbox" name="need"> 需要停车位</label>
+          <label><input type="checkbox" name="need"> 自带酒水</label>
+        </div>
+      </div>
+
+      <div class="fr">
+        <label for="msg">备注留言</label>
+        <textarea id="msg" name="msg" placeholder="如：想提前预留火踵神仙鸭一份；老人同行，希望安排一楼靠窗。"></textarea>
+      </div>
+
+      <button class="submit" type="submit">提交预订</button>
+      <div class="tip">提交后请保持电话畅通。若三十分钟内需要用餐，建议直接致电订座专线。</div>
+    </form>
+
+    <aside>
+      <div class="box">
+        <h3>电话订座</h3>
+        <div class="big-tel">0571-8866 2048</div>
+        <p style="margin-top:8px">每日 10:30 — 21:00 有人接听。十六人以上宴席请拨 0571-8866 2049。</p>
+      </div>
+      <div class="box">
+        <h3>订座须知</h3>
+        <ul>
+          <li><span>座位保留</span><span>过时 20 分钟</span></li>
+          <li><span>包厢低消</span><span>¥600 起</span></li>
+          <li><span>宴席订金</span><span>每席 ¥200</span></li>
+          <li><span>取消变更</span><span>提前 4 小时</span></li>
+          <li><span>包间费</span><span>不收取</span></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>想先看看菜</h3>
+        <p>四时菜单每季更替，招牌几道常年供应。</p>
+        <p style="margin-top:10px"><a href="menu.html" style="color:#2f6b5c;border-bottom:1px solid #2f6b5c">前往查看菜单 →</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head"><span>PRIVATE  ROOMS</span><h2>包厢与雅座</h2><div class="rule"></div></div>
+    <div class="rooms">
+      <div class="room">
+        <svg class="pic" viewBox="0 0 320 160" preserveAspectRatio="none" role="img" aria-label="天井临河席">
+          <rect width="320" height="160" fill="#e6e8dc"/>
+          <path d="M0 110h320v50H0z" fill="#cfd8ce"/>
+          <ellipse cx="160" cy="96" rx="60" ry="20" fill="#fbf8f0" stroke="#d6cbb4"/>
+          <rect x="100" y="96" width="120" height="8" fill="#b9a885"/>
+          <g stroke="#6f7f6d" stroke-width="2" fill="none"><path d="M40 110V60M40 60c-10 4-16 12-18 22M40 60c10 6 14 14 14 24"/></g>
+          <g stroke="#9fb2bd" stroke-width="2"><path d="M0 140h320M20 150h280"/></g>
+        </svg>
+        <div class="bd"><h3>天井临河席</h3><div class="meta">2–4 人 ｜ 共四席</div><p>桂花树下，推窗即是河。春秋两季最受欢迎，需早订。</p></div>
+      </div>
+      <div class="room">
+        <svg class="pic" viewBox="0 0 320 160" preserveAspectRatio="none" role="img" aria-label="二楼包厢">
+          <rect width="320" height="160" fill="#eae2d2"/>
+          <rect x="30" y="30" width="260" height="100" fill="#f6f2e9" stroke="#b9a885"/>
+          <circle cx="160" cy="92" r="34" fill="#fbf8f0" stroke="#d6cbb4"/>
+          <circle cx="160" cy="92" r="16" fill="#efe8da"/>
+          <rect x="120" y="42" width="80" height="8" fill="#9c3b2e"/>
+          <path d="M60 130V60h30v70M230 130V60h30v70" fill="#dde4e0" stroke="#b9a885"/>
+        </svg>
+        <div class="bd"><h3>二楼包厢「桂影」「听雨」</h3><div class="meta">6–10 人 ｜ 低消 ¥600</div><p>老木窗格，独立卫生间。可关门说话，适合小型家宴。</p></div>
+      </div>
+      <div class="room">
+        <svg class="pic" viewBox="0 0 320 160" preserveAspectRatio="none" role="img" aria-label="河畔厅">
+          <rect width="320" height="160" fill="#e4e6da"/>
+          <rect x="20" y="24" width="280" height="112" fill="#f6f2e9" stroke="#b9a885"/>
+          <circle cx="160" cy="86" r="44" fill="#fbf8f0" stroke="#d6cbb4"/>
+          <circle cx="160" cy="86" r="22" fill="#efe8da"/>
+          <g fill="#2f6b5c"><circle cx="160" cy="34" r="6"/><circle cx="116" cy="54" r="6"/><circle cx="204" cy="54" r="6"/><circle cx="104" cy="104" r="6"/><circle cx="216" cy="104" r="6"/><circle cx="160" cy="130" r="6"/></g>
+        </svg>
+        <div class="bd"><h3>大包厢「河畔厅」</h3><div class="meta">12–20 人 ｜ 低消 ¥1200</div><p>可摆两桌或一张大圆台，配投影与音响。寿宴、谢师宴常用。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span>FAQ</span><h2>常见问题</h2><div class="rule"></div></div>
+    <div class="faq">
+      <div class="it"><b>需要提前多久订座？</b><p>工作日建议提前一日，周末与节假日建议提前三至五日。天井四席与大包厢通常提前一周就订满了。</p></div>
+      <div class="it"><b>可以自带酒水吗？</b><p>可以，不收开瓶费。店内备有黄酒温壶与醒酒器，需要时请告知服务员。</p></div>
+      <div class="it"><b>有停车位吗？</b><p>门前可停四辆车，先到先停。附近步行三分钟有公共停车场，订座时勾选"需要停车位"我们会帮您留意。</p></div>
+      <div class="it"><b>临时取消会不会收费？</b><p>散座取消不收费。宴席已交订金的，提前四小时以上告知可全额退还。</p></div>
+      <div class="it"><b>小朋友同行方便吗？</b><p>有儿童座椅与小碗小勺，点菜时可请厨房把菜做得清淡一些。</p></div>
+      <div class="it"><b>可以只点两三个菜吗？</b><p>当然可以。店堂散座没有最低消费，一个人来吃一碗片儿川也欢迎。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <h4>听雨轩 · 江南私房菜</h4>
+      <p>杭州市上城区平海路老宅三十六号<br>临河老院，青砖黛瓦，二十四席。</p>
+    </div>
+    <div>
+      <h4>浏览</h4>
+      <ul><li><a href="index.html">首页</a></li><li><a href="menu.html">菜单</a></li><li><a href="about.html">品牌故事</a></li></ul>
+    </div>
+    <div>
+      <h4>服务</h4>
+      <ul><li><a href="reserve.html">在线预订</a></li><li><a href="reserve.html">包厢与宴席</a></li><li><a href="contact.html">交通指引</a></li></ul>
+    </div>
+    <div>
+      <h4>联络</h4>
+      <ul><li>订座：0571

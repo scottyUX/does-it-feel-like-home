@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>观潮新闻 - 洞察时代脉搏 传递中国声音</title>
+<style>
+:root {
+  --brand-red: #c8161d;
+  --brand-red-dark: #9e0e14;
+  --brand-gold: #d49b27;
+  --ink-black: #17191c;
+  --ink-gray: #4e5562;
+  --muted-gray: #88909e;
+  --bg-page: #f4f5f7;
+  --bg-card: #ffffff;
+  --bg-subtle: #f8f9fb;
+  --border-color: #e4e7ed;
+  --market-up: #d92626;
+  --market-down: #128c55;
+  --font-scale: 1;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode {
+  --ink-black: #eef0f4;
+  --ink-gray: #b2b8c4;
+  --muted-gray: #78808f;
+  --bg-page: #111317;
+  --bg-card: #1b1e24;
+  --bg-subtle: #232730;
+  --border-color: #2e333d;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--ink-black);
+  line-height: 1.65;
+  font-size: calc(15px * var(--font-scale));
+  transition: background-color 0.25s, color 0.25s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--brand-red);
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* 顶部工具栏 */
+.top-bar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--ink-gray);
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-bar-left,
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.weather-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-subtle);
+  padding: 2px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.util-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--ink-gray);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.util-btn:hover,
+.util-btn.active {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+}
+
+/* 品牌头部 */
+.brand-header {
+  background-color: var(--bg-card);
+  padding: 20px 0;
+}
+
+.brand-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ink-black);
+  line-height: 1.15;
+}
+
+.logo-subtitle {
+  font-size: 12px;
+  color: var(--muted-gray);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 340px;
+  max-width: 100%;
+  border: 2px solid var(--brand-red);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+  color: var(--ink-black);
+}
+
+.search-btn {
+  background: var(--brand-red);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background: var(--brand-red-dark);
+}
+
+/* 主导航 */
+.main-nav {
+  background: var(--brand-red);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-item a {
+  display: block;
+  padding: 12px 22px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background: var(--brand-red-dark);
+  color: #ffffff;
+}
+
+/* 滚动快讯条 */
+.ticker-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ticker-badge {
+  background: var(--brand-red);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.ticker-content {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.ticker-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.ticker-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--ink-gray);
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* 头条横幅 */
+.headline-banner {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  border-top: 4px solid var(--brand-red);
+  box-shadow: var(--shadow-sm);
+}
+
+.headline-tag {
+  display: inline-block;
+  color: var(--brand-red);
+  border: 1px solid var(--brand-red);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.headline-title {
+  font-size: calc(26px * var(--font-scale));
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.headline-sublinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 14px;
+  color: var(--ink-gray);
+}
+
+.headline-sublinks a::before {
+  content: "▪ ";
+  color: var(--brand-red);
+}
+
+/* 主体两栏布局 */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 960px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 焦点大图卡片 */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 720px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-main-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #102542;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 310px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-svg-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(10, 16, 28, 0.94) 15%, rgba(10, 16, 28, 0.2) 100%);
+  padding: 22px;
+}
+
+.hero-overlay-tag {
+  background: var(--brand-red);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.hero-overlay h2 {
+  font-size: calc(20px * var(--font-scale));
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.hero-overlay h2 a {
+  color: #ffffff;
+}
+
+.hero-overlay p {
+  font-size: 13px;
+  color: #d0d7e2;
+}
+
+.hero-side-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-mini-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-mini-cat {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand-red);
+  margin-bottom: 4px;
+}
+
+.hero-mini-title {
+  font-size: calc(16px * var(--font-scale));
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.hero-mini-meta {
+  font-size: 12px;
+  color: var(--muted-gray);
+}
+
+/* 分类筛选新闻流 */
+.feed-section {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.feed-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.feed-tab-btn {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-gray);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.feed-tab-btn.active,
+.feed-tab-btn:hover {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .news-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-thumb {
+  width: 100%;
+  height: 112px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.news-thumb svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.news-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-title {
+  font-size: calc(17px * var(--font-scale));
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.news-summary {
+  font-size: calc(14px * var(--font-scale));
+  color: var(--ink-gray);
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--muted-gray);
+}
+
+.meta-tag {
+  color: var(--brand-red);
+  background: rgba(200, 22, 29, 0.08);
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* 区域新闻切换面板 */
+.region-panel {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.panel-title {
+  font-size: 18px;
+  font-weight: 800;
+  padding-left: 10px;
+  border-left: 4px solid var(--brand-red);
+}
+
+.region-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.region-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--ink-gray);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.region-btn.active {
+  background: var(--brand-red);
+  color: #ffffff;
+  border-color: var(--brand-red);
+}
+
+.region-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+@media (max-width: 640px) {
+  .region-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.region-item {
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.region-city {
+  color: var(--brand-red);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* 右侧边栏 */
+.sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.side-widget {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.widget-title {
+  font-size: 17px;
+  font-weight: 800;
+  padding-left: 10px;
+  border-left: 4px solid var(--brand-red);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-more {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted-gray);
+}
+
+/* 市场速览小组件 */
+.market-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.market-mini-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.m-name {
+  font-size: 12px;
+  color: var(--ink-gray);
+}
+
+.m-val {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 2px 0;
+}
+
+.m-chg {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.up {
+  color: var(--market-up);
+}
+
+.down {
+  color: var(--market-down);
+}
+
+/* 热榜列表 */
+.hot-rank-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.hot-rank-list li:last-child {
+  border-bottom: none;
+}
+
+.rank-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: var(--bg-subtle);
+  color: var(--ink-gray);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.rank-num.top-3 {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+/* 24小时快讯时间轴 */
+.flash-timeline {
+  border-left: 2px solid var(--border-color);
+  margin-left: 6px;
+  padding-left: 14px;
+}
+
+.flash-item {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.flash-item:last-child {
+  margin-bottom: 0;
+}
+
+.flash-item::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-red);
+}
+
+.flash-time {
+  font-size: 12px;
+  color: var(--brand-red);
+  font-weight: 700;
+}
+
+.flash-text {
+  font-size: 13px;
+  color: var(--ink-black);
+  margin-top: 2px;
+}
+
+/* 底部页脚 */
+.site-footer {
+  background: #181a1f;
+  color: #9ca3af;
+  padding: 36px 0 28px;
+  font-size: 13px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #2d3139;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #9ca3af;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  line-height: 1.8;
+  color: #717885;
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部工具栏 -->
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-bar-left">
+      <span>2026年5月18日 星期一（农历丙午年四月初二）</span>
+      <span class="weather-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d49b27" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        北京 晴 26℃ · 空气质量优
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <button class="util-btn" id="fontBtn" type="button">字号：标准</button>
+      <button class="util-btn" id="themeBtn" type="button">夜间模式</button>
+      <a href="article.html#culture">数字报刊</a>
+    </div>
+  </div>
+</div>
+
+<!-- 品牌与搜索 -->
+<header class="brand-header">
+  <div class="container brand-header-inner">
+    <a href="index.html" class="logo-area">
+      <svg width="48" height="48" viewBox="0 0 52 52">
+        <rect width="52" height="52" rx="10" fill="#c8161d"/>
+        <path d="M10 34 C18 24, 26 24, 34 34 C38 38, 42 36, 44 32" stroke="#ffffff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M8 25 C18 14, 28 14, 38 25 C41 28, 44 27, 46 24" stroke="#ffd666" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text-wrap">
+        <span class="logo-title">观潮新闻</span>
+        <span class="logo-subtitle">洞察时代脉搏 · 传递中国声音</span>
+      </div>
+    </a>
+
+    <form class="search-box" id="searchForm">
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索要闻：长三角高铁、商业航天、以旧换新..." aria-label="站内搜索">
+      <button type="submit" class="search-btn">搜索</button>
+    </form>
+  </div>
+</header>
+
+<!-- 主导航 -->
+<nav class="main-nav" aria-label="主导航">
+  <div class="container">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="index.html" class="active">首页要闻</a></li>
+      <li class="nav-item"><a href="finance.html">财经与市场</a></li>
+      <li class="nav-item"><a href="tech.html">科技与创新</a></li>
+      <li class="nav-item"><a href="culture.html">文化与生活</a></li>
+      <li class="nav-item"><a href="article.html#rail">深度调查</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 滚动快讯条 -->
+<div class="ticker-bar">
+  <div class="container ticker-inner">
+    <span class="ticker-badge">即时快讯</span>
+    <div class="ticker-content" id="tickerText">
+      <a href="article.html#rail">【交通】长三角超级环线高铁今日迎客流高峰，单日发送旅客突破16.8万人次</a>
+    </div>
+    <div class="ticker-controls">
+      <button class="ticker-btn" id="prevTicker" type="button" aria-label="上一条">‹</button>
+      <button class="ticker-btn" id="nextTicker" type="button" aria-label="下一条">›</button>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <!-- 头条通栏 -->
+  <section class="headline-banner">
+    <span class="headline-tag">今日社论 · 高质量发展一线观察</span>
+    <h1 class="headline-title">
+      <a href="article.html#rail">时速350公里穿行江浙沪皖：长三角“超级环线”如何重塑区域科创与产业版图？</a>
+    </h1>
+    <div class="headline-sublinks">
+      <a href="article.html#market">超长期特别国债赋能工业设备更新，智能制造订单同比增长34%</a>
+      <a href="article.html#port">宁波舟山港前四月集装箱吞吐量创新高，新能源车出海航线再扩容</a>
+      <a href="tech.html">国产低轨宽带通信卫星星座完成组网测试，偏远山区实现毫秒级互联</a>
+    </div>
+  </section>
+
+  <div class="main-layout">
+    <!-- 左侧主内容列 -->
+    <div class="primary-col">
+      <!-- 视觉焦点区 -->
+      <div class="hero-grid">
+        <article class="hero-main-card">
+          <svg class="hero-svg-bg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0d223f"/>
+                <stop offset="60%" stop-color="#1d4d7a"/>
+                <stop offset="100%" stop-color="#d46a4c"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="400" fill="url(#skyGrad)"/>
+            <!-- 远山与城市天际线 -->
+            <path d="M0 280 Q150 220 320 270 T600 250 L600 400 L0 400 Z" fill="#132a46" opacity="0.7"/>
+            <rect x="70" y="180" width="28" height="110" fill="#23486e"/>
+            <rect x="110" y="150" width="36" height="140" fill="#2a5682"/>
+            <rect x="160" y="200" width="24" height="90" fill="#1d3f63"/>
+            <path d="M440 290 L455 130 L470 290 Z" fill="#326696"/>
+            <circle cx="455" cy="175" r="14" fill="#f3b64c"/>
+            <!-- 跨江大桥与复兴号列车剪影 -->
+            <path d="M0 305 L600 285" stroke="#9ec5e8" stroke-width="5"/>
+            <path d="M180 298 L210 190 L240 295" stroke="#e2ecf5" stroke-width="3" fill="none"/>
+            <path d="M360 292 L390 185 L420 290" stroke="#e2ecf5" stroke-width="3" fill="none"/>
+            <path d="M120 286 Q280 276 470 272 C495 272 515 280 520 286 L120 295 Z" fill="#ffffff"/>
+            <path d="M130 289 L505 279" stroke="#c8161d" stroke-width="3"/>
+          </svg>
+          <div class="hero-overlay">
+            <span class="hero-overlay-tag">本网特稿</span>
+            <h2><a href="article.html#rail">轨道上的长三角：一条环线串起21座城，“同城化”生活进入新阶段</a></h2>
+            <p>从上海虹桥出发，途经苏州、无锡、南京、合肥、杭州再回到上海，8小时串联长三角核心城市群。</p>
+          </div>
+        </article>
+
+        <div class="hero-side-stack">
+          <article class="hero-mini-card">
+            <div>
+              <div class="hero-mini-cat">空天科技 · 独家深读</div>
+              <h3 class="hero-mini-title"><a href="article.html#space">海南商业航天发射场双工位进入高密度发射期，民营火箭迎来规模化交付</a></h3>
+            </div>
+            <div class="hero-mini-meta">观潮科技组 · 26分钟前</div>
+          </article>
+
+          <article class="hero-mini-card">
+            <div>
+              <div class="hero-mini-cat">宏观经济 · 消费观察</div>
+              <h3 class="hero-mini-title"><a href="article.html#market">家电汽车“以旧换新”补贴细则落地满月：绿色智能家电销量翻番</a></h3>
+            </div>
+            <div class="hero-mini-meta">观潮财经组 · 1小时前</div>
+          </article>
+
+          <article class="hero-mini-card">
+            <div>
+              <div class="hero-mini-cat">文化传承 · 国际博物馆日</div>
+              <h3 class="hero-mini-title"><a href="article.html#culture">三维数字孪生还原敦煌莫高窟初唐彩塑，全国百座博物馆开启夜游季</a></h3>
+            </div>
+            <div class="hero-mini-meta">观潮文化组 · 2小时前</div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 分类新闻筛选流 -->
+      <section class="feed-section">
+        <div class="feed-tabs" id="feedTabs">
+          <button class="feed-tab-btn active" data-cat="all" type="button">全部要闻</button>
+          <button class="feed-tab-btn" data-cat="economy" type="button">宏观财经</button>
+          <button class="feed-tab-btn" data-cat="tech" type="button">科技创新</button>
+          <button class="feed-tab-btn" data-cat="society" type="button">民生社会</button>
+          <button class="feed-tab-btn" data-cat="culture" type="button">人文非遗</button>
+        </div>
+
+        <div id="newsFeedContainer">
+          <!-- 新闻项 1 -->
+          <article class="news-item" data-cat="economy">
+            <a href="article.html#port" class="news-thumb" aria-label="港口航运插图">
+              <svg viewBox="0 0 240 150">
+                <rect width="240" height="150" fill="#1b3b5c"/>
+                <path d="M0 105 L240 105 L240 150 L0 150 Z" fill="#10253a"/>
+                <rect x="35" y="75" width="135" height="30" fill="#c8161d"/>
+                <rect x="50" y="58" width="26" height="17" fill="#f0a830"/>
+                <rect x="82" y="58" width="26" height="17" fill="#2e86de"/>
+                <rect x="114" y="58" width="26" height="17" fill="#20bf6b"/>
+                <path d="M180 105 L195 35 L225 35" stroke="#f5b742" stroke-width="4" fill="none"/>
+              </svg>
+            </a>
+            <div class="news-info">
+              <div>
+                <h3 class="news-title"><a href="article.html#port">前四月我国外贸进出口总值同比增长6.3%，高附加值机电产品挑大梁</a></h3>
+                <p class="news-summary">海关总署最新数据显示，长三角、珠三角自动化码头满负荷运转，新能源汽车、锂电池、光伏产品及高端船舶出口订单排期已至四季度。</p>
+              </div>
+              <div class="news-meta">
+                <span class="meta-tag">宏观财经</span>
+                <span>记者：陈致远</span>
+                <span>阅读 4.2万</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 新闻项 2 -->
+          <article class="news-item" data-cat="tech">
+            <a href="article.html#space" class="news-thumb" aria-label="商业航天插图">
+              <svg viewBox="0 0 240 150">
+                <rect width="240" height="150" fill="#0f172a"/>
+                <circle cx="190" cy="40" r="18" fill="#38bdf8" opacity="0.25"/>
+                <path d="M110 130 L120 35 L130 130 Z" fill="#e2e8f0"/>
+                <path d="M120 35 L112 58 L128 58 Z" fill="#c8161d"/>
+                <circle cx="120" cy="132" r="16" fill="#f59e0b" opacity="0.85"/>
+                <path d="M40 135 L200 135" stroke="#475569" stroke-width="3"/>
+              </svg>
+            </a>
+            <div class="news-info">
+              <div>
+                <h3 class="news-title"><a href="article.html#space">液氧甲烷可重复使用运载火箭完成十公里级垂直起降回收试验</a></h3>
+                <p class="news-summary">研制团队突破不锈钢箭体精密激光焊接与大范围变推力发动机控制算法，标志着我国商业运载火箭向低成本高频次往返迈出关键一步。</p>
+              </div>
+              <div class="news-meta">
+                <span class="meta-tag">科技创新</span>
+                <span>记者：林清源</span>
+                <span>阅读 5.8万</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 新闻项 3 -->
+          <article class="news-item" data-cat="society">
+            <a href="article.html#rail" class="news-thumb" aria-label="民生医疗插图">
+              <svg viewBox="0 0 240 150">
+                <rect width="240" height="150" fill="#e8f4f8"/>
+                <rect x="65" y="30" width="110" height="95" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+                <path d="M120 50 L120 80 M105 65 L135 65" stroke="#c8161d" stroke-width="6" stroke-linecap="round"/>
+                <rect x="85" y="95" width="70" height="10" rx="3" fill="#cbd5e1"/>
+              </svg>
+            </a>
+            <div class="news-info">
+              <div>
+                <h3 class="news-title"><a href="article.html#rail">全国跨省异地就医直接结算惠及超两亿人次，门诊慢特病扩围至10种</a></h3>
+                <p class="news-summary">国家医保局持续优化线上备案与即时结算流程，长三角、京津冀、成渝地区实现三级医院检验检查结果互认，显著减轻群众就医跑腿负担。</p>
+              </div>
+              <div class="news-meta">
+                <span class="meta-tag">民生社会</span>
+                <span>记者：周婧怡</span>
+                <span>阅读 3.9万</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 新闻项 4 -->
+          <article class="news-item" data-cat="culture">
+            <a href="article.html#culture" class="news-thumb" aria-label="文化遗产插图">
+              <svg viewBox="0 0 240 150">
+                <rect width="240" height="150" fill="#3d271d"/>
+                <circle cx="120" cy="75" r="46" fill="#d49b27" opacity="0.22"/>
+                <path d="M65 95 Q120 55 175 95" stroke="#f3c663" stroke-width="3" fill="none"/>
+                <path d="M80 65 L160 65 L150 115 L90 115 Z" fill="#a8382b"/>
+                <rect x="102" y="78" width="36" height="24" fill="#f7e3b5"/>
+              </svg>
+            </a>
+            <div class="news-info">
+              <div>
+                <h3 class="news-title"><a href="article.html#culture">景德镇陶溪川春秋大集启幕：青年手工艺人与千年非遗碰撞新火花</a></h3>
+                <p class="news-summary">来自全国三十余个传统窑口的非遗传承人与美院青年创客齐聚昌南，古法柴窑烧制技艺结合现代家居美学，让宋元青白瓷走进当代青年生活。</p>
+              </div>
+              <div class="news-meta">
+                <span class="meta-tag">人文非遗</span>
+                <span>记者：苏婉秋</span>
+                <span>阅读 2.7万</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 新闻项 5 -->
+          <article class="news-item" data-cat="economy">
+            <a href="article.html#market" class="news-thumb" aria-label="绿色能源插图">
+              <svg viewBox="0 0 240 150">
+                <rect width="240" height="150" fill="#154734"/>
+                <path d="M0 115 Q120 95 240 118 L240 150 L0 150 Z" fill="#226b4e"/>
+                <line x1="75" y1="110" x2="75" y2="55" stroke="#ffffff" stroke-width="3"/>
+                <path d="M75 55 L55 40 M75 55 L95 42 M75 55 L75 80" stroke="#ffffff" stroke-width="2.5"/>
+                <line x1="155" y1="112" x2="155" y2="62" stroke="#ffffff" stroke-width="3"/>
+                <path d="M155 62 L138 48 M155 62 L172 50 M155 62 L155 85" stroke="#ffffff" stroke-width="2.5"/>
+              </svg>
+            </a>
+            <div class="news-info">
+              <div>
+                <h3 class="news-title"><a href="article.html#market">库布其沙漠新能源基地外送通道全线贯通，绿电直供京津冀电网</a></h3>
+                <p class="news-summary">采用“板上双面发电、板下生态牧草种植”立体治沙模式，每年可向华北电网输送清洁电能超400亿千瓦时，兼顾荒漠化防治与农牧民增收。</p>
+              </div>
+              <div class="news-meta">
+                <span class="meta-tag">宏观财经</span>
+                <span>记者：韩明轩</span>
+                <span>阅读 3.1万</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 区域联播切换面板 -->
+      <section class="region-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">神州各地 · 区域发展联播</h2>
+          <div class="region-tabs" id="regionTabs">
+            <button class="region-btn active" data-region="jjj" type="button">京津冀</button>
+            <button class="region-btn" data-region="csj" type="button">长三角</button>
+            <button class="region-btn" data-region="dwq" type="button">粤港澳大湾区</button>
+            <button class="region-btn" data-region="cy" type="button">成渝双城圈</button>
+          </div>
+        </div>
+        <div class="region-list" id="regionList">
+          <div class="region-item"><span class="region-city">[北京]</span><a href="tech.html">亦庄高级别自动驾驶示范区扩区至600平方公里</a></div>
+          <div class="region-item"><span class="region-city">[雄安]</span><a href="article.html#rail">首批疏解高校雄安校区全面进入主体结构施工阶段</a></div>
+          <div class="region-item"><span class="region-city">[天津]</span><a href="article.html#port">天津港零碳智慧码头实现全天候新能源无人集卡作业</a></div>
+          <div class="region-item"><span class="region-city">[河北]</span><a href="finance.html">张家口可再生能源示范区算力中心集群绿电使用率超85%</a></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 右侧边栏 -->
+    <aside class="sidebar-col">
+      <!-- 财经行情速览 -->
+      <div class="side-widget">
+        <h2 class="widget-title">
+          <span>财经市场速览</span>
+          <a href="finance.html" class="widget-more">进入行情中心 ›</a>
+        </h2>
+        <div class="market-mini-grid">
+          <div class="market-mini-box">
+            <div class="m-name">上证指数</div>
+            <div class="m-val up">3418.65</div>
+            <div class="m-chg up">+28.42 (+0.84%)</div>
+          </div>
+          <div class="market-mini-box">
+            <div class="m-name">深证成指</div>
+            <div class="m-val up">10982.30</div>
+            <div class="m-chg up">+134.15 (+1.24%)</div>
+          </div>
+          <div class="market-mini-box">
+            <div class="m-name">科创综指</div>
+            <div class="m-val up">1146.80</div>
+            <div class="m-chg up">+21.60 (+1.92%)</div>
+          </div>
+          <div class="market-mini-box">
+            <div class="m-name">离岸人民币</div>
+            <div class="m-val down">7.1845</div>
+            <div class="m-chg down">-0.0120 (-0.17%)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 全网热读榜 -->
+      <div class="side-widget">
+        <h2 class="widget-title">
+          <span>观潮热读榜</span>
+          <span class="widget-more">实时更新</span>
+        </h2>
+        <ol class="hot-rank-list">
+          <li>
+            <span class="rank-num top-3">1</span>
+            <a href="article.html#rail">长三角超级环线高铁时刻表与票价详解，沿途停靠哪些宝藏站点？</a>
+          </li>
+          <li>
+            <span class="rank-num top-3">2</span>
+            <a href="article.html#market">国家发改委解读新一轮设备更新与消费品以旧换新补贴申领指南</a>
+          </li>
+          <li>
+            <span class="rank-num top-3">3</span>
+            <a href="article.html#space">商业航天迎爆发元年：民营火箭如何把卫星发射成本降低一半？</a>
+          </li>
+          <li>
+            <span class="rank-num">4</span>
+            <a href="article.html#port">单月出口突破12万辆！国产新能源汽车在海外港口到底有多抢手</a>
+          </li>
+          <li>
+            <span class="rank-num">5</span>
+            <a href="article.html#culture">博物馆文创频频断货，“凤冠冰箱贴”背后折射怎样的文化自信？</a>
+          </li>
+          <li>
+            <span class="rank-num">6</span>
+            <a href="tech.html">千亿参数国产工业大模型走进钢铁车间，良品率提升3.2个百分点</a>
+          </li>
+          <li>
+            <span class="rank-num">7</span>
+            <a href="culture.html">小满节气将至：南北方食俗养生与夏熟作物田间管理全攻略</a>
+          </li>
+        </ol>
+      </div>
+
+      <!-- 24小时快讯时间轴 -->
+      <div class="side-widget">
+        <h2 class="widget-title">
+          <span>24小时电讯</span>
+          <a href="finance.html" class="widget-more">更多 ›</a>
+        </h2>
+        <div class="flash-timeline">
+          <div class="flash-item">
+            <div class="flash-time">16:30</div>
+            <div class="flash-text">工信部：截至4月末全国已建成5G基站达382万个，县城城区实现千兆光网全覆盖。</div>
+          </div>
+          <div class="flash-item">
+            <div class="flash-time">15:15</div>
+            <div class="flash-text">沪深两市全天成交额突破1.12万亿元，半导体设备、商业航天、智能电网板块领涨。</div>
+          </div>
+          <div class="flash-item">
+            <div class="flash-time">13:40</div>
+            <div class="flash-text">国家粮食和物资储备局：夏粮主产区小麦长势良好，丰收基础扎实，夏粮收购准备就绪。</div>
+          </div>
+          <div class="flash-item">
+            <div class="flash-time">11:20</div>
+            <div class="flash-text">中国铁路：端午小长假火车票将于本周五起开售，热门方向增开夜间动车组列车。</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>关于观潮新闻</h4>
+        <p style="line-height: 1.75; margin-bottom: 10px;">
+          观潮新闻是立足全国、面向公众的综合性数字新闻门户，聚焦宏观经济、硬核科技、社会民生与中华优秀传统文化，提供权威、理性、有温度的原创新闻报道。
+        </p>
+        <p>新闻热线：010-88690000 · 投稿邮箱：tougao@guanchao.cn</p>
+      </div>
+      <div class="footer-col">
+        <h4>频道导航</h4>
+        <ul>
+          <li><a href="index.html">首页要闻</a></li>
+          <li><a href="finance.html">财经与市场</a></li>
+          <li><a href="tech.html">科技与创新</a></li>
+          <li><a href="culture.html">文化与生活</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>专题策划</h4>
+        <ul>
+          <li><a href="article.html#rail">轨道上的长三角</a></li>
+          <li><a href="article.html#space">中国商业航天纪实</a></li>
+          <li><a href="article.html#port">中国智造扬帆出海</a></li>
+          <li><a href="article.html#culture">非遗里的中国审美</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>读者服务</h4>
+        <ul>
+          <li><a href="article.html#market">政策补贴查询指南</a></li>
+          <li><a href="finance.html">宏观经济数据库</a></li>
+          <li><a href="culture.html">节气生活日历</a></li>
+          <li><a href="article.html#rail">新闻线索征集</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>互联网新闻信息服务许可证：10120260018号 | 增值电信业务经营许可证：京B2-20260188 | 京ICP备2026008899号-1</p>
+      <p>观潮传媒集团 版权所有 未经书面授权禁止转载或建立镜像 | 社址：北京市朝阳区建国门外大街甲一号观潮大厦</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // 夜间模式与字号持久化
+  const themeBtn = document.getElementById('themeBtn');
+  const fontBtn = document.getElementById('fontBtn');
+
+  if (localStorage.getItem('guanchao_theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeBtn.textContent = '日间模式';
+    themeBtn.classList.add('active');
+  }
+
+  const savedFont = localStorage.getItem('guanchao_font') || '1';
+  document.documentElement.style.setProperty('--font-scale', savedFont);
+  fontBtn.textContent = savedFont === '1' ? '字号：标准' : (savedFont === '1.12' ? '字号：大字' : '字号：特大');
+
+  themeBtn.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('guanchao_theme', isDark ? 'dark' : 'light');
+    themeBtn.textContent = isDark ? '日间模式' : '夜间模式';
+    themeBtn.classList.toggle('active', isDark);
+  });
+
+  fontBtn.addEventListener('click', function() {
+    const cur = localStorage.getItem('guanchao_font') || '1';
+    const next = cur === '1' ? '1.12' : (cur === '1.12' ? '1.22' : '1');
+    localStorage.setItem('guanchao_font', next);
+    document.documentElement.style.setProperty('--font-scale', next);
+    fontBtn.textContent = next === '1' ? '字号：标准' : (next === '1.12' ? '字号：大字' : '字号：特大');
+  });
+
+  // 滚动快讯切换
+  const tickers = [
+    { text: '【交通】长三角超级环线高铁今日迎客流高峰，单日发送旅客突破16.8万人次', url: 'article.html#rail' },
+    { text: '【财经】超长期特别国债支持工业设备更新首批资金下达，重点投向高端制造', url: 'article.html#market' },
+    { text: '【航天】海南商业航天发射场完成双工位合练，可重复使用火箭蓄势待发', url: 'article.html#space' },
+    { text: '【外贸】宁波舟山港前四月集装箱吞吐量同比增长9.4%，汽车滚装船班次加密', url: 'article.html#port' }
+  ];
+  let tickerIdx = 0;
+  const tickerEl = document.getElementById('tickerText');
+
+  function renderTicker() {
+    const item = tickers[tickerIdx];
+    tickerEl.innerHTML = '<a href="' + item.url + '">' + item.text + '</a>';
+  }
+
+  document.getElementById('prevTicker').addEventListener('click', function() {
+    tickerIdx = (tickerIdx - 1 + tickers.length) % tickers.length;
+    renderTicker();
+  });
+
+  document.getElementById('nextTicker').addEventListener('click', function() {
+    tickerIdx = (tickerIdx + 1) % tickers.length;
+    renderTicker();
+  });
+
+  setInterval(function() {
+    tickerIdx = (tickerIdx + 1) % tickers.length;
+    renderTicker();
+  }, 5500);
+
+  // 新闻分类过滤与站内搜索
+  const feedBtns = document.querySelectorAll('#feedTabs .feed-tab-btn');
+  const newsItems = document.querySelectorAll('#newsFeedContainer .news-item');
+
+  feedBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      feedBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-cat');
+      newsItems.forEach(function(item) {
+        if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+          item.style.display = 'grid';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const q = document.getElementById('searchInput').value.trim();
+    newsItems.forEach(function(item) {
+      const text = item.textContent;
+      item.style.display = (!q || text.indexOf(q) !== -1) ? 'grid' : 'none';
+    });
+  });
+
+  // 区域发展联播切换
+  const regionData = {
+    jjj: [
+      { city: '[北京]', title: '亦庄高级别自动驾驶示范区扩区至600平方公里', url: 'tech.html' },
+      { city: '[雄安]', title: '首批疏解高校雄安校区全面进入主体结构施工阶段', url: 'article.html#rail' },
+      { city: '[天津]', title: '天津港零碳智慧码头实现全天候新能源无人集卡作业', url: 'article.html#port' },
+      { city: '[河北]', title: '张家口可再生能源示范区算力中心集群绿电使用率超85%', url: 'finance.html' }
+    ],
+    csj: [
+      { city: '[上海]', title: '长三角G60科创走廊设立跨省产业协同创新母基金', url: 'finance.html' },
+      { city: '[江苏]', title: '苏州纳米新材料与生物医药集群产值突破万亿元台阶', url: 'tech.html' },
+      { city: '[浙江]', title: '宁波舟山港与义乌陆港海铁联运班列实现“一单制”通关', url: 'article.html#port' },
+      { city: '[安徽]', title: '合肥量子信息与聚变能源科学岛迎来新一轮重大科研成果转化', url: 'tech.html' }
+    ],
+    dwq: [
+      { city: '[广州]', title: '南沙科学城深海科考母港投入使用，海洋经济产业集聚提速', url: 'tech.html' },
+      { city: '[深圳]', title: '低空经济无人机物流航线突破260条，跨城急送最快25分钟达', url: 'tech.html' },
+      { city: '[香港]', title: '河套深港科技创新合作区首批联合研发实验室正式揭牌运行', url: 'finance.html' },
+      { city: '[珠海]', title: '港珠澳大桥经贸新通道冷链跨境货车单日通行量再创新高', url: 'article.html#port' }
+    ],
+    cy: [
+      { city: '[成都]', title: '成渝中线高铁全线重难点控制性隧道掘进进度过半', url: 'article.html#rail' },
+      { city: '[重庆]', title: '西部陆海新通道铁海联运班列今年累计发运集装箱超40万标箱', url: 'article.html#port' },
+      { city: '[绵阳]', title: '中国科技城核医疗健康与激光技术产业园签约22个重点项目', url: 'tech.html' },
+      { city: '[宜宾]', title: '动力电池全产业链零碳园区实现废旧锂电池98%高值化循环利用', url: 'finance.html' }
+    ]
+  };
+
+  const regionBtns = document.querySelectorAll('#regionTabs .region-btn');
+  const regionListEl = document.getElementById('regionList');
+
+  regionBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      regionBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      const key = btn.getAttribute('data-region');
+      const items = regionData[key] || [];
+      regionListEl.innerHTML = items.map(function(it) {
+        return '<div class="region-item"><span class="region-city">' + it.city + '</span><a href="' + it.url + '">' + it.title + '</a></div>';
+      }).join('');
+    });
+  });
+})();
+</script>
+</body>
+</html>

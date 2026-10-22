@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江南食府 · 菜单</title>
+<style>
+  :root{
+    --zhu:#9e2b25;
+    --zhu-deep:#7c1f1b;
+    --jin:#c8a45a;
+    --ink:#2b2b2b;
+    --mi:#f7f3ea;
+    --mi-2:#efe7d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+    background:var(--mi);color:var(--ink);line-height:1.8;
+  }
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  header{
+    background:var(--zhu);color:#fff;position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-seal{
+    width:44px;height:44px;background:var(--jin);color:var(--zhu-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:bold;border-radius:6px;border:2px solid #fff3;
+  }
+  .logo-text{font-size:22px;letter-spacing:6px;font-weight:bold;}
+  .logo-sub{font-size:11px;letter-spacing:3px;color:#f3dfae;display:block;}
+  nav ul{display:flex;gap:8px;list-style:none;flex-wrap:wrap;}
+  nav a{display:block;padding:8px 16px;font-size:15px;letter-spacing:2px;border-radius:4px;transition:background .2s;}
+  nav a:hover{background:rgba(255,255,255,.15);}
+  nav a.active{background:var(--jin);color:var(--zhu-deep);font-weight:bold;}
+
+  .page-banner{
+    background:linear-gradient(150deg,#7c1f1b,#9e2b25);
+    color:#fff;text-align:center;padding:64px 0 56px;
+  }
+  .page-banner .en{color:var(--jin);letter-spacing:6px;font-size:13px;margin-bottom:10px;}
+  .page-banner h1{font-size:38px;letter-spacing:8px;}
+  .page-banner p{color:#f0e2cd;margin-top:12px;font-size:15px;}
+
+  section{padding:56px 0;}
+  .cat{
+    background:#fff;border:1px solid #e6dcc4;border-radius:8px;
+    margin-bottom:36px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.05);
+  }
+  .cat-head{
+    background:var(--mi-2);padding:20px 28px;display:flex;align-items:center;gap:16px;
+    border-bottom:2px solid var(--jin);
+  }
+  .cat-head .mark{
+    width:40px;height:40px;background:var(--zhu);color:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;
+  }
+  .cat-head h2{font-size:22px;color:var(--zhu);letter-spacing:4px;}
+  .cat-head span{font-size:13px;color:#8a7f6e;letter-spacing:2px;}
+  .items{display:grid;grid-template-columns:1fr 1fr;}
+  .item{
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:18px 28px;border-bottom:1px dashed #e0d5ba;
+  }
+  .item:nth-child(odd){border-right:1px dashed #e0d5ba;}
+  .item-info h3{font-size:17px;letter-spacing:2px;display:inline;}
+  .tag{
+    display:inline-block;background:var(--jin);color:var(--zhu-deep);
+    font-size:11px;padding:1px 8px;border-radius:3px;margin-left:8px;
+    vertical-align:2px;letter-spacing:1px;
+  }
+  .tag.spicy{background:#b0402f;color:#fff;}
+  .item-info p{font-size:13px;color:#777;margin-top:2px;}
+  .item-price{color:var(--zhu);font-weight:bold;font-size:17px;white-space:nowrap;}
+
+  .notice{
+    text-align:center;color:#8a7f6e;font-size:13px;letter-spacing:2px;
+    padding:8px 0 48px;
+  }
+  .cta-band{
+    background:var(--zhu-deep);color:#f0e2cd;text-align:center;padding:48px 0;
+  }
+  .cta-band h2{letter-spacing:5px;color:var(--jin);margin-bottom:14px;font-size:24px;}
+  .cta-band a{
+    display:inline-block;background:var(--jin);color:var(--zhu-deep);
+    padding:12px 44px;letter-spacing:4px;font-weight:bold;border-radius:2px;margin-top:8px;
+  }
+  .cta-band a:hover{background:#dab96f;}
+
+  footer{background:#241f1c;color:#c9bda6;padding:48px 0 24px;font-size:14px;}
+  .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-bottom:32px;}
+  .foot-grid h4{color:var(--jin);letter-spacing:3px;margin-bottom:14px;font-size:15px;}
+  .foot-grid p,.foot-grid a{color:#c9bda6;font-size:13px;line-height:2;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid #3a332e;padding-top:20px;text-align:center;font-size:12px;letter-spacing:2px;color:#8a7f6e;}
+
+  @media (max-width:720px){
+    .items{grid-template-columns:1fr;}
+    .item:nth-child(odd){border-right:none;}
+    .logo-text{font-size:18px;letter-spacing:3px;}
+    nav a{padding:6px 10px;font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <span class="logo-seal">江</span>
+      <span>
+        <span class="logo-text">江南食府</span>
+        <span class="logo-sub">地道杭帮菜 · 始于 1987</span>
+      </span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html" class="active">菜单</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="contact.html">订座联系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-banner">
+  <div class="en">菜 单 · 四 季 时 令</div>
+  <h1>本季菜单</h1>
+  <p>食材随四季流转，菜单因时令更新 · 价格单位：元</p>
+</div>
+
+<section>
+  <div class="wrap">
+
+    <div class="cat">
+      <div class="cat-head">
+        <span class="mark">冷</span>
+        <div>
+          <h2>江南冷碟</h2>
+          <span>开胃先声 · 清爽见功</span>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-info">
+            <h3>桂花糯米藕</h3><span class="tag">招牌</span>
+            <p>九孔莲藕灌糯米，桂花糖浆慢煨，软糯清甜。</p>
+          </div>
+          <span class="item-price">¥32</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>杭州酱鸭</h3>
+            <p>麻鸭酱制七日，色泽枣红，咸鲜回甘。</p>
+          </div>
+          <span class="item-price">¥58</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>糟溜鱼片</h3>
+            <p>香糟卤浸润黑鱼片，糟香馥郁，滑嫩爽口。</p>
+          </div>
+          <span class="item-price">¥46</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>四喜烤麸</h3>
+            <p>烤麸配金针木耳，浓油赤酱，素食经典。</p>
+          </div>
+          <span class="item-price">¥28</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head">
+        <span class="mark">热</span>
+        <div>
+          <h2>经典热菜</h2>
+          <span>灶上功夫 · 火候传承</span>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-info">
+            <h3>西湖醋鱼</h3><span class="tag">招牌</span>
+            <p>鲜活草鱼饿养三日，糖醋芡汁清亮，鲜嫩透蟹味。</p>
+          </div>
+          <span class="item-price">¥128</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>东坡肉</h3><span class="tag">招牌</span>
+            <p>绍酒慢煨四小时，入口即化，肥而不腻。</p>
+          </div>
+          <span class="item-price">¥88</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>龙井虾仁</h3><span class="tag">时令</span>
+            <p>明前龙井嫩芽配手剥河虾仁，茶香清雅。</p>
+          </div>
+          <span class="item-price">¥98</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>松鼠桂鱼</h3>
+            <p>剞花炸至金黄蓬松，酸甜茄汁，形如松鼠。</p>
+          </div>
+          <span class="item-price">¥158</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>宋嫂鱼羹</h3>
+            <p>鳜鱼拆肉入羹，南宋古法，鲜醇润滑。</p>
+          </div>
+          <span class="item-price">¥68</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>蟹粉豆腐</h3><span class="tag">时令</span>
+            <p>现拆蟹粉烩嫩豆腐，金黄浓稠，秋令至味。</p>
+          </div>
+          <span class="item-price">¥108</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>干炸响铃</h3>
+            <p>豆腐皮薄如蝉翼，炸至松脆，蘸甜面酱食之。</p>
+          </div>
+          <span class="item-price">¥38</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>油焖春笋</h3><span class="tag">时令</span>
+            <p>天目山春笋重油重糖焖制，咸中带甜，脆嫩无渣。</p>
+          </div>
+          <span class="item-price">¥42</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>叫花童鸡</h3>
+            <p>荷叶包裹泥烤，鸡肉酥烂脱骨，荷香四溢。</p>
+          </div>
+          <span class="item-price">¥138</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>干菜焖肉</h3>
+            <p>绍兴霉干菜与五花肉同焖，乌亮油润，下饭一绝。</p>
+          </div>
+          <span class="item-price">¥78</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head">
+        <span class="mark">点</span>
+        <div>
+          <h2>点心主食</h2>
+          <span>笼上蒸腾 · 烟火人间</span>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-info">
+            <h3>鲜肉小笼包</h3><span class="tag">招牌</span>
+            <p>皮薄汁足，一提一咬满口鲜汤（一笼六只）。</p>
+          </div>
+          <span class="item-price">¥28</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>猫耳朵</h3>
+            <p>面瓣形似猫耳，配虾仁火腿丁烩制，汤鲜味美。</p>
+          </div>
+          <span class="item-price">¥36</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>定胜糕</h3>
+            <p>糯米粉蒸制，豆沙内馅，松软微甜，寓意吉祥。</p>
+          </div>
+          <span class="item-price">¥22</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>片儿川</h3>
+            <p>雪菜笋片瘦肉浇头，杭州人最爱的一碗面。</p>
+          </div>
+          <span class="item-price">¥32</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head">
+        <span class="mark">饮</span>
+        <div>
+          <h2>茶饮汤羹</h2>
+          <span>一盏清茗 · 暖胃暖心</span>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="item-info">
+            <h3>明前龙井</h3>
+            <p>狮峰山明前茶，豆香清冽（每位）。</p>
+          </div>
+          <span class="item-price">¥38</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>桂花酒酿圆子</h3>
+            <p>手搓小圆子配自酿酒酿，桂花点睛。</p>
+          </div>
+          <span class="item-price">¥26</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>火腿冬瓜老鸭煲</h3>
+            <p>三年老鸭配金华火腿，文火三小时（适合三至四人）。</p>
+          </div>
+          <span class="item-price">¥168</span>
+        </div>
+        <div class="item">
+          <div class="item-info">
+            <h3>自制酸梅汤</h3>
+            <p>乌梅山楂陈皮熬制，解腻生津（一扎）。</p>
+          </div>
+          <span class="item-price">¥30</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="notice">※ 部分时令菜品随季节调整，以当日到店菜单为准 · 包厢最低消费请咨询店员</p>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <h2>心动不如行动</h2>
+    <p>席位有限，节假日建议提前一日电话订座</p>
+    <a href="contact.html">立即订座</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>江南食府</h4>
+        <p>一箸江南味，半盏岁月香。<br>地道杭帮菜，恭候四方客。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <p>
+          <a href="index.html">首页</a><br>
+          <a href="menu.html">菜单</a><br>
+          <a href="about.html">关于我们</a><br>
+          <a href="contact.html">订座联系</a>
+        </p>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <p>杭州市上城区河坊街 128 号<br>电话：0571-8888-6666<br>午市 11:00–14:00 · 晚市 17:00–21:30</p>
+      </div>
+    </div>
+    <div class="foot-bottom">江南食府 © 版权所有 · 浙ICP备00000000号</div>
+  </div>
+</footer>
+
+</body>
+</html>

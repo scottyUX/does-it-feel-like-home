@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国内新闻 - 华闻网</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f4f5f7; color: #222; }
+  a { text-decoration: none; color: inherit; }
+  .topbar { background: #b3001b; color: #fff; font-size: 13px; }
+  .topbar-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; padding: 6px 16px; }
+  .header { background: #fff; border-bottom: 3px solid #b3001b; }
+  .header-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; padding: 18px 16px; gap: 20px; }
+  .logo-text { font-size: 30px; font-weight: 800; color: #b3001b; letter-spacing: 2px; }
+  .logo-sub { font-size: 12px; color: #888; }
+  .nav { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .nav-inner { max-width: 1180px; margin: 0 auto; display: flex; padding: 0 16px; }
+  .nav a { padding: 12px 22px; font-size: 16px; font-weight: 600; color: #333; }
+  .nav a:hover, .nav a.active { color: #b3001b; border-bottom: 3px solid #b3001b; }
+  .container { max-width: 1180px; margin: 20px auto; padding: 0 16px; }
+  .crumb { font-size: 13px; color: #888; margin-bottom: 14px; }
+  .card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .channel-title { font-size: 24px; font-weight: 800; color: #b3001b; padding-bottom: 14px; border-bottom: 2px solid #b3001b; margin-bottom: 18px; }
+  .news-item { display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid #eee; }
+  .news-item svg { flex-shrink: 0; width: 200px; height: 120px; border-radius: 6px; }
+  .news-item h2 { font-size: 18px; margin-bottom: 8px; line-height: 1.5; }
+  .news-item h2 a:hover { color: #b3001b; }
+  .news-item p { font-size: 14px; color: #666; line-height: 1.8; }
+  .meta { font-size: 12px; color: #aaa; margin-top: 8px; }
+  .footer { background: #2b2b2b; color: #aaa; margin-top: 30px; padding: 26px 16px; font-size: 13px; }
+  .footer-inner { max-width: 1180px; margin: 0 auto; }
+  @media (max-width: 700px) { .news-item { flex-direction: column; } .news-item svg { width: 100%; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>2025年6月12日 星期四 · 农历五月十七</span>
+    <span><a href="#">登录</a> ｜ <a href="#">注册</a> ｜ <a href="about.html">关于我们</a></span>
+  </div>
+</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="logo-text">华闻网</div>
+      <div class="logo-sub">及时 · 权威 · 有深度</div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="china.html" class="active">国内</a>
+    <a href="world.html">国际</a>
+    <a href="finance.html">财经</a>
+    <a href="article.html">评论</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="crumb">当前位置：<a href="index.html">首页</a> &gt; 国内新闻</div>
+  <div class="card">
+    <div class="channel-title">国内新闻</div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#d9ead3"/><path d="M0 85 Q60 55 120 80 T200 70 L200 120 L0 120 Z" fill="#5c9433"/><path d="M20 60 h30 v25 h-30 z" fill="#c0392b"/><path d="M15 60 l20 -14 l20 14 z" fill="#8e2a1f"/><circle cx="165" cy="28" r="14" fill="#ffd94d"/></svg>
+      <div>
+        <h2><a href="article.html">乡村振兴战略深入推进 宜居宜业和美乡村建设提速</a></h2>
+        <p>各地持续完善农村基础设施，发展特色产业，改善人居环境，乡村面貌焕然一新，农民群众获得感、幸福感不断增强。</p>
+        <div class="meta">2025-06-12 08:30 · 来源：华闻网</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#dfe9f3"/><rect x="20" y="45" width="160" height="18" rx="9" fill="#5b7a99"/><rect x="35" y="30" width="130" height="18" rx="9" fill="#7896b3"/><circle cx="55" cy="72" r="12" fill="#333"/><circle cx="145" cy="72" r="12" fill="#333"/><rect x="60" y="82" width="80" height="8" fill="#9fb6cc"/></svg>
+      <div>
+        <h2><a href="article.html">新一代高铁动车组完成试运行 运营时速实现新突破</a></h2>
+        <p>该动车组采用多项自主核心技术，能耗更低、乘坐更舒适，即将在多条干线投入运营，进一步缩短城市间时空距离。</p>
+        <div class="meta">2025-06-11 21:40 · 来源：华闻网</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#eaf3fb"/><circle cx="100" cy="55" r="30" fill="#3b6ea5" opacity="0.85"/><ellipse cx="100" cy="55" rx="45" ry="14" fill="none" stroke="#3b6ea5" stroke-width="3"/><rect x="90" y="20" width="20" height="10" fill="#f2c14e"/><rect x="70" y="95" width="60" height="8" rx="4" fill="#9fb6cc"/></svg>
+      <div>
+        <h2><a href="article.html">我国成功发射新一组通信卫星 星座组网稳步推进</a></h2>
+        <p>此次发射任务取得圆满成功，卫星顺利进入预定轨道，将为全球用户提供高质量的通信服务。</p>
+        <div class="meta">2025-06-11 18:05 · 来源：华闻网</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#f6ecd9"/><rect x="30" y="40" width="140" height="60" rx="6" fill="#d9b36a"/><rect x="45" y="55" width="110" height="30" rx="4" fill="#fff" opacity="0.7"/><path d="M30 40 L100 15 L170 40 Z" fill="#b8934e"/></svg>
+      <div>
+        <h2><a href="article.html">多地出台措施促进高校毕业生就业创业</a></h2>
+        <p>从岗位拓展到创业扶持，各地推出一揽子政策，为青年群体搭建更广阔的发展平台。</p>
+        <div class="meta">2025-06-11 14:20 · 来源：华闻网</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#e7f4ee"/><rect x="25" y="70" width="150" height="8" fill="#3f8f6b"/><rect x="45" y="30" width="14" height="45" fill="#3f8f6b"/><rect x="80" y="18" width="14" height="57" fill="#5cb08a"/><rect x="115" y="38" width="14" height="37" fill="#7cc4a5"/><rect x="148" y="48" width="14" height="27" fill="#a3d9c0"/></svg>
+      <div>
+        <h2><a href="article.html">生态环境质量持续改善 蓝天碧水净土保卫战成效显著</a></h2>
+        <p>监测数据显示，全国空气质量优良天数比例稳步上升，重点流域水环境质量持续向好。</p>
+        <div class="meta">2025-06-10 16:45 · 来源：华闻网</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#f9e9e7"/><circle cx="100" cy="50" r="26" fill="#c0392b"/><circle cx="100" cy="50" r="16" fill="#f9e9e7"/><rect x="96" y="20" width="8" height="14" fill="#c0392b"/><rect x="60" y="92" width="80" height="8" rx="4" fill="#e0a29a"/></svg>
+      <div>
+        <h2><a href="article.html">文化遗产保护名录新增多个项目 非遗传承焕发新活力</a></h2>
+        <p>传统技艺、民俗活动等一批项目入选新一批保护名录，数字化手段让古老文化走近年轻人。</p>
+        <div class="meta">2025-06-10 10:15 · 来源：华闻网</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>版权所有 © 华闻网 · 未经许可 不得转载</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-10-22T17:55:30.857Z",
+  "note": "OpenRouter pipeline samples, not WebDev Arena outputs.",
+  "sites": [
+    {
+      "id": "0895e554",
+      "type": "clothing",
+      "country": "China",
+      "model": "moonshotai/kimi-k3",
+      "createdAt": "2026-10-22T17:13:07.740Z"
+    },
+    {
+      "id": "b718dcaa",
+      "type": "clothing",
+      "country": "US",
+      "model": "anthropic/claude-opus-5",
+      "createdAt": "2026-10-22T17:15:03.008Z"
+    },
+    {
+      "id": "0b474942",
+      "type": "clothing",
+      "country": "US",
+      "model": "google/gemini-4-argon",
+      "createdAt": "2026-10-22T17:21:01.763Z"
+    },
+    {
+      "id": "c1b5e611",
+      "type": "restaurant",
+      "country": "US",
+      "model": "google/gemini-4-argon",
+      "createdAt": "2026-10-22T17:24:39.076Z"
+    },
+    {
+      "id": "34fe2e18",
+      "type": "restaurant",
+      "country": "US",
+      "model": "anthropic/claude-opus-5",
+      "createdAt": "2026-10-22T17:26:57.886Z"
+    },
+    {
+      "id": "ef26d6ee",
+      "type": "restaurant",
+      "country": "China",
+      "model": "moonshotai/kimi-k3",
+      "createdAt": "2026-10-22T17:29:52.725Z"
+    },
+    {
+      "id": "d16f129d",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "createdAt": "2026-10-22T17:31:57.417Z"
+    },
+    {
+      "id": "b9c900fe",
+      "type": "news",
+      "country": "US",
+      "model": "anthropic/claude-opus-5",
+      "createdAt": "2026-10-22T17:35:52.572Z"
+    },
+    {
+      "id": "b78bd65e",
+      "type": "news",
+      "country": "China",
+      "model": "moonshotai/kimi-k3",
+      "createdAt": "2026-10-22T17:38:11.052Z"
+    },
+    {
+      "id": "ef6388ea",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemini-4-argon",
+      "createdAt": "2026-10-22T17:38:41.815Z"
+    },
+    {
+      "id": "06eb9d14",
+      "type": "restaurant",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "createdAt": "2026-10-22T17:44:20.314Z"
+    },
+    {
+      "id": "1cd72389",
+      "type": "news",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "createdAt": "2026-10-22T17:55:30.852Z"
+    }
+  ]
+}

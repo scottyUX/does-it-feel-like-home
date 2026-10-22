@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云栖竹径 · 江南时令宋韵雅宴 | 首页</title>
+<style>
+  :root {
+    --bg-paper: #f7f4ed;
+    --bg-paper-dark: #efeae0;
+    --bg-ink: #1b2220;
+    --text-main: #222926;
+    --text-muted: #5e6864;
+    --text-light: #f4f1ea;
+    --cinnabar: #a63429;
+    --cinnabar-dark: #85251c;
+    --celadon: #486b5c;
+    --celadon-light: #dce5e0;
+    --gold: #b08d57;
+    --gold-light: #d8c39e;
+    --border-subtle: #dcd4c6;
+    --shadow-soft: 0 10px 30px rgba(27, 34, 32, 0.07);
+    --serif: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+    --sans: "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: var(--sans);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .top-notice {
+    background-color: var(--bg-ink);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+  }
+
+  .solar-badge {
+    display: inline-block;
+    background-color: var(--cinnabar);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-right: 10px;
+    font-family: var(--serif);
+    font-size: 0.8rem;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 244, 237, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 40px;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-seal {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-title {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--bg-ink);
+    line-height: 1.2;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.22em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    color: var(--text-main);
+    padding: 8px 4px;
+    position: relative;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--cinnabar);
+    font-weight: 600;
+  }
+
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cinnabar);
+  }
+
+  .btn-reserve {
+    background-color: var(--cinnabar);
+    color: #fff;
+    font-family: var(--serif);
+    padding: 10px 24px;
+    border-radius: 2px;
+    letter-spacing: 0.15em;
+    font-size: 0.95rem;
+    border: 1px solid var(--cinnabar);
+  }
+
+  .btn-reserve:hover {
+    background-color: var(--cinnabar-dark);
+  }
+
+  /* 首页主视觉 */
+  .hero {
+    position: relative;
+    background-color: var(--bg-ink);
+    color: var(--text-light);
+    overflow: hidden;
+    padding: 88px 40px;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 4px 16px;
+    font-family: var(--serif);
+    letter-spacing: 0.2em;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 3.1rem;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: #c8d2ce;
+    margin-bottom: 36px;
+    max-width: 580px;
+    line-height: 1.9;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background-color: var(--cinnabar);
+    color: #fff;
+    font-family: var(--serif);
+    padding: 14px 34px;
+    font-size: 1.05rem;
+    letter-spacing: 0.16em;
+    border: 1px solid var(--cinnabar);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--cinnabar-dark);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--gold-light);
+    font-family: var(--serif);
+    padding: 14px 34px;
+    font-size: 1.05rem;
+    letter-spacing: 0.16em;
+    border: 1px solid var(--gold);
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(176, 141, 87, 0.15);
+  }
+
+  .hero-art {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(176, 141, 87, 0.4);
+    padding: 20px;
+    border-radius: 2px;
+  }
+
+  /* 通用章节 */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 84px 32px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-eyebrow {
+    display: block;
+    font-family: var(--serif);
+    color: var(--cinnabar);
+    letter-spacing: 0.25em;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--bg-ink);
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+
+  .section-desc {
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+  }
+
+  /* 三大理念卡片 */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .pillar-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+  }
+
+  .pillar-card::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(176, 141, 87, 0.25);
+    pointer-events: none;
+  }
+
+  .pillar-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 20px;
+  }
+
+  .pillar-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    color: var(--bg-ink);
+  }
+
+  .pillar-card p {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+  }
+
+  /* 当季招牌美馔 */
+  .featured-bg {
+    background-color: var(--bg-paper-dark);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .dish-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+  }
+
+  .dish-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .dish-illust {
+    background: #f3efe6;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .dish-body {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .dish-tag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .dish-badge {
+    background: var(--celadon-light);
+    color: var(--celadon);
+    font-size: 0.78rem;
+    padding: 2px 10px;
+    font-family: var(--serif);
+  }
+
+  .dish-price {
+    font-family: var(--serif);
+    color: var(--cinnabar);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .dish-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    color: var(--bg-ink);
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .dish-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+  }
+
+  .dish-meta {
+    font-size: 0.82rem;
+    color: var(--gold);
+    border-top: 1px dashed var(--border-subtle);
+    padding-top: 12px;
+  }
+
+  /* 宋韵雅集横幅 */
+  .banquet-banner {
+    background: var(--bg-ink);
+    color: var(--text-light);
+    border: 1px solid var(--gold);
+    padding: 52px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .banquet-banner h3 {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--gold-light);
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+
+  .banquet-banner p {
+    color: #c2ccc8;
+    margin-bottom: 24px;
+  }
+
+  .banquet-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+    font-size: 0.92rem;
+    color: var(--gold-light);
+  }
+
+  /* 食客雅评 */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .review-card {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .review-quote {
+    font-family: var(--serif);
+    color: var(--text-main);
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+    line-height: 1.85;
+  }
+
+  .review-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 14px;
+    font-size: 0.86rem;
+    color: var(--text-muted);
+  }
+
+  /* 页脚 */
+  .footer {
+    background-color: var(--bg-ink);
+    color: var(--text-light);
+    padding: 72px 32px 36px;
+    border-top: 4px solid var(--gold);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+
+  .footer-col p,
+  .footer-col li {
+    color: #b8c2be;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+    list-style: none;
+  }
+
+  .footer-col a:hover {
+    color: var(--gold-light);
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #7d8984;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-inner,
+    .pillars-grid,
+    .dishes-grid,
+    .banquet-banner,
+    .reviews-grid,
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+    .navbar {
+      padding: 14px 20px;
+      height: auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      order: 3;
+      gap: 18px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-notice">
+    <div>
+      <span class="solar-badge">时令节气 · 谷雨春膳</span>
+      <span>明前龙井鲜茶与天目雷笋已入席，每日清晨山野直供</span>
+    </div>
+    <div>
+      <span>杭州西湖区龙井路十八号 · 雅集预约：0571-8798-6688</span>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <svg class="brand-seal" viewBox="0 0 100 100" aria-label="云栖印章">
+        <rect x="4" y="4" width="92" height="92" rx="6" fill="#a63429" stroke="#8a271d" stroke-width="3"/>
+        <rect x="10" y="10" width="80" height="80" fill="none" stroke="#f7f4ed" stroke-width="2"/>
+        <text x="50" y="44" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">云栖</text>
+        <text x="50" y="78" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">竹径</text>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">云栖竹径</span>
+        <span class="brand-subtitle">江南时令 · 宋韵雅宴</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">首页</a></li>
+      <li><a href="menu.html">时令食单</a></li>
+      <li><a href="about.html">庭院故事</a></li>
+      <li><a href="reservation.html">雅座预订</a></li>
+    </ul>
+
+    <div>
+      <a href="reservation.html" class="btn-reserve">立即订座</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag">西湖山麓 · 四时江南味</span>
+        <h1>竹影入馔，<br>一席江南烟雨。</h1>
+        <p>
+          隐于西湖群山翠竹之间，云栖竹径循二十四节气更迭食单。取山林晨露之笋、太湖活水之鲜、狮峰头采之茶，以宋人清雅食礼，款待四方知味宾客。
+        </p>
+        <div class="hero-actions">
+          <a href="menu.html" class="btn-primary">品鉴时令食单</a>
+          <a href="reservation.html" class="btn-outline">预约临水包厢</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 480 360" width="100%" aria-label="江南山水竹径画卷">
+          <rect width="480" height="360" fill="#232d2a"/>
+          <!-- 远山层叠 -->
+          <circle cx="370" cy="85" r="42" fill="#d8c39e" opacity="0.85"/>
+          <path d="M0,230 Q120,160 250,210 T480,185 L480,360 L0,360 Z" fill="#32443e"/>
+          <path d="M0,275 Q160,215 310,260 T480,245 L480,360 L0,360 Z" fill="#486b5c" opacity="0.7"/>
+          <!-- 湖面渔舟与亭台 -->
+          <path d="M90,255 L180,255 L165,265 L105,265 Z" fill="#d8c39e"/>
+          <path d="M120,255 Q135,235 155,255" fill="none" stroke="#d8c39e" stroke-width="2"/>
+          <!-- 翠竹剪影 -->
+          <line x1="65" y1="30" x2="65" y2="360" stroke="#d8c39e" stroke-width="3.5" opacity="0.75"/>
+          <line x1="92" y1="70" x2="92" y2="360" stroke="#d8c39e" stroke-width="2.5" opacity="0.55"/>
+          <path d="M65,90 Q95,75 110,95 Q85,100 65,90 Z" fill="#d8c39e" opacity="0.8"/>
+          <path d="M65,150 Q35,135 20,155 Q45,160 65,150 Z" fill="#d8c39e" opacity="0.8"/>
+          <path d="M92,130 Q122,115 135,135 Q110,140 92,130 Z" fill="#d8c39e" opacity="0.65"/>
+          <!-- 题字印章 -->
+          <text x="395" y="295" fill="#f4f1ea" font-family="serif" font-size="16" writing-mode="tb" letter-spacing="4">不时不食 · 顺时而饮</text>
+          <rect x="386" y="315" width="22" height="22" fill="#a63429"/>
+          <text x="397" y="331" text-anchor="middle" fill="#fff" font-family="serif" font-size="12">雅</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料理哲学 -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">东方食礼 · 三味真谛</span>
+      <h2 class="section-title">取法自然，味归清鲜</h2>
+      <p class="section-desc">遵循《山家清供》古训，摒弃繁复厚重的调味，让山野湖海的本真风物在瓷盏间自然舒展。</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <svg class="pillar-icon" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="34" fill="#dce5e0" stroke="#486b5c" stroke-width="2"/>
+          <path d="M40,18 C52,28 52,48 40,62 C28,48 28,28 40,18 Z" fill="none" stroke="#486b5c" stroke-width="2.5"/>
+          <line x1="40" y1="22" x2="40" y2="58" stroke="#486b5c" stroke-width="2"/>
+        </svg>
+        <h3>应时而采</h3>
+        <p>春食雷笋塘鳢，夏品荷香六月黄，秋尝桂花大闸蟹，冬煨天目暖锅。每半月随节气微调食单。</p>
+      </div>
+
+      <div class="pillar-card">
+        <svg class="pillar-icon" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="34" fill="#f3e5e3" stroke="#a63429" stroke-width="2"/>
+          <path d="M22,46 Q40,60 58,46 L54,34 L26,34 Z" fill="none" stroke="#a63429" stroke-width="2.5"/>
+          <path d="M32,26 Q36,20 32,14 M44,26 Q48,20 44,14" fill="none" stroke="#a63429" stroke-width="2"/>
+        </svg>
+        <h3>古法慢火</h3>
+        <p>坚持每日清晨现拆蟹粉、现吊清鸡汤。不用味精与预制汤底，凭文火慢煨引出食材本味之甘甜。</p>
+      </div>
+
+      <div class="pillar-card">
+        <svg class="pillar-icon" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="34" fill="#f2eadb" stroke="#b08d57" stroke-width="2"/>
+          <rect x="25" y="25" width="30" height="30" rx="4" fill="none" stroke="#b08d57" stroke-width="2.5"/>
+          <circle cx="40" cy="40" r="8" fill="#b08d57"/>
+        </svg>
+        <h3>宋器雅席</h3>
+        <p>以龙泉青瓷、越窑秘色瓷盛装佳肴，佐以江南丝竹与宋代点茶，一席一景皆具东方风雅。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 当季主打菜品 -->
+  <section class="featured-bg">
+    <div class="section">
+      <div class="section-header">
+        <span class="section-eyebrow">春末夏初 · 主厨甄选</span>
+        <h2 class="section-title">当季必尝三味</h2>
+        <p class="section-desc">行政总厨沈鹤年先生携团队寻味江浙山野，呈献本季点击率最高的江南名肴。</p>
+      </div>
+
+      <div class="dishes-grid">
+        <article class="dish-card">
+          <div class="dish-illust">
+            <svg viewBox="0 0 260 160" width="100%" height="140">
+              <ellipse cx="130" cy="95" rx="95" ry="42" fill="#dce5e0" stroke="#486b5c" stroke-width="2"/>
+              <ellipse cx="130" cy="92" rx="75" ry="30" fill="#f7f4ed"/>
+              <!-- 虾仁与龙井茶叶 -->
+              <circle cx="105" cy="88" r="10" fill="#f29f8f"/>
+              <circle cx="135" cy="84" r="11" fill="#f29f8f"/>
+              <circle cx="155" cy="95" r="10" fill="#f29f8f"/>
+              <circle cx="120" cy="100" r="9" fill="#f29f8f"/>
+              <path d="M90,82 Q100,72 108,82 Z" fill="#3a6b4c"/>
+              <path d="M145,76 Q155,66 163,76 Z" fill="#3a6b4c"/>
+              <path d="M125,95 Q135,85 143,95 Z" fill="#3a6b4c"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div>
+              <div class="dish-tag-row">
+                <span class="dish-badge">杭帮非遗代表作</span>
+                <span class="dish-price">¥168 / 例</span>
+              </div>
+              <h3 class="dish-title">狮峰龙井手剥河虾仁</h3>
+              <p class="dish-desc">严选德清活水青虾，每份逾百尾手工现剥；佐以狮峰山明前头采龙井茶芽烹制，清香回甘。</p>
+            </div>
+            <div class="dish-meta">食材溯源：德清莫干山溪虾 · 西湖狮峰龙井</div>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <div class="dish-illust">
+            <svg viewBox="0 0 260 160" width="100%" height="140">
+              <ellipse cx="130" cy="105" rx="90" ry="35" fill="#e5dcd0" stroke="#b08d57" stroke-width="2"/>
+              <!-- 紫砂盅 -->
+              <path d="M75,75 Q130,130 185,75 L175,50 L85,50 Z" fill="#7a4236"/>
+              <ellipse cx="130" cy="50" rx="45" ry="12" fill="#9c5949" stroke="#d8c39e" stroke-width="1.5"/>
+              <circle cx="130" cy="45" r="8" fill="#d8c39e"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div>
+              <div class="dish-tag-row">
+                <span class="dish-badge">每日限量二十盅</span>
+                <span class="dish-price">¥238 / 盅</span>
+              </div>
+              <h3 class="dish-title">三年陈花雕熟醉膏蟹</h3>
+              <p class="dish-desc">精选高邮湖满膏雌蟹，先蒸后浸入十年绍兴花雕、话梅与金桂调制的秘制糟卤，酒香醇厚。</p>
+            </div>
+            <div class="dish-meta">食材溯源：高邮湖生态大闸蟹 · 绍兴鉴湖古法花雕</div>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <div class="dish-illust">
+            <svg viewBox="0 0 260 160" width="100%" height="140">
+              <ellipse cx="130" cy="95" rx="92" ry="40" fill="#2c3532" stroke="#b08d57" stroke-width="2"/>
+              <ellipse cx="130" cy="92" rx="74" ry="28" fill="#e8d096" opacity="0.85"/>
+              <!-- 火腿与春笋 -->
+              <path d="M95,88 L125,75 L130,98 Z" fill="#f7f4ed"/>
+              <path d="M130,85 L165,78 L158,100 Z" fill="#f7f4ed"/>
+              <rect x="112" y="84" width="22" height="10" rx="2" fill="#a63429"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div>
+              <div class="dish-tag-row">
+                <span class="dish-badge">谷雨时令鲜物</span>
+                <span class="dish-price">¥158 / 例</span>
+              </div>
+              <h3 class="dish-title">金华两头乌火腿煨雷笋</h3>
+              <p class="dish-desc">破土未见光的临安天目山春雷笋，配三年发酵金华火腿上方，高汤慢煨两小时，脆嫩鲜美。</p>
+            </div>
+            <div class="dish-meta">食材溯源：临安天目山雷竹笋 · 金华两头乌火腿</div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 44px;">
+        <a href="menu.html" class="btn-primary">浏览完整时令食单（共二十四道）</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 庭院与定制家宴宣传 -->
+  <section class="section">
+    <div class="banquet-banner">
+      <div>
+        <span class="hero-tag">临水听竹 · 私密包厢</span>
+        <h3>承接家宴寿席、商务雅集与宋韵茶会</h3>
+        <p>
+          庭院内设八间独立江南园林式包厢，以“听竹、枕水、松风、咏梅、观荷、抚琴、抱月、醉墨”命名。推窗即见锦鲤荷池与翠竹曲桥，配备专属侍茶师与定制书法菜单服务。
+        </p>
+        <ul class="banquet-list">
+          <li>✦ 独立茶席与庭院露台</li>
+          <li>✦ 主厨按宾客忌口专属配菜</li>
+          <li>✦ 免费提供宋代点茶迎宾礼</li>
+          <li>✦ 私密停车位与专人引席</li>
+        </ul>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="reservation.html" class="btn-primary">在线预订雅座</a>
+          <a href="about.html" class="btn-outline">探索庭院四景</a>
+        </div>
+      </div>
+
+      <div>
+        <svg viewBox="0 0 360 280" width="100%" aria-label="中式圆桌包厢示意图">
+          <rect x="10" y="10" width="340" height="260" fill="#25302d" stroke="#b08d57" stroke-width="2"/>
+          <!-- 花窗图案 -->
+          <circle cx="180" cy="140" r="88" fill="none" stroke="#b08d57" stroke-width="2"/>
+          <circle cx="180" cy="140" r="78" fill="none" stroke="#b08d57" stroke-width="1" stroke-dasharray="4 4"/>
+          <!-- 圆桌与餐位 -->
+          <circle cx="180" cy="140" r="42" fill="#486b5c" stroke="#d8c39e" stroke-width="2"/>
+          <circle cx="180" cy="140" r="18" fill="#25302d" stroke="#d8c39e" stroke-width="1"/>
+          <text x="180" y="145" text-anchor="middle" fill="#d8c39e" font-family="serif" font-size="13">雅集</text>
+          <!-- 周围八座 -->
+          <circle cx="180" cy="82" r="7" fill="#d8c39e"/>
+          <circle cx="180" cy="198" r="7" fill="#d8c39e"/>
+          <circle cx="122" cy="140" r="7" fill="#d8c39e"/>
+          <circle cx="238" cy="140" r="7" fill="#d8c39e"/>
+          <circle cx="139" cy="99" r="7" fill="#d8c39e"/>
+          <circle cx="221" cy="99" r="7" fill="#d8c39e"/>
+          <circle cx="139" cy="181" r="7" fill="#d8c39e"/>
+          <circle cx="221" cy="181" r="7" fill="#d8c39e"/>
+          <text x="180" y="252" text-anchor="middle" fill="#b8c2be" font-family="serif" font-size="12">临水包厢 · 容纳 6 至 14 位宾客</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 宾客评价 -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-eyebrow">知味食客 · 雅集留墨</span>
+      <h2 class="section-title">口碑相传的江南家宴</h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p class="review-quote">
+          “父母金婚纪念日选在【听竹轩】包厢，窗外就是潺潺溪水与竹林。手剥河虾仁鲜甜弹牙，老鸭煲汤色澄亮，侍茶姑娘还为二老手写了贺寿菜单，全家人赞不绝口。”
+        </p>
+        <div class="review-author">
+          <span>林先生 · 杭州本地食客</span>
+          <span style="color: var(--cinnabar);">★★★★★ 家庭寿宴</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-quote">
+          “招待外地来的文化界朋友，这里真正把宋韵雅致做到了骨子里。没有浮夸的摆盘，每一道春笋、江鲜都吃得出食材的新鲜和师傅的火候功底，配的九曲红梅更是绝妙。”
+        </p>
+        <div class="review-author">
+          <span>周女士 · 茶文化学者</span>
+          <span style="color: var(--cinnabar);">★★★★★ 商务雅集</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p class="review-quote">
+          “每年春秋两季都会专程从上海高铁过来吃一顿。熟醉膏蟹的酒香平衡得极好，蟹膏像凝脂一样绵密。吃完在院子里喝杯明前龙井，一扫都市喧嚣。”
+        </p>
+        <div class="review-author">
+          <span>陈先生 · 上海老饕</span>
+          <span style="color: var(--cinnabar);">★★★★★ 节气寻味</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-title">云栖竹径 · 江南雅宴</div>
+        <p>隐于西湖群山之间，以二十四节气为轴，寻访江南山海风物，呈献清雅本真的东方食礼。</p>
+        <p style="color: var(--gold-light); margin-top: 16px;">黑珍珠钻级提名餐厅 · 江南非遗饮食传承基地</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">快速导航</div>
+        <ul>
+          <li><a href="index.html">首页总览</a></li>
+          <li><a href="menu.html">时令食单</a></li>
+          <li><a href="about.html">庭院故事</a></li>
+          <li><a href="reservation.html">雅座预订</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">营业时间</div>
+        <ul>
+          <li>午市雅集：11:00 - 14:30</li>
+          <li>午后茶歇：14:30 - 16:30</li>
+          <li>晚市雅宴：17:00 - 21:30</li>
+          <li>全年无休（除夕家宴需提前半月预订）</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">寻访竹径</div>
+        <p>地址：浙江省杭州市西湖区龙井路十八号（近双峰路南口）</p>
+        <p>订座专线：0571-8798-6688</p>
+        <p>茶会定制：0571-8798-6699</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 杭州云栖竹径餐饮文化有限公司 版权所有</span>
+      <span>浙ICP备2021008921号 · 倡导公筷公勺与光盘行动</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>素棠 SUTANG · 女装品牌官方网站</title>
+<meta name="description" content="素棠女装，专注通勤与日常的简约设计，面料舒适，版型利落。">
+<style>
+:root{
+  --ink:#2b2724;
+  --soft:#6f655e;
+  --line:#e4ddd4;
+  --bg:#faf7f3;
+  --accent:#9c5a4a;
+  --accent-soft:#f1e3dd;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Songti SC","STSong","Microsoft YaHei",serif;background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* top */
+.topbar{background:var(--ink);color:#f6f1ea;font-size:12.5px;letter-spacing:2px;text-align:center;padding:8px 12px}
+header{position:sticky;top:0;z-index:40;background:rgba(250,247,243,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.navrow{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-size:23px;letter-spacing:6px;font-weight:600}
+.logo span{display:block;font-size:10px;letter-spacing:4px;color:var(--soft);font-family:"Microsoft YaHei",sans-serif;font-weight:400;margin-top:-4px}
+nav ul{display:flex;gap:30px;list-style:none;font-size:15px;letter-spacing:1.5px}
+nav a{padding:6px 0;border-bottom:1px solid transparent}
+nav a:hover,nav a.on{border-bottom-color:var(--accent);color:var(--accent)}
+.navtools{font-size:13px;color:var(--soft);letter-spacing:1px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:520px;align-items:center;gap:40px;padding:70px 0}
+.hero h1{font-size:46px;line-height:1.45;letter-spacing:4px;font-weight:600}
+.hero .kicker{font-size:13px;letter-spacing:6px;color:var(--accent);margin-bottom:18px;font-family:"Microsoft YaHei",sans-serif}
+.hero p{color:var(--soft);margin:22px 0 32px;font-size:16px;max-width:430px}
+.btn{display:inline-block;padding:13px 34px;background:var(--ink);color:#fff;letter-spacing:3px;font-size:14px;border:1px solid var(--ink)}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);margin-left:12px}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.herofig{background:linear-gradient(160deg,#efe4da,#e3d3c8);padding:26px;border-radius:2px}
+
+/* sections */
+.sec{padding:66px 0;border-top:1px solid var(--line)}
+.sechead{text-align:center;margin-bottom:42px}
+.sechead h2{font-size:30px;letter-spacing:6px;font-weight:600}
+.sechead p{color:var(--soft);font-size:14px;letter-spacing:2px;margin-top:10px}
+
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cat{background:#fff;border:1px solid var(--line);padding:20px;text-align:center}
+.cat h3{font-size:19px;letter-spacing:3px;margin:16px 0 6px}
+.cat p{font-size:13px;color:var(--soft);font-family:"Microsoft YaHei",sans-serif}
+.cat:hover{border-color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line)}
+.card .ph{padding:18px}
+.card .meta{padding:14px 16px 18px;border-top:1px solid var(--line)}
+.card h4{font-size:16px;letter-spacing:1.5px;font-weight:600}
+.card .tag{font-size:12px;color:var(--soft);font-family:"Microsoft YaHei",sans-serif;margin-top:2px}
+.price{color:var(--accent);margin-top:8px;font-size:16px;letter-spacing:1px}
+.price s{color:#b9b0a7;font-size:13px;margin-left:8px}
+
+.band{background:var(--ink);color:#f3ede6;padding:60px 0;text-align:center}
+.band h2{font-size:28px;letter-spacing:8px;margin-bottom:14px}
+.band p{color:#c7bcb1;font-size:14px;letter-spacing:2px;max-width:640px;margin:0 auto 26px}
+.band .btn{background:#f3ede6;color:var(--ink);border-color:#f3ede6}
+.band .btn:hover{background:transparent;color:#f3ede6}
+
+.notes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.notes div{padding:18px;border:1px solid var(--line);background:#fff}
+.notes strong{display:block;letter-spacing:3px;margin-bottom:6px}
+.notes span{font-size:13px;color:var(--soft);font-family:"Microsoft YaHei",sans-serif}
+
+footer{background:#f1ebe4;border-top:1px solid var(--line);padding:48px 0 28px;font-family:"Microsoft YaHei",sans-serif}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.fgrid h5{font-size:14px;letter-spacing:3px;margin-bottom:14px;font-family:"Songti SC",serif}
+.fgrid ul{list-style:none;font-size:13px;color:var(--soft);line-height:2.2}
+.fgrid a:hover{color:var(--accent)}
+.fbot{text-align:center;color:#8d837b;font-size:12.5px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:40px 0}
+  .hero h1{font-size:32px}
+  .grid,.cats,.notes,.fgrid{grid-template-columns:repeat(2,1fr)}
+  nav ul{gap:16px;font-size:14px}
+  .navrow{height:auto;flex-wrap:wrap;gap:10px;padding:12px 0}
+  .navtools{display:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">全场满 399 元包邮 · 新客首单立减 50 元 · 七天无理由退换</div>
+<header>
+  <div class="wrap navrow">
+    <a class="logo" href="index.html">素棠<span>SUTANG STUDIO</span></a>
+    <nav>
+      <ul>
+        <li><a class="on" href="index.html">首页</a></li>
+        <li><a href="products.html">全部商品</a></li>
+        <li><a href="lookbook.html">搭配专栏</a></li>
+        <li><a href="about.html">品牌故事</a></li>
+        <li><a href="contact.html">门店与客服</a></li>
+      </ul>
+    </nav>
+    <div class="navtools">购物袋（0）</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="kicker">2024 秋冬新季</div>
+      <h1>一件好衣服<br>应该让人忘记它的存在</h1>
+      <p>以舒适的廓形与温润的面料，陪你走过通勤的清晨、周末的街道与久别重逢的傍晚。</p>
+      <a class="btn" href="products.html">选购新季</a>
+      <a class="btn ghost" href="lookbook.html">看搭配</a>
+    </div>
+    <div class="herofig">
+      <svg viewBox="0 0 420 480" width="100%" height="100%" role="img" aria-label="秋冬外套插画">
+        <rect width="420" height="480" fill="#f7f1ea"/>
+        <circle cx="300" cy="110" r="72" fill="#e7d2c6" opacity=".7"/>
+        <path d="M210 70c16 0 29 13 29 29 0 11-6 21-15 26l48 22c22 10 35 32 35 56v70h-70v180h-54V273h-70v-70c0-24 13-46 35-56l48-22c-9-5-15-15-15-26 0-16 13-29 29-29z" fill="#8f6a58"/>
+        <path d="M210 125l34 16-34 48-34-48z" fill="#f7f1ea" opacity=".5"/>
+        <rect x="183" y="300" width="54" height="8" fill="#f7f1ea" opacity=".6"/>
+        <path d="M60 430h300" stroke="#d9c5b7" stroke-width="2"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><h2>品类速览</h2><p>按场景挑选，少试错，更省心</p></div>
+    <div class="cats">
+      <a class="cat" href="products.html">
+        <svg viewBox="0 0 200 150" height="130" width="100%"><rect width="200" height="150" fill="#f3e9e0"/><path d="M100 30l30 14c14 7 22 21 22 36v40H48V80c0-15 8-29 22-36l30-14z" fill="#9c5a4a"/><path d="M100 44v76" stroke="#f3e9e0" stroke-width="3"/></svg>
+        <h3>大衣外套</h3><p>羊毛混纺・落肩廓形</p>
+      </a>
+      <a class="cat" href="products.html">
+        <svg viewBox="0 0 200 150" height="130" width="100%"><rect width="200" height="150" fill="#eef0e9"/><path d="M70 28h60l16 20-18 12 6 62H66l6-62-18-12z" fill="#6f7a63"/></svg>
+        <h3>针织衫</h3><p>细腻亲肤・不扎不痒</p>
+      </a>
+      <a class="cat" href="products.html">
+        <svg viewBox="0 0 200 150" height="130" width="100%"><rect width="200" height="150" fill="#eae6f0"/><path d="M80 26h40l8 24 24 72H48l24-72z" fill="#6a6079"/><path d="M80 50h40" stroke="#eae6f0" stroke-width="3"/></svg>
+        <h3>连衣裙</h3><p>通勤、约会两相宜</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sechead"><h2>本周热卖</h2><p>库存有限，补货约需 7 个工作日</p></div>
+    <div class="grid">
+      <a class="card" href="products.html">
+        <div class="ph"><svg viewBox="0 0 200 240" width="100%"><rect width="200" height="240" fill="#f5ece3"/><path d="M100 50l34 16c14 7 22 20 22 35v30h-24v80H68v-80H44V101c0-15 8-28 22-35l34-16z" fill="#b08268"/></svg></div>
+        <div class="meta"><h4>落肩双面呢大衣</h4><div class="tag">驼 / 雾霾灰 · S-XL</div><div class="price">¥899 <s>¥1180</s></div></div>
+      </a>
+      <a class="card" href="products.html">
+        <div class="ph"><svg viewBox="0 0 200 240" width="100%"><rect width="200" height="240" fill="#eef1ea"/><path d="M74 52h52l20 22-20 14 6 100H68l6-100-20-14z" fill="#7d8a70"/></svg></div>
+        <div class="meta"><h4>半高领羊绒针织衫</h4><div class="tag">燕麦 / 墨绿 · 均码</div><div class="price">¥459</div></div>
+      </a>
+      <a class="card" href="products.html">
+        <div class="ph"><svg viewBox="0 0 200 240" width="100%"><rect width="200" height="240" fill="#ece8f0"/><path d="M82 48h36l10 28 26 112H46l26-112z" fill="#6c6279"/><path d="M82 76h36" stroke="#ece8f0" stroke-width="3"/></svg></div>
+        <div class="meta"><h4>醋酸垂感长裙</h4><div class="tag">藏青 / 黑 · S-L</div><div class="price">¥589</div></div>
+      </a>
+      <a class="card" href="products.html">
+        <div class="ph"><svg viewBox="0 0 200 240" width="100%"><rect width="200" height="240" fill="#f1ece6"/><path d="M70 48h60v34H70z" fill="#94715c"/><path d="M76 82h48l12 110H64z" fill="#94715c"/></svg></div>
+        <div class="meta"><h4>直筒西装阔腿裤</h4><div class="tag">黑 / 浅卡其 · 25-31</div><div class="price">¥399</div></div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:36px"><a class="btn" href="products.html">查看全部 48 款</a></div>
+  </section>
+</main>
+
+<section class="band">
+  <div class="wrap">
+    <h2>尺码不合，免费换一次</h2>
+    <p>我们知道网购最怕"尺码不对"。下单后七天内，只要吊牌完好，首次换码运费由我们承担。</p>
+    <a class="btn" href="contact.html">联系尺码顾问</a>
+  </div>
+</section>
+
+<main class="wrap">
+  <section class="sec" style="border-top:none">
+    <div class="notes">
+      <div><strong>面料可溯</strong><span>每款标注成分与产地</span></div>
+      <div><strong>真人试穿</strong><span>提供 158-175cm 实拍参考</span></div>
+      <div><strong>顺丰发货</strong><span>下午三点前付款当日发出</span></div>
+      <div><strong>售后无忧</strong><span>七天无理由・一年线头保修</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h5>素棠 SUTANG</h5>
+        <ul>
+          <li>成立于 2016 年，杭州</li>
+          <li>做适合中国女性身形的日常衣服</li>
+          <li>客服时间：每日 9:00–21:00</li>
+        </ul>
+      </div>
+      <div>
+        <h5>购物指南</h5>
+        <ul>
+          <li><a href="products.html">全部商品</a></li>
+          <li><a href="size.html">尺码与量体</a></li>
+          <li><a href="contact.html">配送与运费</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于我们</h5>
+        <ul>
+          <li><a href="about.html">品牌故事</a></li>
+          <li><a href="lookbook.html">搭配专栏</a></li>
+          <li><a href="contact.html">线下门店</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>联系方式</h5>
+        <ul>
+          <li>客服热线 400-826-1680</li>
+          <li>邮箱 hello@sutang-studio.cn</li>
+          <li>微信公众号：素棠衣橱</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">素棠服饰（杭州）有限公司 · 浙ICP备16000000号 · 本站商品图为插画示意</div>
+  </div>
+</footer>
+</body>
+</html>

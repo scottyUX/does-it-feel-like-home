@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4eee1">
+<title>拾味山房 · 苏州淮扬菜｜平江路 128 号</title>
+<meta name="description" content="拾味山房——平江路明万历老宅里的淮扬菜馆。不时不食，四时更迭菜单，雅间临河，蟹粉狮子头、文思豆腐羹、蟹酿橙为镇店三味。">
+<style>
+:root{
+  --paper:#f4eee1; --paper2:#ebe2cf; --paper3:#f9f4e9;
+  --ink:#211b14; --ink2:#6b6154; --line:rgba(33,27,20,.16);
+  --cinnabar:#b23a2a; --cinnabar-d:#8f2d20; --bronze:#a6874f; --pine:#3f5a48;
+  --dark:#171310; --dark2:#221c15;
+  --fd:"Songti SC","STSong","SimSun","Noto Serif CJK SC",serif;
+  --fk:"Kaiti SC","STKaiti","KaiTi","FangSong",serif;
+  --fb:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+::selection{background:var(--cinnabar);color:#fff}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+svg{display:block;max-width:100%}
+button{font-family:inherit}
+.container{width:min(1200px,92vw);margin-inline:auto}
+
+.site-head{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,238,225,.94);transition:border-color .3s,box-shadow .3s;border-bottom:1px solid transparent}
+.site-head.sc{border-color:var(--line);box-shadow:0 8px 28px rgba(33,27,20,.07)}
+.head-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-seal{width:42px;height:42px;background:var(--cinnabar);color:#f6efe2;display:grid;place-items:center;font-family:var(--fk);font-size:24px;border-radius:9px;transform:rotate(-4deg);box-shadow:2px 3px 0 rgba(33,27,20,.14);transition:transform .3s}
+.brand:hover .brand-seal{transform:rotate(4deg) scale(1.05)}
+.brand-tx b{font-family:var(--fd);font-size:19px;letter-spacing:.3em;display:block;line-height:1.25;font-weight:700}
+.brand-tx i{font-style:normal;font-size:9px;letter-spacing:.34em;color:var(--ink2)}
+.site-nav{display:flex;align-items:center;gap:32px}
+.site-nav a{font-size:14px;letter-spacing:.28em;position:relative;padding:6px 0;transition:color .3s}
+.site-nav a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--cinnabar);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.77,0,.18,1)}
+.site-nav a:not(.nav-cta):hover::after,.site-nav a[aria-current]::after{transform:scaleX(1);transform-origin:left}
+.site-nav a[aria-current]{color:var(--cinnabar)}
+.nav-cta{background:var(--cinnabar);color:#f8f1e4;padding:10px 22px 10px 26px;border-radius:2px;transition:background .3s,transform .3s}
+.nav-cta:hover{background:var(--cinnabar-d);transform:translateY(-2px)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--cinnabar);width:0}
+.nav-burger{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer;flex-direction:column;justify-content:center;gap:6px;align-items:center}
+.nav-burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+.nav-burger.x span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-burger.x span:nth-child(2){opacity:0}
+.nav-burger.x span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .9s cubic-bezier(.22,.61,.21,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+.mask{overflow:hidden}
+.mask>span{display:block;transform:translateY(112%);transition:transform .95s cubic-bezier(.22,.61,.21,1);transition-delay:var(--d,0s)}
+.mask.in>span{transform:none}
+.vmask{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,.5s)}
+.vmask.in{opacity:1;transform:none}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.5em;color:var(--cinnabar)}
+.eyebrow::before{content:"";width:46px;height:1px;background:var(--cinnabar)}
+.sec{padding:clamp(70px,9vw,110px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(36px,5vw,60px)}
+.sec-title{font-family:var(--fd);font-size:clamp(30px,4.4vw,52px);letter-spacing:.14em;font-weight:700;margin-top:18px}
+.sec-sub{max-width:340px;color:var(--ink2);font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--cinnabar);color:#f8f1e4;padding:14px 30px;font-size:14px;letter-spacing:.3em;border:0;cursor:pointer;border-radius:2px;transition:.35s}
+.btn:hover{background:var(--cinnabar-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(178,58,42,.28)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);box-shadow:0 10px 24px rgba(33,27,20,.2)}
+.lnk{letter-spacing:.2em;border-bottom:1px solid var(--cinnabar);padding-bottom:4px;color:var(--cinnabar);transition:.3s}
+.lnk:hover{letter-spacing:.32em}
+
+/* 开卷 */
+.hero{padding:150px 0 56px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero-row{display:flex;align-items:flex-end;gap:28px;margin-top:22px}
+.hero-title{font-family:var(--fd);font-size:clamp(56px,8.4vw,108px);letter-spacing:.1em;line-height:1.06;font-weight:700}
+.hero-motto{writing-mode:vertical-rl;font-family:var(--fk);font-size:18px;letter-spacing:.62em;color:var(--ink2);border-left:1px solid var(--line);padding-left:20px;height:190px}
+.hero-lede{margin-top:26px;max-width:46ch;color:var(--ink2);font-size:16px}
+.hero-lede b{color:var(--cinnabar);font-weight:600}
+.today{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;border:1px solid var(--line);background:var(--paper3);padding:13px 18px;margin-top:30px;font-size:14px;letter-spacing:.06em}
+.today b{color:var(--cinnabar);font-family:var(--fd);letter-spacing:.2em}
+.today .dot{width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
+.hero-art-wrap{display:flex;justify-content:center;position:relative}
+.hero-art{width:min(440px,92%)}
+.hero-art .scene{transform-origin:230px 220px;animation:breath 9s ease-in-out infinite}
+@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+.steam{fill:none;stroke:#6b6154;stroke-width:2.5;stroke-linecap:round;opacity:0;animation:steam 4s ease-in-out infinite}
+.s2{animation-delay:1.3s}.s3{animation-delay:2.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}35%{opacity:.7}100%{opacity:0;transform:translateY(-16px)}}
+
+/* 走马灯 */
+.mq{overflow:hidden;background:var(--ink);color:#e8ddc8;border-block:1px solid rgba(244,238,225,.1)}
+.mq-track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.mq-seq{display:flex;align-items:center;white-space:nowrap;font-family:var(--fk);font-size:15px;letter-spacing:.34em;padding:12px 0}
+.mq-seq span::after{content:"·";margin:0 1.4em;color:var(--bronze)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* 四时 */
+.season{position:relative;overflow:hidden}
+.season-stage{position:relative}
+.season-ghost{position:absolute;right:-14px;top:-70px;font-family:var(--fk);font-size:clamp(140px,20vw,240px);color:rgba(178,58,42,.08);line-height:1;pointer-events:none;z-index:0}
+.season-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:38px;position:relative;z-index:2}
+.season-tab{background:var(--paper3);border:1px solid var(--line);padding:16px;text-align:left;cursor:pointer;transition:.35s;border-radius:2px}
+.season-tab b{font-family:var(--fd);font-size:26px;letter-spacing:.2em;display:block;line-height:1.3}
+.season-tab i{font-style:normal;font-size:12px;color:var(--ink2);letter-spacing:.08em;display:block;margin-top:4px}
+.season-tab:hover{transform:translateY(-3px);border-color:var(--bronze)}
+.season-tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.season-tab.on i{color:#b7ab97}
+.season-panel{display:none;position:relative;z-index:2}
+.season-panel.on{display:block;animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.season-list{display:grid;grid-template-columns:1fr 1fr;gap:8px 52px}
+.season-list li{border-bottom:1px dashed var(--line);padding:14px 0}
+.sl-top{display:flex;align-items:baseline;gap:12px}
+.sl-top b{font-family:var(--fd);font-size:19px;letter-spacing:.1em}
+.sl-top em{font-style:normal;color:var(--cinnabar);font-weight:600;white-space:nowrap}
+.lead{flex:1;border-bottom:1px dotted rgba(33,27,20,.3);transform:translateY(-4px)}
+.season-list p{font-size:13px;color:var(--ink2);margin-top:2px}
+.season-note{margin-top:30px;font-size:13px;color:var(--pine);background:rgba(63,90,72,.07);border-left:3px solid var(--pine);padding:12px 16px;letter-spacing:.05em}
+
+/* 镇店三味 */
+.sig-sec{background:var(--paper2)}
+.sig-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.sig-sticky{position:sticky;top:110px}
+.sig-note{color:var(--ink2);margin-top:20px;max-width:34ch}
+.sig-vtx{writing-mode:vertical-rl;font-family:var(--fk);font-size:22px;letter-spacing:.9em;color:rgba(33,27,20,.28);margin-top:36px;height:200px}
+.sig-card{display:grid;grid-template-columns:200px 1fr;gap:26px;background:var(--paper3);border:1px solid var(--line);padding:26px;margin-bottom:24px;transition:transform .4s,box-shadow .4s}
+.sig-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(33,27,20,.1)}
+.sig-card figure{display:grid;place-items:center;background:var(--paper);border:1px solid var(--line)}
+.sig-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sig-card h3{font-family:var(--fd);font-size:24px;letter-spacing:.12em}
+.sig-card .pr{color:var(--cinnabar);font-weight:700;margin-left:auto;white-space:nowrap}
+.sig-card small{font-family:var(--fk);color:var(--ink2);letter-spacing:.16em;display:block;width:100%}
+.sig-card p{font-size:14px;color:var(--ink2);margin-top:10px}
+.sig-fact{margin-top:14px;font-size:12px;letter-spacing:.2em;color:var(--bronze);border-top:1px dashed var(--line);padding-top:12px}
+
+/* 主厨 */
+.chef-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.chef-fig{background:var(--paper3);border:1px solid var(--line);padding:16px}
+.chef-fig figcaption{display:flex;align-items:baseline;gap:14px;padding:14px 6px 4px}
+.chef-fig b{font-family:var(--fd);font-size:20px;letter-spacing:.2em}
+.chef-fig i{font-style:normal;font-size:13px;color:var(--ink2);letter-spacing:.1em}
+.chef-p{color:var(--ink2);margin-top:22px;max-width:56ch}
+.chef-list{margin:26px 0 30px;border-top:1px solid var(--line)}
+.chef-list li{padding:14px 0 14px 26px;border-bottom:1px solid var(--line);position:relative;font-size:15px}
+.chef-list li::before{content:"※";position:absolute;left:2px;color:var(--cinnabar)}
+
+/* 雅间 */
+.sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sp-card{border:1px solid var(--line);background:var(--paper3);transition:transform .4s,box-shadow .4s;overflow:hidden}
+.sp-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(33,27,20,.12)}
+.sp-card svg{transition:transform .8s cubic-bezier(.22,.61,.21,1)}
+.sp-card:hover svg{transform:scale(1.05)}
+.lat{opacity:.55}
+.sp-cap{display:flex;justify-content:space-between;align-items:baseline;padding:16px 20px;border-top:1px solid var(--line)}
+.sp-cap b{font-family:var(--fd);font-size:19px;letter-spacing:.16em}
+.sp-cap small{color:var(--ink2);font-size:12px;letter-spacing:.1em}
+.ph-more{text-align:right}
+
+/* 口碑 */
+.quotes-sec{background:var(--dark2);color:#d8cdba}
+.quotes-sec .eyebrow{color:var(--bronze)}
+.quotes-sec .eyebrow::before{background:var(--bronze)}
+.quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.quote{background:#2a231b;border:1px solid rgba(244,238,225,.12);padding:28px 24px;position:relative;transition:transform .4s,box-shadow .4s}
+.quote::before{content:"「";position:absolute;top:4px;right:12px;font-family:var(--fk);font-size:42px;color:rgba(178,58,42,.5)}
+.quote:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,0,0,.3)}
+.quote p{font-size:14px;line-height:2}
+.quote footer{margin-top:18px;border-top:1px dashed rgba(244,238,225,.18);padding-top:12px}
+.quote b{font-family:var(--fd);letter-spacing:.12em;color:#f4eee1}
+.quote small{display:block;color:#8f8471;font-size:12px;letter-spacing:.08em;margin-top:2px}
+
+/* 候座 */
+.reserve{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.reserve::before{content:"候";position:absolute;font-family:var(--fk);font-size:380px;color:rgba(244,238,225,.04);right:-20px;bottom:-130px;line-height:1}
+.reserve-in{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative}
+.reserve h2{font-family:var(--fd);font-size:clamp(30px,4.6vw,50px);letter-spacing:.2em}
+.reserve .rp{color:#b7ab97;margin-top:10px;letter-spacing:.12em;font-size:14px}
+.reserve-r{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.reserve-tel{font-family:var(--fd);font-size:clamp(26px,3.4vw,38px);letter-spacing:.1em;color:#e8ddc8}
+.reserve-r small{color:#8f8471;letter-spacing:.14em}
+
+/* 页脚 */
+.site-foot{background:var(--dark);color:#cfc5b4;position:relative;overflow:hidden}
+.site-foot::before{content:"拾";position:absolute;right:-50px;bottom:-100px;font-family:var(--fk);font-size:360px;color:rgba(244,238,225,.03);line-height:1}
+.foot-grid{display:grid;grid-template-columns:1.3fr .6fr 1fr 1.15fr;gap:44px;padding:70px 0 50px;position:relative}
+.foot-brand .seal{display:inline-grid;place-items:center;width:46px;background:var(--cinnabar);color:#f6efe2;font-family:var(--fk);font-size:22px;border-radius:8px;transform:rotate(-4deg);margin-bottom:18px;writing-mode:vertical-rl;padding:8px 0;letter-spacing:.14em}
+.foot-brand p{font-size:14px;color:#a89d8a;letter-spacing:.08em}
+.site-foot h4{font-size:13px;letter-spacing:.42em;color:#8f8471;margin-bottom:18px;font-weight:600}
+.site-foot li{font-size:14px;margin-bottom:10px}
+.site-foot li b{color:#f4eee1;font-weight:600;margin-right:6px}
+.site-foot a{transition:.3s;border-bottom:1px solid transparent}
+.site-foot a:hover{color:#f4eee1;border-color:var(--bronze)}
+.foot-bar{border-top:1px solid rgba(244,238,225,.12);padding:22px 0;display:flex;justify-content:space-between;gap:16px;font-size:12px;color:#7d7466;letter-spacing:.08em;flex-wrap:wrap;position:relative}
+
+@media(max-width:980px){
+  .hero{padding-top:118px}
+  .hero-grid,.sig-grid,.chef-grid{grid-template-columns:1fr}
+  .hero-art-wrap{order:-1}
+  .sig-sticky{position:static;margin-bottom:20px}
+  .quotes{grid-template-columns:1fr 1fr}
+  .season-list{grid-template-columns:1fr}
+  .season-tabs{grid-template-columns:repeat(2,1fr)}
+  .sp-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .site-nav{position:fixed;top:76px;left:0;right:0;background:var(--paper);flex-direction:column;gap:2px;padding:14px 0 24px;border-bottom:1px solid var(--line);box-shadow:0 22px 44px rgba(33,27,20,.14);transform:translateY(-140%);transition:transform .45s cubic-bezier(.22,.61,.21,1)}
+  .site-nav.open{transform:translateY(0)}
+  .site-nav a{padding:13px;letter-spacing:.3em}
+  .nav-burger{display:flex}
+}
+@media(max-width:600px){
+  .head-in{height:66px}
+  .site-nav{top:66px}
+  .quotes,.season-tabs{grid-template-columns:1fr}
+  .sig-card{grid-template-columns:1fr}
+  .hero-row{align-items:flex-start}
+  .hero-motto{height:150px;font-size:15px}
+  .reserve-r{align-items:flex-start}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.mask>span,.vmask{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="container head-in">
+    <a class="brand" href="index.html" aria-label="拾味山房 首页">
+      <span class="brand-seal" aria-hidden="true">拾</span>
+      <span class="brand-tx"><b>拾味山房</b><i>SHIWEI SHANFANG · 苏州</i></span>
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <a href="index.html" aria-current="page">首页</a>
+      <a href="menu.html">菜单</a>
+      <a href="story.html">故事</a>
+      <a href="space.html">雅间</a>
+      <a class="nav-cta" href="book.html">在线订座</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="打开菜单导航"><span></span><span></span><span></span></button>
+  </div>
+  <div class="progress" id="pgBar"></div>
+</header>
+
+<main>
+<!-- 开卷 -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow reveal">苏州 · 平江路 · 淮扬雅馔</p>
+      <div class="hero-row">
+        <h1 class="hero-title mask" style="--d:.08s"><span>拾味山房</span></h1>
+        <p class="hero-motto vmask" style="--d:.6s">拾四时之味 · 宴山水之间</p>
+      </div>
+      <p class="hero-lede reveal" style="--d:.22s">明万历老宅里的一席淮扬菜。<b>不时不食</b>，晨市选材，文火慢炖——把苏州人骨子里的讲究，端上您的桌。</p>
+      <div class="today reveal" style="--d:.32s">
+        <b>今日</b><span id="todayTx"></span><span class="dot"></span><span>灶上例汤 · 腌笃鲜</span><span class="dot"></span><span>本季主推 · 蟹酿橙</span>
+      </div>
+      <div class="hero-cta reveal" style="--d:.42s">
+        <a class="btn" href="book.html"><span>在线订座</span></a>
+        <a class="btn btn-ghost" href="menu.html"><span>看本季食单</span></a>
+      </div>
+    </div>
+    <div class="hero-art-wrap reveal" style="--d:.3s">
+      <svg class="hero-art" viewBox="0 0 460 540" role="img" aria-label="拾味山房写意画意：花窗之内，远山近水，一盅时鲜">
+        <rect x="14" y="14" width="432" height="512" fill="#

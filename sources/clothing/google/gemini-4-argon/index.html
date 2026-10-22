@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>素华衣舍 · 东方自然主义女装 | 二〇二六春夏系列</title>
+  <style>
+    :root {
+      --bg-paper: #FAF7F2;
+      --bg-warm: #F3EDE2;
+      --bg-card: #FFFFFF;
+      --text-ink: #242321;
+      --text-muted: #6E6A63;
+      --text-light: #9A948C;
+      --accent-jade: #3B5B4F;
+      --accent-jade-dark: #2A433A;
+      --accent-lotus: #9E6B62;
+      --accent-gold: #B89660;
+      --border-subtle: #E5DEC9;
+      --shadow-soft: 0 10px 30px rgba(36, 35, 33, 0.06);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --font-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+      --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; transition: color 0.25s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .serif { font-family: var(--font-serif); }
+
+    /* 顶部通告栏 */
+    .top-bar {
+      background-color: var(--accent-jade);
+      color: #F4EFE6;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 9px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* 导航栏 */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo-mark {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid var(--accent-jade);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--accent-jade);
+      background: var(--bg-warm);
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      display: block;
+      margin-top: -4px;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .nav-link {
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      padding: 6px 0;
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--accent-jade);
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: var(--accent-jade);
+      font-weight: 500;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .action-btn {
+      font-size: 14px;
+      color: var(--text-ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      transition: all 0.2s ease;
+    }
+    .action-btn:hover {
+      border-color: var(--accent-jade);
+      color: var(--accent-jade);
+    }
+    .badge-count {
+      background: var(--accent-jade);
+      color: #fff;
+      font-size: 11px;
+      padding: 1px 7px;
+      border-radius: 99px;
+    }
+
+    /* 主视觉海报 */
+    .hero-section {
+      max-width: 1280px;
+      margin: 28px auto 64px;
+      padding: 0 28px;
+    }
+    .hero-card {
+      background: linear-gradient(125deg, #EFE9DC 0%, #E3DDD0 55%, #D6CFC0 100%);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 520px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-text {
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .season-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--accent-jade);
+      margin-bottom: 18px;
+    }
+    .season-tag::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--accent-jade);
+    }
+    .hero-heading {
+      font-family: var(--font-serif);
+      font-size: 44px;
+      line-height: 1.28;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.85;
+    }
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent-jade);
+      color: #fff;
+      padding: 13px 30px;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      border-radius: var(--radius-sm);
+      transition: background 0.25s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    .btn-primary:hover {
+      background: var(--accent-jade-dark);
+    }
+    .btn-outline {
+      border: 1px solid var(--text-ink);
+      color: var(--text-ink);
+      padding: 13px 28px;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      border-radius: var(--radius-sm);
+      transition: all 0.25s ease;
+      display: inline-block;
+      text-align: center;
+    }
+    .btn-outline:hover {
+      background: var(--text-ink);
+      color: #fff;
+    }
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: radial-gradient(circle at 60% 45%, rgba(255,255,255,0.6), transparent 70%);
+    }
+
+    /* 品牌亮点 */
+    .pillars-section {
+      max-width: 1280px;
+      margin: 0 auto 72px;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 28px 30px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .pillar-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      color: var(--accent-jade);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-serif);
+      font-size: 19px;
+      border: 1px solid var(--border-subtle);
+    }
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+    .pillar-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* 章节标题 */
+    .section-header {
+      max-width: 1280px;
+      margin: 0 auto 36px;
+      padding: 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--accent-jade);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+    .section-more {
+      font-size: 14px;
+      color: var(--accent-jade);
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--accent-jade);
+      padding-bottom: 2px;
+    }
+
+    /* 商品展示网格 */
+    .featured-grid {
+      max-width: 1280px;
+      margin: 0 auto 80px;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+    .product-thumb {
+      position: relative;
+      height: 310px;
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(59, 91, 79, 0.9);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 10px;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+    }
+    .product-info {
+      padding: 18px 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-fabric-tag {
+      font-size: 12px;
+      color: var(--accent-lotus);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+    .product-meta {
+      margin-top: auto;
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-subtle);
+    }
+    .product-price {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-ink);
+    }
+    .add-bag-btn {
+      font-size: 13px;
+      color: var(--accent-jade);
+      border: 1px solid var(--accent-jade);
+      padding: 5px 12px;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+    .add-bag-btn:hover {
+      background: var(--accent-jade);
+      color: #fff;
+    }
+
+    /* 四大天然织物实验室 */
+    .fabric-showcase {
+      background: var(--bg-warm);
+      padding: 76px 28px;
+      margin-bottom: 80px;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .fabric-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .fabric-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .fabric-tab {
+      text-align: left;
+      padding: 18px 20px;
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .fabric-tab.active {
+      border-color: var(--accent-jade);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-soft);
+    }
+    .fabric-tab h4 {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      margin-bottom: 4px;
+      color: var(--text-ink);
+    }
+    .fabric-tab p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+    .fabric-detail-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+    .fabric-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .spec-box span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .spec-box strong {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--accent-jade);
+    }
+
+    /* 顾客口碑 */
+    .reviews-section {
+      max-width: 1280px;
+      margin: 0 auto 88px;
+      padding: 0 28px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 28px;
+      border-radius: var(--radius-sm);
+    }
+    .review-quote {
+      font-size: 14.5px;
+      color: var(--text-ink);
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+    .review-author {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+    }
+
+    /* 页脚 */
+    .site-footer {
+      background: #22211F;
+      color: #D8D2C7;
+      padding: 64px 28px 36px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: #9E988E;
+      max-width: 320px;
+      margin-bottom: 18px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #A9A399;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 28px auto 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: #7E7970;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* 购物袋抽屉与详情弹窗 */
+    .drawer-backdrop, .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 24, 22, 0.45);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open, .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .bag-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      max-width: 92vw;
+      height: 100vh;
+      background: var(--bg-paper);
+      z-index: 210;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.12);
+    }
+    .bag-drawer.open { transform: translateX(0); }
+    .drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-header h3 { font-family: var(--font-serif); font-size: 19px; }
+    .close-btn {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 2px;
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+    .bag-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      gap: 12px;
+    }
+    .bag-item-title { font-family: var(--font-serif); font-size: 15px; }
+    .bag-item-sub { font-size: 12px; color: var(--text-muted); }
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      font-size: 13px;
+    }
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-warm);
+    }
+    .bag-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: var(--accent-jade);
+      color: #fff;
+      padding: 13px;
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-sm);
+    }
+
+    /* 详情弹窗 */
+    .modal-overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-card {
+      background: var(--bg-paper);
+      max-width: 780px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    }
+    .modal-visual {
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    .modal-content {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .option-group { margin: 14px 0; }
+    .option-label { font-size: 12.5px; color: var(--text-muted); margin-bottom: 6px; display: block; }
+    .option-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .option-pill {
+      padding: 5px 14px;
+      font-size: 13px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border-radius: 2px;
+    }
+    .option-pill.selected {
+      border-color: var(--accent-jade);
+      background: var(--accent-jade);
+      color: #fff;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--accent-jade);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 99px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 300;
+    }
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .hero-card, .fabric-inner, .modal-card { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillars-section, .reviews-grid, .footer-inner { grid-template-columns: 1fr; }
+      .header-inner { flex-wrap: wrap; height: auto; padding: 14px 20px; gap: 12px; }
+      .main-nav { gap: 20px; width: 100%; justify-content: center; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
+    }
+    @media (max-width: 560px) {
+      .featured-grid { grid-template-columns: 1fr; }
+      .hero-heading { font-size: 32px; }
+      .hero-text { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部通告栏 -->
+  <div class="top-bar">
+    <span>二〇二六春夏「林间初霁」系列现已上市</span>
+    <span>|</span>
+    <span>全场顺丰包邮 · 附赠天然雪松木防虫衣香片</span>
+  </div>
+
+  <!-- 网站头部导航 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">素</div>
+        <div>
+          <span class="brand-title">素华衣舍</span>
+          <span class="brand-sub">东方自然主义女装</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="主导航">
+        <a href="index.html" class="nav-link active">首页</a>
+        <a href="collection.html" class="nav-link">全部衣裳</a>
+        <a href="lookbook.html" class="nav-link">穿搭画册</a>
+        <a href="about.html" class="nav-link">品牌与门店</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="collection.html#sizeAdvisorSection" class="action-btn">量体选码</a>
+        <button class="action-btn" id="openBagBtn" aria-label="查看购物袋">
+          <span>购物袋</span>
+          <span class="badge-count" id="bagCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主视觉海报 -->
+  <section class="hero-section">
+    <div class="hero-card">
+      <div class="hero-text">
+        <span class="season-tag">二〇二六春夏雅集 · 林间初霁</span>
+        <h1 class="hero-heading">松弛有度，<br>衣如江南烟雨</h1>
+        <p class="hero-desc">
+          取材苏杭桑蚕丝、顺德非遗香云纱与法国雨露亚麻，以中式平面剪裁融汇当代廓形，为东方女性裁一件可穿十年的自在衣裳。
+        </p>
+        <div class="hero-cta-group">
+          <a href="collection.html" class="btn-primary">浏览当季衣裳</a>
+          <a href="lookbook.html" class="btn-outline">品读穿搭画册</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- 东方意境衣裳插画 SVG -->
+        <svg viewBox="0 0 380 420" width="100%" height="390" role="img" aria-label="林间初霁桑蚕丝长款风衣意境图">
+          <defs>
+            <linearGradient id="silkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#567769" />
+              <stop offset="100%" stop-color="#375247" />
+            </linearGradient>
+            <linearGradient id="innerDress" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FAF6EE" />
+              <stop offset="100%" stop-color="#E7DFCF" />
+            </linearGradient>
+          </defs>
+          <!-- 背景圆月与远山 -->
+          <circle cx="190" cy="195" r="155" fill="#F8F4EC" stroke="#DCD3C0" stroke-width="1.5" />
+          <path d="M55 265 Q125 220 195 255 T325 245 L325 320 L55 320 Z" fill="#E5DEC9" opacity="0.55" />
+          <!-- 衣架与木梁 -->
+          <line x1="110" y1="68" x2="270" y2="68" stroke="#8C6D46" stroke-width="4" stroke-linecap="round" />
+          <path d="M190 45 L190 68" stroke="#8C6D46" stroke-width="3" />
+          <!-- 内搭真丝长裙 -->
+          <path d="M150 72 L230 72 L248 358 L132 358 Z" fill="url(#innerDress)" stroke="#C9BFA8" stroke-width="1.2" />
+          <!-- 外披桑蚕丝长风衣 -->
+          <path d="M138 70 L175 70 L165 340 L108 332 L120 165 L86 205 L68 182 L124 85 Z" fill="url(#silkGrad)" />
+          <path d="M242 70 L205 70 L215 340 L272 332 L260 165 L294 205 L312 182 L256 85 Z" fill="url(#silkGrad)" />
+          <!-- 交领与系带细节 -->
+          <path d="M175 70 L190 145 L205 70" fill="none" stroke="#D8C8B0" stroke-width="2" />
+          <path d="M138 198 Q190 212 242 198" fill="none" stroke="#293E35" stroke-width="5" stroke-linecap="round" />
+          <path d="M205 203 Q222 250 236 285" fill="none" stroke="#293E35" stroke-width="4" stroke-linecap="round" />
+          <!-- 竹枝点缀 -->
+          <path d="M290 95 Q265 130 280 175" fill="none" stroke="#4A6B5D" stroke-width="1.5" />
+          <ellipse cx="272" cy="115" rx="12" ry="4" transform="rotate(-28 272 115)" fill="#4A6B5D" />
+          <ellipse cx="285" cy="138" rx="13" ry="4" transform="rotate(20 285 138)" fill="#4A6B5D" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三大制衣准则 -->
+  <section class="pillars-section">
+    <div class="pillar-card">
+      <div class="pillar-icon">丝</div>
+      <div>
+        <h2 class="pillar-title">天然植物与蚕丝织物</h2>
+        <p class="pillar-text">坚持选用六A级太湖桑蚕丝、顺德薯莨香云纱与有机雨露亚麻，亲肤透气，随岁月愈发温润。</p>
+      </div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">裁</div>
+      <div>
+        <h2 class="pillar-title">东方身形包容剪裁</h2>
+        <p class="pillar-text">深入研究中国女性肩颈与腰臀比例，微落肩与立裁活褶设计，藏肉显瘦而不失垂坠筋骨。</p>
+      </div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">养</div>
+      <div>
+        <h2 class="pillar-title">终身免费修缮与养护指导</h2>
+        <p class="pillar-text">凡素华衣舍出品衣裳，皆享盘扣补缀、尺寸微调及全国四大庭院门店蒸汽护理服务。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本季精选单品 -->
+  <div class="section-header">
+    <div>
+      <span class="section-eyebrow">二〇二六春夏雅集</span>
+      <h2 class="section-title">当季甄选衣裳</h2>
+    </div>
+    <a href="collection.html" class="section-more">查看全部八款衣裳 →</a>
+  </div>
+
+  <section class="featured-grid" id="homeFeaturedGrid"></section>
+
+  <!-- 四大天然织物实验室 -->
+  <section class="fabric-showcase">
+    <div class="fabric-inner">
+      <div>
+        <span class="section-eyebrow">织物寻源 · 经纬考究</span>
+        <h2 class="section-title" style="margin-bottom: 14px;">触摸会呼吸的东方织物</h2>
+        <p style="color: var(--text-muted); font-size: 14.5px;">
+          我们深入江南丝绸工坊与岭南晒莨草场，从源头定制纱线支数与植物染色。点击下方织物名录，细览每一种面料的肌理与养护之道。
+        </p>
+
+        <div class="fabric-tabs" id="fabricTabs">
+          <button class="fabric-tab active" data-fabric="silk">
+            <h4>太湖双宫桑蚕丝</h4>
+            <p>三十姆米重磅微肌理</p>
+          </button>
+          <button class="fabric-tab" data-fabric="gambiered">
+            <h4>顺德非遗香云纱</h4>
+            <p>三洗九煮十八晒薯莨染</p>
+          </button>
+          <button class="fabric-tab" data-fabric="linen">
+            <h4>诺曼底雨露亚麻</h4>
+            <p>交织兰精天丝柔滑垂顺</p>
+          </button>
+          <button class="fabric-tab" data-fabric="brocade">
+            <h4>苏州非遗真丝宋锦</h4>
+            <p>古法如意云纹提花织造</p>
+          </button>
+        </div>
+      </div>
+
+      <div class="fabric-detail-panel" id="fabricDetailPanel">
+        <span class="product-fabric-tag" id="fabRegion">产地溯源：江苏苏州 · 震泽蚕丝工坊</span>
+        <h3 class="serif" style="font-size: 24px; margin: 6px 0 14px;" id="fabName">太湖双宫桑蚕丝</h3>
+        <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.85;" id="fabDesc">
+          取自两颗蚕宝宝共同吐丝结成的双宫茧，丝线自然带有竹节般的细腻肌理。相比普通缎面真丝，双宫丝更具挺括骨感，不易贴肤走光，光泽如珍珠般内敛温润。
+        </p>
+        <div class="fabric-specs">
+          <div class="spec-box">
+            <span>织物克重</span>
+            <strong id="fabWeight">三十姆米重磅</strong>
+          </div>
+          <div class="spec-box">
+            <span>亲肤透气度</span>
+            <strong id="fabBreath">极佳 · 四季皆宜</strong>
+          </div>
+          <div class="spec-box">
+            <span>日常打理</span>
+            <strong id="fabCare">冷水轻柔手洗</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 顾客口碑 -->
+  <section class="reviews-section">
+    <div class="section-header" style="padding: 0; margin-bottom: 28px;">
+      <div>
+        <span class="section-eyebrow">衣友尺素</span>
+        <h2 class="section-title">她们的穿着日常</h2>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p class="review-quote">“远山黛色的桑蚕丝风衣实物比图片更有质感，三十姆米的厚度在春末初夏穿刚刚好，在办公室空调房里披着既有风度又透气。”</p>
+        <div class="review-author">
+          <span>林女士 · 上海徐汇</span>
+          <span>选码：165厘米 / 108斤 · 二码（中码）</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <p class="review-quote">“香云纱立领衬衫的贝母盘扣非常精致，领口高度恰到好处，不会卡脖子。洗过一次晾干后完全不用熨烫，越穿越软糯。”</p>
+        <div class="review-author">
+          <span>周女士 · 杭州西湖</span>
+          <span>选码：160厘米 / 96斤 · 一码（小码）</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <p class="review-quote">“天丝亚麻阔腿裤已经是第二次回购了，既有亚麻的清凉又有天丝的垂感，高腰双褶对生完宝宝后的小腹特别友好。”</p>
+        <div class="review-author">
+          <span>陈女士 · 北京朝阳</span>
+          <span>选码：168厘米 / 122斤 · 三码（大码）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>素华衣舍</h3>
+        <p>创立于江南丝绸之府，专注当代中国女性身形与东方自然织物研究。以衣为媒，安顿身心。</p>
+        <p style="font-size:13px; color:#B89660;">服务热线：四〇〇 · 八八六 · 六六八八（每日九时至二十一时）</p>
+      </div>
+      <div class="footer-col">
+        <h4>栏目导览</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">品牌首页</a></li>
+          <li><a href="collection.html">全部衣裳</a></li>
+          <li><a href="lookbook.html">穿搭画册</a></li>
+          <li><a href="about.html">品牌与门店</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>尊享服务</h4>
+        <ul class="footer-links">
+          <li><a href="collection.html#sizeAdvisorSection">量体选码助手</a></li>
+          <li><a href="about.html#bookingSection">到店试衣预约</a></li>
+          <li><a href="about.html#careSection">真丝终身养护说明</a></li>
+          <li><a href="about.html">七日无忧退换承诺</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>线下庭院体验店</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">上海 · 衡山路梧桐庭院店</a></li>
+          <li><a href="about.html">杭州 · 西湖丝绸工坊概念店</a></li>
+          <li><a href="about.html">北京 · 国子监胡同四合院店</a></li>
+          <li><a href="about.html">苏州 · 平江路非遗美学空间</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>版权所有 素华衣舍服饰文化有限公司 · 保留所有权利</span>
+      <span>浙公网安备 叁叁〇壹〇陆〇〇〇〇捌捌号 · 东方自然主义女装</span>
+    </div>
+  </footer>
+
+  <!-- 购物袋抽屉 -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="bag-drawer" id="bagDrawer" aria-label="购物袋">
+    <div class="drawer-header">
+      <h3>我的购物袋</h3>
+      <button class="close-btn" id="closeBagBtn">关闭</button>
+    </div>
+    <div class="drawer-body" id="bagItemsContainer"></div>
+    <div class="drawer-footer">
+      <div class="bag-total-row">
+        <span>合计金额</span>
+        <span id="bagTotalAmount">￥0</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">立即结算置衣</button>
+    </div>
+  </aside>
+
+  <!-- 商品详情弹窗 -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <div class="modal-visual" id="modalSvgHolder"></div>
+      <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="product-fabric-tag" id="modalFabric"></span>
+            <h3 class="serif" style="font-size:22px; margin-bottom:6px;" id="modalTitle"></h3>
+          </div>
+          <button class="close-btn" id="closeModalBtn">关闭</button>
+        </div>
+        <p style="font-size:20px; font-weight:600; color:var(--accent-jade); margin-bottom:10px;" id="modalPrice"></p>
+        <p style="font-size:14px; color:var(--text-muted); line-height:1.75; margin-bottom:10px;" id="modalDesc"></p>
+
+        <div class="option-group">
+          <span class="option-label">选择色泽</span>
+          <div class="option-pills" id="modalColorPills"></div>
+        </div>
+
+        <div class="option-group">
+          <span class="option-label">选择尺码</span>
+          <div class="option-pills" id="modalSizePills">
+            <button class="option-pill" data-size="一码（小码）">一码（小码）</button>
+            <button class="option-pill selected" data-size="二码（中码）">二码（中码）</button>
+            <button class="option-pill" data-size="三码（大码）">三码（大码）</button>
+          </div>
+        </div>
+
+        <div style="margin-top:auto; padding-top:16px;">
+          <button class="btn-primary" style="width:100%;" id="modalAddBagBtn">加入购物袋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="toastMsg">已加入购物袋</div>
+
+  <script>
+    const FEATURED_PRODUCTS = [
+      {
+        id: "p1",
+        name: "桑蚕丝垂感长款风衣",
+        fabric: "三十姆米双宫桑蚕丝",
+        price: 1680,
+        badge: "当季主推",
+        colors: ["远山黛", "宣纸白", "暮云灰"],
+        desc: "甄选太湖流域双宫桑蚕丝，宽松落肩廓形配合可拆卸腰带，行走间衣袂生风，兼顾早晚微凉与午后暖阳。",
+        svgType: "trench"
+      },
+      {
+        id: "p2",
+        name: "非遗香云纱新中式立领衬衫",
+        fabric: "顺德晒莨真丝香云纱",
+        price: 1280,
+        badge: "非遗匠作",
+        colors: ["竹叶青", "檀木褐"],
+        desc: "历经三洗九煮十八晒，薯莨汁液浸染出独特微光。手工天然淡水贝母盘扣，微宽松剪裁不束缚脖颈。",
+        svgType: "shirt"
+      },
+      {
+        id: "p3",
+        name: "双宫丝斜襟收腰连衣裙",
+        fabric: "重磅桑蚕丝提花",
+        price: 1490,
+        badge: "人气雅款",
+        colors: ["藕荷粉", "月牙白"],
+        desc: "汲取传统交领右衽灵感，侧腰缀以温润珍珠扣，高腰伞摆自然流淌至小腿中段，尽显温婉书卷气。",
+        svgType: "dress"
+      },
+      {
+        id: "p4",
+        name: "天丝亚麻高腰双褶阔腿裤",
+        fabric: "法国诺曼底雨露亚麻",
+        price: 790,
+        badge: "百搭常青",
+        colors: ["燕麦色", "墨玉黑", "浅石绿"],
+        desc: "将亚麻的筋骨感与天丝的柔滑融为一体，前腰活褶修饰腹臀线条，裤管挺括流畅，步履生风。",
+        svgType: "pants"
+      }
+    ];
+
+    function renderGarmentSVG(type) {
+      if (type === "trench") {
+        return `<svg viewBox="0 0 200 240" width="160" height="210">
+          <path d="M65 30 L135 30 L165 95 L145 108 L130 68 L138 215 L62 215 L70 68 L55 108 L35 95 Z" fill="#4A6B5D" stroke="#2F473D" stroke-width="1.5"/>
+          <path d="M82 30 L100 88 L118 30" fill="#F2EDE2" stroke="#2F473D" stroke-width="1.2"/>
+          <line x1="65" y1="125" x2="135" y2="125" stroke="#2F473D" stroke-width="4" stroke-linecap="round"/>
+        </svg>`;
+      }
+      if (type === "shirt") {
+        return `<svg viewBox="0 0 200 240" width="160" height="210">
+          <path d="M68 42 L132 42 L162 115 L140 124 L126 78 L128 190 L72 190 L74 78 L60 124 L38 115 Z" fill="#6B7F6E" stroke="#465749" stroke-width="1.5"/>
+          <rect x="84" y="32" width="32" height="12" rx="3" fill="#556858" stroke="#465749"/>
+          <line x1="100" y1="44" x2="100" y2="188" stroke="#465749" stroke-width="1.2"/>
+          <circle cx="100" cy="65" r="2.5" fill="#FAF6EE"/>
+          <circle cx="100" cy="95" r="2.5" fill="#FAF6EE"/>
+          <circle cx="100" cy="125" r="2.5" fill="#FAF6EE"/>
+        </svg>`;
+      }
+      if (type === "dress") {
+        return `<svg viewBox="0 0 200 240" width="160" height="210">
+          <path d="M74 35 L126 35 L146 85 L128 92 L120 68 L148 215 L52 215 L80 68 L72 92 L54 85 Z" fill="#C8A29C" stroke="#9B746E" stroke-width="1.5"/>
+          <path d="M78 35 L118 105" stroke="#9B746E" stroke-width="1.5" fill="none"/>
+          <circle cx="118" cy="105" r="3" fill="#FAF6EE"/>
+        </svg>`;
+      }
+      return `<svg viewBox="0 0 200 240" width="160" height="210">
+        <path d="M68 38 L132 38 L144 212 L106 212 L100 95 L94 212 L56 212 Z" fill="#DFD5C3" stroke="#A69B88" stroke-width="1.5"/>
+        <line x1="68" y1="52" x2="132" y2="52" stroke="#A69B88" stroke-width="1.2"/>
+        <line x1="84" y1="52" x2="80" y2="115" stroke="#B8AD99" stroke-width="1"/>
+        <line x1="116" y1="52" x2="120" y2="115" stroke="#B8AD99" stroke-width="1"/>
+      </svg>`;
+    }
+
+    // 渲染首页精选
+    const gridEl = document.getElementById("homeFeaturedGrid");
+    FEATURED_PRODUCTS.forEach(prod => {
+      const card = document.createElement("article");
+      card.className = "product-card";
+      card.innerHTML = `
+        <div class="product-thumb" data-quick="${prod.id}">
+          <span class="product-badge">${prod.badge}</span>
+          ${renderGarmentSVG(prod.svgType)}
+        </div>
+        <div class="product-info">
+          <span class="product-fabric-tag">${prod.fabric}</span>
+          <h3 class="product-name" data-quick="${prod.id}">${prod.name}</h3>
+          <div class="product-meta">
+            <span class="product-price">￥${prod.price}</span>
+            <button class="add-bag-btn" data-quick="${prod.id}">选码添置</button>
+          </div>
+        </div>
+      `;
+      gridEl.appendChild(card);
+    });
+
+    // 面料实验室交互
+    const FABRIC_DATA = {
+      silk: {
+        region: "产地溯源：江苏苏州 · 震泽蚕丝工坊",
+        name: "太湖双宫桑蚕丝",
+        desc: "取自两颗蚕宝宝共同吐丝结成的双宫茧，丝线自然带有竹节般的细腻肌理。相比普通缎面真丝，双宫丝更具挺括骨感，不易贴肤走光，光泽如珍珠般内敛温润。",
+        weight: "三十姆米重磅",
+        breath: "极佳 · 四季皆宜",
+        care: "冷水轻柔手洗"
+      },
+      gambiered: {
+        region: "产地溯源：广东顺德 · 非遗晒莨草场",
+        name: "顺德非遗香云纱",
+        desc: "以纯桑蚕丝为底，涂覆野生薯莨汁液与河涌矿物泥，历经三洗九煮十八晒。正面乌润泛金，反面栗色温雅，具有天然抑菌、越穿越柔滑、久穿不沾身的传奇特性。",
+        weight: "二十二姆米晒莨",
+        breath: "清凉透风 · 盛夏上品",
+        care: "清水漂洗阴干"
+      },
+      linen: {
+        region: "产地溯源：法国诺曼底雨露麻 × 兰精天丝",
+        name: "诺曼底雨露亚麻",
+        desc: "甄选自然雨露沤制的长绒亚麻，按黄金比例交织植物木浆天丝。既保留亚麻疏朗透气的微肌理，又克服传统纯麻易皱扎肤的短板，垂顺挺括。",
+        weight: "二百一十克中厚",
+        breath: "干爽排湿 · 通勤优选",
+        care: "可套袋轻柔机洗"
+      },
+      brocade: {
+        region: "产地溯源：江苏苏州 · 传统宋锦织造坊",
+        name: "苏州非遗真丝宋锦",
+        desc: "名列中国三大名锦之一，采用“三枚斜纹组织”两经三纬织成，纹样复刻宋代古画中的如意云纹与几何八达晕，色泽古朴典雅，华而不炫。",
+        weight: "重磅桑蚕丝交织",
+        breath: "挺括有型 · 雅集礼服",
+        care: "专业干洗养护"
+      }
+    };
+
+    document.querySelectorAll(".fabric-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".fabric-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const info = FABRIC_DATA[btn.dataset.fabric];
+        document.getElementById("fabRegion").textContent = info.region;
+        document.getElementById("fabName").textContent = info.name;
+        document.getElementById("fabDesc").textContent = info.desc;
+        document.getElementById("fabWeight").textContent = info.weight;
+        document.getElementById("fabBreath").textContent = info.breath;
+        document.getElementById("fabCare").textContent = info.care;
+      });
+    });
+
+    // 购物袋逻辑 (localStorage 共享)
+    const BAG_KEY = "suhua_shopping_bag_v1";
+    function getBag() {
+      try {
+        return JSON.parse(localStorage.getItem(BAG_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+    function saveBag(bag) {
+      localStorage.setItem(BAG_KEY, JSON.stringify(bag));
+      renderBagUI();
+    }
+    function addToBag(item) {
+      const bag = getBag();
+      const existing = bag.find(i => i.id === item.id && i.color === item.color && i.size === item.size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        bag.push({ ...item, qty: 1 });
+      }
+      saveBag(bag);
+      showToast(`已将「${item.name}」加入购物袋`);
+    }
+
+    function renderBagUI() {
+      const bag = getBag();
+      const count = bag.reduce((s, i) => s + i.qty, 0);
+      document.getElementById("bagCountBadge").textContent = count;
+      const container = document.getElementById("bagItemsContainer");
+      const totalEl = document.getElementById("bagTotalAmount");
+      if (bag.length === 0) {
+        container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding: 48px 0;">购物袋尚无衣裳，欢迎挑选心仪之作。</p>`;
+        totalEl.textContent = "￥0";
+        return;
+      }
+      let total = 0;
+      container.innerHTML = "";
+      bag.forEach((item, idx) => {
+        total += item.price * item.qty;
+        const row = document.createElement("div");
+        row.className = "bag-item";
+        row.innerHTML = `
+          <div>
+            <div class="bag-item-title">${item.name}</div>
+            <div class="bag-item-sub">色泽：${item.color} ｜ 尺码：${item.size}</div>
+            <div class="qty-controls">
+              <button class="qty-btn" data-idx="${idx}" data-delta="-1">－</button>
+              <span style="font-size:13px;">${item.qty}</span>
+              <button class="qty-btn" data-idx="${idx}" data-delta="1">＋</button>
+            </div>
+          </div>
+          <div style="font-weight:600;">￥${item.price * item.qty}</div>
+        `;
+        container.appendChild(row);
+      });
+      totalEl.textContent = "￥" + total;
+
+      container.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.dataset.idx);
+          const delta = Number(btn.dataset.delta);
+          const current = getBag();
+          current[idx].qty += delta;
+          if (current[idx].qty <= 0) current.splice(idx, 1);
+          saveBag(current);
+        });
+      });
+    }
+
+    // 弹窗逻辑
+    let activeProduct = null;
+    let selectedColor = "";
+    let selectedSize = "二码（中码）";
+
+    function openQuickModal(prodId) {
+      const prod = FEATURED_PRODUCTS.find(p => p.id === prodId);
+      if (!prod) return;
+      activeProduct = prod;
+      selectedColor = prod.colors[0];
+      selectedSize = "二码（中码）";
+
+      document.getElementById("modalSvgHolder").innerHTML = renderGarmentSVG(prod.svgType);
+      document.getElementById("modalFabric").textContent = prod.fabric;
+      document.getElementById("modalTitle").textContent = prod.name;
+      document.getElementById("modalPrice").textContent = "￥" + prod.price;
+      document.getElementById("modalDesc").textContent = prod.desc;
+
+      const colorHolder = document.getElementById("modalColorPills");
+      colorHolder.innerHTML = "";
+      prod.colors.forEach((c, i) => {
+        const b = document.createElement("button");
+        b.className = "option-pill" + (i === 0 ? " selected" : "");
+        b.textContent = c;
+        b.addEventListener("click", () => {
+          colorHolder.querySelectorAll(".option-pill").forEach(p => p.classList.remove("selected"));
+          b.classList.add("selected");
+          selectedColor = c;
+        });
+        colorHolder.appendChild(b);
+      });
+
+      document.getElementById("quickViewModal").classList.add("open");
+    }
+
+    document.getElementById("modalSizePills").querySelectorAll(".option-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.getElementById("modalSizePills").querySelectorAll(".option-pill").forEach(p => p.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedSize = btn.dataset.size;
+      });
+    });
+
+    document.getElementById("modalAddBagBtn").addEventListener("click", () => {
+      if (!activeProduct) return;
+      addToBag({
+        id: activeProduct.id,
+        name: activeProduct.name,
+        price: activeProduct.price,
+        color: selectedColor,
+        size: selectedSize
+      });
+      document.getElementById("quickViewModal").classList.remove("open");
+    });
+
+    document.addEventListener("click", e => {
+      const trigger = e.target.closest("[data-quick]");
+      if (trigger) {
+        openQuickModal(trigger.dataset.quick);
+      }
+    });
+
+    document.getElementById("closeModalBtn").addEventListener("click", () => {
+      document.getElementById("quickViewModal").classList.remove("open");
+    });
+
+    // 购物袋开关
+    const bagDrawer = document.getElementById("bagDrawer");
+    const backdrop = document.getElementById("drawerBackdrop");
+    document.getElementById("openBagBtn").addEventListener("click", () => {
+      bagDrawer.classList.add("open");
+      backdrop.classList.add("open");
+    });
+    function closeBag() {
+      bagDrawer.classList.remove("open");
+      backdrop.classList.remove("open");
+    }
+    document.getElementById("closeBagBtn").addEventListener("click", closeBag);
+    backdrop.addEventListener("click", closeBag);
+
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      const bag = getBag();
+      if (bag.length === 0) {
+        showToast("您的购物袋尚无衣裳");
+        return;
+      }
+      localStorage.removeItem(BAG_KEY);
+      renderBagUI();
+      closeBag();
+      showToast("订单已生成，顺丰专递将为您寄出衣裳与雪松木香片");
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById("toastMsg");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    renderBagUI();
+  </script>
+</body>
+</html>

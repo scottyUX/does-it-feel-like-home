@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>财经新闻 - 华闻网</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f4f5f7; color: #222; }
+  a { text-decoration: none; color: inherit; }
+  .topbar { background: #b3001b; color: #fff; font-size: 13px; }
+  .topbar-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; padding: 6px 16px; }
+  .header { background: #fff; border-bottom: 3px solid #b3001b; }
+  .header-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; padding: 18px 16px; gap: 20px; }
+  .logo-text { font-size: 30px; font-weight: 800; color: #b3001b; letter-spacing: 2px; }
+  .logo-sub { font-size: 12px; color: #888; }
+  .nav { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .nav-inner { max-width: 1180px; margin: 0 auto; display: flex; padding: 0 16px; }
+  .nav a { padding: 12px 22px; font-size: 16px; font-weight: 600; color: #333; }
+  .nav a:hover, .nav a.active { color: #b3001b; border-bottom: 3px solid #b3001b; }
+  .container { max-width: 1180px; margin: 20px auto; padding: 0 16px; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+  .crumb { font-size: 13px; color: #888; margin-bottom: 14px; }
+  .card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .channel-title { font-size: 24px; font-weight: 800; color: #b3001b; padding-bottom: 14px; border-bottom: 2px solid #b3001b; margin-bottom: 18px; }
+  .news-item { padding: 16px 0; border-bottom: 1px solid #eee; }
+  .news-item h2 { font-size: 18px; margin-bottom: 8px; line-height: 1.5; }
+  .news-item h2 a:hover { color: #b3001b; }
+  .news-item p { font-size: 14px; color: #666; line-height: 1.8; }
+  .meta { font-size: 12px; color: #aaa; margin-top: 8px; }
+  .side-title { font-size: 16px; font-weight: 700; color: #b3001b; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #b3001b; }
+  .quote { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #e5e5e5; font-size: 14px; }
+  .up { color: #d43d2f; font-weight: 700; }
+  .down { color: #1a9b5c; font-weight: 700; }
+  .footer { background: #2b2b2b; color: #aaa; margin-top: 30px; padding: 26px 16px; font-size: 13px; }
+  .footer-inner { max-width: 1180px; margin: 0 auto; }
+  @media (max-width: 800px) { .container { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>2025年6月12日 星期四 · 农历五月十七</span>
+    <span><a href="#">登录</a> ｜ <a href="#">注册</a> ｜ <a href="about.html">关于我们</a></span>
+  </div>
+</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="logo-text">华闻网</div>
+      <div class="logo-sub">及时 · 权威 · 有深度</div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="china.html">国内</a>
+    <a href="world.html">国际</a>
+    <a href="finance.html" class="active">财经</a>
+    <a href="article.html">评论</a>
+  </div>
+</nav>
+
+<div style="max-width:1180px;margin:20px auto 0;padding:0 16px;">
+  <div class="crumb">当前位置：<a href="index.html">首页</a> &gt; 财经新闻</div>
+</div>
+
+<div class="container" style="margin-top:0;">
+  <main>
+    <div class="card">
+      <div class="channel-title">财经新闻</div>
+
+      <div class="news-item">
+        <h2><a href="article.html">上半年国民经济运行稳中有进 高质量发展扎实推进</a></h2>
+        <p>多项经济指标显示，消费市场持续恢复，新兴产业增长强劲，经济结构不断优化，发展韧性进一步显现。</p>
+        <div class="meta">2025-06-12 09:00 · 来源：华闻网财经频道</div>
+      </div>
+
+      <div class="news-item">
+        <h2><a href="article.html">国家出台新一批促消费政策 涵盖汽车家电家装等领域</a></h2>
+        <p>以旧换新补贴范围扩大，绿色智能产品消费补贴力度加大，多地同步发放消费券，进一步激发市场活力。</p>
+        <div class="meta">2025-06-11 20:30 · 来源：华闻网财经频道</div>
+      </div>
+
+      <div class="news-item">
+        <h2><a href="article.html">跨境电商综试区再扩容 外贸新业态动能加速释放</a></h2>
+        <p>新增一批跨境电子商务综合试验区，海外仓布局不断完善，中小微外贸企业出海渠道更加畅通。</p>
+        <div class="meta">2025-06-11 17:15 · 来源：华闻网财经频道</div>
+      </div>
+
+      <div class="news-item">
+        <h2><a href="article.html">制造业数字化转型提速 智能工厂建设进入快车道</a></h2>
+        <p>工业互联网平台连接设备数量持续增长，人工智能技术在质检、排产等环节深度应用，生产效率显著提升。</p>
+        <div class="meta">2025-06-10 15:40 · 来源：华闻网财经频道</div>
+      </div>
+
+      <div class="news-item">
+        <h2><a href="article.html">新能源汽车下乡活动全面启动 县域消费潜力加速释放</a></h2>
+        <p>多款适合农村市场的车型参与活动，充换电设施加快向乡镇延伸，绿色出行理念深入人心。</p>
+        <div class="meta">2025-06-10 10:20 · 来源：华闻网财经频道</div>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <div class="card" style="margin-bottom:20px;">
+      <div class="side-title">市场快览</div>
+      <div class="quote"><span>上证指数</span><span class="up">3,215.86 +0.72%</span></div>
+      <div class="quote"><span>深证成指</span><span class="up">10,482.13 +1.05%</span></div>
+      <div class="quote"><span>创业板指</span><span class="down">2,136.45 -0.18%</span></div>
+      <div class="quote"><span>恒生指数</span><span class="up">19,876.30 +0.45%</span></div>
+      <div class="quote"><span>人民币中间价</span><span class="up">7.1082</span></div>
+      <p style="font-size:12px;color:#aaa;margin-top:10px;">数据截至上一交易日收盘，仅供参考，不构成投资建议。</p>
+    </div>
+
+    <div class="card">
+      <div class="side-title">财经日历</div>
+      <div class="quote"><span>6月13日</span><span>进出口数据发布</span></div>
+      <div class="quote"><span>6月16日</span><span>工业生产数据发布</span></div>
+      <div class="quote"><span>6月20日</span><span>贷款市场报价利率公布</span></div>
+      <div class="quote"><span>6月27日</span><span>工业企业利润数据发布</span></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>版权所有 © 华闻网 · 未经许可 不得转载</p>
+  </div>
+</footer>
+
+</body>
+</html>

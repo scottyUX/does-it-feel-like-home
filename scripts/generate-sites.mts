@@ -259,6 +259,15 @@ const addSpend = (usage: Usage) => {
   }
 };
 
+const writeTree = async (dir: string, files: Record<string, string>) => {
+  await mkdir(dir, { recursive: true });
+  for (const [name, body] of Object.entries(files)) {
+    const destination = path.join(dir, name);
+    await mkdir(path.dirname(destination), { recursive: true });
+    await writeFile(destination, body);
+  }
+};
+
 const writeManifest = async (sites: ManifestSite[]) => {
   const manifest = {
     generatedAt: new Date().toISOString(),
@@ -326,13 +335,8 @@ const generateOne = async (
     files[name] = stripAttribution(body, removed);
   }
 
-  const siteDir = path.join(ROOT, "sites", id);
-  await mkdir(siteDir, { recursive: true });
-  for (const [name, body] of Object.entries(files)) {
-    const destination = path.join(siteDir, name);
-    await mkdir(path.dirname(destination), { recursive: true });
-    await writeFile(destination, body);
-  }
+  await writeTree(path.join(ROOT, "sites", id), files);
+  await writeTree(path.join(ROOT, "sources", siteType, ...model.id.split("/")), files);
 
   const record = {
     id,

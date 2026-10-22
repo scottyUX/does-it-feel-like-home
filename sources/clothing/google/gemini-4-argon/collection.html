@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全部衣裳 · 素华衣舍 | 二〇二六春夏全系列与量体选码</title>
+  <style>
+    :root {
+      --bg-paper: #FAF7F2;
+      --bg-warm: #F3EDE2;
+      --bg-card: #FFFFFF;
+      --text-ink: #242321;
+      --text-muted: #6E6A63;
+      --accent-jade: #3B5B4F;
+      --accent-jade-dark: #2A433A;
+      --accent-lotus: #9E6B62;
+      --border-subtle: #E5DEC9;
+      --shadow-soft: 0 10px 30px rgba(36, 35, 33, 0.06);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --font-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+      --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-paper);
+      color: var(--text-ink);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    .serif { font-family: var(--font-serif); }
+
+    .top-bar {
+      background-color: var(--accent-jade);
+      color: #F4EFE6;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 9px 16px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 12px; }
+    .brand-logo-mark {
+      width: 38px; height: 38px;
+      border: 1.5px solid var(--accent-jade);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 18px;
+      color: var(--accent-jade); background: var(--bg-warm);
+    }
+    .brand-title { font-family: var(--font-serif); font-size: 24px; letter-spacing: 0.18em; font-weight: 600; }
+    .brand-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 0.15em; display: block; margin-top: -4px; }
+    .main-nav { display: flex; align-items: center; gap: 36px; }
+    .nav-link { font-size: 15px; letter-spacing: 0.1em; padding: 6px 0; position: relative; }
+    .nav-link.active { color: var(--accent-jade); font-weight: 500; border-bottom: 1.5px solid var(--accent-jade); }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .action-btn {
+      font-size: 14px; color: var(--text-ink);
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 999px;
+      border: 1px solid var(--border-subtle); background: var(--bg-card);
+    }
+    .badge-count { background: var(--accent-jade); color: #fff; font-size: 11px; padding: 1px 7px; border-radius: 99px; }
+
+    /* 页面横幅 */
+    .page-banner {
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 48px 28px;
+      text-align: center;
+    }
+    .page-banner h1 {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .page-banner p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* 筛选工具栏 */
+    .filter-bar {
+      max-width: 1280px;
+      margin: 32px auto 28px;
+      padding: 18px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .category-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cat-pill {
+      padding: 7px 18px;
+      font-size: 14px;
+      border-radius: 99px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-paper);
+      color: var(--text-ink);
+      transition: all 0.2s ease;
+    }
+    .cat-pill.active, .cat-pill:hover {
+      background: var(--accent-jade);
+      color: #fff;
+      border-color: var(--accent-jade);
+    }
+    .filter-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .input-field, .select-field {
+      padding: 8px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      background: var(--bg-paper);
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--text-ink);
+    }
+    .size-helper-btn {
+      padding: 8px 16px;
+      background: var(--bg-warm);
+      border: 1px solid var(--accent-jade);
+      color: var(--accent-jade);
+      font-size: 13.5px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* 商品网格 */
+    .catalog-section {
+      max-width: 1280px;
+      margin: 0 auto 76px;
+      padding: 0 28px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+    .product-thumb {
+      position: relative;
+      height: 300px;
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(59, 91, 79, 0.9);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+    .product-info {
+      padding: 18px 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-fabric-tag { font-size: 12px; color: var(--accent-lotus); margin-bottom: 4px; }
+    .product-name { font-family: var(--font-serif); font-size: 17px; margin-bottom: 8px; cursor: pointer; }
+    .color-dots { display: flex; gap: 6px; margin-bottom: 12px; align-items: center; }
+    .color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.2);
+    }
+    .product-meta {
+      margin-top: auto;
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-subtle);
+    }
+    .product-price { font-size: 17px; font-weight: 600; }
+    .add-bag-btn {
+      font-size: 13px;
+      color: var(--accent-jade);
+      border: 1px solid var(--accent-jade);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+    .add-bag-btn:hover { background: var(--accent-jade); color: #fff; }
+
+    /* 智能量体选码助手 */
+    .size-advisor-box {
+      max-width: 1280px;
+      margin: 0 auto 84px;
+      padding: 0 28px;
+    }
+    .advisor-inner {
+      background: var(--bg-warm);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .advisor-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      font-family: inherit;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+    }
+    .btn-primary {
+      background: var(--accent-jade);
+      color: #fff;
+      padding: 12px 24px;
+      font-size: 14.5px;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-sm);
+    }
+    .advisor-result {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 28px;
+      border-radius: var(--radius-sm);
+    }
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    .size-table th, .size-table td {
+      border: 1px solid var(--border-subtle);
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .size-table th { background: var(--bg-paper); font-weight: 500; }
+
+    /* 页脚与抽屉 */
+    .site-footer { background: #22211F; color: #D8D2C7; padding: 64px 28px 36px; }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px; padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand h3 { font-family: var(--font-serif); font-size: 22px; color: #fff; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13.5px; color: #9E988E; max-width: 320px; margin-bottom: 18px; }
+    .footer-col h4 { font-family: var(--font-serif); font-size: 16px; color: #fff; margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: #A9A399; }
+    .footer-bottom {
+      max-width: 1280px; margin: 28px auto 0;
+      display: flex; justify-content: space-between;
+      font-size: 12.5px; color: #7E7970; flex-wrap: wrap; gap: 12px;
+    }
+
+    .drawer-backdrop, .modal-overlay {
+      position: fixed; inset: 0; background: rgba(25, 24, 22, 0.45);
+      z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open, .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .bag-drawer {
+      position: fixed; top: 0; right: 0; width: 400px; max-width: 92vw; height: 100vh;
+      background: var(--bg-paper); z-index: 210; transform: translateX(100%);
+      transition: transform 0.3s ease; display: flex; flex-direction: column;
+    }
+    .bag-drawer.open { transform: translateX(0); }
+    .drawer-header { padding: 20px 24px; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
+    .close-btn { font-size: 14px; color: var(--text-muted); padding: 4px 10px; border: 1px solid var(--border-subtle); border-radius: 2px; }
+    .drawer-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+    .bag-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); }
+    .qty-controls { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+    .qty-btn { width: 24px; height: 24px; border: 1px solid var(--border-subtle); background: var(--bg-card); }
+    .drawer-footer { padding: 20px 24px; border-top: 1px solid var(--border-subtle); background: var(--bg-warm); }
+    .bag-total-row { display: flex; justify-content: space-between; font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+    .checkout-btn { width: 100%; background: var(--accent-jade); color: #fff; padding: 13px; font-size: 15px; border-radius: var(--radius-sm); }
+
+    .modal-overlay { display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .modal-card {
+      background: var(--bg-paper); max-width: 780px; width: 100%;
+      border-radius: var(--radius-md); border: 1px solid var(--border-subtle);
+      overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr;
+    }
+    .modal-visual { background: var(--bg-warm); display: flex; align-items: center; justify-content: center; padding: 32px; }
+    .modal-content { padding: 32px; display: flex; flex-direction: column; }
+    .option-group { margin: 12px 0; }
+    .option-label { font-size: 12.5px; color: var(--text-muted); margin-bottom: 6px; display: block; }
+    .option-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .option-pill { padding: 5px 14px; font-size: 13px; border: 1px solid var(--border-subtle); background: var(--bg-card); }
+    .option-pill.selected { border-color: var(--accent-jade); background: var(--accent-jade); color: #fff; }
+
+    .toast-msg {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: var(--accent-jade); color: #fff; padding: 10px 24px; border-radius: 99px;
+      font-size: 14px; opacity: 0; pointer-events: none; transition: all 0.25s ease; z-index: 300;
+    }
+    .toast-msg.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 960px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .advisor-inner, .modal-card, .footer-inner { grid-template-columns: 1fr; }
+      .header-inner { flex-wrap: wrap; height: auto; padding: 14px 20px; gap: 12px; }
+      .main-nav { gap: 20px; width: 100%; justify-content: center; border-top: 1px solid var(--border-subtle); padding-top: 10px; }
+    }
+    @media (max-width: 560px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span>二〇二六春夏「林间初霁」系列现已上市</span>
+    <span>|</span>
+    <span>全场顺丰包邮 · 附赠天然雪松木防虫衣香片</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">素</div>
+        <div>
+          <span class="brand-title">素华衣舍</span>
+          <span class="brand-sub">东方自然主义女装</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="主导航">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="collection.html" class="nav-link active">全部衣裳</a>
+        <a href="lookbook.html" class="nav-link">穿搭画册</a>
+        <a href="about.html" class="nav-link">品牌与门店</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="action-btn" id="openBagBtn">
+          <span>购物袋</span>
+          <span class="badge-count" id="bagCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <h1>二〇二六春夏 · 全部衣裳</h1>
+    <p>包含外套风衣、立领衬衫、连衣长裙、阔腿裤装与宋锦雅集共八款当季代表作，皆以天然织物慢工裁就。</p>
+  </section>
+
+  <!-- 筛选与搜索栏 -->
+  <div style="padding: 0 28px;">
+    <div class="filter-bar">
+      <div class="category-pills" id="catPills">
+        <button class="cat-pill active" data-cat="全部">全部衣裳（8）</button>
+        <button class="cat-pill" data-cat="外套风衣">外套风衣</button>
+        <button class="cat-pill" data-cat="衬衫上装">衬衫上装</button>
+        <button class="cat-pill" data-cat="裙装">裙装</button>
+        <button class="cat-pill" data-cat="裤装">裤装</button>
+      </div>
+
+      <div class="filter-controls">
+        <input type="text" class="input-field" id="searchInput" placeholder="搜索衣裳或面料名称…" />
+        <select class="select-field" id="sortSelect" aria-label="排序方式">
+          <option value="default">默认推荐排序</option>
+          <option value="asc">价格由低到高</option>
+          <option value="desc">价格由高到低</option>
+        </select>
+        <a href="#sizeAdvisorSection" class="size-helper-btn">量体选码助手</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 商品网格 -->
+  <section class="catalog-section">
+    <div class="product-grid" id="catalogGrid"></div>
+  </section>
+
+  <!-- 智能量体选码助手 -->
+  <section class="size-advisor-box" id="sizeAdvisorSection">
+    <div class="advisor-inner">
+      <div>
+        <span style="font-size:12px; color:var(--accent-jade); letter-spacing:0.2em;">东方女性身形数据库</span>
+        <h2 class="serif" style="font-size:28px; margin:6px 0 12px;">量体选码助手</h2>
+        <p style="color:var(--text-muted); font-size:14px;">
+          素华衣舍采用中式放量剪裁，兼顾活动余量与视觉修长感。输入您的身高、体重与穿衣偏好，即可获得专属尺码建议。
+        </p>
+
+        <div class="advisor-form">
+          <div class="form-group">
+            <label for="heightInput">您的身高（厘米）</label>
+            <input type="number" id="heightInput" value="164" min="145" max="185" />
+          </div>
+          <div class="form-group">
+            <label for="weightInput">您的体重（斤）</label>
+            <input type="number" id="weightInput" value="106" min="75" max="170" />
+          </div>
+          <div class="form-group">
+            <label for="fitSelect">穿衣松紧偏好</label>
+            <select id="fitSelect">
+              <option value="normal">适中自然（标准放量）</option>
+              <option value="slim">偏修身利落</option>
+              <option value="loose">偏松弛写意</option>
+            </select>
+          </div>
+          <div class="form-group" style="display:flex; align-items:flex-end;">
+            <button class="btn-primary" style="width:100%;" id="calcSizeBtn">生成尺码建议</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="advisor-result">
+        <h3 class="serif" style="font-size:19px; margin-bottom:8px;">为您推荐：<span id="recSizeOutput" style="color:var(--accent-jade);">二码（中码）</span></h3>
+        <p style="font-size:13px; color:var(--text-muted);" id="recSizeReason">
+          依据身高164厘米、体重106斤测算，二码（中码）在肩线与胸围处留有约8厘米呼吸余量，垂坠效果最佳。
+        </p>
+
+        <table class="size-table">
+          <thead>
+            <tr>
+              <th>尺码名称</th>
+              <th>建议身高（厘米）</th>
+              <th>建议体重（斤）</th>
+              <th>成衣胸围（厘米）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>一码（小码）</td>
+              <td>155 - 162</td>
+              <td>85 - 100</td>
+              <td>96</td>
+            </tr>
+            <tr>
+              <td>二码（中码）</td>
+              <td>160 - 168</td>
+              <td>100 - 116</td>
+              <td>102</td>
+            </tr>
+            <tr>
+              <td>三码（大码）</td>
+              <td>165 - 174</td>
+              <td>116 - 135</td>
+              <td>108</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>素华衣舍</h3>
+        <p>创立于江南丝绸之府，专注当代中国女性身形与东方自然织物研究。以衣为媒，安顿身心。</p>
+        <p style="font-size:13px; color:#B89660;">服务热线：四〇〇 · 八八六 · 六六八八（每日九时至二十一时）</p>
+      </div>
+      <div class="footer-col">
+        <h4>栏目导览</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">品牌首页</a></li>
+          <li><a href="collection.html">全部衣裳</a></li>
+          <li><a href="lookbook.html">穿搭画册</a></li>
+          <li><a href="about.html">品牌与门店</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>尊享服务</h4>
+        <ul class="footer-links">
+          <li><a href="collection.html#sizeAdvisorSection">量体选码助手</a></li>
+          <li><a href="about.html#bookingSection">到店试衣预约</a></li>
+          <li><a href="about.html#careSection">真丝终身养护说明</a></li>
+          <li><a href="about.html">七日无忧退换承诺</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>线下庭院体验店</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">上海 · 衡山路梧桐庭院店</a></li>
+          <li><a href="about.html">杭州 · 西湖丝绸工坊概念店</a></li>
+          <li><a href="about.html">北京 · 国子监胡同四合院店</a></li>
+          <li><a href="about.html">苏州 · 平江路非遗美学空间</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>版权所有 素华衣舍服饰文化有限公司 · 保留所有权利</span>
+      <span>浙公网安备 叁叁〇壹〇陆〇〇〇〇捌捌号 · 东方自然主义女装</span>
+    </div>
+  </footer>
+
+  <!-- 购物袋抽屉 -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="bag-drawer" id="bagDrawer">
+    <div class="drawer-header">
+      <h3>我的购物袋</h3>
+      <button class="close-btn" id="closeBagBtn">关闭</button>
+    </div>
+    <div class="drawer-body" id="bagItemsContainer"></div>
+    <div class="drawer-footer">
+      <div class="bag-total-row">
+        <span>合计金额</span>
+        <span id="bagTotalAmount">￥0</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">立即结算置衣</button>
+    </div>
+  </aside>
+
+  <!-- 商品详情弹窗 -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <div class="modal-visual" id="modalSvgHolder"></div>
+      <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="product-fabric-tag" id="modalFabric"></span>
+            <h3 class="serif" style="font-size:22px; margin-bottom:6px;" id="modalTitle"></h3>
+          </div>
+          <button class="close-btn" id="closeModalBtn">关闭</button>
+        </div>
+        <p style="font-size:20px; font-weight:600; color:var(--accent-jade); margin-bottom:10px;" id="modalPrice"></p>
+        <p style="font-size:14px; color:var(--text-muted); line-height:1.75; margin-bottom:8px;" id="modalDesc"></p>
+        <p style="font-size:12px; color:var(--accent-lotus); background:var(--bg-warm); padding:6px 10px; border-radius:2px; margin-bottom:8px;" id="modalCare"></p>
+
+        <div class="option-group">
+          <span class="option-label">选择色泽</span>
+          <div class="option-pills" id="modalColorPills"></div>
+        </div>
+
+        <div class="option-group">
+          <span class="option-label">选择尺码</span>
+          <div class="option-pills" id="modalSizePills">
+            <button class="option-pill" data-size="一码（小码）">一码（小码）</button>
+            <button class="option-pill selected" data-size="二码（中码）">二码（中码）</button>
+            <button class="option-pill" data-size="三码（大码）">三码（大码）</button>
+          </div>
+        </div>
+
+        <div style="margin-top:auto; padding-top:16px;">
+          <button class="btn-primary" style="width:100%;" id="modalAddBagBtn">加入购物袋</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="toastMsg">已加入购物袋</div>
+
+  <script>
+    const ALL_PRODUCTS = [
+      {
+        id: "p1",
+        name: "桑蚕丝垂感长款风衣",
+        category: "外套风衣",
+        fabric: "三十姆米双宫桑蚕丝",
+        price: 1680,
+        badge: "当季主推",
+        care: "养护建议：冷水轻柔手洗或专业干洗，阴凉通风处平铺晾干，切勿暴晒。",
+        colors: [
+          { name: "远山黛", hex: "#4A6B5D" },
+          { name: "宣纸白", hex: "#F2EDE2" },
+          { name: "暮云灰", hex: "#7A7B78" }
+        ],
+        desc: "甄选太湖流域双宫桑蚕丝，宽松落肩廓形配合可拆卸腰带，行走间衣袂生风，兼顾早晚微凉与午后暖阳。",
+        svgType: "trench"
+      },
+      {
+        id: "p2",
+        name: "非遗香云纱新中式立领衬衫",
+        category: "衬衫上装",
+        fabric: "顺德晒莨真丝香云纱",
+        price: 1280,
+        badge: "非遗匠作",
+        care: "养护建议：清水漂洗即可，忌用碱性洗涤剂，悬挂阴干无需熨烫。",
+        colors: [
+          { name: "竹叶青", hex: "#5C7867" },
+          { name: "檀木褐", hex: "#6B4E3D" }
+        ],
+        desc: "历经三洗九煮十八晒，薯莨汁液浸染出独特微光。手工天然淡水贝母盘扣，微宽松剪裁不束缚脖颈。",
+        svgType: "shirt"
+      },
+      {
+        id: "p3",
+        name: "双宫丝斜襟收腰连衣裙",
+        category: "裙装",
+        fabric: "重磅桑蚕丝提花",
+        price: 1490,
+        badge: "人气雅款",
+        care: "养护建议：建议使用中性丝毛洗涤剂手洗，低温隔布蒸汽熨烫。",
+        colors: [
+          { name: "藕荷粉", hex: "#C8A29C" },
+          { name: "月牙白", hex: "#F5F0E6" }
+        ],
+        desc: "汲取传统交领右衽灵感，侧腰缀以温润珍珠扣，高腰伞摆自然流淌至小腿中段，尽显温婉书卷气。",
+        svgType: "dress"
+      },
+      {
+        id: "p4",
+        name: "天丝亚麻高腰双褶阔腿裤",
+        category: "裤装",
+        fabric: "法国诺曼底雨露亚麻",
+        price: 790,
+        badge: "百搭常青",
+        care: "养护建议：可轻柔机洗，装入洗衣袋，晾干前抖平即可恢复垂顺。",
+        colors: [
+          { name: "燕麦色", hex: "#DFD5C3" },
+          { name: "墨玉黑", hex: "#2A2927" },
+          { name: "浅石绿", hex: "#8FA698" }
+        ],
+        desc: "将亚麻的筋骨感与天丝的柔滑融为一体，前腰活褶修饰腹臀线条，裤管挺括流畅，步履生风。",
+        svgType: "pants"
+      },
+      {
+        id: "p5",
+        name: "精纺美丽奴羊毛针织开衫",
+        category: "衬衫上装",
+        fabric: "澳洲超细美丽奴羊毛",
+        price: 890,
+        badge: "温润亲肤",
+        care: "养护建议：平铺晾干以防变形，收纳时搭配附赠雪松木片防蛀。",
+        colors: [
+          { name: "暖杏色", hex: "#DFC8B0" },
+          { name: "苍葭灰", hex: "#8E8B82" }
+        ],
+        desc: "采用十八微米超细美丽奴羊毛，触感近似羊绒般软糯，牛角扣点缀门襟，单穿或叠穿皆宜。",
+        svgType: "cardigan"
+      },
+      {
+        id: "p6",
+        name: "宋锦提花交领马甲背心",
+        category: "衬衫上装",
+        fabric: "苏州非遗真丝宋锦",
+        price: 1160,
+        badge: "东方雅韵",
+        care: "养护建议：宋锦织造紧密，建议专业干洗或局部轻拭保养。",
+        colors: [
+          { name: "青瓷绿", hex: "#769184" },
+          { name: "琥珀金", hex: "#C29B61" }
+        ],
+        desc: "复刻宋代如意云纹几何织锦，色泽古雅华而不俗，内搭白衬衫或素色长裙即成点睛之笔。",
+        svgType: "vest"
+      },
+      {
+        id: "p7",
+        name: "松叶醋酸缎面斜裁半身长裙",
+        category: "裙装",
+        fabric: "高定木浆醋酸缎",
+        price: 860,
+        badge: "流光剪裁",
+        care: "养护建议：三十度以下冷水手洗，避免尖锐首饰勾丝。",
+        colors: [
+          { name: "水波蓝", hex: "#6E8894" },
+          { name: "珍珠白", hex: "#F7F4EC" }
+        ],
+        desc: "四十五度斜裁工艺令裙摆贴合人体自然摆动，光泽媲美重磅真丝且极易打理，四季皆可搭配。",
+        svgType: "skirt"
+      },
+      {
+        id: "p8",
+        name: "有机苎麻单排扣廓形西装",
+        category: "外套风衣",
+        fabric: "手工夏布有机苎麻",
+        price: 1360,
+        badge: "清凉通勤",
+        care: "养护建议：冷水轻洗，悬挂通风处晾干，中温蒸汽熨烫。",
+        colors: [
+          { name: "茶白色", hex: "#EFECE4" },
+          { name: "松烟墨", hex: "#383A37" }
+        ],
+        desc: "取川东有机苎麻织造，挺括透气不粘身，柔和西装领消解严肃感，演绎当代知识女性书卷气。",
+        svgType: "blazer"
+      }
+    ];
+
+    function renderGarmentSVG(type) {
+      const shapes = {
+        trench: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M65 30 L135 30 L165 95 L145 108 L130 68 L138 215 L62 215 L70 68 L55 108 L35 95 Z" fill="#4A6B5D" stroke="#2F473D" stroke-width="1.5"/>
+          <path d="M82 30 L100 88 L118 30" fill="#F2EDE2" stroke="#2F473D" stroke-width="1.2"/>
+          <line x1="65" y1="125" x2="135" y2="125" stroke="#2F473D" stroke-width="4" stroke-linecap="round"/>
+        </svg>`,
+        shirt: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M68 42 L132 42 L162 115 L140 124 L126 78 L128 190 L72 190 L74 78 L60 124 L38 115 Z" fill="#6B7F6E" stroke="#465749" stroke-width="1.5"/>
+          <rect x="84" y="32" width="32" height="12" rx="3" fill="#556858" stroke="#465749"/>
+          <line x1="100" y1="44" x2="100" y2="188" stroke="#465749" stroke-width="1.2"/>
+          <circle cx="100" cy="65" r="2.5" fill="#FAF6EE"/><circle cx="100" cy="95" r="2.5" fill="#FAF6EE"/><circle cx="100" cy="125" r="2.5" fill="#FAF6EE"/>
+        </svg>`,
+        dress: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M74 35 L126 35 L146 85 L128 92 L120 68 L148 215 L52 215 L80 68 L72 92 L54 85 Z" fill="#C8A29C" stroke="#9B746E" stroke-width="1.5"/>
+          <path d="M78 35 L118 105" stroke="#9B746E" stroke-width="1.5" fill="none"/>
+          <circle cx="118" cy="105" r="3" fill="#FAF6EE"/>
+        </svg>`,
+        pants: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M68 38 L132 38 L144 212 L106 212 L100 95 L94 212 L56 212 Z" fill="#DFD5C3" stroke="#A69B88" stroke-width="1.5"/>
+          <line x1="68" y1="52" x2="132" y2="52" stroke="#A69B88" stroke-width="1.2"/>
+        </svg>`,
+        cardigan: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M68 45 L132 45 L160 135 L138 142 L126 85 L128 185 L72 185 L74 85 L62 142 L40 135 Z" fill="#DFC8B0" stroke="#A68B6F" stroke-width="1.5"/>
+          <path d="M84 45 L100 95 L116 45" fill="none" stroke="#A68B6F" stroke-width="1.5"/>
+          <line x1="100" y1="95" x2="100" y2="185" stroke="#A68B6F" stroke-width="1.5"/>
+        </svg>`,
+        vest: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M72 42 L128 42 L134 185 L66 185 Z" fill="#769184" stroke="#4D665A" stroke-width="1.5"/>
+          <path d="M78 42 L116 115" stroke="#D8C39A" stroke-width="2"/>
+          <circle cx="116" cy="115" r="3.5" fill="#D8C39A"/>
+        </svg>`,
+        skirt: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M74 48 L126 48 L152 208 L48 208 Z" fill="#6E8894" stroke="#4A616C" stroke-width="1.5"/>
+          <line x1="74" y1="60" x2="126" y2="60" stroke="#4A616C" stroke-width="1.2"/>
+        </svg>`,
+        blazer: `<svg viewBox="0 0 200 240" width="150" height="200">
+          <path d="M64 38 L136 38 L164 128 L142 136 L128 80 L132 195 L68 195 L72 80 L58 136 L36 128 Z" fill="#EFECE4" stroke="#A9A395" stroke-width="1.5"/>
+          <path d="M82 38 L100 102 L118 38" fill="none" stroke="#A9A395" stroke-width="1.5"/>
+          <circle cx="100" cy="122" r="3" fill="#6E6A63"/><circle cx="100" cy="148" r="3" fill="#6E6A63"/>
+        </svg>`
+      };
+      return shapes[type] || shapes.trench;
+    }
+
+    let currentCat = "全部";
+    let searchTerm = "";
+    let sortMode = "default";
+
+    function renderCatalog() {
+      const grid = document.getElementById("catalogGrid");
+      let list = ALL_PRODUCTS.filter(p => {
+        const matchCat = currentCat === "全部" || p.category === currentCat;
+        const matchSearch = !searchTerm || p.name.includes(searchTerm) || p.fabric.includes(searchTerm);
+        return matchCat && matchSearch;
+      });
+
+      if (sortMode === "asc") list.sort((a, b) => a.price - b.price);
+      if (sortMode === "desc") list.sort((a, b) => b.price - a.price);
+
+      grid.innerHTML = "";
+      if (list.length === 0) {
+        grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:48px; color:var(--text-muted);">未找到符合条件的衣裳，请尝试其他关键词或分类。</p>`;
+        return;
+      }
+
+      list.forEach(prod => {
+        const dotsHtml = prod.colors.map(c => `<span class="color-dot" title="${c.name}" style="background:${c.hex}"></span>`).join("");
+        const card = document.createElement("article");
+        card.className = "product-card";
+        card.innerHTML = `
+          <div class="product-thumb" data-quick="${prod.id}">
+            <span class="product-badge">${prod.badge}</span>
+            ${renderGarmentSVG(prod.svgType)}
+          </div>
+          <div class="product-info">
+            <span class="product-fabric-tag">${prod.fabric}</span>
+            <h3 class="product-name" data-quick="${prod.id}">${prod.name}</h3>
+            <div class="color-dots">${dotsHtml}<span style="font-size:11.5px; color:var(--text-muted); margin-left:4px;">${prod.colors.length}色可选</span></div>
+            <div class="product-meta">
+              <span class="product-price">￥${prod.price}</span>
+              <button class="add-bag-btn" data-quick="${prod.id}">选码添置</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll(".cat-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentCat = btn.dataset.cat;
+        renderCatalog();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", e => {
+      searchTerm = e.target.value.trim();
+      renderCatalog();
+    });
+
+    document.getElementById("sortSelect").addEventListener("change", e => {
+      sortMode = e.target.value;
+      renderCatalog();
+    });
+
+    // 量体选码助手逻辑
+    document.getElementById("calcSizeBtn").addEventListener("click", () => {
+      const h = Number(document.getElementById("heightInput").value) || 164;
+      const w = Number(document.getElementById("weightInput").value) || 106;
+      const fit = document.getElementById("fitSelect").value;
+
+      let score = 2;
+      if (w < 98 || (h < 159 && w <= 102)) score = 1;
+      else if (w > 116 || h > 169) score = 3;
+
+      if (fit === "slim" && score > 1) score -= 1;
+      if (fit === "loose" && score < 3) score += 1;
+
+      const sizeMap = {
+        1: "一码（小码）",
+        2: "二码（中码）",
+        3: "三码（大码）"
+      };
+      const rec = sizeMap[score];
+      document.getElementById("recSizeOutput").textContent = rec;
+      document.getElementById("recSizeReason").textContent =
+        `依据身高${h}厘米、体重${w}斤及您的穿着偏好测算，推荐选择「${rec}」，肩袖与胸围处保有舒适东方余量。`;
+    });
+
+    // 购物袋逻辑
+    const BAG_KEY = "suhua_shopping_bag_v1";
+    function getBag() {
+      try { return JSON.parse(localStorage.getItem(BAG_KEY)) || []; } catch (e) { return []; }
+    }
+    function saveBag(bag) {
+      localStorage.setItem(BAG_KEY, JSON.stringify(bag));
+      renderBagUI();
+    }
+    function addToBag(item) {
+      const bag = getBag();
+      const ex = bag.find(i => i.id === item.id && i.color === item.color && i.size === item.size);
+      if (ex) ex.qty += 1; else bag.push({ ...item, qty: 1 });
+      saveBag(bag);
+      showToast(`已将「${item.name}」加入购物袋`);
+    }
+    function renderBagUI() {
+      const bag = getBag();
+      document.getElementById("bagCountBadge").textContent = bag.reduce((s, i) => s + i.qty, 0);
+      const container = document.getElementById("bagItemsContainer");
+      const totalEl = document.getElementById("bagTotalAmount");
+      if (bag.length === 0) {
+        container.innerHTML = `<p style="text-align:center; color:var(--text-muted); padding: 48px 0;">购物袋尚无衣裳，欢迎挑选心仪之作。</p>`;
+        totalEl.textContent = "￥0";
+        return;
+      }
+      let total = 0;
+      container.innerHTML = "";
+      bag.forEach((item, idx) => {
+        total += item.price * item.qty;
+        const row = document.createElement("div");
+        row.className = "bag-item";
+        row.innerHTML = `
+          <div>
+            <div style="font-family:var(--font-serif); font-size:15px;">${item.name}</div>
+            <div style="font-size:12px; color:var(--text-muted);">色泽：${item.color} ｜ 尺码：${item.size}</div>
+            <div class="qty-controls">
+              <button class="qty-btn" data-idx="${idx}" data-delta="-1">－</button>
+              <span style="font-size:13px;">${item.qty}</span>
+              <button class="qty-btn" data-idx="${idx}" data-delta="1">＋</button>
+            </div>
+          </div>
+          <div style="font-weight:600;">￥${item.price * item.qty}</div>
+        `;
+        container.appendChild(row);
+      });
+      totalEl.textContent = "￥" + total;
+      container.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.dataset.idx);
+          const delta = Number(btn.dataset.delta);
+          const cur = getBag();
+          cur[idx].qty += delta;
+          if (cur[idx].qty <= 0) cur.splice(idx, 1);
+          saveBag(cur);
+        });
+      });
+    }
+
+    // 弹窗逻辑
+    let activeProduct = null;
+    let selectedColor = "";
+    let selectedSize = "二码（中码）";
+
+    function openQuickModal(prodId) {
+      const prod = ALL_PRODUCTS.find(p => p.id === prodId);
+      if (!prod) return;
+      activeProduct = prod;
+      selectedColor = prod.colors[0].name;
+      selectedSize = "二码（中码）";
+
+      document.getElementById("modalSvgHolder").innerHTML = renderGarmentSVG(prod.svgType);
+      document.getElementById("modalFabric").textContent = prod.fabric;
+      document.getElementById("modalTitle").textContent = prod.name;
+      document.getElementById("modalPrice").textContent = "￥" + prod.price;
+      document.getElementById("modalDesc").textContent = prod.desc;
+      document.getElementById("modalCare").textContent = prod.care;
+
+      const colorHolder = document.getElementById("modalColorPills");
+      colorHolder.innerHTML = "";
+      prod.colors.forEach((c, i) => {
+        const b = document.createElement("button");
+        b.className = "option-pill" + (i === 0 ? " selected" : "");
+        b.textContent = c.name;
+        b.addEventListener("click", () => {
+          colorHolder.querySelectorAll(".option-pill").forEach(p => p.classList.remove("selected"));
+          b.classList.add("selected");
+          selectedColor = c.name;
+        });
+        colorHolder.appendChild(b);
+      });
+
+      document.getElementById("quickViewModal").classList.add("open");
+    }
+
+    document.getElementById("modalSizePills").querySelectorAll(".option-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.getElementById("modalSizePills").querySelectorAll(".option-pill").forEach(p => p.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedSize = btn.dataset.size;
+      });
+    });
+
+    document.getElementById("modalAddBagBtn").addEventListener("click", () => {
+      if (!activeProduct) return;
+      addToBag({
+        id: activeProduct.id,
+        name: activeProduct.name,
+        price: activeProduct.price,
+        color: selectedColor,
+        size: selectedSize
+      });
+      document.getElementById("quickViewModal").classList.remove("open");
+    });
+
+    document.addEventListener("click", e => {
+      const trigger = e.target.closest("[data-quick]");
+      if (trigger) openQuickModal(trigger.dataset.quick);
+    });
+
+    document.getElementById("closeModalBtn").addEventListener("click", () => {
+      document.getElementById("quickViewModal").classList.remove("open");
+    });
+
+    const bagDrawer = document.getElementById("bagDrawer");
+    const backdrop = document.getElementById("drawerBackdrop");
+    document.getElementById("openBagBtn").addEventListener("click", () => {
+      bagDrawer.classList.add("open");
+      backdrop.classList.add("open");
+    });
+    function closeBag() {
+      bagDrawer.classList.remove("open");
+      backdrop.classList.remove("open");
+    }
+    document.getElementById("closeBagBtn").addEventListener("click", closeBag);
+    backdrop.addEventListener("click", closeBag);
+
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      const bag = getBag();
+      if (bag.length === 0) { showToast("您的购物袋尚无衣裳"); return; }
+      localStorage.removeItem(BAG_KEY);
+      renderBagUI();
+      closeBag();
+      showToast("订单已生成，顺丰专递将为您寄出衣裳与雪松木香片");
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById("toastMsg");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2600);
+    }
+
+    renderCatalog();
+    renderBagUI();
+  </script>
+</body>
+</html>

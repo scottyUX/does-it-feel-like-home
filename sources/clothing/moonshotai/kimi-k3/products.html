@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云裳女装 · 全部商品</title>
+<style>
+  :root{
+    --ink:#2b2622; --ink-soft:#6f665e; --cream:#faf6f1; --paper:#ffffff;
+    --blush:#efd9d2; --rose:#b76e63; --rose-deep:#9a5449; --gold:#c9a06a; --line:#e8e0d8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .logo{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:700;letter-spacing:6px;}
+  .logo svg{width:34px;height:34px;}
+  .nav-links{display:flex;gap:36px;font-size:15px;}
+  .nav-links a{padding:6px 2px;border-bottom:2px solid transparent;transition:.25s;}
+  .nav-links a:hover,.nav-links a.on{color:var(--rose);border-bottom-color:var(--rose);}
+  .nav-icons{display:flex;gap:18px;align-items:center;}
+  .nav-icons svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.6;cursor:pointer;}
+  .nav-icons svg:hover{stroke:var(--rose);}
+
+  .page-head{padding:56px 0 8px;text-align:center;}
+  .page-head small{font-size:13px;letter-spacing:6px;color:var(--rose);}
+  .page-head h1{font-size:36px;letter-spacing:4px;margin-top:8px;}
+  .page-head p{color:var(--ink-soft);font-size:14px;margin-top:10px;}
+
+  .tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:34px 0 40px;}
+  .tabs a{font-size:14px;letter-spacing:2px;padding:9px 24px;border-radius:999px;border:1px solid var(--line);background:var(--paper);transition:.25s;}
+  .tabs a:hover{border-color:var(--rose);color:var(--rose);}
+  .tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .card{background:var(--paper);border-radius:18px;overflow:hidden;border:1px solid var(--line);transition:.3s;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(43,38,34,.12);}
+  .card .art{display:block;position:relative;}
+  .card .art svg{width:100%;height:auto;display:block;}
+  .badge{position:absolute;top:12px;left:12px;font-size:11px;color:#fff;background:var(--rose);border-radius:999px;padding:3px 10px;letter-spacing:1px;}
+  .badge.hot{background:var(--gold);}
+  .card .info{padding:18px 20px 20px;}
+  .card .info h4{font-size:16px;font-weight:600;letter-spacing:1px;margin-bottom:4px;}
+  .card .info .sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .card .info .meta{display:flex;justify-content:space-between;align-items:center;}
+  .price{color:var(--rose-deep);font-size:18px;font-weight:700;}
+  .price small{font-size:12px;font-weight:400;margin-right:2px;}
+  .size-hint{font-size:12px;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:2px 10px;}
+
+  .note{text-align:center;color:var(--ink-soft);font-size:13px;margin:48px 0 0;}
+
+  footer{margin-top:96px;background:#2b2622;color:#cfc6bd;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;padding:64px 0 44px;}
+  .foot-grid h5{color:#f3ece4;font-size:16px;letter-spacing:3px;margin-bottom:18px;}
+  .foot-grid a,.foot-grid p{display:block;font-size:13.5px;margin-bottom:10px;color:#cfc6bd;}
+  .foot-grid a:hover{color:var(--gold);}
+  .foot-brand{font-size:22px;letter-spacing:6px;color:#f3ece4;margin-bottom:14px;font-weight:700;}
+  .foot-bottom{border-top:1px solid #443d36;padding:20px 0;font-size:12px;text-align:center;color:#9b9188;}
+
+  @media(max-width:960px){
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="#e8c8c0"/><circle cx="13" cy="20" r="7" fill="#d8a99f"/><circle cx="27" cy="20" r="7" fill="#c9a06a"/><circle cx="20" cy="26" r="7" fill="#b76e63"/><circle cx="20" cy="20" r="3.4" fill="#faf6f1"/></svg>
+      云裳
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="products.html" class="on">全部商品</a>
+      <a href="about.html">品牌故事</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <div class="nav-icons">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M6 8h12l-1.2 12H7.2L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="page-head">
+    <small>春夏系列</small>
+    <h1>全部商品</h1>
+    <p>共 12 件商品 · 天然面料 · 小批量精制</p>
+  </div>
+
+  <nav class="tabs">
+    <a href="products.html" class="on">全部</a>
+    <a href="products.html">连衣裙</a>
+    <a href="products.html">衬衫上装</a>
+    <a href="products.html">裤装半裙</a>
+    <a href="products.html">外套大衣</a>
+  </nav>
+
+  <section class="grid">
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="云雾雪纺连衣裙">
+          <defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e6de"/><stop offset="1" stop-color="#ecd0c6"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p1)"/><circle cx="160" cy="46" r="26" fill="#f3ddd4"/>
+          <path d="M84 44 C90 54 110 54 116 44 L124 82 L146 172 C116 190 84 190 54 172 L76 82 Z" fill="#b76e63"/>
+          <path d="M76 96 L124 96" stroke="#9a5449" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="badge">新品</span>
+      </span>
+      <div class="info">
+        <h4>云雾雪纺连衣裙</h4>
+        <div class="sub">轻盈雪纺 · 温柔豆沙色</div>
+        <div class="meta"><span class="price"><small>¥</small>399</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="法式碎花长裙">
+          <defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5ecec"/><stop offset="1" stop-color="#ead4da"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p2)"/><circle cx="42" cy="46" r="22" fill="#f2dee2"/>
+          <path d="M84 44 C90 54 110 54 116 44 L122 78 L150 176 C116 194 84 194 50 176 L78 78 Z" fill="#a87f8e"/>
+          <circle cx="92" cy="110" r="4" fill="#e8c8c0"/><circle cx="112" cy="140" r="4" fill="#e8c8c0"/><circle cx="86" cy="160" r="4" fill="#e8c8c0"/><circle cx="118" cy="100" r="4" fill="#e8c8c0"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>法式碎花长裙</h4>
+        <div class="sub">复古碎花 · 收腰显瘦</div>
+        <div class="meta"><span class="price"><small>¥</small>459</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="真丝垂感衬衫">
+          <defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef0e6"/><stop offset="1" stop-color="#dde3d2"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p3)"/><circle cx="42" cy="50" r="22" fill="#e6ebdb"/>
+          <path d="M78 52 L92 40 Q100 50 108 40 L122 52 L136 86 L118 94 L114 80 L114 178 L86 178 L86 80 L82 94 L64 86 Z" fill="#a8b5a0"/>
+          <path d="M92 40 L100 56 L108 40" fill="none" stroke="#8b9a83" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+        <span class="badge">新品</span>
+      </span>
+      <div class="info">
+        <h4>真丝垂感衬衫</h4>
+        <div class="sub">桑蚕丝 · 雾绿色</div>
+        <div class="meta"><span class="price"><small>¥</small>529</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="棉麻宽松上衣">
+          <defs><linearGradient id="p4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f0e6"/><stop offset="1" stop-color="#eadfca"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p4)"/><circle cx="160" cy="190" r="24" fill="#f1e6d3"/>
+          <path d="M74 56 L90 42 Q100 52 110 42 L126 56 L140 92 L122 100 L118 86 L120 172 Q100 182 80 172 L82 86 L78 100 L60 92 Z" fill="#d8c39a"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>棉麻宽松上衣</h4>
+        <div class="sub">透气棉麻 · 燕麦色</div>
+        <div class="meta"><span class="price"><small>¥</small>259</span><span class="size-hint">均码</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="高腰阔腿西裤">
+          <defs><linearGradient id="p5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e7edf3"/><stop offset="1" stop-color="#d3dee9"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p5)"/><circle cx="158" cy="190" r="24" fill="#e1e9f1"/>
+          <path d="M74 44 L126 44 L134 198 L108 198 L100 98 L92 198 L66 198 Z" fill="#7d92a8"/>
+          <path d="M74 62 L126 62" stroke="#67809a" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>高腰阔腿西裤</h4>
+        <div class="sub">垂坠面料 · 雾霾蓝</div>
+        <div class="meta"><span class="price"><small>¥</small>329</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="复古牛仔半裙">
+          <defs><linearGradient id="p6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf2"/><stop offset="1" stop-color="#d6dfe8"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p6)"/><circle cx="42" cy="190" r="22" fill="#e0e7ee"/>
+          <rect x="76" y="46" width="48" height="14" rx="5" fill="#5f7astronomy"/>
+          <rect x="76" y="46" width="48" height="14" rx="5" fill="#5f7a94"/>
+          <path d="M78 60 L122 60 L140 172 Q100 190 60 172 Z" fill="#7d92a8"/>
+          <path d="M100 62 L100 120" stroke="#67809a" stroke-width="3"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>复古牛仔半裙</h4>
+        <div class="sub">水洗牛仔 · A 字版型</div>
+        <div class="meta"><span class="price"><small>¥</small>279</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="百褶半身裙">
+          <defs><linearGradient id="p7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7ece4"/><stop offset="1" stop-color="#ecd8cc"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p7)"/><circle cx="160" cy="48" r="22" fill="#f3e0d6"/>
+          <rect x="76" y="46" width="48" height="14" rx="5" fill="#a8624f"/>
+          <path d="M78 60 L122 60 L142 178 Q100 194 58 178 Z" fill="#b76e63"/>
+          <path d="M88 62 L82 176 M100 62 L100 180 M112 62 L118 176" stroke="#9a5449" stroke-width="2.5"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>百褶半身裙</h4>
+        <div class="sub">细密压褶 · 砖红色</div>
+        <div class="meta"><span class="price"><small>¥</small>299</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="羊绒针织开衫">
+          <defs><linearGradient id="p8" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3e9dc"/><stop offset="1" stop-color="#e8d7c0"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p8)"/><circle cx="44" cy="188" r="22" fill="#efe2cf"/>
+          <path d="M76 54 L92 40 L100 60 L108 40 L124 54 L136 92 L120 98 L116 84 L116 188 L84 188 L84 84 L80 98 L64 92 Z" fill="#c9a06a"/>
+          <path d="M100 60 L100 188" stroke="#a97f4d" stroke-width="3"/>
+          <circle cx="94" cy="96" r="3" fill="#8a683c"/><circle cx="94" cy="118" r="3" fill="#8a683c"/><circle cx="94" cy="140" r="3" fill="#8a683c"/>
+        </svg>
+        <span class="badge hot">热卖</span>
+      </span>
+      <div class="info">
+        <h4>羊绒针织开衫</h4>
+        <div class="sub">山羊绒 · 焦糖色</div>
+        <div class="meta"><span class="price"><small>¥</small>699</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="小香风短外套">
+          <defs><linearGradient id="p9" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0e9ef"/><stop offset="1" stop-color="#e2d5e0"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p9)"/><circle cx="158" cy="50" r="24" fill="#e9dee8"/>
+          <path d="M74 56 L90 42 Q100 52 110 42 L126 56 L138 94 L122 100 L118 86 L118 164 L82 164 L82 86 L78 100 L62 94 Z" fill="#a87f8e"/>
+          <path d="M100 62 L100 164" stroke="#8f687a" stroke-width="3"/>
+          <path d="M84 150 L116 150" stroke="#8f687a" stroke-width="3"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>小香风短外套</h4>
+        <div class="sub">粗花呢 · 烟紫色</div>
+        <div class="meta"><span class="price"><small>¥</small>899</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="刺绣改良旗袍">
+          <defs><linearGradient id="p10" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e8e4"/><stop offset="1" stop-color="#ecd2cd"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p10)"/><circle cx="42" cy="52" r="22" fill="#f2dcd7"/>
+          <rect x="90" y="34" width="20" height="12" rx="4" fill="#8f3f3f"/>
+          <path d="M88 46 L112 46 L120 76 L132 178 Q100 194 68 178 L80 76 Z" fill="#a84f4f"/>
+          <path d="M112 46 C104 56 96 62 88 66" stroke="#7d3838" stroke-width="3" fill="none"/>
+          <circle cx="86" cy="120" r="4" fill="#e8c8c0"/><circle cx="118" cy="150" r="4" fill="#e8c8c0"/><circle cx="92" cy="160" r="4" fill="#e8c8c0"/>
+        </svg>
+        <span class="badge hot">热卖</span>
+      </span>
+      <div class="info">
+        <h4>刺绣改良旗袍</h4>
+        <div class="sub">手工刺绣 · 胭脂红</div>
+        <div class="meta"><span class="price"><small>¥</small>759</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="通勤西装套装">
+          <defs><linearGradient id="p11" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ececec"/><stop offset="1" stop-color="#dcd8d4"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p11)"/><circle cx="158" cy="188" r="24" fill="#e4e1dd"/>
+          <path d="M72 52 L90 38 L100 62 L110 38 L128 52 L138 90 L122 96 L118 82 L118 150 L82 150 L82 82 L78 96 L62 90 Z" fill="#6f665e"/>
+          <path d="M100 62 L100 150" stroke="#575049" stroke-width="3"/>
+          <path d="M84 158 L116 158 L120 200 L104 200 L100 172 L96 200 L80 200 Z" fill="#575049"/>
+        </svg>
+      </span>
+      <div class="info">
+        <h4>通勤西装套装</h4>
+        <div class="sub">利落剪裁 · 深咖色</div>
+        <div class="meta"><span class="price"><small>¥</small>1099</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="contact.html">
+      <span class="art">
+        <svg viewBox="0 0 200 240" role="img" aria-label="羊毛呢大衣">
+          <defs><linearGradient id="p12" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1e9e2"/><stop offset="1" stop-color="#e3d4c8"/></linearGradient></defs>
+          <rect width="200" height="240" fill="url(#p12)"/><circle cx="44" cy="52" r="22" fill="#eaded4"/>
+          <path d="M70 50 L88 36 Q100 46 112 36 L130 50 L142 90 L126 96 L122 82 L122 204 L78 204 L78 82 L74 96 L58 90 Z" fill="#9a6b53"/>
+          <path d="M100 58 L100 204" stroke="#7d5240" stroke-width="3"/>
+          <circle cx="93" cy="92" r="3" fill="#5f3d2e"/><circle cx="93" cy="116" r="3" fill="#5f3d2e"/><circle cx="93" cy="140" r="3" fill="#5f3d2e"/>
+        </svg>
+        <span class="badge hot">热卖</span>
+      </span>
+      <div class="info">
+        <h4>羊毛呢大衣</h4>
+        <div class="sub">双面呢 · 驼色长款</div>
+        <div class="meta"><span class="price"><small>¥</small>1299</span><span class="size-hint">S / M / L</span></div>
+      </div>
+    </a>
+
+  </section>
+
+  <p class="note">没有找到心仪的尺码?欢迎<a href="contact.html" style="color:var(--rose);border-bottom:1px solid var(--rose);">联系客服</a>获取补货通知与搭配建议。</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">云裳</div>
+        <p>以衣载道,温柔有度。<br>服务东方女性的日常之美。</p>
+      </div>
+      <div>
+        <h5>快速导航</h5>
+        <a href="index.html">首页</a>
+        <a href="products.html">全部商品</a>
+        <a href="about.html">品牌故事</a>
+        <a href="contact.html">联系我们</a>
+      </div>
+      <div>
+        <h5>购物帮助</h5>
+        <a href="contact.html">尺码指南</a>
+        <a href="contact.html">退换政策</a>
+        <a href="contact.html">配送说明</a>
+        <a href="contact.html">常见问题</a>
+      </div>
+      <div>
+        <h5>联系方式</h5>
+        <p>客服热线:400-820-6688</p>
+        <p>服务时间:每日 9:00 – 22:00</p>
+        <p>门店地址:上海市静安区南京西路 1266 号</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2025 云裳女装 版权所有 · 沪ICP备2025012345号</div>
+  </div>
+</footer>
+
+</body>
+</html>

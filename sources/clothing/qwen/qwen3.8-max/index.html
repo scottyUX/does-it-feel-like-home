@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>叙白 XUBAI —— 以衣叙事 · 见素抱朴 | 女装</title>
+<meta name="description" content="叙白,一家以天然面料与松弛剪裁为核心的女装店。2025 早秋系列「拾贰」现已上线。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#F4EFE5;--paper2:#ECE4D3;--card:#FBF8F0;--ink:#221D17;--mut:#6E6455;--line:#D9CFBB;--acc:#A63E2A;--sage:#78806C;--rose:#C79A8B;--camel:#B98A5C;
+--serif:"Songti SC","STSong","Noto Serif SC","SimSun",serif;
+--sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+--num:"Didot","Bodoni MT","Georgia","Times New Roman",serif}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.bar{background:var(--ink);color:#E9E1CF;font-size:13px;letter-spacing:.12em}
+.tick{overflow:hidden}
+.tick .row{display:flex;width:max-content;animation:tick 28s linear infinite}
+.ti{padding:9px 0 9px 34px;white-space:nowrap}
+.ti em{font-style:normal;color:var(--acc);padding-left:34px}
+@keyframes tick{to{transform:translateX(-50%)}}
+header.stick{position:sticky;top:0;z-index:100;background:rgba(244,239,229,.93);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:30px;padding:13px 24px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .seal{width:40px;height:40px;flex:none}
+.logo b{font-family:var(--serif);font-size:22px;letter-spacing:.3em;display:block;line-height:1.1}
+.logo small{display:block;font-size:10px;letter-spacing:.44em;color:var(--mut)}
+nav{display:flex;gap:26px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{font-size:15px;letter-spacing:.2em;white-space:nowrap;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .35s}
+nav a:hover::after,nav a.on::after{transform:scaleX(1);transform-origin:left}
+nav a.on{color:var(--acc)}
+.bag{position:relative;display:flex;align-items:center;gap:7px}
+.bag svg{width:23px;height:23px}
+.bag i{font-style:normal;font-family:var(--num);font-size:12px;background:var(--acc);color:#fff;min-width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 4px}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.55)}100%{transform:scale(1)}}
+.bag i.pop{animation:pop .45s}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:13px 34px;font-size:14px;letter-spacing:.3em;transition:.3s;border:1px solid var(--ink)}
+.btn:hover{background:var(--acc);border-color:var(--acc)}
+.btn-line{display:inline-block;border:1px solid var(--ink);padding:13px 34px;font-size:14px;letter-spacing:.3em;transition:.3s}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.ml{display:block;overflow:hidden}
+.ml i{display:block;font-style:normal;transform:translateY(112%);transition:transform 1s cubic-bezier(.2,.75,.2,1) var(--d,0s)}
+.rv.in .ml i{transform:none}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:82vh;position:relative}
+.vtxt{position:absolute;right:-30px;top:8%;writing-mode:vertical-rl;font-family:var(--serif);font-size:150px;letter-spacing:.1em;color:rgba(34,29,23,.05);pointer-events:none;user-select:none}
+.ovl{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.34em;color:var(--mut)}
+.ovl::before{content:"";width:34px;height:1px;background:var(--acc)}
+.h1{font-family:var(--serif);font-size:clamp(42px,6.2vw,76px);line-height:1.18;letter-spacing:.06em;margin:22px 0 20px}
+.h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--mut);max-width:46ch}
+.scr{font-family:var(--num);font-size:13px;letter-spacing:.42em;color:var(--mut);margin-top:20px;min-height:20px}
+.ctas{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
+.stats{display:flex;gap:44px;margin-top:50px;flex-wrap:wrap}
+.stats b{font-family:var(--num);font-size:30px;display:block;line-height:1.2}
+.stats span{font-size:12px;color:var(--mut);letter-spacing:.2em}
+.hr{position:relative;height:560px}
+.pc{position:absolute;background:#fff;padding:10px 10px 26px;box-shadow:0 18px 44px rgba(30,20,10,.16);animation:float 7s ease-in-out infinite;transform:rotate(var(--r,0deg))}
+.pc svg{width:100%}
+.pc b{position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:.2em;color:var(--mut);font-weight:400}
+.pc1{width:238px;top:4%;left:2%;--r:-6deg}
+.pc2{width:206px;top:0;right:6%;--r:5deg;animation-delay:1.2s}
+.pc3{width:222px;bottom:3%;left:30%;--r:-2deg;animation-delay:2.2s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-13px) rotate(var(--r,0deg))}}
+.sticker{position:absolute;right:10%;bottom:16%;width:112px;height:112px;border-radius:50%;background:var(--acc);color:var(--paper);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--serif);font-size:15px;line-height:1.6;letter-spacing:.12em;transform:rotate(10deg);box-shadow:0 12px 30px rgba(120,30,10,.3);animation:spin 24s linear infinite}
+@keyframes spin{to{transform:rotate(370deg)}}
+.fab{background:var(--paper2);border-block:1px solid var(--line);margin:40px 0}
+.fab .ti{font-family:var(--serif);font-size:15px;letter-spacing:.24em;padding:13px 0 13px 40px}
+.blk{padding:88px 0}
+.chap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:46px}
+.chap .l{display:flex;align-items:center;gap:16px}
+.chap .no{width:36px;height:36px;flex:none;background:var(--acc);color:var(--paper);font-family:var(--serif);display:flex;align-items:center;justify-content:center}
+.chap h2{font-family:var(--serif);font-size:clamp(26px,3vw,36px);letter-spacing:.14em}
+.chap p{color:var(--mut);width:100%;margin-top:12px;font-size:14px}
+.chap .more{font-size:14px;letter-spacing:.2em;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:.3s;white-space:nowrap}
+.chap .more:hover{color:var(--acc);border-color:var(--acc)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pcard{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(30,20,10,.12)}
+.stage{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:var(--gc,#E7DCC4);position:relative;overflow:hidden;transition:background .5s}
+.stage>svg{width:60%;filter:drop-shadow(0 10px 14px rgba(30,20,10,.16));transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover .stage>svg{transform:scale(1.07) rotate(-2.5deg)}
+.tag{position:absolute;top:12px;left:12px;background:var(--ink);color:var(--paper);font-size:11px;letter-spacing:.24em;padding:4px 10px}
+.tag.hot{background:var(--acc)}
+.tag.few{background:var(--sage)}
+.pinfo{padding:16px 16px 12px;flex:1}
+.pcat{font-size:11px;letter-spacing:.3em;color:var(--mut)}
+.pinfo h3{font-family:var(--serif);font-size:18px;letter-spacing:.06em;margin:4px 0 2px}
+.pfab{font-size:12px;color:var(--mut)}
+.prow{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px}
+.price{font-family:var(--num);font-size:20px}
+.sizes{font-size:11px;color:var(--mut);letter-spacing:.14em}
+.sws{display:flex;gap:8px;margin-top:10px}
+.sw{width:16px;height:16px;border-radius:50%;border:2px solid var(--card);outline:1px solid var(--line);cursor:pointer;padding:0;transition:.2s}
+.sw.on{outline:2px solid var(--acc)}
+.add{border:0;border-top:1px solid var(--line);background:transparent;padding:11px;font-size:13px;letter-spacing:.34em;cursor:pointer;font-family:var(--sans);transition:.3s;color:var(--ink)}
+.add:hover{background:var(--ink);color:var(--paper)}
+.caps{border-bottom:1px solid var(--line)}
+.cap{display:grid;grid-template-columns:64px 60px 1fr auto;gap:22px;align-items:center;padding:28px 10px;border-top:1px solid var(--line);transition:.35s}
+.cap:hover{background:var(--card);padding-left:22px}
+.cap .num{font-family:var(--num);font-size:26px;color:var(--mut)}
+.cap .ic{width:58px;height:58px;background:var(--paper2);display:flex;align-items:center;justify-content:center}
+.cap .ic svg{width:72%}
+.cap h3{font-family:var(--serif);font-size:21px;letter-spacing:.1em}
+.cap p{font-size:13px;color:var(--mut);margin-top:2px}
+.cap em{font-style:normal;font-size:13px;letter-spacing:.18em;color:var(--acc);white-space:nowrap;transition:.3s}
+.cap:hover em{letter-spacing:.3em}
+.polas{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.pola{background:#fff;padding:12px 12px 14px;box-shadow:0 14px 34px rgba(30,20,10,.14);transform:rotate(var(--r,0deg));transition:transform .45s,box-shadow .45s}
+.pola:hover{transform:rotate(0) translateY(-10px);box-shadow:0 24px 48px rgba(30,20,10,.2)}
+.pola .ph{display:block;background:var(--paper2)}
+.pola figcaption{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.16em;color:var(--mut);padding:12px 4px 2px}
+.polas-note{font-size:12px;color:var(--mut);margin-top:26px}
+.storewrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+.store-art{border:1px solid var(--line);box-shadow:0 16px 40px rgba(30,20,10,.1)}
+.stores li{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1px solid var(--line);padding:18px 2px}
+.stores li:last-child{border-bottom:1px solid var(--line)}
+.stores b{font-family:var(--serif);font-size:17px;letter-spacing:.08em;display:block}
+.stores small{font-size:12px;color:var(--mut)}
+.svcs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+.svc{border:1px solid var(--line);background:var(--card);padding:24px;transition:.3s}
+.svc:hover{border-color:var(--ink)}
+.svc i{font-style:normal;width:46px;height:46px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;margin-bottom:14px}
+.svc b{font-family:var(--serif);letter-spacing:.14em;font-size:17px}
+.svc p{font-size:12.5px;color:var(--mut);margin-top:6px}
+.news{background:var(--ink);color:#EDE4D2}
+.news .in{max-width:1280px;margin:0 auto;padding:76px 24px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.news h2{font-family:var(--serif);font-size:clamp(24px,3vw,34px);letter-spacing:.1em}
+.news p{color:#B9AF9C;margin-top:10px;font-size:14px}
+.nl{display:flex;gap:0;border-bottom:1px solid #6E6455}
+.nl input{flex:1;background:transparent;border:0;color:#F4EFE5;font-size:15px;padding:12px 0;outline:none;font-family:var(--sans)}
+.nl input::placeholder{color:#8A7F6B}
+.nl button{background:transparent;border:0;color:#F4EFE5;font-size:14px;letter-spacing:.26em;cursor:pointer;padding:0 6px;transition:.3s}
+.nl button:hover{color:var(--acc)}
+.nlm{font-size:13px;color:var(--rose);margin-top:12px;min-height:20px}
+footer{background:#1B1712;color:#B9AF9C}
+.ft{max-width:1280px;margin:0 auto;padding:64px 24px 44px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+.fmark{font-family:var(--serif);font-size:34px;letter-spacing:.4em;color:#F4EFE5}
+.fabout{font-size:13px;margin-top:14px;line-height:2}
+.ft h4{font-size:13px;letter-spacing:.3em;color:#F4EFE5;margin-bottom:16px;font-weight:500}
+.ft a{display:block;font-size:13.5px;padding:5px 0;transition:.25s}
+.ft a:hover{color:#F4EFE5;padding-left:6px}
+.fbot{border-top:1px solid #35302A;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:1280px;margin:0 auto;padding:20px 24px;font-size:12px;color:#8A7F6B}
+@media(max-width:1080px){.pgrid{grid-template-columns:repeat(3,1fr)}.svcs{grid-template-columns:repeat(2,1fr)}.ft{grid-template-columns:1fr 1fr}}
+@media(max-width:920px){.hero{grid-template-columns:1fr;min-height:0;padding-top:60px}.hr{height:440px;max-width:520px}.vtxt{display:none}.storewrap{grid-template-columns:1fr}.news .in{grid-template-columns:1fr}}
+@media(max-width:760px){.pgrid{grid-template-columns:repeat(2,1fr)}.polas{grid-template-columns:1fr;max-width:400px;margin:0 auto}.cap{grid-template-columns:44px 48px 1fr;gap:14px}.cap em{grid-column:1/-1;padding-left:0}}
+@media(max-width:520px){.pgrid{grid-template-columns:1fr}.svcs{grid-template-columns:1fr}.ft{grid-template-columns:1fr}.stats{gap:26px}.hd{gap:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.ml i{transform:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="tick"><div class="row">
+<span class="ti">早秋系列「拾贰」已上线 · 全场满 ¥999 顺丰包邮<em>✦</em></span>
+<span class="ti">新会员首单立减 ¥80<em>✦</em></span>
+<span class="ti">门店免费改衣 · 预约试穿 400-820-9277<em>✦</em></span>
+<span class="ti">早秋系列「拾贰」已上线 · 全场满 ¥999 顺丰包邮<em>✦</em></span>
+<span class="ti">新会员首单立减 ¥80<em>✦</em></span>
+<span class="ti">门店免费改衣 · 预约试穿 400-820-9277<em>✦</em></span>
+</div></div></div>
+
+<header class="stick">
+<div class="hd">
+<a class="logo" href="index.html">
+<svg class="seal" viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" fill="#A63E2A"/><rect x="1" y="1" width="38" height="38" fill="none" stroke="#7E2E1E" stroke-width="2"/><text x="20" y="17" text-anchor="middle" font-size="14" fill="#F4EFE5" font-family="Songti SC,SimSun,serif">叙</text><text x="20" y="33" text-anchor="middle" font-size="14" fill="#F4EFE5" font-family="Songti SC,SimSun,serif">白</text></svg>
+<span><b>叙白</b><small>XU BAI</small></span>
+</a>
+<nav>
+<a href="index.html" class="on">首页</a>
+<a href="shop.html">新品上市</a>
+<a href="lookbook.html">造型册</a>
+<a href="about.html">品牌故事</a>
+</nav>
+<a class="bag" href="shop.html" aria-label="衣袋">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5.5 8 h13 l1.5 12 h-16 Z"/><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8"/></svg>
+<i id="bagN">0</i>
+</a>
+</div>
+</header>
+
+<main class="wrap">
+<!-- 首屏 -->
+<section class="hero">
+<span class="vtxt" aria-hidden="true">叙白</span>
+<div class="hl">
+<p class="ovl rv">2025 早秋系列 · 第拾贰辑</p>
+<h1 class="h1 rv" style="--d:.08s">
+<span class="ml"><i>把秋天,</i></span>
+<span class="ml" style="--d:.2s"><i>穿在<em>身上</em>。</i></span>
+</h1>
+<p class="lead rv" style="--d:.3s">从江南的初凉到北方的深冬,叙白以天然面料与松弛剪裁,为你备好这一季的体面与温柔。</p>
+<p class="scr rv" id="scr" data-t="XUBAI · AUTUMN COLLECTION NO.12" style="--d:.4s">XUBAI · AUTUMN COLLECTION NO.12</p>
+<div class="ctas rv" style="--d:.45s">
+<a class="btn" href="shop.html">进入新品上市</a>
+<a class="btn-line" href="lookbook.html">翻翻造型册</a>
+</div>
+<div class="stats rv" style="--d:.55s">
+<div><b>36</b><span>款早秋新品</span></div>
+<div><b>12</b><span>家线下门店</span></div>
+<div><b>48H</b><span>顺丰发货</span></div>
+</div>
+</div>
+<div class="hr rv" style="--d:.25s">
+<div class="pc pc1"><svg viewBox="0 0 120 120"><path fill="#C9A87C" d="M42 26 L54 17 Q60 14 66 17 L78 26 L89 48 L80 55 L77 99 Q60 106 43 99 L40 55 L31 48 Z"/><path d="M54 19 L60 34 L66 19" fill="none" stroke="rgba(40,25,8,.35)" stroke-width="1.6"/><path d="M60 34 V99" stroke="rgba(40,25,8,.18)" stroke-width="1.4"/><rect x="44" y="60" width="32" height="5" fill="rgba(40,25,8,.28)"/></svg><b>「白露」羊绒大衣</b></div>
+<div class="pc pc2"><svg viewBox="0 0 120 120"><path fill="#B4552F" d="M48 22 Q60 15 72 22 L74 44 C77 50 76 54 74 58 L86 97 Q60 107 34 97 L46 58 C44 54 43 50 46 44 Z"/><path d="M48 24 Q60 32 72 24" fill="none" stroke="rgba(50,15,5,.35)" stroke-width="1.6"/><path d="M46 60 H74" stroke="rgba(50,15,5,.2)"/></svg><b>「柿染」针织连衣裙</b></div>
+<div class="pc pc3"><svg viewBox="0 0 120 120"><path fill="#33312E" d="M43 25 L57 18 L60 32 L63 18 L77 25 L86 44 L77 51 L75 92 Q60 98 45 92 L43 51 L34 44 Z"/><path d="M57 18 L52 40 L60 32 M63 18 L68 40 L60 32" fill="rgba(240,235,225,.16)"/><circle cx="60" cy="52" r="1.6" fill="rgba(240,235,225,.5)"/></svg><b>「玄青」单西外套</b></div>
+<div class="sticker">早秋上新<br>限时九折</div>
+</div>
+</section>
+</main>
+
+<!-- 面料跑马灯 -->
+<div class="fab tick"><div class="row">
+<span class="ti">桑蚕丝<em>✦</em></span><span class="ti">美丽诺羊毛<em>✦</em></span><span class="ti">新疆长绒棉<em>✦</em></span><span class="ti">醋酸纤维<em>✦</em></span><span class="ti">阿拉善山羊绒<em>✦</em></span>
+<span class="ti">桑蚕丝<em>✦</em></span><span class="ti">美丽诺羊毛<em>✦</em></span><span class="ti">新疆长绒棉<em>✦</em></span><span class="ti">醋酸纤维<em>✦</em></span><span class="ti">阿拉善山羊绒<em>✦</em></span>
+</div></div>
+
+<main class="wrap">
+<!-- 壹 · 新品上市 -->
+<section class="blk" id="new">
+<div class="chap rv">
+<div class="l"><span class="no">壹</span><h2>新品上市</h2></div>
+<a class="more" href="shop.html">查看全部 36 款 →</a>
+<p>每一件都以节气与草木命名,面料均可溯源。</p>
+</div>
+<div class="pgrid">
+
+<article class="pcard rv">
+<div class="stage" style="--gc:#E3D2B4"><span class="tag">新品</span>
+<svg viewBox="0 0 120 120"><path fill="#C9A87C" d="M42 26 L54 17 Q60 14 66 17 L78 26 L89 48 L80 55 L77 99 Q60 106 43 99 L40 55 L31 48 Z"/><path d="M54 19 L60 34 L66 19" fill="none" stroke="rgba(40,25,8,.35)" stroke-width="1.6"/><path d="M60 34 V99" stroke="rgba(40,25,8,.18)" stroke-width="1.4"/><rect x="44" y="60" width="32" height="5" fill="rgba(40,25,8,.28)"/></svg></div>
+<div class="pinfo"><p class="pcat">外套 · 羊绒</p><h3>「白露」羊绒大衣</h3><p class="pfab">100% 阿拉善山羊绒 · 双面工艺</p>
+<div class="prow"><span class="price">¥2,680</span><span class="sizes">XS–XL</span></div>
+<div class="sws"><button class="sw on" style="background:#C9A87C" data-c="#E3D2B4" aria-label="驼色"></button><button class="sw" style="background:#2E2A26" data-c="#B9B4AB" aria-label="玄色"></button><button class="sw" style="background:#B9B4AA" data-c="#E2DED5" aria-label="灰色"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.08s">
+<div class="stage" style="--gc:#EFE9DA"><span class="tag">新品</span>
+<svg viewBox="0 0 120 120"><path fill="#EDE6D6" d="M45 25 L53 19 Q60 16 67 19 L75 25 L84 42 L75 48 L73 90 Q60 96 47 90 L45 48 L36 42 Z"/><path d="M53 21 L60 31 L67 21" stroke="rgba(60,50,30,.35)" fill="none" stroke-width="1.6"/><path d="M60 31 V88" stroke="rgba(60,50,30,.15)"/><circle cx="60" cy="42" r="1.4" fill="rgba(60,50,30,.4)"/><circle cx="60" cy="56" r="1.4" fill="rgba(60,50,30,.4)"/><circle cx="60" cy="70" r="1.4" fill="rgba(60,50,30,.4)"/></svg></div>
+<div class="pinfo"><p class="pcat">衬衫 · 真丝</p><h3>「雾山」真丝衬衫</h3><p class="pfab">19 姆米桑蚕丝 · 珍珠贝扣</p>
+<div class="prow"><span class="price">¥890</span><span class="sizes">XS–L</span></div>
+<div class="sws"><button class="sw on" style="background:#EDE6D6" data-c="#EFE9DA" aria-label="月白"></button><button class="sw" style="background:#4A5A6A" data-c="#C6CEd5" aria-label="黛蓝"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.16s">
+<div class="stage" style="--gc:#D5D9CB"><span class="tag hot">热卖</span>
+<svg viewBox="0 0 120 120"><path fill="#5E6B57" d="M44 25 L52 19 Q60 15 68 19 L76 25 L85 44 L76 50 L74 92 Q60 98 46 92 L44 50 L35 44 Z"/><path d="M60 20 V95" stroke="rgba(20,25,15,.35)" stroke-width="2"/><circle cx="55" cy="38" r="1.6" fill="rgba(230,230,220,.65)"/><circle cx="55" cy="52" r="1.6" fill="rgba(230,230,220,.65)"/><circle cx="55" cy="66" r="1.6" fill="rgba(230,230,220,.65)"/></svg></div>
+<div class="pinfo"><p class="pcat">针织 · 羊毛</p><h3>「松烟」羊毛开衫</h3><p class="pfab">美丽诺羊毛 · 牛角扣</p>
+<div class="prow"><span class="price">¥1,180</span><span class="sizes">S–XL</span></div>
+<div class="sws"><button class="sw on" style="background:#5E6B57" data-c="#D5D9CB" aria-label="黛绿"></button><button class="sw" style="background:#B98A5C" data-c="#E5D6BF" aria-label="驼色"></button><button class="sw" style="background:#33312E" data-c="#C9C6C0" aria-label="玄色"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.24s">
+<div class="stage" style="--gc:#CBD3D7">
+<svg viewBox="0 0 120 120"><path fill="#3E4A52" d="M47 32 H73 L74 40 L86 94 Q60 103 34 94 L46 40 Z"/><rect x="46" y="30" width="28" height="6" fill="rgba(20,25,30,.5)"/><path d="M52 42 L48 92 M60 42 V96 M68 42 L72 92" stroke="rgba(230,235,240,.14)" stroke-width="1.6"/></svg></div>
+<div class="pinfo"><p class="pcat">半裙 · 醋酸</p><h3>「南烛」醋酸半裙</h3><p class="pfab">三醋酸纤维 · 垂坠光泽</p>
+<div class="prow"><span class="price">¥760</span><span class="sizes">XS–L</span></div>
+<div class="sws"><button class="sw on" style="background:#3E4A52" data-c="#CBD3D7" aria-label="黛青"></button><button class="sw" style="background:#7A3434" data-c="#DCC6C3" aria-label="绛红"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv">
+<div class="stage" style="--gc:#E8CDBD"><span class="tag few">少量</span>
+<svg viewBox="0 0 120 120"><path fill="#B4552F" d="M48 22 Q60 15 72 22 L74 44 C77 50 76 54 74 58 L86 97 Q60 107 34 97 L46 58 C44 54 43 50 46 44 Z"/><path d="M48 24 Q60 32 72 24" fill="none" stroke="rgba(50,15,5,.35)" stroke-width="1.6"/><path d="M46 60 H74" stroke="rgba(50,15,5,.2)"/></svg></div>
+<div class="pinfo"><p class="pcat">连衣裙 · 针织</p><h3>「柿染」针织连衣裙</h3><p class="pfab">羊毛混纺 · 植物染色</p>
+<div class="prow"><span class="price">¥1,350</span><span class="sizes">S–L</span></div>
+<div class="sws"><button class="sw on" style="background:#B4552F" data-c="#E8CDBD" aria-label="柿红"></button><button class="sw" style="background:#78806C" data-c="#D8DBCF" aria-label="竹青"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.08s">
+<div class="stage" style="--gc:#EAE0CB">
+<svg viewBox="0 0 120 120"><path fill="#D8CBAF" d="M45 26 H75 L79 42 L71 98 H62 L60 58 L58 98 H49 L41 42 Z"/><rect x="44" y="24" width="32" height="6" fill="rgba(60,45,25,.35)"/></svg></div>
+<div class="pinfo"><p class="pcat">裤装 · 天丝</p><h3>「暮云」阔腿裤</h3><p class="pfab">天丝混纺 · 高腰直筒</p>
+<div class="prow"><span class="price">¥690</span><span class="sizes">XS–XL</span></div>
+<div class="sws"><button class="sw on" style="background:#D8CBAF" data-c="#EAE0CB" aria-label="燕麦"></button><button class="sw" style="background:#33312E" data-c="#C9C6C0" aria-label="玄色"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.16s">
+<div class="stage" style="--gc:#EFDAD3"><span class="tag">新品</span>
+<svg viewBox="0 0 120 120"><path fill="#D8A9A0" d="M32 30 Q60 18 88 30 L83 82 Q60 94 37 82 Z"/><path d="M40 84 l-2 8 M48 87 l-1 8 M56 89 v8 M64 89 v8 M72 87 l1 8 M80 84 l2 8" stroke="#C79A8B" stroke-width="2.4" stroke-linecap="round"/><path d="M40 34 Q60 26 80 34" stroke="rgba(90,40,35,.25)" fill="none"/></svg></div>
+<div class="pinfo"><p class="pcat">配饰 · 羊绒</p><h3>「山茶」羊绒披肩</h3><p class="pfab">山羊绒 · 手工流苏</p>
+<div class="prow"><span class="price">¥980</span><span class="sizes">均码</span></div>
+<div class="sws"><button class="sw on" style="background:#D8A9A0" data-c="#EFDAD3" aria-label="山茶粉"></button><button class="sw" style="background:#C9A87C" data-c="#E3D2B4" aria-label="驼色"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+<article class="pcard rv" style="--d:.24s">
+<div class="stage" style="--gc:#D4D1CB">
+<svg viewBox="0 0 120 120"><path fill="#33312E" d="M43 25 L57 18 L60 32 L63 18 L77 25 L86 44 L77 51 L75 92 Q60 98 45 92 L43 51 L34 44 Z"/><path d="M57 18 L52 40 L60 32 M63 18 L68 40 L60 32" fill="rgba(240,235,225,.16)"/><circle cx="60" cy="52" r="1.6" fill="rgba(240,235,225,.5)"/></svg></div>
+<div class="pinfo"><p class="pcat">外套 · 西装</p><h3>「玄青」单西外套</h3><p class="pfab">羊毛混纺 · 微廓形垫肩</p>
+<div class="prow"><span class="price">¥1,580</span><span class="sizes">S–XL</span></div>
+<div class="sws"><button class="sw on" style="background:#33312E" data-c="#D4D1CB" aria-label="玄青"></button><button class="sw" style="background:#B7A17E" data-c="#E5DAC3" aria-label="卡其"></button></div></div>
+<button class="add">加入衣袋</button>
+</article>
+
+</div>
+</section>
+
+<!-- 贰 · 系列精选 -->
+<section class="blk" id="caps" style="padding-top:20px">
+<div class="chap rv">
+<div class="l"><span class="no">贰</span><h2>系列精选</h2></div>
+<a class="more" href="shop.html">按系列选购 →</a>
+<p>四个主题,四种秋天的过法。</p>
+</div>
+<div class="caps">
+<a class="cap rv" href="shop.html">
+<span class="num">01</span>
+<span class="ic"><svg viewBox="0 0 100 100"><path fill="#B98A5C" d="M35 22 L45 15 Q50 12 55 15 L65 22 L74 40 L66 46 L64 82 Q50 88 36 82 L34 46 L26 40 Z"/></svg></span>
+<span><h3>羊绒叙事</h3><p>阿拉善白山羊绒,八件单品织成一整个暖冬。</p><em>8 件单品 →</em></span>
+</a>
+<a class="cap rv" style="--d:.1s" href="shop.html">
+<span class="num">02</span>
+<span class="ic"><svg viewBox="0 0 100 100"><path fill="#4A5A6A" d="M38 20 L62 20 L65 44 L72 84 L54 84 L50 52 L46 84 L28 84 L35 44 Z"/><path d="M38 26 L62 26" stroke="rgba(244,239,229,.5)" stroke-width="2"/></svg></span>
+<span><h3>丹宁日常</h3><p>复古水洗与直筒廓形,周末松弛感的正确答案。</p><em>7 件单品 →</em></span>
+</a>
+<a class="cap rv" style="--d:.2s" href="shop.html">
+<span class="num">03</span>
+<span class="ic"><svg viewBox="0 0 100 100"><path fill="#78806C" d="M40 18 Q50 12 60 18 L63 40 C65 46 64 50 63 54 L73 86 Q50 94 27 86 L37 54 C36 50 35 46 37 40 Z"/></svg></span>
+<span><h3>真丝晨昏</h3><p>从衬衫到睡裙,桑蚕丝贴着皮肤过完一整天。</p><em>6 件单品 →</em></span>
+</a>
+<a class="cap rv" style="--d:.3s" href="shop.html">
+<span class="num">04</span>
+<span class="ic"><svg viewBox="0 0 100 100"><path fill="#7A3434" d="M40 18 Q50 13 60 18 L64 46 C66 52 65 56 64 60 L74 84 Q50 93 26 84 L36 60 C35 56 34 52 36 46 Z"/><path d="M43 18 Q50 24 57 18" stroke="rgba(244,239,229,.5)" fill="none" stroke-width="1.6"/></svg></span>
+<span><h3>晚装 · 丝绒</h3><p>丝绒与提花,给值得盛装出席的夜晚。</p><em>6 件单品 →</em></span>
+</a>
+</div>
+</section>
+</main>
+
+<main class="wrap">
+<!-- 叁 · 穿搭灵感 -->
+<section class="blk" id="looks" style="padding-top:20px">
+<div class="chap rv">
+<div class="l"><span class="no">叁</span><h2>穿搭灵感</h2></div>
+<a class="more" href="lookbook.html">进入造型册 →</a>
+<p>早秋八组造型,拆开即穿的搭配作业。</p>
+</div>
+<div class="polas">
+<a class="pola rv" style="--r:-2.4deg" href="lookbook.html">
+<span class="ph"><svg viewBox="0 0 260 330"><rect width="260" height="330" fill="#EFE7D5"/><circle cx="130" cy="48" r="16" fill="#2A241D"/><circle cx="133" cy="54" r="12" fill="#E7C6A9"/><circle cx="145" cy="38" r="7" fill="#2A241D"/><rect x="124" y="68" width="12" height="12" fill="#E7C6A9"/><path fill="#B98A5C" d="M106 84 C110 77 150 77 154 84 L164 116 L157 123 L155 232 Q130 241 105 232 L103 123 L96 116 Z"/><path d="M130 82 V232" stroke="rgba(60,35,10,.22)"/><rect x="106" y="156" width="48" height="7" fill="rgba(60,35,10,.18)"/><path fill="#2B2620" d="M116 232 h11 v46 h-11z M133 232 h11 v46 h-11z"/><ellipse cx="121" cy="281" rx="9" ry="4" fill="#221D17"/><ellipse cx="139" cy="281" rx="9" ry="4" fill="#221D17"/><ellipse cx="130" cy="294" rx="46" ry="6" fill="rgba(30,20,10,.12)"/></svg></span>
+<figcaption><span>LOOK 01 · 秋驼大衣</span><span>同款 →</span></figcaption>
+</a>
+<a class="pola rv" style="--r:1.8deg;--d:.12s" href="lookbook.html">
+<span class="ph"><svg viewBox="0 0 260 330"><rect width="260" height="330" fill="#EDE4D0"/><circle cx="130" cy="48" r="16" fill="#2A241D"/><circle cx="127" cy="54" r="12" fill="#E7C6A9"/><circle cx="115" cy="38" r="7" fill="#2A241D"/><rect x="124" y="68" width="12" height="12" fill="#E7C6A9"/><path fill="#78806C" d="M106 86 L118 76 Q130 72 142 76 L154 86 L168 108 L158 119 L152 110 L153 158 Q130 166 107 158 L108 110 L102 119 L92 108 Z"/><path fill="#2B2620" d="M112 160 L148 160 L160 244 Q130 254 100 244 Z"/><path fill="#E7C6A9" d="M118 246 h9 v34 h-9z M133 246 h9 v34 h-9z"/><ellipse cx="122" cy="283" rx="8" ry="3.6" fill="#7A3434"/><ellipse cx="138" cy="283" rx="8" ry="3.6" fill="#7A3434"/><ellipse cx="130" cy="294" rx="46" ry="6" fill="rgba(30,20,10,.12)"/></svg></span>
+<figcaption><span>LOOK 02 · 竹青针织</span><span>同款 →</span></figcaption>
+</a>
+<a class="pola rv" style="--r:-1.2deg;--d:.24s" href="lookbook.html">
+<span class="ph"><svg viewBox="0 0 260 330"><rect width="260" height="330" fill="#EFE7D5"/><circle cx="130" cy="48" r="16" fill="#2A241D"/><circle cx="133" cy="54" r="12" fill="#E7C6A9"/><circle cx="145" cy="38" r="7" fill="#2A241D"/><rect x="124" y="68" width="12" height="12" fill="#E7C6A9"/><path fill="#7A3434" d="M114 80 Q130 74 146 80 L150 122 C152 128 151 132 150 136 L162 252 Q130 263 98 252 L110 136 C109 132 108 128 110 122 Z"/><path d="M118 82 Q130 90 142 82" stroke="rgba(244,239,229,.4)" fill="none" stroke-width="2"/><path d="M124 140 L118 244 M136 140 L142 244" stroke="rgba(244,239,229,.16)" stroke-width="2"/><ellipse cx="130" cy="294" rx="46" ry="6" fill="rgba(30,20,10,.12)"/></svg></span>
+<figcaption><span>LOOK 06 · 绛红丝绒</span><span>同款 →</span></figcaption>
+</a>
+</div>
+<p class="polas-note rv">* 全部造型均可在「新品上市」中找到同款,造型册内附完整搭配清单。</p>
+</section>
+
+<!-- 肆 · 门店与服务 -->
+<section class="blk" id="stores" style="padding-top:20px">
+<div class="chap rv">
+<div class="l"><span class="no">肆</span><h2>门店与服务</h2></div>
+<a class="more" href="about.html">了解更多 →</a>
+<p>线上之外,欢迎来店里摸摸面料、喝杯茶。</p>
+</div>
+<div class="storewrap">
+<svg class="store-art rv" viewBox="0 0 520 310" role="img" aria-label="叙白门店手绘">
+<rect width="520" height="310" fill="#EFE6D2"/>
+<path d="M40 290 H480" stroke="#8A7F6B" stroke-width="2"/>
+<rect x="70" y="88" width="380" height="202" fill="#F7F1E3" stroke="#2B2620" stroke-width="2"/>
+<path d="M58 88 H462 L446 54 H74 Z" fill="#A63E2A"/>
+<path d="M58 88 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 33 0 q16 20 34 0" fill="#A63E2A"/>
+<rect x="200" y="108" width="120" height="36" fill="#2B2620"/>
+<text x="260" y="134" text-anchor="middle" font-size="22" fill="#F4EFE5" font-family="Songti SC,SimSun,serif" letter-spacing="8">叙白</text>
+<rect x="100" y="160" width="90" height="130" fill="#E4D9BE" stroke="#2B2620" stroke-width="2"/>
+<rect x="330" y="160" width="90" height="130" fill="#E4D9BE" stroke="#2B2620" stroke-width="2"/>
+<path d="M145 160 V290 M375 160 V290" stroke="rgba(43,38,32,.4)" stroke-width="1.5"/>
+<rect x="228" y="170" width="64" height="120" fill="#B98A5C" stroke="#2B2620" stroke-width="2"/>
+<circle cx="282" cy="232" r="3" fill="#2B2620"/>
+<circle cx="112" cy="272" r="13" fill="#78806C"/><rect x="108" y="280" width="8" height="10" fill="#7A3434"/>
+<circle cx="408" cy="272" r="13" fill="#78806C"/><rect x="404" y="280" width="8" height="10" fill="#7A3434"/>
+</svg>
+<div class="rv" style="--d:.15s">
+<ul class="stores">
+<li><span><b>上海 · 安福路旗舰店</b><small>徐汇区安福路 322 号 1 层 · 周一至周日 10:00–21:30</small></span><span style="color:var(--acc);white-space:nowrap">营业中</span></li>
+<li><span><b>成都 · 太古里店</b><small>锦江区中纱帽街 8 号 2 层 · 周一至周日 10:00–22:00</small></span><span style="color:var(--acc);white-space:nowrap">营业中</span></li>
+<li><span><b>杭州 · 天目里店</b><small>西湖区天目山路 398 号 5 号楼 · 周一至周日 10:00–21:00</small></span><span style="color:var(--mut);white-space:nowrap">10 月开业</span></li>
+</ul>
+<p style="font-size:13px;color:var(--mut);margin-top:18px">全国共 12 家门店,到店可享免费量体与改衣建议。预约试穿请致电客服 400-820-9277。</p>
+</div>
+</div>
+<div class="svcs">
+<div class="svc rv"><i>包</i><b>顺丰包邮</b><p>全场满 ¥999 即享顺丰包邮,48 小时内发货。</p></div>
+<div class="svc rv" style="--d:.08s"><i>换</i><b>七天无理由</b><p>未拆吊牌、不影响二次销售,七天内可退可换。</p></div>
+<div class="svc rv" style="--d:.16s"><i>改</i><b>免费改衣</b><p>会员享每年两次免费改裤脚、收腰服务。</p></div>
+<div class="svc rv" style="--d:.24s"><i>护</i><b>终身养护</b><p>羊绒与真丝单品,终身免费基础护理咨询。</p></div>
+</div>
+</section>
+</main>
+
+<section class="news">
+<div class="in">
+<div class="rv">
+<h2>把秋天的第一封信,寄给你。</h2>
+<p>订阅叙白通讯:新系列预览、会员专享价与穿搭手记,每月一封,不打扰。</p>
+</div>
+<div class="rv" style="--d:.15s">
+<form class="nl" id="nl">
+<input type="email" required placeholder="请输入你的邮箱地址" aria-label="邮箱地址">
+<button type="submit">订阅 →</button>
+</form>
+<p class="nlm" id="nlm"></p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="ft">
+<div>
+<p class="fmark">叙白</p>
+<p class="fabout">以衣叙事,见素抱朴。<br>上海市徐汇区安福路 322 号 1 层<br>客服:400-820-9277(9:00–21:00)</p>
+</div>
+<div>
+<h4>购物</h4>
+<a href="shop.html">新品上市</a>
+<a href="shop.html">全部商品</a>
+<a href="lookbook.html">造型册</a>
+<a href="index.html#caps">系列精选</a>
+</div>
+<div>
+<h4>服务</h4>
+<a href="index.html#stores">门店查询</a>
+<a href="about.html#size">尺码指南</a>
+<a href="about.html#care">衣物养护</a>
+<a href="about.html#member">会员计划</a>
+</div>
+<div>
+<h4>关注叙白</h4>
+<a href="about.html">微信公众号 · 叙白XUBAI</a>
+<a href="lookbook.html">小红书 · @叙白</a>
+<a href="lookbook.html">微博 · @叙白官方</a>
+<p style="font-size:12px;color:#8A7F6B;margin-top:14px">服务时间 9:00–21:00 · 节假日不休</p>
+</div>
+</div>
+<div class="fbot">
+<span>© 2025 叙白服饰(上海)有限公司</span>
+<span>沪ICP备2025007788号-1</span>
+</div>
+</footer>
+
+<script>
+(function(){
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=[].slice.call(document.querySelectorAll('.rv'));
+if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
+else{var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});els.forEach(function(e){io.observe(e)});}
+if(!rm){var sc=document.getElementById('scr');if(sc){var t=sc.dataset.t,ch='ABCDEFGHKMNPRSTUVWXYZ·—0123456789',i=0,iv=setInterval(function(){var out='';for(var j=0;j<t.length;j++){out+= j<i/2 ? t[j] : ch[Math.floor(Math.random()*ch.length)];}sc.textContent=out;i++;if(i>t.length*2+6){sc.textContent=t;clearInterval(iv);}},34);}}
+document.querySelectorAll('.add').forEach(function(btn){btn.addEventListener('click',function(){var b=document.getElementById('bagN');if(b){var v=(parseInt(b.textContent)||0)+1;b.textContent=v;b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');}var o=btn.textContent;btn.textContent='已加入 ✓';setTimeout(function(){btn.textContent=o},1100);});});
+document.querySelectorAll('.sw').forEach(function(s){s.addEventListener('click',function(){var card=s.closest('.pcard');card.querySelector('.stage').style.setProperty('--gc',s.dataset.c);[].forEach.call(s.parentNode.querySelectorAll('.sw'),function(x){x.classList.remove('on')});s.classList.add('on');});});
+var f=document.getElementById('nl');
+if(f){f.addEventListener('submit',function(e){e.preventDefault();document.getElementById('nlm').textContent='订阅成功,感谢你的关注。';f.querySelector('input').value='';});}
+})();
+</script>
+</body>
+</html>

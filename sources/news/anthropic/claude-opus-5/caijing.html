@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>财经 — 北辰新闻网</title>
+<meta name="description" content="宏观经济、消费市场与企业动态报道。">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Heiti SC",sans-serif;color:#222;background:#f4f4f4;line-height:1.7;font-size:15px}
+a{color:#222;text-decoration:none}
+a:hover{color:#c0261f}
+svg{display:block}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{background:#fafafa;border-bottom:1px solid #e7e7e7}
+.topbar{display:flex;justify-content:space-between;align-items:center;height:36px;font-size:12px;color:#8a8a8a;flex-wrap:wrap}
+.topbar a{color:#8a8a8a;margin-left:14px}
+.masthead{display:flex;align-items:center;gap:16px;padding:20px 16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-name{font-size:30px;font-weight:700;letter-spacing:3px;color:#c0261f;line-height:1.2}
+.logo-sub{font-size:12px;color:#aaa;letter-spacing:4px}
+.search{margin-left:auto;display:flex;border:1px solid #ddd;background:#fff}
+.search input{border:0;padding:9px 12px;width:200px;outline:none;font-size:13px;font-family:inherit}
+.search button{border:0;background:#c0261f;color:#fff;padding:0 20px;font-size:13px;cursor:pointer;font-family:inherit}
+.mainnav{background:#c0261f;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+.mainnav .wrap{display:flex;flex-wrap:wrap;padding:0 16px}
+.mainnav a{color:#fff;padding:12px 22px;font-size:16px}
+.mainnav a:hover,.mainnav a.on{background:#9c1b16;color:#fff}
+.crumb{font-size:13px;color:#999;padding:12px 0}
+.crumb a{color:#999}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:24px;max-width:1100px;margin:0 auto 20px;padding:0 16px}
+.card{background:#fff;border:1px solid #e9e9e9;margin-bottom:20px}
+.card-hd{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 16px}
+.card-hd h2{font-size:18px;border-left:4px solid #c0261f;padding-left:10px;line-height:1.3}
+.card-bd{padding:16px}
+.quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#eee;border:1px solid #e9e9e9;margin-bottom:20px}
+.q{background:#fff;padding:14px 16px}
+.q .n{font-size:13px;color:#888}
+.q .v{font-size:22px;font-weight:700;margin-top:4px}
+.q .up{color:#c0261f}.q .down{color:#1f7a4d}
+.q .c{font-size:12px;margin-top:2px}
+.item{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:18px 16px;border-bottom:1px solid #f0f0f0}
+.item:last-child{border-bottom:0}
+.item h3{font-size:19px;margin-bottom:8px}
+.item p{color:#777;font-size:14px}
+.thumb{width:100%;height:124px;border:1px solid #eee}
+.meta-s{font-size:12px;color:#aaa;margin-top:10px}
+.meta-s em{font-style:normal;color:#c0261f;margin-right:10px}
+.news-list{list-style:none}
+.news-list li{padding:10px 0;border-bottom:1px dashed #ececec;display:flex;gap:12px;align-items:baseline}
+.news-list li:last-child{border-bottom:0}
+.news-list li a{flex:1;font-size:15px}
+.news-list li a::before{content:"·";color:#c0261f;margin-right:8px;font-weight:700}
+.news-list time{font-size:12px;color:#bbb;white-space:nowrap}
+.pager{display:flex;gap:8px;justify-content:center;padding:18px 0}
+.pager a,.pager span{border:1px solid #e0e0e0;background:#fff;padding:6px 13px;font-size:14px;color:#666}
+.pager .cur{background:#c0261f;border-color:#c0261f;color:#fff}
+footer{background:#2b2b2b;color:#9b9b9b;margin-top:26px;padding:28px 0 20px;font-size:13px}
+footer a{color:#9b9b9b}
+footer a:hover{color:#fff}
+.fcols{display:flex;flex-wrap:wrap;gap:40px;padding-bottom:18px;border-bottom:1px solid #3c3c3c}
+.fcols h4{color:#ddd;font-size:14px;margin-bottom:8px}
+.fcols ul{list-style:none}
+.copy{padding-top:16px;line-height:2;color:#7d7d7d}
+@media(max-width:880px){.layout{grid-template-columns:1fr}.item{grid-template-columns:1fr}.quotes{grid-template-columns:1fr 1fr}.search{display:none}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap topbar">
+<span>2025年11月18日 星期二 农历十月廿九 多云转晴</span>
+<span><a href="guonei.html">国内</a><a href="caijing.html">财经</a><a href="keji.html">科技</a><a href="about.html">关于我们</a></span>
+</div></div>
+
+<div class="wrap masthead">
+  <div class="logo">
+    <svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true">
+      <circle cx="27" cy="27" r="26" fill="#c0261f"/>
+      <path d="M14 36 L27 14 L40 36 Z" fill="#fff" opacity=".9"/>
+      <circle cx="27" cy="22" r="4" fill="#c0261f"/>
+      <rect x="14" y="38" width="26" height="3" fill="#fff" opacity=".8"/>
+    </svg>
+    <div>
+      <div class="logo-name">北辰新闻网</div>
+      <div class="logo-sub">记录时代 服务生活</div>
+    </div>
+  </div>
+  <form class="search" onsubmit="return false">
+    <input type="text" placeholder="搜索新闻关键词" aria-label="搜索新闻">
+    <button type="submit">搜索</button>
+  </form>
+</div>
+
+<nav class="mainnav"><div class="wrap">
+  <a href="index.html">首页</a>
+  <a href="guonei.html">国内</a>
+  <a class="on" href="caijing.html">财经</a>
+  <a href="keji.html">科技</a>
+  <a href="about.html">关于我们</a>
+</div></nav>
+
+<div class="wrap crumb"><a href="index.html">首页</a> &gt; 财经</div>
+
+<div class="wrap" style="padding:0 16px">
+<div class="quotes">
+  <div class="q"><div class="n">样本城市消费指数</div><div class="v up">1086.42</div><div class="c up">+0.86%</div></div>
+  <div class="q"><div class="n">制造业采购经理指数</div><div class="v up">50.8</div><div class="c up">+0.3</div></div>
+  <div class="q"><div class="n">鲜菜价格周环比</div><div class="v down">-2.1%</div><div class="c down">连续两周回落</div></div>
+  <div class="q"><div class="n">物流景气指数</div><div class="v up">53.2</div><div class="c up">+1.1</div></div>
+</div>
+</div>
+
+<div class="layout">
+<main>
+  <section class="card">
+    <div class="card-hd"><h2>财经观察</h2></div>
+
+    <article class="item">
+      <svg class="thumb" viewBox="0 0 200 124" role="img" aria-label="消费数据图">
+        <rect width="200" height="124" fill="#fdf4f3"/>
+        <g fill="#e8a7a3"><rect x="22" y="76" width="22" height="34"/><rect x="54" y="62" width="22" height="48"/><rect x="86" y="50" width="22" height="60"/></g>
+        <g fill="#c0261f"><rect x="118" y="38" width="22" height="72"/><rect x="150" y="26" width="22" height="84"/></g>
+        <rect x="16" y="110" width="168" height="2" fill="#dcb6b3"/>
+      </svg>
+      <div>
+        <h3><a href="caijing.html">十月社会消费品零售总额回升 服务消费拉动明显</a></h3>
+        <p>餐饮、文旅、健身等服务类消费持续活跃，县域市场销售额增速高于城镇平均水平。多家连锁零售企业表示将继续下沉布局。</p>
+        <div class="meta-s"><em>宏观</em>2025-11-17 19:05　来源：本网记者 苏晴</div>
+      </div>
+    </article>
+
+    <article class="item">
+      <svg class="thumb" viewBox="0 0 200 124" role="img" aria-label="银行与利率示意">
+        <rect width="200" height="124" fill="#eef4f1"/>
+        <path d="M22 48 L100 20 L178 48 Z" fill="#1f7a4d"/>
+        <rect x="30" y="48" width="140" height="8" fill="#2f8f5c"/>
+        <g fill="#cfe0d6"><rect x="44" y="60" width="18" height="44"/><rect x="74" y="60" width="18" height="44"/><rect x="104" y="60" width="18" height="44"/><rect x="134" y="60" width="18" height="44"/></g>
+        <rect x="24" y="104" width="152" height="8" fill="#2f8f5c"/>
+      </svg>
+      <div>
+        <h3><a href="caijing.html">多家银行下调中长期存款挂牌利率 储户如何打理"钱袋子"</a></h3>
+        <p>三年期、五年期定期存款利率出现小幅调整。业内人士建议，家庭资产配置应兼顾流动性与风险承受能力，不盲目追高收益。</p>
+        <div class="meta-s"><em>金融</em>2025-11-16 15:22　来源：本网综合</div>
+      </div>
+    </article>
+
+    <article class="item">
+      <svg class="thumb" viewBox="0 0 200 124" role="img" aria-label="货运与跨境电商">
+        <rect width="200" height="124" fill="#eff3f8"/>
+        <rect x="18" y="56" width="86" height="44" fill="#c0261f" opacity=".85"/>
+        <rect x="104" y="68" width="60" height="32" fill="#94a6b8"/>
+        <circle cx="48" cy="106" r="10" fill="#51606e"/><circle cx="86" cy="106" r="10" fill="#51606e"/><circle cx="138" cy="106" r="10" fill="#51606e"/>
+        <g fill="#b9c7d5"><rect x="22" y="24" width="30" height="20"/><rect x="60" y="30" width="30" height="14"/></g>
+      </svg>
+      <div>
+        <h3><a href="caijing.html">跨境电商综试区再添十二个新成员 中小商家迎来新通道</a></h3>
+        <p>新设综试区将在海外仓建设、通关便利化等方面先行先试。多地同步推出培训计划，帮助传统外贸企业搭建线上销售链路。</p>
+        <div class="meta-s"><em>贸易</em>2025-11-15 10:40　来源：本网记者 林柏</div>
+      </div>
+    </article>
+
+    <article class="item">
+      <svg class="thumb" viewBox="0 0 200 124" role="img" aria-label="新能源汽车">
+        <rect width="200" height="124" fill="#f0f7f3"/>
+        <path d="M30 78 L54 54 h78 l24 24 v18 H30Z" fill="#1f7a4d" opacity=".85"/>
+        <rect x="62" y="58" width="32" height="18" fill="#e5f2ea"/><rect x="102" y="58" width="28" height="18" fill="#e5f2ea"/>
+        <circle cx="62" cy="98" r="12" fill="#2b3b34"/><circle cx="138" cy="98" r="12" fill="#2b3b34"/>
+        <path d="M168 30 l-14 24h10l-8 20 20-28h-10l10-16Z" fill="#c0261f"/>
+      </svg>
+      <div>
+        <h3><a href="caijing.html">新能源汽车下乡成绩单出炉 充电桩随车同步进村</a></h3>
+        <p>统计显示，县乡市场销量占比继续提升。多家车企与电网企业合作，推动"一车一桩"配套安装，缓解农村用户的里程顾虑。</p>
+        <div class="meta-s"><em>产业</em>2025-11-14 17:08　来源：本网综合</div>
+      </div>
+    </article>
+
+    <div class="pager"><span class="cur">1</span><a href="caijing.html">2</a><a href="caijing.html">3</a><a href="caijing.html">下一页</a></div>
+  </section>
+</main>
+
+<aside>
+  <section class="card">
+    <div class="card-hd"><h2>数据速览</h2></div>
+    <div class="card-bd">
+      <ul class="news-list">
+        <li><a href="caijing.html">十月物价总体平稳 鲜菜价格回落</a><time>11-13</time></li>
+        <li><a href="caijing.html">前十月全国固定资产投资结构优化</a><time>11-12</time></li>
+        <li><a href="caijing.html">中小微企业贷款加权平均利率继续走低</a><time>11-11</time></li>
+        <li><a href="caijing.html">快递业务量突破年度新高</a><time>11-10</time></li>
+      </ul>
+    </div>
+  </section>
+  <section class="card">
+    <div class="card-hd"><h2>专栏</h2></div>
+    <div class="card-bd">
+      <ul class="news-list">
+        <li><a href="article.html">就业之变：岗位从哪里来</a></li>
+        <li><a href="keji.html">数字工厂的成本账</a></li>
+        <li><a href="caijing.html">县域消费的三个新样本</a></li>
+      </ul>
+    </div>
+  </section>
+</aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>网站导航</h4><ul><li><a href="index.html">首页</a></li><li><a href="guonei.html">国内新闻</a></li><li><a href="caijing.html">财经</a></li><li><a href="keji.html">科技</a></li></ul></div>
+      <div><h4>关于本网</h4><ul><li><a href="about.html">网站简介</a></li><li><a href="about.html#team">采编团队</a></li><li><a href="about.html#contact">联系我们</a></li></ul></div>
+      <div><h4>服务说明</h4><ul><li><a href="about.html#copyright">版权声明</a></li><li><a href="about.html#correction">更正与答复</a></li><li><a href="about.html#report">不良信息举报</a></li></ul></div>
+    </div>
+    <div class="copy">
+      财经数据仅供参考，不构成投资建议。读者来信与线索：bianji@beichennews.example<br>
+      举报电话：010-8888 0000　工作时间 9:00—18:00<br>
+      © 2025 北辰新闻网　版权所有
+    </div>
+  </div>
+</footer>
+</body>
+</html>

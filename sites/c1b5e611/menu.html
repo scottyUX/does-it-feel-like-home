@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时令食单 · 云栖竹径 | 江南节气美馔与宋韵茗茶</title>
+<style>
+  :root {
+    --bg-paper: #f7f4ed;
+    --bg-paper-dark: #efeae0;
+    --bg-ink: #1b2220;
+    --text-main: #222926;
+    --text-muted: #5e6864;
+    --text-light: #f4f1ea;
+    --cinnabar: #a63429;
+    --cinnabar-dark: #85251c;
+    --celadon: #486b5c;
+    --celadon-light: #dce5e0;
+    --gold: #b08d57;
+    --gold-light: #d8c39e;
+    --border-subtle: #dcd4c6;
+    --shadow-soft: 0 10px 30px rgba(27, 34, 32, 0.07);
+    --serif: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+    --sans: "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: var(--sans);
+    line-height: 1.75;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .top-notice {
+    background-color: var(--bg-ink);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.06em;
+  }
+
+  .solar-badge {
+    display: inline-block;
+    background-color: var(--cinnabar);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 2px;
+    margin-right: 10px;
+    font-family: var(--serif);
+    font-size: 0.8rem;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 244, 237, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 40px;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-seal {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-title {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--bg-ink);
+    line-height: 1.2;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.22em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    color: var(--text-main);
+    padding: 8px 4px;
+    position: relative;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--cinnabar);
+    font-weight: 600;
+  }
+
+  .nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--cinnabar);
+  }
+
+  .btn-reserve {
+    background-color: var(--cinnabar);
+    color: #fff;
+    font-family: var(--serif);
+    padding: 10px 24px;
+    border-radius: 2px;
+    letter-spacing: 0.15em;
+    font-size: 0.95rem;
+  }
+
+  .page-banner {
+    background: var(--bg-ink);
+    color: var(--text-light);
+    padding: 64px 32px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .page-banner h1 {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+    color: var(--gold-light);
+  }
+
+  .page-banner p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #b8c2be;
+  }
+
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+
+  /* 分类筛选栏 */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    font-family: var(--serif);
+    font-size: 1rem;
+    padding: 10px 24px;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--cinnabar);
+    color: var(--cinnabar);
+  }
+
+  .filter-btn.active {
+    background: var(--cinnabar);
+    color: #fff;
+    border-color: var(--cinnabar);
+  }
+
+  /* 食单网格 */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .menu-item {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .menu-item-info {
+    flex: 1;
+  }
+
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dashed var(--border-subtle);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .menu-item-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--bg-ink);
+    letter-spacing: 0.08em;
+  }
+
+  .menu-item-price {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--cinnabar);
+    font-weight: 700;
+  }
+
+  .menu-item-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+
+  .menu-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    background: var(--bg-paper);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+  }
+
+  .tag.recommend {
+    background: #f9ebe9;
+    border-color: #e4b5b0;
+    color: var(--cinnabar);
+  }
+
+  .tag.seasonal {
+    background: var(--celadon-light);
+    border-color: #b7c8c0;
+    color: var(--celadon);
+  }
+
+  /* 定制雅宴套餐 */
+  .set-section {
+    background: var(--bg-paper-dark);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .sets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .set-card {
+    background: #fff;
+    border: 1px solid var(--gold);
+    padding: 36px 30px;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .set-badge {
+    display: inline-block;
+    background: var(--bg-ink);
+    color: var(--gold-light);
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+  }
+
+  .set-title {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--bg-ink);
+    margin-bottom: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .set-price {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--cinnabar);
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .set-courses {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .set-courses li {
+    font-size: 0.93rem;
+    padding: 6px 0;
+    color: var(--text-main);
+    border-bottom: 1px dotted #e8e2d6;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .set-courses li span:last-child {
+    color: var(--text-muted);
+    font-size: 0.84rem;
+  }
+
+  .btn-block {
+    display: block;
+    text-align: center;
+    background: var(--cinnabar);
+    color: #fff;
+    font-family: var(--serif);
+    padding: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .btn-block:hover {
+    background: var(--cinnabar-dark);
+  }
+
+  .footer {
+    background-color: var(--bg-ink);
+    color: var(--text-light);
+    padding: 72px 32px 36px;
+    border-top: 4px solid var(--gold);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-title {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+
+  .footer-col p,
+  .footer-col li {
+    color: #b8c2be;
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+    list-style: none;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 28px auto 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #7d8984;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 960px) {
+    .menu-grid,
+    .sets-grid,
+    .footer-inner {
+      grid-template-columns: 1fr;
+    }
+    .navbar {
+      padding: 14px 20px;
+      height: auto;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      order: 3;
+      gap: 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-notice">
+    <div>
+      <span class="solar-badge">时令食单 · 节气更新</span>
+      <span>所有菜品均拒绝预制包，由后厨团队当日晨起手工烹制</span>
+    </div>
+    <div>
+      <span>包厢定制菜单咨询：0571-8798-6688</span>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <svg class="brand-seal" viewBox="0 0 100 100" aria-label="云栖印章">
+        <rect x="4" y="4" width="92" height="92" rx="6" fill="#a63429" stroke="#8a271d" stroke-width="3"/>
+        <rect x="10" y="10" width="80" height="80" fill="none" stroke="#f7f4ed" stroke-width="2"/>
+        <text x="50" y="44" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">云栖</text>
+        <text x="50" y="78" text-anchor="middle" fill="#f7f4ed" font-family="serif" font-size="28" font-weight="bold">竹径</text>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-title">云栖竹径</span>
+        <span class="brand-subtitle">江南时令 · 宋韵雅宴</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="menu.html" class="active">时令食单</a></li>
+      <li><a href="about.html">庭院故事</a></li>
+      <li><a href="reservation.html">雅座预订</a></li>
+    </ul>
+
+    <div>
+      <a href="reservation.html" class="btn-reserve">立即订座</a>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <h1>四时江南 · 节气食单</h1>
+    <p>春采山笋夏拾荷，秋剥蟹黄冬煨汤。点击下方分类，品鉴云栖竹径当季单点美馔与定制雅宴。</p>
+  </section>
+
+  <section class="section">
+    <!-- 互动分类切换 -->
+    <div class="filter-bar" role="tablist" aria-label="菜品分类筛选">
+      <button class="filter-btn active" data-category="all">全部佳肴</button>
+      <button class="filter-btn" data-category="cold">前菜冷碟</button>
+      <button class="filter-btn" data-category="hot">江南热馔</button>
+      <button class="filter-btn" data-category="soup">文火汤羹</button>
+      <button class="filter-btn" data-category="dimsum">宋韵茶点</button>
+      <button class="filter-btn" data-category="tea">佳茗陈酿</button>
+    </div>
+
+    <div class="menu-grid" id="menuContainer">
+      <!-- 冷碟 -->
+      <article class="menu-item" data-category="cold">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">三年陈花雕熟醉膏蟹</h3>
+            <span class="menu-item-price">¥238 / 盅</span>
+          </div>
+          <p class="menu-item-desc">高邮湖满膏雌蟹蒸熟后，浸入十年陈绍兴花雕、橙皮、话梅与桂花卤汁冷泡十二小时。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">主厨招牌</span>
+            <span class="tag">每日限量20盅</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="cold">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">西湖桂花糖藕配马蹄</h3>
+            <span class="menu-item-price">¥68 / 例</span>
+          </div>
+          <p class="menu-item-desc">选用塘栖九孔粉藕灌入江南圆糯米，以红糖与满觉陇金桂文火慢收五小时，软糯清甜。</p>
+          <div class="menu-tags">
+            <span class="tag">传统杭帮</span>
+            <span class="tag">老少皆宜</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="cold">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">雨前茶香烟熏太湖白鱼</h3>
+            <span class="menu-item-price">¥98 / 例</span>
+          </div>
+          <p class="menu-item-desc">取太湖野生白鱼中段，先以香料轻腌，再用龙井茶叶与甘蔗皮果木冷熏，外酥里嫩。</p>
+          <div class="menu-tags">
+            <span class="tag seasonal">时令湖鲜</span>
+            <span class="tag">下酒隽品</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="cold">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">鸡头米翡翠拌春笋尖</h3>
+            <span class="menu-item-price">¥78 / 例</span>
+          </div>
+          <p class="menu-item-desc">苏州手剥鲜芡实（鸡头米）与天目山嫩笋尖同焯，淋少许冷压山茶油，清爽脆嫩。</p>
+          <div class="menu-tags">
+            <span class="tag seasonal">春季限定</span>
+            <span class="tag">全素清雅</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 热馔 -->
+      <article class="menu-item" data-category="hot">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">狮峰龙井手剥河虾仁</h3>
+            <span class="menu-item-price">¥168 / 例</span>
+          </div>
+          <p class="menu-item-desc">活水青虾现剥成玉色虾仁，配狮峰明前头采茶芽快炒，色泽如碧玉白雪，鲜滑爽脆。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">每桌必点</span>
+            <span class="tag">非遗名菜</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="hot">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">古法酒香东坡慢火肉</h3>
+            <span class="menu-item-price">¥48 / 位</span>
+          </div>
+          <p class="menu-item-desc">严选金华两头乌五花三层肉，不加一滴水，全凭绍兴加饭酒与酱油在紫砂锅中微火慢焖三小时。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">宋韵传承</span>
+            <span class="tag">配手工荷叶夹</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="hot">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">金华两头乌火腿煨雷笋</h3>
+            <span class="menu-item-price">¥158 / 例</span>
+          </div>
+          <p class="menu-item-desc">天目山春雷笋配三年陈金华火腿上方，加入浓白老鸡汤慢煨入味，鲜香直抵舌尖。</p>
+          <div class="menu-tags">
+            <span class="tag seasonal">谷雨时令</span>
+            <span class="tag">山野本味</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="hot">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">清蒸钱塘江鲜活鲥鱼</h3>
+            <span class="menu-item-price">¥298 / 例</span>
+          </div>
+          <p class="menu-item-desc">保留富含脂香的鱼鳞，铺上陈年火腿片、春笋片与香菇，淋猪网油与花雕清蒸，入口即化。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">江南三鲜</span>
+            <span class="tag">带鳞同食</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 汤羹 -->
+      <article class="menu-item" data-category="soup">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">宋嫂古法手拆黄鱼羹</h3>
+            <span class="menu-item-price">¥58 / 位</span>
+          </div>
+          <p class="menu-item-desc">舟山小黄鱼蒸熟手工拆骨取肉，配火腿丝、冬笋丝、香菇丝与高汤同烩，色泽金黄，鲜美开胃。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">南宋名羹</span>
+            <span class="tag">无刺放心</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="soup">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">天目扁尖笋干老鸭煲</h3>
+            <span class="menu-item-price">¥268 / 整煲</span>
+          </div>
+          <p class="menu-item-desc">两年散养江南麻鸭，配天目山农家手工扁尖笋与金华火腿踵，砂锅炭火慢炖四小时，汤清味醇。</p>
+          <div class="menu-tags">
+            <span class="tag">适合4-6人分享</span>
+            <span class="tag">滋补暖胃</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 茶点 -->
+      <article class="menu-item" data-category="dimsum">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">手作蟹粉小笼包（六枚）</h3>
+            <span class="menu-item-price">¥88 / 笼</span>
+          </div>
+          <p class="menu-item-desc">每日清晨手工拆制大闸蟹粉，混合三分黑毛猪皮冻，十八道褶薄皮包裹丰盈金色汤汁。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">现点现蒸</span>
+            <span class="tag">配镇江香醋姜丝</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="dimsum">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">西湖荷花酥配定胜糕</h3>
+            <span class="menu-item-price">¥76 / 拼盘</span>
+          </div>
+          <p class="menu-item-desc">层层酥皮如盛开白荷，内裹清香湘莲蓉；搭配寓意吉祥的江南手作红曲米定胜糕。</p>
+          <div class="menu-tags">
+            <span class="tag">宋韵雅点</span>
+            <span class="tag">低糖配方</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 茗茶与佳酿 -->
+      <article class="menu-item" data-category="tea">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">狮峰山明前特级龙井</h3>
+            <span class="menu-item-price">¥188 / 壶</span>
+          </div>
+          <p class="menu-item-desc">云栖竹径自家签约狮峰茶园，虎跑泉水冲泡，豆香馥郁，叶底嫩绿匀整。</p>
+          <div class="menu-tags">
+            <span class="tag seasonal">明前新茶</span>
+            <span class="tag">配茶食两味</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-item" data-category="tea">
+        <div class="menu-item-info">
+          <div class="menu-item-header">
+            <h3 class="menu-item-title">十二年陈绍兴手工冬酿花雕</h3>
+            <span class="menu-item-price">¥268 / 斤</span>
+          </div>
+          <p class="menu-item-desc">鉴湖源头活水酿造，泥封地窖珍藏十二载。温热后佐以话梅与姜丝，琥珀澄澈，不上头。</p>
+          <div class="menu-tags">
+            <span class="tag recommend">河鲜绝配</span>
+            <span class="tag">冷饮温饮皆宜</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 定制雅宴套餐 -->
+  <section class="set-section">
+    <div class="section">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <span style="color: var(--cinnabar); font-family: var(--serif); letter-spacing: 0.25em; font-size: 0.9rem;">包厢与家宴首选</span>
+        <h2 style="font-family: var(--serif); font-size: 2.1rem; margin: 10px 0; letter-spacing: 0.14em;">四时定制雅宴食单</h2>
+        <p style="color: var(--text-muted);">免去点菜繁琐，由行政总厨为您搭配冷碟、汤羹、主菜与茗茶，亦可按宾客忌口灵活调整。</p>
+      </div>
+
+      <div class="sets-grid">
+        <div class="set-card">
+          <div>
+            <span class="set-badge">双人临水雅席</span>
+            <h3 class="set-title">竹径听风 · 双人春膳</h3>
+            <div class="set-price">¥588 / 席（两位）</div>
+            <ul class="set-courses">
+              <li><span>江南四味迎宾冷碟</span><span>含桂花糖藕/熏鱼</span></li>
+              <li><span>宋嫂古法手拆黄鱼羹</span><span>每人一盅</span></li>
+              <li><span>狮峰龙井手剥河虾仁</span><span>招牌热馔</span></li>
+              <li><span>金华火腿煨天目雷笋</span><span>时令山珍</span></li>
+              <li><span>清炒杭白菊叶时蔬</span><span>田园鲜蔬</span></li>
+              <li><span>手作蟹粉小笼包</span><span>四枚</span></li>
+              <li><span>九曲红梅功夫红茶</span><span>一壶</span></li>
+            </ul>
+          </div>
+          <a href="reservation.html" class="btn-block">预订此双人席</a>
+        </div>
+
+        <div class="set-card">
+          <div>
+            <span class="set-badge">四至六人欢聚</span>
+            <h3 class="set-title">曲水流觞 · 江南家宴</h3>
+            <div class="set-price">¥1,588 / 席（4-6位）</div>
+            <ul class="set-courses">
+              <li><span>云栖六味时令冷拼</span><span>含三年花雕醉蟹</span></li>
+              <li><span>天目扁尖笋干老鸭煲</span><span>原盅整煲</span></li>
+              <li><span>狮峰龙井手剥河虾仁</span><span>非遗代表作</span></li>
+              <li><span>古法酒香东坡慢火肉</span><span>按位奉客</span></li>
+              <li><span>清蒸太湖野生大白鱼</span><span>活水湖鲜</span></li>
+              <li><span>鸡头米翡翠炒百合芦笋</span><span>江南水八仙</span></li>
+              <li><span>西湖荷花酥拼蟹粉小笼</span><span>双味美点</span></li>
+              <li><span>狮峰明前龙井或陈年花雕</span><span>二选一</span></li>
+            </ul>
+          </div>
+          <a href="reservation.html" class="btn-block">预订此家宴席</a>
+        </div>
+
+        <div class="set-card">
+          <div>
+            <span class="set-badge">八至十二人包厢尊享</span>
+            <h3 class="set-title">宋韵大观 · 主厨私宴</h3>
+            <div class="set-price">¥3,688 / 席（8-12位）</div>
+            <ul class="set-courses">
+              <li><span>宋韵八珍迎宾攒盒</span><span>主厨定制八冷碟</span></li>
+              <li><span>松茸火瞳清炖神仙鸡</span><span>文火慢煨六小时</span></li>
+              <li><span>三年陈花雕熟醉膏蟹</span><span>每人一只</span></li>
+              <li><span>狮峰龙井手剥河虾仁</span><span>大例尊享</span></li>
+              <li><span>清蒸钱塘江鲜活鲥鱼</span><span>江南三鲜之首</span></li>
+              <li><span>黑松露文火焖两头乌肋排</span><span>主厨融合名菜</span></li>
+              <li><span>蟹粉扒天目山绣球菌</span><span>山海同鲜</span></li>
+              <li><span>专人宋代点茶礼及书法菜单</span><span>包厢专属礼遇</span></li>
+            </ul>
+          </div>
+          <a href="reservation.html" class="btn-block">预约独立包厢</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-title">云栖竹径 · 江南雅宴</div>
+        <p>隐于西湖群山之间，以二十四节气为轴，寻访江南山海风物，呈献清雅本真的东方食礼。</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">快速导航</div>
+        <ul>
+          <li><a href="index.html">首页总览</a></li>
+          <li><a href="menu.html">时令食单</a></li>
+          <li><a href="about.html">庭院故事</a></li>
+          <li><a href="reservation.html">雅座预订</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">营业时间</div>
+        <ul>
+          <li>午市雅集：11:00 - 14:30</li>
+          <li>午后茶歇：14:30 - 16:30</li>
+          <li>晚市雅宴：17:00 - 21:30</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">寻访竹径</div>
+        <p>地址：浙江省杭州市西湖区龙井路十八号</p>
+        <p>订座专线：0571-8798-6688</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 杭州云栖竹径餐饮文化有限公司 版权所有</span>
+      <span>菜品价格已含服务费 · 如有食物过敏请提前告知侍应生</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.filter-btn');
+      var items = document.querySelectorAll('.menu-item');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          var cat = btn.getAttribute('data-category');
+          items.forEach(function (item) {
+            if (cat === 'all' || item.getAttribute('data-category') === cat) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

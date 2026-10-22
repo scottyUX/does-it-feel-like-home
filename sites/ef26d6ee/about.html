@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>江南食府 · 关于我们</title>
+<style>
+  :root{
+    --zhu:#9e2b25;
+    --zhu-deep:#7c1f1b;
+    --jin:#c8a45a;
+    --ink:#2b2b2b;
+    --mi:#f7f3ea;
+    --mi-2:#efe7d6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+    background:var(--mi);color:var(--ink);line-height:1.8;
+  }
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  header{
+    background:var(--zhu);color:#fff;position:sticky;top:0;z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-seal{
+    width:44px;height:44px;background:var(--jin);color:var(--zhu-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;font-weight:bold;border-radius:6px;border:2px solid #fff3;
+  }
+  .logo-text{font-size:22px;letter-spacing:6px;font-weight:bold;}
+  .logo-sub{font-size:11px;letter-spacing:3px;color:#f3dfae;display:block;}
+  nav ul{display:flex;gap:8px;list-style:none;flex-wrap:wrap;}
+  nav a{display:block;padding:8px 16px;font-size:15px;letter-spacing:2px;border-radius:4px;transition:background .2s;}
+  nav a:hover{background:rgba(255,255,255,.15);}
+  nav a.active{background:var(--jin);color:var(--zhu-deep);font-weight:bold;}
+
+  .page-banner{
+    background:linear-gradient(150deg,#7c1f1b,#9e2b25);
+    color:#fff;text-align:center;padding:64px 0 56px;
+  }
+  .page-banner .en{color:var(--jin);letter-spacing:6px;font-size:13px;margin-bottom:10px;}
+  .page-banner h1{font-size:38px;letter-spacing:8px;}
+  .page-banner p{color:#f0e2cd;margin-top:12px;font-size:15px;}
+
+  section{padding:64px 0;}
+  .sec-title{text-align:center;margin-bottom:44px;}
+  .sec-title .en{color:var(--jin);font-size:13px;letter-spacing:6px;margin-bottom:8px;}
+  .sec-title h2{font-size:30px;letter-spacing:6px;color:var(--zhu);}
+  .sec-title .line{width:64px;height:3px;background:var(--jin);margin:16px auto 0;}
+
+  .story{display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+  .story-art{flex:1;min-width:280px;display:flex;justify-content:center;}
+  .story-art svg{max-width:100%;height:auto;}
+  .story-text{flex:1.2;min-width:300px;}
+  .story-text h3{color:var(--zhu);font-size:22px;letter-spacing:3px;margin-bottom:14px;}
+  .story-text p{margin-bottom:14px;font-size:15px;color:#444;}
+
+  .timeline{background:#fff;border-top:1px solid #e6dcc4;border-bottom:1px solid #e6dcc4;}
+  .tl-list{max-width:720px;margin:0 auto;position:relative;padding-left:36px;}
+  .tl-list::before{
+    content:"";position:absolute;left:10px;top:8px;bottom:8px;
+    width:2px;background:var(--jin);
+  }
+  .tl-item{position:relative;padding:14px 0 22px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-32px;top:24px;width:12px;height:12px;
+    background:var(--zhu);border:3px solid var(--jin);border-radius:50%;
+  }
+  .tl-item .year{color:var(--zhu);font-weight:bold;font-size:18px;letter-spacing:2px;}
+  .tl-item h4{font-size:16px;margin:4px 0 4px;letter-spacing:2px;}
+  .tl-item p{font-size:14px;color:#666;}
+
+  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;}
+  .value-card{
+    background:#fff;border:1px solid #e6dcc4;border-radius:6px;padding:34px 26px;
+    text-align:center;transition:transform .25s,box-shadow .25s;
+  }
+  .value-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(124,31,27,.12);}
+  .value-card .num{
+    width:52px;height:52px;margin:0 auto 16px;background:var(--zhu);color:#fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;
+  }
+  .value-card h3{color:var(--zhu);letter-spacing:3px;margin-bottom:10px;font-size:18px;}
+  .value-card p{font-size:14px;color:#666;}
+
+  .chef-band{background:var(--zhu-deep);color:#f0e2cd;}
+  .chef-inner{display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+  .chef-avatar{
+    flex:0 0 180px;display:flex;justify-content:center;
+  }
+  .chef-text{flex:1;min-width:280px;}
+  .chef-text h2{color:var(--jin);letter-spacing:5px;font-size:26px;margin-bottom:6px;}
+  .chef-text .role{color:#c8a45a;font-size:14px;letter-spacing:3px;margin-bottom:16px;display:block;}
+  .chef-text p{font-size:15px;margin-bottom:12px;}
+  .chef-quote{
+    border-left:3px solid var(--jin);padding-left:18px;font-style:italic;color:#f3dfae;
+  }
+
+  footer{background:#241f1c;color:#c9bda6;padding:48px 0 24px;font-size:14px;}
+  .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;margin-bottom:32px;}
+  .foot-grid h4{color:var(--jin);letter-spacing:3px;margin-bottom:14px;font-size:15px;}
+  .foot-grid p,.foot-grid a{color:#c9bda6;font-size:13px;line-height:2;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid #3a332e;padding-top:20px;text-align:center;font-size:12px;letter-spacing:2px;color:#8a7f6e;}
+
+  @media (max-width:640px){
+    .logo-text{font-size:18px;letter-spacing:3px;}
+    nav a{padding:6px 10px;font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <span class="logo-seal">江</span>
+      <span>
+        <span class="logo-text">江南食府</span>
+        <span class="logo-sub">地道杭帮菜 · 始于 1987</span>
+      </span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="menu.html">菜单</a></li>
+        <li><a href="about.html" class="active">关于我们</a></li>
+        <li><a href="contact.html">订座联系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-banner">
+  <div class="en">关 于 我 们</div>
+  <h1>守一味初心</h1>
+  <p>三十七载灶火不熄，只为端出一桌地道的江南</p>
+</div>
+
+<section>
+  <div class="wrap story">
+    <div class="story-art">
+      <svg width="340" height="260" viewBox="0 0 340 260" role="img" aria-label="老店插画">
+        <rect x="40" y="90" width="260" height="130" rx="4" fill="#efe7d6" stroke="#d8c69a" stroke-width="2"/>
+        <path d="M24 92 L170 34 L316 92 Z" fill="#9e2b25"/>
+        <path d="M52 92 L170 48 L288 92" stroke="#c8a45a" stroke-width="4" fill="none"/>
+        <rect x="74" y="120" width="52" height="100" fill="#7c1f1b"/>
+        <rect x="84" y="132" width="32" height="44" fill="#f3dfae"/>
+        <rect x="150" y="120" width="116" height="56" fill="#fff" stroke="#d8c69a" stroke-width="2"/>
+        <text x="208" y="156" text-anchor="middle" font-size="24" fill="#9e2b25" font-family="serif" letter-spacing="6">江南食府</text>
+        <circle cx="290" cy="60" r="16" fill="#c8a45a"/>
+        <path d="M290 76 L290 108" stroke="#c8a45a" stroke-width="2"/>
+        <circle cx="290" cy="112" r="6" fill="#b0402f"/>
+        <path d="M40 220 Q170 236 300 220 L300 230 Q170 246 40 230 Z" fill="#00000012"/>
+      </svg>
+    </div>
+    <div class="story-text">
+      <h3>从一张八仙桌说起</h3>
+      <p>1987 年冬，陈守味师傅在河坊街租下一间临河小屋，支一口灶、摆四张八仙桌，挂出了「江南小馆」的木牌。凭着一手地道的西湖醋鱼和东坡肉，小馆渐渐在街坊间传开了名声。</p>
+      <p>2003 年，小馆扩为三层楼面的「江南食府」，但陈家定下的规矩一条未改：湖鲜每日清晨从鱼市现挑，高汤现吊不过夜，酱鸭糟货皆由店里自制，时蔬非当季不上桌。</p>
+      <p>如今掌勺的是第二代传人陈立群。他常说：「菜式可以新，规矩不能丢。」这一口灶火，我们还要继续守下去。</p>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="wrap">
+    <div class="sec-title">
+      <div class="en">食 府 沿 革</div>
+      <h2>三十七年大事记</h2>
+      <div class="line"></div>
+    </div>
+    <div class="tl-list">
+      <div class="tl-item">
+        <span class="year">1987 年</span>
+        <h4>河坊街创立「江南小馆」</h4>
+        <p>四张八仙桌、一口老灶，陈守味师傅开启了江南食府的第一页。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">1996 年</span>
+        <h4>西湖醋鱼获市民间厨艺大赛金奖</h4>
+        <p>招牌菜西湖醋鱼以「糖醋清亮、鲜嫩透蟹味」征服评委，名声传遍杭城。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">2003 年</span>
+        <h4>更名「江南食府」，迁至现址</h4>
+        <p>三层楼面、八间包厢，可同时接待三百位食客，老店规矩原封不动。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">2015 年</span>
+        <h4>第二代传人陈立群正式掌勺</h4>
+        <p>在坚守古法的同时，推出季节限定菜单，让老味道常做常新。</p>
+      </div>
+      <div class="tl-item">
+        <span class="year">2024 年</span>
+        <h4>入选「杭州老字号餐饮名店」</h4>
+        <p>三十七年灶火不熄，感谢每一位食客的陪伴与厚爱。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-title">
+      <div class="en">立 店 之 本</div>
+      <h2>四条老规矩</h2>
+      <div class="line"></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="num">鲜</div>
+        <h3>食材求鲜</h3>
+        <p>湖鲜清晨现挑，时蔬当日采买，非时令不上桌，隔夜食材绝不用。</p>
+      </div>
+      <div class="value-card">
+        <div class="num">火</div>
+        <h3>火候求准</h3>
+        <p>高汤现吊、文火慢煨，每一道菜的火候都由掌勺师傅亲自把关。</p>
+      </div>
+      <div class="value-card">
+        <div class="num">艺</div>
+        <h3>手艺求精</h3>
+        <p>刀工、剞花、吊汤皆有章法，老师傅带徒传艺，手艺代代相传。</p>
+      </div>
+      <div class="value-card">
+        <div class="num">诚</div>
+        <h3>待客求诚</h3>
+        <p>分量实在、价格公道，把每一位食客当作登门的旧友相待。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chef-band">
+  <div class="wrap chef-inner">
+    <div class="chef-avatar">
+      <svg width="160" height="180" viewBox="0 0 160 180" role="img" aria-label="主厨画像插画">
+        <circle cx="80" cy="64" r="40" fill="#f3e3c3"/>
+        <path d="M40 60 Q40 14 80 14 Q120 14 120 60 L112 60 Q116 30 80 30 Q44 30 48 60 Z" fill="#fff"/>
+        <rect x="38" y="48" width="84" height="16" rx="8" fill="#fff"/>
+        <circle cx="66" cy="66" r="4" fill="#2b2b2b"/>
+        <circle cx="94" cy="66" r="4" fill="#2b2b2b"/>
+        <path d="M70 82 Q80 90 90 82" stroke="#9e2b25" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M30 180 Q30 120 80 118 Q130 120 130 180 Z" fill="#fff"/>
+        <path d="M80 118 L80 180" stroke="#d8c69a" stroke-width="2"/>
+        <circle cx="72" cy="136" r="3" fill="#9e2b25"/>
+        <circle cx="72" cy="154" r="3" fill="#9e2b25"/>
+      </svg>
+    </div>
+    <div class="chef-text">
+      <h2>陈立群</h2>
+      <span class="role">第二代传人 · 行政总厨</span>
+      <p>十六岁随父入厨，从杀鱼择菜学起，三十岁独掌灶头。深耕杭帮菜三十余年，尤擅湖鲜料理与古法酱卤。</p>
+      <p class="chef-quote">「做菜没有捷径，无非是把每一件简单的事，认认真真做上三十年。」</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>江南食府</h4>
+        <p>一箸江南味，半盏岁月香。<br>地道杭帮菜，恭候四方客。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <p>
+          <a href="index.html">首页</a><br>
+          <a href="menu.html">菜单</a><br>
+          <a href="about.html">关于我们</a><br>
+          <a href="contact.html">订座联系</a>
+        </p>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <p>杭州市上城区河坊街 128 号<br>电话：0571-8888-6666<br>午市 11:00–14:00 · 晚市 17:00–21:30</p>
+      </div>
+    </div>
+    <div class="foot-bottom">江南食府 © 版权所有 · 浙ICP备00000000号</div>
+  </div>
+</footer>
+
+</body>
+</html>
