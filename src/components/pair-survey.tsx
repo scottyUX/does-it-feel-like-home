@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowLeft, ArrowLeftRight, ArrowRight, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { submitPair } from "@/lib/actions";
 import { copy, typeLabel } from "@/lib/copy";
@@ -17,6 +19,7 @@ const choiceClass = "flex items-center gap-3 rounded-xl border border-border bg-
 
 export const PairSurvey = ({ pair }: PairSurveyProps) => {
   const text = copy[pair.locale];
+  const [tab, setTab] = useState("a");
   const [step, setStep] = useState(0);
   const [enjoyment, setEnjoyment] = useState<Enjoyment | "">("");
   const [leftScore, setLeftScore] = useState("");
@@ -27,10 +30,15 @@ export const PairSurvey = ({ pair }: PairSurveyProps) => {
   const [pending, setPending] = useState(false);
 
   const canContinue =
-    (step === 0 && enjoyment !== "") ||
     (step === 1 && leftScore !== "" && rightScore !== "") ||
     (step === 2 && origin !== "") ||
     step === 3;
+
+  const handleVote = (value: Enjoyment) => {
+    if (pending) return;
+    setEnjoyment(value);
+    setStep(1);
+  };
 
   const handleContinue = async () => {
     if (!canContinue || pending) return;
@@ -57,33 +65,59 @@ export const PairSurvey = ({ pair }: PairSurveyProps) => {
 
   return (
     <main className="flex h-dvh flex-col">
-      <p className="bg-muted px-4 py-2 text-center text-xs text-muted-foreground lg:hidden">
-        {text.wideScreen}
-      </p>
       <header className="flex items-center justify-between px-4 py-3 text-sm text-muted-foreground">
         <span>{text.progress(pair.pairIndex + 1, pair.pairCount)}</span>
         <span>{typeLabel(pair.locale, pair.siteType)}</span>
       </header>
-      <div className="grid min-h-0 flex-1 grid-cols-2 gap-3 overflow-x-auto px-4 pb-3">
-        <SiteFrame id={pair.leftId} label={text.left} title={text.leftSite} />
-        <SiteFrame id={pair.rightId} label={text.right} title={text.rightSite} />
-      </div>
-      <section className="max-h-[42vh] overflow-y-auto border-t border-border px-4 py-4">
+      <Tabs value={tab} onValueChange={setTab} className="min-h-0 flex-1 gap-0">
+        <TabsList className="grid h-11 w-full grid-cols-2 rounded-none bg-muted/60 p-1">
+          <TabsTrigger value="a" className="h-full rounded-md">
+            <span className="size-1.5 rounded-full bg-current opacity-80" aria-hidden="true" />
+            {text.optionA}
+          </TabsTrigger>
+          <TabsTrigger value="b" className="h-full rounded-md">
+            <span className="size-1.5 rounded-full bg-current opacity-80" aria-hidden="true" />
+            {text.optionB}
+          </TabsTrigger>
+        </TabsList>
+        <div className="relative min-h-0 flex-1">
+          <TabsContent
+            value="a"
+            forceMount
+            className="absolute inset-0 mt-0 data-[state=inactive]:hidden"
+          >
+            <iframe title={text.optionA} src={`/s/${pair.leftId}/`} className="size-full bg-white" />
+          </TabsContent>
+          <TabsContent
+            value="b"
+            forceMount
+            className="absolute inset-0 mt-0 data-[state=inactive]:hidden"
+          >
+            <iframe title={text.optionB} src={`/s/${pair.rightId}/`} className="size-full bg-white" />
+          </TabsContent>
+        </div>
+      </Tabs>
+      <section className="border-t border-border px-4 py-4">
         <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
           {step === 0 ? (
-            <ChoiceQuestion
-              name="enjoyment"
-              prompt={text.enjoyment}
-              value={enjoyment}
-              onChange={(value) => setEnjoyment(value as Enjoyment)}
-              options={[
-                ["left", text.left],
-                ["right", text.right],
-                ["both", text.both],
-                ["neither", text.neither],
-                ["too_different", text.tooDifferent],
-              ]}
-            />
+            <div className="mx-auto flex w-fit max-w-full flex-wrap justify-center gap-2 rounded-2xl border border-border bg-card p-2">
+              <Button type="button" variant="outline" size="lg" onClick={() => handleVote("left")}>
+                <ArrowLeft />
+                {text.aBetter}
+              </Button>
+              <Button type="button" variant="outline" size="lg" onClick={() => handleVote("both")}>
+                <ArrowLeftRight />
+                {text.bothGood}
+              </Button>
+              <Button type="button" variant="outline" size="lg" onClick={() => handleVote("neither")}>
+                <Ban />
+                {text.bothBad}
+              </Button>
+              <Button type="button" variant="outline" size="lg" onClick={() => handleVote("right")}>
+                {text.bBetter}
+                <ArrowRight />
+              </Button>
+            </div>
           ) : null}
           {step === 1 ? (
             <div className="grid gap-4">
@@ -111,8 +145,8 @@ export const PairSurvey = ({ pair }: PairSurveyProps) => {
               value={origin}
               onChange={(value) => setOrigin(value as Side)}
               options={[
-                ["left", text.left],
-                ["right", text.right],
+                ["left", text.optionA],
+                ["right", text.optionB],
               ]}
             />
           ) : null}
@@ -133,23 +167,18 @@ export const PairSurvey = ({ pair }: PairSurveyProps) => {
               {error}
             </p>
           ) : null}
-          <div>
-            <Button type="button" disabled={!canContinue || pending} onClick={handleContinue}>
-              {pending ? text.saving : text.continue}
-            </Button>
-          </div>
+          {step > 0 ? (
+            <div>
+              <Button type="button" disabled={!canContinue || pending} onClick={handleContinue}>
+                {pending ? text.saving : text.continue}
+              </Button>
+            </div>
+          ) : null}
         </div>
       </section>
     </main>
   );
 };
-
-const SiteFrame = ({ id, label, title }: { id: string; label: string; title: string }) => (
-  <section className="flex min-h-0 min-w-[340px] flex-col overflow-hidden rounded-2xl border border-border bg-card">
-    <h2 className="border-b border-border px-3 py-2 text-sm text-muted-foreground">{label}</h2>
-    <iframe title={title} src={`/s/${id}/`} className="min-h-0 w-full flex-1 bg-white" />
-  </section>
-);
 
 const ChoiceQuestion = ({
   name,
