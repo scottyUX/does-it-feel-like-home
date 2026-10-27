@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购物袋与结算 | 可衣 KEYI 上海都市女装</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    上海静安工作室直发 · 全场满 ¥399 顺丰包邮 · 支持微信支付、支付宝与银联卡
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        可衣 <span class="brand-sub">KEYI SHANGHAI</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">首页</a>
+        <a href="products.html">全部商品</a>
+        <a href="products.html?cat=职场通勤">职场通勤</a>
+        <a href="products.html?cat=日常休闲">日常休闲</a>
+        <a href="product-detail.html?id=ky-101">本季主打</a>
+      </nav>
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-light" style="padding: 7px 14px; font-size: 13px;">继续挑选单品</a>
+        <a href="cart.html" class="cart-link" style="border-color: var(--accent); color: var(--accent);">
+          <span>购物袋</span>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 36px; padding-bottom: 64px;">
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div>
+        <h1 class="section-title">我的购物袋</h1>
+        <p class="section-subtitle">您可在下方随时调整尺码或件数，满 ¥399 自动减免顺丰运费</p>
+      </div>
+    </div>
+
+    <div class="cart-layout">
+      <!-- Left Cart Items -->
+      <div>
+        <div class="cart-box" id="cart-items-container"></div>
+
+        <!-- Quick Add Add-ons -->
+        <div class="cart-box" style="margin-top: 24px;">
+          <h3 style="font-size: 16px; margin-bottom: 14px;">顺手换购 · 职场百搭内搭推荐</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; border:1px solid var(--border); border-radius:4px;">
+              <div>
+                <div style="font-size: 14px; font-weight: 500;">极简船领修身针织衫</div>
+                <div style="font-size: 12px; color: var(--text-muted);">云朵白 / M码 · ¥290</div>
+              </div>
+              <button type="button" class="btn btn-light" style="padding:6px 12px; font-size:12px;" onclick="quickAddFromCart('ky-108', 'M', '云朵白')">+ 加入</button>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px; border:1px solid var(--border); border-radius:4px;">
+              <div>
+                <div style="font-size: 14px; font-weight: 500;">醋酸缎面斜裁高腰半身裙</div>
+                <div style="font-size: 12px; color: var(--text-muted);">香槟金 / M码 · ¥390</div>
+              </div>
+              <button type="button" class="btn btn-light" style="padding:6px 12px; font-size:12px;" onclick="quickAddFromCart('ky-106', 'M', '香槟金')">+ 加入</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Order Summary & Checkout -->
+      <div class="cart-box">
+        <h2 style="font-family: var(--font-serif); font-size: 20px; margin-bottom: 20px;">订单明细与结算</h2>
+
+        <div class="summary-row">
+          <span>商品总计 (<span id="sum-count">0</span> 件)</span>
+          <span id="sum-subtotal">¥0</span>
+        </div>
+        <div class="summary-row">
+          <span>顺丰速运运费</span>
+          <span id="sum-shipping">¥0（已满 ¥399 包邮）</span>
+        </div>
+        <div class="summary-row">
+          <span>礼券优惠</span>
+          <span id="sum-discount" style="color: var(--success);">-¥0</span>
+        </div>
+
+        <div class="promo-group">
+          <input type="text" id="promo-input" placeholder="输入礼券码（试试 KEYI90 享9折）" aria-label="礼券码">
+          <button type="button" class="btn btn-light" style="padding: 8px 14px; font-size: 13px;" onclick="applyPromoCode()">使用</button>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>应付总额</span>
+          <span id="sum-final" style="color: var(--accent);">¥0</span>
+        </div>
+
+        <form class="checkout-form" onsubmit="handleCheckout(event)">
+          <div>
+            <label for="ship-name">收货人姓名</label>
+            <input type="text" id="ship-name" value="林知夏" required>
+          </div>
+          <div>
+            <label for="ship-phone">联系手机</label>
+            <input type="tel" id="ship-phone" value="13800138660" required>
+          </div>
+          <div>
+            <label for="ship-city">配送区域与详细地址</label>
+            <input type="text" id="ship-city" value="上海市静安区延安中路 841 号东方海外大厦 16 层" required>
+          </div>
+          <div>
+            <label for="pay-method">支付方式</label>
+            <select id="pay-method">
+              <option value="微信支付">微信支付（推荐）</option>
+              <option value="支付宝">支付宝</option>
+              <option value="银联云闪付">银联云闪付</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px; padding: 14px;">提交订单并完成预订</button>
+        </form>
+
+        <div id="order-confirm-box" style="display:none; margin-top: 18px; padding: 16px; background: #edf5f0; border: 1px solid #b8d8c5; border-radius: 4px; font-size: 13px; color: #264d37;"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">可衣 KEYI</div>
+          <p style="font-size: 13px; color: #b5aba1;">
+            上海可衣服饰设计有限公司<br>
+            地址：上海市静安区南京西路 1266 号恒隆广场办公楼 22 层
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>选购指南</h4>
+          <ul>
+            <li><a href="products.html">全部女装单品</a></li>
+            <li><a href="products.html?cat=职场通勤">职场通勤系列</a></li>
+            <li><a href="products.html?cat=日常休闲">日常休闲系列</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>售后服务</h4>
+          <ul>
+            <li><span>7天无理由退换（含赠运费险）</span></li>
+            <li><span>免费更换尺码服务</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>安全购物保障</h4>
+          <p style="font-size: 13px; color: #b5aba1;">
+            所有成衣出库前均经过蒸汽整烫与二道质检，使用可降解环保防尘礼盒包装。
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 可衣 KEYI SHANGHAI 版权所有 · 沪ICP备2025018892号</span>
+        <span>精选天然面料 · 用心做好每一件日常衣裳</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    let promoDiscountRate = 0;
+
+    function renderCartPage() {
+      const cart = getCart();
+      const container = document.getElementById("cart-items-container");
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 48px 16px;">
+            <p style="font-size: 16px; margin-bottom: 14px; color: var(--text-muted);">您的购物袋暂时没有单品</p>
+            <a href="products.html" class="btn btn-primary">去挑选心仪女装</a>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map((item, idx) => {
+          const prod = PRODUCTS.find(p => p.id === item.id) || PRODUCTS[0];
+          const sizeOptions = prod.sizes.map(s => `<option value="${s}" ${s === item.size ? 'selected' : ''}>${s}码</option>`).join("");
+          return `
+            <div class="cart-item">
+              <a href="product-detail.html?id=${prod.id}" class="cart-thumb">
+                ${renderGarmentSVG(prod)}
+              </a>
+              <div>
+                <a href="product-detail.html?id=${prod.id}" class="cart-item-title">${prod.name}</a>
+                <div class="cart-item-specs">
+                  <span>颜色：${item.color}</span>
+                  <span>尺码：
+                    <select onchange="updateItemSize(${idx}, this.value)" aria-label="修改尺码">
+                      ${sizeOptions}
+                    </select>
+                  </span>
+                  <span>单价：¥${prod.price}</span>
+                </div>
+                <div class="qty-control">
+                  <button type="button" onclick="updateItemQty(${idx}, -1)" aria-label="减少数量">−</button>
+                  <input type="text" value="${item.qty}" readonly aria-label="商品数量">
+                  <button type="button" onclick="updateItemQty(${idx}, 1)" aria-label="增加数量">+</button>
+                </div>
+              </div>
+              <div class="cart-item-right">
+                <span class="cart-item-price">¥${prod.price * item.qty}</span>
+                <button type="button" class="remove-btn" onclick="removeItem(${idx})">移除单品</button>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      calculateSummary(cart);
+    }
+
+    function calculateSummary(cart) {
+      let totalCount = 0;
+      let subtotal = 0;
+      cart.forEach(item => {
+        const prod = PRODUCTS.find(p => p.id === item.id) || PRODUCTS[0];
+        totalCount += Number(item.qty);
+        subtotal += prod.price * Number(item.qty);
+      });
+
+      const shipping = subtotal === 0 || subtotal >= 399 ? 0 : 18;
+      const discount = Math.round(subtotal * promoDiscountRate);
+      const finalTotal = Math.max(0, subtotal + shipping - discount);
+
+      document.getElementById("sum-count").textContent = totalCount;
+      document.getElementById("sum-subtotal").textContent = `¥${subtotal}`;
+      document.getElementById("sum-shipping").textContent = shipping === 0 ? "¥0（顺丰包邮）" : `¥${shipping}`;
+      document.getElementById("sum-discount").textContent = `-¥${discount}`;
+      document.getElementById("sum-final").textContent = `¥${finalTotal}`;
+    }
+
+    function updateItemQty(idx, delta) {
+      const cart = getCart();
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      saveCart(cart);
+      renderCartPage();
+    }
+
+    function updateItemSize(idx, newSize) {
+      const cart = getCart();
+      if (!cart[idx]) return;
+      cart[idx].size = newSize;
+      saveCart(cart);
+      showToast(`已将尺码更新为 ${newSize} 码`);
+      renderCartPage();
+    }
+
+    function removeItem(idx) {
+      const cart = getCart();
+      cart.splice(idx, 1);
+      saveCart(cart);
+      renderCartPage();
+    }
+
+    function quickAddFromCart(id, size, color) {
+      addToCart(id, size, color, 1);
+      renderCartPage();
+    }
+
+    function applyPromoCode() {
+      const code = (document.getElementById("promo-input").value || "").trim().toUpperCase();
+      if (code === "KEYI90" || code === "SHANGHAI") {
+        promoDiscountRate = 0.1;
+        showToast("已成功使用 9 折礼券码！");
+      } else {
+        promoDiscountRate = 0;
+        showToast("未识别该礼券码，您可尝试输入 KEYI90");
+      }
+      renderCartPage();
+    }
+
+    function handleCheckout(e) {
+      e.preventDefault();
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast("购物袋为空，请先添加心仪商品");
+        return;
+      }
+      const name = document.getElementById("ship-name").value;
+      const addr = document.getElementById("ship-city").value;
+      const pay = document.getElementById("pay-method").value;
+      const finalAmt = document.getElementById("sum-final").textContent;
+      const orderNo = "KY202505" + Math.floor(1000 + Math.random() * 9000);
+
+      const confirmBox = document.getElementById("order-confirm-box");
+      confirmBox.style.display = "block";
+      confirmBox.innerHTML = `
+        <strong>订单预订已生成（单号：${orderNo}）</strong><br>
+        收货人：${name}<br>
+        配送地址：${addr}<br>
+        结算金额：${finalAmt}（${pay}）<br>
+        上海静安仓正在为您安排蒸汽整烫与顺丰打包。
+      `;
+      showToast(`订单 ${orderNo} 提交成功！`);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+</html>

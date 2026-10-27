@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可衣 KEYI · 上海女装品牌 · 日常与通勤衣橱</title>
+<meta name="description" content="可衣 KEYI，来自上海的女装品牌，为 20 到 40 岁都市女性设计日常与通勤服装。衬衫、针织、连衣裙、西装外套，每周四上新。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<header class="site-header">
+  <div class="topbar">上海市内当日达 · 全场满 ¥399 免运费 · 七天无理由退换</div>
+  <div class="header-inner">
+    <a class="logo" href="index.html">可衣<span>KEYI</span></a>
+    <nav class="main-nav">
+      <a href="index.html" class="on">首页</a>
+      <a href="products.html">全部商品</a>
+      <a href="products.html?tag=新品">新品</a>
+      <a href="products.html?tag=通勤">通勤系列</a>
+      <a href="about.html">品牌故事</a>
+    </nav>
+    <div class="header-tools">
+      <input id="h-search" class="search-box" type="search" placeholder="搜索商品，回车查看">
+      <a class="cart-link" href="cart.html">购物袋 <span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">2025 初夏系列 · 每周四 10:00 上新</p>
+      <h1>把日常，<br>穿成喜欢的样子</h1>
+      <p class="hero-sub">可衣为 20 – 40 岁的都市女性设计日常与通勤服装：利落的衬衫、软糯的针织、得体久坐不皱的裤装。上海设计，小批量生产，面料先行。</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="products.html?tag=新品">逛本周新品</a>
+        <a class="btn btn-line" href="products.html?tag=通勤">通勤系列</a>
+      </div>
+      <p class="hero-note">新人礼：订阅周刊立领 ¥20 优惠券（结算时输入 KEYI20）</p>
+    </div>
+    <div class="hero-art" id="hero-art"></div>
+  </section>
+
+  <section class="features">
+    <div class="feature"><strong>上海仓 48 小时发货</strong><span>工作日 16:00 前付款当日发出</span></div>
+    <div class="feature"><strong>满 ¥399 免运费</strong><span>全国顺丰，偏远地区包邮</span></div>
+    <div class="feature"><strong>七天无理由退换</strong><span>上门取件，退款原路返回</span></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>按品类逛</h2>
+      <a class="more" href="products.html">查看全部商品 →</a>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>本周新品</h2>
+      <a class="more" href="products.html?tag=新品">更多新品 →</a>
+    </div>
+    <div class="grid" id="new-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>通勤衣橱</h2>
+      <a class="more" href="products.html?tag=通勤">进入通勤系列 →</a>
+    </div>
+    <div class="grid" id="work-grid"></div>
+  </section>
+
+  <section class="newsletter">
+    <div>
+      <h2>订阅可衣周刊</h2>
+      <p>每周四上新提醒、穿搭灵感与会员专属优惠，只发有用的邮件。</p>
+    </div>
+    <form id="news-form" class="news-form">
+      <input type="email" placeholder="输入你的邮箱地址" aria-label="邮箱地址">
+      <button class="btn btn-dark" type="submit">订阅</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-col f-brand">
+      <a class="logo light" href="index.html">可衣<span>KEYI</span></a>
+      <p>为 20 – 40 岁都市女性设计的日常与通勤衣橱。上海设计，每周四上新。</p>
+    </div>
+    <div class="f-col">
+      <h4>购物</h4>
+      <a href="products.html">全部商品</a>
+      <a href="products.html?tag=新品">新品上架</a>
+      <a href="products.html?tag=通勤">通勤系列</a>
+      <a href="cart.html">购物袋</a>
+    </div>
+    <div class="f-col">
+      <h4>关于</h4>
+      <a href="about.html">品牌故事</a>
+      <a href="about.html#values">我们的坚持</a>
+      <a href="about.html#contact">联系我们</a>
+    </div>
+    <div class="f-col">
+      <h4>客户服务</h4>
+      <p>周一至周日 9:00 – 21:00</p>
+      <p>客服邮箱：hello@keyi-style.cn</p>
+      <p>地址：上海市静安区愚园路 108 号 3 层</p>
+    </div>
+  </div>
+  <div class="footer-bar">© 2025 可衣 KEYI · 沪ICP备2025000000号-1</div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

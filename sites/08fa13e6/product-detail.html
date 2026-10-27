@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品详情 | 可衣 KEYI 上海都市女装</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    上海静安工作室直发 · 全场满 ¥399 顺丰包邮 · 支持 7 天无理由退换与免费换码
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        可衣 <span class="brand-sub">KEYI SHANGHAI</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">首页</a>
+        <a href="products.html">全部商品</a>
+        <a href="products.html?cat=职场通勤">职场通勤</a>
+        <a href="products.html?cat=日常休闲">日常休闲</a>
+        <a href="product-detail.html?id=ky-101" class="active">商品详情</a>
+      </nav>
+      <div class="header-actions">
+        <a href="products.html" class="btn btn-light" style="padding: 7px 14px; font-size: 13px;">返回商品列表</a>
+        <a href="cart.html" class="cart-link">
+          <span>购物袋</span>
+          <span class="cart-badge">2</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="面包屑导航">
+      <a href="index.html">首页</a> &nbsp;/&nbsp;
+      <a href="products.html">全部商品</a> &nbsp;/&nbsp;
+      <span id="bc-name">商品详情</span>
+    </nav>
+
+    <section class="detail-grid">
+      <!-- Left Gallery -->
+      <div>
+        <div class="gallery-main" id="detail-main-art"></div>
+        <div class="gallery-thumbs" id="detail-thumbs">
+          <button type="button" class="thumb-btn active" onclick="switchView(0, this)">正面版型</button>
+          <button type="button" class="thumb-btn" onclick="switchView(1, this)">面料微距</button>
+          <button type="button" class="thumb-btn" onclick="switchView(2, this)">背面剪裁</button>
+          <button type="button" class="thumb-btn" onclick="switchView(3, this)">上身比例</button>
+        </div>
+      </div>
+
+      <!-- Right Purchase Box -->
+      <div class="detail-info">
+        <div id="detail-cat" style="font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 500;"></div>
+        <h1 id="detail-title">加载中...</h1>
+        <p class="detail-subtitle" id="detail-subtitle"></p>
+
+        <div class="detail-price-box">
+          <div>
+            <span style="font-size: 13px; color: var(--text-muted); margin-right: 6px;">成衣售价</span>
+            <span class="detail-price" id="detail-price">¥680</span>
+          </div>
+          <span class="detail-perk">顺丰包邮 · 赠送退货运费险</span>
+        </div>
+
+        <p id="detail-desc" style="font-size: 14px; color: var(--text); margin-bottom: 24px; line-height: 1.75;"></p>
+
+        <!-- Color Picker -->
+        <div class="option-block">
+          <div class="option-header">
+            <span>选择颜色：<strong id="selected-color-label"></strong></span>
+          </div>
+          <div class="option-list" id="color-options"></div>
+        </div>
+
+        <!-- Size Picker -->
+        <div class="option-block">
+          <div class="option-header">
+            <span>选择尺码：<strong id="selected-size-label"></strong></span>
+            <a href="#size-guide" style="color: var(--accent); font-size: 13px; text-decoration: underline;">查看尺码表与身高建议</a>
+          </div>
+          <div class="option-list" id="size-options"></div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="option-block">
+          <div class="option-header">
+            <span>购买数量</span>
+          </div>
+          <div class="qty-control">
+            <button type="button" onclick="changeDetailQty(-1)" aria-label="减少数量">−</button>
+            <input type="text" id="detail-qty" value="1" readonly aria-label="当前数量">
+            <button type="button" onclick="changeDetailQty(1)" aria-label="增加数量">+</button>
+          </div>
+        </div>
+
+        <div class="detail-cta">
+          <button type="button" class="btn btn-primary" onclick="handleAddCurrent(false)">加入购物袋</button>
+          <button type="button" class="btn btn-outline" onclick="handleAddCurrent(true)">立即购买并结算</button>
+        </div>
+
+        <div class="detail-meta-list">
+          <div><strong>面料成分</strong><span id="detail-fabric"></span></div>
+          <div><strong>洗涤保养</strong><span id="detail-care"></span></div>
+          <div><strong>发货说明</strong><span>上海静安仓现货，每日 17:00 前下单当天顺丰发出</span></div>
+          <div><strong>试穿建议</strong><span>模特身高 167cm，体重 50kg，肩宽 38cm，本款试穿 M 码合身舒适</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Size Chart -->
+    <section id="size-guide" class="size-table-wrap">
+      <h2 class="section-title" style="font-size: 22px;">可衣标准尺码对照表（单位：cm）</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+        平铺手工测量可能存在 1-2cm 误差；若您处于两个尺码中间，喜欢修身利落建议选小一码，喜欢松弛叠穿建议选大一码。
+      </p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>尺码</th>
+            <th>适合身高 (cm)</th>
+            <th>适合体重 (斤)</th>
+            <th>胸围 / 净胸围</th>
+            <th>腰围</th>
+            <th>臀围</th>
+            <th>肩宽</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>XS (155/80A)</strong></td>
+            <td>153 - 160</td>
+            <td>85 - 96</td>
+            <td>88 / 78-81</td>
+            <td>64 - 67</td>
+            <td>86 - 89</td>
+            <td>36.5</td>
+          </tr>
+          <tr>
+            <td><strong>S (160/84A)</strong></td>
+            <td>158 - 165</td>
+            <td>96 - 106</td>
+            <td>92 / 82-85</td>
+            <td>68 - 71</td>
+            <td>90 - 93</td>
+            <td>37.5</td>
+          </tr>
+          <tr>
+            <td><strong>M (165/88A)</strong></td>
+            <td>162 - 169</td>
+            <td>106 - 116</td>
+            <td>96 / 86-89</td>
+            <td>72 - 75</td>
+            <td>94 - 97</td>
+            <td>38.5</td>
+          </tr>
+          <tr>
+            <td><strong>L (170/92A)</strong></td>
+            <td>165 - 173</td>
+            <td>116 - 128</td>
+            <td>100 / 90-94</td>
+            <td>76 - 80</td>
+            <td>98 - 102</td>
+            <td>39.8</td>
+          </tr>
+          <tr>
+            <td><strong>XL (175/96A)</strong></td>
+            <td>168 - 176</td>
+            <td>128 - 140</td>
+            <td>105 / 95-99</td>
+            <td>81 - 85</td>
+            <td>103 - 107</td>
+            <td>41.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Related Products -->
+    <section style="margin-bottom: 64px;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" style="font-size: 24px;">成套穿搭推荐</h2>
+          <p class="section-subtitle">造型师为您挑选的同色系协调单品，轻松组合一整周衣橱</p>
+        </div>
+        <a href="products.html" class="btn btn-light">查看更多单品</a>
+      </div>
+      <div id="related-grid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">可衣 KEYI</div>
+          <p style="font-size: 13px; color: #b5aba1;">
+            上海可衣服饰设计有限公司<br>
+            地址：上海市静安区南京西路 1266 号恒隆广场办公楼 22 层
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>选购指南</h4>
+          <ul>
+            <li><a href="products.html">全部女装单品</a></li>
+            <li><a href="products.html?cat=职场通勤">职场通勤系列</a></li>
+            <li><a href="products.html?cat=日常休闲">日常休闲系列</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>客户服务</h4>
+          <ul>
+            <li><a href="#size-guide">尺码对照表</a></li>
+            <li><a href="cart.html">前往购物袋结算</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>门店预约试穿</h4>
+          <p style="font-size: 13px; color: #b5aba1;">
+            身处上海的顾客可前往徐汇区武康路工作室体验全码样衣。
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 可衣 KEYI SHANGHAI 版权所有 · 沪ICP备2025018892号</span>
+        <span>精选天然面料 · 用心做好每一件日常衣裳</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    let currentProduct = PRODUCTS[0];
+    let selectedColor = "";
+    let selectedSize = "";
+
+    function switchView(viewIndex, btnEl) {
+      document.querySelectorAll("#detail-thumbs .thumb-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      document.getElementById("detail-main-art").innerHTML = renderGarmentSVG(currentProduct, viewIndex);
+    }
+
+    function changeDetailQty(delta) {
+      const input = document.getElementById("detail-qty");
+      let val = parseInt(input.value, 10) || 1;
+      val = Math.max(1, Math.min(10, val + delta));
+      input.value = val;
+    }
+
+    function handleAddCurrent(goToCart) {
+      const qty = parseInt(document.getElementById("detail-qty").value, 10) || 1;
+      addToCart(currentProduct.id, selectedSize, selectedColor, qty);
+      if (goToCart) {
+        window.location.href = "cart.html";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const pid = params.get("id");
+      currentProduct = PRODUCTS.find(p => p.id === pid) || PRODUCTS[0];
+
+      selectedColor = currentProduct.colors[0];
+      selectedSize = currentProduct.sizes.includes("M") ? "M" : currentProduct.sizes[0];
+
+      document.title = `${currentProduct.name} | 可衣 KEYI`;
+      document.getElementById("bc-name").textContent = currentProduct.name;
+      document.getElementById("detail-cat").textContent = `${currentProduct.category} · ${currentProduct.subcat} · 货号 ${currentProduct.id.toUpperCase()}`;
+      document.getElementById("detail-title").textContent = currentProduct.name;
+      document.getElementById("detail-subtitle").textContent = currentProduct.subtitle;
+      document.getElementById("detail-price").textContent = `¥${currentProduct.price}`;
+      document.getElementById("detail-desc").textContent = currentProduct.desc;
+      document.getElementById("detail-fabric").textContent = currentProduct.fabric;
+      document.getElementById("detail-care").textContent = currentProduct.care;
+      document.getElementById("detail-main-art").innerHTML = renderGarmentSVG(currentProduct, 0);
+
+      // Render Colors
+      const colorContainer = document.getElementById("color-options");
+      const colorLabel = document.getElementById("selected-color-label");
+      colorLabel.textContent = selectedColor;
+      colorContainer.innerHTML = currentProduct.colors.map(c => `
+        <button type="button" class="opt-btn ${c === selectedColor ? 'active' : ''}" data-color="${c}">${c}</button>
+      `).join("");
+
+      colorContainer.querySelectorAll(".opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          selectedColor = btn.dataset.color;
+          colorLabel.textContent = selectedColor;
+          colorContainer.querySelectorAll(".opt-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // Render Sizes
+      const sizeContainer = document.getElementById("size-options");
+      const sizeLabel = document.getElementById("selected-size-label");
+      sizeLabel.textContent = `${selectedSize} 码`;
+      sizeContainer.innerHTML = currentProduct.sizes.map(s => `
+        <button type="button" class="opt-btn ${s === selectedSize ? 'active' : ''}" data-size="${s}">${s} 码</button>
+      `).join("");
+
+      sizeContainer.querySelectorAll(".opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          selectedSize = btn.dataset.size;
+          sizeLabel.textContent = `${selectedSize} 码`;
+          sizeContainer.querySelectorAll(".opt-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // Related items
+      const related = PRODUCTS.filter(p => p.id !== currentProduct.id).slice(0, 4);
+      document.getElementById("related-grid").innerHTML = related.map(createProductCardHTML).join("");
+    });
+  </script>
+</body>
+</html>

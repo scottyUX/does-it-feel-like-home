@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部商品 · 可衣 KEYI</title>
+<meta name="description" content="可衣全部商品：衬衫、针织、裤装、裙装、连衣裙与外套，支持按尺码与价格筛选。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="list">
+
+<header class="site-header">
+  <div class="topbar">上海市内当日达 · 全场满 ¥399 免运费 · 七天无理由退换</div>
+  <div class="header-inner">
+    <a class="logo" href="index.html">可衣<span>KEYI</span></a>
+    <nav class="main-nav">
+      <a href="index.html">首页</a>
+      <a href="products.html" class="on">全部商品</a>
+      <a href="products.html?tag=新品">新品</a>
+      <a href="products.html?tag=通勤">通勤系列</a>
+      <a href="about.html">品牌故事</a>
+    </nav>
+    <div class="header-tools">
+      <input id="h-search" class="search-box" type="search" placeholder="搜索商品，回车查看">
+      <a class="cart-link" href="cart.html">购物袋 <span class="cart-count" style="display:none">0</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-head">
+    <nav class="crumbs"><a href="index.html">首页</a><span>/</span><em id="crumb-now">全部商品</em></nav>
+    <h1 id="list-title">全部商品</h1>
+    <p class="page-sub" id="list-sub"></p>
+  </div>
+
+  <div class="list-layout">
+    <aside class="filters">
+      <div class="f-group">
+        <h3>品类</h3>
+        <ul class="f-cats" id="f-cats"></ul>
+      </div>
+      <div class="f-group">
+        <h3>尺码</h3>
+        <div class="chips" id="f-sizes">
+          <button data-size="S">S</button>
+          <button data-size="M">M</button>
+          <button data-size="L">L</button>
+          <button data-size="XL">XL</button>
+        </div>
+      </div>
+      <div class="f-group">
+        <h3>价格</h3>
+        <div class="f-prices" id="f-prices">
+          <button data-price="all" class="on">全部价格</button>
+          <button data-price="p1">¥200 以下</button>
+          <button data-price="p2">¥200 – 399</button>
+          <button data-price="p3">¥400 – 699</button>
+          <button data-price="p4">¥700 以上</button>
+        </div>
+      </div>
+      <button class="btn btn-line btn-block" id="f-clear">清除全部筛选</button>
+    </aside>
+
+    <section class="list-main">
+      <div class="list-topbar">
+        <p id="list-count"></p>
+        <label class="sort-label">排序
+          <select id="sort-select">
+            <option value="default">综合推荐</option>
+            <option value="new">最新上架</option>
+            <option value="asc">价格从低到高</option>
+            <option value="desc">价格从高到低</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="list-grid"></div>
+      <div class="empty" id="list-empty" hidden>
+        <p>没有找到符合条件的商品。</p>
+        <button class="btn btn-dark" id="empty-clear">清除筛选，看看全部</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="f-col f-brand">
+      <a class="logo light" href="index.html">可衣<span>KEYI</span></a>
+      <p>为 20 – 40 岁都市女性设计的日常与通勤衣橱。上海设计，每周四上新。</p>
+    </div>
+    <div class="f-col">
+      <h4>购物</h4>
+      <a href="products.html">全部商品</a>
+      <a href="products.html?tag=新品">新品上架</a>
+      <a href="products.html?tag=通勤">通勤系列</a>
+      <a href="cart.html">购物袋</a>
+    </div>
+    <div class="f-col">
+      <h4>关于</h4>
+      <a href="about.html">品牌故事</a>
+      <a href="about.html#values">我们的坚持</a>
+      <a href="about.html#contact">联系我们</a>
+    </div>
+    <div class="f-col">
+      <h4>客户服务</h4>
+      <p>周一至周日 9:00 – 21:00</p>
+      <p>客服邮箱：hello@keyi-style.cn</p>
+      <p>地址：上海市静安区愚园路 108 号 3 层</p>
+    </div>
+  </div>
+  <div class="footer-bar">© 2025 可衣 KEYI · 沪ICP备2025000000号-1</div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
