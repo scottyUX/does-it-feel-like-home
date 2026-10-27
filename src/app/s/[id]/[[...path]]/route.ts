@@ -18,8 +18,7 @@ const MIME: Record<string, string> = {
 };
 
 const injectBase = (html: string, id: string) => {
-  if (/<base\s/i.test(html)) return html;
-  const base = `<base href="/s/${id}/">`;
+  const base = `${/<base\s/i.test(html) ? "" : `<base href="/s/${id}/">`}<script src="/study-frame.js" defer></script>`;
   if (/<head[^>]*>/i.test(html)) {
     return html.replace(/<head[^>]*>/i, (match) => `${match}${base}`);
   }
@@ -48,11 +47,12 @@ export async function GET(
     const body = await readFile(filePath);
     const extension = path.extname(filePath).toLowerCase();
     const type = MIME[extension] ?? "application/octet-stream";
-    const payload = extension === ".html" ? injectBase(body.toString("utf8"), id) : body;
+    const payload =
+      extension === ".html" ? injectBase(body.toString("utf8"), id) : body;
     return new Response(payload, {
       headers: {
         "Content-Type": type,
-        "Cache-Control": "public, max-age=3600",
+        "Cache-Control": "public, max-age=0, must-revalidate",
         "X-Content-Type-Options": "nosniff",
       },
     });

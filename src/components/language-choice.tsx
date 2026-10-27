@@ -1,4 +1,5 @@
 "use client";
+import { StudyShell } from "@/components/study-shell";
 
 import { useState } from "react";
 import { createSession } from "@/lib/actions";
@@ -12,7 +13,10 @@ export const LanguageChoice = () => {
   const handleChoose = async (locale: Locale) => {
     setPending(locale);
     setError("");
-    const result = await createSession(locale);
+    const result = await createSession(locale, {
+      screen: { width: innerWidth, height: innerHeight },
+      browser: navigator.userAgent,
+    });
     if (result?.error) {
       setError(result.error);
       setPending(null);
@@ -20,7 +24,7 @@ export const LanguageChoice = () => {
   };
 
   return (
-    <div className="study">
+    <StudyShell>
       <div className="static-page">
         <main className="language-card">
           <span className="concept-kicker">{copy.en.studyKicker}</span>
@@ -54,6 +58,6 @@ export const LanguageChoice = () => {
           ) : null}
         </main>
       </div>
-    </div>
+    </StudyShell>
   );
 };

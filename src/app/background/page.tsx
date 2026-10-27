@@ -9,5 +9,5 @@ export default async function BackgroundPage() {
   if (!visit) redirect("/");
   if (visit.phase === "pair") redirect("/compare");
   if (visit.phase === "done") redirect("/done");
-  return <BackgroundForm locale={visit.locale} />;
+  return <BackgroundForm locale={visit.locale} sessionId={visit.sessionId} />;
 }

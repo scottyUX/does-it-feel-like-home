@@ -1,3 +1,4 @@
+import { StudyShell } from "@/components/study-shell";
 import { redirect } from "next/navigation";
 import { copy } from "@/lib/copy";
 import { readVisit } from "@/lib/session";
@@ -11,7 +12,7 @@ export default async function DonePage() {
   if (visit.phase === "background") redirect("/background");
   const text = copy[visit.locale];
   return (
-    <div className="study">
+    <StudyShell locale={visit.locale}>
       <div className="static-page">
         <main className="thank-you-card">
           <div className="completion-mark" aria-hidden="true">
@@ -24,6 +25,6 @@ export default async function DonePage() {
           <small>{text.thanksContact}</small>
         </main>
       </div>
-    </div>
+    </StudyShell>
   );
 };

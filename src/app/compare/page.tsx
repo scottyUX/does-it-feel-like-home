@@ -18,7 +18,7 @@ export default async function ComparePage({
     <PairSurvey
       key={visit.pair.pairIndex}
       pair={visit.pair}
-      showTour={params.tour === "1" && visit.pair.pairIndex === 0}
+      showTour={params.tour === "1" && visit.pair.pairIndex === 0 && !visit.pair.tourDone}
     />
   );
 }

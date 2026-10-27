@@ -1,10 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { StudyShell } from "@/components/study-shell";
+import { WebsiteAnnotations } from "@/components/website-annotations";
+import { usePairDraft } from "@/hooks/use-pair-draft";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { submitPair } from "@/lib/actions";
 import { copy, reasonPrompts } from "@/lib/copy";
-import type { CurrentPair, Enjoyment, OriginChoice, ReasonTag, ReasonTags } from "@/lib/types";
+import type {
+  CurrentPair,
+  Enjoyment,
+  OriginChoice,
+  ReasonTag,
+  ReasonTags,
+  ReasonOther,
+  WebsiteSide,
+  WebsiteMark,
+  PairDraft,
+} from "@/lib/types";
 
 type PairSurveyProps = {
   pair: CurrentPair;
@@ -13,29 +27,72 @@ type PairSurveyProps = {
 
 type SiteTab = "a" | "b";
 
-const emptyTags: ReasonTags = { enjoyment: [], familiarity: [], origin: [] };
-
 export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
   const text = copy[pair.locale];
   const router = useRouter();
   const shellRef = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<SiteTab>("a");
-  const [seen, setSeen] = useState<Set<SiteTab>>(() => new Set(["a"]));
-  const [step, setStep] = useState(0);
-  const [enjoyment, setEnjoyment] = useState<Enjoyment | "">("");
-  const [leftScore, setLeftScore] = useState<number | null>(null);
-  const [rightScore, setRightScore] = useState<number | null>(null);
-  const [origin, setOrigin] = useState<OriginChoice | "">("");
-  const [tags, setTags] = useState<ReasonTags>(emptyTags);
-  const [note, setNote] = useState("");
+  const [tourStep, setTourStep] = useState<number | null>(showTour ? 0 : null);
+  const [loaded, setLoaded] = useState({ a: false, b: false });
+  const { state, setState, ready, saveError, clearDraft } = usePairDraft(
+    pair,
+    tab,
+    tourStep !== null && !pair.tourDone,
+    loaded[tab],
+  );
+  const {
+    step,
+    enjoyment,
+    leftScore,
+    rightScore,
+    origin,
+    tags,
+    other,
+    note,
+    metrics,
+    marks,
+  } = state;
+  const setStep = (step: number) =>
+    setState((previous) => ({ ...previous, step }));
+  const recordAnswer = (values: Partial<PairDraft>, index: number) => {
+    setState((previous) => {
+      const answerTimes = [...previous.metrics.answerTimes];
+      answerTimes[index] =
+        previous.metrics.viewingMs.a + previous.metrics.viewingMs.b;
+      return {
+        ...previous,
+        ...values,
+        metrics: { ...previous.metrics, answerTimes },
+      };
+    });
+  };
+  const setEnjoyment = (enjoyment: Enjoyment) => recordAnswer({ enjoyment }, 0);
+  const setLeftScore = (leftScore: number) => recordAnswer({ leftScore }, 1);
+  const setRightScore = (rightScore: number) => recordAnswer({ rightScore }, 1);
+  const setOrigin = (origin: OriginChoice) => recordAnswer({ origin }, 2);
+  const setNote = (note: string) =>
+    setState((previous) => ({ ...previous, note }));
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
   const [hintKey, setHintKey] = useState<string | null>(null);
-  const [tourStep, setTourStep] = useState<number | null>(showTour ? 0 : null);
-  const [spot, setSpot] = useState<{ top: number; left: number; width: number; height: number } | null>(null);
+  const [marking, setMarking] = useState(false);
+  const frames = useRef<Record<WebsiteSide, HTMLIFrameElement | null>>({
+    a: null,
+    b: null,
+  });
+  const [failed, setFailed] = useState({ a: false, b: false });
+  const [spot, setSpot] = useState<{
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  } | null>(null);
 
-  const bothSeen = seen.has("a") && seen.has("b");
-  const locked = step === 0 && !bothSeen;
+  const bothSeen = state.seen.includes("a") && state.seen.includes("b");
+  const locked =
+    step === 0 &&
+    (!bothSeen || metrics.viewingMs.a < 5000 || metrics.viewingMs.b < 5000);
+  const lockedHint = bothSeen ? text.timedHint : text.lockedHint;
   const questionNumber = step === 1 ? 2 : step === 2 ? 3 : 1;
   const nextDisabled =
     pending ||
@@ -45,7 +102,15 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
 
   const handleTab = (next: SiteTab) => {
     setTab(next);
-    setSeen((current) => new Set(current).add(next));
+    if (next !== tab)
+      setState((previous) => ({
+        ...previous,
+        seen: [...new Set([...previous.seen, next])],
+        metrics: {
+          ...previous.metrics,
+          tabSwitches: previous.metrics.tabSwitches + 1,
+        },
+      }));
   };
 
   const handleEnjoy = (value: Enjoyment) => {
@@ -57,10 +122,13 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
   };
 
   const handleToggleTag = (row: keyof ReasonTags, tag: ReasonTag) => {
-    setTags((current) => {
+    setState((previous) => {
+      const current = previous.tags;
       const list = current[row];
-      const next = list.includes(tag) ? list.filter((item) => item !== tag) : [...list, tag];
-      return { ...current, [row]: next };
+      const next = list.includes(tag)
+        ? list.filter((item) => item !== tag)
+        : [...list, tag];
+      return { ...previous, tags: { ...current, [row]: next } };
     });
   };
 
@@ -70,7 +138,8 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
       setStep(step + 1);
       return;
     }
-    if (!enjoyment || leftScore === null || rightScore === null || !origin) return;
+    if (!enjoyment || leftScore === null || rightScore === null || !origin)
+      return;
     setPending(true);
     setError("");
     const result = await submitPair({
@@ -81,21 +150,40 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
       chineseModelSide: origin,
       reason: note,
       reasonTags: tags,
+      reasonOther: other,
+      metrics,
+      marks,
     });
     if (result?.error) {
-      setError(result.error);
+      setError(result.error === copy.en.timedHint ? text.timedHint : text.storeUnavailable);
       setPending(false);
+    } else {
+      clearDraft();
     }
   };
 
-  const handleFinishTour = () => {
+  const handleFinishTour = (skipped = true) => {
+    setState((previous) => ({ ...previous, tourDone: true }));
+    void fetch("/api/study", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        metadata: {
+          tourDone: true,
+          tourSkipped: skipped,
+          screen: { width: innerWidth, height: innerHeight },
+          browser: navigator.userAgent,
+        },
+      }),
+    });
     setTourStep(null);
     if (showTour) router.replace("/compare");
   };
 
   useEffect(() => {
     if (tourStep === null) return;
-    const target = tourStep === 0 ? "switch" : tourStep === 1 ? "website" : "dock";
+    const target =
+      tourStep === 0 ? "switch" : tourStep === 1 ? "website" : "dock";
     const shell = shellRef.current;
     const node = shell?.querySelector(`[data-tour="${target}"]`);
     if (!shell || !(node instanceof HTMLElement)) return;
@@ -138,19 +226,113 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
     };
   };
 
+  useEffect(() => {
+    if (!ready) return;
+    const receive = (event: MessageEvent) => {
+      if (event.origin !== location.origin || event.data?.kind !== "study:page")
+        return;
+      const side =
+        event.source === frames.current.a?.contentWindow
+          ? "a"
+          : event.source === frames.current.b?.contentWindow
+            ? "b"
+            : null;
+      if (
+        !side ||
+        typeof event.data.page !== "string" ||
+        !event.data.page.startsWith(
+          `/s/${side === "a" ? pair.leftId : pair.rightId}`,
+        )
+      )
+        return;
+      setLoaded((previous) => ({ ...previous, [side]: true }));
+      setFailed((previous) => ({ ...previous, [side]: false }));
+      setState((previous) => ({
+        ...previous,
+        metrics: {
+          ...previous.metrics,
+          currentPage: {
+            ...previous.metrics.currentPage,
+            [side]: event.data.page,
+          },
+          pages: {
+            ...previous.metrics.pages,
+            [side]: [
+              ...new Set([...previous.metrics.pages[side], event.data.page]),
+            ].slice(0, 200),
+          },
+          scroll: {
+            ...previous.metrics.scroll,
+            [side]: {
+              x: Number(event.data.x) || 0,
+              y: Number(event.data.y) || 0,
+            },
+          },
+          brokenImages: {
+            ...previous.metrics.brokenImages,
+            [event.data.page]: Math.max(
+              0,
+              Number(event.data.brokenImages) || 0,
+            ),
+          },
+        },
+      }));
+    };
+    window.addEventListener("message", receive);
+    const beforeBack = () => {
+      if (!window.confirm(text.leave)) history.forward();
+    };
+    window.addEventListener("popstate", beforeBack);
+    return () => {
+      window.removeEventListener("message", receive);
+      window.removeEventListener("popstate", beforeBack);
+    };
+  }, [ready, pair.leftId, pair.rightId, setState, text.leave]);
+  useEffect(() => {
+    if (!ready) return;
+    const timer = setTimeout(() => {
+      (["a", "b"] as const).forEach((side) => {
+        if (loaded[side]) return;
+        setFailed((previous) => ({ ...previous, [side]: true }));
+        setState((previous) => ({
+          ...previous,
+          metrics: {
+            ...previous.metrics,
+            loadFailures: [
+              ...previous.metrics.loadFailures,
+              {
+                side,
+                page: `/s/${side === "a" ? pair.leftId : pair.rightId}/`,
+                at: new Date().toISOString(),
+              },
+            ].slice(-100),
+          },
+        }));
+      });
+    }, 15000);
+    return () => clearTimeout(timer);
+  }, [ready, loaded, pair.leftId, pair.rightId, setState]);
   const progress = ((pair.pairIndex + 1) / pair.pairCount) * 100;
 
   return (
-    <div className="study" ref={shellRef}>
-      <div className="survey survey--dock survey--stacked">
+    <StudyShell locale={pair.locale} shellRef={shellRef}>
+      <div
+        className={`survey survey--dock survey--stacked${marking ? " is-marking" : ""}`}
+      >
         <header className="survey-header">
           <span className="top-instruction">{text.lookThenAnswer}</span>
-          <div className="site-tabs" role="tablist" aria-label={text.lookThenAnswer} data-tour="switch">
+          <div
+            className="site-tabs"
+            role="tablist"
+            aria-label={text.lookThenAnswer}
+            data-tour="switch"
+          >
             {(["a", "b"] as SiteTab[]).map((site) => (
               <button
                 key={site}
                 type="button"
                 role="tab"
+                disabled={!ready}
                 aria-selected={tab === site}
                 className={tab === site ? "site-tab is-active" : "site-tab"}
                 onClick={() => handleTab(site)}
@@ -166,23 +348,75 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
             </div>
           </div>
         </header>
+        {marking ? (
+          <WebsiteAnnotations
+            locale={pair.locale}
+            side={tab}
+            frames={frames}
+            existing={marks}
+            onCancel={() => setMarking(false)}
+            onDone={(newMarks) => {
+              setState((previous) => ({
+                ...previous,
+                marks: [...previous.marks, ...newMarks],
+              }));
+              setMarking(false);
+            }}
+          />
+        ) : null}
         <div className="preview-wrap" data-tour="website">
           <div className="preview-frame">
-            <iframe
-              title={text.websiteA}
-              src={`/s/${pair.leftId}/`}
-              className={tab === "a" ? "preview-site" : "preview-site is-hidden"}
-              aria-hidden={tab !== "a"}
-            />
-            <iframe
-              title={text.websiteB}
-              src={`/s/${pair.rightId}/`}
-              className={tab === "b" ? "preview-site" : "preview-site is-hidden"}
-              aria-hidden={tab !== "b"}
-            />
+            {ready
+              ? (["a", "b"] as const).map((side) => (
+                  <WebsiteFrame
+                    key={side}
+                    frameRef={(node) => {
+                      frames.current[side] = node;
+                    }}
+                    title={side === "a" ? text.websiteA : text.websiteB}
+                    src={
+                      state.metrics.currentPage?.[side] ||
+                      `/s/${side === "a" ? pair.leftId : pair.rightId}/`
+                    }
+                    className={
+                      tab === side ? "preview-site" : "preview-site is-hidden"
+                    }
+                    hidden={tab !== side}
+                    onLoad={(event) => {
+                      event.currentTarget.contentWindow?.postMessage(
+                        { kind: "study:scroll", ...state.metrics.scroll[side] },
+                        location.origin,
+                      );
+                    }}
+                  />
+                ))
+              : null}
+            {!ready || !loaded[tab] || failed[tab] ? (
+              <div className="website-loading" role="status">
+                <p>{failed[tab] ? text.loadFailed : text.loading}</p>
+                {failed[tab] ? (
+                  <button
+                    type="button"
+                    className="quiet-button"
+                    onClick={() => {
+                      setFailed((previous) => ({ ...previous, [tab]: false }));
+                      const frame = frames.current[tab];
+                      if (frame) frame.src = frame.src;
+                      setLoaded((previous) => ({ ...previous, [tab]: false }));
+                    }}
+                  >
+                    {text.reload}
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </div>
-        {step === 3 && enjoyment && leftScore !== null && rightScore !== null && origin ? (
+        {step === 3 &&
+        enjoyment &&
+        leftScore !== null &&
+        rightScore !== null &&
+        origin ? (
           <Reasons
             locale={pair.locale}
             enjoyment={enjoyment}
@@ -190,6 +424,16 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
             rightScore={rightScore}
             origin={origin}
             tags={tags}
+            other={other}
+            marks={marks}
+            lastPair={pair.pairIndex === pair.pairCount - 1}
+            onOther={(row, value) =>
+              setState((previous) => ({
+                ...previous,
+                other: { ...previous.other, [row]: value },
+              }))
+            }
+            onMark={() => setMarking(true)}
             note={note}
             pending={pending}
             error={error}
@@ -198,7 +442,10 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
             onNext={handleNext}
           />
         ) : (
-          <section className="question question--dock question--stacked" data-tour="dock">
+          <section
+            className="question question--dock question--stacked"
+            data-tour="dock"
+          >
             <div className="question-heading">
               <div className="eyebrow">{text.questionOf(questionNumber)}</div>
               <div className="question-copy">
@@ -215,7 +462,11 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
             <div className="answer-column">
               {questionNumber === 1 ? (
                 <div className="answer-zone">
-                  <div className="primary-answers" role="radiogroup" aria-label={text.enjoyQuestion}>
+                  <div
+                    className="primary-answers"
+                    role="radiogroup"
+                    aria-label={text.enjoyQuestion}
+                  >
                     {(
                       [
                         ["left", text.enjoyA],
@@ -227,12 +478,16 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                       <Choice
                         key={value}
                         label={label}
-                        hint={text.lockedHint}
+                        hint={lockedHint}
                         selected={enjoyment === value}
                         locked={locked}
                         hinted={hintKey === value}
                         onChoose={() => handleEnjoy(value)}
-                        onLeave={() => setHintKey((current) => (current === value ? null : current))}
+                        onLeave={() =>
+                          setHintKey((current) =>
+                            current === value ? null : current,
+                          )
+                        }
                       />
                     ))}
                   </div>
@@ -243,13 +498,17 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                   <span className="or-label">{text.or}</span>
                   <Choice
                     label={text.tooDifferent}
-                    hint={text.lockedHint}
+                    hint={lockedHint}
                     selected={enjoyment === "too_different"}
                     locked={locked}
                     hinted={hintKey === "too_different"}
                     secondary
                     onChoose={() => handleEnjoy("too_different")}
-                    onLeave={() => setHintKey((current) => (current === "too_different" ? null : current))}
+                    onLeave={() =>
+                      setHintKey((current) =>
+                        current === "too_different" ? null : current,
+                      )
+                    }
                   />
                 </div>
               ) : null}
@@ -272,9 +531,21 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                 </div>
               ) : null}
               {questionNumber === 3 ? (
-                <div className="origin-answers" role="radiogroup" aria-label={text.origin}>
-                  <Choice label={text.websiteA} selected={origin === "left"} onChoose={() => setOrigin("left")} />
-                  <Choice label={text.websiteB} selected={origin === "right"} onChoose={() => setOrigin("right")} />
+                <div
+                  className="origin-answers"
+                  role="radiogroup"
+                  aria-label={text.origin}
+                >
+                  <Choice
+                    label={text.websiteA}
+                    selected={origin === "left"}
+                    onChoose={() => setOrigin("left")}
+                  />
+                  <Choice
+                    label={text.websiteB}
+                    selected={origin === "right"}
+                    onChoose={() => setOrigin("right")}
+                  />
                   <span className="or-label">{text.or}</span>
                   <Choice
                     label={text.cantDecide}
@@ -284,19 +555,24 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                   />
                 </div>
               ) : null}
-              <button type="button" className="next-button" disabled={nextDisabled} onClick={handleNext}>
+              <button
+                type="button"
+                className="next-button"
+                disabled={nextDisabled}
+                onClick={handleNext}
+              >
                 {pending ? text.saving : text.next}
                 <span aria-hidden="true">→</span>
               </button>
             </div>
-            {error ? (
+            {error || saveError ? (
               <p className="study-error" role="alert">
-                {error}
+                {error || text.storeUnavailable}
               </p>
             ) : null}
           </section>
         )}
-        {tourStep !== null ? (
+        {ready && tourStep !== null && !state.tourDone ? (
           <div className="tour-layer">
             <div className="tour-scrim" />
             {spot ? (
@@ -316,22 +592,27 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
               <strong>{text.tourSteps[tourStep].title}</strong>
               <p>{text.tourSteps[tourStep].copy}</p>
               <div className="tour-actions">
-                <button type="button" onClick={handleFinishTour}>
+                <button type="button" onClick={() => handleFinishTour()}>
                   {text.tourSkip}
                 </button>
                 <button
                   type="button"
                   className="tour-next"
-                  onClick={() => (tourStep === 2 ? handleFinishTour() : setTourStep(tourStep + 1))}
+                  onClick={() =>
+                    tourStep === 2
+                      ? handleFinishTour(false)
+                      : setTourStep(tourStep + 1)
+                  }
                 >
-                  {tourStep === 2 ? text.tourStart : text.tourNext} <span aria-hidden="true">→</span>
+                  {tourStep === 2 ? text.tourStart : text.tourNext}{" "}
+                  <span aria-hidden="true">→</span>
                 </button>
               </div>
             </div>
           </div>
         ) : null}
       </div>
-    </div>
+    </StudyShell>
   );
 };
 
@@ -428,6 +709,11 @@ const Reasons = ({
   rightScore,
   origin,
   tags,
+  other,
+  marks,
+  lastPair,
+  onOther,
+  onMark,
   note,
   pending,
   error,
@@ -441,6 +727,11 @@ const Reasons = ({
   rightScore: number;
   origin: OriginChoice;
   tags: ReasonTags;
+  other: ReasonOther;
+  marks: WebsiteMark[];
+  lastPair: boolean;
+  onOther: (row: keyof ReasonOther, value: string) => void;
+  onMark: () => void;
   note: string;
   pending: boolean;
   error: string;
@@ -452,7 +743,10 @@ const Reasons = ({
   const rows = reasonPrompts(locale, enjoyment, leftScore, rightScore, origin);
 
   return (
-    <section className="question question--dock question--stacked reasons-dock" data-tour="dock">
+    <section
+      className="question question--dock question--stacked reasons-dock"
+      data-tour="dock"
+    >
       <div className="question-heading reasons-heading">
         <div className="eyebrow">{text.reasonsEyebrow}</div>
         <div className="question-copy">{text.reasonsTitle}</div>
@@ -482,20 +776,55 @@ const Reasons = ({
                 );
               })}
             </div>
+            {tags[row.id].includes("other") ? (
+              <input
+                className="reason-other"
+                aria-label={`${row.prompt} ${text.describe}`}
+                placeholder={text.describe}
+                maxLength={200}
+                value={other[row.id]}
+                onChange={(event) => onOther(row.id, event.target.value)}
+              />
+            ) : null}
           </div>
+        ))}
+      </div>
+      <div className="annotation-list">
+        <button type="button" className="quiet-button" onClick={onMark}>
+          {text.mark}
+        </button>
+        {marks.map((mark) => (
+          <span
+            key={mark.id}
+            title={`${text.savedMarks} ${mark.side.toUpperCase()} ${mark.note}`}
+          >
+            <Image
+              unoptimized
+              width={92}
+              height={54}
+              src={`/api/study/marks/${mark.id}`}
+              alt={`${mark.side.toUpperCase()} ${mark.note}`}
+            />
+          </span>
         ))}
       </div>
       <div className="reasons-footer">
         <label>
           <span>{text.reasonsNote}</span>
           <input
+            maxLength={1000}
             value={note}
             placeholder={text.reasonsPlaceholder}
             onChange={(event) => onNote(event.target.value)}
           />
         </label>
-        <button type="button" className="next-button" disabled={pending} onClick={onNext}>
-          {pending ? text.saving : text.nextPair}
+        <button
+          type="button"
+          className="next-button"
+          disabled={pending}
+          onClick={onNext}
+        >
+          {pending ? text.saving : lastPair ? text.lastStep : text.nextPair}
           <span aria-hidden="true">→</span>
         </button>
       </div>
@@ -507,3 +836,38 @@ const Reasons = ({
     </section>
   );
 };
+
+function WebsiteFrame({
+  src,
+  title,
+  className,
+  hidden,
+  frameRef,
+  onLoad,
+}: {
+  src: string;
+  title: string;
+  className: string;
+  hidden: boolean;
+  frameRef: (node: HTMLIFrameElement | null) => void;
+  onLoad: (event: React.SyntheticEvent<HTMLIFrameElement>) => void;
+}) {
+  const [initialSrc] = useState(src);
+  const restored = useRef(false);
+  return (
+    <iframe
+      ref={frameRef}
+      src={initialSrc}
+      title={title}
+      className={className}
+      aria-hidden={hidden}
+      sandbox="allow-scripts allow-same-origin"
+      onLoad={(event) => {
+        if (!restored.current) {
+          restored.current = true;
+          onLoad(event);
+        }
+      }}
+    />
+  );
+}

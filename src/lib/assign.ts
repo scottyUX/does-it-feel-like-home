@@ -7,7 +7,7 @@ const randomIndex = (length: number) => {
   return values[0] % length;
 };
 
-const shuffle = <T,>(items: readonly T[]) => {
+const shuffle = <T>(items: readonly T[]) => {
   const copy = [...items];
   for (let index = copy.length - 1; index > 0; index -= 1) {
     const swap = randomIndex(index + 1);
@@ -18,32 +18,50 @@ const shuffle = <T,>(items: readonly T[]) => {
   return copy;
 };
 
-export const assignVisit = (sites: ManifestSite[]) => {
-  const usModels = [...new Set(sites.filter((site) => site.country === "US").map((site) => site.model))];
+export const assignVisit = (
+  sites: ManifestSite[],
+  rotation = 0,
+  siteTypes: readonly SiteType[] = SITE_TYPES,
+) => {
+  const usModels = [
+    ...new Set(
+      sites.filter((site) => site.country === "US").map((site) => site.model),
+    ),
+  ];
   const chinaModels = [
-    ...new Set(sites.filter((site) => site.country === "China").map((site) => site.model)),
+    ...new Set(
+      sites
+        .filter((site) => site.country === "China")
+        .map((site) => site.model),
+    ),
   ];
   if (usModels.length === 0 || chinaModels.length === 0) {
     throw new Error("Manifest is missing a country");
   }
 
-  const usModel = usModels[randomIndex(usModels.length)];
-  const chinaModel = chinaModels[randomIndex(chinaModels.length)];
+  const usModel =
+    usModels[Math.floor(rotation / chinaModels.length) % usModels.length];
+  const chinaModel = chinaModels[rotation % chinaModels.length];
   const sides = {} as Sides;
 
-  for (const siteType of SITE_TYPES) {
-    const usSite = sites.find((site) => site.type === siteType && site.model === usModel);
-    const chinaSite = sites.find((site) => site.type === siteType && site.model === chinaModel);
+  for (const siteType of siteTypes) {
+    const usSite = sites.find(
+      (site) => site.type === siteType && site.model === usModel,
+    );
+    const chinaSite = sites.find(
+      (site) => site.type === siteType && site.model === chinaModel,
+    );
     if (!usSite || !chinaSite) {
       throw new Error(`Missing a pair for ${siteType}`);
     }
-    const ordered = randomIndex(2) === 0 ? [usSite, chinaSite] : [chinaSite, usSite];
+    const ordered =
+      randomIndex(2) === 0 ? [usSite, chinaSite] : [chinaSite, usSite];
     sides[siteType] = { left: ordered[0].id, right: ordered[1].id };
   }
 
   return {
     combination: `${usModel}|${chinaModel}`,
-    pairOrder: shuffle(SITE_TYPES) as SiteType[],
+    pairOrder: shuffle(siteTypes) as SiteType[],
     sides,
   };
 };

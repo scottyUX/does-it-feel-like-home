@@ -10,5 +10,5 @@ export default async function IntroPage() {
   if (visit.phase === "background") redirect("/background");
   if (visit.phase === "done") redirect("/done");
   if (visit.phase !== "pair") redirect("/");
-  return <Introduction locale={visit.pair.locale} />;
+  return <Introduction locale={visit.pair.locale} pairCount={visit.pair.pairCount} />;
 }

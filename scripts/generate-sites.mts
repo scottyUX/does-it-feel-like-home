@@ -1,3 +1,4 @@
+import { localizeImages } from "./localize-images.mts";
 import { randomBytes } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -38,7 +39,18 @@ const MODELS = [
   },
 ] as const;
 
-const SITE_TYPES = ["clothing", "restaurant", "news"] as const;
+const SITE_TYPES = [
+  "clothing",
+  "restaurant",
+  "news",
+  "social-media",
+  "travel",
+  "bank",
+  "food-delivery",
+  "beauty-salon",
+  "learning",
+  "home-cleaning",
+] as const;
 
 type Model = (typeof MODELS)[number];
 type SiteType = (typeof SITE_TYPES)[number];
@@ -63,7 +75,7 @@ type ChatResult = {
   usage: Usage;
 };
 
-const spent = { usd: 0 };
+const spent = { usd: 0, reserved: 0 };
 
 const loadKey = async () => {
   const fromEnv = process.env.OPENROUTER_API_KEY?.trim();
@@ -72,13 +84,17 @@ const loadKey = async () => {
   for (const line of text.split("\n")) {
     const trimmed = line.trim();
     if (!trimmed.startsWith("OPENROUTER_API_KEY=")) continue;
-    return trimmed.slice("OPENROUTER_API_KEY=".length).trim().replace(/^["']|["']$/g, "");
+    return trimmed
+      .slice("OPENROUTER_API_KEY=".length)
+      .trim()
+      .replace(/^["']|["']$/g, "");
   }
   throw new Error("OPENROUTER_API_KEY was not found");
 };
 
 const costOf = (model: Model, promptTokens: number, completionTokens: number) =>
-  (promptTokens * model.inputPrice + completionTokens * model.outputPrice) / 1_000_000;
+  (promptTokens * model.inputPrice + completionTokens * model.outputPrice) /
+  1_000_000;
 
 const safeRelative = (name: string) => {
   const cleaned = name.trim().replaceAll("\\", "/").replace(/^\/+/, "");
@@ -92,7 +108,9 @@ const extractHtml = (raw: string) => {
   if (start === -1) return null;
   const slice = raw.slice(start);
   const end = slice.toLowerCase().lastIndexOf("</html>");
-  return end === -1 ? slice.trim() : slice.slice(0, end + "</html>".length).trim();
+  return end === -1
+    ? slice.trim()
+    : slice.slice(0, end + "</html>".length).trim();
 };
 
 const extractFiles = (raw: string) => {
@@ -107,7 +125,10 @@ const extractFiles = (raw: string) => {
   for (let index = 0; index < matches.length; index += 1) {
     const name = safeRelative(matches[index][1] ?? "");
     const start = (matches[index].index ?? 0) + matches[index][0].length;
-    const end = index + 1 < matches.length ? (matches[index + 1].index ?? raw.length) : raw.length;
+    const end =
+      index + 1 < matches.length
+        ? (matches[index + 1].index ?? raw.length)
+        : raw.length;
     if (!name) continue;
     let body = raw.slice(start, end).trim();
     body = body.replace(/^```[a-zA-Z]*\r?\n/, "").replace(/\r?\n```$/, "");
@@ -120,21 +141,30 @@ const ATTRIBUTION =
   /(made|generated|powered|created)\s+by[^<\n]{0,80}(claude|gemini|qwen|kimi|anthropic|moonshot|alibaba|openai)/gi;
 
 const stripAttribution = (html: string, removed: string[]) => {
-  let next = html.replace(/<meta[^>]*name=["']generator["'][^>]*>/gi, (match) => {
-    removed.push(match);
-    return "";
-  });
-  next = next.replace(/<!--[^>]*?(claude|gemini|qwen|kimi|anthropic|moonshot)[^>]*?-->/gi, (match) => {
-    removed.push(match);
-    return "";
-  });
+  let next = html.replace(
+    /<meta[^>]*name=["']generator["'][^>]*>/gi,
+    (match) => {
+      removed.push(match);
+      return "";
+    },
+  );
+  next = next.replace(
+    /<!--[^>]*?(claude|gemini|qwen|kimi|anthropic|moonshot)[^>]*?-->/gi,
+    (match) => {
+      removed.push(match);
+      return "";
+    },
+  );
   next = next.replace(ATTRIBUTION, (match) => {
     removed.push(match);
     return "";
   });
   next = next.replace(/<title>([^<]*)<\/title>/i, (full, title: string) => {
     const cleaned = title
-      .replace(/claude|gemini|qwen|kimi|anthropic|moonshot|alibaba|openai/gi, "")
+      .replace(
+        /claude|gemini|qwen|kimi|anthropic|moonshot|alibaba|openai/gi,
+        "",
+      )
       .replace(/\s{2,}/g, " ")
       .trim();
     if (cleaned === title.trim()) return full;
@@ -146,7 +176,8 @@ const stripAttribution = (html: string, removed: string[]) => {
 
 const hasHtmlPage = (files: Record<string, string>) =>
   Object.entries(files).some(
-    ([name, body]) => name.endsWith(".html") && /<(html|body|main|header)\b/i.test(body),
+    ([name, body]) =>
+      name.endsWith(".html") && /<(html|body|main|header)\b/i.test(body),
   );
 
 const callModel = async (
@@ -155,22 +186,25 @@ const callModel = async (
   messages: { role: string; content: string }[],
   effort: string,
 ): Promise<ChatResult> => {
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
+  const response = await fetch(
+    "https://openrouter.ai/api/v1/chat/completions",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: model.id,
+        max_tokens: MAX_TOKENS,
+        reasoning: { effort },
+        stream: true,
+        stream_options: { include_usage: true },
+        messages,
+      }),
+      signal: AbortSignal.timeout(20 * 60 * 1000),
     },
-    body: JSON.stringify({
-      model: model.id,
-      max_tokens: MAX_TOKENS,
-      reasoning: { effort },
-      stream: true,
-      stream_options: { include_usage: true },
-      messages,
-    }),
-    signal: AbortSignal.timeout(20 * 60 * 1000),
-  });
+  );
 
   if (!response.ok || !response.body) {
     const detail = await response.text();
@@ -197,7 +231,10 @@ const callModel = async (
       const data = trimmed.slice(5).trim();
       if (data === "[DONE]") continue;
       let parsed: {
-        choices?: { delta?: { content?: string }; finish_reason?: string | null }[];
+        choices?: {
+          delta?: { content?: string };
+          finish_reason?: string | null;
+        }[];
         usage?: { prompt_tokens?: number; completion_tokens?: number };
         error?: { message?: string };
       };
@@ -209,9 +246,12 @@ const callModel = async (
       if (parsed.error?.message) throw new Error(parsed.error.message);
       const delta = parsed.choices?.[0]?.delta?.content;
       if (delta) content += delta;
-      if (parsed.choices?.[0]?.finish_reason) finishReason = parsed.choices[0].finish_reason;
-      if (parsed.usage?.prompt_tokens) promptTokens = parsed.usage.prompt_tokens;
-      if (parsed.usage?.completion_tokens) completionTokens = parsed.usage.completion_tokens;
+      if (parsed.choices?.[0]?.finish_reason)
+        finishReason = parsed.choices[0].finish_reason;
+      if (parsed.usage?.prompt_tokens)
+        promptTokens = parsed.usage.prompt_tokens;
+      if (parsed.usage?.completion_tokens)
+        completionTokens = parsed.usage.completion_tokens;
     }
   }
 
@@ -231,7 +271,9 @@ const callWithFallback = async (
   model: Model,
   messages: { role: string; content: string }[],
 ) => {
-  const efforts = model.id.includes("kimi") ? [model.effort, "max"] : [model.effort];
+  const efforts = model.id.includes("kimi")
+    ? [model.effort, "max"]
+    : [model.effort];
   let lastError: Error | null = null;
   for (const effort of efforts) {
     try {
@@ -247,15 +289,36 @@ const callWithFallback = async (
 
 const reserveSpend = (model: Model) => {
   const worst = costOf(model, 4_000, MAX_TOKENS);
-  if (spent.usd + worst > SPEND_LIMIT_USD) {
-    throw new Error(`Stopping before ${model.id}: estimated spend would pass $${SPEND_LIMIT_USD}`);
+  if (spent.usd + spent.reserved + worst > SPEND_LIMIT_USD) {
+    throw new Error(
+      `Stopping before ${model.id}: estimated spend would pass $${SPEND_LIMIT_USD}`,
+    );
   }
+  spent.reserved += worst;
+  return worst;
 };
 
 const addSpend = (usage: Usage) => {
   spent.usd += usage.costUsd;
   if (spent.usd > SPEND_LIMIT_USD) {
-    throw new Error(`Stopping: spend $${spent.usd.toFixed(2)} passed $${SPEND_LIMIT_USD}`);
+    throw new Error(
+      `Stopping: spend $${spent.usd.toFixed(2)} passed $${SPEND_LIMIT_USD}`,
+    );
+  }
+};
+
+const budgetedCall = async (
+  key: string,
+  model: Model,
+  messages: { role: string; content: string }[],
+) => {
+  const reserved = reserveSpend(model);
+  try {
+    const result = await callWithFallback(key, model, messages);
+    addSpend(result.usage);
+    return result;
+  } finally {
+    spent.reserved -= reserved;
   }
 };
 
@@ -275,7 +338,10 @@ const writeManifest = async (sites: ManifestSite[]) => {
     sites,
   };
   await mkdir(path.join(ROOT, "data"), { recursive: true });
-  await writeFile(path.join(ROOT, "data", "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+  await writeFile(
+    path.join(ROOT, "data", "manifest.next.json"),
+    `${JSON.stringify(manifest, null, 2)}\n`,
+  );
 };
 
 const generateOne = async (
@@ -285,24 +351,27 @@ const generateOne = async (
   studyPrompt: string,
   instructions: string,
 ) => {
-  reserveSpend(model);
   const id = randomBytes(4).toString("hex");
   const messages = [
     { role: "system", content: instructions },
     { role: "user", content: studyPrompt },
   ];
   console.log(`start ${siteType} ${model.id} ${id}`);
-  let result = await callWithFallback(key, model, messages);
-  addSpend(result.usage);
+  let result = await budgetedCall(key, model, messages);
   let files = extractFiles(result.content);
   let repaired = false;
 
   const truncated = result.finishReason === "length";
-  if (!hasHtmlPage(files) || truncated) {
-    reserveSpend(model);
+  if (
+    !hasHtmlPage(files) ||
+    truncated ||
+    Object.keys(files).filter((name) => name.endsWith(".html")).length < 4
+  ) {
     repaired = true;
-    console.log(`repair ${siteType} ${model.id} ${id} reason=${result.finishReason ?? "invalid"}`);
-    const repair = await callWithFallback(key, model, [
+    console.log(
+      `repair ${siteType} ${model.id} ${id} reason=${result.finishReason ?? "invalid"}`,
+    );
+    const repair = await budgetedCall(key, model, [
       ...messages,
       { role: "assistant", content: result.content.slice(-12_000) },
       {
@@ -311,7 +380,6 @@ const generateOne = async (
           "The previous answer was incomplete or not valid HTML. Return the full site again in the FILE format. Keep the same design and the same Simplified Chinese copy.",
       },
     ]);
-    addSpend(repair.usage);
     const repairedFiles = extractFiles(repair.content);
     if (hasHtmlPage(repairedFiles)) {
       files = repairedFiles;
@@ -319,7 +387,11 @@ const generateOne = async (
     }
   }
 
-  if (!hasHtmlPage(files)) {
+  if (
+    !hasHtmlPage(files) ||
+    Object.keys(files).filter((name) => name.endsWith(".html")).length < 4 ||
+    result.finishReason === "length"
+  ) {
     throw new Error(`${model.id} ${siteType} did not return HTML`);
   }
 
@@ -335,8 +407,12 @@ const generateOne = async (
     files[name] = stripAttribution(body, removed);
   }
 
+  await writeTree(
+    path.join(ROOT, "sources", siteType, ...model.id.split("/")),
+    files,
+  );
+  const imageAudit = await localizeImages(path.join(ROOT, "sites", id), files);
   await writeTree(path.join(ROOT, "sites", id), files);
-  await writeTree(path.join(ROOT, "sources", siteType, ...model.id.split("/")), files);
 
   const record = {
     id,
@@ -346,6 +422,7 @@ const generateOne = async (
     finishReason: result.finishReason,
     repaired,
     removed,
+    imageAudit,
     usage: result.usage,
     createdAt: new Date().toISOString(),
   };
@@ -360,7 +437,11 @@ const generateOne = async (
   return record;
 };
 
-const mapPool = async <T, R>(items: T[], limit: number, worker: (item: T) => Promise<R>) => {
+const mapPool = async <T, R>(
+  items: T[],
+  limit: number,
+  worker: (item: T) => Promise<R>,
+) => {
   const results: R[] = [];
   let cursor = 0;
   const run = async () => {
@@ -370,25 +451,47 @@ const mapPool = async <T, R>(items: T[], limit: number, worker: (item: T) => Pro
       results[index] = await worker(items[index]);
     }
   };
-  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, () => run()));
+  await Promise.all(
+    Array.from({ length: Math.min(limit, items.length) }, () => run()),
+  );
   return results;
 };
 
 const main = async () => {
   const key = await loadKey();
-  const instructions = await readFile(path.join(ROOT, "prompts", "generation-instructions.txt"), "utf8");
+  const instructions = await readFile(
+    path.join(ROOT, "prompts", "generation-instructions.txt"),
+    "utf8",
+  );
   const prompts = Object.fromEntries(
     await Promise.all(
       SITE_TYPES.map(async (siteType) => [
         siteType,
-        (await readFile(path.join(ROOT, "prompts", `${siteType}.txt`), "utf8")).trim(),
+        (
+          await readFile(path.join(ROOT, "prompts", `${siteType}.txt`), "utf8")
+        ).trim(),
       ]),
     ),
   ) as Record<SiteType, string>;
 
-  const jobs = SITE_TYPES.flatMap((siteType) => MODELS.map((model) => ({ siteType, model })));
+  const allJobs = SITE_TYPES.flatMap((siteType) =>
+    MODELS.map((model) => ({ siteType, model })),
+  );
   const sites: ManifestSite[] = [];
+  if (process.argv.includes("--resume")) {
+    const previous = JSON.parse(await readFile(path.join(ROOT,"data","manifest.next.json"),"utf8"));
+    for (const site of previous.sites as ManifestSite[]) {
+      if (!allJobs.some(job=>job.siteType===site.type && job.model.id===site.model)) throw new Error("Staged manifest does not match configured models/categories");
+      await readFile(path.join(ROOT,"sites",site.id,"index.html"));
+      sites.push(site);
+    }
+    const usage = JSON.parse(await readFile(path.join(ROOT,"generations","usage.next.json"),"utf8"));
+    spent.usd = Number(usage.spentUsd) || 0;
+    console.log(`Resuming ${sites.length}/${allJobs.length} completed sites; prior spend $${spent.usd.toFixed(3)}`);
+  }
+  const jobs=allJobs.filter(job=>!sites.some(site=>site.type===job.siteType && site.model===job.model.id));
   const failures: { siteType: string; model: string; error: string }[] = [];
+  let stopReason: string | null = null;
   let manifestChain = Promise.resolve();
   const saveSite = (site: ManifestSite) => {
     manifestChain = manifestChain.then(async () => {
@@ -399,6 +502,14 @@ const main = async () => {
   };
 
   await mapPool(jobs, 4, async (job) => {
+    if (stopReason) {
+      failures.push({
+        siteType: job.siteType,
+        model: job.model.id,
+        error: `Skipped: ${stopReason}`,
+      });
+      return;
+    }
     try {
       const record = await generateOne(
         key,
@@ -416,21 +527,34 @@ const main = async () => {
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      failures.push({ siteType: job.siteType, model: job.model.id, error: message });
+      if (message.includes(" 402 ") || message.includes(" 401 ")) stopReason = message;
+      failures.push({
+        siteType: job.siteType,
+        model: job.model.id,
+        error: message,
+      });
       console.error(`fail ${job.siteType} ${job.model.id}: ${message}`);
     }
   });
 
   await manifestChain;
+  if (failures.length === 0 && sites.length === allJobs.length) {
+    await writeFile(
+      path.join(ROOT, "data", "manifest.json"),
+      await readFile(path.join(ROOT, "data", "manifest.next.json")),
+    );
+  }
   await mkdir(path.join(ROOT, "generations"), { recursive: true });
   await writeFile(
-    path.join(ROOT, "generations", "usage.json"),
+    path.join(ROOT, "generations", "usage.next.json"),
     `${JSON.stringify({ spentUsd: spent.usd, sites: sites.length, failures }, null, 2)}\n`,
   );
   if (failures.length > 0) {
     process.exitCode = 1;
   }
-  console.log(`finished ${sites.length} sites, $${spent.usd.toFixed(3)}, failures ${failures.length}`);
+  console.log(
+    `finished ${sites.length} sites, $${spent.usd.toFixed(3)}, failures ${failures.length}`,
+  );
 };
 
 main().catch((error: unknown) => {

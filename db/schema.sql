@@ -55,3 +55,27 @@ alter table background add column if not exists first_language text;
 alter table background add column if not exists language_specify text;
 alter table background add column if not exists chinese_web_use text;
 alter table pair_responses add column if not exists reason_tags jsonb;
+
+-- Study behavior, recovery, and annotation data. Existing responses are preserved.
+create sequence if not exists participant_assignment_seq minvalue 0 start 0;
+alter table sessions add column if not exists study_data jsonb not null default '{}';
+alter table sessions add column if not exists completed_at timestamptz;
+alter table sessions add column if not exists last_active_at timestamptz not null default now();
+alter table sessions add column if not exists current_pair int not null default 0;
+alter table pair_responses add column if not exists study_data jsonb not null default '{}';
+create table if not exists study_drafts (
+  session_id uuid not null references sessions(id),
+  site_type text not null,
+  state jsonb not null,
+  updated_at timestamptz not null default now(),
+  primary key (session_id, site_type)
+);
+create table if not exists study_marks (
+  id uuid primary key,
+  session_id uuid not null references sessions(id),
+  site_type text not null,
+  details jsonb not null,
+  screenshot text not null,
+  created_at timestamptz not null default now()
+);
+create index if not exists study_marks_session on study_marks(session_id, site_type);
