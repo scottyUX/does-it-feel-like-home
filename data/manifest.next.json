@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T22:05:23.176Z",
+  "generatedAt": "2026-10-27T22:11:41.814Z",
   "note": "OpenRouter pipeline samples, not WebDev Arena outputs.",
   "sites": [
     {
@@ -15,6 +15,13 @@
       "country": "US",
       "model": "google/gemini-4-argon",
       "createdAt": "2026-10-27T22:05:23.173Z"
+    },
+    {
+      "id": "0d18b012",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "createdAt": "2026-10-27T22:11:41.812Z"
     }
   ]
 }
