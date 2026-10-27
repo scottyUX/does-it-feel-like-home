@@ -8,6 +8,25 @@ export type Side = "left" | "right";
 
 export type Enjoyment = "left" | "right" | "both" | "neither" | "too_different";
 
+export type OriginChoice = Side | "unsure";
+
+export const REASON_TAGS = [
+  "layout",
+  "colors",
+  "images",
+  "fonts",
+  "density",
+  "wording",
+  "feel",
+  "other",
+] as const;
+
+export type ReasonTag = (typeof REASON_TAGS)[number];
+
+export type ReasonRow = "enjoyment" | "familiarity" | "origin";
+
+export type ReasonTags = Record<ReasonRow, ReasonTag[]>;
+
 export type ManifestSite = {
   id: string;
   type: SiteType;

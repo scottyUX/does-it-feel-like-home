@@ -3,14 +3,25 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { backgroundIsValid, type BackgroundAnswers } from "@/lib/background";
 import { copy } from "@/lib/copy";
 import { createParticipantSession, saveBackground, savePair } from "@/lib/session";
-import type { Enjoyment, Locale, Side, SiteType } from "@/lib/types";
+import { REASON_TAGS, type Enjoyment, type Locale, type OriginChoice, type ReasonTag, type ReasonTags, type SiteType } from "@/lib/types";
 
 const GALLERY_COOKIE = "diflh_gallery";
 
 const ENJOYMENT = new Set<Enjoyment>(["left", "right", "both", "neither", "too_different"]);
-const SIDES = new Set<Side>(["left", "right"]);
+const ORIGINS = new Set<OriginChoice>(["left", "right", "unsure"]);
+const TAGS = new Set<string>(REASON_TAGS);
+
+const cleanTags = (tags: ReasonTags): ReasonTags => {
+  const keep = (list: ReasonTag[]) => list.filter((tag) => TAGS.has(tag)).slice(0, REASON_TAGS.length);
+  return {
+    enjoyment: keep(tags.enjoyment ?? []),
+    familiarity: keep(tags.familiarity ?? []),
+    origin: keep(tags.origin ?? []),
+  };
+};
 
 const galleryToken = (password: string) =>
   createHmac("sha256", password).update("gallery").digest("hex");
@@ -27,7 +38,7 @@ export const createSession = async (locale: Locale) => {
   const result = await createParticipantSession(locale);
   if (result.error === "not_ready") return { error: copy[locale].notReady };
   if (result.error === "store") return { error: copy[locale].storeUnavailable };
-  redirect("/compare");
+  redirect("/intro");
 };
 
 export const submitPair = async (input: {
@@ -35,32 +46,31 @@ export const submitPair = async (input: {
   enjoyment: Enjoyment;
   familiarityLeft: number;
   familiarityRight: number;
-  chineseModelSide: Side;
+  chineseModelSide: OriginChoice;
   reason: string;
+  reasonTags: ReasonTags;
 }) => {
   const scores = [input.familiarityLeft, input.familiarityRight];
   const scoresAreValid = scores.every((score) => Number.isInteger(score) && score >= 1 && score <= 5);
-  if (!ENJOYMENT.has(input.enjoyment) || !SIDES.has(input.chineseModelSide) || !scoresAreValid) {
+  if (!ENJOYMENT.has(input.enjoyment) || !ORIGINS.has(input.chineseModelSide) || !scoresAreValid) {
     return { error: copy.en.storeUnavailable };
   }
   const reason = input.reason.trim().slice(0, 4000);
-  const result = await savePair({ ...input, reason });
+  const result = await savePair({ ...input, reason, reasonTags: cleanTags(input.reasonTags) });
   if (result.error) return { error: copy.en.storeUnavailable };
   redirect(result.finishedPairs ? "/background" : "/compare");
 };
 
-export const submitBackground = async (input: {
-  livesNow: string;
-  yearsAbroad: string;
-  designExperience: string;
-}) => {
-  const livesNow = input.livesNow.trim().slice(0, 500);
-  const yearsAbroad = input.yearsAbroad.trim().slice(0, 500);
-  const designExperience = input.designExperience.trim().slice(0, 500);
-  if (!livesNow || !yearsAbroad || !designExperience) {
-    return { error: copy.en.storeUnavailable };
-  }
-  const result = await saveBackground({ livesNow, yearsAbroad, designExperience });
+export const submitBackground = async (input: BackgroundAnswers) => {
+  const answers = {
+    ...input,
+    bornSpecify: input.bornSpecify.trim().slice(0, 500),
+    grewUpSpecify: input.grewUpSpecify.trim().slice(0, 500),
+    livesSpecify: input.livesSpecify.trim().slice(0, 500),
+    languageSpecify: input.languageSpecify.trim().slice(0, 500),
+  };
+  if (!backgroundIsValid(answers)) return { error: copy.en.storeUnavailable };
+  const result = await saveBackground(answers);
   if (result.error) return { error: copy.en.storeUnavailable };
   redirect("/done");
 };

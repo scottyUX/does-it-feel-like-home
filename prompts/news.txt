@@ -1,1 +1,1 @@
-Create a website for a news site in China. The target users are Chinese people. All text should be in Simplified Chinese.
+Create a website for a news outlet in China. The target users are Chinese people. All text should be in Simplified Chinese.

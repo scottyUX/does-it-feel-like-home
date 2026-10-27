@@ -2,7 +2,8 @@ import { cookies } from "next/headers";
 import { assignVisit } from "@/lib/assign";
 import { getSql } from "@/lib/db";
 import { loadManifest } from "@/lib/manifest";
-import type { CurrentPair, Locale, Sides, SiteType } from "@/lib/types";
+import type { BackgroundAnswers } from "@/lib/background";
+import type { CurrentPair, Locale, ReasonTags, Sides, SiteType } from "@/lib/types";
 import { SITE_TYPES } from "@/lib/types";
 
 const SESSION_COOKIE = "diflh_session";
@@ -120,6 +121,7 @@ export const savePair = async (input: {
   familiarityRight: number;
   chineseModelSide: string;
   reason: string;
+  reasonTags: ReasonTags;
 }) => {
   const id = await readSessionId();
   if (!id) return { error: "missing" as const };
@@ -140,7 +142,7 @@ export const savePair = async (input: {
     await sql`
       insert into pair_responses (
         id, session_id, site_type, pair_index, left_site_id, right_site_id,
-        enjoyment, familiarity_left, familiarity_right, chinese_model_side, reason
+        enjoyment, familiarity_left, familiarity_right, chinese_model_side, reason, reason_tags
       )
       values (
         ${crypto.randomUUID()},
@@ -153,7 +155,8 @@ export const savePair = async (input: {
         ${input.familiarityLeft},
         ${input.familiarityRight},
         ${input.chineseModelSide},
-        ${input.reason || null}
+        ${input.reason || null},
+        ${JSON.stringify(input.reasonTags)}::jsonb
       )
     `;
   } catch (error) {
@@ -165,18 +168,35 @@ export const savePair = async (input: {
   return { error: null, finishedPairs: pairIndex + 1 >= session.pair_order.length };
 };
 
-export const saveBackground = async (input: {
-  livesNow: string;
-  yearsAbroad: string;
-  designExperience: string;
-}) => {
+export const saveBackground = async (input: BackgroundAnswers) => {
   const id = await readSessionId();
   if (!id) return { error: "missing" as const };
   const sql = getSql();
   if (!sql) return { error: "store" as const };
+  const livesNow = input.livesNow === "other" ? input.livesSpecify : input.livesNow;
   await sql`
-    insert into background (session_id, lives_now, years_abroad, design_experience)
-    values (${id}, ${input.livesNow}, ${input.yearsAbroad}, ${input.designExperience})
+    insert into background (
+      session_id, lives_now, years_abroad, design_experience,
+      age, gender, born, born_specify, grew_up, grew_up_specify, lives_specify,
+      years_outside, first_language, language_specify, chinese_web_use
+    )
+    values (
+      ${id},
+      ${livesNow},
+      ${input.yearsOutside},
+      ${input.designExperience},
+      ${input.age},
+      ${input.gender || null},
+      ${input.born},
+      ${input.born === "other" ? input.bornSpecify : null},
+      ${input.grewUp},
+      ${input.grewUp === "other" ? input.grewUpSpecify : null},
+      ${input.livesNow === "other" ? input.livesSpecify : null},
+      ${input.yearsOutside},
+      ${input.firstLanguage},
+      ${input.firstLanguage === "other" ? input.languageSpecify : null},
+      ${input.chineseWebUse}
+    )
     on conflict (session_id) do nothing
   `;
   return { error: null };

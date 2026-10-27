@@ -1,0 +1,1 @@
+Create a website for a travel booking service in China. The target users are Chinese people. All text should be in Simplified Chinese.

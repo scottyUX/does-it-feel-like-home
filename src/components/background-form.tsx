@@ -1,14 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { submitBackground } from "@/lib/actions";
+import {
+  backgroundIsComplete,
+  backgroundQuestions,
+  type BackgroundAnswers,
+} from "@/lib/background";
 import { copy } from "@/lib/copy";
 import type { Locale } from "@/lib/types";
 
-const fieldClass =
-  "h-9 w-full rounded-lg border border-input bg-input/30 px-2.5 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
+const emptyAnswers: BackgroundAnswers = {
+  age: "",
+  gender: "",
+  born: "",
+  bornSpecify: "",
+  grewUp: "",
+  grewUpSpecify: "",
+  livesNow: "",
+  livesSpecify: "",
+  yearsOutside: "",
+  firstLanguage: "",
+  languageSpecify: "",
+  chineseWebUse: "",
+  designExperience: "",
+};
 
 type BackgroundFormProps = {
   locale: Locale;
@@ -16,18 +32,20 @@ type BackgroundFormProps = {
 
 export const BackgroundForm = ({ locale }: BackgroundFormProps) => {
   const text = copy[locale];
-  const [livesNow, setLivesNow] = useState("");
-  const [yearsAbroad, setYearsAbroad] = useState("");
-  const [designExperience, setDesignExperience] = useState("");
+  const [answers, setAnswers] = useState<BackgroundAnswers>(emptyAnswers);
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
-  const ready = livesNow.trim() && yearsAbroad.trim() && designExperience.trim();
+  const ready = backgroundIsComplete(locale, answers);
+
+  const handleChange = (key: keyof BackgroundAnswers, value: string) => {
+    setAnswers((current) => ({ ...current, [key]: value }));
+  };
 
   const handleSubmit = async () => {
     if (!ready || pending) return;
     setPending(true);
     setError("");
-    const result = await submitBackground({ livesNow, yearsAbroad, designExperience });
+    const result = await submitBackground(answers);
     if (result?.error) {
       setError(result.error);
       setPending(false);
@@ -35,50 +53,69 @@ export const BackgroundForm = ({ locale }: BackgroundFormProps) => {
   };
 
   return (
-    <main className="flex min-h-dvh items-center justify-center px-6">
-      <section className="grid w-full max-w-lg gap-5 rounded-3xl border border-border bg-card p-8">
-        <h1 className="text-xl font-medium">{text.backgroundTitle}</h1>
-        <Field id="lives-now" label={text.livesNow} value={livesNow} onChange={setLivesNow} />
-        <Field id="years-abroad" label={text.yearsAbroad} value={yearsAbroad} onChange={setYearsAbroad} />
-        <Field
-          id="design-experience"
-          label={text.designExperience}
-          value={designExperience}
-          onChange={setDesignExperience}
-        />
-        {error ? (
-          <p className="text-sm text-destructive" role="alert">
-            {error}
-          </p>
-        ) : null}
-        <div>
-          <Button type="button" disabled={!ready || pending} onClick={handleSubmit}>
-            {pending ? text.saving : text.continue}
-          </Button>
-        </div>
-      </section>
-    </main>
+    <div className="study">
+      <div className="background-page">
+        <main className="background-form">
+          <header className="background-heading">
+            <span className="concept-kicker">{text.backgroundKicker}</span>
+            <h1>{text.backgroundTitle}</h1>
+            <p>{text.backgroundHelp}</p>
+          </header>
+          <div className="background-questions">
+            {backgroundQuestions(locale).map((question, index) => {
+              const titleId = `${question.id}-title`;
+              return (
+                <section className="background-question" key={question.id}>
+                  <div className="background-question-title" id={titleId}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{question.prompt.replace(/（可选）|\(optional\)/i, "").trim()}</strong>
+                    {question.optional ? <small>{text.optional}</small> : null}
+                  </div>
+                  <div className="background-options" role="radiogroup" aria-labelledby={titleId}>
+                    {question.options.map((option) => {
+                      const selected = answers[question.id] === option.value;
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          className={selected ? "answer is-selected" : "answer"}
+                          role="radio"
+                          aria-checked={selected}
+                          onClick={() => handleChange(question.id, option.value)}
+                        >
+                          <span className="radio" />
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {question.specifyKey && answers[question.id] === "other" ? (
+                    <input
+                      className="other-input"
+                      id={`${question.id}-specify`}
+                      aria-label={text.specify}
+                      placeholder={text.specify}
+                      value={answers[question.specifyKey]}
+                      onChange={(event) => handleChange(question.specifyKey!, event.target.value)}
+                    />
+                  ) : null}
+                </section>
+              );
+            })}
+          </div>
+          {error ? (
+            <p className="study-error" role="alert">
+              {error}
+            </p>
+          ) : null}
+          <div className="background-submit">
+            <span>{ready ? text.readyStatus : text.requiredStatus}</span>
+            <button type="button" className="next-button" disabled={!ready || pending} onClick={handleSubmit}>
+              {pending ? text.saving : text.submit} <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
   );
 };
-
-const Field = ({
-  id,
-  label,
-  value,
-  onChange,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-}) => (
-  <div className="grid gap-2">
-    <Label htmlFor={id}>{label}</Label>
-    <input
-      id={id}
-      value={value}
-      onChange={(event) => onChange(event.target.value)}
-      className={fieldClass}
-    />
-  </div>
-);

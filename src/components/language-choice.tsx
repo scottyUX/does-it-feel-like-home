@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { createSession } from "@/lib/actions";
 import { copy } from "@/lib/copy";
 import type { Locale } from "@/lib/types";
@@ -21,36 +20,40 @@ export const LanguageChoice = () => {
   };
 
   return (
-    <main className="flex min-h-dvh items-center justify-center px-6">
-      <section className="w-full max-w-md rounded-3xl border border-border bg-card p-8">
-        <h1 className="text-xl font-medium">{copy.en.chooseLanguage}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">{copy.zh.chooseLanguage}</p>
-        <p className="mt-4 text-sm text-muted-foreground">{copy.en.intro}</p>
-        <div className="mt-6 grid gap-3">
-          <Button
-            type="button"
-            size="lg"
-            disabled={pending !== null}
-            onClick={() => handleChoose("en")}
-          >
-            {copy.en.english}
-          </Button>
-          <Button
-            type="button"
-            size="lg"
-            variant="secondary"
-            disabled={pending !== null}
-            onClick={() => handleChoose("zh")}
-          >
-            {copy.zh.chinese}
-          </Button>
-        </div>
-        {error ? (
-          <p className="mt-4 text-sm text-destructive" role="alert">
-            {error}
-          </p>
-        ) : null}
-      </section>
-    </main>
+    <div className="study">
+      <div className="static-page">
+        <main className="language-card">
+          <span className="concept-kicker">{copy.en.studyKicker}</span>
+          <h1>{copy.en.chooseLanguage}</h1>
+          <p>{copy.zh.chooseLanguage}</p>
+          <p>{copy.en.intro}</p>
+          <div className="language-actions">
+            <button
+              type="button"
+              className="next-button"
+              disabled={pending !== null}
+              onClick={() => handleChoose("en")}
+            >
+              {copy.en.english}
+              <span aria-hidden="true">→</span>
+            </button>
+            <button
+              type="button"
+              className="next-button next-button--secondary"
+              disabled={pending !== null}
+              onClick={() => handleChoose("zh")}
+            >
+              {copy.zh.chinese}
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          {error ? (
+            <p className="study-error" role="alert">
+              {error}
+            </p>
+          ) : null}
+        </main>
+      </div>
+    </div>
   );
 };

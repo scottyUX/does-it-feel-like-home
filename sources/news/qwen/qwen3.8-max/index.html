@@ -61,8 +61,7 @@ img,svg{display:block;max-width:100%}
 .kb svg{width:100%;height:auto;animation:kburn 18s ease-in-out infinite alternate}
 @keyframes kburn{from{transform:scale(1)}to{transform:scale(1.08) translate(-1.4%,1.2%)}}
 .lm{display:block;overflow:hidden}
-.lm>span{display:block;transform:translateY(112%);transition:transform .95s cubic-bezier(.2,.7,.2,1)}
-.in .lm>span{transform:none}
+.lm>span{display:block}
 .hero-main h2{font-family:var(--serif);font-size:34px;line-height:1.4;margin:16px 0 12px;font-weight:900}
 .hero-main h2 a:hover{color:var(--red)}
 .hero-main .lede{color:var(--ink2);font-size:15.5px}
@@ -95,8 +94,7 @@ img,svg{display:block;max-width:100%}
 .panel h3 small{font-size:11px;color:var(--mut);letter-spacing:.15em;font-weight:400}
 .chart-note{font-size:11.5px;color:var(--mut);margin-top:10px}
 .ln{stroke-dashoffset:0}
-.area{opacity:0;transition:opacity 1.1s ease .9s}
-.in .area{opacity:1}
+.area{opacity:1}
 .f-list{list-style:none}
 .f-list li{display:flex;gap:12px;padding:11.5px 0;border-bottom:1px dashed var(--lined);font-size:14.5px}
 .f-list li:last-child{border:none}
@@ -161,8 +159,7 @@ img,svg{display:block;max-width:100%}
 .foot h5{display:block;font-size:13px;padding:5px 0;color:#bdb5a3;font-weight:400;text-align:left}
 .foot h5:hover{color:#f0d9a0}
 .foot-bot{border-top:1px solid #35302a;padding:16px 22px;display:flex;justify-content:space-between;font-size:12px;color:#7d766a;flex-wrap:wrap;gap:8px}
-.fx{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-.fx.in{opacity:1;transform:none}
+.fx{opacity:1}
 .pulse{animation:pulse 2.2s infinite}
 @media(max-width:1020px){
 .hero{grid-template-columns:1fr}
@@ -205,9 +202,9 @@ img,svg{display:block;max-width:100%}
 <div class="util">
   <span>2025年10月24日 · 星期五 · 霜降后第二日</span>
   <span>
-    <a href="about.html">关于观澜</a>
-    <a href="about.html#dingyue">邮件订阅</a>
-    <a href="about.html#lianxi">读者信箱</a>
+    <a href="#guanyu">关于观澜</a>
+    <a href="#dingyue">邮件订阅</a>
+    <a href="#lianxi">读者信箱</a>
   </span>
 </div>
 
@@ -246,7 +243,7 @@ img,svg{display:block;max-width:100%}
   </div>
   <div class="m-sub">
     <p>北京 · 多云转晴 6~17℃</p>
-    <a class="btn red" style="margin-top:10px" href="about.html#dingyue">订阅早报</a>
+    <a class="btn red" style="margin-top:10px" href="#dingyue">订阅早报</a>
   </div>
 </header>
 <div class="rule2"></div>
@@ -254,11 +251,11 @@ img,svg{display:block;max-width:100%}
 <nav class="nav">
   <div class="container nav-in">
     <a class="on" href="index.html">首页</a>
-    <a href="news.html">要闻</a>
-    <a href="finance.html">财经</a>
-    <a href="culture.html">文化</a>
-    <a href="depth.html">深度</a>
-    <a href="about.html">关于</a>
+    <a href="#yaowen">要闻</a>
+    <a href="#caijing">财经</a>
+    <a href="#wenhua">文化</a>
+    <a href="#shendu">深度</a>
+    <a href="#guanyu">关于</a>
   </div>
 </nav>
 
@@ -266,7 +263,7 @@ img,svg{display:block;max-width:100%}
 <section class="container hero">
   <article class="hero-main fx">
     <span class="kicker">头条 · 航天</span>
-    <h2 class="lm" style="margin-top:14px"><span><a href="news.html">可回收火箭完成十公里级垂直起降试验</a></span></h2>
+    <h2 class="lm" style="margin-top:14px"><span><a href="#yaowen">可回收火箭完成十公里级垂直起降试验</a></span></h2>
     <figure class="kb" aria-hidden="true">
       <svg viewBox="0 0 760 430" role="img" aria-label="火箭垂直回收试验插画">
         <rect width="760" height="430" fill="#14110d"/>
@@ -306,14 +303,14 @@ img,svg{display:block;max-width:100%}
   <aside class="hero-side fx">
     <div class="side-h">要闻速览<small>滚动更新</small></div>
     <ul class="news-l">
-      <li><span class="t">09:12</span><a href="news.html">全国秋粮收获过八成,进度同比加快</a></li>
-      <li><span class="t">08:47</span><a href="news.html">京津冀联合发布大气治理协同清单</a></li>
-      <li><span class="t">08:30</span><a href="finance.html">前三季度高技术产业投资同比增长 9.2%</a></li>
-      <li><span class="t">08:05</span><a href="news.html">新版国家基本公共服务标准印发</a></li>
-      <li><span class="t">07:52</span><a href="news.html">铁路今起开售下月假期车票</a></li>
-      <li><span class="t">07:40</span><a href="news.html">科研团队在超导量子芯片领域取得新进展</a></li>
-      <li><span class="t">07:15</span><a href="news.html">城市地下管网更新行动累计开工项目过万</a></li>
-      <li><span class="t">昨日</span><a href="culture.html">全国文物普查转入实地调查阶段</a></li>
+      <li><span class="t">09:12</span><a href="#yaowen">全国秋粮收获过八成,进度同比加快</a></li>
+      <li><span class="t">08:47</span><a href="#yaowen">京津冀联合发布大气治理协同清单</a></li>
+      <li><span class="t">08:30</span><a href="#caijing">前三季度高技术产业投资同比增长 9.2%</a></li>
+      <li><span class="t">08:05</span><a href="#yaowen">新版国家基本公共服务标准印发</a></li>
+      <li><span class="t">07:52</span><a href="#yaowen">铁路今起开售下月假期车票</a></li>
+      <li><span class="t">07:40</span><a href="#yaowen">科研团队在超导量子芯片领域取得新进展</a></li>
+      <li><span class="t">07:15</span><a href="#yaowen">城市地下管网更新行动累计开工项目过万</a></li>
+      <li><span class="t">昨日</span><a href="#wenhua">全国文物普查转入实地调查阶段</a></li>
     </ul>
     <div class="live-card">
       <span class="dot" aria-hidden="true"></span>
@@ -325,22 +322,22 @@ img,svg{display:block;max-width:100%}
   </aside>
 </section>
 
-<section class="container" style="margin-top:64px">
-  <div class="sec-head fx"><span class="sec-num">壹</span><span class="sec-k" data-scramble>焦点导读</span><span class="sec-sub">今日值得一读</span><span class="sec-line"></span><a class="more" href="news.html">全部要闻 →</a></div>
+<section class="container" id="yaowen" style="margin-top:64px">
+  <div class="sec-head fx"><span class="sec-num">壹</span><span class="sec-k" data-scramble>焦点导读</span><span class="sec-sub">今日值得一读</span><span class="sec-line"></span><a class="more" href="#yaowen">全部要闻 →</a></div>
   <div class="teasers">
-    <a class="teaser fx" href="news.html">
+    <a class="teaser fx" href="#yaowen">
       <figure aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid slice"><rect width="320" height="140" fill="#171310"/><g fill="#f6f2e8" opacity=".8"><circle cx="40" cy="24" r="1.6"/><circle cx="268" cy="34" r="1.6"/><circle cx="210" cy="16" r="1.4"/><circle cx="86" cy="52" r="1.4"/></g><g transform="translate(150 62) rotate(-18)"><path d="M0 -46 L14 -10 L14 26 L-14 26 L-14 -10 Z" fill="#f6f2e8"/><circle cx="0" cy="-16" r="6" fill="#171310" stroke="#b3282d" stroke-width="2"/><path d="M-14 26 L-26 44 L-14 40 Z M14 26 L26 44 L14 40 Z" fill="#b3282d"/><path class="pulse" d="M-7 44 L0 66 L7 44 Z" fill="#d99a2b"/></g></svg></figure>
       <div class="tb"><span class="kicker">科技</span><h3>可回收火箭完成十公里级垂直起降试验</h3><p>商业航天再进一步,发射成本有望大幅下降。</p></div>
     </a>
-    <a class="teaser fx" href="culture.html">
+    <a class="teaser fx" href="#wenhua">
       <figure aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid slice"><rect width="320" height="140" fill="#efe8d8"/><circle cx="160" cy="70" r="46" fill="#b3282d"/><circle cx="160" cy="70" r="34" fill="none" stroke="#f0d9a0" stroke-width="2" stroke-dasharray="4 5"/><circle cx="160" cy="70" r="20" fill="#8f1f24"/><g stroke="#f0d9a0" stroke-width="1.6"><path d="M160 50v40M140 70h40M146 56l28 28M174 56l-28 28"/></g></svg></figure>
       <div class="tb"><span class="kicker">消费</span><h3>老字号「上新」:一块月饼的国潮之路</h3><p>百年配方遇上新中式美学,排队两小时值不值?</p></div>
     </a>
-    <a class="teaser fx" href="culture.html">
+    <a class="teaser fx" href="#wenhua">
       <figure aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid slice"><rect width="320" height="140" fill="#cfd8d2"/><g stroke="#4a6d63" stroke-width="1" opacity=".5"><path d="M0 104h320M0 112h320M0 120h320"/></g><g fill="#1c1915"><path d="M160 96 C138 84 130 62 142 44 C150 58 156 66 160 74 C164 66 170 58 178 44 C190 62 182 84 160 96 Z"/><path d="M128 96 C112 92 102 80 102 66 C116 72 126 82 130 92 Z" opacity=".8"/><path d="M192 96 C208 92 218 80 218 66 C204 72 194 82 190 92 Z" opacity=".8"/></g><path d="M160 96v16" stroke="#1c1915" stroke-width="2"/><circle cx="160" cy="40" r="4" fill="#b3282d"/></svg></figure>
       <div class="tb"><span class="kicker">图说</span><h3>西湖秋荷进入最佳观赏期</h3><p>残荷听雨正当时,湖西一带游人渐多。</p></div>
     </a>
-    <a class="teaser fx" href="news.html">
+    <a class="teaser fx" href="#yaowen">
       <figure aria-hidden="true"><svg viewBox="0 0 320 140" preserveAspectRatio="xMidYMid slice"><rect width="320" height="140" fill="#20262a"/><circle cx="160" cy="70" r="44" fill="none" stroke="#a67c3d" stroke-width="1.6"/><ellipse cx="160" cy="70" rx="44" ry="17" fill="none" stroke="#a67c3d" stroke-width="1"/><ellipse cx="160" cy="70" rx="17" ry="44" fill="none" stroke="#a67c3d" stroke-width="1"/><path d="M160 26v88M116 70h88" stroke="#a67c3d" stroke-width=".6" opacity=".6"/><circle class="pulse" cx="196" cy="52" r="4" fill="#b3282d"/></svg></figure>
       <div class="tb"><span class="kicker">国际</span><h3>全球气候大会闭幕 多国承诺加速可再生能源</h3><p>联合声明首次写入「电网互联互通」表述。</p></div>
     </a>
@@ -348,7 +345,7 @@ img,svg{display:block;max-width:100%}
 </section>
 
 <section class="container sec" id="caijing">
-  <div class="sec-head fx"><span class="sec-num">贰</span><span class="sec-k" data-scramble>财经观察</span><span class="sec-sub">数据说话 · 观澜智库</span><span class="sec-line"></span><a class="more" href="finance.html">进入财经频道 →</a></div>
+  <div class="sec-head fx"><span class="sec-num">贰</span><span class="sec-k" data-scramble>财经观察</span><span class="sec-sub">数据说话 · 观澜智库</span><span class="sec-line"></span><a class="more" href="#caijing">进入财经频道 →</a></div>
   <div class="finance-grid">
     <div class="panel fx">
       <h3>观澜景气指数 · 近十二月走势<small>制造业综合景气</small></h3>
@@ -369,57 +366,57 @@ img,svg{display:block;max-width:100%}
     <div class="panel fx">
       <h3>财经要闻<small>今日更新 24 条</small></h3>
       <ul class="f-list">
-        <li><span class="ft">出海</span><a href="finance.html">新能源汽车「出海」提速:滚装船订单排到后年</a></li>
-        <li><span class="ft">县域</span><a href="finance.html">县域消费观察:小镇青年撑起的新市场</a></li>
-        <li><span class="ft">金融</span><a href="finance.html">数字人民币试点扩围 应用场景向纵深延伸</a></li>
-        <li><span class="ft">财报</span><a href="finance.html">三季报观察:高端制造盈利改善明显</a></li>
-        <li><span class="ft">物流</span><a href="finance.html">快递年业务量破 1500 亿件 县乡村网点全覆盖</a></li>
+        <li><span class="ft">出海</span><a href="#caijing">新能源汽车「出海」提速:滚装船订单排到后年</a></li>
+        <li><span class="ft">县域</span><a href="#caijing">县域消费观察:小镇青年撑起的新市场</a></li>
+        <li><span class="ft">金融</span><a href="#caijing">数字人民币试点扩围 应用场景向纵深延伸</a></li>
+        <li><span class="ft">财报</span><a href="#caijing">三季报观察:高端制造盈利改善明显</a></li>
+        <li><span class="ft">物流</span><a href="#caijing">快递年业务量破 1500 亿件 县乡村网点全覆盖</a></li>
       </ul>
     </div>
     <div class="stats">
-      <div class="stat fx"><b class="num" data-count="50.8" data-dec="1">0</b><span class="unit">点</span><p>观澜景气指数<i>▲ 0.3</i></p></div>
-      <div class="stat fx"><b class="num" data-count="3140">0</b><span class="unit">万辆</span><p>全国新能源汽车保有量<i>▲ 21%</i></p></div>
-      <div class="stat fx"><b class="num" data-count="1500">0</b><span class="unit">亿件</span><p>年快递业务量<i>▲ 12.6%</i></p></div>
-      <div class="stat fx"><b class="num" data-count="1049">0</b><span class="unit">万人</span><p>前三季度城镇新增就业<i>▲ 稳中有升</i></p></div>
+      <div class="stat fx"><b class="num">50.8</b><span class="unit">点</span><p>观澜景气指数<i>▲ 0.3</i></p></div>
+      <div class="stat fx"><b class="num">3140</b><span class="unit">万辆</span><p>全国新能源汽车保有量<i>▲ 21%</i></p></div>
+      <div class="stat fx"><b class="num">1500</b><span class="unit">亿件</span><p>年快递业务量<i>▲ 12.6%</i></p></div>
+      <div class="stat fx"><b class="num">1049</b><span class="unit">万人</span><p>前三季度城镇新增就业<i>▲ 稳中有升</i></p></div>
     </div>
   </div>
 </section>
 
 <section class="container sec">
-  <div class="sec-head fx"><span class="sec-num">叁</span><span class="sec-k" data-scramble>科技前沿</span><span class="sec-sub">创新 · 产业纵深</span><span class="sec-line"></span><a class="more" href="news.html">更多科技报道 →</a></div>
+  <div class="sec-head fx"><span class="sec-num">叁</span><span class="sec-k" data-scramble>科技前沿</span><span class="sec-sub">创新 · 产业纵深</span><span class="sec-line"></span><a class="more" href="#yaowen">更多科技报道 →</a></div>
   <div class="tech-grid">
-    <a class="tcard fx" href="news.html">
+    <a class="tcard fx" href="#yaowen">
       <figure aria-hidden="true"><span class="tag">人工智能</span><svg viewBox="0 0 400 220"><rect width="400" height="220" fill="#171310"/><g stroke="#3a342b" stroke-width="1"><path d="M0 55h400M0 110h400M0 165h400M100 0v220M200 0v220M300 0v220"/></g><rect x="160" y="70" width="80" height="80" rx="6" fill="none" stroke="#f6f2e8" stroke-width="2"/><g stroke="#f6f2e8" stroke-width="2"><path d="M176 70v-16M200 70v-16M224 70v-16M176 150v16M200 150v16M224 150v16M160 86h-16M160 110h-16M160 134h-16M240 86h16M240 110h16M240 134h16"/></g><path d="M200 110h80M280 110v-40h44M200 134h-60v36M144 70v-30h-44" stroke="#b3282d" stroke-width="1.4" fill="none" opacity=".9"/><circle class="pulse" cx="280" cy="70" r="4" fill="#b3282d"/><circle class="pulse" cx="100" cy="176" r="4" fill="#d99a2b"/><circle cx="200" cy="110" r="9" fill="#b3282d"/></svg></figure>
       <div class="tb"><h3>「AI 质检员」上岗记:大模型走进车间</h3><p>从抽检到全检,一条产线的质检效率提升六倍,老师傅们的新角色是什么?</p></div>
     </a>
-    <a class="tcard fx" href="news.html">
+    <a class="tcard fx" href="#yaowen">
       <figure aria-hidden="true"><span class="tag">量子科技</span><svg viewBox="0 0 400 220"><rect width="400" height="220" fill="#171310"/><g fill="none" stroke="#f6f2e8" stroke-width="1.6"><ellipse cx="200" cy="110" rx="92" ry="34"/><ellipse cx="200" cy="110" rx="92" ry="34" transform="rotate(60 200 110)"/><ellipse cx="200" cy="110" rx="92" ry="34" transform="rotate(-60 200 110)"/></g><circle cx="200" cy="110" r="7" fill="#b3282d"/><circle r="4" fill="#d99a2b"><animateMotion dur="6s" repeatCount="indefinite" path="M108 110 a92 34 0 1 0 184 0 a92 34 0 1 0 -184 0"/></circle></svg></figure>
       <div class="tb"><h3>量子保密通信骨干网新增二十个节点</h3><p>干线向中西部延伸,金融、政务场景率先落地应用。</p></div>
     </a>
-    <a class="tcard fx" href="news.html">
+    <a class="tcard fx" href="#yaowen">
       <figure aria-hidden="true"><span class="tag">智能制造</span><svg viewBox="0 0 400 220"><rect width="400" height="220" fill="#171310"/><line x1="50" y1="188" x2="350" y2="188" stroke="#3a342b" stroke-width="2"/><g stroke="#f6f2e8" stroke-width="4" stroke-linecap="round" fill="none"><path d="M130 188 L130 150"/><path d="M130 150 L205 96"/><path d="M205 96 L285 124"/></g><circle cx="130" cy="150" r="8" fill="#b3282d"/><circle cx="205" cy="96" r="8" fill="#b3282d"/><circle cx="285" cy="124" r="7" fill="#d99a2b"/><path d="M285 124v26" stroke="#f6f2e8" stroke-width="2"/><rect x="272" y="150" width="26" height="18" fill="none" stroke="#f6f2e8" stroke-width="2"/><circle class="pulse" cx="330" cy="66" r="4" fill="#b3282d"/><g stroke="#3a342b" stroke-width="2"><path d="M70 44h44M70 58h30"/></g></svg></figure>
       <div class="tb"><h3>人形机器人量产元年:供应链在忙什么</h3><p>关节、灵巧手、减速器——走访长三角三家「隐形冠军」工厂。</p></div>
     </a>
   </div>
 </section>
 
-<section class="depth-band">
+<section class="depth-band" id="shendu">
   <div class="container depth-in">
     <div class="dv fx" aria-hidden="true">深度<i></i></div>
     <div class="fx">
       <span class="kicker">深度 · 驻地报道</span>
-      <h3><a href="depth.html">小县城的大产业:一座苏北小城的十年转身</a></h3>
+      <h3><a href="#shendu">小县城的大产业:一座苏北小城的十年转身</a></h3>
       <p class="dp">十年前,这里的年轻人只想离开;十年后,他们带着图纸和订单回来。从一间缝纫作坊到新能源配套产业集群,一座苏北小城的产业转身,藏着中国县域经济的另一种可能。本报记者驻地两周,带回四章田野观察。</p>
       <p class="depth-meta">全文约 8200 字 · 阅读 18 分钟 · 摄影 24 幅</p>
-      <a class="btn ghost" href="depth.html">进入全文</a>
+      <a class="btn ghost" href="#shendu">进入全文</a>
     </div>
   </div>
 </section>
 
-<section class="container sec">
-  <div class="sec-head fx"><span class="sec-num">肆</span><span class="sec-k" data-scramble>文化地理</span><span class="sec-sub">纸上山河 · 人文今日</span><span class="sec-line"></span><a class="more" href="culture.html">进入文化频道 →</a></div>
+<section class="container sec" id="wenhua">
+  <div class="sec-head fx"><span class="sec-num">肆</span><span class="sec-k" data-scramble>文化地理</span><span class="sec-sub">纸上山河 · 人文今日</span><span class="sec-line"></span><a class="more" href="#wenhua">进入文化频道 →</a></div>
   <div class="culture-grid">
-    <a class="cul-main fx" href="culture.html">
+    <a class="cul-main fx" href="#wenhua">
       <svg viewBox="0 0 900 460" preserveAspectRatio="xMidYMid slice" role="img" aria-label="山水古画意象插画">
         <defs><linearGradient id="culSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9dfc8"/><stop offset="1" stop-color="#f2ebd9"/></linearGradient></defs>
         <rect width="900" height="460" fill="url(#culSky)"/>
@@ -438,19 +435,19 @@ img,svg{display:block;max-width:100%}
       <span class="cul-cap"><h3>一部宋刻本的千年漂流</h3><p>从临安书坊到国图善本库,一部古籍如何穿过战火、市井与修复师的指尖。</p></span>
     </a>
     <div class="cul-list">
-      <a class="fx" href="culture.html">
+      <a class="fx" href="#wenhua">
         <figure aria-hidden="true"><svg viewBox="0 0 86 86"><rect width="86" height="86" fill="#241c14"/><circle cx="43" cy="30" r="12" fill="#e8c47a"/><g stroke="#e8c47a" stroke-width="2" fill="none"><path d="M43 42v22M43 50l-14 12M43 50l14 12M36 30h14"/></g><circle cx="29" cy="62" r="3" fill="#b3282d"/><circle cx="57" cy="62" r="3" fill="#b3282d"/></svg></figure>
         <div><h4>皮影新传人:幕布后的「九零后」</h4><p>一口叙说千古事,双手对舞百万兵。</p></div>
       </a>
-      <a class="fx" href="culture.html">
+      <a class="fx" href="#wenhua">
         <figure aria-hidden="true"><svg viewBox="0 0 86 86"><rect width="86" height="86" fill="#1e2a33"/><circle cx="43" cy="34" r="14" fill="#f0d9a0"/><path d="M43 48v14" stroke="#f0d9a0" stroke-width="3"/><g fill="#a67c3d"><rect x="20" y="66" width="12" height="10"/><rect x="35" y="62" width="12" height="14"/><rect x="50" y="68" width="12" height="8"/></g></svg></figure>
         <div><h4>二十四小时城市书房亮灯调查</h4><p>深夜十一点,谁在为陌生人留一盏灯。</p></div>
       </a>
-      <a class="fx" href="culture.html">
+      <a class="fx" href="#wenhua">
         <figure aria-hidden="true"><svg viewBox="0 0 86 86"><rect width="86" height="86" fill="#f0e8d6"/><rect x="16" y="16" width="54" height="54" fill="none" stroke="#1c1915" stroke-width="3"/><circle cx="38" cy="40" r="10" fill="#b3282d"/><path d="M50 56 L64 30" stroke="#1c1915" stroke-width="3"/></svg></figure>
         <div><h4>城市双年展:把菜场变成展厅</h4><p>三十位艺术家进驻八个街区,作品就在摊位旁。</p></div>
       </a>
-      <a class="fx" href="culture.html">
+      <a class="fx" href="#wenhua">
         <figure aria-hidden="true"><svg viewBox="0 0 86 86"><rect width="86" height="86" fill="#2a3a2e"/><path d="M20 66 C20 40 34 26 43 20 C52 26 66 40 66 66 Z" fill="none" stroke="#cfe0d3" stroke-width="2.4"/><path d="M43 20v46" stroke="#cfe0d3" stroke-width="1.2" opacity=".6"/><circle cx="43" cy="60" r="5" fill="#b3282d"/></svg></figure>
         <div><h4>青瓷窑火不熄:龙泉访匠记</h4><p>一窑千色,匠人说「等火,不能催火」。</p></div>
       </a>
@@ -468,3 +465,18 @@ img,svg{display:block;max-width:100%}
     <div class="wx-cell"><div class="city">西安</div><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="7" fill="#d99a2b"/><g stroke="#d99a2b" stroke-width="2"><path d="M17 3v4M17 27v4M3 17h4M27 17h4M7 7l3 3M24 24l3 3M27 7l-3 3M10 24l-3 3"/></g></svg><b>8 ~ 18℃</b><small>晴 · 南风二级</small></div>
   </div>
   <p class="wx-note">气象信息为示意数据,出行请以官方预报为准。</p>
+</section>
+
+<section class="container sec" id="guanyu">
+  <div class="sec-head"><span class="sec-num">陆</span><span class="sec-k">关于观澜</span><span class="sec-sub">编辑部</span><span class="sec-line"></span></div>
+  <div class="panel">
+    <h3>观澜新闻</h3>
+    <p>观澜新闻是一份面向中国读者的综合新闻站点,报道要闻、财经、科技、文化与深度调查。本页各栏目均可在站内继续浏览。</p>
+    <p id="dingyue" style="margin-top:16px">订阅早报:每日清晨发送当日要闻摘要。此页仅作展示,不会收集或发送信息。</p>
+    <p id="lianxi" style="margin-top:16px">读者信箱:来信请注明姓名与联系方式。此页仅作展示,不会提交表单。</p>
+  </div>
+</section>
+</main>
+</body>
+</html>
+
