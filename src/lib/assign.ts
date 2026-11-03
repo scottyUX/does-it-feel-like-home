@@ -67,6 +67,7 @@ export const assignVisit = (
 };
 
 // Each website type rotates through its listed pairs, so participant n sees pair n of every type.
+// Types appear in the order the manifest first lists them, not shuffled.
 export const assignFromPairs = (pairs: ManifestPair[], rotation = 0) => {
   const siteTypes = [...new Set(pairs.map((pair) => pair.type))];
   const sides = {} as Sides;
@@ -81,7 +82,7 @@ export const assignFromPairs = (pairs: ManifestPair[], rotation = 0) => {
   }
   return {
     combination: chosen.join(","),
-    pairOrder: shuffle(siteTypes) as SiteType[],
+    pairOrder: siteTypes,
     sides,
   };
 };

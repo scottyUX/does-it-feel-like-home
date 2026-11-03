@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-11-03T23:30:00+00:00",
-  "note": "Demo: two pairs per participant. Clothing is always the Qwen English-prompt vs Chinese-prompt pair. News is Gemini vs Kimi, alternating between both using the English prompt and both using the Chinese prompt. The four-model clothing manifest is in git history (43ceec3).",
+  "note": "Demo: two pairs per participant, news first, then clothing. Clothing is always the Qwen English-prompt vs Chinese-prompt pair. News is Gemini vs Kimi, alternating between both using the English prompt and both using the Chinese prompt. The four-model clothing manifest is in git history (43ceec3).",
   "sites": [
     {
       "id": "1a2ad2a5",
@@ -53,11 +53,6 @@
   ],
   "pairs": [
     {
-      "type": "clothing",
-      "us": "1a2ad2a5",
-      "china": "d3f41bd2"
-    },
-    {
       "type": "news",
       "us": "25c95347",
       "china": "77fc1e3d"
@@ -66,6 +61,11 @@
       "type": "news",
       "us": "2208b7c2",
       "china": "61224bfb"
+    },
+    {
+      "type": "clothing",
+      "us": "1a2ad2a5",
+      "china": "d3f41bd2"
     }
   ]
 }
