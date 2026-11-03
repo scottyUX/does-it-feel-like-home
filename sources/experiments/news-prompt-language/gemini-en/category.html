@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>财经科技频道 - 每日视界</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span>2026年5月19日 星期二</span>
+        <span>每日视界 · 财经与前沿科技中心</span>
+      </div>
+      <div class="market-ticker">
+        <span>科创50 <strong class="ticker-up">1,042.18 +2.05%</strong></span>
+        <span>半导体指数 <strong class="ticker-up">3,812.90 +2.41%</strong></span>
+        <span>离岸人民币 <strong class="ticker-down">7.1640 -0.08%</strong></span>
+      </div>
+      <div class="top-bar-right">
+        <a href="index.html">返回要闻首页</a>
+        <a href="about.html">关于我们</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">视界</div>
+        <div class="brand-text">
+          <h1>每日视界 · 财经科技</h1>
+          <span>洞察宏观趋势、产业跃迁与技术创新</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <form class="search-box" onsubmit="event.preventDefault(); searchCategory();">
+          <input type="text" id="catSearch" placeholder="检索财经科技频道文章...">
+          <button type="submit">检索</button>
+        </form>
+        <a href="article.html" class="commute-btn">
+          <span>📊 今日重磅研报</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-inner">
+        <a href="index.html">首页要闻</a>
+        <a href="category.html" class="active">财经科技 <span class="nav-tag">核心频道</span></a>
+        <a href="category.html">时政民生</a>
+        <a href="category.html">产业观察</a>
+        <a href="article.html">深度调查</a>
+        <a href="category.html">国际视野</a>
+        <a href="category.html">智库评论</a>
+        <a href="about.html">关于视界</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Category Header Banner -->
+    <div class="category-banner">
+      <div>
+        <h2>财经与前沿科技频道</h2>
+        <p>聚焦数字经济、先进制造、资本市场与宏观政策解读，每个工作日为您提供严谨的商业报道。</p>
+      </div>
+      <div class="category-metrics">
+        <div class="metric-box">
+          <span class="metric-name">上证综合指数</span>
+          <span class="metric-val ticker-up">3,418.65 ▲</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-name">科创50指数</span>
+          <span class="metric-val ticker-up">1,042.18 ▲</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-name">全国算力均值指数</span>
+          <span class="metric-val" style="color: #60a5fa;">184.6 (+14%)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-grid">
+      <!-- Left: Category Article List -->
+      <section>
+        <!-- Sub-category Filter Buttons -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterTopic('all', this)">全部报道 (8)</button>
+          <button class="filter-btn" onclick="filterTopic('compute', this)">算力与人工智能</button>
+          <button class="filter-btn" onclick="filterTopic('manufacture', this)">新能源与先进制造</button>
+          <button class="filter-btn" onclick="filterTopic('macro', this)">宏观政策与金融</button>
+          <button class="filter-btn" onclick="filterTopic('consumer', this)">新消费与贸易</button>
+        </div>
+
+        <div class="panel" id="categoryArticleList">
+          <article class="news-item" data-topic="compute">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">全国一体化算力网迎关键突破：绿电直供比例超八成，中西部算力成本下降24%</a></h3>
+                <p class="news-summary">宁夏中卫、甘肃庆阳、贵州贵安等八大国家算力枢纽节点完成超高速全光网升级，跨区域算力调度时延压缩至5毫秒以内，东部企业推理与训练任务西迁比例显著提升。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">算力基建</span>
+                <span>首席记者 林振华</span>
+                <span>2026-05-19 08:25</span>
+                <span class="read-time">⏱ 4分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=400&q=80" alt="算力中心">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="manufacture">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">新能源汽车电池迎来“半固态”规模上车潮：能量密度突破360Wh/kg</a></h3>
+                <p class="news-summary">随着固态电解质涂覆工艺成熟与产线良率提升至92%以上，半固态动力电池成本已逼近传统三元锂电池。今年二季度共有7款主力车型标配半固态电池包上市。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">新能源车</span>
+                <span>记者 孙浩然</span>
+                <span>2026-05-19 08:10</span>
+                <span class="read-time">⏱ 3分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="电池产线">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="macro">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">央行设立5000亿元科技创新与技术改造再贷款新额度，首批清单落地</a></h3>
+                <p class="news-summary">重点支持处于初创期、成长期的科技型中小企业，以及制造业数字化转型、高端化升级项目。商业银行相关贷款加权平均利率较年初下降35个基点。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">金融政策</span>
+                <span>记者 陈默</span>
+                <span>2026-05-19 07:45</span>
+                <span class="read-time">⏱ 3分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="金融大厦">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="compute">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">国产工业软件突围战：从汽车碰撞仿真到芯片EDA，本土替代率三年翻番</a></h3>
+                <p class="news-summary">工业软件被称为智能制造的“皇冠明珠”。长三角多家整车企业与重型机械集团联合高校攻关，在流体动力学与结构力学仿真领域实现微秒级精度突破。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">工业软件</span>
+                <span>记者 周伟</span>
+                <span>2026-05-19 07:20</span>
+                <span class="read-time">⏱ 5分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="研发芯片">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="consumer">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">前4月全国外贸进出口增长6.3%：绿色船舶与光伏储能设备订单排期至2028年</a></h3>
+                <p class="news-summary">上海、宁波、深圳三大港口集装箱吞吐量创历史同期新高。民营企业进出口占比提升至55.8%，自主品牌在海外新兴市场的溢价能力显著增强。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">外贸观察</span>
+                <span>记者 刘畅</span>
+                <span>2026-05-18 21:30</span>
+                <span class="read-time">⏱ 4分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="海运港口">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="manufacture">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">大湾区低空物流网络进入商业化盈利期：跨城急件运输成本下降40%</a></h3>
+                <p class="news-summary">深圳至珠海、中山的跨海无人机货运航线日均飞行突破120架次，主要承运医疗检验样本、高端电子元器件与生鲜海产，运输时间从陆路2小时缩短至25分钟。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">低空经济</span>
+                <span>记者 梁嘉慧</span>
+                <span>2026-05-18 19:15</span>
+                <span class="read-time">⏱ 3分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=400&q=80" alt="无人机物流">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="consumer">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">县域新商业调查：冷链次日达重塑下沉市场，现制饮品与量贩零食迎整合期</a></h3>
+                <p class="news-summary">过去依赖层层经销商的县城零售体系，正被数字化直采供应链取代。高性价比、透明配料表成为三四线城市青年消费者的核心决策因素。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">零售消费</span>
+                <span>记者 赵思源</span>
+                <span>2026-05-18 17:40</span>
+                <span class="read-time">⏱ 4分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=400&q=80" alt="零售门店">
+            </a>
+          </article>
+
+          <article class="news-item" data-topic="macro">
+            <div class="news-content">
+              <div>
+                <h3 class="news-title"><a href="article.html">超长期特别国债项目建设实地探访：城市地下管网改造与智能电网投资加速</a></h3>
+                <p class="news-summary">今年发行的超长期特别国债资金已拨付至具体项目包，带动社会资本与工程机械设备采购量连续三个月环比增长超过12%。</p>
+              </div>
+              <div class="meta-info">
+                <span class="meta-tag">宏观经济</span>
+                <span>记者 韩冬</span>
+                <span>2026-05-18 15:10</span>
+                <span class="read-time">⏱ 4分钟</span>
+              </div>
+            </div>
+            <a href="article.html" class="news-thumb">
+              <img src="https://images.unsplash.com/photo-1541888946425-d09bb18086f6?auto=format&fit=crop&w=400&q=80" alt="基础设施建设">
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Right Sidebar -->
+      <aside>
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">今日财经日历</h2>
+            <span class="panel-more">5月19日</span>
+          </div>
+          <div class="flash-list">
+            <div class="flash-item">
+              <span class="flash-time">09:15</span>
+              <p class="flash-text">中国人民银行公布最新贷款市场报价利率（LPR）报价。</p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">10:00</span>
+              <p class="flash-text">国新办举行“加快建设全国一体化算力网”专题新闻发布会。</p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">15:00</span>
+              <p class="flash-text">工信部发布2026年1—4月电子信息制造业运行情况简报。</p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">20:30</span>
+              <p class="flash-text">欧洲央行管委会成员发表关于欧元区通胀与制造业景气度讲话。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">专题深读 · 产业坐标</h2>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <a href="article.html">
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80" alt="数字经济专题" style="border-radius: 3px; height: 140px; width: 100%; margin-bottom: 10px;">
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 6px;">【年度策划】寻找中国制造的“隐形冠军”</h3>
+            </a>
+            <p style="font-size: 13px; color: var(--text-secondary);">深入长三角、珠三角及成渝产业带，记录30家在细分领域占据全球份额第一的专精特新企业。</p>
+          </div>
+          <ul class="commute-list">
+            <li><a href="article.html">第一期：一颗高精度轴承背后的材料学长征</a></li>
+            <li><a href="article.html">第二期：从西部荒漠到东部工厂，绿电算力的奇幻漂流</a></li>
+            <li><a href="article.html">第三期：医疗内窥镜国产化如何把价格打下70%</a></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">订阅财经内参</h2>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">
+            每个交易日早上7:30，将核心政策解读与行业数据发送至您的邮箱。
+          </p>
+          <form onsubmit="event.preventDefault(); subscribeNewsletter();">
+            <input type="email" id="subEmail" required placeholder="输入您的常用工作邮箱" style="width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 3px; margin-bottom: 10px; font-size: 13px;">
+            <button type="submit" id="subBtn" style="width: 100%; background: var(--primary); color: #fff; border: none; padding: 9px; border-radius: 3px; font-weight: 600; cursor: pointer; font-size: 14px;">免费订阅早报</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>每日视界 (Daily Horizon)</h4>
+          <p style="line-height: 1.7; margin-bottom: 12px;">
+            《每日视界》是面向全国读者的综合性数字新闻门户。我们坚持现场采写、数据核查与深度解读，为每一个在清晨通勤路上、午休片刻关注时代脉搏的读者，提供高信噪比的权威资讯。
+          </p>
+          <p>新闻热线：400-810-2026 | 财经频道投稿：finance@meirishijie.cn</p>
+        </div>
+        <div class="footer-col">
+          <h4>核心频道</h4>
+          <ul>
+            <li><a href="index.html">要闻首页</a></li>
+            <li><a href="category.html">财经科技</a></li>
+            <li><a href="article.html">深度调查</a></li>
+            <li><a href="category.html">时政民生</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>特色栏目</h4>
+          <ul>
+            <li><a href="index.html">3分钟通勤早报</a></li>
+            <li><a href="index.html">24小时实时电报</a></li>
+            <li><a href="article.html">视界数据实验室</a></li>
+            <li><a href="category.html">智库评论</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>关于我们</h4>
+          <ul>
+            <li><a href="about.html">媒体简介与采编团队</a></li>
+            <li><a href="about.html#standards">新闻采编规范</a></li>
+            <li><a href="about.html#contact">商务合作与投稿</a></li>
+            <li><a href="about.html">版权声明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 每日视界传媒集团 版权所有 | 京ICP备2026008192号-1</span>
+        <span>专注事实 · 敬畏专业 · 服务公共利益</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterTopic(topic, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const articles = document.querySelectorAll('#categoryArticleList .news-item');
+      articles.forEach(art => {
+        if (topic === 'all' || art.getAttribute('data-topic') === topic) {
+          art.style.display = 'flex';
+        } else {
+          art.style.display = 'none';
+        }
+      });
+    }
+
+    function searchCategory() {
+      const q = document.getElementById('catSearch').value.trim().toLowerCase();
+      const articles = document.querySelectorAll('#categoryArticleList .news-item');
+      articles.forEach(art => {
+        art.style.display = art.innerText.toLowerCase().includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    function subscribeNewsletter() {
+      const btn = document.getElementById('subBtn');
+      btn.innerText = '✓ 订阅成功，明日7:30将准时送达';
+      btn.style.background = '#00b42a';
+      document.getElementById('subEmail').value = '';
+    }
+  </script>
+</body>
+</html>

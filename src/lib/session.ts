@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { assignVisit } from "@/lib/assign";
+import { assignFromPairs, assignVisit } from "@/lib/assign";
 import { getSql } from "@/lib/db";
 import { loadManifest } from "@/lib/manifest";
 import type { BackgroundAnswers } from "@/lib/background";
@@ -56,12 +56,11 @@ export const createParticipantSession = async (
 
   const sequence =
     await sql`select nextval('participant_assignment_seq') as rotation`;
+  const rotation = Number(sequence[0].rotation);
   const availableTypes = [...new Set(manifest.sites.map((site) => site.type))];
-  const assigned = assignVisit(
-    manifest.sites,
-    Number(sequence[0].rotation),
-    availableTypes,
-  );
+  const assigned = manifest.pairs?.length
+    ? assignFromPairs(manifest.pairs, rotation)
+    : assignVisit(manifest.sites, rotation, availableTypes);
   const id = crypto.randomUUID();
   await sql`
     insert into sessions (id, locale, combination, pair_order, sides, study_data)

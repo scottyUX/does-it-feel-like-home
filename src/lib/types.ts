@@ -51,10 +51,15 @@ export type ManifestSite = {
 // What testers see about each website when the gallery is unlocked.
 export type SiteDetails = Record<string, { model: string; promptLanguage?: "en" | "zh" }>;
 
+// A fixed pairing of two site ids for one website type.
+export type ManifestPair = { type: SiteType; us: string; china: string };
+
 export type Manifest = {
   generatedAt: string;
   note: string;
   sites: ManifestSite[];
+  // When present, each website type rotates through these pairs instead of pairing by model.
+  pairs?: ManifestPair[];
 };
 
 export type Sides = Record<SiteType, { left: string; right: string }>;

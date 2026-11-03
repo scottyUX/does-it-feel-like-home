@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科技频道 — 每日视界</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; color:#1a1a1a; background:#f5f6f8; line-height:1.6; }
+  a { text-decoration:none; color:inherit; }
+  .topbar { background:#0d1b2a; color:#fff; }
+  .topbar-inner { max-width:1440px; margin:0 auto; padding:14px 40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .logo { font-size:28px; font-weight:bold; letter-spacing:2px; }
+  .logo span { color:#e63946; }
+  .date { font-size:13px; color:#9fb3c8; }
+  nav.mainnav { background:#e63946; }
+  nav.mainnav ul { max-width:1440px; margin:0 auto; padding:0 40px; display:flex; list-style:none; flex-wrap:wrap; }
+  nav.mainnav a { display:block; padding:12px 22px; color:#fff; font-size:15px; }
+  nav.mainnav a:hover, nav.mainnav a.active { background:#c1121f; }
+  .container { max-width:1440px; margin:0 auto; padding:24px 40px; }
+  .crumb { font-size:13px; color:#888; margin-bottom:16px; }
+  .page-title { font-size:26px; font-weight:bold; border-left:6px solid #e63946; padding-left:14px; margin-bottom:24px; }
+  .layout { display:grid; grid-template-columns:2fr 1fr; gap:32px; }
+  .news-item { display:flex; gap:20px; background:#fff; border-radius:8px; padding:18px; margin-bottom:18px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .news-item img { width:240px; height:150px; object-fit:cover; border-radius:6px; flex-shrink:0; }
+  .news-item h3 { font-size:19px; margin-bottom:8px; }
+  .news-item h3 a:hover { color:#e63946; }
+  .news-item p { font-size:14px; color:#555; margin-bottom:8px; }
+  .meta { font-size:13px; color:#999; }
+  .pager { text-align:center; margin:24px 0; }
+  .pager a { display:inline-block; padding:8px 16px; margin:0 4px; background:#fff; border:1px solid #ddd; border-radius:4px; font-size:14px; }
+  .pager a.cur { background:#e63946; color:#fff; border-color:#e63946; }
+  .side-title { font-size:18px; font-weight:bold; border-bottom:3px solid #e63946; padding-bottom:8px; margin-bottom:16px; }
+  .side-box { background:#fff; border-radius:8px; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:24px; }
+  .side-box ul { list-style:none; }
+  .side-box li { padding:8px 0; border-bottom:1px solid #eee; font-size:14px; }
+  .side-box a:hover { color:#e63946; }
+  footer { background:#0d1b2a; color:#9fb3c8; margin-top:48px; padding:32px 40px; font-size:13px; }
+  footer .inner { max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  footer a:hover { color:#fff; }
+  @media (max-width:960px){ .layout{grid-template-columns:1fr;} }
+  @media (max-width:600px){ .news-item{flex-direction:column;} .news-item img{width:100%;height:180px;} .container{padding:16px;} }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">每日<span>视界</span></div>
+    <div class="date">2025年6月12日 星期四 · 农历五月十七</div>
+  </div>
+</header>
+<nav class="mainnav">
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="section-tech.html" class="active">科技</a></li>
+    <li><a href="section-tech.html">财经</a></li>
+    <li><a href="section-tech.html">社会</a></li>
+    <li><a href="section-tech.html">文化</a></li>
+    <li><a href="article.html">深度报道</a></li>
+    <li><a href="about.html">关于我们</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="crumb"><a href="index.html">首页</a> &gt; 科技频道</div>
+  <div class="page-title">科技频道</div>
+  <div class="layout">
+    <main>
+      <div class="news-item">
+        <img src="assets/image-5c10e56c3ed2f219.jpg" alt="人工智能">
+        <div>
+          <h3><a href="article.html">国产大模型集中发布新版本，人工智能应用加速走进千家万户</a></h3>
+          <p>多家科技企业发布新一代人工智能大模型，文本理解、图像生成能力明显提升，算力成本下降推动AI加速落地。</p>
+          <div class="meta">李思远 · 2025年6月12日 07:30</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="assets/image-b04f3d6d0894175e.jpg" alt="芯片">
+        <div>
+          <h3><a href="article.html">新一代国产芯片实现量产，性能提升四成</a></h3>
+          <p>该款芯片采用先进制程工艺，首批产品将应用于数据中心、智能终端和车载计算平台。</p>
+          <div class="meta">王一鸣 · 2025年6月11日 18:20</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="assets/image-1c504a2e30714013.jpg" alt="卫星">
+        <div>
+          <h3><a href="article.html">商业航天发射次数创新高，低轨卫星组网提速</a></h3>
+          <p>今年上半年全国商业航天发射同比增长五成，多家民营火箭公司完成新型号首飞。</p>
+          <div class="meta">陈晓峰 · 2025年6月11日 14:05</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="assets/image-c448ca6431190bbf.jpg" alt="机器人">
+        <div>
+          <h3><a href="article.html">服务机器人走进社区养老院，试点覆盖二十城</a></h3>
+          <p>送餐、陪护、健康监测一体化服务机器人在多个城市开展规模化试点，受到老年群体欢迎。</p>
+          <div class="meta">赵雨桐 · 2025年6月10日 16:40</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="assets/image-35821babd4c9d9b6.jpg" alt="互联网">
+        <div>
+          <h3><a href="article.html">全国5G基站总数突破450万个，乡镇覆盖率超98%</a></h3>
+          <p>工业和信息化部数据显示，5G应用已融入国民经济七成大类，工业互联网连接设备超亿台。</p>
+          <div class="meta">孙浩然 · 2025年6月10日 09:15</div>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="assets/image-ab67662e7ee9884f.jpg" alt="笔记本">
+        <div>
+          <h3><a href="article.html">折叠屏笔记本电脑上市，国产品牌占据半壁江山</a></h3>
+          <p>多家厂商推出新一代折叠屏笔记本，重量降至1千克以下，续航时间突破18小时。</p>
+          <div class="meta">周子墨 · 2025年6月9日 20:30</div>
+        </div>
+      </div>
+      <div class="pager">
+        <a class="cur" href="section-tech.html">1</a><a href="section-tech.html">2</a><a href="section-tech.html">3</a><a href="section-tech.html">下一页</a>
+      </div>
+    </main>
+    <aside>
+      <div class="side-title">频道热榜</div>
+      <div class="side-box">
+        <ul>
+          <li><a href="article.html">1. 大模型应用开发门槛大幅降低</a></li>
+          <li><a href="article.html">2. 量子计算原型机刷新纪录</a></li>
+          <li><a href="article.html">3. 无人驾驶出租车扩大运营范围</a></li>
+          <li><a href="article.html">4. 固态电池量产时间表公布</a></li>
+          <li><a href="article.html">5. 国产操作系统装机量破千万</a></li>
+        </ul>
+      </div>
+      <div class="side-title">订阅每日视界</div>
+      <div class="side-box">
+        <p style="font-size:14px;color:#555;margin-bottom:12px;">每天早上8点，精选头条直达您的邮箱。</p>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="输入您的邮箱" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;margin-bottom:10px;font-size:14px;">
+          <button style="width:100%;padding:10px;background:#e63946;color:#fff;border:none;border-radius:4px;font-size:14px;cursor:pointer;">订阅早报</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="inner">
+    <div>© 2025 每日视界 版权所有<br>互联网新闻信息服务许可证：国新网备2025001号</div>
+    <div><a href="about.html">关于我们</a> · <a href="about.html">联系方式</a> · <a href="about.html">加入我们</a></div>
+  </div>
+</footer>
+</body>
+</html>

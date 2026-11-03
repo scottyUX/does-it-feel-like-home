@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T22:30:00+00:00",
-  "note": "Demo: the Qwen 3.8 Max prompt-language pair only. The English-prompt site takes the US side and the Chinese-prompt site the China side. The four-model clothing manifest is in git history (43ceec3).",
+  "generatedAt": "2026-11-03T23:30:00+00:00",
+  "note": "Demo: two pairs per participant. Clothing is always the Qwen English-prompt vs Chinese-prompt pair. News is Gemini vs Kimi, alternating between both using the English prompt and both using the Chinese prompt. The four-model clothing manifest is in git history (43ceec3).",
   "sites": [
     {
       "id": "1a2ad2a5",
@@ -17,6 +17,55 @@
       "model": "qwen/qwen3.8-max (Chinese prompt)",
       "promptLanguage": "zh",
       "createdAt": "2026-11-03T04:56:02.990Z"
+    },
+    {
+      "id": "25c95347",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemini-4-argon (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-03T23:12:53.898Z"
+    },
+    {
+      "id": "2208b7c2",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemini-4-argon (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-03T23:11:49.073Z"
+    },
+    {
+      "id": "77fc1e3d",
+      "type": "news",
+      "country": "China",
+      "model": "moonshotai/kimi-k3 (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-03T23:09:11.900Z"
+    },
+    {
+      "id": "61224bfb",
+      "type": "news",
+      "country": "China",
+      "model": "moonshotai/kimi-k3 (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-03T23:09:46.344Z"
+    }
+  ],
+  "pairs": [
+    {
+      "type": "clothing",
+      "us": "1a2ad2a5",
+      "china": "d3f41bd2"
+    },
+    {
+      "type": "news",
+      "us": "25c95347",
+      "china": "77fc1e3d"
+    },
+    {
+      "type": "news",
+      "us": "2208b7c2",
+      "china": "61224bfb"
     }
   ]
 }

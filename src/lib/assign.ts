@@ -1,4 +1,4 @@
-import type { ManifestSite, Sides, SiteType } from "@/lib/types";
+import type { ManifestPair, ManifestSite, Sides, SiteType } from "@/lib/types";
 import { SITE_TYPES } from "@/lib/types";
 
 const randomIndex = (length: number) => {
@@ -61,6 +61,26 @@ export const assignVisit = (
 
   return {
     combination: `${usModel}|${chinaModel}`,
+    pairOrder: shuffle(siteTypes) as SiteType[],
+    sides,
+  };
+};
+
+// Each website type rotates through its listed pairs, so participant n sees pair n of every type.
+export const assignFromPairs = (pairs: ManifestPair[], rotation = 0) => {
+  const siteTypes = [...new Set(pairs.map((pair) => pair.type))];
+  const sides = {} as Sides;
+  const chosen: string[] = [];
+  for (const siteType of siteTypes) {
+    const options = pairs.filter((pair) => pair.type === siteType);
+    const pair = options[rotation % options.length];
+    const ordered =
+      randomIndex(2) === 0 ? [pair.us, pair.china] : [pair.china, pair.us];
+    sides[siteType] = { left: ordered[0], right: ordered[1] };
+    chosen.push(`${siteType}:${pair.us}|${pair.china}`);
+  }
+  return {
+    combination: chosen.join(","),
     pairOrder: shuffle(siteTypes) as SiteType[],
     sides,
   };
