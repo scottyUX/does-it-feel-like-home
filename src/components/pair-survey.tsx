@@ -115,7 +115,7 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
 
   const handleEnjoy = (value: Enjoyment) => {
     if (locked) {
-      setHintKey(value);
+      setHintKey((current) => (current === value ? null : value));
       return;
     }
     setEnjoyment(value);
@@ -181,6 +181,29 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
   };
 
   useEffect(() => {
+    if (hintKey === null) return;
+    const close = (event: Event) => {
+      if (
+        event instanceof KeyboardEvent
+          ? event.key === "Escape"
+          : !(event.target instanceof Element) ||
+            !event.target.closest(".answer.is-locked")
+      )
+        setHintKey(null);
+    };
+    // Clicks inside a website iframe never reach this document; they blur the window instead.
+    const dismiss = () => setHintKey(null);
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", close);
+    window.addEventListener("blur", dismiss);
+    return () => {
+      document.removeEventListener("pointerdown", close);
+      document.removeEventListener("keydown", close);
+      window.removeEventListener("blur", dismiss);
+    };
+  }, [hintKey]);
+
+  useEffect(() => {
     if (tourStep === null) return;
     const target =
       tourStep === 0 ? "switch" : tourStep === 1 ? "website" : "dock";
@@ -206,22 +229,17 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
     if (!spot || tourStep === null) return { visibility: "hidden" };
     if (tourStep === 0) {
       return {
-        top: spot.top + spot.height + 16,
+        top: spot.top + spot.height + 18,
         left: spot.left + spot.width / 2,
         transform: "translateX(-50%)",
       };
     }
     if (tourStep === 1) {
-      return {
-        top: spot.top + spot.height / 2,
-        left: spot.left + spot.width / 2,
-        transform: "translate(-50%, -50%)",
-      };
+      return { top: spot.top + 16, right: 16 };
     }
     return {
-      top: spot.top - 16,
-      right: 34,
-      left: "auto",
+      top: spot.top - 18,
+      right: 16,
       transform: "translateY(-100%)",
     };
   };
@@ -483,11 +501,6 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                         locked={locked}
                         hinted={hintKey === value}
                         onChoose={() => handleEnjoy(value)}
-                        onLeave={() =>
-                          setHintKey((current) =>
-                            current === value ? null : current,
-                          )
-                        }
                       />
                     ))}
                   </div>
@@ -504,11 +517,6 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                     hinted={hintKey === "too_different"}
                     secondary
                     onChoose={() => handleEnjoy("too_different")}
-                    onLeave={() =>
-                      setHintKey((current) =>
-                        current === "too_different" ? null : current,
-                      )
-                    }
                   />
                 </div>
               ) : null}
@@ -574,20 +582,33 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
         )}
         {ready && tourStep !== null && !state.tourDone ? (
           <div className="tour-layer">
-            <div className="tour-scrim" />
+            <div
+              className="tour-scrim"
+              style={
+                spot
+                  ? {
+                      clipPath: `polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, ${spot.left}px ${spot.top}px, ${spot.left}px ${spot.top + spot.height}px, ${spot.left + spot.width}px ${spot.top + spot.height}px, ${spot.left + spot.width}px ${spot.top}px, ${spot.left}px ${spot.top}px)`,
+                    }
+                  : undefined
+              }
+            />
             {spot ? (
               <div
+                key={tourStep}
                 className="tour-ring"
                 style={{
                   top: spot.top,
                   left: spot.left,
                   width: spot.width,
                   height: spot.height,
-                  borderRadius: tourStep === 2 ? 0 : 12,
+                  borderRadius: tourStep === 2 ? "8px 8px 0 0" : 14,
                 }}
               />
             ) : null}
-            <div className="tour-card" style={tourCardStyle()}>
+            <div
+              className={`tour-card tour-card--step-${tourStep + 1}`}
+              style={tourCardStyle()}
+            >
               <div className="tour-count">{text.tourCount(tourStep + 1)}</div>
               <strong>{text.tourSteps[tourStep].title}</strong>
               <p>{text.tourSteps[tourStep].copy}</p>
@@ -595,18 +616,29 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                 <button type="button" onClick={() => handleFinishTour()}>
                   {text.tourSkip}
                 </button>
-                <button
-                  type="button"
-                  className="tour-next"
-                  onClick={() =>
-                    tourStep === 2
-                      ? handleFinishTour(false)
-                      : setTourStep(tourStep + 1)
-                  }
-                >
-                  {tourStep === 2 ? text.tourStart : text.tourNext}{" "}
-                  <span aria-hidden="true">→</span>
-                </button>
+                <div className="tour-navigation">
+                  {tourStep > 0 ? (
+                    <button
+                      type="button"
+                      className="tour-back"
+                      onClick={() => setTourStep(tourStep - 1)}
+                    >
+                      {text.tourBack}
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="tour-next"
+                    onClick={() =>
+                      tourStep === 2
+                        ? handleFinishTour(false)
+                        : setTourStep(tourStep + 1)
+                    }
+                  >
+                    {tourStep === 2 ? text.tourStart : text.tourNext}{" "}
+                    <span aria-hidden="true">→</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -624,7 +656,6 @@ const Choice = ({
   secondary = false,
   hint = "",
   onChoose,
-  onLeave,
 }: {
   label: string;
   selected: boolean;
@@ -633,7 +664,6 @@ const Choice = ({
   secondary?: boolean;
   hint?: string;
   onChoose: () => void;
-  onLeave?: () => void;
 }) => {
   const className = [
     "answer",
@@ -653,7 +683,6 @@ const Choice = ({
       aria-checked={selected}
       aria-disabled={locked}
       onClick={onChoose}
-      onMouseLeave={onLeave}
     >
       <span className="radio" />
       {label}

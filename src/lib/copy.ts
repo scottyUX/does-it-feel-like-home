@@ -95,6 +95,7 @@ export const copy = {
     contact: "Questions? Contact [name, email].",
     tourSkip: "Skip",
     tourNext: "Next",
+    tourBack: "Back",
     tourStart: "Start",
     tourSteps: [
       {
@@ -162,6 +163,7 @@ export const copy = {
     thanksClose: "You can now close this window.",
     thanksContact: "Questions about the study? Contact [name, email].",
     specify: "Please specify",
+    describeGender: "Please describe your gender",
     thanks: "Thank you. Your answers have been recorded.",
     galleryTitle: "All websites",
     galleryPassword: "Password",
@@ -254,6 +256,7 @@ export const copy = {
     contact: "如有疑问，请联系 [姓名，邮箱]。",
     tourSkip: "跳过",
     tourNext: "下一步",
+    tourBack: "上一步",
     tourStart: "开始",
     tourSteps: [
       {
@@ -317,6 +320,7 @@ export const copy = {
     thanksClose: "现在您可以关闭此窗口。",
     thanksContact: "如对本研究有任何疑问，请联系 [姓名，邮箱]。",
     specify: "请注明",
+    describeGender: "请描述您的性别",
     thanks: "谢谢。你的回答已记录。",
     galleryTitle: "全部网站",
     galleryPassword: "密码",

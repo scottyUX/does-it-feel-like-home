@@ -55,6 +55,9 @@ alter table background add column if not exists first_language text;
 alter table background add column if not exists language_specify text;
 alter table background add column if not exists chinese_web_use text;
 alter table pair_responses add column if not exists reason_tags jsonb;
+-- Gender is multi-select with optional self-description. The legacy single-value gender column stays for older rows.
+alter table background add column if not exists gender_identities jsonb not null default '[]';
+alter table background add column if not exists gender_self_describe text;
 
 -- Study behavior, recovery, and annotation data. Existing responses are preserved.
 create sequence if not exists participant_assignment_seq minvalue 0 start 0;

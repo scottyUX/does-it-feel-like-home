@@ -3,7 +3,12 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { backgroundIsValid, type BackgroundAnswers } from "@/lib/background";
+import {
+  backgroundIsValid,
+  GENDER_SELF_DESCRIBE,
+  normalizeGender,
+  type BackgroundAnswers,
+} from "@/lib/background";
 import { copy } from "@/lib/copy";
 import {
   createParticipantSession,
@@ -129,8 +134,13 @@ export const submitPair = async (input: {
 };
 
 export const submitBackground = async (input: BackgroundAnswers) => {
+  const gender = normalizeGender(input.gender);
   const answers = {
     ...input,
+    gender,
+    genderDescribe: gender.includes(GENDER_SELF_DESCRIBE)
+      ? String(input.genderDescribe ?? "").trim().slice(0, 500)
+      : "",
     bornSpecify: input.bornSpecify.trim().slice(0, 500),
     grewUpSpecify: input.grewUpSpecify.trim().slice(0, 500),
     livesSpecify: input.livesSpecify.trim().slice(0, 500),
