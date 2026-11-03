@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全部单品 · 衬衫 / 外套 / 下装 / 连衣裙 | 可衣</title>
+<meta name="description" content="可衣全部女装单品列表，含尺码与价格：真丝衬衫、西装外套、羊毛大衣、垂感西裤、百褶半裙与连衣裙。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <span>满 399 元全国包邮 · 7 天无理由退换 · 上海仓当日发货</span>
+    <span class="topbar-right">客服热线 021-5230 8866（每日 9:00–21:00）</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">可衣</span>
+      <span class="logo-sub">上海 · 女装</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">首页</a>
+      <a href="products.html" class="active">全部单品</a>
+      <a href="products.html#list">通勤系列</a>
+      <a href="about.html">品牌故事</a>
+      <a href="service.html">尺码与服务</a>
+    </nav>
+    <div class="header-tools">
+      <a class="tool-link" href="service.html">帮助</a>
+      <a class="cart-link" href="cart.html">购物袋 <span class="cart-count" id="cartCount">0</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap crumbs"><a href="index.html">首页</a> / <span>全部单品</span></div>
+
+<section class="wrap list-head">
+  <div>
+    <h1>全部单品</h1>
+    <p>16 件在售 · 每件都标注了实测尺码与面料成分，不确定尺码可以直接联系客服。</p>
+  </div>
+  <div class="list-sort">
+    <label for="sortSelect">排序</label>
+    <select id="sortSelect">
+      <option value="default">默认推荐</option>
+      <option value="new">上新时间</option>
+      <option value="asc">价格由低到高</option>
+      <option value="desc">价格由高到低</option>
+    </select>
+  </div>
+</section>
+
+<section class="wrap filters" id="list">
+  <div class="filter-row">
+    <span class="filter-label">品类</span>
+    <div class="chips" data-filter="cat">
+      <button class="chip active" data-value="all">全部</button>
+      <button class="chip" data-value="上装">上装</button>
+      <button class="chip" data-value="外套">外套</button>
+      <button class="chip" data-value="下装">下装</button>
+      <button class="chip" data-value="连衣裙">连衣裙</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">价格</span>
+    <div class="chips" data-filter="price">
+      <button class="chip active" data-value="all">不限</button>
+      <button class="chip" data-value="0-299">¥299 以下</button>
+      <button class="chip" data-value="300-499">¥300–499</button>
+      <button class="chip" data-value="500-799">¥500–799</button>
+      <button class="chip" data-value="800-99999">¥800 以上</button>
+    </div>
+  </div>
+  <div class="filter-row">
+    <span class="filter-label">尺码</span>
+    <div class="chips" data-filter="size">
+      <button class="chip active" data-value="all">全部</button>
+      <button class="chip" data-value="S">S</button>
+      <button class="chip" data-value="M">M</button>
+      <button class="chip" data-value="L">L</button>
+      <button class="chip" data-value="XL">XL</button>
+    </div>
+  </div>
+  <p class="filter-result"><span id="resultCount">16</span> 件商品符合条件 · <button class="link-btn" id="resetFilter">清除筛选</button></p>
+</section>
+
+<section class="wrap section">
+  <div class="grid grid-4" id="productGrid"></div>
+  <div class="empty-filter" id="emptyFilter" hidden>
+    <h3>没有符合条件的单品</h3>
+    <p>试着放宽价格区间，或者查看全部品类。</p>
+  </div>
+  <div class="pager">
+    <button class="page-btn active">1</button>
+    <button class="page-btn" onclick="keyi.toast('已是最后一页')">2</button>
+    <button class="page-btn" onclick="keyi.toast('已是最后一页')">下一页</button>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="info-band">
+    <div>
+      <h3>不确定该选哪个尺码？</h3>
+      <p>把身高、体重和平时穿的码数告诉客服，我们会按单品的实测数据给出建议；收到后不合适，一次换码免运费。</p>
+    </div>
+    <a class="btn btn-ghost" href="service.html">查看尺码对照表</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <span class="logo-mark">可衣</span>
+      <p>可衣（上海）服饰有限公司<br>上海市静安区南京西路 1266 号 2 层<br>客服热线 021-5230 8866</p>
+    </div>
+    <div class="footer-col">
+      <h4>选购</h4>
+      <a href="products.html">全部单品</a>
+      <a href="products.html">新品上市</a>
+      <a href="product.html?id=s01">热卖衬衫</a>
+      <a href="cart.html">我的购物袋</a>
+    </div>
+    <div class="footer-col">
+      <h4>客户服务</h4>
+      <a href="service.html">尺码对照表</a>
+      <a href="service.html">配送与自提</a>
+      <a href="service.html">退换货政策</a>
+      <a href="service.html">常见问题</a>
+    </div>
+    <div class="footer-col">
+      <h4>关于可衣</h4>
+      <a href="about.html">品牌故事</a>
+      <a href="about.html">面料与工艺</a>
+      <a href="about.html">门店信息</a>
+      <a href="service.html">联系我们</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2024 可衣 KEYI · 上海</span>
+    <span>支持 微信支付 / 支付宝 / 银联 / 货到付款（部分城市）</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

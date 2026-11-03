@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated research material is validated as static sites, not React source.
+    "sites/**",
+    "sources/**",
+    "generations/**",
   ]),
 ]);
 

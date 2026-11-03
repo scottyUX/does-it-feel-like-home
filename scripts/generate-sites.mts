@@ -4,36 +4,33 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const MAX_TOKENS = 32_000;
+const MAX_TOKENS = Number(process.env.GENERATION_MAX_TOKENS ?? 32_000);
 const SPEND_LIMIT_USD = 20;
+const REASONING_TOKENS = 4096;
 const KEY_FILE = "/Users/scottdavis/hecate/.env";
 
 const MODELS = [
   {
     id: "google/gemini-4-argon",
     country: "US",
-    effort: "high",
     inputPrice: 2,
     outputPrice: 10,
   },
   {
     id: "anthropic/claude-opus-5",
     country: "US",
-    effort: "high",
     inputPrice: 5,
     outputPrice: 25,
   },
   {
     id: "qwen/qwen3.8-max",
     country: "China",
-    effort: "high",
     inputPrice: 2,
     outputPrice: 6,
   },
   {
     id: "moonshotai/kimi-k3",
     country: "China",
-    effort: "high",
     inputPrice: 0.238,
     outputPrice: 16,
   },
@@ -184,7 +181,6 @@ const callModel = async (
   key: string,
   model: Model,
   messages: { role: string; content: string }[],
-  effort: string,
 ): Promise<ChatResult> => {
   const response = await fetch(
     "https://openrouter.ai/api/v1/chat/completions",
@@ -197,7 +193,7 @@ const callModel = async (
       body: JSON.stringify({
         model: model.id,
         max_tokens: MAX_TOKENS,
-        reasoning: { effort },
+        reasoning: { max_tokens: REASONING_TOKENS },
         stream: true,
         stream_options: { include_usage: true },
         messages,
@@ -270,22 +266,7 @@ const callWithFallback = async (
   key: string,
   model: Model,
   messages: { role: string; content: string }[],
-) => {
-  const efforts = model.id.includes("kimi")
-    ? [model.effort, "max"]
-    : [model.effort];
-  let lastError: Error | null = null;
-  for (const effort of efforts) {
-    try {
-      return await callModel(key, model, messages, effort);
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error(String(error));
-      const message = lastError.message.toLowerCase();
-      if (!message.includes("reasoning") && !message.includes("effort")) break;
-    }
-  }
-  throw lastError ?? new Error("model call failed");
-};
+) => callModel(key, model, messages);
 
 const reserveSpend = (model: Model) => {
   const worst = costOf(model, 4_000, MAX_TOKENS);
@@ -392,7 +373,9 @@ const generateOne = async (
     Object.keys(files).filter((name) => name.endsWith(".html")).length < 4 ||
     result.finishReason === "length"
   ) {
-    throw new Error(`${model.id} ${siteType} did not return HTML`);
+    await mkdir(path.join(ROOT,"generations","failed"),{recursive:true});
+    await writeFile(path.join(ROOT,"generations","failed",`${id}.json`),JSON.stringify({model:model.id,siteType,finishReason:result.finishReason,htmlPages:Object.keys(files).filter(name=>name.endsWith(".html")),inferenceSettings:{maxTokens:MAX_TOKENS,reasoningMaxTokens:REASONING_TOKENS},content:result.content},null,2));
+    throw new Error(`${model.id} ${siteType} incomplete: ${Object.keys(files).filter(name=>name.endsWith(".html")).length} HTML pages, finish=${result.finishReason}`);
   }
 
   if (!files["index.html"]) {
@@ -419,6 +402,10 @@ const generateOne = async (
     type: siteType,
     country: model.country,
     model: model.id,
+    inferenceSettings: {
+      maxTokens: MAX_TOKENS,
+      reasoningMaxTokens: REASONING_TOKENS,
+    },
     finishReason: result.finishReason,
     repaired,
     removed,
@@ -479,17 +466,40 @@ const main = async () => {
   );
   const sites: ManifestSite[] = [];
   if (process.argv.includes("--resume")) {
-    const previous = JSON.parse(await readFile(path.join(ROOT,"data","manifest.next.json"),"utf8"));
+    const previous = JSON.parse(
+      await readFile(path.join(ROOT, "data", "manifest.next.json"), "utf8"),
+    );
     for (const site of previous.sites as ManifestSite[]) {
-      if (!allJobs.some(job=>job.siteType===site.type && job.model.id===site.model)) throw new Error("Staged manifest does not match configured models/categories");
-      await readFile(path.join(ROOT,"sites",site.id,"index.html"));
+      if (
+        !allJobs.some(
+          (job) => job.siteType === site.type && job.model.id === site.model,
+        )
+      )
+        throw new Error(
+          "Staged manifest does not match configured models/categories",
+        );
+      await readFile(path.join(ROOT, "sites", site.id, "index.html"));
       sites.push(site);
     }
-    const usage = JSON.parse(await readFile(path.join(ROOT,"generations","usage.next.json"),"utf8"));
+    const usage = JSON.parse(
+      await readFile(path.join(ROOT, "generations", "usage.next.json"), "utf8"),
+    );
     spent.usd = Number(usage.spentUsd) || 0;
-    console.log(`Resuming ${sites.length}/${allJobs.length} completed sites; prior spend $${spent.usd.toFixed(3)}`);
+    console.log(
+      `Resuming ${sites.length}/${allJobs.length} completed sites; prior spend $${spent.usd.toFixed(3)}`,
+    );
   }
-  const jobs=allJobs.filter(job=>!sites.some(site=>site.type===job.siteType && site.model===job.model.id));
+  const selectedTypes = process.argv
+    .find((arg) => arg.startsWith("--types="))
+    ?.slice("--types=".length)
+    .split(",");
+  const jobs = allJobs.filter(
+    (job) =>
+      (!selectedTypes || selectedTypes.includes(job.siteType)) &&
+      !sites.some(
+        (site) => site.type === job.siteType && site.model === job.model.id,
+      ),
+  );
   const failures: { siteType: string; model: string; error: string }[] = [];
   let stopReason: string | null = null;
   let manifestChain = Promise.resolve();
@@ -527,7 +537,8 @@ const main = async () => {
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      if (message.includes(" 402 ") || message.includes(" 401 ")) stopReason = message;
+      if (message.includes(" 402 ") || message.includes(" 401 "))
+        stopReason = message;
       failures.push({
         siteType: job.siteType,
         model: job.model.id,
