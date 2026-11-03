@@ -7,6 +7,7 @@
       "type": "clothing",
       "country": "US",
       "model": "qwen/qwen3.8-max (English prompt)",
+      "promptLanguage": "en",
       "createdAt": "2026-11-03T04:51:03.725Z"
     },
     {
@@ -14,6 +15,7 @@
       "type": "clothing",
       "country": "China",
       "model": "qwen/qwen3.8-max (Chinese prompt)",
+      "promptLanguage": "zh",
       "createdAt": "2026-11-03T04:56:02.990Z"
     }
   ]

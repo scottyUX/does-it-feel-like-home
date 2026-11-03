@@ -79,7 +79,7 @@ export const copy = {
     welcomeLead:
       "Thank you for taking part in this study from the University of California, Santa Cruz.",
     welcomeTask:
-      "You will see {count} pairs of websites created by AI tools for users in China. For each pair, you'll look at both websites and answer a few short questions about them.",
+      "You will see {count} {pairs} of websites created by AI tools for users in China. For each pair, you'll look at both websites and answer a few short questions about them.",
     howTitle: "How it works",
     howSteps: [
       "Use the Website A and Website B tabs at the top of the screen to switch between the two websites.",

@@ -19,7 +19,9 @@ export const Introduction = ({ locale, pairCount }: IntroductionProps) => {
             <span className="concept-kicker">{text.studyKicker}</span>
             <h1>{text.welcomeTitle}</h1>
             <p>{text.welcomeLead}</p>
-            <p>{text.welcomeTask.replace("{count}", String(pairCount))}</p>
+            <p>{text.welcomeTask
+                .replace("{count}", String(pairCount))
+                .replace("{pairs}", pairCount === 1 ? "pair" : "pairs")}</p>
           </header>
           <section className="how-it-works">
             <h2>{text.howTitle}</h2>

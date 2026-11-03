@@ -43,8 +43,13 @@ export type ManifestSite = {
   type: SiteType;
   country: "US" | "China";
   model: string;
+  // Language the generation prompt was written in, when it was recorded.
+  promptLanguage?: "en" | "zh";
   createdAt: string;
 };
+
+// What testers see about each website when the gallery is unlocked.
+export type SiteDetails = Record<string, { model: string; promptLanguage?: "en" | "zh" }>;
 
 export type Manifest = {
   generatedAt: string;

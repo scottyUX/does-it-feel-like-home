@@ -37,6 +37,12 @@ export const readSessionId = async () => {
   return store.get(SESSION_COOKIE)?.value ?? null;
 };
 
+// Drops this browser's link to its session; the saved answers stay in the database.
+export const forgetSession = async () => {
+  const store = await cookies();
+  store.delete(SESSION_COOKIE);
+};
+
 export const createParticipantSession = async (
   locale: Locale,
   metadata: { screen: { width: number; height: number }; browser: string },

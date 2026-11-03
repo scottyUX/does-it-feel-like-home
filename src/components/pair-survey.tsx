@@ -18,16 +18,41 @@ import type {
   WebsiteSide,
   WebsiteMark,
   PairDraft,
+  SiteDetails,
 } from "@/lib/types";
 
 type PairSurveyProps = {
   pair: CurrentPair;
   showTour: boolean;
+  details?: SiteDetails;
 };
 
 type SiteTab = "a" | "b";
 
-export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
+type Rect = { top: number; left: number; width: number; height: number };
+
+// SVG path for a rounded rectangle, so the scrim hole matches the ring's corners. Radii go top-left, top-right, bottom-right, bottom-left.
+const roundedRectPath = (
+  { top, left, width, height }: Rect,
+  [tl, tr, br, bl]: [number, number, number, number],
+) => {
+  const right = left + width;
+  const bottom = top + height;
+  return [
+    `M${left + tl} ${top}`,
+    `H${right - tr}`,
+    `A${tr} ${tr} 0 0 1 ${right} ${top + tr}`,
+    `V${bottom - br}`,
+    `A${br} ${br} 0 0 1 ${right - br} ${bottom}`,
+    `H${left + bl}`,
+    `A${bl} ${bl} 0 0 1 ${left} ${bottom - bl}`,
+    `V${top + tl}`,
+    `A${tl} ${tl} 0 0 1 ${left + tl} ${top}`,
+    "Z",
+  ].join(" ");
+};
+
+export const PairSurvey = ({ pair, showTour, details }: PairSurveyProps) => {
   const text = copy[pair.locale];
   const router = useRouter();
   const shellRef = useRef<HTMLDivElement>(null);
@@ -210,14 +235,19 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
     const shell = shellRef.current;
     const node = shell?.querySelector(`[data-tour="${target}"]`);
     if (!shell || !(node instanceof HTMLElement)) return;
+    // The tabs get breathing room inside the ring; the website and dock already fill their space.
+    const pad = tourStep === 0 ? 8 : 0;
     const update = () => {
       const shellRect = shell.getBoundingClientRect();
       const rect = node.getBoundingClientRect();
+      const top = rect.top - shellRect.top;
+      // Keep the ring and its white outline below the top edge of the window.
+      const padY = Math.max(0, Math.min(pad, top - 2));
       setSpot({
-        top: rect.top - shellRect.top,
-        left: rect.left - shellRect.left,
-        width: rect.width,
-        height: rect.height,
+        top: top - padY,
+        left: rect.left - shellRect.left - pad,
+        width: rect.width + pad * 2,
+        height: rect.height + padY * 2,
       });
     };
     update();
@@ -359,6 +389,12 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
               </button>
             ))}
           </div>
+          {details ? (
+            <SiteDetailsToggle
+              site={details[tab === "a" ? pair.leftId : pair.rightId]}
+              label={tab === "a" ? text.websiteA : text.websiteB}
+            />
+          ) : null}
           <div className="progress">
             <span>{text.progress(pair.pairIndex + 1, pair.pairCount)}</span>
             <div className="progress-track">
@@ -587,7 +623,7 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
               style={
                 spot
                   ? {
-                      clipPath: `polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, ${spot.left}px ${spot.top}px, ${spot.left}px ${spot.top + spot.height}px, ${spot.left + spot.width}px ${spot.top + spot.height}px, ${spot.left + spot.width}px ${spot.top}px, ${spot.left}px ${spot.top}px)`,
+                      clipPath: `path(evenodd, "M-9999 -9999 H99999 V99999 H-9999 Z ${roundedRectPath(spot, tourStep === 2 ? [8, 8, 0, 0] : [14, 14, 14, 14])}")`,
                     }
                   : undefined
               }
@@ -602,6 +638,7 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
                   width: spot.width,
                   height: spot.height,
                   borderRadius: tourStep === 2 ? "8px 8px 0 0" : 14,
+                  boxSizing: "border-box",
                 }}
               />
             ) : null}
@@ -645,6 +682,39 @@ export const PairSurvey = ({ pair, showTour }: PairSurveyProps) => {
         ) : null}
       </div>
     </StudyShell>
+  );
+};
+
+// Testing aid: shows which model and prompt language made the website on screen.
+const SiteDetailsToggle = ({
+  site,
+  label,
+}: {
+  site?: SiteDetails[string];
+  label: string;
+}) => {
+  const [open, setOpen] = useState(false);
+  const language =
+    site?.promptLanguage === "zh"
+      ? "Chinese prompt"
+      : site?.promptLanguage === "en"
+        ? "English prompt"
+        : "Prompt language not recorded";
+  return (
+    <div className="site-details">
+      <button
+        type="button"
+        aria-expanded={open}
+        onClick={() => setOpen((current) => !current)}
+      >
+        {open ? "Hide details" : "Show details"}
+      </button>
+      {open ? (
+        <span>
+          {label} · {site?.model.replace(/ \((English|Chinese) prompt\)$/, "") ?? "Unknown model"} · {language}
+        </span>
+      ) : null}
+    </div>
   );
 };
 
