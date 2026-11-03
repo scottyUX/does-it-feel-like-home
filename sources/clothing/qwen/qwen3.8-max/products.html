@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部商品 - 可衣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2d2d2d;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            background: #f8f5f2;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2d2d2d;
+        }
+
+        .logo span {
+            color: #c4956a;
+        }
+
+        nav {
+            display: flex;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.3s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #2d2d2d;
+            border-bottom-color: #c4956a;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #c4956a;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header {
+            background: #f8f5f2;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .main-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+        }
+
+        .filter-group {
+            margin-bottom: 32px;
+        }
+
+        .filter-group h3 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .filter-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #c4956a;
+        }
+
+        .products-area {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .products-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .products-toolbar .count {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .sort-select {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            color: #555;
+            background: #fff;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            position: relative;
+            height: 300px;
+            background: #f5f0eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image .placeholder-icon {
+            font-size: 56px;
+            opacity: 0.6;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #c4956a;
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 10px;
+            letter-spacing: 1px;
+        }
+
+        .product-tag.sale {
+            background: #e74c3c;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-info h3 {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .product-info .sizes {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .product-info .price {
+            font-size: 16px;
+            color: #c4956a;
+            font-weight: 500;
+        }
+
+        .product-info .price .original {
+            font-size: 13px;
+            color: #bbb;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c4956a;
+        }
+
+        .footer-bottom {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+                display: flex;
+                gap: 32px;
+                flex-wrap: wrap;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            nav {
+                display: none;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        新用户首单立减 ¥50 · 全场满 ¥399 包邮 · 上海同城次日达
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">全部商品</a>
+                <a href="product-detail.html">新品推荐</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>全部商品</h1>
+        <p>共 350 款精选好物，为你的衣橱注入新鲜灵感</p>
+    </div>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>品类</h3>
+                <label><input type="checkbox" checked> 连衣裙</label>
+                <label><input type="checkbox" checked> 衬衫上衣</label>
+                <label><input type="checkbox" checked> 裤装</label>
+                <label><input type="checkbox" checked> 半身裙</label>
+                <label><input type="checkbox" checked> 外套</label>
+                <label><input type="checkbox" checked> 针织衫</label>
+            </div>
+            <div class="filter-group">
+                <h3>尺码</h3>
+                <label><input type="checkbox" checked> S</label>
+                <label><input type="checkbox" checked> M</label>
+                <label><input type="checkbox" checked> L</label>
+                <label><input type="checkbox" checked> XL</label>
+            </div>
+            <div class="filter-group">
+                <h3>价格区间</h3>
+                <label><input type="checkbox"> ¥100 以下</label>
+                <label><input type="checkbox" checked> ¥100 - ¥300</label>
+                <label><input type="checkbox" checked> ¥300 - ¥500</label>
+                <label><input type="checkbox"> ¥500 以上</label>
+            </div>
+            <div class="filter-group">
+                <h3>颜色</h3>
+                <label><input type="checkbox" checked> 黑色</label>
+                <label><input type="checkbox" checked> 白色</label>
+                <label><input type="checkbox" checked> 米色</label>
+                <label><input type="checkbox"> 蓝色</label>
+                <label><input type="checkbox"> 粉色</label>
+                <label><input type="checkbox"> 绿色</label>
+            </div>
+        </aside>
+
+        <div class="products-area">
+            <div class="products-toolbar">
+                <span class="count">找到 86 件商品</span>
+                <select class="sort-select">
+                    <option>综合排序</option>
+                    <option>最新上架</option>
+                    <option>价格从低到高</option>
+                    <option>价格从高到低</option>
+                    <option>销量优先</option>
+                </select>
+            </div>
+
+            <div class="product-grid">
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image">
+                        <span class="placeholder-icon">👗</span>
+                        <span class="product-tag">新品</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>法式方领碎花连衣裙</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥299 <span class="original">¥399</span></div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f0f4f8;">
+                        <span class="placeholder-icon">👔</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>天丝垂感通勤衬衫</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥189</div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f4f0f8;">
+                        <span class="placeholder-icon">👖</span>
+                        <span class="product-tag sale">特惠</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>高腰直筒烟管裤</h3>
+                        <div class="sizes">S / M / L</div>
+                        <div class="price">¥219 <span class="original">¥279</span></div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f8f4f0;">
+                        <span class="placeholder-icon">🧥</span>
+                        <span class="product-tag">新品</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>轻薄双面呢大衣</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥599</div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f0f8f4;">
+                        <span class="placeholder-icon">👗</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>醋酸缎面吊带裙</h3>
+                        <div class="sizes">S / M / L</div>
+                        <div class="price">¥259</div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#fdf2f0;">
+                        <span class="placeholder-icon">👔</span>
+                        <span class="product-tag sale">特惠</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>泡泡袖法式上衣</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥159 <span class="original">¥219</span></div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f5f0eb;">
+                        <span class="placeholder-icon">👖</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>复古高腰阔腿牛仔裤</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥239</div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f0f0f8;">
+                        <span class="placeholder-icon">🧥</span>
+                        <span class="product-tag">新品</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>小香风粗花呢外套</h3>
+                        <div class="sizes">S / M / L</div>
+                        <div class="price">¥459</div>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-image" style="background:#f8f8f0;">
+                        <span class="placeholder-icon">👗</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>针织拼接连衣裙</h3>
+                        <div class="sizes">S / M / L / XL</div>
+                        <div class="price">¥329</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo">可<span>衣</span></div>
+                <p>可衣成立于2019年，总部位于上海。我们相信，好的衣服不需要昂贵的价格。每一件可衣出品，都经过精心设计与严格品控，让你穿得好看、穿得舒服。</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="products.html">新品上架</a>
+                <a href="products.html">限时特惠</a>
+                <a href="product-detail.html">尺码对照表</a>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <a href="#">配送说明</a>
+                <a href="#">退换政策</a>
+                <a href="#">常见问题</a>
+                <a href="#">联系我们</a>
+            </div>
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <a href="#">品牌故事</a>
+                <a href="#">加入我们</a>
+                <a href="#">门店信息</a>
+                <a href="#">合作洽谈</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 可衣 KEYI · 上海市静安区南京西路1266号 · 沪ICP备2024012345号
+        </div>
+    </footer>
+</body>
+</html>

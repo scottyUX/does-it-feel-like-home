@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 - 可衣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2d2d2d;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top-bar {
+            background: #f8f5f2;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2d2d2d;
+        }
+
+        .logo span {
+            color: #c4956a;
+        }
+
+        nav {
+            display: flex;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.3s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #2d2d2d;
+            border-bottom-color: #c4956a;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #c4956a;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header {
+            background: #f8f5f2;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 4px;
+        }
+
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 20px;
+            padding: 24px;
+            border: 1px solid #f0f0f0;
+            background: #fff;
+            transition: box-shadow 0.3s;
+        }
+
+        .cart-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .cart-item-image {
+            width: 120px;
+            height: 140px;
+            background: #f5f0eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-image span {
+            font-size: 40px;
+            opacity: 0.5;
+        }
+
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cart-item-info h3 {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .cart-item-info .variant {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-info .price {
+            font-size: 18px;
+            color: #c4956a;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .remove-btn {
+            font-size: 13px;
+            color: #bbb;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+        }
+
+        .remove-btn:hover {
+            color: #e74c3c;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .qty-btn:hover {
+            background: #f5f0eb;
+        }
+
+        .qty-input {
+            width: 48px;
+            height: 32px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .cart-item-subtotal {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2d2d2d;
+        }
+
+        .cart-summary {
+            background: #faf8f5;
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-summary h2 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .summary-row.total {
+            font-size: 18px;
+            color: #2d2d2d;
+            font-weight: 600;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #ddd;
+        }
+
+        .summary-row .discount {
+            color: #e74c3c;
+        }
+
+        .summary-row .free {
+            color: #27ae60;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: #c4956a;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: all 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #b0845c;
+        }
+
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 13px;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .continue-shopping:hover {
+            color: #c4956a;
+        }
+
+        .coupon-section {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .coupon-section h4 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .coupon-input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .coupon-input-group input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .coupon-input-group input:focus {
+            border-color: #c4956a;
+        }
+
+        .coupon-input-group button {
+            padding: 10px 20px;
+            background: #2d2d2d;
+            color: #fff;
+            border: none;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .coupon-input-group button:hover {
+            background: #c4956a;
+        }
+
+        .cart-tips {
+            margin-top: 24px;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #eee;
+            font-size: 12px;
+            color: #999;
+            line-height: 2;
+        }
+
+        .cart-tips h5 {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c4956a;
+        }
+
+        .footer-bottom {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+            .cart-summary {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            nav {
+                display: none;
+            }
+            .cart-container {
+                padding: 20px;
+            }
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 12px;
+            }
+            .cart-item-image {
+                width: 80px;
+                height: 100px;
+            }
+            .cart-item-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                align-items: center;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        新用户首单立减 ¥50 · 全场满 ¥399 包邮 · 上海同城次日达
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">新品推荐</a>
+                <a href="cart.html" class="active">购物车</a>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>购物车</h1>
+    </div>
+
+    <div class="cart-container">
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <span>👗</span>
+                </div>
+                <div class="cart-item-info">
+                    <h3>法式方领碎花连衣裙</h3>
+                    <div class="variant">颜色：奶油碎花</div>
+                    <div class="variant">尺码：M</div>
+                    <div class="price">¥299</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="remove-btn">删除</button>
+                    <div class="quantity-selector">
+                        <div class="qty-btn">−</div>
+                        <input type="text" class="qty-input" value="1" readonly>
+                        <div class="qty-btn">+</div>
+                    </div>
+                    <div class="cart-item-subtotal">¥299</div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="cart-item-image" style="background:#f0f4f8;">
+                    <span>👔</span>
+                </div>
+                <div class="cart-item-info">
+                    <h3>天丝垂感通勤衬衫</h3>
+                    <div class="variant">颜色：雾霾蓝</div>
+                    <div class="variant">尺码：S</div>
+                    <div class="price">¥189</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="remove-btn">删除</button>
+                    <div class="quantity-selector">
+                        <div class="qty-btn">−</div>
+                        <input type="text" class="qty-input" value="2" readonly>
+                        <div class="qty-btn">+</div>
+                    </div>
+                    <div class="cart-item-subtotal">¥378</div>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="cart-item-image" style="background:#f4f0f8;">
+                    <span>👖</span>
+                </div>
+                <div class="cart-item-info">
+                    <h3>高腰直筒烟管裤</h3>
+                    <div class="variant">颜色：经典黑</div>
+                    <div class="variant">尺码：M</div>
+                    <div class="price">¥219</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="remove-btn">删除</button>
+                    <div class="quantity-selector">
+                        <div class="qty-btn">−</div>
+                        <input type="text" class="qty-input" value="1" readonly>
+                        <div class="qty-btn">+</div>
+                    </div>
+                    <div class="cart-item-subtotal">¥219</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h2>订单摘要</h2>
+            <div class="summary-row">
+                <span>商品金额（4件）</span>
+                <span>¥896</span>
+            </div>
+            <div class="summary-row">
+                <span>运费</span>
+                <span class="free">免运费</span>
+            </div>
+            <div class="summary-row">
+                <span>优惠</span>
+                <span class="discount">-¥50</span>
+            </div>
+            <div class="summary-row total">
+                <span>应付总额</span>
+                <span>¥846</span>
+            </div>
+
+            <button class="checkout-btn">去结算</button>
+            <a href="products.html" class="continue-shopping">← 继续购物</a>
+
+            <div class="coupon-section">
+                <h4>使用优惠券</h4>
+                <div class="coupon-input-group">
+                    <input type="text" placeholder="请输入优惠码">
+                    <button>使用</button>
+                </div>
+            </div>
+
+            <div class="cart-tips">
+                <h5>温馨提示</h5>
+                · 满 ¥399 全国包邮，上海同城次日达
