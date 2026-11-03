@@ -42,7 +42,8 @@ export const createParticipantSession = async (
   metadata: { screen: { width: number; height: number }; browser: string },
 ) => {
   const manifest = await loadManifest();
-  if (!manifest || manifest.sites.length < 12)
+  // One category with all four models is enough to build a pair.
+  if (!manifest || manifest.sites.length < 4)
     return { error: "not_ready" as const };
   const sql = getSql();
   if (!sql) return { error: "store" as const };

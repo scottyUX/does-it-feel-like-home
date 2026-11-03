@@ -1,0 +1,190 @@
+{
+  "name": "prompt-language",
+  "description": "Same clothing brief and model, with the instructions and prompt written entirely in English or entirely in Simplified Chinese. Both allow remote photos.",
+  "sites": [
+    {
+      "label": "en",
+      "id": "1a2ad2a5",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "inferenceSettings": {
+        "maxTokens": 32000,
+        "reasoningMaxTokens": 4096
+      },
+      "finishReason": "stop",
+      "repaired": false,
+      "removed": [],
+      "imageAudit": [
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop",
+          "file": "assets/image-cbbb86649076a895.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop",
+          "file": "assets/image-7f89730e37b80034.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop",
+          "file": "assets/image-581656f27c2cc480.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551854838-212c50b4c184?w=400&h=500&fit=crop",
+          "file": "assets/image-ac276ab74efde552.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&h=600&fit=crop",
+          "file": "assets/image-a3cc0c42923841b5.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1434389677669-e08b4cead0e2?w=400&h=500&fit=crop",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=500&fit=crop",
+          "file": "assets/image-5f5c6bcf00c2530e.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop",
+          "file": "assets/image-64beed7f17e1b08d.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&h=500&fit=crop",
+          "file": "assets/image-8bba5716fa56b79b.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1523359346063-d879354c0ea5?w=400&h=500&fit=crop",
+          "file": "assets/image-775d129f2e24952e.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=500&fit=crop",
+          "file": "assets/image-26c23d24e64b3bee.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=400&h=500&fit=crop",
+          "file": "assets/image-94ee1763f2fcb3c3.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=500&fit=crop",
+          "file": "assets/image-d2fc2d83b2349b0a.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=700&h=800&fit=crop",
+          "file": "assets/image-17ae9ebb3a94caaf.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100&h=100&fit=crop",
+          "file": "assets/image-ac8b6e750bbc4afb.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=100&h=100&fit=crop",
+          "file": "assets/image-adcdef29ed6ebc44.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=100&h=100&fit=crop",
+          "file": "assets/image-0d81e6e52547df16.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=100&h=100&fit=crop",
+          "file": "assets/image-904d35f5190b4410.jpg"
+        }
+      ],
+      "usage": {
+        "promptTokens": 462,
+        "completionTokens": 19246,
+        "costUsd": 0.1164
+      },
+      "createdAt": "2026-11-03T04:51:03.725Z"
+    },
+    {
+      "label": "zh",
+      "id": "d3f41bd2",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-max",
+      "inferenceSettings": {
+        "maxTokens": 32000,
+        "reasoningMaxTokens": 4096
+      },
+      "finishReason": "stop",
+      "repaired": false,
+      "removed": [],
+      "imageAudit": [
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop",
+          "file": "assets/image-cbbb86649076a895.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=500&fit=crop",
+          "file": "assets/image-533029e4c6ef3d96.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop",
+          "file": "assets/image-581656f27c2cc480.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop",
+          "file": "assets/image-c25a25ed887f0a6c.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop",
+          "file": "assets/image-7f89730e37b80034.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop",
+          "file": "assets/image-5c446758abff58bb.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551854838-212c50b4c184?w=400&h=500&fit=crop",
+          "file": "assets/image-ac276ab74efde552.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1434389677669-e08b4cead0e2?w=400&h=500&fit=crop",
+          "error": "HTTP 404"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop",
+          "file": "assets/image-e73b5598665c76bc.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&h=500&fit=crop",
+          "file": "assets/image-858c6d2797972965.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=400&h=500&fit=crop",
+          "file": "assets/image-dbe0dc97b7e3a58e.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&h=500&fit=crop",
+          "file": "assets/image-29e5fe96dfaa67ae.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=700&fit=crop",
+          "file": "assets/image-18e02ba1639c689a.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=100&h=100&fit=crop",
+          "file": "assets/image-ac8b6e750bbc4afb.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop",
+          "file": "assets/image-d7fc9dcf83db0465.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=100&h=100&fit=crop",
+          "file": "assets/image-bb26b36255613018.jpg"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=100&h=100&fit=crop",
+          "file": "assets/image-6935a07a27baeb80.jpg"
+        }
+      ],
+      "usage": {
+        "promptTokens": 437,
+        "completionTokens": 17331,
+        "costUsd": 0.10486
+      },
+      "createdAt": "2026-11-03T04:56:02.990Z"
+    }
+  ]
+}

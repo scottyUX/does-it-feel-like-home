@@ -1551,3 +1551,48 @@
   background: var(--surface);
   font-size: var(--type-control);
 }
+
+.survey--experiment {
+  grid-template-rows: 58px minmax(0, 1fr);
+}
+
+.survey--experiment .survey-header {
+  grid-template-columns: 1fr;
+}
+
+.survey--experiment .top-instruction {
+  max-width: none;
+}
+
+.experiment-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.experiment-column {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+}
+
+.study .experiment-label {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--type-control);
+  font-weight: 500;
+}
+
+.experiment-label span {
+  color: var(--text-secondary);
+  font-size: var(--type-label);
+}
+
+.experiment-label a {
+  margin-left: auto;
+  color: var(--text-primary);
+  font-size: var(--type-label);
+}

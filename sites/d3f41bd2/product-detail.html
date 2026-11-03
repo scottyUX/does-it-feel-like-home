@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经典驼色西装外套 - 可衣 KEI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2d2d2d;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .header-top {
+            background: #2d2d2d;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 60px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2d2d2d;
+        }
+
+        .logo span {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #999;
+            display: block;
+            margin-top: -2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #555;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #2d2d2d;
+        }
+
+        .nav a.active {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #2d2d2d;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-icons a {
+            font-size: 14px;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: #2d2d2d;
+        }
+
+        .cart-badge {
+            position: relative;
+        }
+
+        .cart-badge .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #c9a96e;
+            color: #fff;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .breadcrumb {
+            margin-top: 90px;
+            padding: 20px 60px;
+            font-size: 13px;
+            color: #999;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumb a {
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #2d2d2d;
+        }
+
+        .product-detail {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px 60px 80px;
+            display: flex;
+            gap: 60px;
+        }
+
+        .product-images {
+            flex: 1;
+            max-width: 560px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 600px;
+            background: #f5f0eb;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-images {
+            display: flex;
+            gap: 12px;
+        }
+
+        .thumb-images .thumb {
+            width: 80px;
+            height: 80px;
+            background: #f5f0eb;
+            border: 2px solid transparent;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .thumb-images .thumb.active {
+            border-color: #2d2d2d;
+        }
+
+        .thumb-images .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            flex: 1;
+            padding-top: 20px;
+        }
+
+        .product-info .tag {
+            display: inline-block;
+            background: #c9a96e;
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 12px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .product-info h1 {
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .product-info .subtitle {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .product-info .price {
+            font-size: 32px;
+            color: #c9a96e;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .product-info .price .original {
+            font-size: 18px;
+            color: #ccc;
+            text-decoration: line-through;
+            margin-left: 12px;
+            font-weight: 400;
+        }
+
+        .option-group {
+            margin-bottom: 24px;
+        }
+
+        .option-group h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .option-group h4 span {
+            font-weight: 400;
+            color: #999;
+            margin-left: 8px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .color-options .color {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 2px;
+        }
+
+        .color-options .color.active {
+            border-color: #2d2d2d;
+        }
+
+        .color-options .color .inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-options .size {
+            width: 48px;
+            height: 40px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-options .size:hover {
+            border-color: #2d2d2d;
+        }
+
+        .size-options .size.active {
+            background: #2d2d2d;
+            color: #fff;
+            border-color: #2d2d2d;
+        }
+
+        .size-options .size.disabled {
+            color: #ccc;
+            border-color: #eee;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        .quantity-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .quantity-control button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: #f9f9f9;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quantity-control button:hover {
+            background: #eee;
+        }
+
+        .quantity-control input {
+            width: 60px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #2d2d2d;
+            color: #fff;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #c9a96e;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2d2d2d;
+            border: 1px solid #2d2d2d;
+            flex: 1;
+        }
+
+        .btn-outline:hover {
+            background: #2d2d2d;
+            color: #fff;
+        }
+
+        .product-meta {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .product-meta p {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .product-meta p strong {
+            color: #555;
+        }
+
+        .product-tabs {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 60px 80px;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 32px;
+        }
+
+        .tabs-header button {
+            padding: 12px 32px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #999;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tabs-header button.active {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        .tabs-header button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #2d2d2d;
+        }
+
+        .tab-content {
+            font-size: 14px;
+            color: #666;
+            line-height: 2;
+        }
+
+        .tab-content h4 {
+            font-size: 15px;
+            color: #2d2d2d;
+            margin: 20px 0 8px;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .size-table th,
+        .size-table td {
+            border: 1px solid #eee;
+            padding: 12px 16px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .size-table th {
+            background: #f9f7f4;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 60px;
+        }
+
+        .footer-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c9a96e;
+        }
+
+        .footer-bottom {
+            max-width: 1440px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .header-main {
+                padding: 16px 24px;
+            }
+            .breadcrumb {
+                padding: 20px 24px;
+            }
+            .product-detail {
+                padding: 20px 24px 60px;
+                flex-direction: column;
+            }
+            .product-images {
+                max-width: 100%;
+            }
+            .product-tabs {
+                padding: 0 24px 60px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .main-image {
+                height: 400px;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            新用户首单立减50元 | 全场满399元包邮 | 7天无理由退换
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">可衣<span>KEI SHANGHAI</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">全部商品</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场系列</a>
+                <a href="products.html">日常休闲</a>
+            </nav>
+            <div class="header-icons">
+                <a href="products.html">搜索</a>
+                <a href="cart.html" class="cart-badge">购物车<span class="badge">2</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">首页</a> / <a href="products.html">全部商品</a> / <a href="products.html">职场通勤</a> / 经典驼色西装外套
+    </div>
+
+    <div class="product-detail">
+        <div class="product-images">
+            <div class="main-image">
+                <img src="assets/image-18e02ba1639c689a.jpg" alt="经典驼色西装外套">
+            </div>
+            <div class="thumb-images">
+                <div class="thumb active">
+                    <img src="assets/image-ac8b6e750bbc4afb.jpg" alt="正面">
+                </div>
+                <div class="thumb">
+                    <img src="assets/image-d7fc9dcf83db0465.jpg" alt="侧面">
+                </div>
+                <div class="thumb">
+                    <img src="assets/image-bb26b36255613018.jpg" alt="细节">
+                </div>
+                <div class="thumb">
+                    <img src="assets/image-6935a07a27baeb80.jpg" alt="搭配">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <span class="tag">2024秋冬新品</span>
+            <h1>经典驼色西装外套</h1>
+            <p class="subtitle">意大利进口面料 · 修身剪裁 · 四季可穿</p>
+            <p class="price">¥599</p>
+
+            <div class="option-group">
+                <h4>颜色 <span>驼色</span></h4>
+                <div class="color-options">
+                    <div class="color active"><div class="inner" style="background:#c8a87c;"></div></div>
+                    <div class="color"><div class="inner" style="background:#2d2d2d;"></div></div>
+                    <div class="color"><div class="inner" style="background:#8b8b8b;"></div></div>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h4>尺码 <span>请选择尺码</span></h4>
+                <div class="size-options">
+                    <div class="size">XS</div>
+                    <div class="size">S</div>
+                    <div class="size active">M</div>
+                    <div class="size">L</div>
+                    <div class="size">XL</div>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <h4>数量</h4>
+                <div class="quantity-group">
+                    <div class="quantity-control">
+                        <button>-</button>
+                        <input type="text" value="1" readonly>
+                        <button>+</button>
+                    </div>
+                    <span style="font-size:12px;color:#999;">库存充足</span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="cart.html" class="btn btn-primary">加入购物车</a>
+                <a href="cart.html" class="btn btn-outline">立即购买</a>
+            </div>
+
+            <div class="product-meta">
+                <p><strong>面料：</strong>70%羊毛 25%涤纶 5%氨纶</p>
+                <p><strong>产地：</strong>中国上海</p>
+                <p><strong>洗涤：</strong>建议干洗，不可漂白</p>
+                <p><strong>配送：</strong>付款后48小时内发货，顺丰快递</p>
+                <p><strong>退换：</strong>签收后7天内支持无理由退换</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-tabs">
+        <div class="tabs-header">
+            <button class="active">商品详情</button>
+            <button>尺码指南</button>
+            <button>用户评价 (128)</button>
+        </div>
+        <div class="tab-content">
+            <h4>设计理念</h4>
+            <p>这件经典驼色西装外套采用意

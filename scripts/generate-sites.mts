@@ -331,7 +331,9 @@ const generateOne = async (
   siteType: SiteType,
   studyPrompt: string,
   instructions: string,
+  options: { sourceDir?: string; repairMessage?: string; minPages?: number } = {},
 ) => {
+  const minPages = options.minPages ?? 4;
   const id = randomBytes(4).toString("hex");
   const messages = [
     { role: "system", content: instructions },
@@ -346,7 +348,7 @@ const generateOne = async (
   if (
     !hasHtmlPage(files) ||
     truncated ||
-    Object.keys(files).filter((name) => name.endsWith(".html")).length < 4
+    Object.keys(files).filter((name) => name.endsWith(".html")).length < minPages
   ) {
     repaired = true;
     console.log(
@@ -358,6 +360,7 @@ const generateOne = async (
       {
         role: "user",
         content:
+          options.repairMessage ??
           "The previous answer was incomplete or not valid HTML. Return the full site again in the FILE format. Keep the same design and the same Simplified Chinese copy.",
       },
     ]);
@@ -370,7 +373,7 @@ const generateOne = async (
 
   if (
     !hasHtmlPage(files) ||
-    Object.keys(files).filter((name) => name.endsWith(".html")).length < 4 ||
+    Object.keys(files).filter((name) => name.endsWith(".html")).length < minPages ||
     result.finishReason === "length"
   ) {
     await mkdir(path.join(ROOT,"generations","failed"),{recursive:true});
@@ -391,7 +394,8 @@ const generateOne = async (
   }
 
   await writeTree(
-    path.join(ROOT, "sources", siteType, ...model.id.split("/")),
+    options.sourceDir ??
+      path.join(ROOT, "sources", siteType, ...model.id.split("/")),
     files,
   );
   const imageAudit = await localizeImages(path.join(ROOT, "sites", id), files);
@@ -444,8 +448,59 @@ const mapPool = async <T, R>(
   return results;
 };
 
+type ExperimentRun = {
+  label: string;
+  model: string;
+  siteType: SiteType;
+  instructions: string;
+  prompt: string;
+  repair?: string;
+};
+
+type ExperimentConfig = {
+  description: string;
+  minPages?: number;
+  runs: ExperimentRun[];
+};
+
+// Experiments live in prompts/experiments/<name>/ and never touch the study manifests or sources.
+const runExperiment = async (key: string, name: string) => {
+  const dir = path.join(ROOT, "prompts", "experiments", name);
+  const config = JSON.parse(
+    await readFile(path.join(dir, "experiment.json"), "utf8"),
+  ) as ExperimentConfig;
+  const results = [];
+  for (const run of config.runs) {
+    const model = MODELS.find((candidate) => candidate.id === run.model);
+    if (!model) throw new Error(`Unknown model ${run.model}`);
+    const record = await generateOne(
+      key,
+      model,
+      run.siteType,
+      (await readFile(path.join(dir, run.prompt), "utf8")).trim(),
+      (await readFile(path.join(dir, run.instructions), "utf8")).trim(),
+      {
+        sourceDir: path.join(ROOT, "sources", "experiments", name, run.label),
+        repairMessage: run.repair,
+        minPages: config.minPages,
+      },
+    );
+    results.push({ label: run.label, ...record });
+  }
+  await mkdir(path.join(ROOT, "data", "experiments"), { recursive: true });
+  await writeFile(
+    path.join(ROOT, "data", "experiments", `${name}.json`),
+    `${JSON.stringify({ name, description: config.description, sites: results }, null, 2)}\n`,
+  );
+  console.log(`experiment ${name} finished, $${spent.usd.toFixed(3)}`);
+};
+
 const main = async () => {
   const key = await loadKey();
+  const experiment = process.argv
+    .find((arg) => arg.startsWith("--experiment="))
+    ?.slice("--experiment=".length);
+  if (experiment) return runExperiment(key, experiment);
   const instructions = await readFile(
     path.join(ROOT, "prompts", "generation-instructions.txt"),
     "utf8",

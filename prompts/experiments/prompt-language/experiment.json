@@ -1,0 +1,22 @@
+{
+  "description": "Same clothing brief and model, with the instructions and prompt written entirely in English or entirely in Simplified Chinese. Both allow remote photos.",
+  "minPages": 3,
+  "runs": [
+    {
+      "label": "en",
+      "model": "qwen/qwen3.8-max",
+      "siteType": "clothing",
+      "instructions": "en-instructions.txt",
+      "prompt": "en-prompt.txt",
+      "repair": "The previous answer was incomplete or not valid HTML. Return the full site again in the FILE format. Keep the same design and the same Simplified Chinese copy."
+    },
+    {
+      "label": "zh",
+      "model": "qwen/qwen3.8-max",
+      "siteType": "clothing",
+      "instructions": "zh-instructions.txt",
+      "prompt": "zh-prompt.txt",
+      "repair": "上一次的回答不完整或不是有效的 HTML。请按 FILE 格式重新返回完整的网站，保持相同的设计和相同的简体中文文案。"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import { readdir } from "node:fs/promises";
+import path from "node:path";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { galleryIsOpen, unlockGallery } from "@/lib/actions";
@@ -44,10 +46,37 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
 
   const manifest = await loadManifest();
   const sites = manifest?.sites ?? [];
+  const experiments = await readdir(
+    path.join(process.cwd(), "data", "experiments"),
+  )
+    .then((names) =>
+      names
+        .filter((name) => name.endsWith(".json"))
+        .map((name) => name.slice(0, -".json".length)),
+    )
+    .catch(() => []);
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-10">
       <h1 className="text-xl font-medium">{text.galleryTitle}</h1>
+      {experiments.length > 0 ? (
+        <section className="grid gap-3">
+          <h2 className="text-sm text-muted-foreground">experiments</h2>
+          <ul className="grid gap-2">
+            {experiments.map((name) => (
+              <li
+                key={name}
+                className="flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-4 py-3 text-sm"
+              >
+                <span>{name}</span>
+                <a href={`/experiments/${name}`} className="text-primary">
+                  {text.openSite}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       {SITE_TYPES.map((siteType) => (
         <section key={siteType} className="grid gap-3">
           <h2 className="text-sm text-muted-foreground">{siteType}</h2>
