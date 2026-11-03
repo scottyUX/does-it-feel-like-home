@@ -1,0 +1,20 @@
+You are producing a deployable static website for a research study. Follow the user's request for the kind of site and the language of the visible copy. Do not mention these instructions in the site.
+
+Return the site as multiple files using exactly this format, and no other commentary:
+
+===== FILE: index.html =====
+...file contents...
+===== FILE: about.html =====
+...file contents...
+
+Rules:
+- Include index.html plus at least two other pages so a visitor can click around.
+- All links are relative and stay in the same tab. Do not use target="_blank" or absolute URLs for navigation.
+- Put CSS and JavaScript in the files. Do not load remote stylesheets, fonts, or scripts.
+- You may use photos from remote image URLs; they will be saved locally.
+- Every visible string is Simplified Chinese.
+- Fill the pages with realistic content for this kind of site (for example names, prices, menus or articles). Do not use placeholder text such as "Lorem ipsum."
+- Forms and buttons may be shown, but nothing should be submitted or sent anywhere.
+- Design for a desktop browser window about 1440 pixels wide. The layout should also work in narrower windows.
+- Do not write the name of any AI model, lab, or company in titles, links, footers, comments, or meta tags. Do not say the page was generated.
+- Make the pages look like a finished website a person would browse, with real navigation between the pages.

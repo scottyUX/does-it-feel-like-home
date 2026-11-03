@@ -2,7 +2,8 @@ import type { Locale } from "@/lib/types";
 
 export type BackgroundAnswers = {
   age: string;
-  gender: string;
+  gender: string[];
+  genderDescribe: string;
   born: string;
   bornSpecify: string;
   grewUp: string;
@@ -16,15 +17,21 @@ export type BackgroundAnswers = {
   designExperience: string;
 };
 
+export type TextAnswerKey = Exclude<keyof BackgroundAnswers, "gender">;
+
 type Option = { value: string; label: string };
 
 export type BackgroundQuestion = {
   id: keyof BackgroundAnswers;
-  specifyKey?: keyof BackgroundAnswers;
+  specifyKey?: TextAnswerKey;
   prompt: string;
   optional?: boolean;
+  multiple?: boolean;
   options: Option[];
 };
+
+export const GENDER_UNDISCLOSED = "undisclosed";
+export const GENDER_SELF_DESCRIBE = "self_describe";
 
 const questions = {
   en: [
@@ -41,13 +48,15 @@ const questions = {
     },
     {
       id: "gender",
-      prompt: "What is your gender? (optional)",
+      prompt: "What is your gender?",
       optional: true,
+      multiple: true,
       options: [
         { value: "woman", label: "Woman" },
         { value: "man", label: "Man" },
         { value: "nonbinary", label: "Non-binary" },
-        { value: "undisclosed", label: "Prefer not to say" },
+        { value: "undisclosed", label: "Prefer not to disclose" },
+        { value: "self_describe", label: "Prefer to self-describe" },
       ],
     },
     {
@@ -134,13 +143,15 @@ const questions = {
     },
     {
       id: "gender",
-      prompt: "您的性别？（可选）",
+      prompt: "您的性别？",
       optional: true,
+      multiple: true,
       options: [
         { value: "woman", label: "女" },
         { value: "man", label: "男" },
         { value: "nonbinary", label: "非二元性别" },
         { value: "undisclosed", label: "不愿透露" },
+        { value: "self_describe", label: "自行描述" },
       ],
     },
     {
@@ -223,6 +234,10 @@ const allowed = (question: BackgroundQuestion) => new Set(question.options.map((
 export const backgroundIsComplete = (locale: Locale, answers: BackgroundAnswers) =>
   backgroundQuestions(locale).every((question) => {
     const value = answers[question.id];
+    if (Array.isArray(value)) {
+      if (!value.every((item) => allowed(question).has(item))) return false;
+      return !value.includes(GENDER_UNDISCLOSED) || value.length === 1;
+    }
     if (!value) return Boolean(question.optional);
     if (!allowed(question).has(value)) return false;
     if (question.specifyKey && value === "other") return answers[question.specifyKey].trim().length > 0;
@@ -230,3 +245,20 @@ export const backgroundIsComplete = (locale: Locale, answers: BackgroundAnswers)
   });
 
 export const backgroundIsValid = (answers: BackgroundAnswers) => backgroundIsComplete("en", answers);
+
+// Drafts saved before gender became multi-select hold a single string.
+export const normalizeGender = (value: unknown): string[] =>
+  Array.isArray(value)
+    ? [...new Set(value.filter((item): item is string => typeof item === "string"))]
+    : typeof value === "string" && value
+      ? [value]
+      : [];
+
+export const toggleGender = (current: string[], value: string) => {
+  if (value === GENDER_UNDISCLOSED)
+    return current.includes(value) ? [] : [value];
+  if (current.includes(GENDER_UNDISCLOSED)) return current;
+  return current.includes(value)
+    ? current.filter((item) => item !== value)
+    : [...current, value];
+};

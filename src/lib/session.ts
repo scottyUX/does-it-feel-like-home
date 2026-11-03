@@ -42,7 +42,8 @@ export const createParticipantSession = async (
   metadata: { screen: { width: number; height: number }; browser: string },
 ) => {
   const manifest = await loadManifest();
-  if (!manifest || manifest.sites.length < 12)
+  // One category with all four models is enough to build a pair.
+  if (!manifest || manifest.sites.length < 4)
     return { error: "not_ready" as const };
   const sql = getSql();
   if (!sql) return { error: "store" as const };
@@ -220,7 +221,7 @@ export const saveBackground = async (input: BackgroundAnswers) => {
   await sql`
     insert into background (
       session_id, lives_now, years_abroad, design_experience,
-      age, gender, born, born_specify, grew_up, grew_up_specify, lives_specify,
+      age, gender_identities, gender_self_describe, born, born_specify, grew_up, grew_up_specify, lives_specify,
       years_outside, first_language, language_specify, chinese_web_use
     )
     values (
@@ -229,7 +230,8 @@ export const saveBackground = async (input: BackgroundAnswers) => {
       ${input.yearsOutside},
       ${input.designExperience},
       ${input.age},
-      ${input.gender || null},
+      ${JSON.stringify(input.gender)}::jsonb,
+      ${input.genderDescribe || null},
       ${input.born},
       ${input.born === "other" ? input.bornSpecify : null},
       ${input.grewUp},

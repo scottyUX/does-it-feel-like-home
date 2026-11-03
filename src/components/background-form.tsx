@@ -6,14 +6,20 @@ import { submitBackground } from "@/lib/actions";
 import {
   backgroundIsComplete,
   backgroundQuestions,
+  GENDER_SELF_DESCRIBE,
+  GENDER_UNDISCLOSED,
+  normalizeGender,
+  toggleGender,
   type BackgroundAnswers,
+  type TextAnswerKey,
 } from "@/lib/background";
 import { copy } from "@/lib/copy";
 import type { Locale } from "@/lib/types";
 
 const emptyAnswers: BackgroundAnswers = {
   age: "",
-  gender: "",
+  gender: [],
+  genderDescribe: "",
   born: "",
   bornSpecify: "",
   grewUp: "",
@@ -57,7 +63,12 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
           draft = (await response.json()).background;
         } catch {}
       if (active) {
-        if (draft) setAnswers({ ...emptyAnswers, ...draft });
+        if (draft)
+          setAnswers({
+            ...emptyAnswers,
+            ...draft,
+            gender: normalizeGender(draft.gender),
+          });
         setRestored(true);
       }
     })();
@@ -106,10 +117,16 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
   }, [restored, storageKey]);
   const ready = backgroundIsComplete(locale, answers);
 
-  const handleChange = (key: keyof BackgroundAnswers, value: string) => {
+  const handleChange = (key: TextAnswerKey, value: string) => {
     setMissing(null);
     setAnswers((current) => ({ ...current, [key]: value }));
   };
+
+  const handleGender = (value: string) =>
+    setAnswers((current) => ({
+      ...current,
+      gender: toggleGender(current.gender, value),
+    }));
 
   const handleSubmit = async () => {
     if (pending) return;
@@ -170,10 +187,30 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
                   </div>
                   <div
                     className="background-options"
-                    role="radiogroup"
+                    role={question.multiple ? "group" : "radiogroup"}
                     aria-labelledby={titleId}
                   >
                     {question.options.map((option) => {
+                      if (question.multiple) {
+                        const selected = answers.gender.includes(option.value);
+                        const blocked =
+                          option.value !== GENDER_UNDISCLOSED &&
+                          answers.gender.includes(GENDER_UNDISCLOSED);
+                        return (
+                          <button
+                            key={option.value}
+                            type="button"
+                            disabled={!restored || pending || blocked}
+                            className={`answer checkbox-answer${selected ? " is-selected" : ""}`}
+                            role="checkbox"
+                            aria-checked={selected}
+                            onClick={() => handleGender(option.value)}
+                          >
+                            <span className="checkbox-square" />
+                            {option.label}
+                          </button>
+                        );
+                      }
                       const selected = answers[question.id] === option.value;
                       return (
                         <button
@@ -184,7 +221,7 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
                           role="radio"
                           aria-checked={selected}
                           onClick={() =>
-                            handleChange(question.id, option.value)
+                            handleChange(question.id as TextAnswerKey, option.value)
                           }
                         >
                           <span className="radio" />
@@ -193,6 +230,20 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
                       );
                     })}
                   </div>
+                  {question.multiple &&
+                  answers.gender.includes(GENDER_SELF_DESCRIBE) ? (
+                    <label className="self-describe-field">
+                      <span>{text.describeGender}</span>
+                      <input
+                        disabled={!restored || pending}
+                        maxLength={500}
+                        value={answers.genderDescribe}
+                        onChange={(event) =>
+                          handleChange("genderDescribe", event.target.value)
+                        }
+                      />
+                    </label>
+                  ) : null}
                   {question.specifyKey && answers[question.id] === "other" ? (
                     <input
                       disabled={!restored || pending}

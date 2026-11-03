@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 - 上海女装品牌 | 日常与通勤穿搭</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2c2c2c;
+            background: #fff;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        /* Header */
+        .top-bar {
+            background: #f8f4f0;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 13px;
+            color: #8b6f5e;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .header-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2c2c2c;
+        }
+        .logo span {
+            color: #c4956a;
+        }
+        nav {
+            display: flex;
+            gap: 36px;
+        }
+        nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav a:hover, nav a.active {
+            color: #c4956a;
+        }
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #c4956a;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #2c2c2c;
+        }
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #c4956a;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: #f5f0eb;
+        }
+        .hero-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+        }
+        .hero-text {
+            max-width: 500px;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: #2c2c2c;
+        }
+        .hero-text p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 32px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #2c2c2c;
+            color: #fff;
+            padding: 14px 40px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: #c4956a;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #2c2c2c;
+            color: #2c2c2c;
+            padding: 14px 40px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: #2c2c2c;
+            color: #fff;
+        }
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&h=600&fit=crop') center/cover;
+        }
+        /* Categories */
+        .section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .section-title p {
+            color: #999;
+            font-size: 15px;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .category-card {
+            position: relative;
+            height: 380px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        .category-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            color: #fff;
+        }
+        .category-card .overlay h3 {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .category-card .overlay p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        /* Featured Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .product-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+        .product-card .image {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .product-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .product-card:hover .image img {
+            transform: scale(1.03);
+        }
+        .product-card .tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #c4956a;
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 10px;
+        }
+        .product-card h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .product-card .price {
+            font-size: 16px;
+            color: #c4956a;
+            font-weight: 600;
+        }
+        .product-card .price .original {
+            font-size: 13px;
+            color: #bbb;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        /* Banner */
+        .banner {
+            background: #f8f4f0;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .banner h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .banner p {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
+        .footer-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .footer-col h4 {
+            font-size: 15px;
+            margin-bottom: 16px;
+            color: #c4956a;
+        }
+        .footer-col a {
+            display: block;
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            max-width: 1440px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            nav {
+                display: none;
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .hero-image {
+                width: 40%;
+                opacity: 0.3;
+            }
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 48px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        新用户首单立减50元 | 全场满399元包邮 | 上海地区次日达
+    </div>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">通勤系列</a>
+                <a href="products.html">休闲日常</a>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-badge">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-image"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>2025 春夏新品<br>轻盈自在的穿搭美学</h1>
+                <p>从通勤到周末，从简约到精致，可衣为你打造每一个场景的优雅穿搭。</p>
+                <a href="products.html" class="btn-primary">探索新品</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>按风格选购</h2>
+            <p>找到属于你的穿搭风格</p>
+        </div>
+        <div class="categories">
+            <a href="products.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop" alt="通勤系列">
+                <div class="overlay">
+                    <h3>通勤系列</h3>
+                    <p>优雅知性 · 干练不失温柔</p>
+                </div>
+            </a>
+            <a href="products.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop" alt="休闲日常">
+                <div class="overlay">
+                    <h3>休闲日常</h3>
+                    <p>舒适自在 · 轻松出街</p>
+                </div>
+            </a>
+            <a href="products.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="约会穿搭">
+                <div class="overlay">
+                    <h3>约会穿搭</h3>
+                    <p>浪漫精致 · 心动瞬间</p>
+                </div>
+            </a>
+            <a href="products.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1551854838-212c50b4c184?w=400&h=500&fit=crop" alt="运动休闲">
+                <div class="overlay">
+                    <h3>运动休闲</h3>
+                    <p>活力满满 · 自在呼吸</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>本周精选</h2>
+            <p>编辑推荐 · 品质之选</p>
+        </div>
+        <div class="products-grid">
+            <a href="product-detail.html" class="product-card">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop" alt="法式方领连衣裙">
+                    <span class="tag">新品</span>
+                </div>
+                <h4>法式方领泡泡袖连衣裙</h4>
+                <p class="price">¥359</p>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1551854838-212c50b4c184?w=400&h=500&fit=crop" alt="针织开衫">
+                </div>
+                <h4>慵懒风短款针织开衫</h4>
+                <p class="price">¥229</p>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop" alt="高腰阔腿裤">
+                    <span class="tag">热卖</span>
+                </div>
+                <h4>垂感高腰阔腿裤</h4>
+                <p class="price">¥289 <span class="original">¥369</span></p>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="西装外套">
+                </div>
+                <h4>轻薄西装外套 · 燕麦色</h4>
+                <p class="price">¥429</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="banner">
+        <h2>可衣，让穿衣成为享受</h2>
+        <p>我们相信，好的衣服不必昂贵，但一定要让你感到自信和舒适。</p>
+        <a href="products.html" class="btn-outline">浏览全部商品</a>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>可衣</h3>
+                <p>可衣是一家成立于上海的女装品牌，专注于为20-40岁女性提供高品质、高性价比的日常穿搭。我们用心挑选每一款面料，注重剪裁与细节，让每一位女性都能穿出自信与优雅。</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="products.html">尺码对照表</a>
+                <a href="cart.html">购物车</a>
+                <a href="index.html">会员权益</a>
+            </div>
+            <div class="footer-col">
+                <h4>售后服务</h4>
+                <a href="index.html">退换货政策</a>
+                <a href="index.html">物流查询</a>
+                <a href="index.html">常见问题</a>
+                <a href="index.html">联系客服</a>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <a href="index.html">上海市静安区南京西路1266号</a>
+                <a href="index.html">电话：021-6288-9900</a>
+                <a href="index.html">邮箱：hello@keyi-fashion.com</a>
+                <a href="index.html">营业时间：9:00-21:00</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 可衣服饰有限公司 版权所有 | 沪ICP备2025012345号
+        </div>
+    </footer>
+</body>
+</html>
