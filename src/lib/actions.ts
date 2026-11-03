@@ -153,9 +153,8 @@ export const submitBackground = async (input: BackgroundAnswers) => {
   redirect("/done");
 };
 
-// Testers with the gallery unlocked can take the study again from the start.
+// While the study is in testing, anyone can take it again from the start.
 export const restartStudy = async () => {
-  if (!(await galleryIsOpen())) redirect("/done");
   await forgetSession();
   redirect("/");
 };

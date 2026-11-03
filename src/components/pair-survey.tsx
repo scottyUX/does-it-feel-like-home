@@ -6,7 +6,7 @@ import { WebsiteAnnotations } from "@/components/website-annotations";
 import { usePairDraft } from "@/hooks/use-pair-draft";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { submitPair } from "@/lib/actions";
+import { restartStudy, submitPair } from "@/lib/actions";
 import { copy, reasonPrompts } from "@/lib/copy";
 import type {
   CurrentPair,
@@ -709,6 +709,9 @@ const SiteDetailsToggle = ({
       >
         {open ? "Hide details" : "Show details"}
       </button>
+      <form action={restartStudy}>
+        <button type="submit">Start over</button>
+      </form>
       {open ? (
         <span>
           {label} · {site?.model.replace(/ \((English|Chinese) prompt\)$/, "") ?? "Unknown model"} · {language}

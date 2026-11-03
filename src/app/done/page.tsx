@@ -1,6 +1,6 @@
 import { StudyShell } from "@/components/study-shell";
 import { redirect } from "next/navigation";
-import { galleryIsOpen, restartStudy } from "@/lib/actions";
+import { restartStudy } from "@/lib/actions";
 import { copy } from "@/lib/copy";
 import { readVisit } from "@/lib/session";
 
@@ -12,7 +12,6 @@ export default async function DonePage() {
   if (visit.phase === "pair") redirect("/compare");
   if (visit.phase === "background") redirect("/background");
   const text = copy[visit.locale];
-  const canRestart = await galleryIsOpen();
   return (
     <StudyShell locale={visit.locale}>
       <div className="static-page">
@@ -25,11 +24,9 @@ export default async function DonePage() {
           <p>{text.thanksBody}</p>
           <strong>{text.thanksClose}</strong>
           <small>{text.thanksContact}</small>
-          {canRestart ? (
-            <form action={restartStudy} className="restart-study">
-              <button type="submit">Start again (testing)</button>
-            </form>
-          ) : null}
+          <form action={restartStudy} className="restart-study">
+            <button type="submit">Start again (testing)</button>
+          </form>
         </main>
       </div>
     </StudyShell>
