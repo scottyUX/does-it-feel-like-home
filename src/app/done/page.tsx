@@ -13,7 +13,7 @@ export default async function DonePage() {
   if (visit.phase === "background") redirect("/background");
   const text = copy[visit.locale];
   return (
-    <StudyShell locale={visit.locale}>
+    <StudyShell locale={visit.locale} lockHistory>
       <div className="static-page">
         <main className="thank-you-card">
           <div className="completion-mark" aria-hidden="true">

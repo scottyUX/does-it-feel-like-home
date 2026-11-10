@@ -159,7 +159,7 @@ export const BackgroundForm = ({ locale, sessionId }: BackgroundFormProps) => {
   };
 
   return (
-    <StudyShell locale={locale}>
+    <StudyShell locale={locale} lockHistory>
       <div className="background-page">
         <main className="background-form">
           <header className="background-heading">

@@ -1633,3 +1633,20 @@
   font-size: var(--type-body-sm, 14px);
   font-weight: 500;
 }
+
+.history-notice {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 40;
+  transform: translateX(-50%);
+  max-width: min(480px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--action-primary);
+  color: var(--text-on-dark);
+  font-size: var(--type-control);
+  line-height: 1.4;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}

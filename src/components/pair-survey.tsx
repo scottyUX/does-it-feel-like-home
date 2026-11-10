@@ -327,15 +327,8 @@ export const PairSurvey = ({ pair, showTour, details }: PairSurveyProps) => {
       }));
     };
     window.addEventListener("message", receive);
-    const beforeBack = () => {
-      if (!window.confirm(text.leave)) history.forward();
-    };
-    window.addEventListener("popstate", beforeBack);
-    return () => {
-      window.removeEventListener("message", receive);
-      window.removeEventListener("popstate", beforeBack);
-    };
-  }, [ready, pair.leftId, pair.rightId, setState, text.leave]);
+    return () => window.removeEventListener("message", receive);
+  }, [ready, pair.leftId, pair.rightId, setState]);
   useEffect(() => {
     if (!ready) return;
     const timer = setTimeout(() => {
@@ -363,7 +356,7 @@ export const PairSurvey = ({ pair, showTour, details }: PairSurveyProps) => {
   const progress = ((pair.pairIndex + 1) / pair.pairCount) * 100;
 
   return (
-    <StudyShell locale={pair.locale} shellRef={shellRef}>
+    <StudyShell locale={pair.locale} shellRef={shellRef} lockHistory>
       <div
         className={`survey survey--dock survey--stacked${marking ? " is-marking" : ""}`}
       >

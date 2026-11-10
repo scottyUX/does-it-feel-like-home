@@ -12,7 +12,7 @@ export const Introduction = ({ locale, pairCount }: IntroductionProps) => {
   const text = copy[locale];
 
   return (
-    <StudyShell locale={locale}>
+    <StudyShell locale={locale} lockHistory>
       <div className="static-page">
         <main className="intro-card">
           <header className="intro-heading">
