@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国经济稳中向好，高质量发展取得显著成效 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #1a3c6e;
+            --accent-color: #c0392b;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover {
+            color: var(--primary-color);
+        }
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5px 0;
+            font-size: 0.85rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        /* Article Content */
+        .article-header {
+            padding: 40px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        .article-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .article-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 1.5rem;
+        }
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        .article-body p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+        .article-body h2 {
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        .article-body blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 20px 0;
+            color: var(--text-light);
+            font-style: italic;
+            background: var(--bg-light);
+            padding: 15px;
+        }
+        .tags {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .tags span {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        /* Sidebar */
+        .layout-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-top: 50px;
+            margin-bottom: 60px;
+        }
+        .sidebar-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .sidebar-card h3 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .sidebar-list li {
+            list-style: none;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 12px;
+        }
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+        .sidebar-list a {
+            display: block;
+            font-size: 0.95rem;
+        }
+        /* Comment Section Mockup */
+        .comment-section {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+        .comment-box textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .comment-box button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .layout-container { grid-template-columns: 1fr; }
+            .article-title { font-size: 1.6rem; }
+            .article-image { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <div class="container">
+            <span>2024 年 5 月 15 日 星期三</span>
+            <span>订阅 | 登录 | 注册</span>
+        </div>
+    </div>
+    <div class="container nav-container">
+        <a href="index.html" class="logo">每日视界</a>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="business.html">财经</a></li>
+                <li><a href="article.html">科技</a></li>
+                <li><a href="article.html" style="color: var(--primary-color); font-weight: bold;">深度报道</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="padding-top: 30px;">
+    <header class="article-header">
+        <div class="breadcrumb">首页 / 国内新闻 / 经济要闻</div>
+        <h1 class="article-title">中国经济稳中向好，高质量发展取得显著成效</h1>
+        <div class="article-meta">
+            来源：每日视界 | 作者：张建国 | 2024-05-15 09:30 | 阅读次数：15,204
+        </div>
+    </header>
+    
+    <div class="article-image">新闻配图：经济发展数据图表</div>
+
+    <article class="article-body">
+        <p>今年以来，面对复杂多变的国际环境和艰巨繁重的国内改革发展稳定任务，我国经济发展延续回升向好态势，高质量发展扎实推进。</p>
+        
+        <h2>新质生产力加速形成</h2>
+        <p>在科技创新的驱动下，新质生产力成为经济增长的重要引擎。从新能源汽车到高端装备制造，一系列具有代表性的新兴产业发展迅猛。数据显示，一季度高技术制造业增加值同比增长 7.5%，增速明显快于规模以上工业。</p>
+        
+        <p>专家表示，随着政策红利的持续释放，企业创新活力不断迸发，产业链供应链韧性和安全水平稳步提升。</p>
+
+        <blockquote>
+            “我们看到了结构优化的明显趋势，未来经济的增长将更多依赖技术进步和效率提升。”——国家统计局新闻发言人
+        </blockquote>
+
+        <h2>消费市场稳步复苏</h2>
+        <p>内需是经济发展的基本动力。春节假期后，消费市场持续活跃。线上消费增长强劲，服务消费潜力不断释放。五一假期临近，旅游预订量创历史新高，显示出居民消费信心的回升。</p>
+        
+        <p>与此同时，就业局势保持总体稳定。新增就业人数达到预期目标，重点群体就业支持政策落实有力。居民收入稳步增长，为扩大消费提供了坚实基础。</p>
+
+        <h2>绿色发展成效显著</h2>
+        <p>生态文明建设持续推进，绿色低碳转型步伐加快。清洁能源装机容量占比进一步提高，单位 GDP 能耗持续下降。在“双碳”目标引领下，经济社会发展全面绿色转型成效初显。</p>
+
+        <p>展望未来，中国经济发展具备韧性强、潜力大、活力足的特点。在宏观政策适度加力、精准发力的支撑下，全年经济社会发展目标有望如期实现，为世界经济复苏注入更多稳定性。</p>
+    </article>
+
+    <div class="tags">
+        <span>标签：</span> 中国经济 | 高质量发展 | 新质生产力 | 科技创新
+    </div>
+
+    <div class="layout-container">
+        <section class="comment-section">
+            <h3>评论 (56)</h3>
+            <div class="comment-box">
+                <textarea placeholder="说点什么吧..."></textarea>
+                <button onclick="alert('评论提交成功（演示）')">发表评论</button>
+            </div>
+        </section>
+        
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3>热门阅读</h3>
+                <ul class="sidebar-list">
+                    <li><a href="article.html">人工智能推动制造业升级，企业数字化转型加速</a></li>
+                    <li><a href="article.html">5G 基站覆盖率达到 95%，农村地区网络提速</a></li>
+                    <li><a href="business.html">新能源股票持续攀升，市场信心回暖</a></li>
+                    <li><a href="article.html">城市交通网络优化项目正式完工，市民出行更便捷</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-card">
+                <h3>推荐阅读</h3>
+                <ul class="sidebar-list">
+                    <li><a href="about.html">每日视界 2023 年度社会责任报告发布</a></li>
+                    <li><a href="business.html">专访：如何在不确定性中寻找增长机会</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>每日视界</h4>
+                <ul>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="about.html">联系方式</a></li>
+                    <li><a href="about.html">加入团队</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>栏目</h4>
+                <ul>
+                    <li><a href="business.html">国内新闻</a></li>
+                    <li><a href="business.html">国际新闻</a></li>
+                    <li><a href="business.html">财经资讯</a></li>
+                    <li><a href="business.html">科技前沿</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务</h4>
+                <ul>
+                    <li><a href="about.html">广告合作</a></li>
+                    <li><a href="about.html">内容授权</a></li>
+                    <li><a href="about.html">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 每日视界 版权所有。京 ICP 备 12345678 号
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

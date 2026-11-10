@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程详情 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        .back-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 30px 0 60px;
+        }
+
+        /* Left Column */
+        .course-video {
+            background: #000;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .play-icon {
+            font-size: 60px;
+            opacity: 0.8;
+        }
+        .course-intro h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .course-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .course-desc {
+            margin-bottom: 30px;
+        }
+        .course-desc h3 {
+            margin-bottom: 10px;
+        }
+        .course-desc p {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .syllabus-list {
+            list-style: none;
+        }
+        .syllabus-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+        }
+        .syllabus-item:first-child { padding-top: 0; }
+        .syllabus-item:last-child { border-bottom: none; }
+        .chapter-title {
+            font-weight: 600;
+        }
+        .lesson-count {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        .free-tag {
+            background: #d1fae5;
+            color: #059669;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .instructor-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .instructor-avatar {
+            width: 60px;
+            height: 60px;
+            background: #cbd5e1;
+            border-radius: 50%;
+        }
+
+        /* Right Column (Sticky) */
+        .price-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .price {
+            font-size: 36px;
+            color: var(--danger);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .original-price {
+            color: var(--text-light);
+            text-decoration: line-through;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .price-btn {
+            width: 100%;
+            background-color: var(--success);
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .price-btn:hover { background-color: #059669; }
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .features-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .features-list li::before {
+            content: "✓";
+            color: var(--success);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .detail-layout { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">学途</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="courses.html">课程中心</a>
+                <a href="signup.html">注册</a>
+            </div>
+            <a href="signup.html" class="btn btn-primary">立即开始</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <a href="courses.html" class="back-link">← 返回课程列表</a>
+    
+    <div class="detail-layout">
+        <div class="main-content">
+            <div class="course-video">
+                <span class="play-icon">▶ 预览视频</span>
+            </div>
+
+            <div class="course-intro">
+                <h1>Python 数据分析从零开始实战</h1>
+                <div class="course-meta">
+                    <span>📊 IT 技能</span>
+                    <span>👤 850 人已学</span>
+                    <span>⭐ 4.7 好评</span>
+                    <span>🕒 共计 32 课时</span>
+                </div>
+                <div class="course-desc">
+                    <h3>课程简介</h3>
+                    <p>本课程专为零基础学员设计，通过真实商业案例讲解，掌握 Pandas、NumPy 等核心库的使用。学完后可独立进行数据清洗、分析与可视化，适合希望提升数据分析能力的职场人士及在校大学生。</p>
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">课程大纲</h3>
+                <ul class="syllabus-list">
+                    <li class="syllabus-item">
+                        <span class="chapter-title">第一模块：Python 基础环境搭建与语法速成 <span class="free-tag">免费试听</span></span>
+                        <span class="lesson-count">4 课时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span class="chapter-title">第二模块：Numpy 数值计算基础</span>
+                        <span class="lesson-count">6 课时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span class="chapter-title">第三模块：Pandas 数据清洗实战</span>
+                        <span class="lesson-count">10 课时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span class="chapter-title">第四模块：数据可视化 Matplotlib</span>
+                        <span class="lesson-count">6 课时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span class="chapter-title">第五模块：期末综合项目：电商销售分析</span>
+                        <span class="lesson-count">6 课时</span>
+                    </li>
+                </ul>
+
+                <div class="instructor-card">
+                    <div class="instructor-avatar"></div>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">讲师：王老师</h4>
+                        <p style="font-size: 14px; color: var(--text-light);">资深数据分析师，前互联网大厂技术专家，拥有 10 年数据分析经验。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <div class="price-card">
+                <div class="original-price">原价：¥ 799</div>
+                <div class="price">¥ 599</div>
+                <button class="btn price-btn" onclick="alert('跳转至支付流程...')">立即购买</button>
+                <button class="btn btn-outline" style="width: 100%; margin-bottom: 20px;" onclick="window.location.href='signup.html'">注册免费试听</button>
+                
+                <ul class="features-list">
+                    <li>永久观看视频回放</li>
+                    <li>提供完整课程源码</li>
+                    <li>加入专属学习交流群</li>
+                    <li>讲师定期直播答疑</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer style="background: #1f2937; color: #d1d5db; padding: 30px 0; text-align: center;">
+    <div class="container">
+        <p>&copy; 2023 学途在线学习平台。保留所有权利。</p>
+    </div>
+</footer>
+
+</body>
+</html>

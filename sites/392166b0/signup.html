@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册账号 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --danger: #ef4444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 450px;
+        }
+        .logo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-decoration: none;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-top: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: var(--white);
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        .divider span {
+            background: var(--white);
+            padding: 0 10px;
+            color: var(--text-light);
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+        .link-group {
+            text-align: center;
+            font-size: 14px;
+        }
+        .link-group a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .link-group a:hover {
+            text-decoration: underline;
+        }
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            padding: 20px;
+            z-index: 10;
+        }
+        .logo-small {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo-small">学途</a>
+    </div>
+</header>
+
+<div class="login-container">
+    <a href="index.html" class="logo">学途</a>
+    <h2 class="form-title">创建新账号</h2>
+    
+    <form onsubmit="event.preventDefault(); alert('注册申请已提交，欢迎加入学途！');">
+        <div class="form-group">
+            <label for="name">真实姓名</label>
+            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">电子邮箱</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">手机号码</label>
+            <input type="tel" id="phone" name="phone" placeholder="11 位手机号码" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">设置密码</label>
+            <input type="password" id="password" name="password" placeholder="至少 8 位字符" required>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">我同意 <a href="#" style="color:var(--primary-color)">用户协议</a> 和 <a href="#" style="color:var(--primary-color)">隐私政策</a></label>
+        </div>
+
+        <button type="submit" class="btn">立即注册</button>
+    </form>
+
+    <div class="divider">
+        <span>已有账号？</span>
+    </div>
+
+    <div class="link-group">
+        <a href="courses.html">直接浏览课程</a>
+    </div>
+</div>
+
+</body>
+</html>

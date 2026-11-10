@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>可衣 - 首页</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        nav a{margin:0 15px;color:#333;text-decoration:none;font-weight:500;}
+        nav a:hover{color:#d33;}
+        .hero{background:#d33;color:#fff;padding:100px 40px;text-align:center;}
+        .hero h1{font-size:48px;margin-bottom:20px;}
+        .hero p{font-size:20px;margin-bottom:30px;}
+        .hero a{background:#fff;color:#d33;padding:12px 30px;border-radius:4px;text-decoration:none;font-weight:bold;}
+        .section{padding:60px 40px;background:#fff;margin:20px;}
+        .section h2{margin-bottom:30px;font-size:32px;color:#d33;}
+        .footer{background:#222;color:#bbb;padding:20px 40px;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            .hero{padding:60px 20px;}
+            .hero h1{font-size:32px;}
+            .hero p{font-size:16px;}
+            header, .section{padding:20px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><strong>可衣</strong></div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="list.html">商品列表</a>
+            <a href="cart.html">购物车 (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>上海·可衣</h1>
+        <p>时尚与舒适的完美结合，专为20-40岁女性打造的日常与职场穿搭。</p>
+        <a href="list.html">立即选购</a>
+    </section>
+
+    <section class="section">
+        <h2>新品推荐</h2>
+        <p>每周上新，精选面料，细致剪裁，让你在任何场合都自信从容。</p>
+        <a href="list.html">查看更多</a>
+    </section>
+
+    <footer class="footer">
+        © 2026 可衣 上海 | 联系方式: 021-1234-5678 | 邮箱: service@keyi.com
+    </footer>
+
+    <script>
+        // 简单读取本地存储中的购物车数量
+        function updateCartCount(){
+            const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+            document.getElementById('cart-count').textContent = cart.reduce((sum,item)=>sum+item.qty,0);
+        }
+        updateCartCount();
+    </script>
+</body>
+</html>

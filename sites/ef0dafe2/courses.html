@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学途 - 课程列表</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#fafafa;color:#333;}
+        header{background:#2c3e50;color:#fff;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:22px;}
+        nav a{color:#fff;margin-left:15px;text-decoration:none;}
+        nav a:hover{text-decoration:underline;}
+        .container{padding:30px 40px;}
+        h2{font-size:26px;margin-bottom:20px;}
+        .category{margin-bottom:40px;}
+        .category h3{font-size:22px;margin-bottom:15px;border-left:4px solid #e67e22;padding-left:10px;}
+        .course-list{display:flex;flex-wrap:wrap;gap:20px;}
+        .course-card{background:#fff;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.1);flex:1 1 calc(33% - 20px);max-width:calc(33% - 20px);padding:15px;box-sizing:border-box;}
+        .course-card img{width:100%;height:120px;object-fit:cover;border-radius:4px;}
+        .course-card h4{margin:10px 0 8px;font-size:18px;}
+        .course-card p{margin:0 0 8px;color:#555;font-size:14px;}
+        .course-card .price{color:#e67e22;font-weight:bold;}
+        .course-card a{display:inline-block;margin-top:8px;color:#2980b9;text-decoration:none;font-size:14px;}
+        .course-card a:hover{text-decoration:underline;}
+        footer{background:#2c3e50;color:#fff;text-align:center;padding:15px;}
+        @media(max-width:1024px){
+            .course-card{flex:1 1 calc(50% - 20px);max-width:calc(50% - 20px);}
+        }
+        @media(max-width:600px){
+            .course-card{flex:1 1 100%;max-width:100%;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>学途</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程</a>
+        <a href="signup.html">注册</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>全部课程</h2>
+
+    <div class="category">
+        <h3>语言学习</h3>
+        <div class="course-list">
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="日语初级">
+                <h4>日语初级会话</h4>
+                <p>从零开始掌握日常交流</p>
+                <div class="price">¥179</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="法语进阶">
+                <h4>法语进阶阅读</h4>
+                <p>提升阅读与写作能力</p>
+                <div class="price">¥219</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>计算机技能</h3>
+        <div class="course-list">
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="前端开发">
+                <h4>前端开发实战</h4>
+                <p>HTML、CSS、JavaScript全栈入门</p>
+                <div class="price">¥299</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="数据分析">
+                <h4>数据分析与可视化</h4>
+                <p>使用Python与PowerBI进行数据处理</p>
+                <div class="price">¥349</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>考试备考</h3>
+        <div class="course-list">
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="雅思全程">
+                <h4>雅思全程冲刺</h4>
+                <p>听说读写全科提升方案</p>
+                <div class="price">¥399</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+            <div class="course-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDMwMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="考研数学">
+                <h4>考研数学强化班</h4>
+                <p>重点难点全程讲解，突破高分</p>
+                <div class="price">¥449</div>
+                <a href="course.html">查看详情 &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 学途在线学习平台
+</footer>
+</body>
+</html>

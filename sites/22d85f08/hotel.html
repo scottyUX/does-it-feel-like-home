@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店详情 - 畅行旅行</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;color:#333;}
+        .container{max-width:1200px;margin:0 auto;padding:20px;}
+        header{background:#0066cc;color:#fff;padding:10px 0;}
+        header .logo{font-size:24px;font-weight:bold;margin-left:20px;}
+        nav{margin-top:10px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .gallery{display:flex;overflow-x:auto;margin-bottom:20px;}
+        .gallery img{width:300px;height:200px;object-fit:cover;margin-right:10px;border-radius:4px;}
+        .details{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .details h2{margin-top:0;}
+        .amenities{margin-top:15px;}
+        .amenities span{display:inline-block;background:#e0e0e0;color:#555;padding:5px 10px;border-radius:4px;margin:5px 5px 0 0;}
+        .price{color:#e91e63;font-size:24px;font-weight:bold;margin-top:15px;}
+        .btn{background:#0066cc;color:#fff;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;font-size:16px;margin-top:20px;display:inline-block;}
+        .btn:hover{background:#004a99;}
+        footer{background:#333;color:#fff;padding:20px;text-align:center;margin-top:40px;}
+        @media (max-width:768px){
+            .gallery{flex-direction:column;}
+            .gallery img{width:100%;height:auto;margin-bottom:10px;}
+            header .logo,nav{text-align:center;}
+            nav a{display:block;margin:10px 0;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">畅行旅行</div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="results.html">搜索结果</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="gallery">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFMEUwRTAiLz48L3N2Zz4=" alt="酒店图片1">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFMEUwRTAiLz48L3N2Zz4=" alt="酒店图片2">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFMEUwRTAiLz48L3N2Zz4=" alt="酒店图片3">
+        </div>
+
+        <div class="details">
+            <h2 id="hotelName">酒店名称</h2>
+            <p id="hotelDesc">这里是酒店的详细介绍，展示酒店的地理位置、设施、服务以及周边景点信息。</p>
+            <div class="amenities">
+                <span>免费Wi-Fi</span>
+                <span>早餐</span>
+                <span>游泳池</span>
+                <span>健身中心</span>
+                <span>24小时前台</span>
+            </div>
+            <div class="price" id="hotelPrice">¥ 0 / 晚</div>
+            <a href="booking.html" class="btn">立即预订</a>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 畅行旅行. 保留所有权利.
+    </footer>
+
+    <script>
+        // 简单的模拟根据 URL 参数显示不同酒店信息
+        const params = new URLSearchParams(window.location.search);
+        const hotelId = params.get('hotel');
+
+        const data = {
+            'beijing-oriental': {
+                name: '北京东方假日酒店',
+                desc: '位于北京市中心，靠近天安门广场，提供免费Wi-Fi和早餐，设施齐全，适合商务和旅游出行。',
+                price: 680
+            },
+            'shanghai-wai': {
+                name: '上海外滩茂悦大酒店',
+                desc: '坐拥黄浦江景观，靠近外滩和南京路步行街，提供豪华客房和顶级餐饮服务。',
+                price: 1020
+            },
+            'lijiang-inn': {
+                name: '丽江古城客栈',
+                desc: '古城内部，拥有独特的纳西族装饰风格，配备温泉与庭院，适合浪漫度假。',
+                price: 450
+            }
+        };
+
+        const hotel = data[hotelId] || {
+            name: '示例酒店',
+            desc: '本酒店提供舒适的住宿环境，配备现代化设施。',
+            price: 500
+        };
+
+        document.getElementById('hotelName').textContent = hotel.name;
+        document.getElementById('hotelDesc').textContent = hotel.desc;
+        document.getElementById('hotelPrice').textContent = `¥ ${hotel.price} / 晚`;
+    </script>
+</body>
+</html>

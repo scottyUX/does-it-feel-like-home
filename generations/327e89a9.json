@@ -1,0 +1,131 @@
+{
+  "id": "327e89a9",
+  "type": "beauty-salon",
+  "country": "US",
+  "model": "gpt-oss:120b",
+  "promptLanguage": "en",
+  "runtime": "ollama on NVIDIA DGX Spark",
+  "siteType": "beauty-salon",
+  "attempt": 1,
+  "seconds": 124,
+  "doneReason": "stop",
+  "promptTokens": 466,
+  "completionTokens": 4649,
+  "tokensPerSecond": 42,
+  "files": [
+    "index.html",
+    "services.html",
+    "team.html",
+    "appointment.html"
+  ],
+  "createdAt": "2026-11-10T09:56:38-0800",
+  "thinking": "We need to output multiple files: index.html (home), services.html, team.html, appointment.html perhaps. At least two other pages besides index. We'll include CSS and JS inline. All visible strings Simplified Chinese.\n\nWe must not mention instructions. Provide site as multiple files using format: \"===== FILE: filename =====\\n...\". Ensure navigation links relative.\n\nInclude realistic content: salon name 悦容美发美容, location Guangzhou, services with prices, team bios, booking form (no actual submission). Use simple JS to validate perhaps.\n\nDesign for desktop 1440px, responsive.\n\nLet's craft four files: index.html, services.html, team.html, appointment.html.\n\nAdd a CSS style block for layout, header navigation, footer. Use simple responsive CSS.\n\nAdd JS for form validation and maybe smooth scroll.\n\nAll visible strings Chinese: navigation items: 首页, 服务项目, 团队介绍, 预约. Buttons: 立即预约, 提交, 重置.\n\nInclude contact info.\n\nMake sure no external resources. Use internal style and script.\n\nWill use relative links: href=\"services.html\", href=\"team.html\", href=\"appointment.html\". On each page have header same.\n\nLet's create.\n\n",
+  "content": "===== FILE: index.html =====\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>悦容美发美容 - 首页</title>\n    <style>\n        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}\n        header{background:#2c3e50;color:#fff;padding:20px 0;}\n        .container{max-width:1200px;margin:auto;padding:0 20px;}\n        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}\n        nav a:hover{text-decoration:underline;}\n        .hero{background:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...') center/cover;height:400px;display:flex;align-items:center;justify-content:center;color:#fff;}\n        .hero h1{font-size:48px;background:rgba(0,0,0,0.5);padding:20px 40px;border-radius:5px;}\n        .section{padding:60px 0;background:#fff;margin-top:20px;}\n        .section h2{font-size:32px;margin-bottom:20px;text-align:center;}\n        .services-preview{display:flex;justify-content:space-around;flex-wrap:wrap;}\n        .service-item{width:30%;min-width:260px;background:#ecf0f1;margin:10px;padding:20px;border-radius:8px;text-align:center;}\n        .service-item img{max-width:100%;border-radius:5px;}\n        .service-item h3{margin:15px 0 10px;}\n        .cta{background:#e74c3c;color:#fff;padding:40px 0;text-align:center;}\n        .cta button{background:#c0392b;color:#fff;border:none;padding:15px 30px;font-size:18px;border-radius:5px;cursor:pointer;}\n        .cta button:hover{background:#a93226;}\n        footer{background:#2c3e50;color:#bbb;padding:20px 0;text-align:center;font-size:14px;}\n        @media(max-width:768px){\n            .services-preview{flex-direction:column;align-items:center;}\n            .service-item{width:80%;}\n        }\n    </style>\n</head>\n<body>\n<header>\n    <div class=\"container\">\n        <h1 style=\"margin:0;\">悦容美发美容</h1>\n        <nav>\n            <a href=\"index.html\">首页</a>\n            <a href=\"services.html\">服务项目</a>\n            <a href=\"team.html\">团队介绍</a>\n            <a href=\"appointment.html\">预约</a>\n        </nav>\n    </div>\n</header>\n\n<div class=\"hero\">\n    <h1>让美丽绽放，从悦容开始</h1>\n</div>\n\n<div class=\"section\">\n    <div class=\"container\">\n        <h2>我们的特色服务</h2>\n        <div class=\"services-preview\">\n            <div class=\"service-item\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"剪发\">\n                <h3>专业剪发</h3>\n                <p>根据脸型与气质量身定制，打造自然时尚造型。</p>\n            </div>\n            <div class=\"service-item\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"染发\">\n                <h3>时尚染发</h3>\n                <p>精选进口染发剂，颜色持久亮泽，呵护发质。</p>\n            </div>\n            <div class=\"service-item\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"护肤\">\n                <h3>深层护肤</h3>\n                <p>针对不同肤质的护理方案，让肌肤焕发光彩。</p>\n            </div>\n        </div>\n    </div>\n</div>\n\n<div class=\"cta\">\n    <h2>立即预约，享受专属美丽时光</h2>\n    <button onclick=\"location.href='appointment.html'\">立即预约</button>\n</div>\n\n<footer>\n    <div class=\"container\">\n        <p>广州天河区珠江新城中信广场B座 101室 | 电话: 020-1234 5678</p>\n        <p>© 2026 悦容美发美容 版权所有</p>\n    </div>\n</footer>\n</body>\n</html>\n\n===== FILE: services.html =====\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>悦容美发美容 - 服务项目</title>\n    <style>\n        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}\n        header{background:#2c3e50;color:#fff;padding:20px 0;}\n        .container{max-width:1200px;margin:auto;padding:0 20px;}\n        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}\n        nav a:hover{text-decoration:underline;}\n        .section{padding:60px 0;background:#fff;margin-top:20px;}\n        .section h2{font-size:32px;margin-bottom:30px;text-align:center;}\n        .service-list{width:100%;border-collapse:collapse;}\n        .service-list th,.service-list td{border:1px solid #ddd;padding:12px;text-align:left;}\n        .service-list th{background:#ecf0f1;}\n        .price{color:#e74c3c;font-weight:bold;}\n        footer{background:#2c3e50;color:#bbb;padding:20px 0;text-align:center;font-size:14px;}\n        @media(max-width:768px){\n            .service-list th,.service-list td{font-size:14px;padding:8px;}\n        }\n    </style>\n</head>\n<body>\n<header>\n    <div class=\"container\">\n        <h1 style=\"margin:0;\">悦容美发美容</h1>\n        <nav>\n            <a href=\"index.html\">首页</a>\n            <a href=\"services.html\">服务项目</a>\n            <a href=\"team.html\">团队介绍</a>\n            <a href=\"appointment.html\">预约</a>\n        </nav>\n    </div>\n</header>\n\n<div class=\"section\">\n    <div class=\"container\">\n        <h2>服务项目与价格</h2>\n        <table class=\"service-list\">\n            <thead>\n                <tr>\n                    <th>项目</th>\n                    <th>说明</th>\n                    <th>时长</th>\n                    <th>价格（元）</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>女士剪发</td>\n                    <td>洗、剪、吹、造型</td>\n                    <td>60 分钟</td>\n                    <td class=\"price\">158</td>\n                </tr>\n                <tr>\n                    <td>男士剪发</td>\n                    <td>洗、剪、吹</td>\n                    <td>45 分钟</td>\n                    <td class=\"price\">98</td>\n                </tr>\n                <tr>\n                    <td>全头染发（单色）</td>\n                    <td>专业染膏 + 护发</td>\n                    <td>120 分钟</td>\n                    <td class=\"price\">298</td>\n                </tr>\n                <tr>\n                    <td>渐变染发（哑光）</td>\n                    <td>多色渐变，个性定制</td>\n                    <td>150 分钟</td>\n                    <td class=\"price\">398</td>\n                </tr>\n                <tr>\n                    <td>头皮深层护理</td>\n                    <td>去屑、舒缓、滋养</td>\n                    <td>45 分钟</td>\n                    <td class=\"price\">128</td>\n                </tr>\n                <tr>\n                    <td>基础护肤（清洁+保湿）</td>\n                    <td>适合所有肤质</td>\n                    <td>60 分钟</td>\n                    <td class=\"price\">188</td>\n                </tr>\n                <tr>\n                    <td>深层焕肤套餐</td>\n                    <td>清洁、去角质、精华导入</td>\n                    <td>90 分钟</td>\n                    <td class=\"price\">268</td>\n                </tr>\n                <tr>\n                    <td>情侣套餐（剪发+护理）</td>\n                    <td>两人同时享受剪发+头皮护理</td>\n                    <td>120 分钟</td>\n                    <td class=\"price\">458</td>\n                </tr>\n            </tbody>\n        </table>\n        <p style=\"margin-top:30px;text-align:center;color:#555;\">所有服务均使用进口护发、护肤产品，保证安全与效果。</p>\n    </div>\n</div>\n\n<footer>\n    <div class=\"container\">\n        <p>广州天河区珠江新城中信广场B座 101室 | 电话: 020-1234 5678</p>\n        <p>© 2026 悦容美发美容 版权所有</p>\n    </div>\n</footer>\n</body>\n</html>\n\n===== FILE: team.html =====\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>悦容美发美容 - 团队介绍</title>\n    <style>\n        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}\n        header{background:#2c3e50;color:#fff;padding:20px 0;}\n        .container{max-width:1200px;margin:auto;padding:0 20px;}\n        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}\n        nav a:hover{text-decoration:underline;}\n        .section{padding:60px 0;background:#fff;margin-top:20px;}\n        .section h2{font-size:32px;margin-bottom:30px;text-align:center;}\n        .team-grid{display:flex;flex-wrap:wrap;justify-content:space-around;}\n        .member{width:30%;min-width:260px;background:#ecf0f1;margin:10px;padding:20px;border-radius:8px;text-align:center;}\n        .member img{width:120px;height:120px;border-radius:50%;object-fit:cover;margin-bottom:15px;}\n        .member h3{margin:10px 0 5px;}\n        .member p{margin:5px 0;color:#555;}\n        footer{background:#2c3e50;color:#bbb;padding:20px 0;text-align:center;font-size:14px;}\n        @media(max-width:768px){\n            .member{width:80%;}\n        }\n    </style>\n</head>\n<body>\n<header>\n    <div class=\"container\">\n        <h1 style=\"margin:0;\">悦容美发美容</h1>\n        <nav>\n            <a href=\"index.html\">首页</a>\n            <a href=\"services.html\">服务项目</a>\n            <a href=\"team.html\">团队介绍</a>\n            <a href=\"appointment.html\">预约</a>\n        </nav>\n    </div>\n</header>\n\n<div class=\"section\">\n    <div class=\"container\">\n        <h2>我们的专业团队</h2>\n        <div class=\"team-grid\">\n            <div class=\"member\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"张颖\">\n                <h3>张颖</h3>\n                <p>首席发型师（10年经验）</p>\n                <p>擅长欧美潮流造型、婚礼造型。</p>\n            </div>\n            <div class=\"member\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"李强\">\n                <h3>李强</h3>\n                <p>资深染发师（8年经验）</p>\n                <p>精通全头染、渐变染、低敏染色。</p>\n            </div>\n            <div class=\"member\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"王珊\">\n                <h3>王珊</h3>\n                <p>皮肤护理专家（5年经验）</p>\n                <p>专注深层清洁、光子嫩肤、抗衰老护理。</p>\n            </div>\n            <div class=\"member\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"陈浩\">\n                <h3>陈浩</h3>\n                <p>美发助理（3年经验）</p>\n                <p>负责洗发、吹风、日常造型。</p>\n            </div>\n            <div class=\"member\">\n                <img src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...\" alt=\"赵莉\">\n                <h3>赵莉</h3>\n                <p>前台顾问</p>\n                <p>提供预约、咨询、会员服务。</p>\n            </div>\n        </div>\n    </div>\n</div>\n\n<footer>\n    <div class=\"container\">\n        <p>广州天河区珠江新城中信广场B座 101室 | 电话: 020-1234 5678</p>\n        <p>© 2026 悦容美发美容 版权所有</p>\n    </div>\n</footer>\n</body>\n</html>\n\n===== FILE: appointment.html =====\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>悦容美发美容 - 预约</title>\n    <style>\n        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}\n        header{background:#2c3e50;color:#fff;padding:20px 0;}\n        .container{max-width:800px;margin:auto;padding:0 20px;}\n        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}\n        nav a:hover{text-decoration:underline;}\n        .section{padding:60px 0;background:#fff;margin-top:20px;}\n        .section h2{font-size:32px;margin-bottom:30px;text-align:center;}\n        form{display:flex;flex-direction:column;}\n        label{margin-top:15px;font-weight:bold;}\n        input, select, textarea{padding:10px;font-size:16px;margin-top:5px;border:1px solid #ccc;border-radius:4px;}\n        textarea{resize:vertical;height:100px;}\n        .btn-group{margin-top:20px;display:flex;justify-content:center;}\n        button{background:#e74c3c;color:#fff;border:none;padding:12px 30px;font-size:16px;border-radius:5px;cursor:pointer;margin:0 10px;}\n        button:hover{background:#c0392b;}\n        .message{margin-top:20px;color:#27ae60;font-weight:bold;text-align:center;}\n        footer{background:#2c3e50;color:#bbb;padding:20px 0;text-align:center;font-size:14px;}\n        @media(max-width:600px){\n            input, select, textarea{font-size:14px;}\n        }\n    </style>\n    <script>\n        function validateForm(event){\n            event.preventDefault();\n            const name=document.getElementById('name').value.trim();\n            const phone=document.getElementById('phone').value.trim();\n            const date=document.getElementById('date').value;\n            const time=document.getElementById('time').value;\n            const service=document.getElementById('service').value;\n            if(!name||!phone||!date||!time||!service){\n                alert('请完整填写所有必填项。');\n                return;\n            }\n            const msg=document.getElementById('msg');\n            msg.textContent='预约已提交！我们的客服将在24小时内与您确认。';\n            // Reset form fields (optional)\n            // event.target.reset();\n        }\n    </script>\n</head>\n<body>\n<header>\n    <div class=\"container\">\n        <h1 style=\"margin:0;\">悦容美发美容</h1>\n        <nav>\n            <a href=\"index.html\">首页</a>\n            <a href=\"services.html\">服务项目</a>\n            <a href=\"team.html\">团队介绍</a>\n            <a href=\"appointment.html\">预约</a>\n        </nav>\n    </div>\n</header>\n\n<div class=\"section\">\n    <div class=\"container\">\n        <h2>在线预约</h2>\n        <form onsubmit=\"validateForm(event)\">\n            <label for=\"name\">姓名 *</label>\n            <input type=\"text\" id=\"name\" placeholder=\"请输入您的姓名\">\n\n            <label for=\"phone\">手机号码 *</label>\n            <input type=\"tel\" id=\"phone\" placeholder=\"如：13800138000\">\n\n            <label for=\"service\">选择服务 *</label>\n            <select id=\"service\">\n                <option value=\"\">请选择服务项目</option>\n                <option>女士剪发</option>\n                <option>男士剪发</option>\n                <option>全头染发（单色）</option>\n                <option>渐变染发（哑光）</option>\n                <option>头皮深层护理</option>\n                <option>基础护肤（清洁+保湿）</option>\n                <option>深层焕肤套餐</option>\n                <option>情侣套餐（剪发+护理）</option>\n            </select>\n\n            <label for=\"date\">预约日期 *</label>\n            <input type=\"date\" id=\"date\">\n\n            <label for=\"time\">预约时间 *</label>\n            <select id=\"time\">\n                <option value=\"\">请选择时间段</option>\n                <option>09:00 - 10:00</option>\n                <option>10:30 - 11:30</option>\n                <option>12:00 - 13:00</option>\n                <option>13:30 - 14:30</option>\n                <option>15:00 - 16:00</option>\n                <option>16:30 - 17:30</option>\n                <option>18:00 - 19:00</option>\n                <option>19:30 - 20:30</option>\n            </select>\n\n            <label for=\"notes\">备注（可选）</label>\n            <textarea id=\"notes\" placeholder=\"对发型、颜色或皮肤有特殊需求？\"></textarea>\n\n            <div class=\"btn-group\">\n                <button type=\"submit\">提交预约</button>\n                <button type=\"reset\">重置表单</button>\n            </div>\n            <div id=\"msg\" class=\"message\"></div>\n        </form>\n    </div>\n</div>\n\n<footer>\n    <div class=\"container\">\n        <p>广州天河区珠江新城中信广场B座 101室 | 电话: 020-1234 5678</p>\n        <p>© 2026 悦容美发美容 版权所有</p>\n    </div>\n</footer>\n</body>\n</html>",
+  "photoFixes": [
+    {
+      "page": "index.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Hair_salon_-_Arlington%2C_MA.jpg/960px-Hair_salon_-_Arlington%2C_MA.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Hair salon - Arlington, MA.jpg",
+      "license": "CC0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Cutting_hair_-_haircuts.jpg/960px-Cutting_hair_-_haircuts.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Cutting hair - haircuts.jpg",
+      "license": "CC BY 2.0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Haircut_or_hair_Salon_From_Iran-_Canon_Photography-_Mostafa_Meraji-_fashion_Photo_04.jpg/960px-Haircut_or_hair_Salon_From_Iran-_Canon_Photography-_Mostafa_Meraji-_fashion_Photo_04.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Haircut or hair Salon From Iran- Canon Photography- Mostafa Meraji- fashion Photo 04.jpg",
+      "license": "CC0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Routine_Facial_Treatment_And_Care.jpg/960px-Routine_Facial_Treatment_And_Care.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Routine Facial Treatment And Care.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "team.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+      "source": "Unsplash",
+      "subject": "portrait of a smiling woman"
+    },
+    {
+      "page": "team.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+      "source": "Unsplash",
+      "subject": "portrait of a smiling man"
+    },
+    {
+      "page": "team.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
+      "source": "Unsplash",
+      "subject": "portrait of a woman by a lake"
+    },
+    {
+      "page": "team.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      "source": "Unsplash",
+      "subject": "portrait of a man in a sweater"
+    },
+    {
+      "page": "team.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...…",
+      "url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      "source": "Unsplash",
+      "subject": "portrait of a woman in a striped shirt"
+    }
+  ],
+  "imageAudit": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Cutting_hair_-_haircuts.jpg/960px-Cutting_hair_-_haircuts.jpg",
+      "file": "assets/image-0bbbb1b350f4641d.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Haircut_or_hair_Salon_From_Iran-_Canon_Photography-_Mostafa_Meraji-_fashion_Photo_04.jpg/960px-Haircut_or_hair_Salon_From_Iran-_Canon_Photography-_Mostafa_Meraji-_fashion_Photo_04.jpg",
+      "file": "assets/image-f290f0aed604c1d1.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Routine_Facial_Treatment_And_Care.jpg/960px-Routine_Facial_Treatment_And_Care.jpg",
+      "file": "assets/image-0f2c376ac2c35c45.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Hair_salon_-_Arlington%2C_MA.jpg/960px-Hair_salon_-_Arlington%2C_MA.jpg",
+      "file": "assets/image-7e62080fe58f6629.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-0ec9b3f96a26095b.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-e31e070240059b6d.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-c219770bc12fcf9a.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-5c72034cac6b7143.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-11dd3ec941657299.jpg"
+    }
+  ]
+}

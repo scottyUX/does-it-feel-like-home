@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 发现中国美好旅程</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6600;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --border-color: #dddddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex: 1 1 150px;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-group input, .input-group select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            align-self: flex-end;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #e55c00;
+        }
+
+        /* Destinations */
+        .destinations {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-placeholder {
+            height: 160px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .search-box { flex-direction: column; }
+            .input-group { width: 100%; }
+            .search-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>畅行</span> 旅行
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="results.html">热门目的地</a></li>
+                    <li><a href="#">我的订单</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>开启您的中国之旅</h1>
+        <p>搜索全国各地的优质酒店与行程，即刻出发</p>
+        
+        <form class="search-box" action="results.html" method="get">
+            <div class="input-group">
+                <label for="destination">目的地</label>
+                <input type="text" id="destination" name="q" placeholder="城市或景点" required>
+            </div>
+            <div class="input-group">
+                <label for="checkin">入住日期</label>
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="input-group">
+                <label for="checkout">退房日期</label>
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="input-group">
+                <label for="guests">住客人数</label>
+                <select id="guests" name="guests">
+                    <option value="1">1 人</option>
+                    <option value="2" selected>2 人</option>
+                    <option value="3">3 人</option>
+                    <option value="4">4 人及以上</option>
+                </select>
+            </div>
+            <button type="submit" class="search-btn">搜索酒店</button>
+        </form>
+    </section>
+
+    <section class="destinations">
+        <h2 class="section-title">热门精选</h2>
+        <div class="grid">
+            <a href="results.html" class="card">
+                <div class="card-img-placeholder" style="background: #e3f2fd;">杭州西湖风光</div>
+                <div class="card-body">
+                    <h3 class="card-title">杭州</h3>
+                    <p class="card-text">湖畔漫步，品味龙井茶韵</p>
+                </div>
+            </a>
+            <a href="results.html" class="card">
+                <div class="card-img-placeholder" style="background: #fff3e0;">上海外滩夜景</div>
+                <div class="card-body">
+                    <h3 class="card-title">上海</h3>
+                    <p class="card-text">魔都繁华，现代都市体验</p>
+                </div>
+            </a>
+            <a href="results.html" class="card">
+                <div class="card-img-placeholder" style="background: #e8f5e9;">北京故宫雪景</div>
+                <div class="card-body">
+                    <h3 class="card-title">北京</h3>
+                    <p class="card-text">古都历史，探索皇家文化</p>
+                </div>
+            </a>
+            <a href="results.html" class="card">
+                <div class="card-img-placeholder" style="background: #fce4ec;">成都美食与熊猫</div>
+                <div class="card-body">
+                    <h3 class="card-title">成都</h3>
+                    <p class="card-text">巴适生活，火锅与熊猫</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="destinations">
+        <h2 class="section-title">为什么选择畅行</h2>
+        <div class="grid">
+            <div class="card" style="cursor: default; transform: none;">
+                <div class="card-body">
+                    <h3 class="card-title">价格透明</h3>
+                    <p class="card-text">无隐形消费，所有费用清晰列明。</p>
+                </div>
+            </div>
+            <div class="card" style="cursor: default; transform: none;">
+                <div class="card-body">
+                    <h3 class="card-title">24 小时客服</h3>
+                    <p class="card-text">旅途中遇到问题，随时联系我们的专业团队。</p>
+                </div>
+            </div>
+            <div class="card" style="cursor: default; transform: none;">
+                <div class="card-body">
+                    <h3 class="card-title">免费取消</h3>
+                    <p class="card-text">特定房型支持入住前 24 小时免费取消。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 畅行旅行。保留所有权利。 | 关于我们 | 隐私政策</p>
+    </footer>
+
+    <script>
+        // Set default dates to tomorrow and day after tomorrow
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const dayAfter = new Date(today);
+            dayAfter.setDate(dayAfter.getDate() + 2);
+
+            const dateInput = (date) => date.toISOString().split('T')[0];
+            
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            
+            if(checkin) checkin.value = dateInput(tomorrow);
+            if(checkout) checkout.value = dateInput(dayAfter);
+        });
+    </script>
+</body>
+</html>

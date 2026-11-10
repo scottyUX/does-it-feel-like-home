@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预订酒店 - 畅行旅行</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;color:#333;}
+        .container{max-width:800px;margin:0 auto;padding:20px;}
+        header{background:#0066cc;color:#fff;padding:10px 0;}
+        header .logo{font-size:24px;font-weight:bold;margin-left:20px;}
+        nav{margin-top:10px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .booking-form{background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .booking-form h2{margin-top:0;}
+        .form-group{margin-bottom:15px;}
+        .form-group label{display:block;margin-bottom:5px;font-weight:bold;}
+        .form-group input, .form-group select{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;}
+        .price-summary{margin-top:20px;padding:15px;background:#fafafa;border:1px solid #e0e0e0;border-radius:4px;}
+        .price-summary p{margin:5px 0;}
+        .btn{background:#0066cc;color:#fff;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;font-size:16px;}
+        .btn:hover{background:#004a99;}
+        footer{background:#333;color:#fff;padding:20px;text-align:center;margin-top:40px;}
+        @media (max-width:768px){
+            header .logo,nav{text-align:center;}
+            nav a{display:block;margin:10px 0;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">畅行旅行</div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="results.html">搜索结果</a>
+                <a href="about.html">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="booking-form">
+            <h2>填写预订信息</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="guestName">入住人姓名</label>
+                    <input type="text" id="guestName" name="guestName" required placeholder="请输入真实姓名">
+                </div>
+                <div class="form-group">
+                    <label for="phone">联系电话</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="如：13800138000">
+                </div>
+                <div class="form-group">
+                    <label for="checkin">入住日期</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">退房日期</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="rooms">房间数</label>
+                    <select id="rooms" name="rooms">
+                        <option value="1">1 间</option>
+                        <option value="2">2 间</option>
+                        <option value="3">3 间</option>
+                        <option value="4">4 间</option>
+                    </select>
+                </div>
+
+                <div class="price-summary" id="priceSummary">
+                    <p>房价：¥ <span id="nightPrice">0</span> / 晚</p>
+                    <p>入住天数：<span id="daysCount">0</span> 天</p>
+                    <p>房间数：<span id="roomCount">1</span> 间</p>
+                    <hr>
+                    <p><strong>总计：¥ <span id="totalPrice">0</span></strong></p>
+                </div>
+
+                <button type="submit" class="btn">确认预订（模拟）</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 畅行旅行. 保留所有权利.
+    </footer>
+
+    <script>
+        // 简单的价格计算示例（假设每晚 800 元）
+        const NIGHT_PRICE = 800;
+
+        function calculate(){
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const rooms = parseInt(document.getElementById('rooms').value,10);
+            let days = 0;
+            if(checkin && checkout){
+                const d1 = new Date(checkin);
+                const d2 = new Date(checkout);
+                days = Math.round((d2 - d1)/(1000*60*60*24));
+                if(days < 0) days = 0;
+            }
+            const total = NIGHT_PRICE * days * rooms;
+            document.getElementById('nightPrice').textContent = NIGHT_PRICE;
+            document.getElementById('daysCount').textContent = days;
+            document.getElementById('roomCount').textContent = rooms;
+            document.getElementById('totalPrice').textContent = total;
+        }
+
+        document.getElementById('checkin').addEventListener('change', calculate);
+        document.getElementById('checkout').addEventListener('change', calculate);
+        document.getElementById('rooms').addEventListener('change', calculate);
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('预订已提交（模拟）。感谢使用畅行旅行！');
+        });
+    </script>
+</body>
+</html>

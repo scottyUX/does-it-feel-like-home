@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快送外卖 - 菜单</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;background:#fafafa;color:#333;}
+        header{background:#ff5722;color:#fff;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:20px;}
+        nav a{color:#fff;margin:0 10px;text-decoration:none;}
+        .container{max-width:1000px;margin:auto;padding:20px;}
+        .restaurant-info{background:#fff;padding:20px;border-radius:8px;margin-bottom:20px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .menu{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .dish{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eee;}
+        .dish:last-child{border:none;}
+        .dish-name{font-weight:bold;}
+        .price{color:#ff5722;font-weight:bold;margin-right:20px;}
+        .quantity{width:60px;padding:5px;}
+        .add-btn{background:#ff5722;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;}
+        .summary{margin-top:20px;text-align:right;}
+        .summary button{background:#4caf50;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer;font-size:16px;}
+        footer{background:#333;color:#ccc;padding:15px;text-align:center;font-size:14px;}
+        @media(max-width:800px){
+            .dish{flex-direction:column;align-items:flex-start;}
+            .price{margin:5px 0;}
+        }
+    </style>
+    <script>
+        const dishes = {
+            1: [
+                {id:101, name:'麻婆豆腐', price:12},
+                {id:102, name:'宫保鸡丁', price:15},
+                {id:103, name:'酸辣土豆丝', price:8},
+                {id:104, name:'红油抄手', price:10}
+            ],
+            2: [
+                {id:201, name:'意大利肉酱面', price:22},
+                {id:202, name:'四季披萨', price:38},
+                {id:203, name:'凯撒沙拉', price:18},
+                {id:204, name:'提拉米苏', price:15}
+            ],
+            3: [
+                {id:301, name:'炸鸡腿', price:10},
+                {id:302, name:'烤肉串', price:12},
+                {id:303, name:'奶茶（大）', price:9},
+                {id:304, name:'薯条', price:7}
+            ]
+        };
+        const restaurantInfo = {
+            1:{name:'川味坊', desc:'正宗川菜，麻辣鲜香。', delivery:'约30分钟', distance:'5.8公里'},
+            2:{name:'意式小镇', desc:'意大利风情，适合聚餐。', delivery:'约25分钟', distance:'3.2公里'},
+            3:{name:'学生小吃铺', desc:'经济实惠，学生最爱。', delivery:'约20分钟', distance:'1.5公里'}
+        };
+        function getParam(name){
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+        function loadRestaurant(){
+            const rid = getParam('rid')||'1';
+            const info = restaurantInfo[rid];
+            document.getElementById('rest-name').textContent = info.name;
+            document.getElementById('rest-desc').textContent = info.desc;
+            document.getElementById('rest-meta').textContent = `${info.distance} · ${info.delivery}`;
+            const menuDiv = document.getElementById('menu-list');
+            dishes[rid].forEach(d=> {
+                const div = document.createElement('div');
+                div.className='dish';
+                div.innerHTML = `
+                    <span class="dish-name">${d.name}</span>
+                    <span class="price">¥${d.price}</span>
+                    <input type="number" min="0" value="0" class="quantity" id="qty-${d.id}">
+                    <button class="add-btn" onclick="addToCart(${rid},${d.id})">加入购物车</button>
+                `;
+                menuDiv.appendChild(div);
+            });
+        }
+        function addToCart(rid, did){
+            const qty = parseInt(document.getElementById(`qty-${did}`).value);
+            if(qty<=0){alert('请选择数量');return;}
+            const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+            const existing = cart.find(i=>i.rid===rid && i.did===did);
+            if(existing){
+                existing.qty+=qty;
+            }else{
+                const dish = dishes[rid].find(d=>d.id===did);
+                cart.push({rid, did, name:dish.name, price:dish.price, qty});
+            }
+            localStorage.setItem('cart',JSON.stringify(cart));
+            alert('已加入购物车');
+        }
+        function viewCart(){
+            location.href='order.html';
+        }
+        window.addEventListener('load',loadRestaurant);
+    </script>
+</head>
+<body>
+<header>
+    <h1>快送外卖</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="list.html">餐厅列表</a>
+        <a href="order.html">我的订单</a>
+    </nav>
+</header>
+<div class="container">
+    <div class="restaurant-info">
+        <h2 id="rest-name">餐厅名称</h2>
+        <p id="rest-desc">餐厅简介</p>
+        <p id="rest-meta" style="color:#777;font-size:14px;"></p>
+    </div>
+    <div class="menu">
+        <h3>菜单</h3>
+        <div id="menu-list"></div>
+        <div class="summary"><button onclick="viewCart()">查看购物车</button></div>
+    </div>
+</div>
+<footer>
+    © 2026 快送外卖 | 成都市 | 联系电话：400-123-4567
+</footer>
+</body>
+</html>

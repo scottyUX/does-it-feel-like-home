@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦容美发美容 - 广州专业造型与护肤</title>
+    <style>
+        :root {
+            --primary-color: #2C3E50;
+            --accent-color: #D4AF37;
+            --bg-light: #F8F8F8;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--accent-color);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-cta:hover {
+            background-color: #b5952f;
+        }
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%23e0e0e0" width="800" height="400"/><circle fill="%23cccccc" cx="200" cy="200" r="100"/><circle fill="%23cccccc" cx="600" cy="150" r="150"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section {
+            padding: 4rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .section-title p {
+            color: var(--text-light);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 20px;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">悦容<span>美发美容</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务项目</a></li>
+                <li><a href="team.html">专家团队</a></li>
+                <li><a href="appointment.html" class="btn-cta">立即预约</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>焕新您的美丽形象</h1>
+        <p>坐落于广州天河区，悦容致力于为您提供高端的发型设计与专业的皮肤护理体验。让每一次造型都成为自信的展现。</p>
+        <a href="appointment.html" class="btn-cta">预约体验</a>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>我们的特色服务</h2>
+            <p>专业团队，精致服务，只为更美的你</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✂️</div>
+                <h3>时尚发型设计</h3>
+                <p>根据脸型与气质量身定制，剪发、烫染一站式服务。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>高端皮肤管理</h3>
+                <p>进口仪器配合专业手法，补水、抗衰、深层清洁。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💆</div>
+                <h3>头皮护理 SPA</h3>
+                <p>舒缓压力，改善头皮环境，让秀发更健康强韧。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>客户评价</h2>
+        </div>
+        <div class="features">
+            <div class="feature-card" style="text-align: left;">
+                <p style="font-style: italic;">"在这里做了半年护理，皮肤状态改善了很多。发型师很懂我的风格，每次都很满意。"</p>
+                <p style="margin-top: 1rem; color: var(--text-light); font-weight: bold;">—— 林小姐，天河区</p>
+            </div>
+            <div class="feature-card" style="text-align: left;">
+                <p style="font-style: italic;">"环境优雅，服务细致。男士剪发手法利落，还会帮忙做简单的面部清洁，非常推荐。"</p>
+                <p style="margin-top: 1rem; color: var(--text-light); font-weight: bold;">—— 陈先生，越秀区</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>悦容美发美容</h3>
+                <p>广州市天河区珠江新城花城大道 88 号</p>
+                <p>营业时间：10:00 - 22:00</p>
+            </div>
+            <div class="footer-section">
+                <h3>联系方式</h3>
+                <p>电话：020-8888 6666</p>
+                <p>微信：YuerongBeauty</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <a href="services.html">服务项目</a>
+                <a href="team.html">关于团队</a>
+                <a href="appointment.html">在线预约</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 悦容美发美容。版权所有.</p>
+        </div>
+    </footer>
+</body>
+</html>
