@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情 - 趣聊</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .navbar { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-left { display: flex; align-items: center; gap: 32px; }
+        .logo { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, #6c5ce7, #a29bfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer; }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { font-size: 15px; color: #555; font-weight: 500; padding: 6px 14px; border-radius: 8px; transition: all 0.2s; }
+        .nav-links a:hover { background: #f0edff; color: #6c5ce7; }
+        .nav-links a.active { background: #6c5ce7; color: #fff; }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .btn-primary { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(108,92,231,0.4); }
+        .btn-secondary { background: transparent; color: #6c5ce7; border: 2px solid #6c5ce7; padding: 8px 22px; border-radius: 24px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-block; }
+        .btn-secondary:hover { background: #6c5ce7; color: #fff; }
+
+        .main-container { max-width: 700px; margin: 0 auto; padding: 24px 16px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #6c5ce7; font-weight: 500; margin-bottom: 20px; cursor: pointer; }
+        .back-link:hover { text-decoration: underline; }
+
+        .post-card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .post-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+        .post-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #6c5ce7, #a29bfe); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+        .post-user-info { flex: 1; }
+        .post-username { font-size: 16px; font-weight: 600; }
+        .post-meta { font-size: 13px; color: #999; }
+        .post-follow-btn { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border: none; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .post-body { font-size: 16px; color: #2d3436; line-height: 1.8; margin-bottom: 20px; }
+        .post-image { width: 100%; height: 360px; border-radius: 14px; margin-bottom: 20px; background: linear-gradient(135deg, #a29bfe, #74b9ff, #55efc4); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.9); font-size: 16px; font-weight: 500; }
+        .post-actions { display: flex; align-items: center; gap: 24px; padding-top: 16px; border-top: 1px solid #f0f0f5; }
+        .action-btn { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666; cursor: pointer; background: none; border: none; padding: 8px 16px; border-radius: 20px; transition: all 0.2s; }
+        .action-btn:hover { background: #f5f3ff; color: #6c5ce7; }
+        .action-btn.liked { color: #e74c3c; }
+        .action-icon { font-size: 20px; }
+
+        .comments-section { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .comments-header { font-size: 16px; font-weight: 700; margin-bottom: 20px; color: #1a1a2e; }
+        .comment { display: flex; gap: 12px; margin-bottom: 20px; }
+        .comment-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+        .comment-avatar.ca1 { background: linear-gradient(135deg, #e17055, #fdcb6e); }
+        .comment-avatar.ca2 { background: linear-gradient(135deg, #00b894, #55efc4); }
+        .comment-avatar.ca3 { background: linear-gradient(135deg, #d63031, #ff7675); }
+        .comment-avatar.ca4 { background: linear-gradient(135deg, #0984e3, #74b9ff); }
+        .comment-content { flex: 1; }
+        .comment-user { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+        .comment-time { font-size: 11px; color: #bbb; margin-left: 8px; }
+        .comment-text { font-size: 14px; color: #444; margin-top: 4px; line-height: 1.6; }
+        .comment-actions { display: flex; gap: 16px; margin-top: 6px; }
+        .comment-action { font-size: 12px; color: #999; cursor: pointer; }
+        .comment-action:hover { color: #6c5ce7; }
+        .reply { margin-left: 50px; }
+
+        .comment-input-row { display: flex; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid #f0f0f5; }
+        .comment-input-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #636e72, #b2bec3); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+        .comment-input-area { flex: 1; }
+        .comment-input { width: 100%; border: 1px solid #e0e0e0; border-radius: 24px; padding: 12px 18px; font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.2s; }
+        .comment-input:focus { border-color: #6c5ce7; }
+        .comment-input-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .comment-tools { display: flex; gap: 12px; }
+        .comment-tool { font-size: 12px; color: #999; cursor: pointer; }
+        .comment-tool:hover { color: #6c5ce7; }
+        .btn-comment { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: #fff; border: none; padding: 8px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .btn-comment:hover { box-shadow: 0 3px 12px rgba(108,92,231,0.4); }
+
+        .footer { background: #1a1a2e; color: #fff; padding: 40px 24px; text-align: center; margin-top: 40px; }
+        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #a29bfe, #74b9ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-text { font-size: 13px; color: #999; margin-bottom: 20px; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .footer-links a { font-size: 13px; color: #bbb; transition: color 0.2s; }
+        .footer-links a:hover { color: #a29bfe; }
+        .footer-copy { margin-top: 24px; font-size: 12px; color: #666; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo" onclick="location.href='index.html'">趣聊</div>
+            <div class="nav-links">
+                <a href="index.html">动态</a>
+                <a href="profile.html">个人主页</a>
+                <a href="post.html" class="active">热门帖子</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="register.html"><button class="btn-secondary">登录</button></a>
+            <a href="register.html"><button class="btn-primary">免费注册</button></a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <a href="index.html" class="back-link">← 返回动态流</a>
+
+        <div class="post-card">
+            <div class="post-header">
+                <div class="post-avatar">林</div>
+                <div class="post-user-info">
+                    <div class="post-username">林小北</div>
+                    <div class="post-meta">2 小时前 · 北京 · 摄影</div>
+                </div>
+                <button class="post-follow-btn" onclick="this.textContent=this.textContent==='+ 关注'?'✓ 已关注':'+ 关注'; this.style.background=this.textContent.includes('已关注')?'#e0dfff':'linear-gradient(135deg,#6c5ce7,#a29bfe)'; this.style.color=this.textContent.includes('已关注')?'#6c5ce7':'#fff';">+ 关注</button>
+            </div>
+            <div class="post-body">周末去了趟颐和园，夕阳下的十七孔桥真的太绝了 🌅 每次来都能拍到新角度，手机已经拍了八百张了，挑了最满意的一张。你们周末都去哪玩了？分享你们的周末计划吧，我下周六还打算去拍一组。</div>
+            <div class="post-image">📸 十七孔桥 · 黄金时刻 · 18:42 · f/2.8 · 1/60s</div>
+            <div class="post-actions">
+                <button class="action-btn" onclick="togglePostLike(this)"><span class="action-icon">🤍</span> 1,284</button>
+                <button class="action-btn"><span class="action-icon">💬</span> 86 评论</button>
+                <button class="action-btn"><span class="action-icon">🔄</span> 转发</button>
+                <button class="action-btn"><span class="action-icon">🔖</span> 收藏</button>
+                <button class="action-btn"><span class="action-icon">📤</span> 分享</button>
+            </div>
+        </div>
+
+        <div class="comments-section">
+            <div class="comments-header">86 条评论</div>
+
+            <div class="comment">
+                <div class="comment-avatar ca1">苏</div>
+                <div class="comment-content">
+                    <span class="comment-user">苏晚晴</span><span class="comment-time">1 小时前</span>
+                    <p class="comment-text">天哪这也太好看了！我上周去的时候阴天白跑一趟 😂 请问你用什么相机拍的？画质也太好了</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 42</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment reply">
+                <div class="comment-avatar ca1">林</div>
+                <div class="comment-content">
+                    <span class="comment-user">林小北</span><span class="comment-time">58 分钟前</span>
+                    <p class="comment-text">@苏晚晴 手机拍的哈哈，iPhone 15 Pro，主要靠光线和角度。阴天也可以拍，就是色调会冷一些，后期暖回来就行 📷</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 18</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar ca2">陈</div>
+                <div class="comment-content">
+                    <span class="comment-user">陈默</span><span class="comment-time">1 小时前</span>
+                    <p class="comment-text">每次看你发摄影作品都觉得自己周末白过了。求带！下周六几点出发？我坐地铁能到 🙋‍♂️</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 27</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar ca3">周</div>
+                <div class="comment-content">
+                    <span class="comment-user">周予安</span><span class="comment-time">45 分钟前</span>
+                    <p class="comment-text">猫看了这张图之后直接跳起来扒窗户 🐱 它说它也要去。我信了。</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 89</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar ca4">何</div>
+                <div class="comment-content">
+                    <span class="comment-user">何思远</span><span class="comment-time">30 分钟前</span>
+                    <p class="comment-text">说真的，这张的构图比很多专业摄影师的作品都好。那个对角线引导加上桥洞的框架，太经典了。请问后期用了什么调色方案？</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 15</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar ca1">赵</div>
+                <div class="comment-content">
+                    <span class="comment-user">赵一诺</span><span class="comment-time">20 分钟前</span>
+                    <p class="comment-text">收藏了，下次去北京旅行就按这个路线走。对了颐和园附近有没有推荐的晚餐？人均 100 左右那种 🍜</p>
+                    <div class="comment-actions">
+                        <span class="comment-action">回复</span>
+                        <span class="comment-action">👍 8</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-input-row">
+                <div class="comment-input-avatar">你</div>
+                <div class="comment-input-area">
+                    <input class="comment-input" type="text" placeholder="写下你的评论...">
+                    <div class="comment-input-actions">
+                        <div class="comment-tools">
+                            <span class="comment-tool">😊 表情</span>
+                            <span class="comment-tool">@ 提及</span>
+                        </div>
+                        <button class="btn-comment" onclick="alert('欢迎来到趣聊！注册后即可发表评论。')">发布评论</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo">趣聊</div>
+        <p class="footer-text">连接年轻人的生活与灵感</p>
+        <div class="footer-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人主页</a>
+            <a href="post.html">热门帖子</a>
+            <a href="register.html">注册</a>
+            <a href="register.html">隐私政策</a>
+            <a href="register.html">用户协议</a>
+        </div>
+        <p class="footer-copy">© 2025 趣聊 · 让每一次分享都有回应</p>
+    </footer>
+
+    <script>
+        function togglePostLike(btn) {
+            const icon = btn.querySelector('.action-icon');
+            const isLiked = icon.textContent === '❤️';
+            if (isLiked) {
+                icon.textContent = '🤍';
+                btn.classList.remove('liked');
+            } else {
+                icon.textContent = '❤️';
+                btn.classList.add('liked');
+            }
+        }
+    </script>
+</body>
+</html>

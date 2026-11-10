@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日视界 - 首页</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:#222;background:#f5f5f7;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.topbar{background:#1a1a1a;color:#ccc;font-size:13px;padding:8px 0}
+.topbar .container{display:flex;justify-content:space-between}
+.topbar a{color:#ccc;margin-left:18px}
+.topbar a:hover{color:#fff}
+header{background:#fff;border-bottom:3px solid #c8102e}
+header .container{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
+.logo{font-size:30px;font-weight:900;color:#c8102e;letter-spacing:2px}
+.logo small{color:#222;font-size:13px;font-weight:400;margin-left:10px;letter-spacing:0}
+nav{display:flex;gap:30px;font-size:16px;font-weight:500}
+nav a{padding:6px 0;position:relative}
+nav a:hover,nav a.active{color:#c8102e}
+nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-20px;height:3px;background:#c8102e}
+.hero{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:20px}
+.main-story{background:#fff;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;background-image:linear-gradient(135deg,#1a3a5c 0%,#2c557f 100%);color:#fff;position:relative;overflow:hidden}
+.main-story .cat{color:#ffd27f;font-size:13px;letter-spacing:2px;margin-bottom:10px}
+.main-story h1{font-size:34px;line-height:1.35;margin-bottom:14px;font-weight:800}
+.main-story p{color:#d8e2ee;font-size:16px;margin-bottom:18px}
+.main-story .meta{font-size:13px;color:#aac0d8}
+.side{display:flex;flex-direction:column;gap:16px}
+.side-card{background:#fff;padding:18px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.side-card .cat{color:#c8102e;font-size:12px;font-weight:700;margin-bottom:6px}
+.side-card h3{font-size:18px;line-height:1.4;font-weight:700}
+.side-card h3:hover{color:#c8102e}
+.section{margin-top:36px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #222;padding-bottom:8px;margin-bottom:18px}
+.section-head h2{font-size:22px;font-weight:800}
+.section-head h2::before{content:"";display:inline-block;width:6px;height:22px;background:#c8102e;margin-right:10px;vertical-align:-4px}
+.section-head a.more{font-size:13px;color:#666}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;transition:transform .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.card .thumb{height:170px;background:linear-gradient(135deg,#3b6ea5,#1d3a5a)}
+.card .thumb.t2{background:linear-gradient(135deg,#7a4a1f,#b7813a)}
+.card .thumb.t3{background:linear-gradient(135deg,#2e6b4a,#6aa87e)}
+.card .thumb.t4{background:linear-gradient(135deg,#5a3a6e,#8e5fa0)}
+.card .thumb.t5{background:linear-gradient(135deg,#8a2c2c,#c86a5a)}
+.card .thumb.t6{background:linear-gradient(135deg,#1e4a5a,#4a8a9a)}
+.card .body{padding:16px}
+.card .cat{color:#c8102e;font-size:12px;font-weight:700}
+.card h3{font-size:17px;margin:8px 0;line-height:1.5}
+.card h3 a:hover{color:#c8102e}
+.card .desc{color:#666;font-size:14px;line-height:1.6;margin-bottom:12px}
+.card .meta{color:#999;font-size:12px;display:flex;justify-content:space-between}
+.newsflow{background:#fff}
+.newsflow ul{list-style:none}
+.newsflow li{padding:14px 0;border-bottom:1px dashed #e5e5e5;display:flex;justify-content:space-between;align-items:center}
+.newsflow li:last-child{border-bottom:none}
+.newsflow .dot{width:8px;height:8px;background:#c8102e;border-radius:50%;margin-right:12px;flex-shrink:0}
+.newsflow .title{flex:1;font-size:15px}
+.newsflow .title a:hover{color:#c8102e}
+.newsflow .time{color:#999;font-size:13px;margin-left:16px}
+.cols{display:grid;grid-template-columns:2fr 1fr;gap:28px;margin-top:36px}
+.hot{background:#fff;padding:20px}
+.hot h3{font-size:18px;font-weight:800;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #222}
+.hot ol{list-style:none;counter-reset:hot}
+.hot li{counter-increment:hot;padding:10px 0;border-bottom:1px dashed #eee;font-size:14px}
+.hot li:last-child{border-bottom:none}
+.hot li::before{content:counter(hot);color:#999;margin-right:10px;font-weight:700}
+.hot li:nth-child(-n+3)::before{color:#c8102e}
+.hot li a:hover{color:#c8102e}
+.about-box{background:#fff;padding:20px;margin-top:16px}
+.about-box p{font-size:14px;color:#555;line-height:1.7}
+.about-box a.btn{display:inline-block;margin-top:14px;background:#c8102e;color:#fff;padding:8px 18px;font-size:13px}
+footer{background:#1a1a1a;color:#999;margin-top:48px;padding:32px 0;font-size:13px}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:#bbb;margin-right:18px}
+footer a:hover{color:#fff}
+@media(max-width:900px){
+.hero,.cols{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr 1fr}
+nav{font-size:14px;gap:16px}
+}
+@media(max-width:600px){
+.grid{grid-template-columns:1fr}
+nav{display:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <span>2025年6月18日 · 星期三 · 北京 晴 26℃</span>
+    <div>
+      <a href="#">客户端下载</a>
+      <a href="#">订阅</a>
+      <a href="#">登录</a>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">每日视界<small>DAILY VISION · 每日深度 · 真实报道</small></a>
+    <nav>
+      <a href="index.html" class="active">首页</a>
+      <a href="tech.html">科技</a>
+      <a href="tech.html">财经</a>
+      <a href="tech.html">国际</a>
+      <a href="tech.html">观点</a>
+      <a href="about.html">关于我们</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <section class="hero">
+    <a href="article.html" class="main-story">
+      <div class="cat">深度报道 · 经济观察</div>
+      <h1>制造业投资回暖明显，二季度新增项目数量创近三年新高</h1>
+      <p>国家统计局最新数据显示，5月份制造业投资同比增长6.4%，其中高端装备与新能源赛道表现尤为突出。分析师认为，政策组合拳与出口订单回稳是本轮回暖的两个核心动力。</p>
+      <div class="meta">王远山 · 6月18日 08:30 · 阅读 12,438</div>
+    </a>
+    <div class="side">
+      <a href="tech.html" class="side-card">
+        <div class="cat">科技</div>
+        <h3>新一代智能座舱标准发布，车机系统互操作性将进一步提升</h3>
+      </a>
+      <a href="article.html" class="side-card">
+        <div class="cat">国际</div>
+        <h3>多国联合声明呼吁加强关键矿产供应链韧性</h3>
+      </a>
+      <a href="tech.html" class="side-card">
+        <div class="cat">观点</div>
+        <h3>评论员文章：让"小创新"在县域经济中找到位置</h3>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>今日头条</h2>
+      <a href="tech.html" class="more">查看全部 →</a>
+    </div>
+    <div class="grid">
+      <a href="article.html" class="card">
+        <div class="thumb"></div>
+        <div class="body">
+          <div class="cat">财经</div>
+          <h3>多家银行下调房贷利率，购房成本进一步降低</h3>
+          <p class="desc">自本周一日起，五家全国性商业银行相继下调首套房贷利率，最低已降至3.1%。</p>
+          <div class="meta"><span>陈思雨</span><span>09:12</span></div>
+        </div>
+      </a>
+      <a href="article.html" class="card">
+        <div class="thumb t2"></div>
+        <div class="body">
+          <div class="cat">科技</div>
+          <h3>国产大飞机完成高原航线首飞，技术验证取得关键进展</h3>
+          <p class="desc">机型在海拔4500米以上完成多次起降，关键系统运行稳定。</p>
+          <div class="meta"><span>周明哲</span><span>10:45</span></div>
+        </div>
+      </a>
+      <a href="article.html" class="card">
+        <div class="thumb t3"></div>
+        <div class="body">
+          <div class="cat">民生</div>
+          <h3>多地启动"暑期清凉驿站"计划，为户外劳动者提供免费饮水</h3>
+          <p class="desc">首批驿站覆盖快递、环卫、外卖等行业，预计本月内完成200个站点铺设。</p>
+          <div class="meta"><span>林晚秋</span><span>11:20</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>最新资讯</h2>
+      <a href="tech.html" class="more">更多 →</a>
+    </div>
+    <div class="newsflow">
+      <ul>
+        <li><span class="dot"></span><a href="article.html" class="title">中央气象台发布高温黄色预警，华北局地可达41℃</a><span class="time">24分钟前</span></li>
+        <li><span class="dot"></span><a href="article.html" class="title">新能源汽车渗透率再创新高，6月单月销量同比增长18%</a><span class="time">1小时前</span></li>
+        <li><span class="dot"></span><a href="article.html" class="title">教育部：2025年研究生招生规模将稳中有升</a><span class="time">2小时前</span></li>
+        <li><span class="dot"></span><a href="article.html" class="title">跨境电商出口额持续攀升，新兴市场成为增长引擎</a><span class="time">3小时前</span></li>
+        <li><span class="dot"></span><a href="article.html" class="title">医保药品目录调整启动，创新药纳入速度或将加快</a><span class="time">4小时前</span></li>
+        <li><span class="dot"></span><a href="article.html" class="title">文旅消费持续升温，五一假期跨省游订单同比增长42%</a><span class="time">5小时前</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>深度观察</h2><a href="tech.html" class="more">更多 →</a></div>
+    <div class="grid">
+      <a href="article.html" class="card">
+        <div class="thumb t4"></div>
+        <div class="body">
+          <div class="cat">产业</div>
+          <h3>县域制造业的"二次创业"：从代工到自主品牌</h3>
+          <p class="desc">三个县域工厂样本，呈现出一条被低估的产业升级路径。</p>
+          <div class="meta"><span>沈砚舟</span><span>今日 07:00</span></div>
+        </div>
+      </a>
+      <a href="article.html" class="card">
+        <div class="thumb t5"></div>
+        <div class="body">
+          <div class="cat">消费</div>
+          <h3>新茶饮的下一站：下沉市场与品牌重塑</h3>
+          <p class="desc">当一线城市的门店密度趋于饱和，品牌方将目光投向三四线城市。</p>
+          <div class="meta"><span>顾之遥</span><span>今日 08:15</span></div>
+        </div>
+      </a>
+      <a href="article.html" class="card">
+        <div class="thumb t6"></div>
+        <div class="body">
+          <div class="cat">能源</div>
+          <h3>分布式光伏进入"下半场"：从装机竞赛到运营精细化</h3>
+          <p class="desc">在补贴退坡之后，运营效率成为决定项目收益率的关键变量。</p>
+          <div class="meta"><span>韩承宇</span><span>今日 09:30</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="cols">
+    <div class="newsflow" style="background:#fff">
+      <div class="section-head" style="margin-bottom:0"><h2 style="font-size:18px">视频·图说</h2></div>
+      <ul>
+        <li><a href="article.html" class="title">图说 | 6月全国重点城市新房成交面积环比回升</a><span class="time">昨日</span></li>
+        <li><a href="article.html" class="title">视频 | 走进芯片封测车间：一条"看不见的产线"</a><span class="time">昨日</span></li>
+        <li><a href="article.html" class="title">图说 | 五年间中国新能源汽车保有量变化</a><span class="time">2天前</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="hot">
+        <h3>本周热榜</h3>
+        <ol>
+          <li><a href="article.html">央行发布二季度货币政策执行报告</a></li>
+          <li><a href="tech.html">国产大模型推理成本显著下降</a></li>
+          <li><a href="article.html">多地发布"以旧换新"补贴细则</a></li>
+          <li><a href="article.html">跨境电商综试区扩围至132个</a></li>
+          <li><a href="article.html">高考报名人数再创新高</a></li>
+          <li><a href="article.html">A股三大指数集体收涨</a></li>
+          <li><a href="tech.html">国产操作系统生态加速成形</a></li>
+          <li><a href="article.html">国际油价单日波动超4%</a></li>
+        </ol>
+      </div>
+      <div class="about-box">
+        <p>《每日视界》创立于2009年，是一家专注于事实报道与深度解读的全国性新闻机构，覆盖经济、科技、国际、民生等领域。</p>
+        <a href="about.html" class="btn">了解更多</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="color:#fff;font-weight:700;margin-bottom:8px">每日视界 DAILY VISION</div>
+      <div>新闻热线：010-8000-0000 · 投稿邮箱：news@dailyvision.example</div>
+      <div style="margin-top:8px">© 2009–2025 每日视界 版权所有 · 京ICP备00000000号</div>
+    </div>
+    <div>
+      <a href="index.html">首页</a>
+      <a href="tech.html">科技</a>
+      <a href="tech.html">财经</a>
+      <a href="tech.html">国际</a>
+      <a href="about.html">关于我们</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

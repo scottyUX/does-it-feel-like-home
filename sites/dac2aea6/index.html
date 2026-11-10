@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 记录生活，分享快乐</title>
+    <style>
+        :root {
+            --primary: #FF5E62;
+            --primary-light: #FF8A8D;
+            --primary-dark: #E8444A;
+            --accent: #6C5CE7;
+            --bg: #F5F6FA;
+            --card: #FFFFFF;
+            --text: #2D3436;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            background: rgba(255,94,98,0.08);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 8px 16px;
+            gap: 8px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            width: 160px;
+            color: var(--text);
+        }
+
+        .search-icon {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .nav-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-signup {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Layout */
+        .main-layout {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px;
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: 24px;
+        }
+
+        /* Left Sidebar */
+        .sidebar-left {
+            position: sticky;
+            top: 88px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .sidebar-nav li a:hover {
+            background: rgba(255,94,98,0.06);
+            color: var(--primary);
+        }
+
+        .sidebar-nav .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .trend-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .trend-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-tag {
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .trend-count {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /* Feed */
+        .feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .compose-box {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .compose-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .compose-input {
+            flex: 1;
+            background: var(--bg);
+            border: none;
+            border-radius: 20px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: var(--text);
+            outline: none;
+        }
+
+        .compose-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .compose-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .compose-btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .compose-btn:hover {
+            background: var(--bg);
+        }
+
+        /* Post Card */
+        .post-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.3s;
+        }
+
+        .post-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            gap: 12px;
+        }
+
+        .post-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .post-user-info {
+            flex: 1;
+        }
+
+        .post-username {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .post-username:hover {
+            color: var(--primary);
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .post-body {
+            padding: 0 20px 16px;
+        }
+
+        .post-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .post-text .tag {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.1));
+        }
+
+        .post-image .img-label {
+            position: absolute;
+            bottom: 12px;
+            left: 16px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .post-actions {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            gap: 4px;
+            border-top: 1px solid var(--border);
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: none;
+            background: none;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--bg);
+            color: var(--primary);
+        }
+
+        .action-btn.liked {
+            color: var(--primary);
+        }
+
+        .action-btn .count {
+            font-size: 13px;
+        }
+
+        .post-more {
+            margin-left: auto;
+        }
+
+        /* Right Sidebar */
+        .sidebar-right {
+            position: sticky;
+            top: 88px;
+            height: fit-content;
+        }
+
+        .suggest-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .suggest-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .suggest-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .suggest-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggest-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .suggest-info {
+            flex: 1;
+        }
+
+        .suggest-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .suggest-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .btn-follow {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 14px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-follow:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-follow.following {
+            background: var(--bg);
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 32px 40px;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 1fr 280px;
+            }
+            .sidebar-left {
+                display: none;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                padding: 16px;
+            }
+            .sidebar-right {
+                display: none;
+            }
+            .navbar {
+                padding: 0 16px;
+            }
+            .search-box {
+                display: none;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">趣</div>
+                趣聊
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="profile.html">个人主页</a></li>
+                <li><a href="post.html">热门帖子</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="搜索帖子、用户、话题...">
+            </div>
+            <div class="nav-avatar">林</div>
+            <a href="signup.html" class="btn-signup">邀请好友</a>
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+            <div class="sidebar-section">
+                <ul class="sidebar-nav">
+                    <li><a href="index.html"><span class="icon" style="background:#FEF3C7;">🏠</span> 我的动态</a></li>
+                    <li><a href="#"><span class="icon" style="background:#DBEAFE;">📌</span> 收藏</a></li>
+                    <li><a href="#"><span class="icon" style="background:#FCE7F3;">💬</span> 消息</a></li>
+                    <li><a href="#"><span class="icon" style="background:#D1FAE5;">🔔</span> 通知</a></li>
+                    <li><a href="#"><span class="icon" style="background:#EDE9FE;">⚙️</span> 设置</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">热门话题</div>
+                <div class="trend-item">
+                    <span class="trend-tag">#周末去哪玩</span>
+                    <span class="trend-count">2.3万</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#今天吃什么</span>
+                    <span class="trend-count">1.8万</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#摄影日常</span>
+                    <span class="trend-count">9,642</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#健身打卡</span>
+                    <span class="trend-count">7,210</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#好书推荐</span>
+                    <span class="trend-count">5,833</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="feed">
+            <div class="compose-box">
+                <div class="compose-avatar">林</div>
+                <div style="flex:1;">
+                    <input type="text" class="compose-input" placeholder="今天想分享点什么？">
+                    <div class="compose-actions">
+                        <button class="compose-btn">📷 图片</button>
+                        <button class="compose-btn">📍 定位</button>
+                        <button class="compose-btn"># 话题</button>
+                        <button class="compose-btn" style="margin-left:auto; color: var(--primary); font-weight:600;">发布</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 1 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);">苏</div>
+                    <div class="post-user-info">
+                        <a href="profile.html" class="post-username">苏雨桐</a>
+                        <div class="post-meta">2小时前 · 杭州</div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">周末去西湖边骑车，夕阳把湖面染成了金色，真的不要太美。拍了三百多张照片，终于选出这张最满意的。#周末去哪玩 #杭州 #骑行日记</p>
+                </div>
+                <div class="post-image" style="background:linear-gradient(135deg, #F6D365 0%, #FDA085 100%);">
+                    <span>🌅</span>
+                    <span class="img-label">西湖 · 断桥残雪附近</span>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn liked">❤️ <span class="count">1,284</span></button>
+                    <button class="action-btn">💬 <span class="count">86</span></button>
+                    <button class="action-btn">🔄 <span class="count">32</span></button>
+                    <button class="action-btn">🔖</button>
+                    <button class="action-btn post-more">⋯</button>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">陈</div>
+                    <div class="post-user-info">
+                        <a href="profile.html" class="post-username">陈宇航</a>
+                        <div class="post-meta">4小时前 · 上海</div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">终于完成了这个月的工作项目！连续加班两周，今天终于可以好好睡一觉了。明天约了朋友去攀岩，好好放松一下。#工作日常 #打工人</p>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ <span class="count">567</span></button>
+                    <button class="action-btn">💬 <span class="count">42</span></button>
+                    <button class="action-btn">🔄 <span class="count">12</span></button>
+                    <button class="action-btn">🔖</button>
+                    <button class="action-btn post-more">⋯</button>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">赵</div>
+                    <div class="post-user-info">
+                        <a href="profile.html" class="post-username">赵子轩</a>
+                        <div class="post-meta">昨天 21:30 · 成都</div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">在家做了一顿火锅，食材都是早上去菜市场现买的。毛肚七上八下涮十五秒，嫩得不得了。自己做的比外面火锅店还好吃，推荐你们试试！#今天吃什么 #居家美食 #火锅</p>
+                </div>
+                <div class="post-image" style="background:linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                    <span>🍲</span>
+                    <span class="img-label">自制麻辣火锅</span>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ <span class="count">2,103</span></button>
+                    <button class="action-btn">💬 <span class="count">127</span></button>
+                    <button class="action-btn">🔄 <span class="count">89</span></button>
+                    <button class="action-btn">🔖</button>
+                    <button class="action-btn post-more">⋯</button>
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2);">王</div>
+                    <div class="post-user-info">
+                        <a href="profile.html" class="post-username">王芷若</a>
+                        <div class="post-meta">昨天 15:20 · 北京</div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">跑步打卡第100天！从最初跑800米就喘，到现在能轻松完成5公里。坚持真的会改变生活。感谢每天早起跑步的自己和给我加油的你们。#健身打卡 #跑步 #自律</p>
+                </div>
+                <div class="post-image" style="background:linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
+                    <span>🏃</span>
+                    <span class="img-label">今日跑步 · 5.2km</span>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn liked">❤️ <span class="count">3,456</span></button>
+                    <button class="action-btn">💬 <span class="count">203</span></button>
+                    <button class="action-btn">🔄 <span class="count">156</span></button>
+                    <button class="action-btn">🔖</button>
+                    <button class="action-btn post-more">⋯</button>
+                </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="post-avatar" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">李</div>
+                    <div class="post-user-info">
+                        <a href="profile.html" class="post-username">李沐宸</a>
+                        <div class="post-meta">昨天 09:15 · 广州</div>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <p class="post-text">最近迷上了一本物理科普书，把量子力学讲得像故事一样好懂。强烈推荐给所有对科学好奇但觉得难的朋友。知识不应该有门槛。#好书推荐 #科普 #阅读</p>
+                </div>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ <span class="count">892</span></button>
+                    <button class="action-btn">💬 <span class="count">64</span></button>
+                    <button class="action-btn">🔄 <span class="count">45</span></button>
+                    <button class="action-btn">🔖</button>
+                    <button class="action-btn post-more">⋯</button>
+                </div>
+            </article>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+            <div class="suggest-card">
+                <div class="suggest-title">推荐关注</div>
+                <div class="suggest-item">
+                    <div class="suggest-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);">周</div>
+                    <div class="suggest-info">
+                        <div class="suggest-name">周星辰</div>
+                        <div class="suggest-desc">旅行摄影 · 2.1万粉丝</div>
+                    </div>
+                    <button class="btn-follow">关注</button>
+                </div>
+                <div class="suggest-item">
+                    <div class="suggest-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">何</div>
+                    <div class="suggest-info">
+                        <div class="suggest-name">何嘉怡</div>
+                        <div class="suggest-desc">美食博主 · 5.6万粉丝</div>
+                    </div>
+                    <button class="btn-follow">关注</button>
+                </div>
+                <div class="suggest-item">
+                    <div class="suggest-avatar" style="background:linear-gradient(135deg,#fa709a,#fee140);">孙</div>
+                    <div class="suggest-info">
+                        <div class="suggest-name">孙一诺</div>
+                        <div class="suggest-desc">健身教练 · 8.3万粉丝</div>
+                    </div>
+                    <button class="btn-follow">关注</button>
+                </div>
+                <div class="suggest-item">
+                    <div class="suggest-avatar" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">吴</div>
+                    <div class="suggest-info">
+                        <div class="suggest-name">吴思远</div>
+                        <div class="suggest-desc">独立音乐人 · 1.2万粉丝</div>
+                    </div>
+                    <button class="btn-follow following">已关注</button>
+                </div>
+            </div>
+            <div class="suggest-card">
+                <div class="suggest-title">本周热门</div>
+                <div class="trend-item">
+                    <span class="trend-tag">#城市漫步</span>
+                    <span class="trend-count">5.1万</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#咖啡日记</span>
+                    <span class="trend-count">3.4万</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#穿搭分享</span>
+                    <span class="trend-count">2.8万</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-tag">#宠物日常</span>
+                    <span class="trend-count">2.2万</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">趣聊</div>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">用户协议</a>
+                <a href="#">隐私政策</a>
+                <a href="#">帮助中心</a>
+                <a href="signup.html">加入我们</a>
+            </div>
+            <div class="footer-copy">© 2025 趣聊 · 记录生活，分享快乐</div>
+        </div>
+    </footer>
+
+    <script>
+        // Like button toggle
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.querySelector('.count') && this.textContent.includes('❤️')) {
+                    this.classList.toggle('liked');
+                    const countSpan = this.querySelector('.count');
+                    if (countSpan) {
+                        let count = parseInt(countSpan.textContent.replace(/,/g, ''));
+                        if (this.classList.contains('liked')) {
+                            count++;
+                        } else {
+                            count--;
+                        }
+                        countSpan.textContent = count.toLocaleString();
+                    }
+                }
+            });
+        });
+
+        // Follow button toggle
+        document.querySelectorAll('.btn-follow').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (!this.classList.contains('following')) {
+                    this.classList.add('following');
+                    this.textContent = '已关注';
+                } else {
+                    this.classList.remove('following');
+                    this.textContent = '关注';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有课程 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .btn-register {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+        }
+
+        .filters {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .filter-option {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .filter-option input {
+            margin-right: 0.5rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .course-img {
+            height: 160px;
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-category {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .course-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .btn-detail {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn-detail:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .filters {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">学途 XUETU</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="courses.html">所有课程</a></li>
+                <li><a href="register.html" class="btn-register">立即报名</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="filters">
+            <div class="filter-group">
+                <h3>课程分类</h3>
+                <label class="filter-option"><input type="checkbox" checked> 语言学习</label>
+                <label class="filter-option"><input type="checkbox" checked> 计算机技能</label>
+                <label class="filter-option"><input type="checkbox" checked> 考试备考</label>
+            </div>
+            <div class="filter-group">
+                <h3>价格区间</h3>
+                <label class="filter-option"><input type="radio" name="price"> 免费</label>
+                <label class="filter-option"><input type="radio" name="price" checked> ¥ 0 - ¥ 2,000</label>
+                <label class="filter-option"><input type="radio" name="price"> ¥ 2,000 - ¥ 5,000</label>
+                <label class="filter-option"><input type="radio" name="price"> ¥ 5,000 以上</label>
+            </div>
+        </aside>
+
+        <main class="course-grid">
+            <!-- Language Courses -->
+            <div class="course-card">
+                <div class="course-img">商务英语沟通</div>
+                <div class="course-content">
+                    <span class="course-category">语言学习</span>
+                    <h3 class="course-title">商务英语：职场沟通精进</h3>
+                    <span class="course-price">¥ 899</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">日语 N2 突破</div>
+                <div class="course-content">
+                    <span class="course-category">语言学习</span>
+                    <h3 class="course-title">日语 JLPT N2 全能备考班</h3>
+                    <span class="course-price">¥ 1,599</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">雅思 7.0 冲刺</div>
+                <div class="course-content">
+                    <span class="course-category">语言学习</span>
+                    <h3 class="course-title">雅思高效冲刺：听说读写全覆盖</h3>
+                    <span class="course-price">¥ 2,599</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+
+            <!-- Computer Skills -->
+            <div class="course-card">
+                <div class="course-img">Python 数据分析</div>
+                <div class="course-content">
+                    <span class="course-category">计算机技能</span>
+                    <h3 class="course-title">Python 从零到数据分析师</h3>
+                    <span class="course-price">¥ 1,299</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">Full-stack Dev</div>
+                <div class="course-content">
+                    <span class="course-category">计算机技能</span>
+                    <h3 class="course-title">全栈 Web 开发实战营</h3>
+                    <span class="course-price">¥ 3,200</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">AWS Cloud Cert</div>
+                <div class="course-content">
+                    <span class="course-category">计算机技能</span>
+                    <h3 class="course-title">AWS 云计算架构师认证</h3>
+                    <span class="course-price">¥ 1,899</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+
+            <!-- Exam Prep -->
+            <div class="course-card">
+                <div class="course-img">CFA Level 1</div>
+                <div class="course-content">
+                    <span class="course-category">考试备考</span>
+                    <h3 class="course-title">CFA Level I 核心知识点精讲</h3>
+                    <span class="course-price">¥ 3,800</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">CPA 会计</div>
+                <div class="course-content">
+                    <span class="course-category">考试备考</span>
+                    <h3 class="course-title">CPA 注册会计师专业阶段通关</h3>
+                    <span class="course-price">¥ 4,200</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-img">公务员考试</div>
+                <div class="course-content">
+                    <span class="course-category">考试备考</span>
+                    <h3 class="course-title">公务员行测与申论高效提分</h3>
+                    <span class="course-price">¥ 1,100</span>
+                    <a href="course-detail.html" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

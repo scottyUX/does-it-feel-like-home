@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情 - 趣聊</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        nav {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .post-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px;
+        }
+
+        .post-main {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .user-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .user-info span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .post-body-text {
+            padding: 0 20px 20px 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .post-main-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 24px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .comments-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .comment-input-area {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .comment-input-area input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            outline: none;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f9fafb;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-content {
+            background: var(--bg-color);
+            padding: 12px 16px;
+            border-radius: 0 16px 16px 16px;
+            font-size: 14px;
+        }
+
+        .comment-user {
+            font-weight: 700;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Right Side Suggestions */
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .suggest-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .btn-follow-sm {
+            margin-left: auto;
+            padding: 4px 8px;
+            font-size: 12px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        @media (max-width: 850px) {
+            .post-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">趣聊</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html" class="btn-register">加入我们</a>
+        </div>
+    </nav>
+
+    <div class="post-container">
+        <div class="post-main-column">
+            <div class="post-main">
+                <div class="post-header">
+                    <img src="assets/image-8707539cd22d3f07.svg" class="avatar" alt="Avatar">
+                    <div class="user-info">
+                        <h4>林小凡</h4>
+                        <span>2小时前 · ☕ 咖啡馆</span>
+                    </div>
+                </div>
+                <div class="post-body-text">
+                    终于在市中心找到了这家隐藏的精品咖啡店，手冲瑰夏的味道太惊艳了！推荐给所有咖啡爱好者。尤其是他们家的燕麦奶拿铁，口感极其丝滑。
+                </div>
+                <img src="assets/image-f133476839c86a8c.jpg" class="post-main-image" alt="Coffee">
+                <div class="post-footer">
+                    <button class="action-btn">❤️ 128</button>
+                    <button class="action-btn">💬 24 评论</button>
+                    <button class="action-btn">🔄 分享</button>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <span class="comments-title">评论 (24)</span>
+                <div class="comment-input-area">
+                    <img src="assets/image-e6102cad7b09c5bd.svg" class="avatar" style="width:32px; height:32px;" alt="Me">
+                    <input type="text" placeholder="写下你的评论...">
+                    <button class="btn-submit">发布</button>
+                </div>
+
+                <div class="comment-item">
+                    <img src="assets/image-5ee83580a180a49b.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <div class="comment-content">
+                        <span class="comment-user">周周爱旅行</span>
+                        这家店我也去过！不过我觉得他们家的甜点更出名。
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <img src="assets/image-ce7220ec6cb5e48f.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <div class="comment-content">
+                        <span class="comment-user">代码之魂</span>
+                        求地址！刚好周末在附近。
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <img src="assets/image-f3e09182725c4d25.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <div class="comment-content">
+                        <span class="comment-user">美食挖掘机</span>
+                        瑰夏确实贵，但值得尝试一次。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar-right">
+            <div class="widget">
+                <span class="widget-title">相似用户</span>
+                <div class="suggest-user">
+                    <img src="assets/image-570074c6ce6e0084.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <span>咖啡狂人</span>
+                    <button class="btn-follow-sm">关注</button>
+                </div>
+                <div class="suggest-user">
+                    <img src="assets/image-a1888a9f68281598.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <span>城市漫游者</span>
+                    <button class="btn-follow-sm">关注</button>
+                </div>
+                <div class="suggest-user">
+                    <img src="assets/image-a874a6e1ab302680.svg" class="avatar" style="width:32px; height:32px;" alt="User">
+                    <span>文艺青年</span>
+                    <button class="btn-follow-sm">关注</button>
+                </div>
+            </div>
+            <div class="widget">
+                <span class="widget-title">相关话题</span>
+                <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8;">
+                    #精品咖啡 <br>
+                    #周末好去处 <br>
+                    #城市探店 <br>
+                    #手冲咖啡
+                </p>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

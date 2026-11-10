@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人银行服务 - 长川银行</title>
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-gold: #C5A059;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .banner {
+            background-color: #eef2f5;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .banner h1 {
+            color: var(--primary-blue);
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .service-section {
+            margin-bottom: 60px;
+        }
+
+        .service-section h2 {
+            color: var(--primary-blue);
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .product-item {
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: box-shadow 0.3s;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-item h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+
+        .product-item ul {
+            padding-left: 20px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .product-item li {
+            margin-bottom: 8px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">长川银行</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="personal.html">个人银行</a></li>
+                <li><a href="cards.html">信用卡</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="banner">
+    <h1>个人银行服务</h1>
+    <p>为您量身定制的金融方案，让生活更从容</p>
+</div>
+
+<div class="container">
+    <div class="service-section">
+        <h2>储蓄与财富管理</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <h3>长川活期储蓄账户</h3>
+                <ul>
+                    <li>资金流动性强，随时支取</li>
+                    <li>支持手机银行实时转账</li>
+                    <li>办理便捷，无需复杂审核</li>
+                </ul>
+                <a href="#" class="btn-outline">立即开户</a>
+            </div>
+            <div class="product-item">
+                <h3>稳健增长定期产品</h3>
+                <ul>
+                    <li>高起存额，享受更高利率</li>
+                    <li>期限灵活：3个月至5年不等</li>
+                    <li>保本保息，安全可靠</li>
+                </ul>
+                <a href="#" class="btn-outline">查看利率</a>
+            </div>
+            <div class="product-item">
+                <h3>定制化资产配置</h3>
+                <ul>
+                    <li>专业理财师一对一指导</li>
+                    <li>涵盖基金、债券及保险产品</li>
+                    <li>根据风险承受能力量身定制</li>
+                </ul>
+                <a href="#" class="btn-outline">预约咨询</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="service-section">
+        <h2>个人贷款产品</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <h3>安家房贷</h3>
+                <ul>
+                    <li>竞争力强的年度最优利率</li>
+                    <li>审批流程简化，最快3日出结果</li>
+                    <li>灵活的还款方式（等额本息/本金）</li>
+                </ul>
+                <a href="#" class="btn-outline">计算月供</a>
+            </div>
+            <div class="product-item">
+                <h3>创业支持贷</h3>
+                <ul>
+                    <li>专为初创企业家设计</li>
+                    <li>宽限期长，减轻前期还款压力</li>
+                    <li>最高额度可达 200 万人民币</li>
+                </ul>
+                <a href="#" class="btn-outline">申请额度</a>
+            </div>
+            <div class="product-item">
+                <h3>消费信用贷</h3>
+                <ul>
+                    <li>无需抵押，纯信用审批</li>
+                    <li>最高 30 万额度，即申即用</li>
+                    <li>适合装修、教育或大宗消费</li>
+                </ul>
+                <a href="#" class="btn-outline">在线申请</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 长川银行股份有限公司. 保留所有权利。</p>
+</footer>
+
+</body>
+</html>

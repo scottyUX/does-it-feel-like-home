@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技频道 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #1a3668;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .category-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+        }
+
+        .category-header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            background-image: linear-gradient(135deg, #ddd, #bbb);
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h2 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .meta {
+            margin-top: auto;
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">每日视界</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="category.html" style="color: var(--accent-color);">科技</a></li>
+                    <li><a href="category.html">财经</a></li>
+                    <li><a href="category.html">文化</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="category-header">
+        <div class="container">
+            <h1>科技频道</h1>
+            <p>探索前沿技术，解析数字化未来</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="article-list">
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>量子计算的最新突破：相干时间延长至毫秒级</h2>
+                    <p>近日，一项新的研究通过优化超导电路，成功将量子比特的相干时间提升了一个数量级，这为纠错算法提供了可能...</p>
+                    <div class="meta">
+                        <span>2024-10-12 · 物理学</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>人工智能在早期癌症筛查中的应用实践</h2>
+                    <p>结合深度学习与医学影像学，新的AI模型在检测早期肺癌方面的准确率提升至94%，显著降低了误诊率...</p>
+                    <div class="meta">
+                        <span>2024-10-11 · 生物医疗</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>固态电池商业化进程：何时能真正普及？</h2>
+                    <p>尽管实验室数据亮眼，但大规模量产仍面临电解质界面稳定性等挑战。业内人士分析，预计 2027 年将迎来拐点...</p>
+                    <div class="meta">
+                        <span>2024-10-10 · 能源技术</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>下一代半导体工艺：向 1 纳米进发</h2>
+                    <p>全球芯片巨头正就 GAAFET 架构展开激烈竞争，探讨如何通过新材料克服量子隧穿效应...</p>
+                    <div class="meta">
+                        <span>2024-10-09 · 硬件工程</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>低轨卫星互联网如何改变偏远地区通信</h2>
+                    <p>随着星链等项目的部署，全球互联网覆盖率将大幅提升，这对远程教育和医疗将产生深远影响...</p>
+                    <div class="meta">
+                        <span>2024-10-08 · 航天通信</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+            <div class="article-card">
+                <div class="card-img"></div>
+                <div class="card-body">
+                    <h2>边缘计算：将处理能力移至数据源头</h2>
+                    <p>为了降低延迟，越来越多的企业开始采用边缘计算架构，特别是在工业自动化和自动驾驶领域...</p>
+                    <div class="meta">
+                        <span>2024-10-07 · 计算机网络</span>
+                        <a href="article.html" class="read-more">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="category.html">科技</a>
+                <a href="category.html">财经</a>
+                <a href="about.html">关于我们</a>
+            </div>
+            <p>&copy; 2024 每日视界新闻网. 保留所有权利。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

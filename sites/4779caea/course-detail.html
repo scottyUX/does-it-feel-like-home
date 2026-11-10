@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 数据分析实战营 - 学途</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #1a202c; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+
+        .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-size: 24px; font-weight: 700; color: #1e40af; }
+        .nav-logo span { color: #f59e0b; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { font-size: 15px; color: #4a5568; transition: color .2s; }
+        .nav-links a:hover { color: #1e40af; }
+        .nav-cta { background: #1e40af; color: #fff !important; padding: 8px 20px; border-radius: 6px; font-weight: 500; }
+        .nav-cta:hover { background: #1e3a8a; }
+
+        .breadcrumb { padding: 16px 40px; font-size: 13px; color: #64748b; max-width: 1200px; margin: 0 auto; }
+        .breadcrumb a { color: #1e40af; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .detail-wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: 1fr 380px; gap: 40px; }
+        .detail-main { min-width: 0; }
+        .detail-aside { position: sticky; top: 80px; align-self: start; }
+
+        .course-hero { background: linear-gradient(135deg, #dcfce7, #f0fdf4); border-radius: 16px; padding: 48px 40px; margin-bottom: 32px; }
+        .course-hero .tag { display: inline-block; font-size: 13px; padding: 4px 14px; border-radius: 20px; background: #dcfce7; color: #166534; font-weight: 500; margin-bottom: 16px; }
+        .course-hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+        .course-hero p { font-size: 15px; color: #4a5568; max-width: 560px; }
+        .hero-meta { display: flex; gap: 24px; margin-top: 20px; font-size: 13px; color: #64748b; flex-wrap: wrap; }
+        .hero-meta span { display: flex; align-items: center; gap: 4px; }
+
+        .section-block { margin-bottom: 40px; }
+        .section-block h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; }
+
+        .lesson-list { list-style: none; }
+        .lesson-module { margin-bottom: 16px; }
+        .module-header { font-size: 15px; font-weight: 600; padding: 12px 16px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .module-header span { font-size: 12px; color: #94a3b8; font-weight: 400; }
+        .lesson-item { display: flex; align-items: center; gap: 12px; padding: 10px 16px; font-size: 14px; color: #4a5568; border-left: 2px solid #e2e8f0; margin-left: 8px; }
+        .lesson-item .num { width: 24px; height: 24px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #64748b; flex-shrink: 0; }
+        .lesson-item .duration { margin-left: auto; font-size: 12px; color: #94a3b8; }
+
+        .teacher-card { display: flex; gap: 20px; align-items: flex-start; background: #f8fafc; border-radius: 12px; padding: 24px; }
+        .teacher-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #60a5fa); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; font-weight: 700; flex-shrink: 0; }
+        .teacher-info h3 { font-size: 18px; margin-bottom: 4px; }
+        .teacher-info .title { font-size: 13px; color: #64748b; margin-bottom: 10px; }
+        .teacher-info p { font-size: 14px; color: #4a5568; line-height: 1.7; }
+        .teacher-badges { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+        .badge { font-size: 12px; padding: 3px 10px; border-radius: 12px; background: #dbeafe; color: #1e40af; }
+
+        /* Aside */
+        .price-card { background: #fff; border: 2px solid #1e40af; border-radius: 12px; padding: 28px; }
+        .price-card .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; }
+        .price-card .current-price { font-size: 32px; font-weight: 800; color: #1e40af; margin: 4px 0 16px; }
+        .price-card .current-price span { font-size: 16px; font-weight: 400; }
+        .price-card .save-tag { display: inline-block; font-size: 12px; background: #fef3c7; color: #92400e; padding: 3px 10px; border-radius: 4px; margin-bottom: 16px; }
+        .enroll-big-btn { display: block; width: 100%; padding: 14px; background: #1e40af; color: #fff; font-size: 16px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; text-align: center; transition: background .2s; font-family: inherit; }
+        .enroll-big-btn:hover { background: #1e3a8a; }
+        .free-try { display: block; width: 100%; padding: 12px; background: #fff; color: #1e40af; font-size: 14px; font-weight: 500; border: 1px solid #1e40af; border-radius: 8px; cursor: pointer; text-align: center; margin-top: 10px; transition: background .2s; font-family: inherit; }
+        .free-try:hover { background: #eff6ff; }
+        .price-perks { margin-top: 20px; }
+        .perk { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4a5568; margin-bottom: 10px; }
+        .perk .icon { color: #16a34a; font-size: 16px; }
+
+        .aside-info { margin-top: 20px; background: #f8fafc; border-radius: 12px; padding: 20px; }
+        .aside-info h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        .info-row { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+        .info-row:last-child { border-bottom: none; }
+        .info-row .label { color: #64748b; }
+        .info-row .val { font-weight: 500; }
+
+        .footer { background: #0f172a; color: #94a3b8; padding: 48px 40px 28px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 32px; }
+        .footer h4 { color: #fff; font-size: 14px; margin-bottom: 14px; }
+        .footer a { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+        .footer a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; font-size: 12px; max-width: 1200px; margin: 0 auto; }
+
+        @media (max-width: 900px) {
+            .detail-wrap { grid-template-columns: 1fr; }
+            .detail-aside { position: static; }
+            .nav { padding: 0 20px; }
+            .detail-wrap { padding: 0 20px 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">学<span>途</span></a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="courses.html">课程中心</a>
+            <a href="course-detail.html">课程详情</a>
+            <a href="signup.html" class="nav-cta">免费注册</a>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <a href="index.html">首页</a> / <a href="courses.html">课程中心</a> / <span>Python 数据分析实战营</span>
+    </div>
+
+    <div class="detail-wrap">
+        <div class="detail-main">
+            <div class="course-hero">
+                <span class="tag">计算机技能 · 数据分析</span>
+                <h1>Python 数据分析实战营</h1>
+                <p>系统掌握 Pandas、NumPy、Matplotlib 等核心工具，通过 3 个真实商业项目，从数据清洗到可视化报告，具备独立数据分析能力。</p>
+                <div class="hero-meta">
+                    <span>📚 52 课时</span>
+                    <span>⏱ 约 130 小时</span>
+                    <span>👥 3,891 人已学</span>
+                    <span>⭐ 4.9 / 5.0</span>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>课程大纲</h2>
+                <div class="lesson-list">
+                    <div class="lesson-module">
+                        <div class="module-header">模块一：Python 数据分析基础 <span>8 课时 · 约 18 小时</span></div>
+                        <div class="lesson-item"><span class="num">1</span>Python 环境搭建与 Jupyter 使用<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">2</span>NumPy 数组与向量化运算<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">3</span>Pandas 数据结构：Series 与 DataFrame<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">4</span>数据读取与类型转换<span class="duration">40 min</span></div>
+                        <div class="lesson-item"><span class="num">5</span>索引、切片与条件筛选<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">6</span>缺失值与异常值处理<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">7</span>分组聚合与窗口函数<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">8</span>模块作业：电商订单数据清洗<span class="duration">60 min</span></div>
+                    </div>
+                    <div class="lesson-module">
+                        <div class="module-header">模块二：数据探索与可视化 <span>12 课时 · 约 28 小时</span></div>
+                        <div class="lesson-item"><span class="num">1</span>描述性统计与分布分析<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">2</span>Matplotlib 绑图基础<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">3</span>Seaborn 统计图形<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">4</span>多子图与仪表盘布局<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">5</span>时间序列可视化<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">6</span>Plotly 交互式图表<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">7</span>相关性分析与热力图<span class="duration">40 min</span></div>
+                        <div class="lesson-item"><span class="num">8</span>项目一：城市空气质量分析报告<span class="duration">90 min</span></div>
+                    </div>
+                    <div class="lesson-module">
+                        <div class="module-header">模块三：SQL 与数据库对接 <span>10 课时 · 约 22 小时</span></div>
+                        <div class="lesson-item"><span class="num">1</span>SQL 基础与常用查询<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">2</span>多表连接与子查询<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">3</span>窗口函数与高级聚合<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">4</span>Python 连接 MySQL / SQLite<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">5</span>SQLAlchemy 与数据建模<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">6</span>项目二：零售销售数据看板<span class="duration">90 min</span></div>
+                    </div>
+                    <div class="lesson-module">
+                        <div class="module-header">模块四：数据建模与实战 <span>14 课时 · 约 35 小时</span></div>
+                        <div class="lesson-item"><span class="num">1</span>特征工程与编码方法<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">2</span>线性回归与逻辑回归<span class="duration">50 min</span></div>
+                        <div class="lesson-item"><span class="num">3</span>决策树与随机森林<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">4</span>模型评估与交叉验证<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">5</span>客户流失预测实战<span class="duration">75 min</span></div>
+                        <div class="lesson-item"><span class="num">6</span>数据报告撰写与展示技巧<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">7</span>项目三：用户行为分析全案<span class="duration">120 min</span></div>
+                    </div>
+                    <div class="lesson-module">
+                        <div class="module-header">模块五：综合项目与复盘 <span>8 课时 · 约 27 小时</span></div>
+                        <div class="lesson-item"><span class="num">1</span>项目选题与需求分析<span class="duration">40 min</span></div>
+                        <div class="lesson-item"><span class="num">2</span>完整项目实战（上）<span class="duration">90 min</span></div>
+                        <div class="lesson-item"><span class="num">3</span>完整项目实战（下）<span class="duration">90 min</span></div>
+                        <div class="lesson-item"><span class="num">4</span>代码评审与优化<span class="duration">45 min</span></div>
+                        <div class="lesson-item"><span class="num">5</span>作品集整理与简历撰写<span class="duration">40 min</span></div>
+                        <div class="lesson-item"><span class="num">6</span>数据分析面试高频问题<span class="duration">55 min</span></div>
+                        <div class="lesson-item"><span class="num">7</span>学习路径规划与进阶方向<span class="duration">35 min</span></div>
+                        <div class="lesson-item"><span class="num">8</span>结课认证与答疑<span class="duration">30 min</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>主讲老师</h2>
+                <div class="teacher-card">
+                    <div class="teacher-avatar">陈</div>
+                    <div class="teacher-info">
+                        <h3>陈思远</h3>
+                        <div class="title">高级数据分析师 · 前某头部互联网大厂数据团队负责人</div>
+                        <p>硕士毕业于北京大学信息管理学院，拥有 8 年数据分析与机器学习实战经验。曾主导多个千万级用户产品推荐系统的数据策略，累计服务用户超 2 亿。教学风格注重"做中学"，每节课都配有可运行的代码示例和项目练习。</p>
+                        <div class="teacher-badges">
+                            <span class="badge">8 年行业经验</span>
+                            <span class="badge">52,000+ 学员</span>
+                            <span class="badge">评分 4.9</span>
+                            <span class="badge">3 门精品课程</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>你将获得</h2>
+                <ul style="list-style:none; font-size:14px; color:#4a5568; line-height:2.2;">
+                    <li>✅ 独立完成数据清洗、探索、可视化的全流程能力</li>
+                    <li>✅ 3 个可写入简历的完整商业分析项目</li>
+                    <li>✅ 掌握 Pandas / NumPy / SQL / Scikit-learn 核心工具链</li>
+                    <li>✅ 学会撰写专业的数据分析报告并进行清晰展示</li>
+                    <li>✅ 学途认证结课证书 + 代码作品集指导</li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="detail-aside">
+            <div class="price-card">
+                <div class="old-price">原价 ¥5,680</div>
+                <div class="current-price"><span>¥</span>4,280</div>
+                <span class="save-tag">限时立省 ¥1,400</span>
+                <button class="enroll-big-btn" onclick="location.href='signup.html'">立即报名</button>
+                <button class="free-try">免费试听前 3 节课</button>
+                <div class="price-perks">
+                    <div class="perk"><span class="icon">✓</span> 12 周学习周期，随时回看</div>
+                    <div class="perk"><span class="icon">✓</span> 每周直播答疑 + 代码评审</div>
+                    <div class="perk"><span class="icon">✓</span> 专属学习社群，助教 1 对 1 跟进</div>
+                    <div class="perk"><span class="icon">✓</span> 48 小时不满意全额退款</div>
+                </div>
+            </div>
+            <div class="aside-info">
+                <h4>课程信息</h4>
+                <div class="info-row"><span class="label">课时</span><span class="val">52 节</span></div>
+                <div class="info-row"><span class="label">总时长</span><span class="val">约 130 小时</span></div>
+                <div class="info-row"><span class="label">难度</span><span class="val">入门 - 中级</span></div>
+                <div class="info-row"><span class="label">更新</span><span class="val">2025 年 1 月</span></div>
+                <div class="info-row"><span class="label">有效期</span><span class="val">12 个月</span></div>
+                <div class="info-row"><span class="label">配套资料</span><span class="val">课件 + 代码 + 数据集</span></div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>学途</h4>
+                <p style="font-size:13px;line-height:1.7;margin-top:8px;">专注于为大学生和职场新人提供高质量在线学习体验。</p>
+            </div>
+            <div>
+                <h4>课程</h4>
+                <a href="courses.html">语言学习</a>
+                <a href="courses.html">计算机技能</a>
+                <a href="courses.html">考试备考</a>
+            </div>
+            <div>
+                <h4>关于</h4>
+                <a href="index.html">关于我们</a>
+                <a href="index.html">师资介绍</a>
+            </div>
+            <div>
+                <h4>帮助</h4>
+                <a href="index.html">常见问题</a>
+                <a href="index.html">退款政策</a>
+                <a href="signup.html">联系顾问</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 学途教育科技有限公司 · 保留所有权利</div>
+    </footer>
+</body>
+</html>

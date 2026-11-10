@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>确认预订 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #fbbc04;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .booking-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 22px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .summary-total {
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            color: #d93025;
+        }
+
+        .payment-methods {
+            margin-top: 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .payment-option:hover {
+            background-color: #f0f7ff;
+        }
+
+        .payment-option input {
+            margin-right: 15px;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .confirm-btn:hover {
+            background-color: #1557b0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">✈️ 畅行旅行</a>
+    </header>
+
+    <div class="booking-container">
+        <div class="guest-info card">
+            <h2>旅客信息</h2>
+            <div class="form-group">
+                <label>中文姓名</label>
+                <input type="text" placeholder="请输入真实姓名">
+            </div>
+            <div class="form-group">
+                <label>电子邮箱</label>
+                <input type="email" placeholder="example@mail.com">
+            </div>
+            <div class="form-group">
+                <label>联系电话</label>
+                <input type="tel" placeholder="+86 138 0000 0000">
+            </div>
+            <div class="form-group">
+                <label>身份证/护照号码</label>
+                <input type="text" placeholder="请输入号码">
+            </div>
+            <div class="form-group">
+                <label>特殊要求</label>
+                <input type="text" placeholder="例如：高楼层、大床房、提前入住等">
+            </div>
+        </div>
+
+        <div class="payment-summary card">
+            <h2>订单总结</h2>
+            <div class="summary-item">
+                <span>酒店</span>
+                <span>北京王府半岛酒店</span>
+            </div>
+            <div class="summary-item">
+                <span>房型</span>
+                <span>豪华双床房</span>
+            </div>
+            <div class="summary-item">
+                <span>入住时间</span>
+                <span>2023-10-15</span>
+            </div>
+            <div class="summary-item">
+                <span>退房时间</span>
+                <span>2023-10-18</span>
+            </div>
+            <div class="summary-item">
+                <span>间夜数</span>
+                <span>3 晚</span>
+            </div>
+            
+            <div class="summary-total">
+                <span>总计金额</span>
+                <span>￥9,600</span>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-option">
+                    <input type="radio" name="payment" id="alipay" checked>
+                    <label for="alipay">支付宝 (Alipay)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" name="payment" id="wechat">
+                    <label for="wechat">微信支付 (WeChat Pay)</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" name="payment" id="credit">
+                    <label for="credit">信用卡 (Credit Card)</label>
+                </div>
+            </div>
+
+            <button class="confirm-btn" onclick="alert('订单已提交！我们会尽快为您发送确认邮件。')">确认并支付</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 畅行旅行服务有限公司. 保留所有权利。</p>
+    </footer>
+
+</body>
+</html>

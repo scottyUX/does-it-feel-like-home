@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 - 简约时尚女装</title>
+    <style>
+        :root {
+            --primary-color: #a6937c;
+            --bg-color: #faf9f6;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .hero {
+            height: 600px;
+            background-color: #ede8e2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #444;
+            font-weight: 300;
+        }
+        .hero p {
+            font-size: 20px;
+            color: var(--light-text);
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 2px;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 300;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        .category-card {
+            height: 400px;
+            background-color: #ddd;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            text-decoration: none;
+            color: var(--white);
+            transition: transform 0.3s;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        .category-card span {
+            font-size: 24px;
+            font-weight: 500;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 2px;
+        }
+        .cat-1 { background-color: #d4cdc3; }
+        .cat-2 { background-color: #c8d1c8; }
+        .cat-3 { background-color: #ddd5d0; }
+        
+        footer {
+            background-color: #f0efed;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--light-text);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">可衣 KĚ YĪ</a>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="shop.html">全部商品</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="cart.html">购物车</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>定义都市女性的简约美学</h1>
+            <p>来自上海的原创设计，为您的职场与生活提供恰到好处的舒适与优雅。</p>
+            <a href="shop.html" class="btn">立即选购</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">探索系列</h2>
+        <div class="categories">
+            <a href="shop.html" class="category-card cat-1">
+                <span>职场干练系列</span>
+            </a>
+            <a href="shop.html" class="category-card cat-2">
+                <span>周末慵懒日常</span>
+            </a>
+            <a href="shop.html" class="category-card cat-3">
+                <span>永恒基础款</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="about.html">品牌故事</a>
+                <a href="#">配送政策</a>
+                <a href="#">退换货指南</a>
+                <a href="#">联系我们</a>
+            </div>
+            <p>&copy; 2024 可衣 (KĚ YĪ) 上海工作室. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

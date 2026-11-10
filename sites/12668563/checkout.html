@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单结算 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ff7875;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .checkout-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .form-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .order-summary {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .summary-title {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        .summary-total {
+            border-top: 2px solid #eee;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 快送外卖</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">所有餐厅</a></li>
+                    <li><a href="checkout.html" style="color: var(--primary-color);">我的订单</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <div class="form-section">
+            <h2 style="margin-top: 0;">配送信息</h2>
+            <form onsubmit="return false;">
+                <div class="form-group">
+                    <label>收货人姓名</label>
+                    <input type="text" placeholder="请输入您的姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" placeholder="请输入联系手机号" required>
+                </div>
+                <div class="form-group">
+                    <label>详细配送地址</label>
+                    <textarea rows="3" placeholder="例如：锦江区 XX 路 XX 号 XX 大厦 X 楼 X 室"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>配送要求</label>
+                    <select>
+                        <option>无需备注</option>
+                        <option>请放在前台</option>
+                        <option>请敲门</option>
+                        <option>配送员请电话联系我</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>支付方式</label>
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <label style="font-weight: normal;"><input type="radio" name="pay" checked> 支付宝</label>
+                        <label style="font-weight: normal;"><input type="radio" name="pay"> 微信支付</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h3 class="summary-title">订单概览</h3>
+            <div class="summary-item">
+                <span>小计</span>
+                <span>￥65.00</span>
+            </div>
+            <div class="summary-item">
+                <span>配送费</span>
+                <span>￥3.00</span>
+            </div>
+            <div class="summary-item">
+                <span>包装费</span>
+                <span>￥2.00</span>
+            </div>
+            <div class="summary-item" style="color: #52c41a;">
+                <span>优惠券抵扣</span>
+                <span>-￥5.00</span>
+            </div>
+            <div class="summary-total">
+                <span>总计</span>
+                <span>￥65.00</span>
+            </div>
+            <button class="submit-btn" onclick="alert('订单已提交！配送员正在赶来...')">立即支付</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 快送外卖 (Chengdu Fast Delivery). All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

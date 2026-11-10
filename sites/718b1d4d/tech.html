@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技频道 - 每日视界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .top-bar {
+            background: #1a1a2e;
+            color: #ccc;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: #ccc;
+            margin-left: 16px;
+        }
+        .top-bar a:hover {
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #c0392b;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: #1a1a2e;
+        }
+        .nav {
+            display: flex;
+            gap: 8px;
+        }
+        .nav a {
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            background: #f5f5f5;
+            color: #c0392b;
+        }
+        .nav a.active {
+            color: #c0392b;
+            font-weight: 600;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 6px 16px;
+            gap: 8px;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            width: 140px;
+        }
+        .page-banner {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            padding: 48px 0;
+            margin-bottom: 40px;
+        }
+        .page-banner h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        .tabs a {
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .tabs a:hover {
+            color: #1a1a1a;
+        }
+        .tabs a.active {
+            color: #c0392b;
+            font-weight: 600;
+            border-bottom-color: #c0392b;
+        }
+        .featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+        .featured-card {
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .featured-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .featured-card .thumb {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+        }
+        .featured-card .thumb.a {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .featured-card .thumb.b {
+            background: linear-gradient(135deg, #0c3483, #a2b6df);
+        }
+        .featured-card .content {
+            padding: 20px;
+        }
+        .featured-card .tag {
+            font-size: 12px;
+            color: #c0392b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .featured-card h2 {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .featured-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        .featured-card .meta {
+            font-size: 13px;
+            color: #999;
+        }
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .article-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .article-item:hover {
+            background: #fafafa;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 4px;
+        }
+        .article-item .thumb {
+            width: 180px;
+            height: 120px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        .article-item .thumb.t1 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .article-item .thumb.t2 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .article-item .thumb.t3 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .article-item .thumb.t4 { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .article-item .thumb.t5 { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+        .article-item .thumb.t6 { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+        .article-item .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .article-item .info .tag {
+            font-size: 12px;
+            color: #c0392b;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .article-item .info h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .article-item .info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-item .info .meta {
+            font-size: 13px;
+            color: #999;
+            display: flex;
+            gap: 16px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+        .pagination a, .pagination span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.2s;
+        }
+        .pagination a:hover {
+            border-color: #c0392b;
+            color: #c0392b;
+        }
+        .pagination .current {
+            background: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            margin-top: 60px;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-grid h4 {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .footer-grid p {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .footer-grid ul {
+            list-style: none;
+        }
+        .footer-grid ul li {
+            margin-bottom: 10px;
+        }
+        .footer-grid ul li a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            transition: color 0.2s;
+        }
+        .footer-grid ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+        }
+        @media (max-width: 768px) {
+            .featured {
+                grid-template-columns: 1fr;
+            }
+            .article-item {
+                flex-direction: column;
+            }
+            .article-item .thumb {
+                width: 100%;
+                height: 140px;
+            }
+            .nav {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>2025年1月15日 星期三</span>
+            <div>
+                <a href="index.html">首页</a>
+                <a href="finance.html">财经</a>
+                <a href="about.html">关于</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <a href="index.html" class="logo">每日<span>视界</span></a>
+                <nav class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="finance.html">财经</a>
+                    <a href="tech.html" class="active">科技</a>
+                    <a href="index.html#society">社会</a>
+                    <a href="index.html#world">国际</a>
+                    <a href="about.html">关于我们</a>
+                </nav>
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" placeholder="搜索新闻...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <div class="container">
+            <h1>科技频道</h1>
+            <p>聚焦人工智能、芯片半导体、航天航空、新能源等前沿领域，追踪全球科技创新动态与产业变革趋势。</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tabs">
+            <a href="tech.html" class="active">全部</a>
+            <a href="tech.html">人工智能</a>
+            <a href="tech.html">芯片半导体</a>
+            <a href="tech.html">消费电子</a>
+            <a href="tech.html">航天航空</a>
+            <a href="tech.html">新能源</a>
+            <a href="tech.html">生物医药</a>
+        </div>
+
+        <div class="featured">
+            <a href="article.html" class="featured-card">
+                <div class="thumb a">🤖</div>
+                <div class="content">
+                    <div class="tag">人工智能 · 深度</div>
+                    <h2>国产大模型突破：新一代AI推理引擎推理速度提升400% 功耗降低60%</h2>
+                    <p>国内头部AI芯片企业今日发布新一代推理加速引擎，在标准基准测试中推理吞吐量较上代提升4倍，同时能效比大幅改善。该企业表示芯片已完成量产验证，预计第一季度开始大规模出货。</p>
+                    <div class="meta">2025年1月15日 08:30 · 92.4万阅读</div>
+                </div>
+            </a>
+            <a href="article.html" class="featured-card">
+                <div class="thumb b">🚀</div>
+                <div class="content">
+                    <div class="tag">航天航空</div>
+                    <h2>SpaceX星舰完成第七次试飞 成功回收超重型助推器 首次部署卫星载荷</h2>
+                    <p>SpaceX今日在得州星港成功完成星舰第七次轨道试飞。超重型助推器再次实现精确着陆回收，星飞船则在完成在轨分离后成功部署了首批商业卫星载荷，标志着商业太空任务迈出重要一步。</p>
+                    <div class="meta">2025年1月14日 22:10 · 74.3万阅读</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="article-list">
+            <a href="article.html" class="article-item">
+                <div class="thumb t1">📱</div>
+                <div class="info">
+                    <div class="tag">消费电子</div>
+                    <h2>华为发布新一代折叠屏手机：展开尺寸7.9英寸 内置AI摄影系统</h2>
+                    <p>华为在MWC前夕发布新一代旗舰折叠屏手机，展开后屏幕达到7.9英寸，搭载全新AI摄影计算系统，支持多帧合成、实时HDR和智能场景识别。起售价8999元，1月20日开启预售。</p>
+                    <div class="meta">
+                        <span>2025年1月14日 14:00</span>
+                        <span>96.2万阅读</span>
+                        <span>2341条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t2">🔬</div>
+                <div class="info">
+                    <div class="tag">前沿科技</div>
+                    <h2>量子计算新突破：我国科学家实现105比特量子纠缠态制备</h2>
+                    <p>中国科学技术大学潘建伟团队在超导量子处理器上成功实现了105个量子比特的纠缠态制备，保真度达到99.2%，刷新了国内纪录，为容错量子计算奠定了硬件基础。</p>
+                    <div class="meta">
+                        <span>2025年1月15日 11:20</span>
+                        <span>68.5万阅读</span>
+                        <span>876条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t3">⚡</div>
+                <div class="info">
+                    <div class="tag">新能源</div>
+                    <h2>全固态电池量产在即：宁德时代公布2026年量产时间表 能量密度达500Wh/kg</h2>
+                    <p>宁德时代在年度技术发布会上宣布，其全固态电池产品将于2026年第二季度实现量产装车。新电池能量密度达到500Wh/kg，充电15分钟可行驶800公里，循环寿命超过3000次。</p>
+                    <div class="meta">
+                        <span>2025年1月14日 10:30</span>
+                        <span>72.8万阅读</span>
+                        <span>1523条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t4">💻</div>
+                <div class="info">
+                    <div class="tag">芯片半导体</div>
+                    <h2>国产CPU芯片量产突破：性能达到国际主流水平 已适配主流操作系统</h2>
+                    <p>国内芯片设计龙头今日宣布其新一代通用CPU实现大规模量产，SPEC CPU 2026跑分达到国际同期产品92%的水平。该芯片已完成与Windows、Linux及国产操作系统的全面适配。</p>
+                    <div class="meta">
+                        <span>2025年1月12日 16:00</span>
+                        <span>49.8万阅读</span>
+                        <span>654条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t5">🧬</div>
+                <div class="info">
+                    <div class="tag">生物医药</div>
+                    <h2>mRNA疗法新进展：针对阿尔茨海默病的候选药物进入III期临床试验</h2>
+                    <p>国内生物制药企业宣布其自主研发的mRNA阿尔茨海默病治疗候选药物已获批准进入III期临床试验，前期II期数据显示可显著降低患者脑内淀粉样蛋白沉积水平。</p>
+                    <div class="meta">
+                        <span>2025年1月13日 09:45</span>
+                        <span>45.2万阅读</span>
+                        <span>234条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t6">🛰️</div>
+                <div class="info">
+                    <div class="tag">航天航空</div>
+                    <h2>我国低轨卫星互联网星座完成第500颗星发射 覆盖能力扩展至全球90%陆地区域</h2>
+                    <p>中国航天科技集团今日宣布，其低轨卫星互联网星座已完成第500颗组网卫星发射。星座当前覆盖能力已扩展至全球约90%的陆地区域，终端用户数突破200万。</p>
+                    <div class="meta">
+                        <span>2025年1月11日 20:30</span>
+                        <span>52.6万阅读</span>
+                        <span>412条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t1">🎮</div>
+                <div class="info">
+                    <div class="tag">消费电子</div>
+                    <h2>国产自研游戏引擎正式开源：支持全平台跨端开发 内置AI辅助工具链</h2>
+                    <p>国内游戏引擎厂商今日宣布其自研引擎核心代码正式开源。该引擎支持PC、主机、移动、VR全平台跨端开发，并内置基于大模型的AI辅助工具链，可自动生成3D资产和着色器代码。</p>
+                    <div class="meta">
+                        <span>2025年1月10日 14:20</span>
+                        <span>38.4万阅读</span>
+                        <span>567条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t3">🔋</div>
+                <div class="info">
+                    <div class="tag">新能源</div>
+                    <h2>钙钛矿太阳能电池转换效率再破纪录：达31.8% 距离商业化仅一步之遥</h2>
+                    <p>中科院研究团队在Nature发表最新成果，其开发的钙钛矿-硅叠层太阳能电池转换效率达到31.8%，刷新了世界纪录。团队表示正在推进中试线建设，预计明年实现商业化量产。</p>
+                    <div class="meta">
+                        <span>2025年1月10日 10:15</span>
+                        <span>35.7万阅读</span>
+                        <span>289条评论</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="pagination">
+            <span class="current">1</span>
+            <a href="tech.html">2</a>
+            <a href="tech.html">3</a>
+            <a href="tech.html">4</a>
+            <a href="tech.html">5</a>
+            <a href="tech.html">→</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>每日视界</h4>
+                    <p>每日视界是一家全国性网络新闻媒体，致力于为读者提供权威、及时、深度的新闻报道。我们坚守新闻专业主义，覆盖财经、科技、社会、国际等核心领域。</p>
+                </div>
+                <div>
+                    <h4>新闻频道</h4>
+                    <ul>
+                        <li><a href="finance.html">财经</a></li>
+                        <li><a href="tech.html">科技</a></li>
+                        <li><a href="index.html#society">社会</a></li>
+                        <li><a href="index.html#world">国际</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">团队介绍</a></li>
+                        <li><a href="about.html">编辑准则</a></li>
+                        <li><a href="about.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="index.html">RSS订阅</a></li>
+                        <li><a href="index.html">客户端下载</a></li>
+                        <li><a href="index.html">每日简报</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 每日视界 · 互联网新闻信息服务许可证 编号：010520250115 · 京ICP备2025001152号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+=====

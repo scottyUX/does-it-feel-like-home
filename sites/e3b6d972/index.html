@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洁家家政 - 北京专业家庭保洁服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a7a4c;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a7a4c, #2ecc71);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 15px;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+        .nav-links a:hover {
+            color: #1a7a4c;
+        }
+        .nav-cta {
+            background: #1a7a4c;
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover {
+            background: #145c3a !important;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 50%, #f7fdf9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26,122,76,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 span {
+            color: #1a7a4c;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #1a7a4c;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #145c3a;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #1a7a4c;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            border: 2px solid #1a7a4c;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background: #f0fff4;
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(26,122,76,0.12);
+            width: 100%;
+            max-width: 420px;
+        }
+        .hero-card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a7a4c, #2ecc71);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+        .hero-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #1a202c;
+        }
+        .hero-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a7a4c;
+        }
+        .hero-stat-label {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 4px;
+        }
+        /* Trust Bar */
+        .trust-bar {
+            background: #1a202c;
+            padding: 24px 0;
+        }
+        .trust-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            color: #a0aec0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .trust-item span {
+            color: #2ecc71;
+            font-size: 18px;
+        }
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+        .section-header p {
+            font-size: 16px;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Services Preview */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            border-color: #1a7a4c;
+            box-shadow: 0 12px 40px rgba(26,122,76,0.1);
+            transform: translateY(-4px);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: #f0fff4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.7;
+        }
+        .service-price {
+            margin-top: 16px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a7a4c;
+        }
+        .service-price small {
+            font-size: 13px;
+            color: #a0aec0;
+            font-weight: 400;
+        }
+        /* Process */
+        .process-section {
+            background: #f7fdf9;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .process-item {
+            text-align: center;
+            padding: 24px;
+        }
+        .process-num {
+            width: 48px;
+            height: 48px;
+            background: #1a7a4c;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        .process-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        .process-item p {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.6;
+        }
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testimonial-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+        }
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .testimonial-text {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        .testimonial-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+        .testimonial-info {
+            font-size: 12px;
+            color: #a0aec0;
+        }
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a7a4c, #145c3a);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 32px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        .btn-white {
+            background: #fff;
+            color: #1a7a4c;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #718096;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            font-size: 14px;
+            color: #718096;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #2ecc71;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 24px 0;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            font-size: 13px;
+            color: #4a5568;
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 120px 0 60px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section-header h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">洁</div>
+                洁家家政
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务项目</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" style="display:none; position:fixed; top:72px; left:0; right:0; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,0.1); z-index:999; padding:16px 24px;">
+        <a href="index.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">首页</a>
+        <a href="services.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">服务项目</a>
+        <a href="about.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">关于我们</a>
+        <a href="booking.html" style="display:block; padding:12px 0; font-size:16px; color:#1a7a4c; font-weight:600;">立即预约</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>让家回归<span>洁净舒适</span><br>解放您的宝贵时间</h1>
+                <p>专注北京家庭保洁服务8年，持证上岗的专业保洁团队，覆盖全城主要区域。一次预约，享受酒店级清洁标准，让您下班回家只感受舒适，不操心打扫。</p>
+                <div class="hero-btns">
+                    <a href="booking.html" class="btn-primary">免费预约保洁</a>
+                    <a href="services.html" class="btn-secondary">查看服务套餐</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-icon">✨</div>
+                    <h3>为什么选择洁家？</h3>
+                    <p>所有保洁人员均经过48小时专业培训，持健康证上岗，使用环保清洁剂，服务全程可追溯。</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-num">50,000+</div>
+                            <div class="hero-stat-label">服务家庭</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-num">4.9</div>
+                            <div class="hero-stat-label">平均评分</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-num">98%</div>
+                            <div class="hero-stat-label">好评率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-bar-inner">
+            <div class="trust-item"><span>✓</span> 持证上岗</div>
+            <div class="trust-item"><span>✓</span> 环保清洁剂</div>
+            <div class="trust-item"><span>✓</span> 不满意免费重做</div>
+            <div class="trust-item"><span>✓</span> 购买家政保险</div>
+            <div class="trust-item"><span>✓</span> 全城免费上门</div>
+        </div>
+    </div>
+
+    <!-- Services Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门保洁服务</h2>
+                <p>从日常维护到深度清洁，满足不同家庭的全方位需求</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>日常保洁</h3>
+                    <p>适用于日常家居维护，包含地面清洁、厨房去油、卫生间除垢、客厅卧室整理等基础项目。</p>
+                    <div class="service-price">¥128 <small>起 / 次（2小时）</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>深度保洁</h3>
+                    <p>全方位深层清洁，含顶部除尘、缝隙除垢、油烟机拆洗、踢脚线擦拭等，还原如新体验。</p>
+                    <div class="service-price">¥398 <small>起 / 次（全屋）</small></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>擦窗服务</h3>
+                    <p>专业擦窗工具，内外双面清洁，含纱窗清洗，让阳光无遮挡照进家里。</p>
+                    <div class="service-price">¥80 <small>起 / 窗</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>四步搞定保洁</h2>
+                <p>简单流程，省心省力</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-num">1</div>
+                    <h4>在线预约</h4>
+                    <p>填写服务需求，选择方便的时间段</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-num">2</div>
+                    <h4>电话确认</h4>
+                    <p>客服30分钟内回电，确认细节并报价</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-num">3</div>
+                    <h4>准时上门</h4>
+                    <p>保洁人员准时到达，出示工作证件</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-num">4</div>
+                    <h4>验收付款</h4>
+                    <p>逐项检查满意后付款，不满意免费重做</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>真实客户评价</h2>
+                <p>来自北京各区域的客户反馈</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"每周三下午来一次日常保洁，已经坚持一年了。阿姨非常细心，厨房油污清理得很干净，再也不用自己刷灶台了。" </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">张</div>
+                        <div>
+                            <div class="testimonial-name">张女士</div>
+                            <div class="testimonial-info">朝阳区 · 定期保洁客户</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"搬新家后做了开荒保洁，两个师傅干了整整一天，连窗轨里的灰都擦得干干净净。效果超出预期，推荐！" </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">李</div>
+                        <div>
+                            <div class="testimonial-name">李先生</div>
+                            <div class="testimonial-info">海淀区 · 开荒保洁</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"加班到九点回家，发现家里被收拾得一尘不染，地板亮得能反光。这种下班后的幸福感真的太棒了。" </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">王</div>
+                        <div>
+                            <div class="testimonial-name">王先生</div>
+                            <div class="testimonial-info">西城区 · 上班族</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>现在预约，首次服务享8折优惠</h2>
+            <p>每月限前50名新客，名额有限，手慢无</p>
+            <a href="booking.html" class="btn-white">立即免费预约 →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>洁家家政</h3>
+                <p>专注北京家庭保洁服务，让每个家庭都能享受洁净、舒适、安心的居家环境。服务热线：400-886-7210</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="booking.html">在线预约</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务区域</h4>
+                <ul>
+                    <li><a href="services.html">朝阳区</a></li>
+                    <li><a href="services.html">海淀区</a></li>
+                    <li><a href="services.html">西城区</a></li>
+                    <li><a href="services.html">丰台区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="booking.html">400-886-7210</a></li>
+                    <li><a href="booking.html">微信：jjia-beijing</a></li>
+                    <li><a href="about.html">朝阳区建国路88号</a></li>
+                    <li><a href="about.html">周一至周日 8:00-21:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 洁家家政服务有限公司 · 京ICP备20241234号 · 营业执照编号：110105012345678</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.style.display === 'none') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

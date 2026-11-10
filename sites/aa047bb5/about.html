@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #c53030;
+            --text-dark: #2d3748;
+            --text-gray: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .about-hero {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-hero h1 {
+            font-size: 42px;
+            margin: 0 0 20px 0;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .contact-box {
+            background-color: var(--white);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-section, .values-grid, .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .about-hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-main">
+            <a href="index.html" class="logo">每日视界</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="tech.html">科技</a></li>
+                <li><a href="tech.html">财经</a></li>
+                <li><a href="tech.html">国际</a></li>
+                <li><a href="about.html" style="color: var(--accent-color);">关于我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="about-hero">
+        <div class="container">
+            <h1>记录时代，洞察未来</h1>
+            <p>每日视界致力于在信息碎片化的时代，为成年读者提供有深度、有温度、有价值的专业资讯。</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <div class="about-text">
+                <h2>我们的使命</h2>
+                <p>在信息爆炸的今天，人们不缺资讯，但缺真正的“洞察”。每日视界成立于2018年，旨在通过严谨的报道和深刻的分析，帮助读者在繁忙的通勤和休息时间里，快速把握全球经济、科技与社会的脉络。</p>
+                <p>我们坚持独立报道，拒绝标题党，力求在每一篇报道中提供真实的数据支撑和多维度的观点分析，让阅读成为一种认知升级的过程。</p>
+            </div>
+            <div class="about-image">
+                <img src="assets/image-6d9248b0f5d42c60.jpg" alt="Office">
+            </div>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>客观真实</h3>
+                <p>严格遵循新闻伦理，确保所有报道基于事实，不偏不倚，还原真相。</p>
+            </div>
+            <div class="value-card">
+                <h3>深度解析</h3>
+                <p>拒绝简单的快餐新闻，通过深度挖掘，揭示现象背后的深层逻辑。</p>
+            </div>
+            <div class="value-card">
+                <h3>用户至上</h3>
+                <p>优化阅读体验，确保读者能在碎片化时间内高效获取核心价值信息。</p>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <div>
+                <h2>联系我们</h2>
+                <p>如果您有新闻线索，或者希望与我们的编辑团队合作，请通过以下方式联系我们：</p>
+                <p><strong>办公地址：</strong> 北京市朝阳区中央商务区 A座 12层</p>
+                <p><strong>咨询电话：</strong> 010-8888-XXXX</p>
+                <p><strong>官方邮箱：</strong> contact@dailyvision.com</p>
+            </div>
+            <div class="contact-form">
+                <input type="text" placeholder="您的姓名">
+                <input type="email" placeholder="您的邮箱">
+                <textarea placeholder="留言内容" rows="5"></textarea>
+                <button>发送信息</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2024 每日视界新闻媒体. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

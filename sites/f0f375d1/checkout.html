@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单确认 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .checkout-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        .order-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .order-summary {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .summary-total {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary-color);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e04345;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 850px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚀 快送外卖</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html">所有餐厅</a>
+                <a href="checkout.html">我的订单</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="checkout-container">
+        <div class="order-form">
+            <h2>配送信息</h2>
+            <form onsubmit="return false;">
+                <div class="form-group">
+                    <label>联系人姓名</label>
+                    <input type="text" placeholder="请输入姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" placeholder="请输入手机号" required>
+                </div>
+                <div class="form-group">
+                    <label>配送地址</label>
+                    <textarea rows="3" placeholder="请详细填写成都市内的配送地址" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>支付方式</label>
+                    <select>
+                        <option>支付宝 (Alipay)</option>
+                        <option>微信支付 (WeChat Pay)</option>
+                        <option>货到付款 (Cash on Delivery)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>配送备注</label>
+                    <input type="text" placeholder="例如：放在前台，敲门后离开">
+                </div>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <div class="summary-title">订单明细</div>
+            <div class="summary-items">
+                <div class="summary-item">
+                    <span>经典回锅肉 x 1</span>
+                    <span>¥ 38.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>麻婆豆腐 x 1</span>
+                    <span>¥ 22.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>五常大米饭 x 2</span>
+                    <span>¥ 10.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>配送费</span>
+                    <span>¥ 4.00</span>
+                </div>
+            </div>
+            <div class="summary-total">
+                <span>应付总额:</span>
+                <span>¥ 74.00</span>
+            </div>
+            <button class="submit-btn" onclick="alert('订单已提交！我们将尽快为您配送。')">确认下单</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 快送外卖服务 成都 | 为生活添味</p>
+    </footer>
+
+</body>
+</html>

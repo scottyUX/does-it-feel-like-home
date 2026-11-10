@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店搜索结果 - 三亚 - 畅行旅行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #333; background: #f8f9fc; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #1a56db; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #1a56db, #3b82f6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 800; }
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a { font-size: 15px; color: #555; font-weight: 500; transition: color 0.2s; }
+        .nav a:hover { color: #1a56db; }
+        .nav-btn { background: #1a56db; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+        .nav-btn:hover { background: #1648b8; }
+
+        /* Search Bar */
+        .search-bar { background: #fff; border-bottom: 1px solid #e8ecf1; padding: 20px 0; }
+        .search-bar-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .search-tag { display: flex; align-items: center; gap: 8px; background: #eff6ff; color: #1a56db; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; }
+        .search-tag-icon { font-size: 16px; }
+        .search-bar-btn { margin-left: auto; background: #1a56db; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .search-bar-btn:hover { background: #1648b8; }
+
+        /* Main Layout */
+        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; padding: 32px 0; }
+
+        /* Filters */
+        .filters { background: #fff; border-radius: 14px; padding: 24px; height: fit-content; box-shadow: 0 1px 8px rgba(0,0,0,0.04); }
+        .filter-title { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+        .filter-group { margin-bottom: 24px; }
+        .filter-group h4 { font-size: 13px; color: #888; font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .filter-option { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; }
+        .filter-option input[type="checkbox"] { width: 18px; height: 18px; accent-color: #1a56db; cursor: pointer; }
+        .filter-option label { font-size: 14px; color: #555; cursor: pointer; }
+        .filter-option .count { margin-left: auto; font-size: 12px; color: #aaa; }
+        .filter-divider { border: none; border-top: 1px solid #f0f0f0; margin: 20px 0; }
+        .price-range { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+        .price-range input { width: 80px; padding: 8px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 13px; }
+        .filter-reset { width: 100%; padding: 12px; background: #f1f5f9; border: none; border-radius: 8px; font-size: 14px; color: #555; cursor: pointer; margin-top: 16px; font-weight: 500; }
+        .filter-reset:hover { background: #e2e8f0; }
+
+        /* Results */
+        .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .results-count { font-size: 15px; color: #666; }
+        .results-count strong { color: #333; }
+        .results-sort { display: flex; align-items: center; gap: 8px; }
+        .results-sort select { padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 13px; color: #555; background: #fff; }
+
+        .hotel-card { display: flex; background: #fff; border-radius: 14px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 1px 8px rgba(0,0,0,0.04); transition: box-shadow 0.3s, transform 0.2s; cursor: pointer; }
+        .hotel-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .hotel-img { width: 280px; min-height: 220px; flex-shrink: 0; position: relative; }
+        .hotel-img-1 { background: linear-gradient(135deg, #0ea5e9, #67e8f9); }
+        .hotel-img-2 { background: linear-gradient(135deg, #f59e0b, #fde68a); }
+        .hotel-img-3 { background: linear-gradient(135deg, #10b981, #6ee7b7); }
+        .hotel-img-4 { background: linear-gradient(135deg, #8b5cf6, #c4b5fd); }
+        .hotel-img-5 { background: linear-gradient(135deg, #ef4444, #fca5a5); }
+        .hotel-badge { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 600; }
+        .hotel-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .hotel-info-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .hotel-name { font-size: 19px; font-weight: 700; color: #1a202c; }
+        .hotel-rating { display: flex; align-items: center; gap: 6px; }
+        .rating-score { font-size: 16px; font-weight: 700; color: #f59e0b; }
+        .rating-text { font-size: 13px; color: #f59e0b; }
+        .hotel-addr { font-size: 13px; color: #888; margin-bottom: 12px; }
+        .hotel-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+        .hotel-tag { background: #f0fdf4; color: #16a34a; padding: 4px 10px; border-radius: 5px; font-size: 12px; font-weight: 500; }
+        .hotel-tag-blue { background: #eff6ff; color: #2563eb; }
+        .hotel-tag-orange { background: #fff7ed; color: #ea580c; }
+        .hotel-desc { font-size: 13px; color: #777; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+        .hotel-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid #f1f5f9; }
+        .hotel-price { font-size: 24px; font-weight: 800; color: #ef4444; }
+        .hotel-price span { font-size: 13px; font-weight: 400; color: #999; }
+        .hotel-price-old { font-size: 13px; color: #bbb; text-decoration: line-through; margin-left: 8px; }
+        .hotel-book-btn { background: #1a56db; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .hotel-book-btn:hover { background: #1648b8; }
+
+        /* Pagination */
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 32px; }
+        .page-btn { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 14px; color: #555; background: #fff; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.2s; }
+        .page-btn:hover { border-color: #1a56db; color: #1a56db; }
+        .page-btn.active { background: #1a56db; color: #fff; border-color: #1a56db; }
+
+        .footer { background: #1e293b; color: #94a3b8; padding: 40px 0 24px; margin-top: 48px; }
+        .footer-bottom { font-size: 13px; text-align: center; }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .hotel-card { flex-direction: column; }
+            .hotel-img { width: 100%; min-height: 180px; }
+            .nav a:not(.nav-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">畅</div>
+                <span>畅行旅行</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="search.html" style="color:#1a56db; font-weight:600;">酒店搜索</a>
+                <a href="hotel.html">酒店详情</a>
+                <a href="booking.html">我的预订</a>
+                <a href="booking.html" class="nav-btn">登录 / 注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <div class="container search-bar-inner">
+            <div class="search-tag"><span class="search-tag-icon">📍</span> 三亚 · 海棠湾区</div>
+            <div class="search-tag"><span class="search-tag-icon">📅</span> 01月20日 - 01月23日（3晚）</div>
+            <div class="search-tag"><span class="search-tag-icon">👤</span> 2 成人</div>
+            <button class="search-bar-btn" onclick="location.href='index.html'">修改搜索</button>
+        </div>
+    </div>
+
+    <div class="container main-layout">
+        <aside class="filters">
+            <div class="filter-title">筛选条件</div>
+            <div class="filter-group">
+                <h4>价格区间</h4>
+                <div class="price-range">
+                    <input type="text" value="300"> <span>—</span> <input type="text" value="3000">
+                </div>
+            </div>
+            <hr class="filter-divider">
+            <div class="filter-group">
+                <h4>酒店类型</h4>
+                <div class="filter-option"><input type="checkbox" id="t1" checked><label for="t1">豪华型</label><span class="count">12</span></div>
+                <div class="filter-option"><input type="checkbox" id="t2" checked><label for="t2">度假别墅</label><span class="count">8</span></div>
+                <div class="filter-option"><input type="checkbox" id="t3"><label for="t3">商务酒店</label><span class="count">15</span></div>
+                <div class="filter-option"><input type="checkbox" id="t4"><label for="t4">青年旅舍</label><span class="count">6</span></div>
+            </div>
+            <hr class="filter-divider">
+            <div class="filter-group">
+                <h4>设施服务</h4>
+                <div class="filter-option"><input type="checkbox" id="s1" checked><label for="s1">免费 Wi-Fi</label><span class="count">28</span></div>
+                <div class="filter-option"><input type="checkbox" id="s2" checked><label for="s2">游泳池</label><span class="count">22</span></div>
+                <div class="filter-option"><input type="checkbox" id="s3"><label for="s3">接送机</label><span class="count">14</span></div>
+                <div class="filter-option"><input type="checkbox" id="s4"><label for="s4">健身房</label><span class="count">19</span></div>
+                <div class="filter-option"><input type="checkbox" id="s5"><label for="s5">儿童乐园</label><span class="count">9</span></div>
+            </div>
+            <hr class="filter-divider">
+            <div class="filter-group">
+                <h4>评分</h4>
+                <div class="filter-option"><input type="checkbox" id="r1" checked><label for="r1">4.5 分以上</label><span class="count">24</span></div>
+                <div class="filter-option"><input type="checkbox" id="r2"><label for="r2">4.0 分以上</label><span class="count">38</span></div>
+            </div>
+            <button class="filter-reset">重置所有筛选</button>
+        </aside>
+
+        <main>
+            <div class="results-header">
+                <div class="results-count">找到 <strong>28</strong> 家符合条件的酒店</div>
+                <div class="results-sort">
+                    <span style="font-size:13px; color:#888;">排序：</span>
+                    <select>
+                        <option>综合推荐</option>
+                        <option>价格从低到高</option>
+                        <option>价格从高到低</option>
+                        <option>评分最高</option>
+                    </select>
+                </div>
+            </div>
+
+            <a href="hotel.html" style="display:block;">
+            <div class="hotel-card">
+                <div class="hotel-img hotel-img-1">
+                    <span class="hotel-badge">🏆 人气 TOP1</span>
+                </div>
+                <div class="hotel-info">
+                    <div class="hotel-info-top">
+                        <div class="hotel-name">三亚海棠湾君悦度假酒店</div>
+                        <div class="hotel-rating">
+                            <span class="rating-score">4.9</span>
+                            <span class="rating-text">超棒 (2,847)</span>
+                        </div>
+                    </div>
+                    <div class="hotel-addr">📍 海棠区海棠北路 88 号 · 距海棠湾海滩 300m</div>
+                    <div class="hotel-tags">
+                        <span class="hotel-tag">含双早</span>
+                        <span class="hotel-tag hotel-tag-blue">免费取消</span>
+                        <span class="hotel-tag hotel-tag-orange">海景房</span>
+                    </div>
+                    <div class="hotel-desc">坐拥海棠湾一线海景，拥有 286 间豪华客房和别墅。室内外恒温泳池、全日制西餐厅、儿童水乐园等设施齐全，距三亚凤凰机场仅 45 分钟车程。</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <span class="hotel-price">¥1,288<span>/晚</span></span>
+                            <span class="hotel-price-old">¥1,866</span>
+                        </div>
+                        <span class="hotel-book-btn">查看详情</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="hotel.html" style="display:block;">
+            <div class="hotel-card">
+                <div class="hotel-img hotel-img-2">
+                    <span class="hotel-badge">⭐ 新开业</span>
+                </div>
+                <div class="hotel-info">
+                    <div class="hotel-info-top">
+                        <div class="hotel-name">三亚亚特兰蒂斯天堂别墅</div>
+                        <div class="hotel-rating">
+                            <span class="rating-score">4.8</span>
+                            <span class="rating-text">超棒 (1,523)</span>
+                        </div>
+                    </div>
+                    <div class="hotel-addr">📍 海棠区海棠湾红树林路 1 号 · 私人沙滩</div>
+                    <div class="hotel-tags">
+                        <span class="hotel-tag">含双早</span>
+                        <span class="hotel-tag hotel-tag-blue">免费取消</span>
+                        <span class="hotel-tag">私人泳池</span>
+                        <span class="hotel-tag hotel-tag-orange">水世界</span>
+                    </div>
+                    <div class="hotel-desc">坐拥海棠湾最美海岸线，拥有 57 栋海景别墅，每栋均配备私人无边泳池。内置水世界乐园、水族馆、海底餐厅，是亲子度假的绝佳选择。</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <span class="hotel-price">¥2,680<span>/晚</span></span>
+                            <span class="hotel-price-old">¥3,200</span>
+                        </div>
+                        <span class="hotel-book-btn">查看详情</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="hotel.html" style="display:block;">
+            <div class="hotel-card">
+                <div class="hotel-img hotel-img-3">
+                    <span class="hotel-badge">💚 环保酒店</span>
+                </div>
+                <div class="hotel-info">
+                    <div class="hotel-info-top">
+                        <div class="hotel-name">三亚天域森林度假酒店</div>
+                        <div class="hotel-rating">
+                            <span class="rating-score">4.7</span>
+                            <span class="rating-text">优秀 (1,932)</span>
+                        </div>
+                    </div>
+                    <div class="hotel-addr">📍 吉阳区鹿岭路 168 号 · 热带雨林旁</div>
+                    <div class="hotel-tags">
+                        <span class="hotel-tag">含双早</span>
+                        <span class="hotel-tag hotel-tag-blue">免费取消</span>
+                        <span class="hotel-tag">温泉</span>
+                    </div>
+                    <div class="hotel-desc">隐匿于热带雨林深处，主打自然生态度假体验。拥有 128 间森林树屋和湖畔别墅，天然温泉、雨林徒步、萤火虫夜游等特色活动，远离喧嚣回归自然。</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <span class="hotel-price">¥968<span>/晚</span></span>
+                            <span class="hotel-price-old">¥1,320</span>
+                        </div>
+                        <span class="hotel-book-btn">查看详情</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="hotel.html" style="display:block;">
+            <div class="hotel-card">
+                <div class="hotel-img hotel-img-4">
+                    <span class="hotel-badge">🎯 商务优选</span>
+                </div>
+                <div class="hotel-info">
+                    <div class="hotel-info-top">
+                        <div class="hotel-name">三亚凤凰岛凯悦酒店</div>
+                        <div class="hotel-rating">
+                            <span class="rating-score">4.8</span>
+                            <span class="rating-text">超棒 (3,210)</span>
+                        </div>
+                    </div>
+                    <div class="hotel-addr">📍 天涯区凤凰路 12 号 · 三亚湾核心</div>
+                    <div class="hotel-tags">
+                        <span class="hotel-tag">含双早</span>
+                        <span class="hotel-tag hotel-tag-blue">免费取消</span>
+                        <span class="hotel-tag hotel-tag-orange">行政酒廊</span>
+                        <span class="hotel-tag">海景</span>
+                    </div>
+                    <div class="hotel-desc">矗立于人工岛之上，360° 环海景观。配备 420 间客房、8 间特色餐厅、大型会议中心和无边际泳池。步行可达三亚湾椰梦长廊，商务休闲两相宜。</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <span class="hotel-price">¥1,150<span>/晚</span></span>
+                            <span class="hotel-price-old">¥1,580</span>
+                        </div>
+                        <span class="hotel-book-btn">查看详情</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <a href="hotel.html" style="display:block;">
+            <div class="hotel-card">
+                <div class="hotel-img hotel-img-5">
+                    <span class="hotel-badge">🔥 限时特惠</span>
+                </div>
+                <div class="hotel-info">
+                    <div class="hotel-info-top">
+                        <div class="hotel-name">三亚大东海蓝湾精品酒店</div>
+                        <div class="hotel-rating">
+                            <span class="rating-score">4.6</span>
+                            <span class="rating-text">优秀 (876)</span>
+                        </div>
+                    </div>
+                    <div class="hotel-addr">📍 吉阳区大东海路 23 号 · 大东海海滩旁</div>
+                    <div class="hotel-tags">
+                        <span class="hotel-tag">含双早</span>
+                        <span class="hotel-tag hotel-tag-blue">免费取消</span>
+                        <span class="hotel-tag">屋顶酒吧</span>
+                    </div>
+                    <div class="hotel-desc">位于大东海核心地段，步行 5 分钟即达海滩。设计感十足的精品酒店，拥有 68 间时尚客房和屋顶无边泳池酒吧。周边餐饮丰富，适合情侣出行和朋友聚会。</div>
+                    <div class="hotel-bottom">
+                        <div>
+                            <span class="hotel-price">¥588<span>/晚</span></span>
+                            <span class="hotel-price-old">¥820</span>
+                        </div>
+                        <span class="hotel-book-btn">查看详情</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <div class="pagination">
+                <div class="page-btn active">1</div>
+                <div class="page-btn">2</div>
+                <div class="page-btn">3</div>
+                <div class="page-btn">4</div>
+                <div class="page-btn">›</div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>© 2025 畅行旅行 版权所有 | 京ICP备2025001234号 | 客服热线：400-888-6666</p>
+        </div>
+    </footer>
+</body>
+</html>

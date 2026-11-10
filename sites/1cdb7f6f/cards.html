@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif; color: #2d3748; background: #f8fafc; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .top-bar { background: #0f2440; color: #a0b8d4; font-size: 13px; padding: 6px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #a0b8d4; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #1a3a5c; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        header .container { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #e8a020, #f5c84e); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 22px; }
+        .logo-text { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+        .logo-sub { color: #8ab4d4; font-size: 11px; display: block; letter-spacing: 1px; }
+        nav { display: flex; gap: 8px; }
+        nav a { color: #c8dce8; padding: 10px 18px; border-radius: 6px; font-size: 15px; transition: all .2s; }
+        nav a:hover, nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+        .header-cta { background: #e8a020; color: #fff; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+        .header-cta:hover { background: #d4911a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .page-hero { background: linear-gradient(135deg, #1a3a5c, #2c5f8a); color: #fff; padding: 60px 0; text-align: center; }
+        .page-hero h1 { font-size: 36px; margin-bottom: 12px; }
+        .page-hero p { color: #b8d4e8; font-size: 16px; max-width: 600px; margin: 0 auto; }
+
+        .section { padding: 64px 0; }
+        .section-alt { background: #fff; }
+
+        /* Card Display */
+        .cards-wrapper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .card-item { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.06); transition: all .3s; }
+        .card-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,58,92,.12); }
+        .card-visual { height: 200px; display: flex; align-items: center; justify-content: center; position: relative; padding: 20px; }
+        .card-visual .card-shape { width: 100%; height: 120px; border-radius: 12px; display: flex; align-items: flex-end; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+        .card-shape .chip { width: 36px; height: 26px; background: linear-gradient(135deg, #f5d76e, #d4a017); border-radius: 4px; margin-bottom: 24px; }
+        .card-shape .card-num { position: absolute; bottom: 18px; left: 16px; color: rgba(255,255,255,.85); font-size: 14px; font-family: monospace; letter-spacing: 1px; }
+        .card-shape .card-brand { position: absolute; top: 14px; right: 16px; color: rgba(255,255,255,.7); font-size: 11px; font-weight: 700; }
+        .card-body { padding: 24px; }
+        .card-body h3 { font-size: 18px; color: #1a3a5c; font-weight: 700; margin-bottom: 8px; }
+        .card-body .tagline { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+        .card-features { list-style: none; margin-bottom: 20px; }
+        .card-features li { font-size: 13px; color: #475569; padding: 5px 0 5px 20px; position: relative; }
+        .card-features li::before { content: "◆"; position: absolute; left: 0; color: #e8a020; font-size: 10px; top: 7px; }
+        .card-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid #e8edf2; }
+        .card-meta .fee { font-size: 13px; color: #64748b; }
+        .card-meta .fee strong { color: #1a3a5c; }
+        .btn { display: inline-block; padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+        .btn-primary { background: #e8a020; color: #fff; }
+        .btn-primary:hover { background: #d4911a; }
+
+        /* Color schemes for cards */
+        .card-gold .card-visual { background: linear-gradient(160deg, #f8f4e8, #ede5cc); }
+        .card-gold .card-shape { background: linear-gradient(135deg, #c9a84c, #8b6914); }
+        .card-platinum .card-visual { background: linear-gradient(160deg, #eef2f7, #dce4ee); }
+        .card-platinum .card-shape { background: linear-gradient(135deg, #7a8ba0, #3d4f63); }
+        .card-blue .card-visual { background: linear-gradient(160deg, #e8f0fa, #d0e2f4); }
+        .card-blue .card-shape { background: linear-gradient(135deg, #2c6fad, #1a4a80); }
+
+        /* Benefits Table */
+        .benefit-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+        .benefit-table th { background: #1a3a5c; color: #fff; padding: 14px 18px; font-size: 14px; text-align: left; }
+        .benefit-table td { padding: 14px 18px; font-size: 14px; border-bottom: 1px solid #e8edf2; }
+        .benefit-table tr:last-child td { border-bottom: none; }
+        .benefit-table tr:hover td { background: #f8fafc; }
+        .check { color: #22a05a; font-weight: 700; }
+        .dash { color: #cbd5e1; }
+
+        /* Tips */
+        .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .tip-box { background: #fff; border-radius: 10px; padding: 28px; border-left: 4px solid #e8a020; box-shadow: 0 2px 8px rgba(0,0,0,.03); }
+        .tip-box h4 { font-size: 15px; color: #1a3a5c; margin-bottom: 10px; }
+        .tip-box p { font-size: 13px; color: #64748b; line-height: 1.8; }
+
+        .cta-strip { background: #1a3a5c; padding: 48px 0; text-align: center; color: #fff; }
+        .cta-strip h2 { font-size: 24px; margin-bottom: 10px; }
+        .cta-strip p { color: #b8d4e8; margin-bottom: 24px; }
+
+        footer { background: #0f2440; color: #8ab4d4; padding: 48px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .footer-grid h4 { color: #fff; font-size: 15px; margin-bottom: 14px; }
+        .footer-grid a { display: block; font-size: 13px; color: #8ab4d4; margin-bottom: 10px; }
+        .footer-grid a:hover { color: #f5c84e; }
+        .footer-about p { font-size: 13px; line-height: 1.8; margin-top: 12px; }
+        .footer-bottom { text-align: center; padding: 18px 0; font-size: 12px; color: #5a7a96; }
+
+        @media (max-width: 1024px) { .cards-wrapper { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .cards-wrapper { grid-template-columns: 1fr; }
+            .tips-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一客服热线：400-888-6600</span>
+            <div>
+                <a href="index.html">首页</a>
+                <a href="services.html">个人银行服务</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">川</div>
+                <div>
+                    <span class="logo-text">长川银行</span>
+                    <span class="logo-sub">CHANGCHUAN BANK</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="services.html">个人银行服务</a>
+                <a href="cards.html" class="active">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="header-cta">立即咨询</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>长川银行信用卡</h1>
+            <p>三张精选卡种，覆盖日常消费、商旅出行和年轻生活场景。免年费政策、丰厚积分权益、全球受理网络，总有一款适合您。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cards-wrapper">
+                <!-- Card 1: Gold -->
+                <div class="card-item card-gold">
+                    <div class="card-visual">
+                        <div class="card-shape">
+                            <div class="card-brand">CHANGCHUAN</div>
+                            <div class="chip"></div>
+                            <span class="card-num">6228 •••• •••• 3861</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>长川·尊享白金卡</h3>
+                        <p class="tagline">高端消费与商旅出行首选</p>
+                        <ul class="card-features">
+                            <li>消费 1 积分兑 1 里程（国航/东航/南航）</li>
+                            <li>全国 200+ 机场贵宾厅免费使用</li>
+                            <li>境外消费 1.5 倍积分</li>
+                            <li>全年 6 次三甲医院挂号绿色通道</li>
+                            <li>指定商户消费满 1000 减 100（月享 2 次）</li>
+                            <li>道路救援、酒店升级等 30+ 项权益</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span class="fee">年费 <strong>3600元/年</strong>（年消费满 30 万免）</span>
+                            <a href="contact.html" class="btn btn-primary">申请此卡</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Platinum -->
+                <div class="card-item card-platinum">
+                    <div class="card-visual">
+                        <div class="card-shape">
+                            <div class="card-brand">CHANGCHUAN</div>
+                            <div class="chip"></div>
+                            <span class="card-num">6228 •••• •••• 7294</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>长川·商旅精英卡</h3>
+                        <p class="tagline">为频繁出差人士量身打造</p>
+                        <ul class="card-features">
+                            <li>机场/高铁站贵宾休息室（含1位同行）</li>
+                            <li>酒店积分 2 倍累积（万豪/希尔顿/华住）</li>
+                            <li>全年 12 次机场快速安检通道</li>
+                            <li>消费满 500 元享 5 折打车（滴滴/高德）</li>
+                            <li>境外 ATM 取现免手续费</li>
+                            <li>航班延误险（延误 4h 赔 500 元）</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span class="fee">年费 <strong>1200元/年</strong>（年消费满 8 万免）</span>
+                            <a href="contact.html" class="btn btn-primary">申请此卡</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Blue -->
+                <div class="card-item card-blue">
+                    <div class="card-visual">
+                        <div class="card-shape">
+                            <div class="card-brand">CHANGCHUAN</div>
+                            <div class="chip"></div>
+                            <span class="card-num">6228 •••• •••• 5517</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>长川·青春活力卡</h3>
+                        <p class="tagline">18-30 岁年轻用户专属</p>
+                        <ul class="card-features">
+                            <li>终身免年费、免工本费</li>
+                            <li>餐饮/咖啡/奶茶消费 3 倍积分</li>
+                            <li>视频会员 5 折（爱奇艺/B站/优酷）</li>
+                            <li>共享单车、地铁乘车 5 折</li>
+                            <li>毕业季/入职季首年免息分期</li>
+                            <li>每月 1 次免费取快递（丰巢/菜鸟驿站）</li>
+                        </ul>
+                        <div class="card-meta">
+                            <span class="fee">年费 <strong>永久免费</strong></span>
+                            <a href="contact.html" class="btn btn-primary">申请此卡</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="font-size:24px;color:#1a3a5c;text-align:center;margin-bottom:32px;">权益对比一览</h2>
+            <div style="overflow-x:auto;">
+                <table class="benefit-table">
+                    <thead>
+                        <tr>
+                            <th>权益项目</th>
+                            <th>尊享白金卡</th>
+                            <th>商旅精英卡</th>
+                            <th>青春活力卡</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>消费积分倍率</td><td>1倍（境外1.5倍）</td><td>1倍（酒店2倍）</td><td>餐饮3倍</td></tr>
+                        <tr><td>机场贵宾厅</td><td><span class="check">✓ 全年24次</span></td><td><span class="check">✓ 全年12次</span></td><td><span class="dash">—</span></td></tr>
+                        <tr><td>航空里程兑换</td><td><span class="check">✓ 1:1</span></td><td><span class="check">✓ 1:1</span></td><td><span class="dash">—</span></td></tr>
+                        <tr><td>道路救援</td><td><span class="check">✓ 全年4次</span></td><td><span class="check">✓ 全年2次</span></td><td><span class="dash">—</span></td></tr>
+                        <tr><td>医院绿色通道</td><td><span class="check">✓ 全年6次</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+                        <tr><td>境外取现免手续费</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>分期免息期数</td><td>最长12期</td><td>最长12期</td><td>最长6期（首年12期）</td></tr>
+                        <tr><td>取现手续费</td><td>免</td><td>1%（最低10元）</td><td>1%（最低10元）</td></tr>
+                        <tr><td>信用额度</td><td>5万 - 200万</td><td>2万 - 80万</td><td>3千 - 10万</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="font-size:24px;color:#1a3a5c;text-align:center;margin-bottom:32px;">办卡须知与温馨提示</h2>
+            <div class="tips-grid">
+                <div class="tip-box">
+                    <h4>申请条件</h4>
+                    <p>年满 18 周岁、具有完全民事行为能力的中国公民均可申请。需提供有效身份证件、收入证明（或社保/公积金记录）。青春活力卡面向 18-30 岁人群，大学生可凭学生证申请额度 3,000 元。</p>
+                </div>
+                <div class="tip-box">
+                    <h4>还款与计息</h4>
+                    <p>每月账单日后 20 天为最后还款日。全额还款享 20-50 天免息期（视账单日而定）。若选择最低还款（账单金额的 10%），未还部分按日利率 0.05% 计收利息。建议开通自动还款，避免逾期影响征信。</p>
+                </div>
+                <div class="tip-box">
+                    <h4>安全提示</h4>
+                    <p>请妥善保管卡片，不要将卡号和 CVV 码告知他人。长川银行不会以电话、短信方式索要您的密码或验证码。如遇可疑交易，请立即致电 400-888-6600 挂失冻结。</p>
+                </div>
+                <div class="tip-box">
+                    <h4>年费减免规则</h4>
+                    <p>各卡种年费减免标准以开卡时告知为准。尊享白金卡：年消费满 30 万元免次年年费；商旅精英卡：年消费满 8 万元免次年年费；青春活力卡：终身免年费。积分可在年费到期前抵扣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip">
+        <div class="container">
+            <h2>想进一步了解哪张卡适合您？</h2>
+            <p>欢迎拨打 400-888-6600，或前往最近的长川银行网点咨询，我们将为您推荐最合适的卡种。</p>
+            <a href="contact.html" class="btn btn-primary">联系我们</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <div class="logo-icon" style="width:36px;height:36px;font-size:18px;">川</div>
+                        <span class="logo-text" style="font-size:18px;">长川银行</span>
+                    </div>
+                    <p>长川银行成立于1999年，总部位于杭州，是全国性股份制商业银行。秉承"稳健、专业、客户至上"的经营理念。</p>
+                </div>
+                <div>
+                    <h4>产品服务</h4>
+                    <a href="services.html">储蓄存款</a>
+                    <a href="services.html">个人贷款</a>
+                    <a href="cards.html">信用卡</a>
+                    <a href="services.html">投资理财</a>
+                </div>
+                <div>
+                    <h4>关于长川</h4>
+                    <a href="contact.html">联系我们</a>
+                    <a href="contact.html">网点查询</a>
+                    <a href="index.html">返回首页</a>
+                    <a href="cards.html">信用卡专区</a>
+                </div>
+                <div>
+                    <h4>客户服务</h4>
+                    <a href="contact.html">客服热线 400-888-6600</a>
+                    <a href="contact.html">投诉与建议</a>
+                    <a href="services.html">安全提示</a>
+                    <a href="contact.html">营业时间</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 长川银行 版权所有 | 银行许可证编号 B0312H133010001 | 浙ICP备12038866号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

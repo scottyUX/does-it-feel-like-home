@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 洁家家政</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a7a4c;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a7a4c, #2ecc71);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 15px;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+        .nav-links a:hover {
+            color: #1a7a4c;
+        }
+        .nav-links a.active {
+            color: #1a7a4c;
+            font-weight: 600;
+        }
+        .nav-cta {
+            background: #1a7a4c;
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover {
+            background: #145c3a !important;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 100%);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            font-size: 16px;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Section */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        .section-sub {
+            font-size: 15px;
+            color: #718096;
+            margin-bottom: 32px;
+        }
+        /* Package Cards */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+        .package-card {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 36px 28px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .package-card:hover {
+            border-color: #1a7a4c;
+            box-shadow: 0 16px 48px rgba(26,122,76,0.12);
+            transform: translateY(-4px);
+        }
+        .package-card.featured {
+            border-color: #1a7a4c;
+            background: linear-gradient(180deg, #f0fff4 0%, #fff 100%);
+        }
+        .package-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a7a4c;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+        .package-icon {
+            width: 52px;
+            height: 52px;
+            background: #f0fff4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .package-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 6px;
+        }
+        .package-desc {
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 16px;
+        }
+        .package-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a7a4c;
+            margin-bottom: 4px;
+        }
+        .package-price small {
+            font-size: 14px;
+            font-weight: 400;
+            color: #a0aec0;
+        }
+        .package-duration {
+            font-size: 13px;
+            color: #a0aec0;
+            margin-bottom: 20px;
+        }
+        .package-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .package-features li {
+            font-size: 14px;
+            color: #4a5568;
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+        }
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1a7a4c;
+            font-weight: 700;
+        }
+        .package-btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: #1a7a4c;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .package-btn:hover {
+            background: #145c3a;
+        }
+        .package-card:not(.featured) .package-btn {
+            background: #fff;
+            color: #1a7a4c;
+            border: 2px solid #1a7a4c;
+        }
+        .package-card:not(.featured) .package-btn:hover {
+            background: #f0fff4;
+        }
+        /* Add-on Services */
+        .addons-section {
+            background: #f7fdf9;
+            padding: 48px 0;
+        }
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .addon-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .addon-item:hover {
+            border-color: #1a7a4c;
+            box-shadow: 0 8px 24px rgba(26,122,76,0.08);
+        }
+        .addon-item .addon-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .addon-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+        .addon-item p {
+            font-size: 13px;
+            color: #718096;
+        }
+        .addon-item .addon-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a7a4c;
+            margin-top: 8px;
+        }
+        /* Comparison Table */
+        .comparison-section {
+            padding: 60px 0;
+        }
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .comp-table thead {
+            background: #1a7a4c;
+            color: #fff;
+        }
+        .comp-table th {
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: left;
+        }
+        .comp-table td {
+            padding: 12px 20px;
+            font-size: 14px;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .comp-table tbody tr:hover {
+            background: #f7fdf9;
+        }
+        .comp-table .check {
+            color: #1a7a4c;
+            font-weight: 700;
+        }
+        .comp-table .cross {
+            color: #cbd5e0;
+        }
+        /* FAQ */
+        .faq-section {
+            padding: 60px 0;
+            background: #f7fdf9;
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 18px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a202c;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            color: #1a7a4c;
+        }
+        .faq-arrow {
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding: 0 24px 18px;
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.8;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        /* CTA */
+        .cta-bar {
+            background: linear-gradient(135deg, #1a7a4c, #145c3a);
+            padding: 48px 0;
+            text-align: center;
+        }
+        .cta-bar h2 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .cta-bar p {
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+        .btn-white {
+            background: #fff;
+            color: #1a7a4c;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #718096;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            font-size: 13px;
+            color: #718096;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #2ecc71;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px 0;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        @media (max-width: 1024px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .addons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .page-header h1 { font-size: 28px; }
+            .addons-grid { grid-template-columns: 1fr; }
+            .comp-table { font-size: 12px; }
+            .comp-table th, .comp-table td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">洁</div>
+                洁家家政
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">服务项目</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <div id="mobileMenu" style="display:none; position:fixed; top:72px; left:0; right:0; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,0.1); z-index:999; padding:16px 24px;">
+        <a href="index.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">首页</a>
+        <a href="services.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0; color:#1a7a4c; font-weight:600;">服务项目</a>
+        <a href="about.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">关于我们</a>
+        <a href="booking.html" style="display:block; padding:12px 0; font-size:16px; color:#1a7a4c; font-weight:600;">立即预约</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>保洁服务套餐与价格</h1>
+        <p>透明定价，无隐形消费。所有服务均含工具、清洁剂，不满意免费重做</p>
+    </div>
+
+    <!-- Main Packages -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">三大核心套餐</h2>
+            <p class="section-sub">根据您的需求和房屋面积选择最合适的方案</p>
+            <div class="packages-grid">
+                <!-- Basic -->
+                <div class="package-card">
+                    <div class="package-icon">🧹</div>
+                    <h3>日常保洁</h3>
+                    <p class="package-desc">适合每周/每两周定期维护的家庭</p>
+                    <div class="package-price">¥128 <small>起</small></div>
+                    <p class="package-duration">标准时长：2小时 · 适用面积：≤80㎡</p>
+                    <ul class="package-features">
+                        <li>客厅、卧室地面清洁</li>
+                        <li>厨房台面、水槽去油</li>
+                        <li>卫生间洗漱台、马桶清洁</li>
+                        <li>家具表面除尘擦拭</li>
+                        <li>垃圾归类打包</li>
+                        <li>不含：油烟机拆洗、擦窗</li>
+                    </ul>
+                    <a href="booking.html" class="package-btn">预约日常保洁</a>
+                </div>
+                <!-- Featured -->
+                <div class="package-card featured">
+                    <div class="package-badge">最受欢迎</div>
+                    <div class="package-icon">🏠</div>
+                    <h3>深度保洁</h3>
+                    <p class="package-desc">季度大扫除首选，还原如新体验</p>
+                    <div class="package-price">¥398 <small>起</small></div>
+                    <p class="package-duration">标准时长：4小时 · 适用面积：≤120㎡</p>
+                    <ul class="package-features">
+                        <li>含日常保洁全部项目</li>
+                        <li>厨房油烟机表面深度去油</li>
+                        <li>卫生间墙砖、缝隙除垢</li>
+                        <li>踢脚线、门框、窗台擦拭</li>
+                        <li>顶部及高处除尘</li>
+                        <li>冰箱外部、灶台细节清洁</li>
+                        <li>不含：油烟机拆洗、全屋擦窗</li>
+                    </ul>
+                    <a href="booking.html" class="package-btn">预约深度保洁</a>
+                </div>
+                <!-- Premium -->
+                <div class="package-card">
+                    <div class="package-icon">✨</div>
+                    <h3>开荒保洁</h3>
+                    <p class="package-desc">新房装修后首次全面清洁</p>
+                    <div class="package-price">¥880 <small>起</small></div>
+                    <p class="package-duration">标准时长：8小时 · 适用面积：≤150㎡</p>
+                    <ul class="package-features">
+                        <li>全屋墙面、地面除灰除胶</li>
+                        <li>厨房、卫生间全面清洁</li>
+                        <li>玻璃内外双面清洁</li>
+                        <li>门窗框、轨道、合页除尘</li>
+                        <li>橱柜内外、抽屉内部清洁</li>
+                        <li>阳台、储物间深度清洁</li>
+                        <li>含：基础擦窗（≤4扇）</li>
+                    </ul>
+                    <a href="booking.html" class="package-btn">预约开荒保洁</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-on Services -->
+    <div class="addons-section">
+        <div class="container">
+            <h2 class="section-title">增值服务（可叠加）</h2>
+            <p class="section-sub">在基础套餐上按需添加，满足更多细节需求</p>
+            <div class="addons-grid">
+                <div class="addon-item">
+                    <div class="addon-icon">🍳</div>
+                    <h4>油烟机拆洗</h4>
+                    <p>拆下滤网、涡轮，高温去油</p>
+                    <div class="addon-price">+¥200</div>
+                </div>
+                <div class="addon-item">
+                    <div class="addon-icon">🪟</div>
+                    <h4>全屋擦窗</h4>
+                    <p>内外双面 + 纱窗清洗</p>
+                    <div class="addon-price">+¥80/窗</div>
+                </div>
+                <div class="addon-item">
+                    <div class="addon-icon">🛋️</div>
+                    <h4>沙发/床垫除螨</h4>
+                    <p>专业蒸汽除螨，清新无异味</p>
+                    <div class="addon-price">+¥150</div>
+                </div>
+                <div class="addon-item">
+                    <div class="addon-icon">🧴</div>
+                    <h4>除味除甲醛</h4>
+                    <p>光触媒喷涂，去除异味</p>
+                    <div class="addon-price">+¥300/㎡</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">套餐对比一览</h2>
+            <p class="section-sub">快速了解各套餐包含内容，选择最适合您的方案</p>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>服务项目</th>
+                        <th>日常保洁</th>
+                        <th>深度保洁</th>
+                        <th>开荒保洁</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>地面清洁（拖/吸）</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>厨房台面、水槽</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>卫生间清洁</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>家具表面除尘</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>厨房油烟机深度去油</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>卫生间墙砖、缝隙</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>踢脚线、门框擦拭</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>顶部高处除尘</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>墙面、地面除灰除胶</td>
+                        <td class="cross">—</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>玻璃双面清洁</td>
+                        <td class="cross">—</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓（≤4扇）</td>
+                    </tr>
+                    <tr>
+                        <td>橱柜内部清洁</td>
+                        <td class="cross">—</td>
+                        <td class="cross">—</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>服务时长</td>
+                        <td>2小时</td>
+                        <td>4小时</td>
+                        <td>8小时</td>
+                    </tr>
+                    <tr>
+                        <td>适用面积</td>
+                        <td>≤80㎡</td>
+                        <td>≤120㎡</td>
+                        <td>≤150㎡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header" style="text-align:center; margin-bottom:32px;">
+                <h2 class="section-title" style="text-align:center;">常见问题</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        价格包含哪些费用？会不会有额外收费？
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>报价已包含人工费、工具费和环保清洁剂费用，不存在任何隐形消费。如果实际服务中需要增加项目（如多擦两扇窗），我们会提前告知价格并征得您同意后才执行，绝不在服务后加价。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        房屋面积超出套餐标准怎么办？
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>面积超出标准范围时，我们会根据超出面积按比例加价。例如日常保洁超出80㎡的部分，每增加10㎡加收¥30。预约时请告知大致面积，客服会给出精确报价。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        如果清洁效果不满意怎么办？
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>服务完成后您可以逐项验收，如对任何区域不满意，保洁人员会当场返工。若仍无法达到预期，24小时内可免费安排二次上门。我们对服务质量有充分信心。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        有宠物在家需要注意什么？
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>所有清洁剂均为宠物友好型（无氨、无强碱）。如有大型犬或攻击性动物，建议服务期间将宠物寄养在邻居家。猫和小型犬一般不影响服务，但请提前告知客服以便安排有经验的师傅。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        可以指定时间上门吗？节假日加钱吗？
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们支持预约任意时段（8:00-21:00），包括周末和法定节假日。节假日服务价格上浮20%，我们会在预约确认时提前告知。平时预约不额外收费。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-bar">
+        <div class="container">
+            <h2>不确定选哪个套餐？</h2>
+            <p>拨打 400-886-7210，客服根据您的房屋情况推荐最合适的方案，不推销、不套话</p>
+            <a href="booking.html" class="btn-white">在线免费预约</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>洁家家政</h3>
+                <p>专注北京家庭保洁服务8年，让每个家庭享受洁净、舒适的居家环境。服务热线：400-886-7210</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="booking.html">在线预约</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务区域</h4>
+                <ul>
+                    <li><a href="services.html">朝阳区</a></li>
+                    <li><a href="services.html">海淀区</a></li>
+                    <li><a href="services.html">西城区</a></li>
+                    <li><a href="services.html">丰台区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="booking.html">400-886-7210</a></li>
+                    <li><a href="about.html">朝阳区建国路88号</a></li>
+                    <li><a href="about.html">周一至周日 8:00-21:00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 洁家家政服务有限公司 · 京ICP备20241234号</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.style.display === 'none') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').style.display = 'none';
+            });
+        });
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!wasActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
