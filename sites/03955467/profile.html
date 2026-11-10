@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>趣聊 - 我的主页</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        .nav{display:flex;justify-content:space-between;align-items:center;}
+        .nav a{color:#333;text-decoration:none;margin:0 10px;font-weight:500;}
+        .nav a:hover{color:#ff5a5f;}
+        .container{max-width:960px;margin:20px auto;padding:0 15px;}
+        .profile{background:#fff;padding:20px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);display:flex;align-items:center;}
+        .avatar{width:80px;height:80px;border-radius:50%;background:#bbb;margin-right:20px;}
+        .info h2{margin-bottom:5px;}
+        .info p{color:#777;}
+        .my-posts{margin-top:30px;}
+        .post{background:#fff;margin-bottom:15px;padding:15px;border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+        .post-header{display:flex;align-items:center;margin-bottom:8px;}
+        .post-avatar{width:30px;height:30px;border-radius:50%;background:#bbb;margin-right:8px;}
+        .post-username{font-weight:600;}
+        .post-content{line-height:1.5;}
+        .post-actions{font-size:13px;color:#777;margin-top:5px;}
+        .post-actions a{color:#777;text-decoration:none;margin-left:10px;}
+        .post-actions a:hover{color:#ff5a5f;}
+        footer{background:#fff;padding:15px 20px;text-align:center;font-size:13px;color:#777;margin-top:40px;}
+        @media (max-width:600px){
+            .nav{flex-direction:column;}
+            .nav a{margin:5px 0;}
+            .profile{flex-direction:column;align-items:flex-start;}
+            .avatar{margin-bottom:15px;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <div><strong>趣聊</strong></div>
+        <div>
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html">注册</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="profile">
+        <div class="avatar"></div>
+        <div class="info">
+            <h2>张晓华</h2>
+            <p>热爱旅行、音乐与美食的社交达人。欢迎关注，一起分享生活点滴！</p>
+        </div>
+    </section>
+
+    <section class="my-posts">
+        <h3>我的最新动态</h3>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <div class="post-username">张晓华</div>
+            </div>
+            <div class="post-content">
+                周末烤肉聚会，和老友们一起享受夏日的微风和烤肉的香味 🍖
+            </div>
+            <div class="post-actions">
+                👍 58
+                <a href="post.html">💬 4 条评论</a>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <div class="post-username">张晓华</div>
+            </div>
+            <div class="post-content">
+                最近在学习吉他，进步慢慢的，但真的很有成就感 🎸
+            </div>
+            <div class="post-actions">
+                👍 33
+                <a href="post.html">💬 2 条评论</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 趣聊. 保留所有权利.
+</footer>
+</body>
+</html>

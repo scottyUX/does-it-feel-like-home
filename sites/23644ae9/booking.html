@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完成预订 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --success-color: #28a745;
+            --bg-light: #f8f9fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        header { background: #fff; border-bottom: 1px solid var(--border-color); padding: 15px 0; margin-bottom: 40px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 800px; margin: 0 auto; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+
+        .booking-card { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .booking-header { text-align: center; margin-bottom: 40px; }
+        .booking-header h2 { font-size: 24px; margin-bottom: 10px; }
+        .booking-header p { color: var(--text-light); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 16px; }
+        .form-group input:focus { outline: none; border-color: var(--primary-color); }
+        
+        .summary { background: #f0f7ff; padding: 20px; border-radius: 6px; margin-bottom: 30px; border: 1px solid #cce5ff; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+        .summary-row.total { font-weight: bold; font-size: 18px; color: #d93025; border-top: 1px dashed #cce5ff; padding-top: 10px; margin-top: 10px; }
+
+        .payment-method { margin-bottom: 20px; }
+        .payment-options { display: flex; gap: 15px; margin-top: 10px; }
+        .pay-option { border: 1px solid var(--border-color); padding: 15px; border-radius: 4px; flex: 1; cursor: pointer; text-align: center; transition: 0.3s; }
+        .pay-option.active { border-color: var(--primary-color); background: #f0f7ff; color: var(--primary-color); font-weight: bold; }
+        .pay-option:hover { border-color: var(--primary-color); }
+
+        .btn-submit { width: 100%; background: var(--primary-color); color: #fff; padding: 15px; font-size: 18px; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn-submit:hover { background: #0052a3; }
+
+        footer { text-align: center; padding: 40px; color: var(--text-light); font-size: 12px; }
+        @media (max-width: 600px) { .booking-card { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">畅行旅行</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="booking-card">
+            <div class="booking-header">
+                <h2>确认订单</h2>
+                <p>请仔细检查您的入住信息并完成支付</p>
+            </div>
+
+            <div class="summary">
+                <div class="summary-row"><span>酒店名称</span> <span>北京国际中心酒店</span></div>
+                <div class="summary-row"><span>入住日期</span> <span>2023-11-10 至 2023-11-12</span></div>
+                <div class="summary-row"><span>房型</span> <span>豪华大床房 (含双早)</span></div>
+                <div class="summary-row"><span>间夜数</span> <span>2 晚</span></div>
+                <div class="summary-row"><span>单价</span> <span>¥899.00</span></div>
+                <div class="summary-row total"><span>总计</span> <span>¥1,798.00</span></div>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('预订成功！感谢您的预订。'); window.location.href='index.html';">
+                <h3 style="margin-bottom: 20px;">住客信息</h3>
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" placeholder="请输入入住人姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" placeholder="请输入手机号码" required>
+                </div>
+                <div class="form-group">
+                    <label>入住人数</label>
+                    <select>
+                        <option>1 人</option>
+                        <option selected>2 人</option>
+                        <option>3 人</option>
+                    </select>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 20px;">支付信息</h3>
+                <div class="payment-method">
+                    <div class="payment-options">
+                        <div class="pay-option active">微信支付</div>
+                        <div class="pay-option">支付宝</div>
+                        <div class="pay-option">银联卡</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>优惠码（如有）</label>
+                    <input type="text" placeholder="输入优惠码">
+                </div>
+
+                <button type="submit" class="btn-submit">确认并支付 ¥1,798.00</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 畅行旅行 版权所有 | 隐私政策 | 服务条款</p>
+    </footer>
+</body>
+</html>

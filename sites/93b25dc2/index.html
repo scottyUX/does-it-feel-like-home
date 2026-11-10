@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日视界 - 洞察时代脉搏</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #c00;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --border-color: #ddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: #fff; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        a:hover { color: var(--primary-color); }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        /* Header */
+        .site-header { background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        .header-top { background: var(--primary-color); color: #fff; font-size: 12px; padding: 5px 0; text-align: center; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+        .main-nav ul { display: flex; gap: 25px; }
+        .main-nav a { font-weight: 500; font-size: 16px; }
+        
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Hero Section */
+        .hero-section { margin-bottom: 40px; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+        .hero-main { position: relative; background: linear-gradient(135deg, #003366, #00509e); border-radius: 8px; overflow: hidden; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 20px; }
+        .hero-content { z-index: 2; }
+        .hero-tag { background: var(--accent-color); color: #fff; padding: 4px 8px; font-size: 12px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+        .hero-title { font-size: 32px; margin-bottom: 15px; line-height: 1.3; }
+        .hero-meta { font-size: 14px; opacity: 0.9; }
+        .hero-aside { display: flex; flex-direction: column; gap: 15px; }
+        .sub-hero-item { background: var(--bg-light); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-color); flex: 1; }
+        .sub-hero-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+        .sub-hero-desc { font-size: 14px; color: var(--text-light); }
+        
+        /* News Grid */
+        .section-title { font-size: 22px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 20px; display: inline-block; }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+        .news-card { border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background: #fff; transition: transform 0.2s; }
+        .news-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .card-img { height: 180px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px; }
+        .card-content { padding: 15px; }
+        .card-cat { color: var(--accent-color); font-size: 12px; font-weight: bold; margin-bottom: 5px; display: block; }
+        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; line-height: 1.4; }
+        .card-desc { font-size: 14px; color: var(--text-light); margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card-footer { display: flex; justify-content: space-between; font-size: 12px; color: #999; }
+        
+        /* Sidebar */
+        .sidebar-layout { display: grid; grid-template-columns: 3fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .sidebar { background: var(--bg-light); padding: 20px; border-radius: 8px; height: fit-content; }
+        .sidebar h3 { font-size: 16px; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        .sidebar-list li { margin-bottom: 12px; border-bottom: 1px dashed #ddd; padding-bottom: 12px; }
+        .sidebar-list li:last-child { border: none; margin: 0; padding: 0; }
+        .sidebar-list a { font-size: 14px; font-weight: 500; display: block; margin-bottom: 4px; }
+        .sidebar-list span { font-size: 12px; color: #999; }
+        
+        /* Footer */
+        .site-footer { background: #1a1a1a; color: #999; padding: 40px 0; margin-top: 50px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+        .footer-col h4 { color: #fff; margin-bottom: 15px; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { font-size: 14px; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; font-size: 13px; }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+            .sidebar-layout { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav-container { flex-direction: column; height: auto; padding: 15px 0; }
+            .main-nav ul { flex-wrap: wrap; justify-content: center; margin-top: 15px; gap: 15px; }
+            .news-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            每日视界 | 为您传递真实、深度的新闻资讯
+        </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo">每日视界</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经</a></li>
+                    <li><a href="tech.html">科技</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <a href="article.html" class="hero-main">
+                <div class="hero-content">
+                    <span class="hero-tag">深度报道</span>
+                    <h1 class="hero-title">2024 年上半年宏观经济数据发布：复苏信号明显，消费潜力持续释放</h1>
+                    <p class="hero-meta">2024 年 07 月 15 日 · 每日视界经济部</p>
+                </div>
+            </a>
+            <div class="hero-aside">
+                <a href="finance.html" class="sub-hero-item">
+                    <h2 class="sub-hero-title">科技巨头 Q2 财报超预期</h2>
+                    <p class="sub-hero-desc">多家上市公司公布业绩，人工智能板块领涨。</p>
+                </a>
+                <a href="article.html" class="sub-hero-item">
+                    <h2 class="sub-hero-title">新能源车市战：价格竞争进入下半场</h2>
+                    <p class="sub-hero-desc">传统车企加速转型，新势力面临洗牌挑战。</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <h2 class="section-title">最新时事</h2>
+        <div class="news-grid">
+            <a href="article.html" class="news-card">
+                <div class="card-img">图片占位：会议现场</div>
+                <div class="card-content">
+                    <span class="card-cat">社会</span>
+                    <h3 class="card-title">全国职业教育大会召开，技能人才培养获新政策</h3>
+                    <p class="card-desc">教育部负责人表示，将深化产教融合，提升职业教育吸引力，解决结构性就业矛盾。</p>
+                    <div class="card-footer">
+                        <span>07 月 14 日</span>
+                        <span>评论 128</span>
+                    </div>
+                </div>
+            </a>
+            <a href="finance.html" class="news-card">
+                <div class="card-img">图片占位：股票 K 线图</div>
+                <div class="card-content">
+                    <span class="card-cat">财经</span>
+                    <h3 class="card-title">人民币汇率稳中有升，外资持续流入债市</h3>
+                    <p class="card-desc">央行行长指出保持货币政策稳健，外汇市场供需基本平衡，市场预期良好。</p>
+                    <div class="card-footer">
+                        <span>07 月 14 日</span>
+                        <span>评论 86</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="news-card">
+                <div class="card-img">图片占位：实验室场景</div>
+                <div class="card-content">
+                    <span class="card-cat">科技</span>
+                    <h3 class="card-title">国产大模型迎来新突破，算力成本降低 30%</h3>
+                    <p class="card-desc">国内顶尖科技实验室发布新一代算法，显著降低运行能耗，推动 AI 落地应用。</p>
+                    <div class="card-footer">
+                        <span>07 月 13 日</span>
+                        <span>评论 245</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Sidebar Section -->
+        <div class="sidebar-layout">
+            <div class="content-column">
+                <h2 class="section-title">深度聚焦</h2>
+                <div class="news-grid" style="margin-bottom: 0;">
+                    <a href="finance.html" class="news-card" style="border:none; box-shadow: none;">
+                        <div class="card-content" style="padding-left: 0;">
+                            <span class="card-cat">专题</span>
+                            <h3 class="card-title" style="font-size: 16px;">城市更新行动：让老街区焕发新活力</h3>
+                        </div>
+                    </a>
+                    <a href="article.html" class="news-card" style="border:none; box-shadow: none;">
+                        <div class="card-content" style="padding-left: 0;">
+                            <span class="card-cat">观察</span>
+                            <h3 class="card-title" style="font-size: 16px;">乡村文旅热的冷思考：如何避免同质化？</h3>
+                        </div>
+                    </a>
+                    <a href="about.html" class="news-card" style="border:none; box-shadow: none;">
+                        <div class="card-content" style="padding-left: 0;">
+                            <span class="card-cat">互动</span>
+                            <h3 class="card-title" style="font-size: 16px;">读者来信：关于社区养老服务的建议</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <aside class="sidebar">
+                <h3>阅读排行</h3>
+                <ul class="sidebar-list">
+                    <li><a href="article.html">1. 最新医疗改革政策全文解读</a><span>07/12</span></li>
+                    <li><a href="finance.html">2. 下周股市前瞻：关注三大板块</a><span>07/12</span></li>
+                    <li><a href="article.html">3. 暑期旅游数据：国内游恢复至 2019 年水平</a><span>07/11</span></li>
+                    <li><a href="article.html">4. 专家建议：年轻人如何配置第一笔存款</a><span>07/11</span></li>
+                    <li><a href="about.html">5. 编辑部公告：关于我们栏目调整的通知</a><span>07/10</span></li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>每日视界</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经频道</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">广告合作</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：contact@dailyvision.news</li>
+                    <li>地址：北京市朝阳区新闻大厦 A 座</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 每日视界 版权所有 | 京 ICP 备 12345678 号
+        </div>
+    </footer>
+</body>
+</html>

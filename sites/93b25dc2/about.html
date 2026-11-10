@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #c00;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --border-color: #ddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: #fff; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        a:hover { color: var(--primary-color); }
+        ul { list-style: none; }
+        
+        /* Header */
+        .site-header { background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        .header-top { background: var(--primary-color); color: #fff; font-size: 12px; padding: 5px 0; text-align: center; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+        .main-nav ul { display: flex; gap: 25px; }
+        .main-nav a { font-weight: 500; font-size: 16px; }
+        
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* About Section */
+        .about-hero { background: var(--bg-light); padding: 40px; border-radius: 8px; margin-bottom: 40px; text-align: center; }
+        .about-hero h1 { font-size: 32px; margin-bottom: 20px; color: var(--primary-color); }
+        .about-hero p { font-size: 18px; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 40px; }
+        .team-member { text-align: center; border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; }
+        .avatar { width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 12px; }
+        .team-name { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+        .team-role { font-size: 14px; color: var(--accent-color); }
+        
+        /* Contact Form */
+        .contact-section { background: #fff; border: 1px solid var(--border-color); padding: 30px; border-radius: 8px; }
+        .contact-section h2 { font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; display: inline-block; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-family: inherit; font-size: 16px; }
+        .form-group textarea { height: 150px; resize: vertical; }
+        .submit-btn { background: var(--primary-color); color: #fff; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        .submit-btn:hover { background: #004080; }
+        
+        /* Footer */
+        .site-footer { background: #1a1a1a; color: #999; padding: 40px 0; margin-top: 50px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+        .footer-col h4 { color: #fff; margin-bottom: 15px; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { font-size: 14px; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; font-size: 13px; }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .nav-container { flex-direction: column; height: auto; padding: 15px 0; }
+            .main-nav ul { flex-wrap: wrap; justify-content: center; margin-top: 15px; gap: 15px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .about-hero h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            每日视界 | 为您传递真实、深度的新闻资讯
+        </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo">每日视界</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经</a></li>
+                    <li><a href="tech.html">科技</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="about-hero">
+            <h1>关于我们</h1>
+            <p>每日视界创立于 2015 年，是一家立足中国、面向全球的新媒体平台。我们的使命是为广大读者提供真实、客观、深度的新闻报道，帮助人们在快节奏的生活中快速把握时代脉搏。</p>
+        </div>
+
+        <div class="section-content" style="margin-bottom: 40px;">
+            <h2 style="font-size: 24px; margin-bottom: 20px;">核心价值观</h2>
+            <p>我们坚信新闻的力量在于揭示真相。无论环境如何变化，每日视界始终坚持“专业、独立、公正”的采编原则。我们的报道团队遍布全国主要城市及海外，深入一线，确保每一条信息都经得起时间的考验。</p>
+            <br>
+            <p>在这个信息爆炸的时代，我们致力于做那个冷静、理性的思考者，为读者过滤噪音，提供有价值的观点和分析。</p>
+        </div>
+
+        <div class="section-content">
+            <h2 style="font-size: 24px; margin-bottom: 30px;">编辑团队</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">主编照片</div>
+                    <h3 class="team-name">张明远</h3>
+                    <p class="team-role">总编辑</p>
+                    <p style="font-size: 13px; color: #666; margin-top: 10px;">从事新闻工作 20 年，曾获多项新闻奖项，专注于宏观经济报道。</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">主编照片</div>
+                    <h3 class="team-name">李华</h3>
+                    <p class="team-role">财经频道主编</p>
+                    <p style="font-size: 13px; color: #666; margin-top: 10px;">前华尔街分析师，擅长资本市场深度解读和行业分析。</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">主编照片</div>
+                    <h3 class="team-name">王晓雨</h3>
+                    <p class="team-role">科技频道主编</p>
+                    <p style="font-size: 13px; color: #666; margin-top: 10px;">计算机科学博士背景，关注前沿科技动态及 AI 应用落地。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>联系我们</h2>
+            <p style="margin-bottom: 20px; color: #666;">如果您有新闻线索、合作意向或任何建议，请填写下方表单或发送邮件至 contact@dailyvision.news。</p>
+            <form onsubmit="event.preventDefault(); alert('感谢您的反馈，我们将尽快与您联系！');">
+                <div class="form-group">
+                    <label>您的姓名</label>
+                    <input type="text" placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label>电子邮箱</label>
+                    <input type="email" placeholder="请输入您的邮箱">
+                </div>
+                <div class="form-group">
+                    <label>留言内容</label>
+                    <textarea placeholder="请详细描述您的需求或建议..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>每日视界</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经频道</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">广告合作</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：contact@dailyvision.news</li>
+                    <li>地址：北京市朝阳区新闻大厦 A 座</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 每日视界 版权所有 | 京 ICP 备 12345678 号
+        </div>
+    </footer>
+</body>
+</html>

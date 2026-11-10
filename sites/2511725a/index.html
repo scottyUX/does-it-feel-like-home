@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快送外卖 - 首页</title>
+    <style>
+        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333}
+        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}
+        header h1{margin:0;font-size:1.5em}
+        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}
+        .banner{background:url('assets/image-aa7762f1f3385acf.jpg');background-size:cover;height:200px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2em}
+        .categories{display:flex;flex-wrap:wrap;padding:20px;gap:20px;justify-content:center}
+        .cat{background:#fff;padding:15px;width:220px;text-align:center;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer}
+        .cat img{width:100%;height:120px;object-fit:cover;border-radius:5px}
+        .cat h3{margin:10px 0 5px}
+        .cat p{margin:0;color:#777;font-size:0.9em}
+        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}
+        a{color:inherit;text-decoration:none}
+    </style>
+</head>
+<body>
+<header>
+    <h1>快送外卖</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="restaurants.html">餐厅列表</a>
+    </nav>
+</header>
+
+<div class="banner">美味送到手，快捷又安心</div>
+
+<section class="categories">
+    <div class="cat" onclick="location.href='restaurants.html?cat=中餐'">
+        <img src="assets/image-32198280e873acd7.jpg" alt="中餐">
+        <h3>中餐</h3>
+        <p>川菜、湘菜、东北菜等</p>
+    </div>
+    <div class="cat" onclick="location.href='restaurants.html?cat=西餐'">
+        <img src="assets/image-12723461932d11a6.jpg" alt="西餐">
+        <h3>西餐</h3>
+        <p>意大利、法国、美国等</p>
+    </div>
+    <div class="cat" onclick="location.href='restaurants.html?cat=快餐'">
+        <img src="assets/image-7717d9ea8d5860e7.jpg" alt="快餐">
+        <h3>快餐</h3>
+        <p>汉堡、炸鸡、薯条等</p>
+    </div>
+    <div class="cat" onclick="location.href='restaurants.html?cat=小吃'">
+        <img src="assets/image-1f1cb8546a9de354.jpg" alt="小吃">
+        <h3>小吃</h3>
+        <p>串串、火锅底料、甜品等</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 快送外卖 · 成都市 · 电话：028-1234‑5678
+</footer>
+</body>
+</html>

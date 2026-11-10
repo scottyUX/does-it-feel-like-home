@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>可衣 - 购物车</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;background:#f5f5f5;color:#333}
+        a{text-decoration:none;color:#0078d7}
+        header{background:#fff;padding:20px;box-shadow:0 2px 4px rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:center}
+        nav a{margin:0 15px;font-weight:500}
+        .container{max-width:1000px;margin:30px auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+        h1{margin-top:0}
+        table{width:100%;border-collapse:collapse;margin-top:15px}
+        th,td{border:1px solid #e0e0e0;padding:10px;text-align:center}
+        th{background:#fafafa}
+        .total{text-align:right;font-size:1.2rem;margin-top:15px}
+        button{background:#e53935;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer}
+        button:disabled{background:#aaa;cursor:not-allowed}
+        footer{background:#212121;color:#fff;padding:20px;text-align:center;font-size:.9rem}
+    </style>
+</head>
+<body>
+<header>
+    <div><strong>可衣</strong></div>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="products.html">商品</a>
+        <a href="cart.html">购物车</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>购物车</h1>
+    <div id="cartContent">
+        <!-- 动态渲染 -->
+    </div>
+</div>
+
+<footer>
+    © 2024 可衣 上海市 | <a href="mailto:service@keyi.com" style="color:#fff">客服邮箱</a>
+</footer>
+
+<script>
+    const Cart = {
+        get(){
+            return JSON.parse(localStorage.getItem('keiy_cart')||'[]');
+        },
+        set(items){
+            localStorage.setItem('keiy_cart', JSON.stringify(items));
+        },
+        remove(id,size){
+            let items=this.get().filter(i=>!(i.id===id && i.size===size));
+            this.set(items);
+        },
+        clear(){
+            this.set([]);
+        }
+    };
+
+    function renderCart(){
+        const items = Cart.get();
+        const container = document.getElementById('cartContent');
+        if(items.length===0){
+            container.innerHTML = '<p>购物车空空如也，快去 <a href="products.html">挑选商品</a> 吧！</p>';
+            return;
+        }
+        let html = `<table>
+            <tr><th>商品</th><th>尺码</th><th>单价</th><th>数量</th><th>小计</th><th>操作</th></tr>`;
+        let total = 0;
+        items.forEach(item=>{
+            const subtotal = item.price * item.quantity;
+            total += subtotal;
+            html+=`<tr>
+                <td>${item.name}</td>
+                <td>${item.size}</td>
+                <td>¥ ${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>¥ ${subtotal}</td>
+                <td><button onclick="removeItem(${item.id},'${item.size}')">删除</button></td>
+            </tr>`;
+        });
+        html+=`</table>`;
+        html+=`<div class="total">合计：¥ ${total}</div>`;
+        html+=`<button style="margin-top:10px;" onclick="clearCart()">清空购物车</button>`;
+        container.innerHTML = html;
+    }
+
+    function removeItem(id,size){
+        Cart.remove(id,size);
+        renderCart();
+    }
+
+    function clearCart(){
+        if(confirm('确定要清空购物车吗？')){
+            Cart.clear();
+            renderCart();
+        }
+    }
+
+    renderCart();
+</script>
+</body>
+</html>

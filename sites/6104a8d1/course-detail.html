@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程详情：Python 数据分析入门 - 学途</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--bg-light); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); }
+        .btn { display: inline-block; padding: 12px 24px; background: var(--primary); color: var(--white); border-radius: var(--radius); font-weight: 600; border: none; cursor: pointer; }
+        .btn:hover { background: var(--secondary); }
+
+        .breadcrumb { padding: 20px 0; font-size: 14px; color: var(--text-light); }
+        .breadcrumb a { color: var(--primary); }
+        
+        .course-hero { display: flex; gap: 40px; padding: 20px 0 60px; }
+        .course-main { flex: 2; }
+        .course-sidebar { flex: 1; position: sticky; top: 90px; height: fit-content; }
+        
+        .course-banner { background: #1e293b; color: white; border-radius: var(--radius); padding: 40px; margin-bottom: 30px; position: relative; }
+        .tag { background: var(--primary); display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin-bottom: 15px; }
+        .course-title { font-size: 32px; margin-bottom: 10px; }
+        .course-intro { color: #cbd5e1; margin-bottom: 20px; }
+        
+        .section-box { background: var(--white); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 20px; }
+        .section-header { font-size: 20px; font-weight: 700; margin-bottom: 20px; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; }
+        .curriculum-list li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .curriculum-list li:last-child { border-bottom: none; }
+        .curriculum-time { color: var(--text-light); font-size: 14px; }
+        
+        .instructor-card { display: flex; gap: 20px; align-items: start; }
+        .instructor-avatar { width: 80px; height: 80px; background: #cbd5e1; border-radius: 50%; flex-shrink: 0; }
+        .instructor-info h4 { margin-bottom: 5px; }
+        .instructor-info p { font-size: 14px; color: var(--text-light); }
+        
+        .sticky-card { background: var(--white); padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); text-align: center; }
+        .price { font-size: 32px; color: var(--primary); font-weight: 800; margin: 15px 0; }
+        .original-price { text-decoration: line-through; color: var(--text-light); font-size: 16px; }
+        .features-list { text-align: left; margin-bottom: 25px; font-size: 14px; }
+        .features-list li { margin-bottom: 10px; display: flex; align-items: center; }
+        .features-list li:before { content: "✓"; color: var(--primary); font-weight: bold; margin-right: 10px; }
+
+        .footer { background: #0f172a; color: #94a3b8; padding: 40px 0; text-align: center; font-size: 14px; margin-top: 60px; }
+
+        @media (max-width: 900px) {
+            .course-hero { flex-direction: column; }
+            .course-sidebar { position: static; margin-top: 30px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">学途</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="courses.html">课程列表</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </nav>
+            <a href="register.html" class="btn">登录</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a> / <a href="courses.html">课程列表</a> / Python 数据分析入门
+        </div>
+
+        <div class="course-hero">
+            <main class="course-main">
+                <div class="course-banner">
+                    <span class="tag">计算机技能</span>
+                    <h1 class="course-title">Python 数据分析入门与实战</h1>
+                    <p class="course-intro">从零开始掌握 Python 基础，精通 Pandas 与 NumPy，完成真实商业项目实战。</p>
+                </div>
+
+                <div class="section-box">
+                    <h3 class="section-header">课程大纲</h3>
+                    <ul class="curriculum-list">
+                        <li>
+                            <span>第一章：Python 基础语法快速入门</span>
+                            <span class="curriculum-time">3 课时</span>
+                        </li>
+                        <li>
+                            <span>第二章：数据结构与算法基础</span>
+                            <span class="curriculum-time">4 课时</span>
+                        </li>
+                        <li>
+                            <span>第三章：NumPy 数值计算核心</span>
+                            <span class="curriculum-time">4 课时</span>
+                        </li>
+                        <li>
+                            <span>第四章：Pandas 数据处理实战</span>
+                            <span class="curriculum-time">5 课时</span>
+                        </li>
+                        <li>
+                            <span>第五章：数据可视化 (Matplotlib/Seaborn)</span>
+                            <span class="curriculum-time">3 课时</span>
+                        </li>
+                        <li>
+                            <span>第六章：期末商业数据分析项目实战</span>
+                            <span class="curriculum-time">5 课时</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-box">
+                    <h3 class="section-header">授课教师</h3>
+                    <div class="instructor-card">
+                        <div class="instructor-avatar"></div>
+                        <div class="instructor-info">
+                            <h4>张华</h4>
+                            <p>资深数据科学家，拥有 10 年互联网数据分析经验。曾任职于头部科技公司，主讲过多门百万级用户数据课程，擅长将复杂的算法逻辑简化易懂。</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="course-sidebar">
+                <div class="sticky-card">
+                    <p class="original-price">原价 ¥2999</p>
+                    <div class="price">¥2499</div>
+                    <a href="register.html" class="btn" style="width: 100%; margin-bottom: 15px;">立即报名</a>
+                    <a href="#" style="color: var(--text-light); font-size: 14px; text-decoration: underline;">联系客服咨询</a>
+                    
+                    <ul class="features-list" style="margin-top: 20px;">
+                        <li>赠送 30 天回放权限</li>
+                        <li>提供全套实战代码包</li>
+                        <li>专属班主任答疑</li>
+                        <li>结业颁发电子证书</li>
+                    </ul>
+                    
+                    <div style="font-size: 13px; color: var(--text-light); margin-top: 20px;">
+                        <p>📅 开班时间：2024 年 6 月 1 日</p>
+                        <p>⏰ 上课时间：每周六、日 14:00-17:00</p>
+                        <p>👥 当前剩余名额：12 人</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 学途在线学习平台。保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html>

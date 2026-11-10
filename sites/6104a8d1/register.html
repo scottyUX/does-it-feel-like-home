@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册 - 学途</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: #e0f2fe; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        a { text-decoration: none; color: var(--primary); }
+        
+        .header { position: absolute; top: 0; left: 0; width: 100%; padding: 20px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); display: inline-block; }
+        
+        .register-container { background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        .form-title { text-align: center; margin-bottom: 30px; font-size: 24px; font-weight: 700; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+        .form-input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 16px; outline: none; transition: 0.3s; }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+        
+        .btn { width: 100%; padding: 12px; background: var(--primary); color: var(--white); border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .btn:hover { background: var(--secondary); }
+        
+        .form-footer { text-align: center; margin-top: 20px; font-size: 14px; color: var(--text-light); }
+        
+        .agreement { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+        .agreement input { margin-top: 3px; }
+
+        @media (max-width: 600px) {
+            .register-container { padding: 25px; margin: 20px; }
+        }
+    </style>
+    <script>
+        // Simple validation mock
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const btn = document.querySelector('.btn');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                if(email && password.length >= 6) {
+                    btn.innerHTML = '注册成功，跳转中...';
+                    btn.style.background = '#059669';
+                    // Simulate delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    alert('请填写有效的邮箱并确保密码长度大于 6 位');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">学途</a>
+        <span style="margin-left: 20px; font-size: 14px; color: var(--text-light);">已有账号？ <a href="#" style="margin-left: 5px;">直接登录</a></span>
+    </div>
+
+    <div class="register-container">
+        <h2 class="form-title">创建您的账户</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label class="form-label" for="username">姓名</label>
+                <input type="text" id="username" class="form-input" placeholder="请输入您的真实姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="phone">手机号码</label>
+                <input type="tel" id="phone" class="form-input" placeholder="11 位手机号" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">电子邮箱</label>
+                <input type="email" id="email" class="form-input" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">设置密码</label>
+                <input type="password" id="password" class="form-input" placeholder="至少 6 位字符" required>
+            </div>
+
+            <div class="agreement">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">我已阅读并同意 <a href="#">《用户服务协议》</a> 及 <a href="#">《隐私政策》</a></label>
+            </div>
+
+            <button type="submit" class="btn">立即注册</button>
+        </form>
+
+        <div class="form-footer">
+            注册即代表您同意我们向您发送课程相关的通知邮件。
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单确认 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #ff8c00;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --success: #4caf50;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; padding-bottom: 50px; }
+        header { background-color: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+        .logo span { color: var(--text-dark); margin-left: 5px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+        .cart-icon { background-color: var(--primary-color); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 14px; }
+        .main-content { max-width: 800px; margin: 30px auto; background: var(--white); border-radius: 12px; box-shadow: var(--shadow); padding: 30px; }
+        .success-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .success-icon { font-size: 50px; color: var(--success); margin-bottom: 10px; display: block; }
+        .success-title { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .order-info { margin-bottom: 30px; }
+        .info-row { display: flex; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+        .info-label { width: 100px; font-weight: bold; color: var(--text-light); }
+        .info-value { flex: 1; color: var(--text-dark); }
+        .item-list { margin-bottom: 30px; }
+        .item-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .total-row { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; }
+        .action-btn { display: block; width: 100%; background: var(--primary-color); color: var(--white); border: none; padding: 15px; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; margin-top: 10px; }
+        .action-btn:hover { background: #e63e00; }
+        .track-btn { background: #fff; color: var(--primary-color); border: 1px solid var(--primary-color); }
+        .track-btn:hover { background: #fff5e6; }
+        footer { background: #222; color: #ccc; padding: 40px 0; margin-top: auto; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-col h3 { color: var(--white); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #ccc; text-decoration: none; }
+        .copyright { text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 14px; }
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; gap: 15px; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">⚡ 快送<span>外卖</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">全城餐厅</a></li>
+                    <li><a href="confirm.html">购物车</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-content">
+            <div class="success-header">
+                <span class="success-icon">✓</span>
+                <div class="success-title">订单提交成功！</div>
+                <p>餐厅已收到您的订单，正在为您备餐。</p>
+            </div>
+
+            <div class="order-info">
+                <div class="info-row">
+                    <div class="info-label">订单编号</div>
+                    <div class="info-value">#KS20231024890</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">配送地址</div>
+                    <div class="info-value">成都市武侯区科技大道 88 号 3 号楼 502</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">预计送达</div>
+                    <div class="info-value">12:30 - 12:50 (35 分钟)</div>
+                </div>
+            </div>
+
+            <div class="item-list">
+                <div class="info-row" style="border-bottom: 1px solid #ddd; margin-bottom: 20px; padding-bottom: 10px;">
+                    <div class="info-value" style="font-weight: bold;">锦城味道 · 正宗川菜</div>
+                </div>
+                <div class="item-row">
+                    <span>宫保鸡丁 x 1</span>
+                    <span>¥28</span>
+                </div>
+                <div class="item-row">
+                    <span>米饭 x 2</span>
+                    <span>¥6</span>
+                </div>
+                <div class="item-row">
+                    <span>配送费</span>
+                    <span>¥0</span>
+                </div>
+                <div class="total-row">
+                    <span>合计</span>
+                    <span>¥34</span>
+                </div>
+            </div>
+
+            <a href="#" class="action-btn">查看订单进度</a>
+            <a href="index.html" class="action-btn track-btn">继续点餐</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">配送员招募</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">退款说明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li>电话：028-12345678</li>
+                        <li>地址：成都市武侯区科技大道 88 号</li>
+                        <li>邮箱：support@kuaisong.cn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 快送外卖 版权所有
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

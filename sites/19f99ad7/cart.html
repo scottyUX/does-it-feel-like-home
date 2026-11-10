@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车 - 可衣 Keyi</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* Cart Content */
+        .cart-page { padding: 40px 0; }
+        .cart-page h1 { font-size: 28px; font-weight: 300; margin-bottom: 30px; }
+        
+        .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        .cart-table th { text-align: left; padding: 15px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: #666; font-weight: normal; }
+        .cart-table td { padding: 20px 0; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        
+        .cart-item-info { display: flex; align-items: center; gap: 15px; }
+        .cart-img { width: 80px; height: 100px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999; }
+        .cart-name h3 { font-size: 16px; font-weight: normal; margin-bottom: 5px; }
+        .cart-sku { font-size: 12px; color: #999; }
+        .cart-qty { width: 100px; }
+        .qty-controls { display: flex; border: 1px solid var(--border); }
+        .qty-btn { width: 30px; border: none; background: white; cursor: pointer; }
+        .qty-display { width: 40px; text-align: center; border: none; }
+        .cart-price { font-weight: bold; font-size: 16px; }
+        .cart-action { text-align: right; }
+        .delete-btn { color: #999; font-size: 12px; text-decoration: underline; cursor: pointer; }
+        .delete-btn:hover { color: var(--accent); }
+
+        /* Summary */
+        .cart-summary { display: flex; justify-content: flex-end; }
+        .summary-box { width: 350px; background: var(--bg-light); padding: 30px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; }
+        .total-row { display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; border-top: 1px solid #ddd; padding-top: 15px; margin-top: 15px; }
+        .checkout-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; cursor: pointer; margin-top: 20px; font-size: 16px; }
+        .checkout-btn:hover { background: var(--accent); }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .cart-table, .cart-table tbody, .cart-table tr, .cart-table td { display: block; }
+            .cart-table thead { display: none; }
+            .cart-item-info { flex-direction: column; align-items: flex-start; margin-bottom: 15px; }
+            .cart-action { margin-top: 10px; text-align: left; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (2)</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container cart-page">
+        <h1>我的购物车</h1>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">商品</th>
+                    <th style="width: 15%;">单价</th>
+                    <th style="width: 15%;">数量</th>
+                    <th style="width: 20%;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <div class="cart-img">产品图</div>
+                            <div class="cart-name">
+                                <h3>法式真丝衬衫</h3>
+                                <span class="cart-sku">尺码：S</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-price">￥399.00</td>
+                    <td class="cart-qty">
+                        <div class="qty-controls">
+                            <button class="qty-btn">-</button>
+                            <input type="text" class="qty-display" value="1" readonly>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="cart-action">
+                        <span class="delete-btn">移除</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <div class="cart-img">产品图</div>
+                            <div class="cart-name">
+                                <h3>高腰垂感阔腿裤</h3>
+                                <span class="cart-sku">尺码：M</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-price">￥259.00</td>
+                    <td class="cart-qty">
+                        <div class="qty-controls">
+                            <button class="qty-btn">-</button>
+                            <input type="text" class="qty-display" value="1" readonly>
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </td>
+                    <td class="cart-action">
+                        <span class="delete-btn">移除</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>商品总额</span>
+                    <span>￥658.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>运费</span>
+                    <span>免运费</span>
+                </div>
+                <div class="summary-row">
+                    <span>优惠券</span>
+                    <span>￥0.00</span>
+                </div>
+                <div class="total-row">
+                    <span>应付总额</span>
+                    <span>￥658.00</span>
+                </div>
+                <button class="checkout-btn" onclick="alert('订单已提交，感谢您的购买！')">立即结算</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

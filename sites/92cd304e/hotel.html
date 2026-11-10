@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店详情 - 畅行旅行</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+        header{background:#0066cc;color:#fff;padding:20px;text-align:center;}
+        header h1{margin:0;font-size:2em;}
+        nav{background:#004c99;padding:10px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
+        .container{max-width:1000px;margin:auto;padding:20px;}
+        .gallery{display:flex;gap:10px;overflow-x:auto;margin-bottom:20px;}
+        .gallery img{height:200px;border-radius:4px;background:#ddd;}
+        .details{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .details h2{margin-top:0;}
+        .details p{line-height:1.6;}
+        .details .price{color:#d9534f;font-size:1.4em;font-weight:bold;margin-top:10px;}
+        .details button{margin-top:15px;padding:10px 20px;background:#0066cc;color:#fff;border:none;border-radius:4px;cursor:pointer;}
+        .details button:hover{background:#004c99;}
+        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:40px;}
+        @media (max-width:768px){
+            .gallery img{height:150px;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>酒店详情</h1>
+</header>
+<nav>
+    <a href="index.html">首页</a>
+    <a href="results.html">搜索结果</a>
+</nav>
+<div class="container">
+    <div class="gallery" id="gallery"></div>
+    <div class="details" id="details"></div>
+</div>
+<footer>
+    © 2026 畅行旅行
+</footer>
+<script>
+    const hotels = [
+        {id:1, name:"北京皇家大饭店", city:"北京", price:698, desc:"北京皇家大饭店坐落于天安门广场旁，拥有300间豪华客房，提供免费机场接送、24小时客房服务和多间中西餐厅。", amenities:["免费WiFi","健身中心","游泳池","商务中心"], images:[]},
+        {id:2, name:"三亚海滨度假村", city:"三亚", price:1188, desc:"三亚海滨度假村拥有私家海滩、无边泳池和全景海景房，适合情侣和家庭度假。", amenities:["海景房","私人沙滩","儿童俱乐部","SPA"], images:[]},
+        {id:3, name:"黄山云海山庄", city:"黄山", price:520, desc:"坐落于黄山风景区入口，提供登山向导、温泉浴池和当地特色餐饮。", amenities:["温泉","登山向导","免费早餐"], images:[]},
+        {id:4, name:"成都锦江宾馆", city:"成都", price:399, desc:"位于锦江区核心商务地段，靠近春熙路，提供舒适客房和地道川菜。", amenities:["免费WiFi","川菜餐厅","会议室"], images:[]},
+        {id:5, name:"西安古城客栈", city:"西安", price:450, desc:"古城客栈保留传统建筑风格，靠近城墙，提供特色茶艺表演。", amenities:["茶艺表演","免费停车","自行车租赁"], images:[]},
+        {id:6, name:"桂林漓江度假屋", city:"桂林", price:750, desc:"漓江度假屋坐拥山水美景，提供独立别墅和私人船只租赁。", amenities:["私人别墅","船只租赁","山景房"], images:[]}
+    ];
+
+    function getId(){
+        const params = new URLSearchParams(location.search);
+        return Number(params.get('id'));
+    }
+
+    function render(){
+        const id = getId();
+        const hotel = hotels.find(h=>h.id===id);
+        if(!hotel){
+            document.getElementById('details').innerHTML = "<p>未找到对应酒店信息。</p>";
+            return;
+        }
+        // gallery (placeholder images)
+        const gallery = document.getElementById('gallery');
+        const imgHTML = Array.from({length:3}).map(()=>`
+            <img src="data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200"><rect width="300" height="200" fill="#ddd"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#aaa" font-size="20">酒店图片</text></svg>')}" alt="${hotel.name}">
+        `).join('');
+        gallery.innerHTML = imgHTML;
+
+        const details = document.getElementById('details');
+        details.innerHTML = `
+            <h2>${hotel.name} - ${hotel.city}</h2>
+            <p>${hotel.desc}</p>
+            <p><strong>设施：</strong> ${hotel.amenities.join('、')}</p>
+            <p class="price">¥${hotel.price} / 晚</p>
+            <button onclick="location.href='booking.html?id=${hotel.id}'">立即预订</button>
+        `;
+    }
+    render();
+</script>
+</html>

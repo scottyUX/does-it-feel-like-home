@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程列表 - 学途</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --radius: 8px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background-color: var(--bg-light); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .btn { display: inline-block; padding: 10px 20px; background: var(--primary); color: var(--white); border-radius: var(--radius); font-weight: 600; border: none; cursor: pointer; }
+        .btn:hover { background: var(--secondary); }
+        
+        .course-header { background: var(--white); padding: 40px 0; border-bottom: 1px solid var(--border); }
+        .course-header h1 { font-size: 36px; margin-bottom: 10px; }
+        
+        .course-content { padding: 40px 0; display: flex; gap: 40px; }
+        .sidebar { width: 250px; flex-shrink: 0; }
+        .course-list { flex: 1; }
+        
+        .filter-group { margin-bottom: 30px; }
+        .filter-title { font-weight: 700; margin-bottom: 15px; display: block; }
+        .filter-item { display: block; margin-bottom: 10px; color: var(--text-light); cursor: pointer; }
+        .filter-item:hover { color: var(--primary); }
+        .filter-item.active { color: var(--primary); font-weight: 600; }
+        
+        .course-card { display: flex; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; overflow: hidden; transition: 0.3s; }
+        .course-card:hover { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .course-img { width: 240px; background: #cbd5e1; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 40px; }
+        .course-info { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .course-meta { display: flex; gap: 15px; font-size: 14px; color: var(--text-light); margin-bottom: 8px; }
+        .course-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+        .course-price { font-size: 22px; font-weight: 700; color: var(--primary); }
+        
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; }
+        .page-btn { padding: 8px 16px; border: 1px solid var(--border); background: var(--white); border-radius: 4px; cursor: pointer; }
+        .page-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        
+        .footer { background: #0f172a; color: #94a3b8; padding: 40px 0; text-align: center; font-size: 14px; margin-top: 40px; }
+
+        @media (max-width: 768px) {
+            .course-content { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .course-card { flex-direction: column; }
+            .course-img { width: 100%; height: 150px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">学途</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="courses.html" class="active">课程列表</a></li>
+                    <li><a href="register.html">注册</a></li>
+                </ul>
+            </nav>
+            <a href="register.html" class="btn">登录/注册</a>
+        </div>
+    </header>
+
+    <div class="course-header">
+        <div class="container">
+            <h1>全部课程</h1>
+            <p style="color: var(--text-light);">发现适合你的技能提升路径</p>
+        </div>
+    </div>
+
+    <div class="container course-content">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <span class="filter-title">分类</span>
+                <label class="filter-item active">全部课程</label>
+                <label class="filter-item">语言培训</label>
+                <label class="filter-item">计算机技能</label>
+                <label class="filter-item">考试备考</label>
+                <label class="filter-item">职业资格</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-title">价格区间</span>
+                <label class="filter-item">免费</label>
+                <label class="filter-item">¥1000 - ¥2000</label>
+                <label class="filter-item">¥2000 - ¥3000</label>
+                <label class="filter-item">¥3000 以上</label>
+            </div>
+        </aside>
+
+        <main class="course-list">
+            <div class="course-card">
+                <div class="course-img">🐍</div>
+                <div class="course-info">
+                    <div>
+                        <span style="font-size: 12px; color: var(--primary);">计算机技能</span>
+                        <h3 class="course-title">Python 数据分析入门与实战</h3>
+                        <div class="course-meta">
+                            <span>👨‍🏫 张华</span>
+                            <span>📅 周六日上课</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="course-price">¥2499</span>
+                        <a href="course-detail.html" class="btn" style="padding: 8px 16px;">报名</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img">💼</div>
+                <div class="course-info">
+                    <div>
+                        <span style="font-size: 12px; color: var(--primary);">语言培训</span>
+                        <h3 class="course-title">商务英语口语强化班</h3>
+                        <div class="course-meta">
+                            <span>👩‍🏫 李梅</span>
+                            <span>📅 工作日晚上</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="course-price">¥1999</span>
+                        <a href="course-detail.html" class="btn" style="padding: 8px 16px;">报名</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img">🌐</div>
+                <div class="course-info">
+                    <div>
+                        <span style="font-size: 12px; color: var(--primary);">考试备考</span>
+                        <h3 class="course-title">托福 (TOEFL) 100+ 冲刺</h3>
+                        <div class="course-meta">
+                            <span>👨‍🏫 王建国</span>
+                            <span>📅 周末集训</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="course-price">¥2999</span>
+                        <a href="course-detail.html" class="btn" style="padding: 8px 16px;">报名</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img">💻</div>
+                <div class="course-info">
+                    <div>
+                        <span style="font-size: 12px; color: var(--primary);">计算机技能</span>
+                        <h3 class="course-title">前端开发全栈实战 (React)</h3>
+                        <div class="course-meta">
+                            <span>👨‍🏫 陈明</span>
+                            <span>📅 线下面授</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="course-price">¥3499</span>
+                        <a href="course-detail.html" class="btn" style="padding: 8px 16px;">报名</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">下一页</button>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 学途在线学习平台。保留所有权利。</p>
+        </div>
+    </footer>
+</body>
+</html>
