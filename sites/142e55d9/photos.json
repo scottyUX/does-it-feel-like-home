@@ -1,0 +1,73 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.chef-photo",
+   "match": "张明 行政总厨 / 第二代传人 从业 25 年，",
+   "url": "assets/photo-1dc8e100f440928e.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.chef-photo",
+   "match": "李国平 行政副厨 擅长海鲜烹饪，拥有 30 年处",
+   "url": "assets/photo-84fbd2d87e4ded56.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img-placeholder",
+   "match": "秘制东坡肉 ¥68 慢火煨制，肥而不腻，入口即化",
+   "url": "assets/photo-c9d94db2355bee82.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Humba (Philippines).jpg",
+   "license": "CC0",
+   "subject": "east pond braised pork dish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Humba_%28Philippines%29.jpg/960px-Humba_%28Philippines%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img-placeholder",
+   "match": "龙井虾仁 ¥88 选用河虾仁，配以清明前的龙井茶",
+   "url": "assets/photo-559c41bb0d5d5993.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Longjing prawns in Hangzhou Restaurant 2015-07.JPG",
+   "license": "CC BY-SA 4.0",
+   "subject": "longjing tea shrimp",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG/960px-Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img-placeholder",
+   "match": "西湖醋鱼 ¥58 选用草鱼，熟度恰到好处，酸甜适",
+   "url": "assets/photo-864b89c7ef194aaa.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:West Lake Fish in Vinegar Gravy.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake vinegar fish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/West_Lake_Fish_in_Vinegar_Gravy.jpg/960px-West_Lake_Fish_in_Vinegar_Gravy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img-placeholder",
+   "match": "荷香叫花鸡 ¥78 泥煨技法，荷叶包裹，皮脆肉嫩",
+   "url": "assets/photo-7aa91a51c7c5930c.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Beggar's Chicken ( 叫化雞).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "beggar's chicken dish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Beggar%27s_Chicken_%28_%E5%8F%AB%E5%8C%96%E9%9B%9E%29.jpg/960px-Beggar%27s_Chicken_%28_%E5%8F%AB%E5%8C%96%E9%9B%9E%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

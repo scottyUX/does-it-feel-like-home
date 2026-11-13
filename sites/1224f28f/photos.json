@@ -1,0 +1,45 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "team.html",
+   "selector": "div.avatar",
+   "match": "林雅文 创意总监 从业 15 年，擅长日系剪裁与",
+   "url": "assets/photo-38e10a52ffd40ee2.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.avatar",
+   "match": "陈志强 首席烫染师 专注于发质修复与高端染烫技术",
+   "url": "assets/photo-e0fd347b0eeaa7b9.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.avatar",
+   "match": "苏敏 皮肤管理专家 拥有国家高级美容师资格证，精",
+   "url": "assets/photo-77c138770ef933c6.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.avatar",
+   "match": "王凯 高级造型师 深受年轻群体喜爱，善于捕捉潮流",
+   "url": "assets/photo-34725f536e3f587f.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

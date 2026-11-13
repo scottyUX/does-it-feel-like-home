@@ -1,0 +1,113 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.r-image",
+   "match": "锦城味道 · 正宗川菜 川菜 · 辣度可选 · ",
+   "url": "assets/photo-015f7c104e942c5f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Authentic Mapo Tofu.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "authentic sichuan cuisine dish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Authentic_Mapo_Tofu.jpg/960px-Authentic_Mapo_Tofu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.r-image",
+   "match": "老成都火锅外卖 火锅 · 全套锅底 · 月售 2",
+   "url": "assets/photo-d0e5cc6834ae42f8.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Concentric hot pot in Chongqing (20180217165607).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hot pot with assorted ingredients",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg/960px-Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.r-image",
+   "match": "极速汉堡店 西式快餐 · 炸鸡 · 月售 800",
+   "url": "assets/photo-839508faff091b53.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Signature Burger, Wutang Fried Chicken Northbridge, 2026 (02).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "fast food burger and fried chicken",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Signature_Burger%2C_Wutang_Fried_Chicken_Northbridge%2C_2026_%2802%29.jpg/960px-Signature_Burger%2C_Wutang_Fried_Chicken_Northbridge%2C_2026_%2802%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "锦城味道 · 正宗川菜 川菜 · 辣度可选 · ",
+   "url": "assets/photo-015f7c104e942c5f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Authentic Mapo Tofu.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "authentic sichuan cuisine dish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Authentic_Mapo_Tofu.jpg/960px-Authentic_Mapo_Tofu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "老成都火锅外卖 火锅 · 全套锅底 · 月售 2",
+   "url": "assets/photo-d0e5cc6834ae42f8.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Concentric hot pot in Chongqing (20180217165607).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hot pot with assorted ingredients",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg/960px-Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "极速汉堡店 西式快餐 · 炸鸡 · 月售 800",
+   "url": "assets/photo-839508faff091b53.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Signature Burger, Wutang Fried Chicken Northbridge, 2026 (02).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "fast food burger and fried chicken",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Signature_Burger%2C_Wutang_Fried_Chicken_Northbridge%2C_2026_%2802%29.jpg/960px-Signature_Burger%2C_Wutang_Fried_Chicken_Northbridge%2C_2026_%2802%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "川香小吃铺 小吃 · 凉粉 · 月售 1000+",
+   "url": "assets/photo-9fc0d9107a5d886f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Cold noodles at Xinchuan (20170622163023).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "sichuan snack cold noodles",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Cold_noodles_at_Xinchuan_%2820170622163023%29.jpg/960px-Cold_noodles_at_Xinchuan_%2820170622163023%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "甜蜜时光甜品站 甜品 · 奶茶 · 月售 300",
+   "url": "assets/photo-8822ffe5d07e0a95.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Meet fresh Taro Balls Dessert 5.jpg",
+   "license": "CC BY 2.0",
+   "subject": "dessert milk tea and sweets",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Meet_fresh_Taro_Balls_Dessert_5.jpg/960px-Meet_fresh_Taro_Balls_Dessert_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.r-image",
+   "match": "健康轻食沙拉 轻食 · 健身餐 · 月售 150",
+   "url": "assets/photo-9716b5ead02aac9f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Liat Portal for Foodie Disorder - Grilled chicken thighs with ptitim and Israeli salad.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "healthy salad and fitness meal",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Liat_Portal_for_Foodie_Disorder_-_Grilled_chicken_thighs_with_ptitim_and_Israeli_salad.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Grilled_chicken_thighs_with_ptitim_and_Israeli_salad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

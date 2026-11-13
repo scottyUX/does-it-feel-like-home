@@ -1,0 +1,77 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.why-image",
+   "match": "为什么选择悦容？ 我们不仅仅是一家美发沙龙，更是",
+   "url": "assets/photo-12076d21e553035a.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Interior view of modern beauty salon.jpg",
+   "license": "CC BY 2.0",
+   "subject": "modern beauty salon interior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Interior_view_of_modern_beauty_salon.jpg/960px-Interior_view_of_modern_beauty_salon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg1",
+   "match": "林婉清 创始人 / 首席造型师 15年美发经验，",
+   "url": "assets/photo-9c74415436e48214.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg2",
+   "match": "张子墨 总监 / 色彩专家 12年染发经验，精通",
+   "url": "assets/photo-a3c632760eff75ca.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg3",
+   "match": "苏雅琪 高级造型师 / 烫发专家 10年烫发经验",
+   "url": "assets/photo-695fa3cbedd6c1da.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg4",
+   "match": "陈嘉豪 男士造型师 专注男士发型8年，熟悉各种脸",
+   "url": "assets/photo-d09bd1cc1c46073e.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg5",
+   "match": "何静怡 高级美容师 / 护肤专家 8年面部护理经",
+   "url": "assets/photo-38e10a52ffd40ee2.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar.bg6",
+   "match": "周雨桐 美容师 / 皮肤管理 6年皮肤管理经验，",
+   "url": "assets/photo-77c138770ef933c6.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

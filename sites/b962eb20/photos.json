@@ -1,0 +1,83 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.family-avatar",
+   "match": "陈秀英 创始人 · 掌勺 72岁，绍兴人。现在每",
+   "url": "assets/photo-9c74415436e48214.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.family-avatar",
+   "match": "陈国平 主厨 · 面点 52岁，负责主厨和所有面",
+   "url": "assets/photo-d09bd1cc1c46073e.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.family-avatar",
+   "match": "陈雨薇 前厅 · 顾客关系 40岁，管预订、管外",
+   "url": "assets/photo-695fa3cbedd6c1da.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img.dish-img-1",
+   "match": "西湖醋鱼 选用西湖草鱼，糖醋汁醇厚 ¥68",
+   "url": "assets/photo-864b89c7ef194aaa.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:West Lake Fish in Vinegar Gravy.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake vinegar fish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/West_Lake_Fish_in_Vinegar_Gravy.jpg/960px-West_Lake_Fish_in_Vinegar_Gravy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img.dish-img-2",
+   "match": "东坡肉 慢火炖煮三小时，肥而不腻 ¥88",
+   "url": "assets/photo-1c0a715dd28dbda2.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Dongpo pork by superturtle.jpg",
+   "license": "CC BY 2.0",
+   "subject": "dongpo pork",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Dongpo_pork_by_superturtle.jpg/960px-Dongpo_pork_by_superturtle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img.dish-img-3",
+   "match": "龙井虾仁 明前龙井入菜，鲜爽清雅 ¥128",
+   "url": "assets/photo-559c41bb0d5d5993.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Longjing prawns in Hangzhou Restaurant 2015-07.JPG",
+   "license": "CC BY-SA 4.0",
+   "subject": "longjing shrimp",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG/960px-Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img.dish-img-4",
+   "match": "叫花童子鸡 荷叶包裹，泥土煨烤，皮酥骨香 ¥10",
+   "url": "assets/photo-7aa91a51c7c5930c.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Beggar's Chicken ( 叫化雞).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "beggar's chicken",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Beggar%27s_Chicken_%28_%E5%8F%AB%E5%8C%96%E9%9B%9E%29.jpg/960px-Beggar%27s_Chicken_%28_%E5%8F%AB%E5%8C%96%E9%9B%9E%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

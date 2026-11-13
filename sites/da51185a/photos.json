@@ -1,0 +1,77 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.rest-img",
+   "match": "锦里老味道 ★ 4.8 川菜 / 家常菜 • 3",
+   "url": "assets/photo-330109cb54d005a6.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Mapo Tofu, Rice & Noodle, 5 Rue Littré, Paris 001.jpg",
+   "license": "CC BY 2.0",
+   "subject": "mapo tofu rice",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Mapo_Tofu%2C_Rice_%26_Noodle%2C_5_Rue_Littr%C3%A9%2C_Paris_001.jpg/960px-Mapo_Tofu%2C_Rice_%26_Noodle%2C_5_Rue_Littr%C3%A9%2C_Paris_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.rest-img",
+   "match": "轻食主义 ★ 4.9 健康餐 / 沙拉 • 25",
+   "url": "assets/photo-152f11d7554cc6b5.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Fresh salad with arugula, cabbage and tomato in a glass bowl.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "fresh salad bowl",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Fresh_salad_with_arugula%2C_cabbage_and_tomato_in_a_glass_bowl.jpg/960px-Fresh_salad_with_arugula%2C_cabbage_and_tomato_in_a_glass_bowl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.rest-img",
+   "match": "成都辣子鸡专门店 ★ 4.6 炸鸡 / 辣味 •",
+   "url": "assets/photo-4b849fb0eef4b115.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:DSC 9654 Crispy stir-fried chicken tossed in a spicy chili-garlic sauce with scallions and dried red chilies.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "spicy chicken chunks",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/DSC_9654_Crispy_stir-fried_chicken_tossed_in_a_spicy_chili-garlic_sauce_with_scallions_and_dried_red_chilies.jpg/960px-DSC_9654_Crispy_stir-fried_chicken_tossed_in_a_spicy_chili-garlic_sauce_with_scallions_and_dried_red_chilies.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurant-detail.html",
+   "selector": "div.banner",
+   "index": 0,
+   "url": "assets/photo-c518a74f22ba91b5.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Childs' Restaurant building interior (84200).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "traditional sichuan restaurant interior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Childs%27_Restaurant_building_interior_%2884200%29.jpg/960px-Childs%27_Restaurant_building_interior_%2884200%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.rest-img-small",
+   "match": "蜀香麻辣烫 ★ 4.8 老成都风味，食材新鲜，汤",
+   "url": "assets/photo-2d5792cc30e6a3c3.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Fried Chuan.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "spicy hot pot skewers",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Fried_Chuan.jpg/960px-Fried_Chuan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "restaurants.html",
+   "selector": "div.rest-img-small",
+   "match": "轻食主义 ★ 4.9 健身必备，新鲜沙拉与烤鸡胸",
+   "url": "assets/photo-9716b5ead02aac9f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Liat Portal for Foodie Disorder - Grilled chicken thighs with ptitim and Israeli salad.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "healthy salad with grilled chicken",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Liat_Portal_for_Foodie_Disorder_-_Grilled_chicken_thighs_with_ptitim_and_Israeli_salad.jpg/960px-Liat_Portal_for_Foodie_Disorder_-_Grilled_chicken_thighs_with_ptitim_and_Israeli_salad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "hotel.html",
+   "selector": "div.gallery-img.gallery-main",
+   "match": "客房内部 餐厅早餐",
+   "url": "assets/photo-07dd2c4e853c45cf.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Exterior facade of Residence Bassac at blue hour, town of Champasak, Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hotel exterior view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg/960px-Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "杭州西湖畔度假酒店 ★★★★★ 4.9 (285",
+   "url": "assets/photo-81ae535ddd6501c7.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Four Seasons Hotel Hangzhou West Lake 20201001.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake resort hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg/960px-Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "杭州城市中心大饭店 ★★★★☆ 4.5 (120",
+   "url": "assets/photo-6efd1266456aab67.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Akron City Center Hotel Evening.jpg",
+   "license": "CC0",
+   "subject": "city center hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Akron_City_Center_Hotel_Evening.jpg/960px-Akron_City_Center_Hotel_Evening.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "西湖禅意精品民宿 ★★★★☆ 4.7 (890 ",
+   "url": "assets/photo-7f81582c3365b782.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Homestay interior.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "zen boutique homestay",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Homestay_interior.jpg/960px-Homestay_interior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img-placeholder",
+   "match": "杭州 湖畔漫步，品味龙井茶韵",
+   "url": "assets/photo-26c730edf983b4bf.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:20090524 Hangzhou West Lake 7531.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "hangzhou west lake",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/20090524_Hangzhou_West_Lake_7531.jpg/960px-20090524_Hangzhou_West_Lake_7531.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img-placeholder",
+   "match": "上海 魔都繁华，现代都市体验",
+   "url": "assets/photo-f5c0b32f31e22417.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Bund at night Shanghai.jpg",
+   "license": "CC BY 4.0",
+   "subject": "shanghai bund night",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Bund_at_night_Shanghai.jpg/960px-Bund_at_night_Shanghai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img-placeholder",
+   "match": "北京 古都历史，探索皇家文化",
+   "url": "assets/photo-4bdb813de1ced309.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Forbidden City after snow (20200106114634).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "beijing forbidden city snow",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Forbidden_City_after_snow_%2820200106114634%29.jpg/960px-Forbidden_City_after_snow_%2820200106114634%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img-placeholder",
+   "match": "成都 巴适生活，火锅与熊猫",
+   "url": "assets/photo-d0e5cc6834ae42f8.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Concentric hot pot in Chongqing (20180217165607).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "chengdu hot pot panda",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg/960px-Concentric_hot_pot_in_Chongqing_%2820180217165607%29.jpg"
+  }
+ ]
+}
