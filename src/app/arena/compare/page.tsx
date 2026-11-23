@@ -2,7 +2,10 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArenaDatasetComparison, type ComparisonRow } from "@/components/arena-dataset-comparison";
+import { ArenaPreference, type ArenaPreferenceData } from "@/components/arena-preference";
 import { CountrySignalPlots, type SignalPage } from "@/components/country-signal-plots";
+import { ModelsCard } from "@/components/models-card";
 import { measureGroups, measureNotes } from "@/lib/arena/study-measures";
 import "../research.css";
 
@@ -11,13 +14,20 @@ export const instant = false;
 const fiveSignals = new Set(["visible_elements_first_screen", "footer_links", "visible_links", "page_screens", "price_in_yuan"]);
 // Both written by research/analysis/export_country_signals.py.
 const sources = { ours: "research/results/new-labs/country-signals.json", arena: "research/results/tables/arena-country-signals.json" };
-const tabs = [{ key: "ours", label: "Our generated sites" }, { key: "arena", label: "Arena WebDev" }] as const;
+const tabs = [{ key: "ours", label: "Our generated sites" }, { key: "arena", label: "Arena WebDev" }, { key: "comparison", label: "Arena vs our study" }] as const;
 
 export default async function ComparePage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
   if (process.env.NODE_ENV !== "development") notFound();
-  const tab = (await searchParams).data === "arena" ? "arena" : "ours";
+  const selected = (await searchParams).data;
+  const tab = selected === "arena" ? "arena" : selected === "comparison" ? "comparison" : "ours";
+  if (tab === "comparison") {
+    const rows = await readFile(path.join(process.cwd(), "research/results/tables/dataset-comparison.json"), "utf8").then((value) => JSON.parse(value) as ComparisonRow[]).catch(() => [] as ComparisonRow[]);
+    return <main className="arena-dashboard arena-compare-page"><Link href="/arena" className="arena-compare-back">← Back to Arena</Link><div className="arena-compare-heading"><p className="arena-eyebrow">EXPLORATORY ANALYSIS</p><h1>Arena vs our study</h1><p>Compare paired design signals across two datasets.</p></div><nav className="data-tabs" aria-label="Data set">{tabs.map((item) => <Link key={item.key} href={item.key === "ours" ? "/arena/compare" : `/arena/compare?data=${item.key}`} aria-current={item.key === tab ? "page" : undefined}>{item.label}</Link>)}</nav>{rows.length ? <ArenaDatasetComparison rows={rows} /> : <p>Comparison data unavailable. Run <code>python3 research/analysis/export_dataset_comparison.py</code>.</p>}</main>;
+  }
   const pages = await readFile(path.join(process.cwd(), sources[tab]), "utf8")
     .then((value) => JSON.parse(value) as SignalPage[]).catch(() => [] as SignalPage[]);
+  const preference = tab === "arena" ? await readFile(path.join(process.cwd(), "research/results/tables/arena-preference.json"), "utf8")
+    .then((value) => JSON.parse(value) as ArenaPreferenceData).catch(() => null) : null;
   const distinct = (key: "model" | "lab" | "type", origin?: string) => new Set(pages.filter((page) => !origin || page.origin === origin).map((page) => page[key])).size;
   const labs = (origin: string) => [...new Set(pages.filter((page) => page.origin === origin).map((page) => page.lab))].sort().join(", ");
   const byPrompt = `${pages.filter((page) => page.prompt === "zh").length} from Chinese prompts, ${pages.filter((page) => page.prompt === "en").length} from English`;
@@ -40,8 +50,11 @@ export default async function ComparePage({ searchParams }: { searchParams: Prom
     <div className="arena-compare-heading"><p className="arena-eyebrow">EXPLORATORY ANALYSIS</p><h1>{tab === "ours" ? "Five signals that separate Chinese and US models" : "Do the five signals show up on Arena?"}</h1><p>{tab === "ours"
       ? `${pages.length} home pages from ${distinct("model")} local models, each asked for ${distinct("type")} site types with a Chinese and an English prompt.`
       : `${pages.length} sites from Arena WebDev battles between a US and a Chinese model, July 2026.`}</p></div>
-    <nav className="data-tabs" aria-label="Data set">{tabs.map((item) => <Link key={item.key} href={item.key === "ours" ? "/arena/compare" : "/arena/compare?data=arena"} aria-current={tab === item.key ? "page" : undefined}>{item.label}</Link>)}</nav>
-    {pages.length > 0 && <div className="data-cards">{cards.map((card) => <div className="arena-card" key={card.label}><span>{card.label}</span><strong>{card.value}</strong><small>{card.note}</small></div>)}</div>}
+    <nav className="data-tabs" aria-label="Data set">{tabs.map((item) => <Link key={item.key} href={item.key === "ours" ? "/arena/compare" : `/arena/compare?data=${item.key}`} aria-current={tab === item.key ? "page" : undefined}>{item.label}</Link>)}</nav>
+    {pages.length > 0 && <div className="data-cards">{cards.map((card) => card.label === "Models"
+      ? <ModelsCard key={card.label} pages={pages} note={card.note} />
+      : <div className="arena-card" key={card.label}><span>{card.label}</span><strong>{card.value}</strong><small>{card.note}</small></div>)}</div>}
+    {preference && <ArenaPreference data={preference} />}
     <div className="arena-compare-notice">{tab === "ours"
       ? <>Exploratory · These five came out on top of 40 measures after we looked at the data, so they are hypotheses, not findings (exact model-level p 0.010 to 0.024 each, q = 0.11 after correcting for 40 measures). &ldquo;Model pairs agreeing&rdquo; counts how many of the 24 Chinese–US model pairs have the Chinese model higher. A pre-registered test on new labs is pending.</>
       : <>A second look · The five signals were picked on our own sites; this tab shows the same measures on Arena, where they were not chosen. Arena sites start from a shared starter template, and voters and prompts are self-selected. Rows are labs because most of the {distinct("model")} models have only a few sites; &ldquo;Lab pairs agreeing&rdquo; counts the Chinese–US lab pairs with the Chinese lab higher.</>}</div>

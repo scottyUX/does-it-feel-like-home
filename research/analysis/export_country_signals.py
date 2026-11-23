@@ -31,6 +31,6 @@ arena = []
 for r in csv.DictReader(open("research/results/tables/arena_sites.csv")):
     lab = next(v for k, v in ARENA_LAB.items() if r["model"].startswith(k))
     arena.append(dict(model=r["model"], lab=lab, origin="China" if r["origin"] == "CN" else "US", site=f"{r['battle']}-{r['side']}",
-                      type=r["category"].replace("_", " "), prompt=r["lang"], values={k: float(r[k]) if r.get(k) not in (None, "") else None for k in KEYS}))
+                      type=r["category"].replace("_", " "), prompt=r["lang"], won=r["won"] == "1", values={k: float(r[k]) if r.get(k) not in (None, "") else None for k in KEYS}))
 json.dump(arena, open("research/results/tables/arena-country-signals.json", "w"), ensure_ascii=False, indent=1)
 print(len(arena), "Arena sites from", len({r["model"] for r in arena}), "models and", len({r["lab"] for r in arena}), "labs")

@@ -2,7 +2,7 @@
 
 import { useState, type CSSProperties } from "react";
 
-export type SignalPage = { model: string; lab: string; origin: "China" | "US"; site: string; type: string; prompt: string; values: Record<string, number | null> };
+export type SignalPage = { model: string; lab: string; origin: "China" | "US"; site: string; type: string; prompt: string; won?: boolean; values: Record<string, number | null> };
 type RowBy = "model" | "lab";
 
 type Signal = { key: string; label: string; unit: string; phone?: string; share?: boolean };
@@ -18,7 +18,8 @@ const names: Record<string, string> = {
   "google/gemma-4-31b": "Gemma 4 31B", "google/gemma-3-27b": "Gemma 3 27B", "openai/gpt-oss-120b": "gpt-oss 120B", "openai/gpt-oss-20b": "gpt-oss 20B",
   "meta/llama-4-scout": "Llama 4 Scout", "nvidia/nemotron-3-33b": "Nemotron 3 33B",
 };
-const name = (model: string) => names[model] ?? model;
+export const modelName = (model: string) => names[model] ?? model;
+const name = modelName;
 const prompts = [{ value: "all", label: "Both prompt languages" }, { value: "zh", label: "Chinese prompts" }, { value: "en", label: "English prompts" }];
 
 const mean = (values: number[]) => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
@@ -63,8 +64,9 @@ function SignalPlot({ signal, rank, pages, rowBy }: { signal: Signal; rank: numb
             {ticks.map((tick) => <i className="signal-grid" key={tick} style={{ left: x(tick) }} />)}
             <i className="signal-country-mean" style={{ left: x(group.mean) }} />
             {!signal.share && item.sites.map((page) => {
-              const value = page.values[signal.key]!, label = `${name(page.model)} · ${page.type} · ${promptName(page.prompt)}`;
-              return <button type="button" className="signal-dot" key={page.site} style={{ left: x(value), top: `calc(50% + ${jitter(page.site) * 18}px)` }} onMouseEnter={() => setHover(page.site)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(page.site)} onBlur={() => setHover(null)} aria-label={`${label}: ${format(value)}`}>
+              const value = page.values[signal.key]!, vote = page.won === undefined ? "" : page.won ? " · won the vote" : " · lost the vote";
+              const label = `${name(page.model)} · ${page.type} · ${promptName(page.prompt)}${vote}`;
+              return <button type="button" className={page.won === false ? "signal-dot signal-dot-lost" : "signal-dot"} key={page.site} style={{ left: x(value), top: `calc(50% + ${jitter(page.site) * 18}px)` }} onMouseEnter={() => setHover(page.site)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(page.site)} onBlur={() => setHover(null)} aria-label={`${label}: ${format(value)}`}>
                 {hover === page.site && <span className="signal-tooltip" role="tooltip"><strong>{format(value)} {signal.unit}</strong>{label}</span>}
               </button>;
             })}
@@ -86,6 +88,7 @@ export function CountrySignalPlots({ pages, rowBy = "model" }: { pages: SignalPa
         <span><i className="signal-legend-dot" style={{ background: "var(--signal-china)" }} /><i className="signal-legend-dot" style={{ background: "var(--signal-us)" }} /> One site (Chinese / US {rowBy})</span>
         <span><i className="signal-legend-mean" /> {rowBy === "lab" ? "Lab" : "Model"} mean</span>
         <span><i className="signal-legend-country" /> Country average</span>
+        {pages.some((page) => page.won !== undefined) && <span><i className="signal-legend-dot" style={{ background: "#888" }} /><i className="signal-legend-dot signal-dot-lost" /> Won / lost the vote</span>}
       </div>
       <label className="signal-filter">Prompt language<select value={prompt} onChange={(event) => setPrompt(event.target.value)}>{prompts.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>
     </div>

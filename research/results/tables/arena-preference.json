@@ -1,0 +1,689 @@
+{
+ "decided_battles": 202,
+ "expected": [
+  {
+   "prompt": "zh",
+   "battles": 71,
+   "chinese_won": 0.33803,
+   "expected": 0.44391,
+   "difference": -0.10588,
+   "ci_low": -0.1999,
+   "ci_high": -0.0082
+  },
+  {
+   "prompt": "en",
+   "battles": 68,
+   "chinese_won": 0.41176,
+   "expected": 0.47523,
+   "difference": -0.06347,
+   "ci_low": -0.17311,
+   "ci_high": 0.04769
+  }
+ ],
+ "signals": [
+  {
+   "prompt": "all",
+   "prompt_label": "Both prompt languages",
+   "key": "visible_elements_first_screen",
+   "label": "Elements on the first screen",
+   "battles": 189,
+   "higher_won": 119,
+   "share": 0.6296296296296297,
+   "ci_low": 0.5588404418278557,
+   "ci_high": 0.6952541103849449,
+   "p": 0.0004495821066974848
+  },
+  {
+   "prompt": "all",
+   "prompt_label": "Both prompt languages",
+   "key": "footer_links",
+   "label": "Footer links",
+   "battles": 47,
+   "higher_won": 29,
+   "share": 0.6170212765957447,
+   "ci_low": 0.47426308443976317,
+   "ci_high": 0.7420951733648692,
+   "p": 0.14386508844054902
+  },
+  {
+   "prompt": "all",
+   "prompt_label": "Both prompt languages",
+   "key": "visible_links",
+   "label": "Links on the page",
+   "battles": 71,
+   "higher_won": 43,
+   "share": 0.6056338028169014,
+   "ci_low": 0.48935555888360793,
+   "ci_high": 0.7110677351133136,
+   "p": 0.09592363141082373
+  },
+  {
+   "prompt": "all",
+   "prompt_label": "Both prompt languages",
+   "key": "page_screens",
+   "label": "Page length",
+   "battles": 114,
+   "higher_won": 71,
+   "share": 0.6228070175438597,
+   "ci_low": 0.5312004830192322,
+   "ci_high": 0.70640660989193,
+   "p": 0.011118593448764593
+  },
+  {
+   "prompt": "all",
+   "prompt_label": "Both prompt languages",
+   "key": "price_in_yuan",
+   "label": "Prices in yuan",
+   "battles": 5,
+   "higher_won": 2,
+   "share": 0.4,
+   "ci_low": 0.1176182311592533,
+   "ci_high": 0.769280067791163,
+   "p": 1.0
+  },
+  {
+   "prompt": "zh",
+   "prompt_label": "Chinese prompts",
+   "key": "visible_elements_first_screen",
+   "label": "Elements on the first screen",
+   "battles": 91,
+   "higher_won": 57,
+   "share": 0.6263736263736264,
+   "ci_low": 0.5237577479753555,
+   "ci_high": 0.7187518680581151,
+   "p": 0.020584209038374254
+  },
+  {
+   "prompt": "zh",
+   "prompt_label": "Chinese prompts",
+   "key": "footer_links",
+   "label": "Footer links",
+   "battles": 16,
+   "higher_won": 9,
+   "share": 0.5625,
+   "ci_low": 0.33178195606776517,
+   "ci_high": 0.7690163666481448,
+   "p": 0.803619384765625
+  },
+  {
+   "prompt": "zh",
+   "prompt_label": "Chinese prompts",
+   "key": "visible_links",
+   "label": "Links on the page",
+   "battles": 30,
+   "higher_won": 18,
+   "share": 0.6,
+   "ci_low": 0.42320052498273836,
+   "ci_high": 0.7540960567391659,
+   "p": 0.361594608053565
+  },
+  {
+   "prompt": "zh",
+   "prompt_label": "Chinese prompts",
+   "key": "page_screens",
+   "label": "Page length",
+   "battles": 56,
+   "higher_won": 40,
+   "share": 0.7142857142857143,
+   "ci_low": 0.5852450091364125,
+   "ci_high": 0.8158137860829666,
+   "p": 0.0018415547884925443
+  },
+  {
+   "prompt": "zh",
+   "prompt_label": "Chinese prompts",
+   "key": "price_in_yuan",
+   "label": "Prices in yuan",
+   "battles": 5,
+   "higher_won": 2,
+   "share": 0.4,
+   "ci_low": 0.1176182311592533,
+   "ci_high": 0.769280067791163,
+   "p": 1.0
+  },
+  {
+   "prompt": "en",
+   "prompt_label": "English prompts",
+   "key": "visible_elements_first_screen",
+   "label": "Elements on the first screen",
+   "battles": 98,
+   "higher_won": 62,
+   "share": 0.6326530612244898,
+   "ci_low": 0.5338857137383178,
+   "ci_high": 0.7214127104812545,
+   "p": 0.011174544214771171
+  },
+  {
+   "prompt": "en",
+   "prompt_label": "English prompts",
+   "key": "footer_links",
+   "label": "Footer links",
+   "battles": 31,
+   "higher_won": 20,
+   "share": 0.6451612903225806,
+   "ci_low": 0.469476380428149,
+   "ci_high": 0.7888355225843418,
+   "p": 0.14961278438568115
+  },
+  {
+   "prompt": "en",
+   "prompt_label": "English prompts",
+   "key": "visible_links",
+   "label": "Links on the page",
+   "battles": 41,
+   "higher_won": 25,
+   "share": 0.6097560975609756,
+   "ci_low": 0.45726583898692563,
+   "ci_high": 0.7434406478467289,
+   "p": 0.21102359760880063
+  },
+  {
+   "prompt": "en",
+   "prompt_label": "English prompts",
+   "key": "page_screens",
+   "label": "Page length",
+   "battles": 58,
+   "higher_won": 31,
+   "share": 0.5344827586206896,
+   "ci_low": 0.40799953310272974,
+   "ci_high": 0.6566818464217328,
+   "p": 0.6940040940761316
+  },
+  {
+   "prompt": "en",
+   "prompt_label": "English prompts",
+   "key": "price_in_yuan",
+   "label": "Prices in yuan",
+   "battles": 0,
+   "higher_won": 0,
+   "share": null,
+   "ci_low": null,
+   "ci_high": null,
+   "p": null
+  }
+ ],
+ "labs": [
+  {
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 11,
+   "battles": 47,
+   "ci_low": 0.13603136423924592,
+   "ci_high": 0.3722453225684077
+  },
+  {
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 47,
+   "battles": 64,
+   "ci_low": 0.615168937427648,
+   "ci_high": 0.8270376143046224
+  },
+  {
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 10,
+   "battles": 42,
+   "ci_low": 0.13480820811018188,
+   "ci_high": 0.38527835082318873
+  },
+  {
+   "lab": "Google",
+   "origin": "US",
+   "wins": 44,
+   "battles": 80,
+   "ci_low": 0.4411931301173402,
+   "ci_high": 0.6542248962562025
+  },
+  {
+   "lab": "Meituan",
+   "origin": "China",
+   "wins": 1,
+   "battles": 3,
+   "ci_low": 0.0614903152761605,
+   "ci_high": 0.7923450448735121
+  },
+  {
+   "lab": "MiniMax",
+   "origin": "China",
+   "wins": 5,
+   "battles": 18,
+   "ci_low": 0.12499569146355474,
+   "ci_high": 0.5087307754619452
+  },
+  {
+   "lab": "Moonshot",
+   "origin": "China",
+   "wins": 28,
+   "battles": 46,
+   "ci_low": 0.4645658371764493,
+   "ci_high": 0.7360697764475116
+  },
+  {
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 33,
+   "battles": 46,
+   "ci_low": 0.5745116426970621,
+   "ci_high": 0.8267595845508592
+  },
+  {
+   "lab": "Xiaomi",
+   "origin": "China",
+   "wins": 9,
+   "battles": 24,
+   "ci_low": 0.21159133433631458,
+   "ci_high": 0.5729038096209293
+  },
+  {
+   "lab": "Zhipu",
+   "origin": "China",
+   "wins": 8,
+   "battles": 22,
+   "ci_low": 0.19732972772607899,
+   "ci_high": 0.5704865065628195
+  },
+  {
+   "lab": "xAI",
+   "origin": "US",
+   "wins": 6,
+   "battles": 12,
+   "ci_low": 0.2537781703934222,
+   "ci_high": 0.7462218296065778
+  }
+ ],
+ "models": [
+  {
+   "model": "claude-fable-5-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 6,
+   "battles": 6
+  },
+  {
+   "model": "claude-haiku-4-5-20251001",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 1,
+   "battles": 5
+  },
+  {
+   "model": "claude-opus-4-6",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 6,
+   "battles": 7
+  },
+  {
+   "model": "claude-opus-4-6-thinking-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 4,
+   "battles": 4
+  },
+  {
+   "model": "claude-opus-4-7-thinking-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 4,
+   "battles": 5
+  },
+  {
+   "model": "claude-opus-4-7-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 4,
+   "battles": 5
+  },
+  {
+   "model": "claude-opus-4-8-thinking-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 1,
+   "battles": 4
+  },
+  {
+   "model": "claude-opus-4-8-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 1,
+   "battles": 6
+  },
+  {
+   "model": "claude-opus-5-high-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 3,
+   "battles": 4
+  },
+  {
+   "model": "claude-opus-5-max",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 1,
+   "battles": 1
+  },
+  {
+   "model": "claude-opus-5-max-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 5,
+   "battles": 6
+  },
+  {
+   "model": "claude-opus-5-medium",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 1,
+   "battles": 1
+  },
+  {
+   "model": "claude-sonnet-4-6",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 6,
+   "battles": 6
+  },
+  {
+   "model": "claude-sonnet-5-webdev",
+   "lab": "Anthropic",
+   "origin": "US",
+   "wins": 4,
+   "battles": 4
+  },
+  {
+   "model": "deepseek-v4-flash-high-20260730-webdev",
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 2,
+   "battles": 3
+  },
+  {
+   "model": "deepseek-v4-flash-thinking-webdev",
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 4,
+   "battles": 13
+  },
+  {
+   "model": "deepseek-v4-flash-webdev",
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 2,
+   "battles": 8
+  },
+  {
+   "model": "deepseek-v4-pro-thinking-webdev",
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 1,
+   "battles": 5
+  },
+  {
+   "model": "deepseek-v4-pro-webdev",
+   "lab": "DeepSeek",
+   "origin": "China",
+   "wins": 1,
+   "battles": 13
+  },
+  {
+   "model": "gemini-3-flash-thinking-minimal",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 2,
+   "battles": 5
+  },
+  {
+   "model": "gemini-3.1-flash-lite",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 0,
+   "battles": 3
+  },
+  {
+   "model": "gemini-3.1-flash-lite-preview",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 0,
+   "battles": 1
+  },
+  {
+   "model": "gemini-3.1-pro",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 5,
+   "battles": 6
+  },
+  {
+   "model": "gemini-3.1-pro-preview",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 10,
+   "battles": 22
+  },
+  {
+   "model": "gemini-3.5-flash",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 13,
+   "battles": 19
+  },
+  {
+   "model": "gemini-3.5-flash-high-public",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 0,
+   "battles": 2
+  },
+  {
+   "model": "gemini-3.5-flash-medium",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 3,
+   "battles": 5
+  },
+  {
+   "model": "gemini-3.6-flash",
+   "lab": "Google",
+   "origin": "US",
+   "wins": 11,
+   "battles": 17
+  },
+  {
+   "model": "glm-5.1-code",
+   "lab": "Zhipu",
+   "origin": "China",
+   "wins": 3,
+   "battles": 6
+  },
+  {
+   "model": "glm-5.2-code",
+   "lab": "Zhipu",
+   "origin": "China",
+   "wins": 4,
+   "battles": 6
+  },
+  {
+   "model": "glm-5v-turbo",
+   "lab": "Zhipu",
+   "origin": "China",
+   "wins": 1,
+   "battles": 10
+  },
+  {
+   "model": "gpt-5.4-high",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 3,
+   "battles": 4
+  },
+  {
+   "model": "gpt-5.4-mini-high",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 1,
+   "battles": 1
+  },
+  {
+   "model": "gpt-5.5-high-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 5,
+   "battles": 8
+  },
+  {
+   "model": "gpt-5.5-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 2,
+   "battles": 3
+  },
+  {
+   "model": "gpt-5.5-xhigh-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 3,
+   "battles": 4
+  },
+  {
+   "model": "gpt-5.6-luna-xhigh-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 3,
+   "battles": 5
+  },
+  {
+   "model": "gpt-5.6-sol-medium",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 5,
+   "battles": 8
+  },
+  {
+   "model": "gpt-5.6-sol-xhigh-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 9,
+   "battles": 10
+  },
+  {
+   "model": "gpt-5.6-terra-xhigh-webdev",
+   "lab": "OpenAI",
+   "origin": "US",
+   "wins": 2,
+   "battles": 3
+  },
+  {
+   "model": "grok-4.20-beta-0309-reasoning",
+   "lab": "xAI",
+   "origin": "US",
+   "wins": 2,
+   "battles": 4
+  },
+  {
+   "model": "grok-4.3-webdev",
+   "lab": "xAI",
+   "origin": "US",
+   "wins": 4,
+   "battles": 8
+  },
+  {
+   "model": "kimi-k2.5-webdev",
+   "lab": "Moonshot",
+   "origin": "China",
+   "wins": 4,
+   "battles": 11
+  },
+  {
+   "model": "kimi-k2.6",
+   "lab": "Moonshot",
+   "origin": "China",
+   "wins": 0,
+   "battles": 2
+  },
+  {
+   "model": "kimi-k2.7-code",
+   "lab": "Moonshot",
+   "origin": "China",
+   "wins": 16,
+   "battles": 23
+  },
+  {
+   "model": "kimi-k3",
+   "lab": "Moonshot",
+   "origin": "China",
+   "wins": 8,
+   "battles": 10
+  },
+  {
+   "model": "longcat-2.0",
+   "lab": "Meituan",
+   "origin": "China",
+   "wins": 1,
+   "battles": 3
+  },
+  {
+   "model": "mimo-v2.5-pro-webdev",
+   "lab": "Xiaomi",
+   "origin": "China",
+   "wins": 6,
+   "battles": 10
+  },
+  {
+   "model": "mimo-v2.5-webdev",
+   "lab": "Xiaomi",
+   "origin": "China",
+   "wins": 3,
+   "battles": 14
+  },
+  {
+   "model": "minimax-m2.7",
+   "lab": "MiniMax",
+   "origin": "China",
+   "wins": 0,
+   "battles": 6
+  },
+  {
+   "model": "minimax-m3",
+   "lab": "MiniMax",
+   "origin": "China",
+   "wins": 5,
+   "battles": 12
+  },
+  {
+   "model": "qwen3.5-397b-a17b-webdev",
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 4,
+   "battles": 18
+  },
+  {
+   "model": "qwen3.6-27b",
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 0,
+   "battles": 5
+  },
+  {
+   "model": "qwen3.6-plus-v1-webdev",
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 3,
+   "battles": 9
+  },
+  {
+   "model": "qwen3.7-max",
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 4,
+   "battles": 9
+  },
+  {
+   "model": "qwen3.7-plus",
+   "lab": "Alibaba",
+   "origin": "China",
+   "wins": 0,
+   "battles": 6
+  }
+ ]
+}
