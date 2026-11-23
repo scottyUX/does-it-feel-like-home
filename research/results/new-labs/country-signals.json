@@ -1,0 +1,3170 @@
+[
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "f063a523",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 4.0,
+   "visible_links": 14.0,
+   "page_screens": 1.3788888888888888,
+   "mobile_page_screens": 2.5485781990521326,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "1aef96e6",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 8.0,
+   "visible_links": 26.0,
+   "page_screens": 2.867777777777778,
+   "mobile_page_screens": 6.028436018957346,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "ea9e38c2",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.37,
+   "mobile_page_screens": 2.188388625592417,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "e04d032d",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 10.0,
+   "visible_links": 19.0,
+   "page_screens": 3.77,
+   "mobile_page_screens": 6.6635071090047395,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "5503f964",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 4.0,
+   "visible_links": 13.0,
+   "page_screens": 1.7577777777777779,
+   "mobile_page_screens": 1.957345971563981,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "ee80a1b7",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 9.0,
+   "visible_links": 20.0,
+   "page_screens": 2.756666666666667,
+   "mobile_page_screens": 6.046208530805687,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "12668563",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 4.0,
+   "visible_links": 12.0,
+   "page_screens": 1.4522222222222223,
+   "mobile_page_screens": 2.919431279620853,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "eabec02f",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 62.0,
+   "footer_links": 12.0,
+   "visible_links": 27.0,
+   "page_screens": 2.09,
+   "mobile_page_screens": 4.657582938388626,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "3c5b3a35",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 4.0,
+   "visible_links": 10.0,
+   "page_screens": 1.2033333333333334,
+   "mobile_page_screens": 1.9786729857819905,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "406a84c5",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 64.0,
+   "footer_links": 10.0,
+   "visible_links": 19.0,
+   "page_screens": 4.2,
+   "mobile_page_screens": 8.14218009478673,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "08669a26",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 4.0,
+   "visible_links": 13.0,
+   "page_screens": 1.8022222222222222,
+   "mobile_page_screens": 3.5071090047393363,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "4779caea",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 9.0,
+   "visible_links": 22.0,
+   "page_screens": 3.29,
+   "mobile_page_screens": 6.593601895734597,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "923fdd19",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 60.0,
+   "footer_links": 5.0,
+   "visible_links": 21.0,
+   "page_screens": 1.5522222222222222,
+   "mobile_page_screens": 3.2251184834123223,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "645ae8dc",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 5.0,
+   "visible_links": 46.0,
+   "page_screens": 3.0555555555555554,
+   "mobile_page_screens": 6.191943127962086,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "ad030ef5",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.3111111111111111,
+   "mobile_page_screens": 1.9561611374407584,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "b962eb20",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 4.0,
+   "visible_links": 12.0,
+   "page_screens": 2.9055555555555554,
+   "mobile_page_screens": 5.714454976303317,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "7e8650d1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.8288888888888888,
+   "mobile_page_screens": 2.0639810426540284,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "dac2aea6",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 132.0,
+   "footer_links": 5.0,
+   "visible_links": 20.0,
+   "page_screens": 2.7822222222222224,
+   "mobile_page_screens": 3.2760663507109005,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "4f3aef2b",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 4.0,
+   "visible_links": 9.0,
+   "page_screens": 1.5133333333333334,
+   "mobile_page_screens": 2.9869668246445498,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "63f555da",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 12.0,
+   "visible_links": 26.0,
+   "page_screens": 3.218888888888889,
+   "mobile_page_screens": 7.4135071090047395,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "bd26a3a1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 2.0,
+   "visible_links": 11.0,
+   "page_screens": 1.5255555555555556,
+   "mobile_page_screens": 2.462085308056872,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "1cdb7f6f",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 12.0,
+   "visible_links": 29.0,
+   "page_screens": 3.651111111111111,
+   "mobile_page_screens": 7.404028436018957,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "241b404c",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 3.0,
+   "visible_links": 9.0,
+   "page_screens": 1.69,
+   "mobile_page_screens": 2.808056872037915,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "769ce841",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 11.0,
+   "visible_links": 19.0,
+   "page_screens": 5.163333333333333,
+   "mobile_page_screens": 9.428909952606634,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "332d42f8",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 6.0,
+   "visible_links": 11.0,
+   "page_screens": 1.86,
+   "mobile_page_screens": 3.7097156398104265,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "a49a8bfc",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 14.0,
+   "visible_links": 31.0,
+   "page_screens": 4.064444444444445,
+   "mobile_page_screens": 8.041469194312796,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "f0f375d1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.27,
+   "mobile_page_screens": 1.7203791469194314,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "f36585d5",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 63.0,
+   "footer_links": 4.0,
+   "visible_links": 20.0,
+   "page_screens": 2.727777777777778,
+   "mobile_page_screens": 5.216824644549763,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "65942129",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.6655555555555555,
+   "mobile_page_screens": 2.8234597156398102,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "e3b6d972",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 12.0,
+   "visible_links": 20.0,
+   "page_screens": 3.2711111111111113,
+   "mobile_page_screens": 6.350710900473934,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "ba2b7fe8",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 9.0,
+   "visible_links": 18.0,
+   "page_screens": 2.1344444444444446,
+   "mobile_page_screens": 4.690758293838862,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "9f32fdfd",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 13.0,
+   "visible_links": 25.0,
+   "page_screens": 4.164444444444444,
+   "mobile_page_screens": 8.209715639810426,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "aa047bb5",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 8.0,
+   "visible_links": 19.0,
+   "page_screens": 1.6777777777777778,
+   "mobile_page_screens": 4.068720379146919,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "718b1d4d",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 14.0,
+   "visible_links": 47.0,
+   "page_screens": 3.15,
+   "mobile_page_screens": 7.009478672985782,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "d3ef1b6d",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 4.0,
+   "visible_links": 10.0,
+   "page_screens": 1.12,
+   "mobile_page_screens": 1.990521327014218,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "3cb9af3c",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 10.0,
+   "visible_links": 19.0,
+   "page_screens": 4.195555555555556,
+   "mobile_page_screens": 8.07345971563981,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "c1349459",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 72.0,
+   "footer_links": 0.0,
+   "visible_links": 23.0,
+   "page_screens": 1.91,
+   "mobile_page_screens": 1.6895734597156398,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "140bd5a5",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 6.0,
+   "visible_links": 20.0,
+   "page_screens": 2.9611111111111112,
+   "mobile_page_screens": 3.5319905213270144,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-4-31b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "9cabc279",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 36.0,
+   "footer_links": 4.0,
+   "visible_links": 11.0,
+   "page_screens": 1.46,
+   "mobile_page_screens": 2.664691943127962,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.8-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "35900885",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 48.0,
+   "footer_links": 11.0,
+   "visible_links": 18.0,
+   "page_screens": 2.9788888888888887,
+   "mobile_page_screens": 5.995260663507109,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "eebb25e5",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.1511111111111112,
+   "mobile_page_screens": 1.1208530805687205,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "bec0e302",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 37.0,
+   "footer_links": 6.0,
+   "visible_links": 14.0,
+   "page_screens": 2.0477777777777777,
+   "mobile_page_screens": 3.161137440758294,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "327e89a9",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 2.21,
+   "mobile_page_screens": 2.7085308056872037,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "1224f28f",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 3.0,
+   "visible_links": 9.0,
+   "page_screens": 1.8977777777777778,
+   "mobile_page_screens": 3.079383886255924,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "5976c2d7",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "750e078e",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 36.0,
+   "footer_links": 6.0,
+   "visible_links": 16.0,
+   "page_screens": 2.5644444444444443,
+   "mobile_page_screens": 3.546208530805687,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "60b46f9a",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.754739336492891,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "da51185a",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 6.0,
+   "visible_links": 17.0,
+   "page_screens": 2.86,
+   "mobile_page_screens": 5.235781990521327,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "490eb774",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.2022222222222223,
+   "mobile_page_screens": 1.9241706161137442,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "c47bff5d",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 3.0,
+   "visible_links": 9.0,
+   "page_screens": 1.5877777777777777,
+   "mobile_page_screens": 2.0130331753554502,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "ef0dafe2",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.1511111111111112,
+   "mobile_page_screens": 2.0639810426540284,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "392166b0",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 6.0,
+   "visible_links": 16.0,
+   "page_screens": 1.9777777777777779,
+   "mobile_page_screens": 4.043838862559242,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "6baa50c3",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "7fec7461",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 54.0,
+   "footer_links": 10.0,
+   "visible_links": 24.0,
+   "page_screens": 2.5211111111111113,
+   "mobile_page_screens": 4.779620853080568,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "f01d7953",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2855450236966826,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "142e55d9",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 2.3422222222222224,
+   "mobile_page_screens": 4.815165876777251,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "14051729",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 2.161111111111111,
+   "mobile_page_screens": 1.7772511848341233,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "91df879f",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 84.0,
+   "footer_links": 3.0,
+   "visible_links": 17.0,
+   "page_screens": 1.9844444444444445,
+   "mobile_page_screens": 2.206161137440758,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "22d85f08",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "7d5861ea",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 54.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.3433333333333333,
+   "mobile_page_screens": 3.5,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "28732125",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.8341232227488151,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "9cb1e1f5",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 6.0,
+   "visible_links": 11.0,
+   "page_screens": 2.692222222222222,
+   "mobile_page_screens": 3.617298578199052,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "6c52119b",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 3.39,
+   "mobile_page_screens": 3.2890995260663507,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "aa7104a7",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 4.0,
+   "visible_links": 11.0,
+   "page_screens": 1.8733333333333333,
+   "mobile_page_screens": 3.1066350710900474,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "67b6baef",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 1.0,
+   "visible_links": 8.0,
+   "page_screens": 1.01,
+   "mobile_page_screens": 1.933649289099526,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "19f99ad7",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 6.0,
+   "visible_links": 20.0,
+   "page_screens": 1.9944444444444445,
+   "mobile_page_screens": 2.9123222748815167,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "2511725a",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 2.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.552132701421801,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "467f71d7",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 52.0,
+   "footer_links": 6.0,
+   "visible_links": 11.0,
+   "page_screens": 1.5888888888888888,
+   "mobile_page_screens": 3.2180094786729856,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "1ebc68c9",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.2966666666666666,
+   "mobile_page_screens": 1.7985781990521328,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "bd964b49",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 3.0,
+   "visible_links": 11.0,
+   "page_screens": 1.9466666666666668,
+   "mobile_page_screens": 3.6291469194312795,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "96c0c239",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0438388625592416,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "6104a8d1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 42.0,
+   "footer_links": 0.0,
+   "visible_links": 10.0,
+   "page_screens": 1.6566666666666667,
+   "mobile_page_screens": 3.126777251184834,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "335e2c23",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.5793838862559242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "93b25dc2",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 48.0,
+   "footer_links": 8.0,
+   "visible_links": 27.0,
+   "page_screens": 2.1977777777777776,
+   "mobile_page_screens": 4.1552132701421804,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "3648f3aa",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0734597156398105,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "912d9bd4",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.5977777777777777,
+   "mobile_page_screens": 2.4739336492890995,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "03955467",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.37,
+   "mobile_page_screens": 1.5722748815165877,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "1d67b302",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 4.0,
+   "visible_links": 13.0,
+   "page_screens": 2.3088888888888888,
+   "mobile_page_screens": 2.6623222748815167,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-120b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "92cd304e",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen/qwen3.5-122b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "23644ae9",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 7.0,
+   "visible_links": 17.0,
+   "page_screens": 1.6355555555555557,
+   "mobile_page_screens": 3.462085308056872,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__bank__gemma3-27b__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0466666666666666,
+   "mobile_page_screens": 1.2760663507109005,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__bank__glm-4.7-flash-q4_K_M__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 8.0,
+   "visible_links": 15.0,
+   "page_screens": 2.207777777777778,
+   "mobile_page_screens": 4.132701421800948,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__bank__glm4-9b__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.1344444444444444,
+   "mobile_page_screens": 1.4691943127962086,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__bank__gpt-oss-20b__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.61,
+   "mobile_page_screens": 1.70260663507109,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__bank__llama4-scout__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__bank__nemotron3-33b__run1",
+  "type": "bank",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.3166666666666667,
+   "mobile_page_screens": 1.4822274881516588,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__beauty-salon__gemma3-27b__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.1788888888888889,
+   "mobile_page_screens": 1.3329383886255923,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__beauty-salon__glm-4.7-flash-q4_K_M__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 8.0,
+   "visible_links": 15.0,
+   "page_screens": 2.701111111111111,
+   "mobile_page_screens": 4.856635071090047,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__beauty-salon__glm4-9b__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0144444444444445,
+   "mobile_page_screens": 1.0817535545023698,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__beauty-salon__gpt-oss-20b__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 12.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__beauty-salon__llama4-scout__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__beauty-salon__nemotron3-33b__run1",
+  "type": "beauty-salon",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__clothing__gemma3-27b__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 2.3056872037914693,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__clothing__glm-4.7-flash-q4_K_M__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 7.0,
+   "visible_links": 13.0,
+   "page_screens": 5.634444444444444,
+   "mobile_page_screens": 6.059241706161138,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__clothing__glm4-9b__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__clothing__gpt-oss-20b__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.849526066350711,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__clothing__llama4-scout__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__clothing__nemotron3-33b__run1",
+  "type": "clothing",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.4111111111111112,
+   "mobile_page_screens": 3.2713270142180093,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__food-delivery__gemma3-27b__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.1492890995260663,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__food-delivery__glm-4.7-flash-q4_K_M__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.9333333333333333,
+   "mobile_page_screens": 2.061611374407583,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__food-delivery__glm4-9b__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 12.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__food-delivery__gpt-oss-20b__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__food-delivery__llama4-scout__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__food-delivery__nemotron3-33b__run1",
+  "type": "food-delivery",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 37.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0133333333333334,
+   "mobile_page_screens": 1.1066350710900474,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__home-cleaning__gemma3-27b__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.1789099526066351,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__home-cleaning__glm-4.7-flash-q4_K_M__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.75,
+   "mobile_page_screens": 3.0924170616113744,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__home-cleaning__glm4-9b__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__home-cleaning__gpt-oss-20b__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.308888888888889,
+   "mobile_page_screens": 1.4774881516587677,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__home-cleaning__llama4-scout__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__home-cleaning__nemotron3-33b__run1",
+  "type": "home-cleaning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__learning__gemma3-27b__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 31.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.9822274881516588,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__learning__glm-4.7-flash-q4_K_M__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 37.0,
+   "footer_links": 11.0,
+   "visible_links": 30.0,
+   "page_screens": 2.667777777777778,
+   "mobile_page_screens": 5.4774881516587675,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__learning__glm4-9b__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.3388888888888888,
+   "mobile_page_screens": 1.4277251184834123,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__learning__gpt-oss-20b__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0722748815165877,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__learning__llama4-scout__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2677725118483412,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__learning__nemotron3-33b__run1",
+  "type": "learning",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2251184834123223,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__news__gemma3-27b__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.319905213270142,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__news__glm-4.7-flash-q4_K_M__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 68.0,
+   "footer_links": 8.0,
+   "visible_links": 31.0,
+   "page_screens": 2.3266666666666667,
+   "mobile_page_screens": 4.639810426540285,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__news__glm4-9b__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__news__gpt-oss-20b__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__news__llama4-scout__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0033333333333334,
+   "mobile_page_screens": 1.3886255924170616,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__news__nemotron3-33b__run1",
+  "type": "news",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 10.0,
+   "page_screens": 1.0844444444444445,
+   "mobile_page_screens": 1.5071090047393365,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__restaurant__gemma3-27b__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.3554502369668247,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__restaurant__glm-4.7-flash-q4_K_M__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 37.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.8122222222222222,
+   "mobile_page_screens": 2.845971563981043,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__restaurant__glm4-9b__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.1588888888888889,
+   "mobile_page_screens": 1.235781990521327,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__restaurant__gpt-oss-20b__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0355555555555556,
+   "mobile_page_screens": 1.4609004739336493,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__restaurant__llama4-scout__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__restaurant__nemotron3-33b__run1",
+  "type": "restaurant",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 13.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__social-media__gemma3-27b__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__social-media__glm-4.7-flash-q4_K_M__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 155.0,
+   "footer_links": 0.0,
+   "visible_links": 15.0,
+   "page_screens": 1.3433333333333333,
+   "mobile_page_screens": 1.419431279620853,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__social-media__glm4-9b__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__social-media__gpt-oss-20b__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 2.2777777777777777,
+   "mobile_page_screens": 1.2985781990521328,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__social-media__llama4-scout__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.211111111111111,
+   "mobile_page_screens": 1.2914691943127963,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__social-media__nemotron3-33b__run1",
+  "type": "social-media",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "en__travel__gemma3-27b__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__travel__glm-4.7-flash-q4_K_M__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 10.0,
+   "visible_links": 18.0,
+   "page_screens": 1.6188888888888888,
+   "mobile_page_screens": 2.8720379146919433,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "en__travel__glm4-9b__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "en__travel__gpt-oss-20b__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "en__travel__llama4-scout__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 9.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "en__travel__nemotron3-33b__run1",
+  "type": "travel",
+  "prompt": "en",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__bank__gemma3-27b__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0933333333333333,
+   "mobile_page_screens": 1.3483412322274881,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__bank__glm-4.7-flash-q4_K_M__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 9.0,
+   "visible_links": 17.0,
+   "page_screens": 2.8866666666666667,
+   "mobile_page_screens": 5.630331753554502,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__bank__glm4-9b__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__bank__gpt-oss-20b__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0611111111111111,
+   "mobile_page_screens": 1.7203791469194314,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__bank__llama4-scout__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__bank__nemotron3-33b__run1",
+  "type": "bank",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__beauty-salon__gemma3-27b__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__beauty-salon__glm-4.7-flash-q4_K_M__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 4.0,
+   "visible_links": 11.0,
+   "page_screens": 2.02,
+   "mobile_page_screens": 2.8708530805687205,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__beauty-salon__glm4-9b__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__beauty-salon__gpt-oss-20b__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__beauty-salon__llama4-scout__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__beauty-salon__nemotron3-33b__run1",
+  "type": "beauty-salon",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 4.0,
+   "visible_links": 9.0,
+   "page_screens": 1.2177777777777778,
+   "mobile_page_screens": 1.216824644549763,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__clothing__gemma3-27b__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 31.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0766666666666667,
+   "mobile_page_screens": 1.2381516587677726,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__clothing__glm-4.7-flash-q4_K_M__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 6.0,
+   "visible_links": 15.0,
+   "page_screens": 2.3333333333333335,
+   "mobile_page_screens": 6.055687203791469,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__clothing__glm4-9b__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0118483412322274,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__clothing__gpt-oss-20b__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 31.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.8293838862559242,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__clothing__llama4-scout__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__clothing__nemotron3-33b__run1",
+  "type": "clothing",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.1421800947867298,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__food-delivery__gemma3-27b__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__food-delivery__glm-4.7-flash-q4_K_M__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 48.0,
+   "footer_links": 4.0,
+   "visible_links": 9.0,
+   "page_screens": 1.6477777777777778,
+   "mobile_page_screens": 3.3637440758293837,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__food-delivery__glm4-9b__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__food-delivery__gpt-oss-20b__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.4822274881516588,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__food-delivery__llama4-scout__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.5462085308056872,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__food-delivery__nemotron3-33b__run1",
+  "type": "food-delivery",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 11.0,
+   "page_screens": 1.1888888888888889,
+   "mobile_page_screens": 2.137440758293839,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__home-cleaning__glm-4.7-flash-q4_K_M__run1",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 4.0,
+   "visible_links": 11.0,
+   "page_screens": 1.57,
+   "mobile_page_screens": 3.052132701421801,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__home-cleaning__glm4-9b__run1",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__home-cleaning__gpt-oss-20b__run1",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.1350710900473933,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__home-cleaning__llama4-scout__run1",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2191943127962086,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__home-cleaning__nemotron3-33b__run1",
+  "type": "home-cleaning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 19.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__learning__gemma3-27b__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.3258293838862558,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__learning__glm-4.7-flash-q4_K_M__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 48.0,
+   "footer_links": 13.0,
+   "visible_links": 25.0,
+   "page_screens": 2.4344444444444444,
+   "mobile_page_screens": 5.460900473933649,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__learning__glm4-9b__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__learning__gpt-oss-20b__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 1.0,
+   "visible_links": 9.0,
+   "page_screens": 1.38,
+   "mobile_page_screens": 1.603080568720379,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__learning__llama4-scout__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2819905213270142,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__learning__nemotron3-33b__run1",
+  "type": "learning",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.3578199052132702,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__news__gemma3-27b__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__news__glm-4.7-flash-q4_K_M__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 8.0,
+   "visible_links": 34.0,
+   "page_screens": 4.533333333333333,
+   "mobile_page_screens": 5.097156398104265,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__news__glm4-9b__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__news__gpt-oss-20b__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__news__llama4-scout__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.2890995260663507,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__news__nemotron3-33b__run1",
+  "type": "news",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0793838862559242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__restaurant__glm-4.7-flash-q4_K_M__run1",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 3.0,
+   "visible_links": 10.0,
+   "page_screens": 1.8788888888888888,
+   "mobile_page_screens": 3.1066350710900474,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__restaurant__glm4-9b__run1",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__restaurant__gpt-oss-20b__run1",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0244444444444445,
+   "mobile_page_screens": 1.088862559241706,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__restaurant__llama4-scout__run1",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__restaurant__nemotron3-33b__run1",
+  "type": "restaurant",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.2077777777777778,
+   "mobile_page_screens": 1.3329383886255923,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__social-media__gemma3-27b__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 2.548888888888889,
+   "mobile_page_screens": 1.1255924170616114,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__social-media__glm-4.7-flash-q4_K_M__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 76.0,
+   "footer_links": 2.0,
+   "visible_links": 6.0,
+   "page_screens": 1.768888888888889,
+   "mobile_page_screens": 2.4158767772511847,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__social-media__glm4-9b__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 2.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__social-media__gpt-oss-20b__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 31.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__social-media__llama4-scout__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__social-media__nemotron3-33b__run1",
+  "type": "social-media",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "google/gemma-3-27b",
+  "lab": "Google",
+  "origin": "US",
+  "site": "zh__travel__gemma3-27b__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4.7-flash",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__travel__glm-4.7-flash-q4_K_M__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 8.0,
+   "visible_links": 14.0,
+   "page_screens": 2.401111111111111,
+   "mobile_page_screens": 4.552132701421801,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "zhipu/glm-4-9b",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "zh__travel__glm4-9b__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "zh__travel__gpt-oss-20b__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "meta/llama-4-scout",
+  "lab": "Meta",
+  "origin": "US",
+  "site": "zh__travel__llama4-scout__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 10.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "nvidia/nemotron-3-33b",
+  "lab": "NVIDIA",
+  "origin": "US",
+  "site": "zh__travel__nemotron3-33b__run1",
+  "type": "travel",
+  "prompt": "zh",
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ }
+]
