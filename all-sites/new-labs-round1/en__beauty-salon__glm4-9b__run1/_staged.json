@@ -1,0 +1,11 @@
+{
+  "id": "en__beauty-salon__glm4-9b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "glm4:9b",
+  "completionTokens": 1878,
+  "seconds": 13,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

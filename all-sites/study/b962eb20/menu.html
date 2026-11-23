@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜品菜单 - 家味餐厅</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; color: #2C2C2C; background: #FDF8F0; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+
+        .site-header { background: #8B2E2E; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 72px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(139,46,46,0.3); }
+        .logo { font-size: 26px; font-weight: 700; color: #FFF; letter-spacing: 2px; }
+        .logo span { color: #E8C96A; }
+        nav { display: flex; gap: 36px; }
+        nav a { color: #F5E6D3; font-size: 15px; font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+        nav a:hover, nav a.active { color: #FFF; border-bottom-color: #E8C96A; }
+
+        .page-hero { background: linear-gradient(135deg, #3D1F1F, #8B2E2E); padding: 60px 40px; text-align: center; }
+        .page-hero h1 { color: #FFF; font-size: 36px; margin-bottom: 10px; }
+        .page-hero p { color: #F0D9B5; font-size: 16px; }
+
+        .section { padding: 60px 40px; max-width: 1000px; margin: 0 auto; }
+        .category-title { font-size: 22px; color: #8B2E2E; margin-bottom: 6px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .category-title::after { content: ""; flex: 1; height: 1px; background: #E8D5A8; }
+        .category-desc { font-size: 13px; color: #8B7B6A; margin-bottom: 24px; }
+
+        .menu-list { list-style: none; margin-bottom: 48px; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed #E8D5A8; }
+        .menu-item:last-child { border-bottom: none; }
+        .menu-item-left { flex: 1; }
+        .menu-item-left h4 { font-size: 15px; color: #2C2C2C; font-weight: 600; }
+        .menu-item-left p { font-size: 12px; color: #8B7B6A; margin-top: 2px; }
+        .menu-price { font-size: 16px; color: #C4963C; font-weight: 700; white-space: nowrap; margin-left: 20px; }
+        .tag { display: inline-block; background: #8B2E2E; color: #FFF; font-size: 10px; padding: 1px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+
+        .menu-note { background: #FFF; border-left: 4px solid #C4963C; padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 40px 0; }
+        .menu-note p { font-size: 13px; color: #6B5D4F; }
+        .menu-note strong { color: #8B2E2E; }
+
+        .cta { text-align: center; padding: 50px 40px; background: #FFF; }
+        .cta h2 { font-size: 24px; color: #3D1F1F; margin-bottom: 12px; }
+        .cta p { font-size: 15px; color: #6B5D4F; margin-bottom: 24px; }
+        .btn-primary { display: inline-block; background: #8B2E2E; color: #FFF; padding: 13px 40px; border-radius: 4px; font-size: 15px; font-weight: 600; transition: all 0.3s; }
+        .btn-primary:hover { background: #6B2222; transform: translateY(-2px); }
+
+        .site-footer { background: #2C1A1A; padding: 40px; text-align: center; }
+        .site-footer p { font-size: 12px; color: #7A6B5A; }
+
+        @media (max-width: 700px) {
+            .site-header { padding: 0 16px; }
+            nav { gap: 16px; }
+            nav a { font-size: 13px; }
+            .section { padding: 40px 20px; }
+            .menu-item { flex-direction: column; }
+            .menu-price { margin-left: 0; margin-top: 4px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">家味<span>餐厅</span></a>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="menu.html" class="active">菜品菜单</a>
+            <a href="about.html">餐厅故事</a>
+            <a href="reservation.html">预订订座</a>
+        </nav>
+    </header>
+
+    <div class="page-hero">
+        <h1>菜品菜单</h1>
+        <p>坚持每日新鲜采购，时令更换，以下为常用菜单</p>
+    </div>
+
+    <section class="section">
+        <h3 class="category-title">招牌菜</h3>
+        <p class="category-desc">这几道菜从开业第一天做到现在，方子没换过</p>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>西湖醋鱼 <span class="tag">招牌</span></h4><p>选用当日鲜活草鱼，糖醋汁酸甜适口，配姜末葱丝</p></div>
+                <div class="menu-price">¥68</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>东坡肉 <span class="tag">招牌</span></h4><p>五花肉慢炖三小时，配绍兴黄酒，入口即化</p></div>
+                <div class="menu-price">¥88</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>龙井虾仁 <span class="tag">招牌</span></h4><p>明前龙井茶入菜，河虾仁滑嫩，清雅鲜爽</p></div>
+                <div class="menu-price">¥128</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>叫花童子鸡</h4><p>荷叶、香菇、笋片入腹，黄泥包裹木炭煨烤</p></div>
+                <div class="menu-price">¥108</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>宋嫂鱼羹</h4><p>鳜鱼去骨切丝，加笋片、香菇，胡椒粉提味</p></div>
+                <div class="menu-price">¥58</div>
+            </li>
+        </ul>
+
+        <h3 class="category-title">时令小炒</h3>
+        <p class="category-desc">根据当天菜市场的货走，每天不太一样</p>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>干炸响铃</h4><p>豆腐皮裹肉馅，炸至金黄酥脆，蘸椒盐或甜酱</p></div>
+                <div class="menu-price">¥48</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>油焖春笋</h4><p>取安吉当日春笋，浓油赤酱，鲜甜多汁（3-5月）</p></div>
+                <div class="menu-price">¥52</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>青椒炒肉末</h4><p>农家青椒，五花肉末，下饭神器</p></div>
+                <div class="menu-price">¥38</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>蒜蓉蒸丝瓜</h4><p>本地水丝瓜，清蒸蒜香，简单但好吃（6-9月）</p></div>
+                <div class="menu-price">¥36</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>红烧带鱼</h4><p>东海带鱼段，酱油红烧，汤汁拌饭一绝</p></div>
+                <div class="menu-price">¥56</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>雪菜毛豆炒肉丝</h4><p>自制雪菜，嫩毛豆，瘦肉丝，清爽开胃</p></div>
+                <div class="menu-price">¥42</div>
+            </li>
+        </ul>
+
+        <h3 class="category-title">汤品与羹</h3>
+        <p class="category-desc">老火慢煲，喝得出的鲜</p>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>西湖莼菜汤</h4><p>太湖莼菜，鸡丝、火腿丝，滑嫩清鲜</p></div>
+                <div class="menu-price">¥68</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>腌笃鲜</h4><p>咸肉、鲜五花肉、春笋，砂锅慢笃两小时</p></div>
+                <div class="menu-price">¥78</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>番茄蛋花汤</h4><p>简单家常味，小朋友都喜欢</p></div>
+                <div class="menu-price">¥22</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>山药排骨汤</h4><p>铁棍山药配排骨，炖足两小时，汤白味浓</p></div>
+                <div class="menu-price">¥58</div>
+            </li>
+        </ul>
+
+        <h3 class="category-title">主食与点心</h3>
+        <p class="category-desc">管饱、管味</p>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>片儿川</h4><p>杭州面里最经典的一款，雪菜、笋片、瘦肉丝</p></div>
+                <div class="menu-price">¥28</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>虾爆鳝面</h4><p>河虾、鳝丝同炒浇头，鲜到眉毛掉</p></div>
+                <div class="menu-price">¥48</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>酒酿圆子</h4><p>小糯米圆子，酒酿底，撒桂花糖</p></div>
+                <div class="menu-price">¥18</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>糯米藕</h4><p>九孔藕灌糯米，桂花糖收汁，甜糯拉丝</p></div>
+                <div class="menu-price">¥26</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>米饭</h4><p>东北五常稻花香，每份一碗</p></div>
+                <div class="menu-price">¥6</div>
+            </li>
+        </ul>
+
+        <h3 class="category-title">酒水饮品</h3>
+        <p class="category-desc">不劝酒，喝多少随你</p>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>龙井茶（明前）</h4><p>免费续水，一壶可喝三泡</p></div>
+                <div class="menu-price">¥48/壶</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>黄酒（女儿红）</h4><p>温着喝，配东坡肉绝了</p></div>
+                <div class="menu-price">¥38/扎</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>酸梅汤（自制）</h4><p>乌梅、山楂、桂花，冰饮</p></div>
+                <div class="menu-price">¥16</div>
+            </li>
+            <li class="menu-item">
+                <div class="menu-item-left"><h4>鲜榨橙汁</h4><p>每日现榨，不加糖</p></div>
+                <div class="menu-price">¥22</div>
+            </li>
+        </ul>
+
+        <div class="menu-note">
+            <p><strong>温馨提示：</strong>所有菜品均可根据口味调整辣度（默认不辣）。如有食物过敏请提前告知服务员。时令菜品（标有季节的）售完即止，建议提前电话确认。餐厅不支持外卖，敬请谅解。</p>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h2>看着馋了？来店里坐坐吧</h2>
+        <p>工作日午餐套餐 48 元/位（两菜一汤一主食），适合上班族</p>
+        <a href="reservation.html" class="btn-primary">预订一张桌子</a>
+    </div>
+
+    <footer class="site-footer">
+        <p>家味餐厅 · 杭州市西湖区南山路128号 · 0571-8866-2288</p>
+    </footer>
+</body>
+</html>

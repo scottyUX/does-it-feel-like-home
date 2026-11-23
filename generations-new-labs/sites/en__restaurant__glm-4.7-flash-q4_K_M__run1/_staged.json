@@ -1,0 +1,11 @@
+{
+  "id": "en__restaurant__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 9787,
+  "seconds": 89,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

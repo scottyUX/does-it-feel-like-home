@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学途 - 课程详情</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #34495e;
+        }
+        main {
+            padding: 2rem;
+        }
+        .course-details {
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .course-details h2 {
+            margin-top: 0;
+        }
+        .course-schedule {
+            margin-top: 1rem;
+        }
+        .course-schedule table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .course-schedule th, .course-schedule td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .course-instructor {
+            margin-top: 1rem;
+        }
+        .course-instructor h3 {
+            margin-top: 0;
+        }
+        .course-instructor p {
+            margin-bottom: 0;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>学途</h1>
+        <p>提升技能，开启未来</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程列表</a>
+        <a href="register.html">注册</a>
+    </nav>
+
+    <main>
+        <section class="course-details">
+            <script>
+                function getCourseDetails() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const course = urlParams.get('course');
+
+                    let courseName, scheduleData, instructorData;
+
+                    switch (course) {
+                        case 'python':
+                            courseName = 'Python 编程入门';
+                            scheduleData = [
+                                ['第一周', 'Python 环境搭建与基础语法'],
+                                ['第二周', '数据类型与运算符'],
+                                ['第三周', '控制流与函数'],
+                                ['第四周', '模块与包']
+                            ];
+                            instructorData = { name: '张三', title: 'Python 工程师' };
+                            break;
+                        case 'english':
+                            courseName = '英语口语提升';
+                            scheduleData = [
+                                ['第一周', '自我介绍与日常问候'],
+                                ['第二周', '旅游场景对话'],
+                                ['第三周', '商务场景对话'],
+                                ['第四周', '文化交流与观点表达']
+                            ];
+                            instructorData = { name: '李四', title: '英语教师' };
+                            break;
+                        case 'ielts':
+                            courseName = '雅思备考';
+                            scheduleData = [
+                                ['第一周', '雅思听力技巧'],
+                                ['第二周', '雅思阅读技巧'],
+                                ['第三周', '雅思写作技巧'],
+                                ['第四周', '雅思口语技巧']
+                            ];
+                            instructorData = { name: '王五', title: '雅思培训导师' };
+                            break;
+                        case 'java':
+                            courseName = 'Java 核心技术';
+                            scheduleData = [
+                                ['第一周', 'Java 环境搭建与基础语法'],
+                                ['第二周', '面向对象编程'],
+                                ['第三周', '异常处理与集合框架'],
+                                ['第四周', '多线程编程']
+                            ];
+                            instructorData = { name: '赵六', title: 'Java 架构师' };
+                            break;
+                        case 'data_analysis':
+                            courseName = '数据分析与可视化';
+                            scheduleData = [
+                                ['第一周', 'Python 数据分析库介绍'],
+                                ['第二周', '数据清洗与预处理'],
+                                ['第三周', '数据可视化'],
+                                ['第四周', '数据分析案例']
+                            ];
+                            instructorData = { name: '孙七', title: '数据科学家' };
+                            break;
+                        default:
+                            courseName = '课程不存在';
+                            scheduleData = [];
+                            instructorData = {};
+                    }
+
+                    document.getElementById('course-name').textContent = courseName;
+
+                    const tableBody = document.getElementById('course-schedule-body');
+                    scheduleData.forEach(row => {
+                        const tr = document.createElement('tr');
+                        const td1 = document.createElement('td');
+                        const td2 = document.createElement('td');
+                        td1.textContent = row[0];
+                        td2.textContent = row[1];
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tableBody.appendChild(tr);
+                    });
+
+                    document.getElementById('instructor-name').textContent = instructorData.name;
+                    document.getElementById('instructor-title').textContent = instructorData.title;
+                }
+
+                window.onload = getCourseDetails;
+            </script>
+
+            <h2 id="course-name"></h2>
+            <div class="course-schedule">
+                <h3>课程安排</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>周次</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody id="course-schedule-body"></tbody>
+                </table>
+            </div>
+            <div class="course-instructor">
+                <h3>讲师信息</h3>
+                <p>讲师姓名：<span id="instructor-name"></span></p>
+                <p>讲师职称：<span id="instructor-title"></span></p>
+            </div>
+            <button>立即报名</button>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 学途
+    </footer>
+</body>
+</html>

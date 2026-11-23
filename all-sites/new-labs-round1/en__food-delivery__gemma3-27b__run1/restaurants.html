@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐厅列表 - 快送外卖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+        }
+        .restaurant-list {
+            list-style: none;
+            padding: 0;
+        }
+        .restaurant-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+        }
+        .restaurant-item a {
+            text-decoration: none;
+            color: #333;
+        }
+        .restaurant-item h3 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>快送外卖</h1>
+        <p>成都本地美食，快速送达</p>
+    </header>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="restaurants.html">餐厅列表</a>
+        <a href="about.html">关于我们</a>
+    </nav>
+    <div class="container">
+        <h2>餐厅列表</h2>
+        <ul class="restaurant-list">
+            <li class="restaurant-item">
+                <a href="restaurant_detail.html">
+                    <h3>小龙坎火锅</h3>
+                    <p>金牛区太升北路8号</p>
+                    <p>人均：80元</p>
+                </a>
+            </li>
+            <li class="restaurant-item">
+                <a href="restaurant_detail.html">
+                    <h3>芙蓉味道</h3>
+                    <p>武侯区科华北路23号</p>
+                    <p>人均：60元</p>
+                </a>
+            </li>
+            <li class="restaurant-item">
+                <a href="restaurant_detail.html">
+                    <h3>大唐鸭血粉丝</h3>
+                    <p>成华区建设北路10号</p>
+                    <p>人均：45元</p>
+                </a>
+            </li>
+            <li class="restaurant-item">
+                <a href="restaurant_detail.html">
+                    <h3>陈麻婆豆腐</h3>
+                    <p>锦江区宽窄巷子21号</p>
+                    <p>人均：50元</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <p>© 2024 快送外卖 - 成都</p>
+    </footer>
+</body>
+</html>

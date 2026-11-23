@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>订单确认 - 快送外卖</title>
+<style>
+    body{font-family:Arial,sans-serif;margin:0;padding:0;color:#333;background:#f9f9f9;}
+    .container{max-width:1200px;margin:0 auto;padding:20px;}
+    header{background:#004d40;color:#fff;padding:15px 0;text-align:center;position:sticky;top:0;z-index:10;}
+    nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold;}
+    .order{background:#fff;padding:30px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .order h2{margin-top:0;color:#004d40;}
+    .order p{margin:10px 0;}
+    .total{font-size:1.2em;color:#e74c3c;margin-top:20px;}
+    .btn{background:#28a745;color:#fff;padding:12px 20px;border:none;border-radius:4px;cursor:pointer;margin-top:20px;}
+    footer{background:#222;color:#ccc;text-align:center;padding:15px 0;margin-top:40px;}
+    @media (max-width:768px){
+        .container{padding:10px;}
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1>订单确认</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="restaurants.html">餐厅列表</a>
+        <a href="about.html">关于我们</a>
+    </nav>
+</header>
+
+<section class="order">
+    <h2>您的订单已生成</h2>
+    <p><strong>餐厅：</strong>味满园</p>
+    <p><strong>菜品：</strong>宫保鸡丁 ×1，水煮鱼片 ×1，红油抄手 ×2</p>
+    <p class="total">总金额：¥132</p>
+    <p>备注：请在收到外卖后及时评价，感谢您的支持！</p>
+    <button class="btn" onclick="window.location.href='index.html'">返回首页</button>
+</section>
+
+<footer>
+    <p>© 2025 快送外卖 · 成都配送服务</p>
+    <p>联系电话：138-0011-2233</p>
+</footer>
+</div>
+</body>
+</html>

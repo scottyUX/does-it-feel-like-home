@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人银行 - 长川银行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;background:#f5f5f5;color:#333;}
+        header{background:#004c99;color:#fff;padding:20px;}
+        header h1{margin:0;font-size:26px;}
+        nav{display:flex;gap:15px;margin-top:10px;}
+        nav a{color:#fff;text-decoration:none;}
+        .container{max-width:1100px;margin:auto;padding:20px;}
+        .section{background:#fff;padding:25px;margin-bottom:20px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.1);}
+        h2{color:#004c99;margin-top:0;}
+        ul{list-style:none;padding:0;}
+        li{margin-bottom:10px;}
+        .btn{display:inline-block;background:#ffcc00;color:#004c99;padding:8px 15px;border-radius:5px;text-decoration:none;font-weight:bold;}
+        footer{background:#222;color:#ccc;padding:15px;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            nav{flex-direction:column;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>长川银行 - 个人银行服务</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="personal.html">个人银行</a>
+        <a href="credit.html">信用卡</a>
+        <a href="contact.html">联系我们</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="section" id="account">
+        <h2>账户与理财</h2>
+        <ul>
+            <li><strong>活期储蓄账户</strong>：随时存取，全年免手续费。</li>
+            <li><strong>定期存款</strong>：提供1个月至5年多种期限，利率最高可达3.5%。</li>
+            <li><strong>电子理财</strong>：线上基金、债券、结构性产品，一键购买。</li>
+        </ul>
+        <a href="#" class="btn" onclick="alert('功能演示，仅供参考')">立即开户</a>
+    </section>
+
+    <section class="section" id="loan">
+        <h2>贷款服务</h2>
+        <ul>
+            <li><strong>个人住房贷款</strong>：最高额度2000万元，最长30年，首付比例低至30%。</li>
+            <li><strong>车贷</strong>：全额贷款或首付分期，利率低至4.2%。</li>
+            <li><strong>小微企业贷款</strong>：额度最高5000万元，审批时效48小时内。</li>
+        </ul>
+        <a href="#" class="btn" onclick="alert('功能演示，仅供参考')">申请贷款</a>
+    </section>
+
+    <section class="section" id="service">
+        <h2>增值服务</h2>
+        <ul>
+            <li>24小时客服热线：400-123-4567</li>
+            <li>移动银行 APP：随时随地管理账户</li>
+            <li>网点自助设备：存取款、汇款、缴费一体化</li>
+        </ul>
+    </section>
+</div>
+
+<footer>
+    © 2026 长川银行 版权所有 | 全国统一服务热线：400-123-4567
+</footer>
+</body>
+</html>

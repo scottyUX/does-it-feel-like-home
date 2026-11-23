@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部餐厅 - 快送外卖</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #333; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #ff5722; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #ff5722, #ff9800); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+.nav { display: flex; gap: 32px; }
+.nav a { font-size: 15px; color: #555; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+.nav a:hover, .nav a.active { color: #ff5722; border-bottom-color: #ff5722; }
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-actions .btn-order { background: #ff5722; color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; cursor: pointer; font-weight: 600; }
+
+.page-header { background: linear-gradient(135deg, #fff5f0, #fff); padding: 40px 0 30px; }
+.page-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: #666; font-size: 15px; }
+
+.filter-bar { background: #fff; padding: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filter-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #e0e0e0; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.3s; }
+.filter-btn:hover, .filter-btn.active { background: #ff5722; color: #fff; border-color: #ff5722; }
+.sort-select { margin-left: auto; padding: 8px 16px; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 14px; background: #fff; cursor: pointer; }
+
+.restaurants-list { padding: 30px 0 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.r-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: all 0.3s; display: flex; }
+.r-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.r-card-img { width: 140px; min-height: 180px; display: flex; align-items: center; justify-content: center; font-size: 48px; flex-shrink: 0; }
+.r-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+.r-card-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.r-card-body .cat { font-size: 12px; color: #ff5722; margin-bottom: 8px; }
+.r-card-body .desc { font-size: 13px; color: #888; margin-bottom: 10px; flex: 1; }
+.r-card-body .info-row { display: flex; gap: 12px; font-size: 12px; color: #999; margin-bottom: 10px; }
+.r-card-body .price-row { display: flex; align-items: center; justify-content: space-between; }
+.r-card-body .avg-price { font-size: 14px; font-weight: 600; color: #ff5722; }
+.r-card-body .rating { font-size: 13px; color: #ff9800; }
+.badge-delivery { display: inline-block; background: #e8f5e9; color: #4caf50; padding: 2px 8px; border-radius: 8px; font-size: 11px; margin-top: 6px; }
+
+.empty-msg { grid-column: 1/-1; text-align: center; padding: 60px; color: #999; }
+
+.footer { background: #222; color: #aaa; padding: 40px 0 24px; }
+.footer-bottom { border-top: 1px solid #444; padding-top: 16px; font-size: 13px; text-align: center; color: #777; }
+
+@media (max-width: 900px) {
+  .restaurants-list { grid-template-columns: 1fr; }
+  .r-card { flex-direction: column; }
+  .r-card-img { width: 100%; min-height: 120px; }
+  .nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🍜</div>
+      快送外卖
+    </a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="restaurants.html" class="active">全部餐厅</a>
+      <a href="restaurant-detail.html">热门餐厅</a>
+      <a href="order-confirm.html">我的订单</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-order">立即点餐</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>全部餐厅</h1>
+    <p>共 320 家餐厅 · 成都全城配送 · 按分类筛选你喜欢的味道</p>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <div class="container filter-inner">
+    <button class="filter-btn active" onclick="filterRestaurants('all')">全部</button>
+    <button class="filter-btn" onclick="filterRestaurants('chuancai')">川菜小炒</button>
+    <button class="filter-btn" onclick="filterRestaurants('mian')">面馆粉店</button>
+    <button class="filter-btn" onclick="filterRestaurants('maocai')">麻辣烫/冒菜</button>
+    <button class="filter-btn" onclick="filterRestaurants('naicha')">奶茶甜品</button>
+    <button class="filter-btn" onclick="filterRestaurants('qingshi')">轻食沙拉</button>
+    <button class="filter-btn" onclick="filterRestaurants('kafei')">咖啡烘焙</button>
+    <select class="sort-select" onchange="sortRestaurants(this.value)">
+      <option value="default">综合排序</option>
+      <option value="sales">销量优先</option>
+      <option value="rating">评分优先</option>
+      <option value="price">价格从低到高</option>
+      <option value="distance">距离最近</option>
+    </select>
+  </div>
+</div>
+
+<div class="container">
+  <div class="restaurants-list" id="restList">
+    <a href="restaurant-detail.html" class="r-card" data-cat="chuancai">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#ff6b35,#ff9a56);">🐉</div>
+      <div class="r-card-body">
+        <h3>蜀香小馆 · 家常川菜</h3>
+        <div class="cat">川菜小炒</div>
+        <div class="desc">地道成都味道，水煮鱼、麻婆豆腐、回锅肉…每一道都是老手艺。</div>
+        <div class="info-row"><span>⭐ 4.9</span><span>25min</span><span>起送¥20</span><span>月销2300+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥28</span>
+          <span class="rating">⭐ 4.9</span>
+        </div>
+        <span class="badge-delivery">免配送费</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="mian">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#4caf50,#81c784);">🍜</div>
+      <div class="r-card-body">
+        <h3>老成都面王 · 担担面</h3>
+        <div class="cat">面馆粉店</div>
+        <div class="desc">三十年老店，担担面、红油抄手、钟水饺，经典川味小吃一站满足。</div>
+        <div class="info-row"><span>⭐ 4.8</span><span>20min</span><span>起送¥15</span><span>月销1800+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥18</span>
+          <span class="rating">⭐ 4.8</span>
+        </div>
+        <span class="badge-delivery">新客减5元</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="maocai">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#e91e63,#f48fb1);">🫕</div>
+      <div class="r-card-body">
+        <h3>巴适冒菜 · 自选麻辣烫</h3>
+        <div class="cat">麻辣烫/冒菜</div>
+        <div class="desc">30+种食材自选，牛油锅底/番茄锅底可选，辣度随你调。</div>
+        <div class="info-row"><span>⭐ 4.7</span><span>30min</span><span>起送¥18</span><span>月销3100+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥22</span>
+          <span class="rating">⭐ 4.7</span>
+        </div>
+        <span class="badge-delivery">第二份半价</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="naicha">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#7c4dff,#b388ff);">🧋</div>
+      <div class="r-card-body">
+        <h3>蜀里茶铺 · 鲜果茶</h3>
+        <div class="cat">奶茶甜品</div>
+        <div class="desc">手打柠檬茶、鲜榨芒果汁、桂花酒酿圆子，清爽解腻首选。</div>
+        <div class="info-row"><span>⭐ 4.9</span><span>15min</span><span>起送¥12</span><span>月销4200+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥16</span>
+          <span class="rating">⭐ 4.9</span>
+        </div>
+        <span class="badge-delivery">满20减3</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="qingshi">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#00bcd4,#4dd0e1);">🥗</div>
+      <div class="r-card-body">
+        <h3>悦川轻食 · 能量碗</h3>
+        <div class="cat">轻食沙拉</div>
+        <div class="desc">低卡高蛋白，牛油果鸡胸肉碗、藜麦沙拉，健身党必备。</div>
+        <div class="info-row"><span>⭐ 4.6</span><span>25min</span><span>起送¥25</span><span>月销860+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥35</span>
+          <span class="rating">⭐ 4.6</span>
+        </div>
+        <span class="badge-delivery">送水果一份</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="chuancai">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#ff5722,#ff8a65);">🦐</div>
+      <div class="r-card-body">
+        <h3>锦里鲜虾 · 川菜私房菜</h3>
+        <div class="cat">川菜小炒</div>
+        <div class="desc">鲜虾为招牌，油焖大虾、酸菜鱼、辣子鸡，食材当日采购。</div>
+        <div class="info-row"><span>⭐ 4.8</span><span>35min</span><span>起送¥30</span><span>月销1500+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥45</span>
+          <span class="rating">⭐ 4.8</span>
+        </div>
+        <span class="badge-delivery">满50减8</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="mian">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#ff9800,#ffcc80);">🍝</div>
+      <div class="r-card-body">
+        <h3>北桥抄手 · 面食粉店</h3>
+        <div class="cat">面馆粉店</div>
+        <div class="desc">红油抄手、肥肠粉、牛肉面，成都老味道，分量足味道正。</div>
+        <div class="info-row"><span>⭐ 4.7</span><span>22min</span><span>起送¥15</span><span>月销2100+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥16</span>
+          <span class="rating">⭐ 4.7</span>
+        </div>
+        <span class="badge-delivery">免配送费</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="maocai">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#9c27b0,#ce93d8);">🍲</div>
+      <div class="r-card-body">
+        <h3>椒麻江湖 · 冒菜拌菜</h3>
+        <div class="cat">麻辣烫/冒菜</div>
+        <div class="desc">椒麻味型独创，冒菜、钵钵鸡、凉拌菜，下饭神器。</div>
+        <div class="info-row"><span>⭐ 4.6</span><span>28min</span><span>起送¥15</span><span>月销1900+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥20</span>
+          <span class="rating">⭐ 4.6</span>
+        </div>
+        <span class="badge-delivery">满30减4</span>
+      </div>
+    </a>
+
+    <a href="restaurants.html" class="r-card" data-cat="kafei">
+      <div class="r-card-img" style="background:linear-gradient(135deg,#5d4037,#a1887f);">☕</div>
+      <div class="r-card-body">
+        <h3>拾光咖啡 · 手冲烘焙</h3>
+        <div class="cat">咖啡烘焙</div>
+        <div class="desc">手冲单品、拿铁、全麦吐司、可颂，办公室下午茶好搭档。</div>
+        <div class="info-row"><span>⭐ 4.8</span><span>18min</span><span>起送¥20</span><span>月销950+</span></div>
+        <div class="price-row">
+          <span class="avg-price">人均 ¥32</span>
+          <span class="rating">⭐ 4.8</span>
+        </div>
+        <span class="badge-delivery">满40减6</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      © 2025 快送外卖 版权所有 | 蜀ICP备2025001234号
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterRestaurants(cat) {
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  const cards = document.querySelectorAll('.r-card');
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+function sortRestaurants(val) {
+  // 演示排序，实际场景中会重新加载数据
+}
+</script>
+
+</body>
+</html>

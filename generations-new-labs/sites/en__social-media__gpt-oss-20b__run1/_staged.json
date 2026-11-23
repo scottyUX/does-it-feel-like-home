@@ -1,0 +1,11 @@
+{
+  "id": "en__social-media__gpt-oss-20b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "social-media",
+  "model": "gpt-oss:20b",
+  "completionTokens": 5412,
+  "seconds": 35,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

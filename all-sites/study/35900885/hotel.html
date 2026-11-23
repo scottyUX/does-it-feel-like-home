@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三亚海棠湾君悦度假酒店 - 畅行旅行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #333; background: #f8f9fc; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #1a56db; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #1a56db, #3b82f6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 800; }
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a { font-size: 15px; color: #555; font-weight: 500; }
+        .nav a:hover { color: #1a56db; }
+        .nav-btn { background: #1a56db; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+
+        .breadcrumb { padding: 16px 0; font-size: 13px; color: #888; }
+        .breadcrumb a { color: #1a56db; }
+
+        .hotel-hero { background: linear-gradient(135deg, #0c4a6e, #0ea5e9, #7dd3fc); border-radius: 20px; height: 380px; margin-bottom: 32px; position: relative; overflow: hidden; }
+        .hotel-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(0,0,0,0.3)); }
+        .hotel-hero-text { position: absolute; bottom: 32px; left: 32px; right: 32px; z-index: 1; }
+        .hotel-hero-text h1 { font-size: 32px; color: #fff; font-weight: 800; margin-bottom: 8px; }
+        .hotel-hero-meta { display: flex; align-items: center; gap: 16px; color: rgba(255,255,255,0.9); font-size: 14px; }
+        .hotel-hero-meta .stars { color: #fbbf24; font-size: 16px; }
+
+        .hotel-layout { display: grid; grid-template-columns: 1fr 380px; gap: 32px; align-items: start; }
+
+        .hotel-section { background: #fff; border-radius: 14px; padding: 28px; margin-bottom: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
+        .hotel-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+        .hotel-section p { font-size: 14px; color: #555; line-height: 1.8; }
+
+        .amenity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .amenity-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; padding: 10px 12px; background: #f8fafc; border-radius: 8px; }
+        .amenity-icon { font-size: 18px; }
+
+        .review-item { padding: 16px 0; border-bottom: 1px solid #f1f5f9; }
+        .review-item:last-child { border-bottom: none; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .review-user { font-size: 14px; font-weight: 600; }
+        .review-date { font-size: 12px; color: #aaa; }
+        .review-stars { color: #f59e0b; font-size: 13px; margin-bottom: 6px; }
+        .review-text { font-size: 13px; color: #666; line-height: 1.7; }
+
+        /* Booking Panel */
+        .booking-panel { background: #fff; border-radius: 14px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: sticky; top: 90px; }
+        .bp-price { font-size: 32px; font-weight: 800; color: #ef4444; margin-bottom: 4px; }
+        .bp-price span { font-size: 14px; font-weight: 400; color: #999; }
+        .bp-old { font-size: 14px; color: #bbb; text-decoration: line-through; margin-bottom: 16px; }
+        .bp-field { margin-bottom: 14px; }
+        .bp-field label { display: block; font-size: 12px; color: #888; margin-bottom: 5px; font-weight: 500; }
+        .bp-field input, .bp-field select { width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; background: #f8fafc; outline: none; }
+        .bp-field input:focus, .bp-field select:focus { border-color: #3b82f6; }
+        .bp-dates { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .bp-guests { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .bp-book-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #1a56db, #3b82f6); color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+        .bp-book-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,86,219,0.3); }
+        .bp-note { font-size: 12px; color: #999; text-align: center; margin-top: 12px; }
+        .bp-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+        .bp-tag { background: #f0fdf4; color: #16a34a; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+        .bp-tag-blue { background: #eff6ff; color: #2563eb; }
+
+        /* Room Types */
+        .room-table { width: 100%; border-collapse: collapse; }
+        .room-table th { text-align: left; font-size: 13px; color: #888; font-weight: 600; padding: 12px 16px; background: #f8fafc; }
+        .room-table td { padding: 16px; font-size: 14px; border-bottom: 1px solid #f1f5f9; }
+        .room-table tr:hover td { background: #f8fafc; }
+        .room-name { font-weight: 600; color: #333; }
+        .room-features { font-size: 12px; color: #888; margin-top: 4px; }
+        .room-price { font-size: 18px; font-weight: 700; color: #ef4444; }
+        .room-select-btn { padding: 8px 16px; background: #1a56db; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; }
+        .room-select-btn:hover { background: #1648b8; }
+
+        .footer { background: #1e293b; color: #94a3b8; padding: 40px 0 24px; margin-top: 56px; }
+        .footer-bottom { font-size: 13px; text-align: center; }
+
+        @media (max-width: 900px) {
+            .hotel-layout { grid-template-columns: 1fr; }
+            .booking-panel { position: static; }
+            .amenity-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav a:not(.nav-btn) { display: none; }
+            .hotel-hero { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">畅</div>
+                <span>畅行旅行</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="search.html">酒店搜索</a>
+                <a href="hotel.html" style="color:#1a56db;font-weight:600;">酒店详情</a>
+                <a href="booking.html">我的预订</a>
+                <a href="booking.html" class="nav-btn">登录 / 注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a> / <a href="search.html">三亚酒店</a> / 三亚海棠湾君悦度假酒店
+        </div>
+
+        <div class="hotel-hero">
+            <div class="hotel-hero-text">
+                <h1>三亚海棠湾君悦度假酒店</h1>
+                <div class="hotel-hero-meta">
+                    <span class="stars">★★★★★</span>
+                    <span>豪华型 · 度假酒店</span>
+                    <span>📍 海棠区海棠北路 88 号</span>
+                    <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:4px; font-size:12px;">2,847 条点评</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-layout">
+            <div>
+                <div class="hotel-section">
+                    <h2>酒店介绍</h2>
+                    <p>三亚海棠湾君悦度假酒店坐落于海棠湾黄金海岸线核心位置，拥有 286 间宽敞豪华的客房和 32 栋海景别墅。酒店距离三亚凤凰国际机场约 45 分钟车程，步行 3 分钟即达海棠湾私人沙滩。</p>
+                    <p style="margin-top:12px;">酒店配备室内外恒温无边泳池、全日制西餐厅"椰风"、中餐厅"琼宴"、日式铁板烧"琉光"、大堂吧"蓝湾"、水疗中心"悦享"、2,000㎡ 宴会厅及 6 间多功能会议室。无论商务出行还是度假休闲，都能满足您的需求。</p>
+                </div>
+
+                <div class="hotel-section">
+                    <h2>酒店设施</h2>
+                    <div class="amenity-grid">
+                        <div class="amenity-item"><span class="amenity-icon">🏊</span> 室内恒温泳池</div>
+                        <div class="amenity-item"><span class="amenity-icon">🏖</span> 私人沙滩</div>
+                        <div class="amenity-item"><span class="amenity-icon">💆</span> SPA 水疗</div>
+                        <div class="amenity-item"><span class="amenity-icon">🍽</span> 4 间餐厅</div>
+                        <div class="amenity-item"><span class="amenity-icon">💪</span> 24h 健身房</div>
+                        <div class="amenity-item"><span class="amenity-icon">📶</span> 免费 Wi-Fi</div>
+                        <div class="amenity-item"><span class="amenity-icon">🅿</span> 免费停车</div>
+                        <div class="amenity-item"><span class="amenity-icon">🚐</span> 机场接送</div>
+                        <div class="amenity-item"><span class="amenity-icon">👶</span> 儿童乐园</div>
+                        <div class="amenity-item"><span class="amenity-icon">🛎</span> 24h 前台</div>
+                        <div class="amenity-item"><span class="amenity-icon">🐾</span> 允许宠物</div>
+                        <div class="amenity-item"><span class="amenity-icon">📋</span> 洗衣服务</div>
+                    </div>
+                </div>
+
+                <div class="hotel-section">
+                    <h2>可预订房型</h2>
+                    <table class="room-table">
+                        <thead>
+                            <tr>
+                                <th>房型</th>
+                                <th>面积</th>
+                                <th>床型</th>
+                                <th>早餐</th>
+                                <th>价格</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="room-name">豪华大床房</div>
+                                    <div class="room-features">城景 · 42㎡ · 禁烟</div>
+                                </td>
+                                <td>42㎡</td>
+                                <td>大床 1.8m</td>
+                                <td>含双早</td>
+                                <td><span class="room-price">¥1,288</span></td>
+                                <td><button class="room-select-btn" onclick="location.href='booking.html'">选择</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="room-name">豪华双床房</div>
+                                    <div class="room-features">城景 · 45㎡ · 禁烟</div>
+                                </td>
+                                <td>45㎡</td>
+                                <td>双床 1.2m×2</td>
+                                <td>含双早</td>
+                                <td><span class="room-price">¥1,388</span></td>
+                                <td><button class="room-select-btn" onclick="location.href='booking.html'">选择</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="room-name">海景大床房</div>
+                                    <div class="room-features">海景 · 52㎡ · 阳台</div>
+                                </td>
+                                <td>52㎡</td>
+                                <td>大床 2.0m</td>
+                                <td>含双早</td>
+                                <td><span class="room-price">¥1,688</span></td>
+                                <td><button class="room-select-btn" onclick="location.href='booking.html'">选择</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="room-name">总统套房</div>
+                                    <div class="room-features">海景 · 128㎡ · 客厅+卧室</div>
+                                </td>
+                                <td>128㎡</td>
+                                <td>大床 2.2m</td>
+                                <td>含双早+晚餐</td>
+                                <td><span class="room-price">¥5,880</span></td>
+                                <td><button class="room-select-btn" onclick="location.href='booking.html'">选择</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hotel-section">
+                    <h2>住客点评</h2>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="review-user">👤 林女士</span>
+                            <span class="review-date">2024年12月入住</span>
+                        </div>
+                        <div class="review-stars">★★★★★ 4.9</div>
+                        <div class="review-text">带家人来三亚度假，选了这家果然没让人失望。房间干净整洁，海景房推窗就是大海。早餐种类很丰富，水果和海鲜都很新鲜。服务贴心，孩子还收到了小礼物。泳池水质清澈，沙滩沙子细腻。下次还会选择这里！</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="review-user">👤 张先生</span>
+                            <span class="review-date">2024年11月入住</span>
+                        </div>
+                        <div class="review-stars">★★★★★ 4.8</div>
+                        <div class="review-text">出差顺便度假，行政酒廊的体验很高级，下午茶和晚间鸡尾酒都不错。健身房设备齐全，24小时开放。前台办理入住很快，还主动推荐了附近的餐厅。整体来说性价比很高，商务客人推荐选行政楼层。</div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <span class="review-user">👤 王女士</span>
+                            <span class="review-date">2024年10月入住</span>
+                        </div>
+                        <div class="review-stars">★★★★☆ 4.6</div>
+                        <div class="review-text">整体体验很好，房间很大很亮堂。唯一小遗憾是周末泳池人比较多。不过 SPA 做得非常棒，两个小时的全身按摩太享受了。酒店离免税店也不远，打车 10 分钟就到。推荐情侣或闺蜜出行。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="booking-panel">
+                    <div class="bp-price">¥1,288 <span>/晚起</span></div>
+                    <div class="bp-old">原价 ¥1,866/晚 · 省 31%</div>
+                    <div class="bp-tags">
+                        <span class="bp-tag">含双早</span>
+                        <span class="bp-tag bp-tag-blue">免费取消</span>
+                        <span class="bp-tag">免费停车</span>
+                    </div>
+                    <div class="bp-field">
+                        <label>入住日期</label>
+                        <input type="date" value="2025-01-20">
+                    </div>
+                    <div class="bp-field">
+                        <label>离店日期</label>
+                        <input type="date" value="2025-01-23">
+                    </div>
+                    <div class="bp-dates">
+                        <div class="bp-field">
+                            <label>成人</label>
+                            <select><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+                        </div>
+                        <div class="bp-field">
+                            <label>儿童</label>
+                            <select><option selected>0</option><option>1</option><option>2</option></select>
+                        </div>
+                    </div>
+                    <div class="bp-field">
+                        <label>房型</label>
+                        <select>
+                            <option selected>豪华大床房 - ¥1,288/晚</option>
+                            <option>豪华双床房 - ¥1,388/晚</option>
+                            <option>海景大床房 - ¥1,688/晚</option>
+                            <option>总统套房 - ¥5,880/晚</option>
+                        </select>
+                    </div>
+                    <button class="bp-book-btn" onclick="location.href='booking.html'">立即预订</button>
+                    <div class="bp-note">🔒 安全加密支付 · 入住前 24 小时免费取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>© 2025 畅行旅行 版权所有 | 京ICP备2025001234号 | 客服热线：400-888-6666</p>
+        </div>
+    </footer>
+</body>
+</html>

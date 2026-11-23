@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>确认预订 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --success-color: #28a745;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; }
+        
+        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+        .navbar { background: var(--white); box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 20px; text-align: center; }
+        .navbar a { color: var(--text-light); font-size: 16px; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .step-indicator { display: flex; justify-content: center; margin-bottom: 30px; color: #ddd; font-size: 14px; }
+        .step { color: #ddd; margin: 0 10px; }
+        .step.active { color: var(--primary-color); font-weight: bold; text-decoration: underline; }
+
+        .booking-card { background: var(--white); border-radius: var(--border-radius); box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+
+        .review-section { padding: 30px; border-bottom: 1px solid #eee; }
+        .review-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; border-left: 4px solid var(--primary-color); padding-left: 10px; }
+        
+        .review-item { display: flex; margin-bottom: 20px; align-items: center; }
+        .review-item img { width: 80px; height: 60px; border-radius: 4px; margin-right: 20px; object-fit: cover; }
+        .review-info { flex: 1; }
+        .review-name { font-weight: bold; font-size: 16px; margin-bottom: 5px; }
+        .review-details { font-size: 14px; color: #666; display: grid; grid-template-columns: 100px 1fr; gap: 5px; }
+
+        .payment-section { padding: 30px; background: #f9f9f9; }
+        .section-header { font-size: 18px; font-weight: bold; margin-bottom: 20px; color: var(--text-main); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus { border-color: var(--primary-color); }
+
+        .payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+        .payment-option { border: 1px solid #ddd; border-radius: 4px; padding: 15px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .payment-option:hover { border-color: var(--primary-color); background: #f0f8ff; }
+        .payment-option.selected { border-color: var(--primary-color); background: #e6f0fa; color: var(--primary-color); font-weight: bold; }
+
+        .total-section { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; background: var(--white); margin-top: 20px; border-radius: 0 0 var(--border-radius) var(--border-radius); }
+        .total-price { font-size: 24px; font-weight: bold; color: #d93025; }
+        
+        .btn-submit { padding: 14px 40px; background: var(--success-color); color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; margin-left: 20px; transition: background 0.2s; }
+        .btn-submit:hover { background: #218838; }
+
+        @media (max-width: 600px) {
+            .review-item { flex-direction: column; align-items: flex-start; }
+            .review-item img { margin-bottom: 10px; width: 100%; }
+            .payment-options { grid-template-columns: 1fr; }
+            .total-section { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .btn-submit { margin-left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="hotel_detail.html">&larr; 返回详情页</a>
+</div>
+
+<div class="container">
+    <div class="step-indicator">
+        <span class="step active">1. 确认订单</span>
+        <span class="step">2. 支付信息</span>
+        <span class="step">3. 完成</span>
+    </div>
+
+    <div class="booking-card">
+        <div class="review-section">
+            <div class="review-title">订单详情摘要</div>
+            <div class="review-item">
+                <img src="assets/image-bb35b48a286fcbf8.jpg" alt="酒店图片">
+                <div class="review-info">
+                    <div class="review-name">北京王府井丽思卡尔顿酒店</div>
+                    <div class="review-details">
+                        <span>房型：</span><span>豪华大床房（景观）</span>
+                        <span>入住：</span><span>2023-10-01 至 2023-10-04</span>
+                        <span>共3晚，2成人，0儿童</span>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 14px; color: #666;">
+                        <span style="color: #ff9900;">★ 4.9</span> | 王府井商业区 | 含双早 | 免费取消
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <div class="section-header">支付方式</div>
+            <div class="payment-options">
+                <div class="payment-option selected">
+                    <div style="font-size: 20px;">💳</div>
+                    <div>微信支付</div>
+                </div>
+                <div class="payment-option">
+                    <div style="font-size: 20px;">🛍️</div>
+                    <div>支付宝</div>
+                </div>
+                <div class="payment-option">
+                    <div style="font-size: 20px;">🏦</div>
+                    <div>信用卡</div>
+                </div>
+            </div>
+
+            <div class="section-header">旅客信息</div>
+            <form onsubmit="return false;">
+                <div class="form-group">
+                    <label>旅客姓名 (与身份证一致)</label>
+                    <input type="text" placeholder="请输入您的真实姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>手机号码</label>
+                    <input type="tel" placeholder="请输入接收验证码的手机号" maxlength="11" required>
+                </div>
+                <div class="form-group">
+                    <label>电子邮箱</label>
+                    <input type="email" placeholder="用于接收电子行程单" required>
+                </div>
+                <div class="form-group">
+                    <label>身份证号码 (大陆居民)</label>
+                    <input type="text" placeholder="18位身份证号码" maxlength="18" required>
+                </div>
+            </form>
+        </div>
+
+        <div class="total-section">
+            <div>
+                <div style="font-size: 14px; color: #666;">应付总额</div>
+                <div class="total-price">¥7,140.00</div>
+                <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                    退改签：3天前免费取消
+                </div>
+            </div>
+            <button class="btn-submit" onclick="alert('预订成功！感谢您的选择。您可以返回首页或查看订单信息。')">确认支付</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

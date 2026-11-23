@@ -1,0 +1,137 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "hotel.html",
+   "selector": "div.room-img",
+   "match": "豪华大床房 45m² · 城景 · 免费 Wi-",
+   "url": "assets/photo-a3a2faa978470ffc.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Canopy bed of Amantaka Suite in Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "luxury hotel king bed room",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Canopy_bed_of_Amantaka_Suite_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/960px-Canopy_bed_of_Amantaka_Suite_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "hotel.html",
+   "selector": "div.room-img",
+   "match": "行政套房 68m² · 独立客厅 · 行政酒廊 ",
+   "url": "assets/photo-d154a10de2d32f4f.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Executive Suite Living Room - Four Points Lévis (3242121913).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "executive suite hotel living room",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Executive_Suite_Living_Room_-_Four_Points_L%C3%A9vis_%283242121913%29.jpg/960px-Executive_Suite_Living_Room_-_Four_Points_L%C3%A9vis_%283242121913%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "hotel.html",
+   "selector": "div.room-img",
+   "match": "总统套房 128m² · 全景落地窗 · 专属管",
+   "url": "assets/photo-60a17764c0fdb3be.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Dolder Grand Hotel - Junior Suite mit Aussicht auf Zürich.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "presidential suite hotel panoramic view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Dolder_Grand_Hotel_-_Junior_Suite_mit_Aussicht_auf_Z%C3%BCrich.jpg/960px-Dolder_Grand_Hotel_-_Junior_Suite_mit_Aussicht_auf_Z%C3%BCrich.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "hotel.html",
+   "selector": "div.room-img",
+   "match": "亲子主题房 52m² · 儿童游乐角 · 含双早",
+   "url": "assets/photo-d6c70e95fae3c202.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Leikkihuone-lekrum.jpg",
+   "license": "CC BY 2.0",
+   "subject": "family friendly hotel kids playroom",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Leikkihuone-lekrum.jpg/960px-Leikkihuone-lekrum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.hotel-img",
+   "match": "北京国贸大酒店 北京市朝阳区建国门外大街 ★★★",
+   "url": "assets/photo-6de1c22b87ce147d.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Hotel Bonne Nuit – exterior view, Labuan Bajo, Indonesia.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of beijing guomao grand hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg/960px-Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.hotel-img",
+   "match": "杭州西湖国宾馆 杭州市西湖区杨公堤 ★★★★★ ",
+   "url": "assets/photo-81ae535ddd6501c7.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Four Seasons Hotel Hangzhou West Lake 20201001.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of west lake hotel hangzhou",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg/960px-Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.hotel-img",
+   "match": "三亚亚特兰蒂斯 三亚市海棠湾海棠北路 ★★★★★",
+   "url": "assets/photo-4359564dc462ebb0.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Entrance of Atlantis Aquaventure, Sanya (20230328135457).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of atlantis sanya resort",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Entrance_of_Atlantis_Aquaventure%2C_Sanya_%2820230328135457%29.jpg/960px-Entrance_of_Atlantis_Aquaventure%2C_Sanya_%2820230328135457%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "北京国贸大酒店 五星 · 热门 北京市朝阳区建国",
+   "url": "assets/photo-6de1c22b87ce147d.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Hotel Bonne Nuit – exterior view, Labuan Bajo, Indonesia.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of beijing guomao grand hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg/960px-Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "北京东方君悦大酒店 五星 · 商务首选 北京市东",
+   "url": "assets/photo-07dd2c4e853c45cf.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Exterior facade of Residence Bassac at blue hour, town of Champasak, Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of beijing dongfang junyue grand hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg/960px-Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "北京柏悦酒店 五星 · 景观房 北京市西城区金融",
+   "url": "assets/photo-61f9b2740d063a91.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Revolving door at Park Hyatt Beijing (20241026100559).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of beijing park hyatt hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Revolving_door_at_Park_Hyatt_Beijing_%2820241026100559%29.jpg/960px-Revolving_door_at_Park_Hyatt_Beijing_%2820241026100559%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "北京首都机场凯悦酒店 五星 · 机场直达 北京市",
+   "url": "assets/photo-0cbbdcc1b260d1f6.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Hyatt Place El Paso Airport 2022-05-29.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "exterior view of beijing capital airport hyatt hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Hyatt_Place_El_Paso_Airport_2022-05-29.jpg/960px-Hyatt_Place_El_Paso_Airport_2022-05-29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

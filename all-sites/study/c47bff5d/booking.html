@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线预约 - 洁家家政</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <div style="width: 30px; height: 30px; background: var(--primary-color); border-radius: 4px;"></div>
+                <span>洁家家政</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务项目</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="booking.html" class="btn btn-accent">立即预约</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 60px 0; background: var(--secondary-color);">
+        <div class="container">
+            <h1>在线预约</h1>
+            <p>填写以下信息，我们的客服将在 30 分钟内与您联系确认</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="form-container">
+                <form action="#" onsubmit="alert('感谢您的预约！客服稍后会联系您。'); return false;">
+                    
+                    <div class="form-group">
+                        <label for="name">您的姓名 *</label>
+                        <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">联系电话 *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="请输入手机号码">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service-type">服务类型 *</label>
+                        <select id="service-type" name="service-type" required>
+                            <option value="" disabled selected>请选择服务</option>
+                            <option value="daily">日常保洁 (¥88/小时)</option>
+                            <option value="deep">深度精细保洁 (¥128/小时)</option>
+                            <option value="movein">新房开荒保洁</option>
+                            <option value="appliance">家电清洗</option>
+                            <option value="window">擦玻璃</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">上门服务地址 *</label>
+                        <input type="text" id="address" name="address" required placeholder="例如：北京市朝阳区 xxx 小区 x 号楼 x 单元">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">期望服务日期</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">备注要求（选填）</label>
+                        <textarea id="message" name="message" rows="4" placeholder="例如：家里养猫，或者需要特别关注厨房清洁..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">提交预约</button>
+                    
+                    <p style="font-size: 12px; color: #999; margin-top: 15px; text-align: center;">
+                        我们承诺保护您的隐私，您的信息仅用于服务联络。
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>洁家家政</h3>
+                    <p>致力于为您打造洁净、舒适的居家环境。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="services.html">服务项目</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li>电话：010-8888-9999</li>
+                        <li>微信：jiejia_clean</li>
+                        <li>地址：北京市朝阳区建国路 88 号 SOHO 现代城</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 洁家家政服务有限公司 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

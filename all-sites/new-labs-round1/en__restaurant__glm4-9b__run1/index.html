@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 家门口的地道浙江菜</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        .container { width: 1440px; margin: auto; }
+        header { background: #f8f8f8; padding: 20px 0; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .nav { font-size: 18px; }
+        .nav a { margin-left: 20px; text-decoration: none; color: #333; }
+        .nav a:hover { color: #5a5a5a; }
+        .main { padding: 20px; }
+        .banner { width: 100%; height: 500px; background: url('banner.jpg') no-repeat center center; background-size: cover; }
+        .main-content { display: flex; }
+        .menu, .reservation { padding: 20px; }
+        .menu h2, .reservation h2 { font-size: 24px; }
+        .menu ul { list-style: none; padding: 0; }
+        .menu li { margin-bottom: 10px; }
+        .menu li a { text-decoration: none; color: #333; }
+        .menu li a:hover { color: #5a5a5a; }
+        .reservation form { display: flex; flex-direction: column; }
+        .reservation input, .reservation textarea { margin-bottom: 10px; padding: 10px; }
+        .reservation button { padding: 10px 20px; }
+        .footer { background: #333; color: white; padding: 20px 0; text-align: center; }
+        .footer p { margin: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">家味餐厅</div>
+                <div class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="menu.html">菜单</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="reservation.html">预订</a>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="banner"></div>
+            <div class="main-content">
+                <div class="menu">
+                    <h2>菜单</h2>
+                    <ul>
+                        <li><a href="#">龙井虾仁</a></li>
+                        <li><a href="#">东坡肉</a></li>
+                        <li><a href="#">叫花鸡</a></li>
+                        <li><a href="#">西湖醋鱼</a></li>
+                        <li><a href="#">鲍汁扣辽参</a></li>
+                    </ul>
+                </div>
+                <div class="reservation">
+                    <h2>预订</h2>
+                    <form>
+                        <input type="text" placeholder="姓名">
+                        <input type="text" placeholder="电话号码">
+                        <input type="email" placeholder="邮箱">
+                        <textarea placeholder="备注信息"></textarea>
+                        <button type="submit">提交预订</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>家味餐厅 &copy; 2023</p>
+        </footer>
+    </div>
+</body>
+</html>

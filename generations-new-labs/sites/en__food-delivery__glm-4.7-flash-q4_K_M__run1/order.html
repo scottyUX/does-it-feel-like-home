@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>确认订单 - 快送外卖</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <span>快送外卖</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html">商家列表</a>
+                <a href="#">我的订单</a>
+            </nav>
+            <a href="order.html" class="btn btn-primary" style="padding: 6px 15px; font-size: 12px;">
+                🛒 <span class="cart-badge">1</span> 去结算
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 style="margin-bottom: 20px;">确认订单</h2>
+        
+        <div class="checkout-layout">
+            <!-- Left Column: Info -->
+            <main>
+                <!-- Restaurant Info -->
+                <div class="info-box">
+                    <div style="display: flex; gap: 15px;">
+                        <img src="assets/image-b4534ee984fd549c.jpg" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px;" alt="川味江湖">
+                        <div>
+                            <h3 style="font-size: 16px;">川味江湖 · 经典川菜</h3>
+                            <p style="font-size: 12px; color: #666;">3.8km | 约35分钟 | 月售 2300+</p>
+                        </div>
+                    </div>
+                    <a href="restaurant.html" style="float: right; font-size: 13px; color: var(--primary-color); text-decoration: none; margin-top: 10px;">再去逛逛 ></a>
+                </div>
+
+                <!-- Address -->
+                <div class="info-box">
+                    <div style="font-weight: bold; margin-bottom: 15px;">配送地址</div>
+                    <div class="form-group">
+                        <label class="form-label">姓名</label>
+                        <input type="text" class="form-input" value="王小明" style="background-color: #fafafa; border-color: #eee;">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">联系电话</label>
+                        <input type="text" class="form-input" value="138****8888" style="background-color: #fafafa; border-color: #eee;">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">详细地址</label>
+                        <input type="text" class="form-input" value="成都市高新区天府大道 888 号 12 楼 1201" style="background-color: #fafafa; border-color: #eee;">
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="info-box">
+                    <div style="font-weight: bold; margin-bottom: 15px;">订单商品</div>
+                    <div class="menu-item" style="border: none; padding: 0; gap: 10px;">
+                        <div style="font-size: 13px; color: #666; width: 50px;">x1</div>
+                        <div style="flex: 1;">
+                            <div class="menu-title" style="font-size: 14px;">招牌水煮鱼 (微辣)</div>
+                            <div style="font-size: 12px; color: #999;">标准份</div>
+                        </div>
+                        <div style="font-size: 14px; font-weight: bold;">¥42.00</div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #999;">
+                        商家赠送：番茄鸡蛋汤 1份
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="info-box">
+                    <div style="font-weight: bold; margin-bottom: 15px;">支付方式</div>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="payment" checked> 微信支付
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="payment"> 支付宝
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="payment"> 余额
+                        </label>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Column: Summary -->
+            <aside>
+                <div class="order-summary-card">
+                    <div class="form-group">
+                        <label class="form-label">备注</label>
+                        <input type="text" class="form-input" placeholder="不要香菜">
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 8px;">
+                            <span>商品金额</span>
+                            <span>¥42.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 8px;">
+                            <span>配送费</span>
+                            <span>¥10.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 8px;">
+                            <span>打包费</span>
+                            <span>¥3.00</span>
+                        </div>
+                        <hr style="margin: 10px 0; border: 0; border-top: 1px dashed #ddd;">
+                        <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; color: #333;">
+                            <span>合计</span>
+                            <span style="color: #ff5000;">¥55.00</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <div class="radio-group" style="margin-bottom: 15px;">
+                            <label class="radio-item">
+                                <input type="radio" name="tip" checked> 不给小费
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="tip"> 加 ¥3 小费
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; height: 44px; font-size: 16px; border-radius: 8px;">提交订单</button>
+                    </div>
+                    
+                    <div style="text-align: center; font-size: 12px; color: #999; margin-top: 15px;">
+                        <p>下单即代表您同意 <a href="#" style="color: #999;">服务协议</a></p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div class="main-footer">
+        <p>快送外卖 · 成都站 © 2023</p>
+    </div>
+</body>
+</html>

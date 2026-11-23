@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>悦容美发美容 - 广州专业美发美容沙龙</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --dark: #2c2c2c;
+  --darker: #1a1a1a;
+  --cream: #faf7f2;
+  --rose: #d4a0a0;
+  --white: #ffffff;
+  --gray: #6b6b6b;
+  --light-gray: #f5f3f0;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; color: var(--dark); background: var(--cream); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Navigation */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+  padding: 0 60px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 22px; font-weight: 700; color: var(--dark); letter-spacing: 2px; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links a { font-size: 15px; color: var(--gray); transition: color 0.3s; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: var(--white) !important; padding: 10px 28px;
+  border-radius: 4px; font-weight: 600; transition: all 0.3s;
+}
+.nav-cta:hover { background: #b8944f; transform: translateY(-1px); }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2520 50%, #3a2f28 100%);
+  padding: 100px 60px 60px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -20%;
+  width: 800px; height: 800px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -30%; left: -10%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,160,160,0.06) 0%, transparent 70%);
+}
+.hero-content { max-width: 700px; position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+  padding: 6px 18px; border-radius: 2px; font-size: 13px; letter-spacing: 3px;
+  margin-bottom: 28px; text-transform: uppercase;
+}
+.hero h1 { font-size: 52px; color: var(--white); font-weight: 700; line-height: 1.3; margin-bottom: 24px; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero p { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 540px; }
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--white); padding: 16px 40px;
+  border-radius: 4px; font-size: 16px; font-weight: 600; border: none;
+  cursor: pointer; transition: all 0.3s; display: inline-block;
+}
+.btn-primary:hover { background: #b8944f; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,110,0.3); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 16px 40px;
+  border-radius: 4px; font-size: 16px; font-weight: 500; transition: all 0.3s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Stats */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  background: var(--white); margin: -60px 60px 0; position: relative; z-index: 10;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden;
+}
+.stat-item { padding: 40px 30px; text-align: center; border-right: 1px solid #f0ede8; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-size: 38px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+.stat-label { font-size: 14px; color: var(--gray); }
+
+/* Sections */
+.section { padding: 100px 60px; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-tag {
+  font-size: 13px; letter-spacing: 3px; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 12px; font-weight: 600;
+}
+.section-title { font-size: 38px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+.section-desc { font-size: 16px; color: var(--gray); max-width: 560px; margin: 0 auto; }
+
+/* Services Preview */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.service-card {
+  background: var(--white); border-radius: 8px; padding: 40px 32px;
+  transition: all 0.3s; border: 1px solid #f0ede8;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-color: var(--gold-light); }
+.service-icon {
+  width: 56px; height: 56px; background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 20px; color: var(--white);
+}
+.service-card h3 { font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+.service-card p { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
+.service-price { font-size: 18px; font-weight: 700; color: var(--gold); }
+.service-price small { font-size: 13px; color: var(--gray); font-weight: 400; }
+
+/* About Section */
+.about { background: var(--white); }
+.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-img {
+  width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e8d5b0, #d4c5a0);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 60px; color: rgba(255,255,255,0.6);
+}
+.about-text h2 { font-size: 34px; margin-bottom: 20px; font-weight: 700; }
+.about-text p { font-size: 16px; color: var(--gray); margin-bottom: 16px; }
+.about-features { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.about-feat { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.about-feat::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+/* Testimonials */
+.testimonials { background: var(--darker); }
+.testimonials .section-title { color: var(--white); }
+.testimonials .section-desc { color: rgba(255,255,255,0.6); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.testi-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 32px;
+}
+.testi-stars { color: var(--gold); font-size: 16px; margin-bottom: 16px; }
+.testi-text { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 20px; line-height: 1.8; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--gold-light);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--dark);
+}
+.testi-name { font-size: 15px; color: var(--white); font-weight: 600; }
+.testi-service { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--gold), #d4a056);
+  padding: 80px 60px; text-align: center;
+}
+.cta-section h2 { font-size: 36px; color: var(--white); margin-bottom: 16px; }
+.cta-section p { font-size: 17px; color: rgba(255,255,255,0.85); margin-bottom: 32px; }
+.btn-white {
+  background: var(--white); color: var(--dark); padding: 16px 44px;
+  border-radius: 4px; font-size: 16px; font-weight: 600; transition: all 0.3s; display: inline-block;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+/* Info */
+.info-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.info-card { text-align: center; }
+.info-icon { font-size: 36px; margin-bottom: 16px; }
+.info-card h4 { font-size: 18px; margin-bottom: 8px; }
+.info-card p { font-size: 14px; color: var(--gray); }
+
+/* Footer */
+.footer {
+  background: var(--darker); padding: 60px 60px 30px;
+  color: rgba(255,255,255,0.6);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand h3 { font-size: 22px; color: var(--white); margin-bottom: 12px; }
+.footer-brand h3 span { color: var(--gold); }
+.footer-brand p { font-size: 14px; line-height: 1.8; }
+.footer h4 { font-size: 15px; color: var(--white); margin-bottom: 16px; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul li a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+.footer ul li a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center; font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .navbar { padding: 0 30px; }
+  .hero { padding: 100px 30px 60px; }
+  .hero h1 { font-size: 40px; }
+  .section { padding: 70px 30px; }
+  .stats { margin: -40px 30px 0; grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .info-section { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .navbar { padding: 0 20px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 13px; }
+  .hero { padding: 90px 20px 50px; }
+  .hero h1 { font-size: 32px; }
+  .section { padding: 60px 20px; }
+  .stats { margin: -30px 20px 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .footer { padding: 40px 20px 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">悦容<span>·</span>美发美容</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">首页</a></li>
+    <li><a href="services.html">服务项目</a></li>
+    <li><a href="team.html">团队介绍</a></li>
+    <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">广州 · 专业美发美容沙龙</div>
+    <h1>让每一次造型<br>都成为<em>你的高光时刻</em></h1>
+    <p>悦容美发美容，专注个性化发型设计与高端护肤护理，汇聚资深造型师团队，用专业与匠心为您打造专属美丽。</p>
+    <div class="hero-btns">
+      <a href="booking.html" class="btn-primary">预约服务</a>
+      <a href="services.html" class="btn-outline">查看价目表</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">12+</div>
+    <div class="stat-label">年专业经验</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">50,000+</div>
+    <div class="stat-label">服务客户</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">8</div>
+    <div class="stat-label">资深造型师</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4.9</div>
+    <div class="stat-label">客户满意度评分</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">我们的服务</div>
+    <div class="section-title">为您精心打造的专业项目</div>
+    <div class="section-desc">从日常修剪到高端造型，从深层护理到焕肤美颜，满足您的一切美丽需求</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✂</div>
+      <h3>专业剪发</h3>
+      <p>根据脸型、发质与风格偏好，量身定制专属发型设计，让每一次剪发都是一次焕新。</p>
+      <div class="service-price">¥88 起 <small>/ 次</small></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>时尚染发</h3>
+      <p>进口环保染剂，多色混搭与渐变技法，打造自然高级的时尚发色，显白又有质感。</p>
+      <div class="service-price">¥298 起 <small>/ 次</small></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>深层护理</h3>
+      <p>头皮检测 + 深层滋养 + 蛋白修复，让秀发从根源恢复强韧光泽，告别干枯毛躁。</p>
+      <div class="service-price">¥228 起 <small>/ 次</small></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>面部护肤</h3>
+      <p>专业肤质分析，搭配定制护理方案，补水、美白、抗衰一站式解决肌肤问题。</p>
+      <div class="service-price">¥168 起 <small>/ 次</small></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💫</div>
+      <h3>烫发造型</h3>
+      <p>数码烫、法式烫、韩式纹理烫，柔韧不伤发，自然蓬松有层次，持久好看。</p>
+      <div class="service-price">¥468 起 <small>/ 次</small></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👰</div>
+      <h3>婚礼/活动造型</h3>
+      <p>新娘跟妆、年会造型、拍摄造型，一对一沟通设计，让您在重要场合完美亮相。</p>
+      <div class="service-price">¥388 起 <small>/ 次</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section about">
+  <div class="about-wrap">
+    <div class="about-img">🪞</div>
+    <div class="about-text">
+      <div class="section-tag">关于悦容</div>
+      <h2>十二年匠心，只为你的美</h2>
+      <p>悦容美发美容创立于2012年，坐落于广州天河区核心商圈。我们始终坚持"一人一设计"的理念，拒绝流水线式的服务模式。每一位造型师都经过严格的专业培训与考核，拥有多年一线服务经验。</p>
+      <p>店内环境简约雅致，采用国际一线品牌产品，从日本资生堂、欧莱雅专业线到韩国LG生活健康，确保每一款产品都安全、有效、高品质。</p>
+      <div class="about-features">
+        <div class="about-feat">国际一线品牌产品</div>
+        <div class="about-feat">一对一专属设计</div>
+        <div class="about-feat">头皮健康检测</div>
+        <div class="about-feat">无隐形消费</div>
+        <div class="about-feat">免费洗护体验</div>
+        <div class="about-feat">术后跟踪回访</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="section-header">
+    <div class="section-tag">客户评价</div>
+    <div class="section-title">听听他们怎么说</div>
+    <div class="section-desc">超过50000位客户的选择，是我们最好的证明</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">在悦容做了两次挂耳染，颜色非常自然高级，朋友都问我在哪里做的。林姐很耐心，会根据我的肤色推荐最适合的色号，完全不会推很贵的套餐，很良心。</p>
+      <div class="testi-author">
+        <div class="testi-avatar">林</div>
+        <div>
+          <div class="testi-name">林小姐</div>
+          <div class="testi-service">时尚染发 · 挂耳染</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">男生理发总是很难遇到懂我的，但陈师傅真的会仔细沟通，剪完效果跟我想的一模一样。而且店内环境很干净，没有推销，坐着很舒服，已经成了我的固定店了。</p>
+      <div class="testi-author">
+        <div class="testi-avatar">张</div>
+        <div>
+          <div class="testi-name">张先生</div>
+          <div class="testi-service">男士精剪 · 造型</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">之前皮肤很干燥还长闭口，在苏姐这里做了三次深层补水疗程，肉眼可见地变好了。手法很轻柔，产品用起来没有刺激感，现在每个月都会来护理一次。</p>
+      <div class="testi-author">
+        <div class="testi-avatar">王</div>
+        <div>
+          <div class="testi-name">王女士</div>
+          <div class="testi-service">面部护肤 · 深层补水</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">到店信息</div>
+    <div class="section-title">方便您随时找到我们</div>
+  </div>
+  <div class="info-section">
+    <div class="info-card">
+      <div class="info-icon">📍</div>
+      <h4>门店地址</h4>
+      <p>广州市天河区体育西路103号<br>盛汇大厦 2层 208-210室</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🕐</div>
+      <h4>营业时间</h4>
+      <p>周一至周日 10:00 - 21:00<br>节假日正常营业，无需预约也可到店</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📞</div>
+      <h4>联系电话</h4>
+      <p>020-8765-4321<br>138-0296-7543（微信同号）</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>准备好开启你的美丽之旅了吗？</h2>
+  <p>首次到店可享免费头皮/肤质检测 + 设计师一对一沟通，立即预约锁定专属时段</p>
+  <a href="booking.html" class="btn-white">在线预约 →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>悦容<span>·</span>美发美容</h3>
+      <p>扎根广州十二年，专注美发造型与美容护肤。我们相信，真正的美丽来自对细节的极致追求和对每一位客户的真诚对待。</p>
+    </div>
+    <div>
+      <h4>快速导航</h4>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="services.html">服务项目</a></li>
+        <li><a href="team.html">团队介绍</a></li>
+        <li><a href="booking.html">在线预约</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>服务项目</h4>
+      <ul>
+        <li><a href="services.html">专业剪发</a></li>
+        <li><a href="services.html">时尚染发</a></li>
+        <li><a href="services.html">烫发造型</a></li>
+        <li><a href="services.html">面部护肤</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>联系方式</h4>
+      <ul>
+        <li><a href="booking.html">020-8765-4321</a></li>
+        <li><a href="booking.html">138-0296-7543</a></li>
+        <li><a href="index.html">天河区体育西路103号</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 悦容美发美容 版权所有</span>
+    <span>广州市天河区 · 美发美容服务</span>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll and nav highlight
+document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>

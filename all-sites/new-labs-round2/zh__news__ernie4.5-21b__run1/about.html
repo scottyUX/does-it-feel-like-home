@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 每日视界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .main-content {
+            max-width: 1440px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .about-header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        .about-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .about-content {
+            display: flex;
+            gap: 3rem;
+        }
+        .about-team {
+            flex: 1;
+        }
+        .team-member {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .team-member p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .team-member .position {
+            font-weight: bold;
+            color: #1e90ff;
+        }
+        .about-values {
+            flex: 1;
+        }
+        .value-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+        }
+        .value-item h3 {
+            margin-bottom: 0.5rem;
+            color: #1a5276;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">每日视界</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经</a></li>
+                    <li><a href="tech.html">科技</a></li>
+                    <li><a href="sports.html">体育</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="about-header">
+            <h1>关于每日视界</h1>
+            <p>专业新闻媒体，传递真实信息</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-team">
+                <h2>我们的团队</h2>
+                <div class="team-member">
+                    <h3>张明</h3>
+                    <p class="position">主编</p>
+                    <p>拥有15年新闻从业经验，曾任职于多家知名媒体机构，专注经济新闻领域。</p>
+                </div>
+                <div class="team-member">
+                    <h3>李娜</h3>
+                    <p class="position">财经编辑</p>
+                    <p>负责财经新闻的策划与撰写，熟悉资本市场动态，擅长深度报道。</p>
+                </div>
+                <div class="team-member">
+                    <h3>王强</h3>
+                    <p class="position">科技编辑</p>
+                    <p>专注于科技领域报道，熟悉新兴技术发展趋势，善于捕捉创新动态。</p>
+                </div>
+                <div class="team-member">
+                    <h3>赵敏</h3>
+                    <p class="position">体育编辑</p>
+                    <p>体育赛事资深记者，熟悉各类体育项目，擅长赛事报道与分析。</p>
+                </div>
+            </div>
+
+            <div class="about-values">
+                <h2>我们的价值观</h2>
+                <div class="value-item">
+                    <h3>真实可靠</h3>
+                    <p>我们承诺每一条新闻都经过严格核实，确保信息准确无误。</p>
+                </div>
+                <div class="value-item">
+                    <h3>专业深度</h3>
+                    <p>我们注重新闻的专业性和深度分析，为读者提供有价值的见解。</p>
+                </div>
+                <div class="value-item">
+                    <h3>及时全面</h3>
+                    <p>我们以最快的速度传递最新资讯，同时提供全面的新闻视角。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 每日视界 版权所有</p>
+        <p>联系我们：service@meiri.com | 客服电话：400-123-4567</p>
+    </footer>
+</body>
+</html>

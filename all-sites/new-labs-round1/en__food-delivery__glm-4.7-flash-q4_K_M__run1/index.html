@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖 - 首页</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <span>快送外卖</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">首页</a>
+                <a href="restaurants.html">商家列表</a>
+                <a href="#">我的订单</a>
+            </nav>
+            <a href="order.html" class="btn btn-primary" style="padding: 6px 15px; font-size: 12px;">
+                🛒 <span class="cart-badge">2</span> 去结算
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>下班加餐，美味到家</h1>
+                <p>成都地区最快30分钟送达，麻辣鲜香即刻满足。</p>
+            </div>
+            <div class="hero-search">
+                <span style="margin-right: 8px;">🔍</span>
+                <input type="text" placeholder="搜索 麻辣烫、黄焖鸡...">
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <h3 style="margin-bottom: 15px; font-weight: bold;">热门分类</h3>
+        <div class="category-nav">
+            <div class="category-pill active">全部</div>
+            <div class="category-pill">自助餐</div>
+            <div class="category-pill">川菜</div>
+            <div class="category-pill">快餐简餐</div>
+            <div class="category-pill">汉堡披萨</div>
+            <div class="category-pill">饮品甜品</div>
+            <div class="category-pill">烧烤夜宵</div>
+            <div class="category-pill">日韩料理</div>
+            <div class="category-pill">咖啡茶饮</div>
+        </div>
+
+        <!-- Recommended -->
+        <h3 style="margin-bottom: 15px; font-weight: bold;">为您推荐</h3>
+        <div class="grid-4">
+            <a href="restaurant.html" class="card">
+                <img src="assets/image-51852bf0ad1a24b4.jpg" alt="川味江湖" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">川味江湖 · 经典川菜</div>
+                    <div class="card-tags">
+                        <span>月售 2000+</span>
+                        <span>3.8km</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="star">★4.8</span>
+                        <span>约35分钟</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="card">
+                <img src="assets/image-8ece98d8e792a691.jpg" alt="牛肉面" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">老成都牛肉面馆</div>
+                    <div class="card-tags">
+                        <span>月售 5000+</span>
+                        <span>1.2km</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="star">★4.9</span>
+                        <span>约20分钟</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="card">
+                <img src="assets/image-6cffd17554ba3580.jpg" alt="麻辣烫" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">张亮麻辣烫 (春熙路店)</div>
+                    <div class="card-tags">
+                        <span>月售 3000+</span>
+                        <span>0.8km</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="star">★4.5</span>
+                        <span>约25分钟</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="card">
+                <img src="assets/image-46b63e37956da6e9.jpg" alt="汉堡王" class="card-img">
+                <div class="card-body">
+                    <div class="card-title">汉堡王 (旗舰店)</div>
+                    <div class="card-tags">
+                        <span>月售 1000+</span>
+                        <span>2.5km</span>
+                    </div>
+                    <div class="card-info">
+                        <span class="star">★4.7</span>
+                        <span>约40分钟</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="main-footer">
+        <p>快送外卖 · 成都站 © 2023</p>
+        <p>致力于为大学生和上班族提供最新鲜的美食体验</p>
+    </div>
+
+    <script>
+        // 简单的分类切换效果
+        document.querySelectorAll('.category-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

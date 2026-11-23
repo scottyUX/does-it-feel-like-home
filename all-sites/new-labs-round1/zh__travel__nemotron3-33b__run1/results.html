@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>搜索结果 - 畅行旅行</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+.container{max-width:1440px;margin:0 auto;padding:20px;}
+header{background:#004d7a;color:#fff;padding:15px;text-align:center;}
+nav{margin-top:10px;}
+nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
+nav a:hover{text-decoration:underline;}
+main{background:#fff;padding:20px;margin-top:20px;border:1px solid #ddd;}
+.search-form{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-bottom:20px;}
+.search-form input,.search-form button{padding:8px;}
+.search-form input{border:1px solid #ccc;border-radius:4px;}
+search-form button{background:#004d7a;color:#fff;border:none;border-radius:4px;cursor:pointer;}
+.result-list{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px;}
+.result-item{background:#fff;padding:15px;border:1px solid #ddd;width:300px;flex:1 1 250px;}
+.result-item img{width:100%;height:auto;border-radius:4px;margin-bottom:10px;}
+.result-item h3{margin:0 0 5px;font-size:1.2em;}
+.result-item p{margin:0;font-size:0.9em;color:#666;}
+.result-item .price{font-weight:bold;color:#0066cc;margin-top:5px;}
+.result-item .btn{display:inline-block;margin-top:10px;padding:6px 10px;background:#004d7a;color:#fff;border-radius:4px;text-decoration:none;}
+footer{background:#f0f0f0;text-align:center;padding:10px;margin-top:30px;font-size:0.9em;color:#666;}
+@media(max-width:768px){
+  .result-item{width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>搜索结果</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="results.html">目的地</a>
+<a href="hotel.html">酒店</a>
+<a href="booking.html">预订</a>
+</nav>
+<main>
+<form class="search-form" action="results.html" method="get">
+<input type="text" name="destination" placeholder="目的地" value="">
+<input type="date" name="checkin" placeholder="入住日期">
+<input type="date" name="checkout" placeholder="离店日期">
+<input type="number" name="guests" placeholder="人数" min="1" value="2">
+<button type="submit">搜索</button>
+</form>
+<div class="result-list">
+<div class="result-item">
+<img src="beijing.jpg" alt="北京王府大酒店">
+<h3>北京王府大酒店</h3>
+<p>位于北京市中心，设施豪华，适合商务与休闲。</p>
+<div class="price">¥1200/晚</div>
+<a href="booking.html" class="btn">预订</a>
+</div>
+<div class="result-item">
+<img src="shanghai.jpg" alt="上海浦东希尔顿">
+<h3>上海浦东希尔顿</h3>
+<p>坐拥浦东商务区，景观优美，服务周到。</p>
+<div class="price">¥1500/晚</div>
+<a href="booking.html" class="btn">预订</a>
+</div>
+<div class="result-item">
+<img src="guangzhou.jpg" alt="广州香雪大酒店">
+<h3>广州香雪大酒店</h3>
+<p>位于广州核心商圈，购物便利，适合家庭出游。</p>
+<div class="price">¥1100/晚</div>
+<a href="booking.html" class="btn">预订</a>
+</div>
+</div>
+</main>
+<footer>
+© 2025 畅行旅行 旅游预订平台
+</footer>
+</div>
+</body>
+</html>

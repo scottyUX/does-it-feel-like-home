@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>长川银行 - 联系我们</title>
+<style>
+    body{font-family:Microsoft YaHei,Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+    header{background:#003366;color:#fff;padding:15px 0;}
+    nav ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;}
+    nav li{margin-right:20px;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;}
+    .content{background:#fff;padding:40px 0;}
+    .content h2{text-align:center;margin-bottom:30px;color:#003366;}
+    .branch-list{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;}
+    .branch{background:#fff;padding:20px;border:1px solid #ddd;border-radius:5px;width:300px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+    .branch h3{margin:0 0 10px;font-size:1.2em;color:#003366;}
+    .branch p{margin:0 0 15px;line-height:1.5;}
+    .form-group{margin-bottom:15px;}
+    .form-group label{display:block;margin-bottom:5px;font-weight:bold;}
+    .form-group input,.form-group textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;}
+    .btn{display:inline-block;padding:10px 20px;background:#ffcc00;color:#000;text-decoration:none;border-radius:5px;cursor:pointer;}
+    footer{background:#003366;color:#fff;padding:20px 0;text-align:center;font-size:0.9em;}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<nav>
+<ul>
+<li><a href="index.html">首页</a></li>
+<li><a href="about.html">个人银行服务</a></li>
+<li><a href="credit.html">信用卡</a></li>
+<li><a href="contact.html">联系我们</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="content">
+<h2>联系我们</h2>
+
+<div class="branch-list">
+<div class="branch">
+<h3>北京总行</h3>
+<p>北京市东城区王府井大街18号</p>
+<p>电话：010-1234 5678</p>
+</div>
+
+<div class="branch">
+<h3>上海分行</h3>
+<p>上海市人民路1000号</p>
+<p>电话：021-8765 4321</p>
+</div>
+
+<div class="branch">
+<h3>广州分行</h3>
+<p>广州市越秀区北京路88号</p>
+<p>电话：020-9876 5432</p>
+</div>
+
+<div class="branch">
+<h3>成都分行</h3>
+<p>成都市锦江区春熙路123号</p>
+<p>电话：028-5555 6666</p>
+</div>
+</div>
+
+<div class="form-group">
+<label for="name">您的姓名</label>
+<input type="text" id="name" placeholder="请输入您的姓名">
+</div>
+<div class="form-group">
+<label for="phone">联系电话</label>
+<input type="text" id="phone" placeholder="请输入您的联系电话">
+</div>
+<div class="form-group">
+<label for="email">电子邮箱</label>
+<input type="email" id="email" placeholder="请输入您的邮箱">
+</div>
+<div class="form-group">
+<label for="message">咨询内容</label>
+<textarea id="message" rows="4" placeholder="请描述您需要的帮助"></textarea>
+</div>
+<div class="btn" onclick="alert('表单已提交（此为演示）')">提交咨询</div>
+</section>
+
+<footer>
+<p>&copy; 2025 长川银行 版权所有</p>
+</footer>
+</div>
+</body>
+</html>

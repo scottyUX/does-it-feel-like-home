@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 餐厅列表</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#333;background:#f9f9f9;}
+.container{max-width:1200px;margin:auto;padding:0 15px;}
+header{display:flex;justify-content:space-between;align-items:center;background:#00695c;color:#fff;padding:10px 20px;}
+header .logo{font-size:1.5em;font-weight:bold;}
+header nav a{color:#fff;text-decoration:none;margin-left:15px;}
+header nav a:hover{text-decoration:underline;}
+main{padding:20px 0;}
+.category{margin-bottom:30px;}
+.card{background:#fff;border:1px solid #ddd;border-radius:5px;padding:15px;margin-bottom:15px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+.card h3{margin:0 0 5px;color:#00695c;}
+.card p{margin:0 0 10px;line-height:1.5;}
+.card .price{font-weight:bold;color:#e65100;}
+.card button{background:#e53935;color:#fff;border:none;padding:8px 12px;border-radius:3px;cursor:pointer;}
+.card button:hover{background:#c62828;}
+list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;}
+.list .item{text-align:center;}
+.list .item img{width:100%;height:150px;object-fit:cover;border-radius:3px;margin-bottom:10px;}
+.list .item h4{margin:0 0 5px;color:#00695c;}
+list .item p{margin:0 0 5px;font-size:0.9em;color:#666;}
+list .item .time{font-weight:bold;color:#00695c;}
+footer{text-align:center;padding:15px;background:#f5f5f5;color:#666;font-size:0.9em;}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">快送外卖</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="restaurant_list.html">餐厅列表</a>
+<a href="order_summary.html">订单帮助</a>
+</nav>
+</header>
+
+<main>
+<h1 style="text-align:center;margin:20px 0;">餐厅列表</h1>
+<div class="list">
+<div class="item">
+<h4>阿杰盖饭</h4>
+<p>中式快餐，快速配送</p>
+<p class="time">配送时间: 30分钟</p>
+<a href="restaurant_ajie.html"><button class="view-menu">查看菜单</button></a>
+</div>
+<div class="item">
+<h4>小王西式快餐</h4>
+<p>西式快餐，西式风味</p>
+<p class="time">配送时间: 35分钟</p>
+<a href="restaurant_xj.html"><button class="view-menu">查看菜单</button></a>
+</div>
+<div class="item">
+<h4>健康轻食小屋</h4>
+<p>健康轻食，低卡</p>
+<p class="time">配送时间: 25分钟</p>
+<a href="restaurant_health.html"><button class="view-menu">查看菜单</button></a>
+</div>
+<div class="item">
+<h4>麻辣烫王</h4>
+<p>麻辣烫，正宗四川风味</p>
+<p class="time">配送时间: 20分钟</p>
+<a href="restaurant_malied.html"><button class="view-menu">查看菜单</button></a>
+</div>
+</div>
+</main>
+
+<footer>
+© 2025 快送外卖 成都分部
+</footer>
+</div>
+
+<script>
+// No cart functionality needed on this page
+</script>
+</body>
+</html>

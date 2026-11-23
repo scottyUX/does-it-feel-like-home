@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订 - 畅行旅行</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="畅行旅行">
+            </div>
+            <div class="nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>预订</h1>
+        <form action="/submit-reservation" method="post">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">电话：</label>
+            <input type="tel" id="phone" name="phone" required>
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" name="email">
+            <label for="hotel">酒店名称：</label>
+            <input type="text" id="hotel" name="hotel" value="厦门瑞华酒店" readonly>
+            <label for="check-in">入住时间：</label>
+            <input type="date" id="check-in" name="check-in" required>
+            <label for="check-out">离店时间：</label>
+            <input type="date" id="check-out" name="check-out" required>
+            <input type="submit" value="提交预订">
+        </form>
+        <div class="footer">
+            <p>畅行旅行 &copy; 2023</p>
+        </div>
+    </div>
+</body>
+</html>

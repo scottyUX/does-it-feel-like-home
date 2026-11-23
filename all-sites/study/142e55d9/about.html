@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --accent-color: #D2691E;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { font-weight: 500; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent-color); }
+        .btn-reserve { background-color: var(--primary-color); color: white; padding: 0.5rem 1.2rem; border-radius: 4px; }
+
+        /* About Section */
+        .page-title {
+            background-color: #eaeaea;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 { color: var(--primary-color); font-size: 2.2rem; }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .story-section {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .story-text { flex: 1; }
+        .story-text h2 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem; }
+        .story-text p { margin-bottom: 1rem; color: #555; text-align: justify; }
+
+        .story-img {
+            flex: 1;
+            height: 350px;
+            background-color: #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .values-section h2 { text-align: center; color: var(--primary-color); margin-bottom: 2rem; font-size: 1.5rem; }
+        
+        .value-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-icon { font-size: 1.5rem; color: var(--accent-color); min-width: 40px; }
+
+        /* Team Section */
+        .team-section { margin-top: 4rem; }
+        .team-section h2 { text-align: center; color: var(--primary-color); margin-bottom: 2rem; font-size: 1.5rem; }
+
+        .chef-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .chef-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .chef-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .chef-title { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+
+        /* Location Map Placeholder */
+        .map-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .map-box {
+            width: 100%;
+            height: 300px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: #ddd;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .story-section { flex-direction: column; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>家味</span> 餐厅
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="menu.html">特色菜单</a></li>
+                    <li><a href="about.html" class="active">关于我们</a></li>
+                    <li><a href="reserve.html" class="btn-reserve">预定座位</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1>关于家味</h1>
+            <p>传承三十年，只做一家人吃的放心菜</p>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        
+        <section class="story-section">
+            <div class="story-img">
+                老照片：1998 年第一家店面开业场景
+            </div>
+            <div class="story-text">
+                <h2>我们的故事</h2>
+                <p>1998 年，创始人张志坚师傅在杭州市西湖区的一隅，开了一家只有三张桌子的小馆子。那时候，张师傅只有一个朴素的愿望：让在西湖边游玩的客人们，能吃到像自家厨房做出来的一样热乎、地道的饭菜。</p>
+                <p>2010 年，第二代传承人张明接手餐厅，将其扩建为如今的家味餐厅。我们坚持不改老味道，无论是招牌的东坡肉，还是简单的青菜汤，都保留着张师傅当年的那份匠心。</p>
+                <p>如今，家味餐厅不仅仅是一家餐厅，更是许多杭州人的“家庭食堂”。每逢节假日，总能看到几代人围坐在一张桌子上，边吃边聊，其乐融融。</p>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>我们的坚持</h2>
+            <div class="value-item">
+                <div class="value-icon">🥒</div>
+                <div>
+                    <h3>源头直采</h3>
+                    <p>我们的蔬菜来自临安区的生态农场，每天凌晨 4 点采摘，6 点送达后厨。海鲜来自舟山码头直达，确保绝对新鲜。</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🔥</div>
+                <div>
+                    <h3>传统烹饪</h3>
+                    <p>拒绝料理包，拒绝半成品。我们的每一道菜，都是厨师在猛火灶前现炒、现炖。坚持用菜籽油，还原老杭州的烟火气。</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">❤️</div>
+                <div>
+                    <h3>待客如亲</h3>
+                    <p>无论是独自前来的食客，还是大型聚会，我们都提供同样热情的服务。如果您带孩子来，我们会主动准备儿童餐具；如果您带老人来，我们会推荐软烂易消化的菜品。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>主厨团队</h2>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <div class="chef-card" style="flex: 1; min-width: 250px;">
+                    <div class="chef-photo">照片</div>
+                    <div class="chef-name">张明</div>
+                    <div class="chef-title">行政总厨 / 第二代传人</div>
+                    <p style="font-size: 0.9rem; color: #666;">从业 25 年，擅长改良传统杭帮菜，保留了传统味型，更符合现代人口感。</p>
+                </div>
+                <div class="chef-card" style="flex: 1; min-width: 250px;">
+                    <div class="chef-photo">照片</div>
+                    <div class="chef-name">李国平</div>
+                    <div class="chef-title">行政副厨</div>
+                    <p style="font-size: 0.9rem; color: #666;">擅长海鲜烹饪，拥有 30 年处理海鲜经验，确保每一道海鲜菜品鲜嫩爽滑。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>联系我们 & 位置</h2>
+            <p>位于西湖景区龙井路，闹中取静，环境清幽。</p>
+            <div class="map-box">
+                此处为交互式地图组件 (Map Integration)
+            </div>
+            <p style="margin-top: 1rem; font-weight: bold;">地址：杭州市西湖区龙井路 88 号（近灵隐寺入口右转 200 米）</p>
+            <p>联系电话：0571-8888 6666</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅。版权所有.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "id": "zh__learning__nemotron3-33b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "learning",
+  "model": "nemotron3:33b",
+  "completionTokens": 5558,
+  "seconds": 30,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/150x100?text=Python课程封面",
+      "file": "assets/image-1c86b8d22a7796cd.png"
+    }
+  ]
+}

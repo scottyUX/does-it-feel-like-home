@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐厅列表 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #ff8c00;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        header { background-color: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+        .logo span { color: var(--text-dark); margin-left: 5px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+        .cart-icon { background-color: var(--primary-color); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 14px; }
+        .filters { background: var(--white); padding: 20px 0; margin-bottom: 20px; border-bottom: 1px solid #eee; }
+        .filter-bar { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 5px; }
+        .filter-btn { padding: 8px 16px; border: 1px solid #ddd; border-radius: 20px; background: var(--white); cursor: pointer; white-space: nowrap; font-size: 14px; }
+        .filter-btn.active { background: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
+        .restaurant-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px 0; }
+        .restaurant-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s; cursor: pointer; }
+        .restaurant-card:hover { transform: translateY(-3px); }
+        .r-image { height: 160px; background-color: #eee; position: relative; }
+        .delivery-info { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: var(--white); padding: 5px 10px; border-radius: 4px; font-size: 12px; }
+        .r-content { padding: 15px; }
+        .r-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+        .r-tags { font-size: 12px; color: var(--text-light); margin-bottom: 10px; }
+        .r-rating { color: #ff9800; font-size: 14px; margin-bottom: 10px; }
+        .r-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-light); border-top: 1px solid #eee; padding-top: 10px; }
+        .sort-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .sort-select { padding: 8px; border: 1px solid #ddd; border-radius: 5px; }
+        footer { background: #222; color: #ccc; padding: 40px 0; margin-top: auto; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-col h3 { color: var(--white); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #ccc; text-decoration: none; }
+        .copyright { text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 14px; }
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">⚡ 快送<span>外卖</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">全城餐厅</a></li>
+                    <li><a href="confirm.html">购物车</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="filters">
+                <div class="filter-bar">
+                    <button class="filter-btn active">全部</button>
+                    <button class="filter-btn">川菜</button>
+                    <button class="filter-btn">火锅</button>
+                    <button class="filter-btn">快餐</button>
+                    <button class="filter-btn">小吃</button>
+                    <button class="filter-btn">甜点</button>
+                    <button class="filter-btn">异国料理</button>
+                </div>
+            </div>
+            <div class="sort-bar">
+                <span>共找到 128 家餐厅</span>
+                <select class="sort-select">
+                    <option>距离优先</option>
+                    <option>销量最高</option>
+                    <option>评分最高</option>
+                </select>
+            </div>
+
+            <div class="restaurant-grid">
+                <a href="restaurant.html" class="restaurant-card">
+                    <div class="r-image" style="background-color: #fce4ec;">
+                        <span class="delivery-info">30 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">锦城味道 · 正宗川菜</div>
+                        <div class="r-tags">川菜 · 辣度可选 · 月售 500+</div>
+                        <div class="r-rating">★ 4.9</div>
+                        <div class="r-meta">
+                            <span>¥15 起送</span>
+                            <span>配送费 ¥0</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="restaurant-card">
+                    <div class="r-image" style="background-color: #fff3e0;">
+                        <span class="delivery-info">45 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">老成都火锅外卖</div>
+                        <div class="r-tags">火锅 · 全套锅底 · 月售 200+</div>
+                        <div class="r-rating">★ 4.8</div>
+                        <div class="r-meta">
+                            <span>¥50 起送</span>
+                            <span>配送费 ¥5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <div class="r-image" style="background-color: #e3f2fd;">
+                        <span class="delivery-info">25 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">极速汉堡店</div>
+                        <div class="r-tags">西式快餐 · 炸鸡 · 月售 800+</div>
+                        <div class="r-rating">★ 4.7</div>
+                        <div class="r-meta">
+                            <span>¥20 起送</span>
+                            <span>配送费 ¥0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <div class="r-image" style="background-color: #e8f5e9;">
+                        <span class="delivery-info">35 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">川香小吃铺</div>
+                        <div class="r-tags">小吃 · 凉粉 · 月售 1000+</div>
+                        <div class="r-rating">★ 4.6</div>
+                        <div class="r-meta">
+                            <span>¥10 起送</span>
+                            <span>配送费 ¥2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <div class="r-image" style="background-color: #f3e5f5;">
+                        <span class="delivery-info">40 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">甜蜜时光甜品站</div>
+                        <div class="r-tags">甜品 · 奶茶 · 月售 300+</div>
+                        <div class="r-rating">★ 4.8</div>
+                        <div class="r-meta">
+                            <span>¥25 起送</span>
+                            <span>配送费 ¥0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="restaurant-card">
+                    <div class="r-image" style="background-color: #ffebee;">
+                        <span class="delivery-info">20 分钟达</span>
+                    </div>
+                    <div class="r-content">
+                        <div class="r-title">健康轻食沙拉</div>
+                        <div class="r-tags">轻食 · 健身餐 · 月售 150+</div>
+                        <div class="r-rating">★ 4.5</div>
+                        <div class="r-meta">
+                            <span>¥30 起送</span>
+                            <span>配送费 ¥3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">配送员招募</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">退款说明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li>电话：028-12345678</li>
+                        <li>地址：成都市武侯区科技大道 88 号</li>
+                        <li>邮箱：support@kuaisong.cn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 快送外卖 版权所有
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

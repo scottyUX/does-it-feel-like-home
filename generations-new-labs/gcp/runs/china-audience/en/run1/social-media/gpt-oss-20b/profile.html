@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>趣聊 - 个人主页</title>
+<style>
+body{margin:0;font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;background:#f5f5f5;}
+header{background:#ffffff;box-shadow:0 2px 4px rgba(0,0,0,.1);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:1.8rem;color:#ff5e00;font-weight:bold;}
+nav a{margin-left:20px;color:#333;text-decoration:none;font-size:1rem;}
+nav a:hover{color:#ff5e00;}
+.container{max-width:1000px;margin:20px auto;}
+.user-info{background:#ffffff;padding:20px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.1);display:flex;align-items:center;}
+.avatar-large{width:80px;height:80px;border-radius:50%;margin-right:20px;}
+.username{font-size:1.5rem;font-weight:bold;color:#333;}
+.posts{margin-top:20px;}
+.post{background:#ffffff;padding:15px;margin-bottom:15px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+.post-header{display:flex;align-items:center;margin-bottom:10px;}
+.avatar{width:40px;height:40px;border-radius:50%;margin-right:10px;}
+.post-user{font-weight:bold;color:#333;}
+.post-time{font-size:.85rem;color:#999;margin-left:10px;}
+.post-content{margin-bottom:10px;font-size:1rem;color:#333;}
+.post-img{width:100%;height:auto;border-radius:5px;margin-bottom:10px;}
+footer{background:#ffffff;padding:20px;text-align:center;color:#999;font-size:.9rem;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">趣聊</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="profile.html">个人主页</a>
+<a href="post.html">发布</a>
+<a href="signup.html">注册</a>
+</nav>
+</header>
+<div class="container">
+<div class="user-info">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjZGRkZGRkIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiLz48L3N2Zz4=" alt="头像" class="avatar-large">
+<div class="username">小李</div>
+</div>
+<div class="posts">
+<div class="post">
+<div class="post-header">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjZGRkZGRkIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiLz48L3N2Zz4=" alt="头像" class="avatar">
+<div><span class="post-user">小李</span><span class="post-time">2天前</span></div>
+</div>
+<div class="post-content">上周末去了海边，天气真好，拍了很多照片。</div>
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTAwIDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNlZWVmZiI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSI4MCIvPjwvc3ZnPg==" alt="帖子图片" class="post-img">
+</div>
+
+<div class="post">
+<div class="post-header">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjZGRkZGRkIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiLz48L3N2Zz4=" alt="头像" class="avatar">
+<div><span class="post-user">小李</span><span class="post-time">3天前</span></div>
+</div>
+<div class="post-content">今天在咖啡店发现了一本很有意思的书，分享给大家。</div>
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTAwIDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNlZWVmZiI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSI4MCIvPjwvc3ZnPg==" alt="帖子图片" class="post-img">
+</div>
+</div>
+</div>
+<footer>© 2024 趣聊 版权所有</footer>
+</body>
+</html>

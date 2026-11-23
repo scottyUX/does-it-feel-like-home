@@ -1,0 +1,11 @@
+{
+  "id": "en__food-delivery__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "llama4:scout",
+  "completionTokens": 1661,
+  "seconds": 30,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

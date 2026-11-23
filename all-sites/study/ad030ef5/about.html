@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #B22222;
+            --text-color: #333;
+            --bg-color: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-header h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+
+        .story-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--secondary-color);
+        }
+
+        .story-section h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .philosophy {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .phi-item {
+            padding: 20px;
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .phi-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .philosophy {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><span>家</span>味餐厅</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">特色菜单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="reservation.html">预约订座</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about-container">
+        <div class="about-header">
+            <h1>传承与热爱</h1>
+            <p>在这里，每一道菜都是一个故事</p>
+        </div>
+
+        <div class="story-section">
+            <h2>我们的故事</h2>
+            <p>家味餐厅的故事始于上世纪八十年代。创始人林爷爷在杭州西湖边经营着一家小小的快餐店，凭借着对食材的苛求和对味道的执着，逐渐在邻里间传开了名声。</p>
+            <p>如今，餐厅由林爷爷的孙辈接手经营。我们保留了那些代代相传的秘制酱料，同时在用餐环境和食材呈现上进行了现代化升级。但无论形式如何改变，我们始终坚持一个核心理念：<strong>“像对待家人一样对待每一位客人”</strong>。</p>
+            <p>对于我们而言，餐厅不仅仅是一个吃饭的地方，它更像是一个温馨的港湾。无论是繁忙的职场人士来此寻找片刻宁静，还是远方的游客感受杭城风情，我们都希望您在离开时，心中带着家的温暖。</p>
+        </div>
+
+        <div class="philosophy">
+            <div class="phi-item">
+                <h3>严选食材</h3>
+                <p>我们拒绝使用预制菜。每一道菜都从洗净、切配到烹饪现场完成，保证口感最新鲜。</p>
+            </div>
+            <div class="phi-item">
+                <h3>尊重传统</h3>
+                <p>坚持使用传统炖煮方式，不追求快餐化的速度，只追求极致的味道。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅 - 杭州市西湖区温馨路128号</p>
+        <p>营业时间：11:00 - 22:00</p>
+    </footer>
+
+</body>
+</html>

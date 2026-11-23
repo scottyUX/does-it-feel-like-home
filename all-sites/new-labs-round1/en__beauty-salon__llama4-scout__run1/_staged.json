@@ -1,0 +1,11 @@
+{
+  "id": "en__beauty-salon__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "llama4:scout",
+  "completionTokens": 2687,
+  "seconds": 48,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

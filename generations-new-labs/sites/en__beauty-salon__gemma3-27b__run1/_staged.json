@@ -1,0 +1,20 @@
+{
+  "id": "en__beauty-salon__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "gemma3:27b",
+  "completionTokens": 3885,
+  "seconds": 82,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/800x400",
+      "file": "assets/image-ab1d3854fe36e0ae.png"
+    },
+    {
+      "url": "https://via.placeholder.com/150",
+      "file": "assets/image-962826ba552be78d.png"
+    }
+  ]
+}

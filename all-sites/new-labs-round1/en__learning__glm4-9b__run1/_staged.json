@@ -1,0 +1,11 @@
+{
+  "id": "en__learning__glm4-9b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "glm4:9b",
+  "completionTokens": 3719,
+  "seconds": 25,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

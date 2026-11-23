@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>预订桌位</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; line-height:1.6;}
+.container {max-width:1200px; margin:auto; padding:20px;}
+header {background:#004d40; color:#fff; padding:20px; text-align:center;}
+header h1 {margin:0; font-size:2.2em;}
+nav {margin-top:10px;}
+nav a {color:#fff; margin:0 15px; text-decoration:none; font-size:1.1em;}
+nav a:hover {text-decoration:underline;}
+main {background:#fff; padding:20px; margin-top:20px; box-shadow:0 0 5px rgba(0,0,0,0.1);}
+footer {text-align:center; padding:15px; background:#333; color:#fff; margin-top:20px; font-size:0.9em;}
+@media (max-width:768px) {
+  header h1 {font-size:1.8em;}
+  nav a {display:block; margin:5px 0;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>家味餐厅</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="menu.html">菜单</a>
+</nav>
+<main>
+<h2>预订桌位</h2>
+<form id="bookingForm">
+<p>姓名：<input type="text" name="name" required placeholder="请输入姓名"></p>
+<p>电话：<input type="tel" name="phone" required placeholder="请输入电话"></p>
+<p>日期：<input type="date" name="date" required></p>
+<p>时间：<input type="time" name="time" required></p>
+<p>人数：<input type="number" name="party" min="1" max="10" required></p>
+<p><button type="button" onclick="submitForm()">提交预订</button></p>
+</form>
+<script>
+function submitForm() {
+  var name = document.querySelector('input[name="name"]').value;
+  var phone = document.querySelector('input[name="phone"]').value;
+  var date = document.querySelector('input[name="date"]').value;
+  var time = document.querySelector('input[name="time"]').value;
+  var party = document.querySelector('input[name="party"]').value;
+  if (!name || !phone || !date || !time || !party) {
+    alert("请完整填写所有信息");
+    return;
+  }
+  alert("谢谢！我们已收到您的预订请求，将在24小时内与您联系。");
+}
+</script>
+</main>
+<footer>
+© 2025 家味餐厅 版权所有
+</footer>
+</div>
+</body>
+</html>

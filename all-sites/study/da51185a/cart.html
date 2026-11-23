@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车结算 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #eeeeee;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+        }
+        
+        header { background: white; padding: 15px 20px; box-shadow: 0 1px 5px rgba(0,0,0,0.05); display: flex; align-items: center; }
+        .back-link { text-decoration: none; color: var(--text-dark); font-weight: 500; margin-right: 15px; }
+        h1 { font-size: 18px; margin: 0; }
+
+        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
+
+        /* Address Section */
+        .address-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .address-content { display: flex; align-items: center; gap: 15px; }
+        .icon { font-size: 20px; }
+        .addr-text h3 { margin: 0; font-size: 16px; }
+        .addr-text p { margin: 5px 0 0; color: var(--text-light); font-size: 14px; }
+        .edit-btn { color: var(--primary-color); text-decoration: none; font-size: 14px; }
+
+        /* Cart Items */
+        .cart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .cart-item:last-child { border-bottom: none; }
+        .item-info { display: flex; align-items: center; gap: 10px; }
+        .item-img { width: 50px; height: 50px; background: #eee; border-radius: 4px; }
+        .item-name { font-weight: bold; }
+        .item-sku { font-size: 12px; color: var(--text-light); }
+        .item-price { color: #d32f2f; font-weight: bold; }
+        .item-qty { background: #f0f0f0; padding: 5px 10px; border-radius: 4px; font-size: 14px; }
+
+        /* Summary */
+        .summary-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 80px; /* Space for fixed footer */
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        .summary-row.total {
+            color: var(--text-dark);
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        /* Promo Code */
+        .promo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .promo-btn { color: var(--primary-color); font-size: 14px; border: none; background: none; cursor: pointer; }
+
+        /* Bottom Action Bar */
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .total-price { font-size: 20px; font-weight: bold; color: var(--text-dark); }
+        .pay-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 600px) {
+            .action-bar { flex-direction: column; gap: 10px; align-items: stretch; }
+            .pay-btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="restaurant-detail.html" class="back-link">&larr;</a>
+        <h1>订单确认</h1>
+    </header>
+
+    <div class="container">
+        <!-- Address -->
+        <div class="address-box">
+            <div class="address-content">
+                <span class="icon">🏠</span>
+                <div class="addr-text">
+                    <h3>张三 (138****8888)</h3>
+                    <p>武侯区 天府三街 500 号 腾讯大厦 1204 室</p>
+                </div>
+            </div>
+            <a href="#" class="edit-btn">编辑</a>
+        </div>
+
+        <!-- Cart Items -->
+        <div class="cart-box">
+            <h3 style="margin-top: 0; font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 15px;">锦里老味道</h3>
+            
+            <div class="cart-item">
+                <div class="item-info">
+                    <div class="item-img" style="background: #ffe0b2;"></div>
+                    <div>
+                        <div class="item-name">招牌麻婆豆腐饭</div>
+                        <div class="item-sku">备注：少辣</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="item-price">¥36.00</span>
+                    <span class="item-qty">x 2</span>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="item-info">
+                    <div class="item-img" style="background: #ffccbc;"></div>
+                    <div>
+                        <div class="item-name">唯怡豆奶 (大)</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="item-price">¥6.00</span>
+                    <span class="item-qty">x 1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+            <div class="promo-section">
+                <span style="color: var(--text-light);">优惠活动</span>
+                <button class="promo-btn">领取红包 ></button>
+            </div>
+            <div class="summary-row">
+                <span>商品总额</span>
+                <span>¥42.00</span>
+            </div>
+            <div class="summary-row">
+                <span>配送费</span>
+                <span>¥2.00</span>
+            </div>
+            <div class="summary-row">
+                <span>打包费</span>
+                <span>¥2.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>实付金额</span>
+                <span style="color: #d32f2f;">¥46.00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <div class="total-price">¥46.00</div>
+        <button class="pay-btn" onclick="alert('模拟支付成功：订单已提交，厨师正在制作中！')">立即提交</button>
+    </div>
+
+</body>
+</html>

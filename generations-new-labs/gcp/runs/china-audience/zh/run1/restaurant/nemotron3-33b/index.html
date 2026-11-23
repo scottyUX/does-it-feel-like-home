@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>家味餐厅 - 杭州浙菜家庭餐厅</title>
+    <style>
+        body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+        .container{max-width:1200px;margin:auto;padding:20px;}
+        header{text-align:center;padding:20px 0;background:#fff;border-bottom:1px solid #e0e0e0;}
+        header h1{margin:0;font-size:2.2em;color:#d32f2f;}
+        nav{margin-top:10px;}
+        nav a{margin:0 15px;text-decoration:none;color:#d32f2f;font-weight:bold;}
+        .hero{position:relative;background:url('https://via.placeholder.com/1600x600?text=美味浙菜') no-repeat center/cover;height:400px;margin:30px 0;}
+        .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);}
+        .hero .content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;}
+        .hero .content h2{margin:0 0 10px;font-size:2em;}
+        .hero .content p{margin:0;font-size:1.1em;}
+        .btn{display:inline-block;margin:15px 10px;padding:12px 25px;background:#d32f2f;color:#fff;border:none;border-radius:4px;cursor:pointer;text-decoration:none;font-size:1em;}
+        .section{margin:40px 0;background:#fff;padding:20px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        footer{text-align:center;padding:20px 0;background:#fff;border-top:1px solid #e0e0e0;color:#666;font-size:0.9em;}
+        @media (max-width:768px){
+            .hero{height:250px;}
+            .hero .content h2{font-size:1.5em;}
+            nav a{display:block;margin:10px 0;}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>家味餐厅</h1>
+        <nav>
+            <a href="about.html">关于我们</a>
+            <a href="menu.html">菜单</a>
+            <a href="reservation.html">预订座位</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="content">
+            <h2>正宗浙江菜·温馨家庭餐厅</h2>
+            <p>让您在杭州也能享受到家的味道，品味地道浙味。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>欢迎光临</h2>
+        <p>家味餐厅坐落于杭州市中心，致力于为本地家庭、上班族和游客提供正宗的浙江家常菜。我们坚持使用本地新鲜食材，匠心烹饪每一道菜，让您在轻松的用餐环境中感受浙江的风味与温情。</p>
+        <p>我们的招牌菜包括西湖醋鱼、龙井虾仁、绍兴醉鸡以及多款季节性小菜，价格亲民，份量十足。无论是家庭聚餐、商务午餐还是旅游观光，家味餐厅都是您的不二选择。</p>
+        <a href="menu.html" class="btn">查看菜单</a>
+        <a href="reservation.html" class="btn">预订座位</a>
+    </div>
+
+    <footer>
+        地址：杭州市西湖区文三路18号<br>
+        电话：0571-1234-5678<br>
+        营业时间：11:00-22:00
+    </footer>
+</div>
+</body>
+</html>

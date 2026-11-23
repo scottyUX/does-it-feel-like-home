@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>可衣 - 商品列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;background:#f5f5f5;color:#333}
+        a{text-decoration:none;color:#0078d7}
+        header{background:#fff;padding:20px;box-shadow:0 2px 4px rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:center}
+        nav a{margin:0 15px;font-weight:500}
+        .container{max-width:1200px;margin:30px auto;padding:0 15px}
+        h1{margin-top:0}
+        .grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+        .card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;width:260px;overflow:hidden;display:flex;flex-direction:column}
+        .card img{width:100%;height:200px;object-fit:cover}
+        .card .info{padding:15px;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between}
+        .card .info h3{margin:0 0 10px;font-size:1.1rem}
+        .card .info .price{color:#e53935;font-weight:bold;margin-bottom:10px}
+        .card .info a{background:#0078d7;color:#fff;padding:8px 12px;border-radius:4px;text-align:center}
+        footer{background:#212121;color:#fff;padding:20px;text-align:center;font-size:.9rem}
+        @media(max-width:768px){.card{width:45%}}
+        @media(max-width:480px){.card{width:100%}}
+    </style>
+</head>
+<body>
+<header>
+    <div><strong>可衣</strong></div>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="products.html">商品</a>
+        <a href="cart.html">购物车</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>商品列表</h1>
+    <div class="grid">
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iI2U2ZTZlNiIvPjwvc3ZnPg==" alt="职场套装">
+            <div class="info">
+                <h3>简约职场套装</h3>
+                <div class="price">¥ 398</div>
+                <a href="product.html?id=1">查看详情</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iI2U2ZTZlNiIvPjwvc3ZnPg==" alt="休闲连衣裙">
+            <div class="info">
+                <h3>轻盈休闲连衣裙</h3>
+                <div class="price">¥ 259</div>
+                <a href="product.html?id=2">查看详情</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iI2U2ZTZlNiIvPjwvc3ZnPg==" alt="针织毛衣">
+            <div class="info">
+                <h3>柔软针织毛衣</h3>
+                <div class="price">¥ 329</div>
+                <a href="product.html?id=3">查看详情</a>
+            </div>
+        </div>
+        <!-- 可以继续添加商品 -->
+    </div>
+</div>
+
+<footer>
+    © 2024 可衣 上海市 | <a href="mailto:service@keyi.com" style="color:#fff">客服邮箱</a>
+</footer>
+</body>
+</html>

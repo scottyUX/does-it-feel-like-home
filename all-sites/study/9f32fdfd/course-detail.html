@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雅思写作冲刺 7 分班 - 学途</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #1f2937; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 24px; font-weight: 700; color: #1e40af; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 700; }
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a { font-size: 15px; color: #4b5563; font-weight: 500; transition: color .2s; }
+        .nav a:hover, .nav a.active { color: #2563eb; }
+        .nav-btn { background: #2563eb; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; transition: background .2s; }
+        .nav-btn:hover { background: #1d4ed8; }
+
+        .detail-hero { background: linear-gradient(135deg, #1e3a5f, #2563eb); padding: 48px 24px; }
+        .detail-hero-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+        .detail-hero-text { flex: 1; min-width: 300px; }
+        .detail-hero-text .tag { display: inline-block; background: rgba(255,255,255,.15); color: #bfdbfe; font-size: 13px; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+        .detail-hero-text h1 { font-size: 32px; color: #fff; font-weight: 700; margin-bottom: 12px; }
+        .detail-hero-text p { font-size: 15px; color: #bfdbfe; line-height: 1.8; }
+        .detail-sidebar { width: 320px; background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 8px 32px rgba(0,0,0,.15); }
+        .detail-sidebar .price { font-size: 32px; font-weight: 800; color: #2563eb; margin-bottom: 4px; }
+        .detail-sidebar .price span { font-size: 16px; color: #9ca3af; text-decoration: line-through; margin-left: 10px; font-weight: 400; }
+        .detail-sidebar .save { font-size: 13px; color: #16a34a; margin-bottom: 20px; }
+        .sidebar-info { list-style: none; margin-bottom: 24px; }
+        .sidebar-info li { font-size: 14px; color: #4b5563; padding: 8px 0; border-bottom: 1px solid #f3f4f6; display: flex; justify-content: space-between; }
+        .sidebar-info li span { font-weight: 600; }
+        .btn-enroll { display: block; width: 100%; padding: 14px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; text-align: center; transition: background .2s; }
+        .btn-enroll:hover { background: #1d4ed8; }
+        .btn-trial { display: block; width: 100%; padding: 12px; background: #fff; color: #2563eb; border: 1px solid #bfdbfe; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; margin-top: 10px; transition: background .2s; }
+        .btn-trial:hover { background: #eff6ff; }
+
+        .main { max-width: 1200px; margin: 0 auto; padding: 48px 24px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 40px; }
+        .main-content { }
+        .section { margin-bottom: 48px; }
+        .section h2 { font-size: 22px; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; }
+        .section p { font-size: 15px; color: #4b5563; line-height: 1.8; margin-bottom: 16px; }
+        .section ul { list-style: none; padding: 0; }
+        .section ul li { font-size: 15px; color: #4b5563; padding: 8px 0 8px 24px; position: relative; }
+        .section ul li::before { content: "✓"; position: absolute; left: 0; color: #2563eb; font-weight: 700; }
+
+        /* Schedule Table */
+        .schedule-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .schedule-table th { background: #f9fafb; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; color: #374151; border-bottom: 2px solid #e5e7eb; }
+        .schedule-table td { padding: 12px 16px; font-size: 14px; color: #4b5563; border-bottom: 1px solid #f3f4f6; }
+        .schedule-table tr:hover td { background: #f9fafb; }
+        .week-badge { background: #eff6ff; color: #2563eb; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+
+        /* Teacher */
+        .teacher-card { display: flex; gap: 20px; align-items: flex-start; background: #f9fafb; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+        .teacher-avatar { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; color: #fff; flex-shrink: 0; }
+        .teacher-info h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .teacher-info .title { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
+        .teacher-info p { font-size: 14px; color: #4b5563; line-height: 1.7; }
+        .teacher-tags { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+        .teacher-tag { font-size: 12px; background: #fff; border: 1px solid #e5e7eb; padding: 3px 10px; border-radius: 4px; color: #6b7280; }
+
+        /* Sidebar content */
+        .sidebar { }
+        .sidebar-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .sidebar-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+        .sidebar-card ul { list-style: none; }
+        .sidebar-card ul li { font-size: 14px; color: #4b5563; padding: 8px 0; border-bottom: 1px solid #f3f4f6; display: flex; justify-content: space-between; }
+        .sidebar-card ul li:last-child { border-bottom: none; }
+        .sidebar-card ul li .val { font-weight: 600; color: #111827; }
+        .plan-item { padding: 16px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 12px; transition: border-color .2s; }
+        .plan-item.selected { border-color: #2563eb; background: #eff6ff; }
+        .plan-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .plan-item p { font-size: 13px; color: #6b7280; }
+        .plan-item .plan-price { font-size: 18px; font-weight: 700; color: #2563eb; margin-top: 6px; }
+
+        .footer { background: #111827; padding: 48px 24px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+        .footer p, .footer a { font-size: 13px; color: #9ca3af; line-height: 2; }
+        .footer a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 20px; text-align: center; font-size: 12px; color: #6b7280; }
+
+        @media (max-width: 900px) {
+            .main { grid-template-columns: 1fr; }
+            .detail-hero-inner { flex-direction: column; }
+            .detail-sidebar { width: 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .nav a:not(.nav-btn) { display: none; }
+            .detail-hero-text h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">学</div>
+                学途
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="courses.html" class="active">课程中心</a>
+                <a href="course-detail.html">课程详情</a>
+                <a href="register.html" class="nav-btn">免费注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="detail-hero">
+        <div class="detail-hero-inner">
+            <div class="detail-hero-text">
+                <span class="tag">语言课程 · 雅思专项</span>
+                <h1>雅思写作冲刺 7 分班</h1>
+                <p>专为目标 6.5-7.5 分的学员设计。八周系统训练 Task 1 图表描述与 Task 2 议论文写作，每周两篇作文精批，配套 40+ 高分范文和评分标准逐条解析。适合大三、研一及在职备考人群。</p>
+            </div>
+            <div class="detail-sidebar">
+                <div class="price">¥2,980 <span>¥3,680</span></div>
+                <div class="save">限时立减 ¥700，本周报名有效</div>
+                <ul class="sidebar-info">
+                    <li>课时 <span>24 课时（直播）</span></li>
+                    <li>班型 <span>小班 12 人</span></li>
+                    <li>开课时间 <span>2025年7月7日</span></li>
+                    <li>上课时间 <span>周二/四 19:00-21:00</span></li>
+                    <li>有效期 <span>180 天</span></li>
+                </ul>
+                <a href="register.html" class="btn-enroll">立即报名</a>
+                <a href="register.html" class="btn-trial">免费试听第一节课</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main-content">
+            <div class="section">
+                <h2>课程介绍</h2>
+                <p>雅思写作是多数中国考生的薄弱项。本课程不堆砌"万能模板"，而是帮助你建立真正的写作思维：如何审题、如何立论、如何展开论证、如何用词精准且有层次。通过八周的刻意练习和即时反馈，你的写作能力将实现质的飞跃。</p>
+                <ul>
+                    <li>覆盖 Task 1 静态/动态图表、Task 2 五类题型（同意/不同意、讨论、优缺点、问题解决、观点类）</li>
+                    <li>每节课围绕一个评分维度（Task Response / Coherence / Lexical Resource / Grammar）深度拆解</li>
+                    <li>每周提交 2 篇作文，48 小时内获得逐句批改和改写建议</li>
+                    <li>第 6 周和第 8 周各进行一次全真模拟写作，按官方标准评分</li>
+                    <li>配套 40+ 篇 Band 7-9 范文精读，建立自己的语料库</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>课时安排</h2>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>周次</th>
+                            <th>日期</th>
+                            <th>主题</th>
+                            <th>内容要点</th>
+                            <th>形式</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="week-badge">第1周</span></td>
+                            <td>7/2 · 7/4</td>
+                            <td>写作评分标准与审题</td>
+                            <td>官方评分细则逐条解读；Task 1/2 审题方法；常见跑题陷阱</td>
+                            <td>直播 + 作业</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第2周</span></td>
+                            <td>7/9 · 7/11</td>
+                            <td>Task 1 静态图表</td>
+                            <td>数据选取与分组；概述句写法；比较结构；高频表达</td>
+                            <td>直播 + 作文1</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第3周</span></td>
+                            <td>7/16 · 7/18</td>
+                            <td>Task 1 动态图表</td>
+                            <td>趋势描述；时态运用；峰值与转折；完整范文拆解</td>
+                            <td>直播 + 作文1</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第4周</span></td>
+                            <td>7/23 · 7/25</td>
+                            <td>Task 2 立论与结构</td>
+                            <td>Thesis 写法；段落组织；论证逻辑链；立场表达</td>
+                            <td>直播 + 作文1</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第5周</span></td>
+                            <td>7/30 · 8/1</td>
+                            <td>词汇与语法升级</td>
+                            <td>同义替换策略；复杂句式；避免 Chinglish；Lexical Resource 提分</td>
+                            <td>直播 + 作文1</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第6周</span></td>
+                            <td>8/5 · 8/7</td>
+                            <td>全真模拟（一）</td>
+                            <td>限时 60 分钟写作；官方标准评分；逐句反馈与改写</td>
+                            <td>模拟 + 批改</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第7周</span></td>
+                            <td>8/12 · 8/14</td>
+                            <td>讨论型与问题型</td>
+                            <td>双方观点平衡；问题-原因-解决方案框架；高分论证技巧</td>
+                            <td>直播 + 作文1</td>
+                        </tr>
+                        <tr>
+                            <td><span class="week-badge">第8周</span></td>
+                            <td>8/19 · 8/21</td>
+                            <td>全真模拟（二）+ 复盘</td>
+                            <td>第二次限时写作；对比两次进步；考前注意事项；个人提分计划</td>
+                            <td>模拟 + 总结</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>授课教师</h2>
+                <div class="teacher-card">
+                    <div class="teacher-avatar" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6);">林</div>
+                    <div class="teacher-info">
+                        <h3>林芷若</h3>
+                        <div class="title">雅思写作主讲师 · 8年教学经验</div>
+                        <p>英国爱丁堡大学语言学硕士，前雅思官方评分员（2016-2019）。累计授课超过 3,200 课时，学员平均提分 1.2 档。擅长将复杂的评分逻辑拆解为可操作的写作步骤，被学员称为"最温柔的提分教练"。</p>
+                        <div class="teacher-tags">
+                            <span class="teacher-tag">雅思官方评分员</span>
+                            <span class="teacher-tag">爱丁堡大学硕士</span>
+                            <span class="teacher-tag">3200+ 课时</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">赵</div>
+                    <div class="teacher-info">
+                        <h3>赵启铭</h3>
+                        <div class="title">词汇与语法辅导 · 5年教学经验</div>
+                        <p>北京师范大学英语教育方向硕士，专攻学术英语写作中的词汇搭配和语法精准度。设计有独创的"语料积累四步法"，帮助学员在 4 周内构建个人写作语料库。曾辅导 60+ 位学员成功申请海外硕士项目。</p>
+                        <div class="teacher-tags">
+                            <span class="teacher-tag">北师大硕士</span>
+                            <span class="teacher-tag">学术写作方向</span>
+                            <span class="teacher-tag">60+ 申硕辅导</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>课程须知</h2>
+                <ul>
+                    <li>课程有效期 180 天，期内可无限次回看直播回放</li>
+                    <li>开课前 7 天支持全额退款，开课后 3 天内支持按比例退款</li>
+                    <li>报名后未达目标分数（6.5 或 7.0），可免费重修一次（限一个学年内）</li>
+                    <li>上课需使用电脑端，推荐使用 Chrome 或 Edge 浏览器</li>
+                    <li>每篇作文提交截止时间为下节课前 24 小时，逾期视为缺席</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <h3>选择学习方案</h3>
+                <div class="plan-item selected">
+                    <h4>标准班（推荐）</h4>
+                    <p>24 课时直播 + 无限次回放 + 每周 2 篇作文批改</p>
+                    <div class="plan-price">¥2,980</div>
+                </div>
+                <div class="plan-item">
+                    <h4>尊享班</h4>
+                    <p>标准班内容 + 4 次一对一辅导 + 考前 1v1 模拟面试</p>
+                    <div class="plan-price">¥4,580</div>
+                </div>
+                <div class="plan-item">
+                    <h4>自学包</h4>
+                    <p>全部录播视频 + 40 篇范文 + 写作模板手册（无直播）</p>
+                    <div class="plan-price">¥980</div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>课程信息</h3>
+                <ul>
+                    <li>课程编号 <span class="val">XT-ENG-0247</span></li>
+                    <li>总课时 <span class="val">24 课时</span></li>
+                    <li>每课时 <span class="val">2 小时</span></li>
+                    <li>班级人数 <span class="val">≤ 12 人</span></li>
+                    <li>上课平台 <span class="val">学途直播教室</span></li>
+                    <li>下次开课 <span class="val">2025.07.07</span></li>
+                    <li>学员评价 <span class="val">4.9 / 5.0</span></li>
+                    <li>完课率 <span class="val">94.6%</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>常见问题</h3>
+                <p style="font-size:14px;color:#4b5563;margin-bottom:12px;">Q：零基础可以学吗？</p>
+                <p style="font-size:14px;color:#6b7280;margin-bottom:20px;">A：本课程面向已有一定英语基础（CET-4 及以上）的学员。如果你词汇量在 3500 以上，即可开始学习。</p>
+                <p style="font-size:14px;color:#4b5563;margin-bottom:12px;">Q：错过直播怎么办？</p>
+                <p style="font-size:14px;color:#6b7280;">A：所有直播课后 24 小时内上传回放，有效期内可无限次回看，不影响你的学习进度。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h4>学途</h4>
+                    <p style="margin-bottom:12px;">专注大学生与职场新人的在线学习平台，提供语言、计算机技能和考试备考三大类课程。</p>
+                    <p>客服热线：400-8826-5500<br>服务时间：周一至周日 9:00-21:00</p>
+                </div>
+                <div>
+                    <h4>课程分类</h4>
+                    <a href="courses.html">英语课程</a><br>
+                    <a href="courses.html">日语 / 韩语课程</a><br>
+                    <a href="courses.html">Python / 数据分析</a><br>
+                    <a href="courses.html">前端开发</a><br>
+                    <a href="courses.html">考研备考</a>
+                </div>
+                <div>
+                    <h4>关于我们</h4>
+                    <a href="index.html">平台介绍</a><br>
+                    <a href="register.html">加入我们</a><br>
+                    <a href="courses.html">讲师团队</a><br>
+                    <a href="index.html">学员故事</a>
+                </div>
+                <div>
+                    <h4>帮助支持</h4>
+                    <a href="register.html">注册指南</a><br>
+                    <a href="courses.html">课程政策</a><br>
+                    <a href="index.html">退费说明</a><br>
+                    <a href="index.html">常见问题</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 学途 XuTou Learning. 保留所有权利。 | 京ICP备2025018836号
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.plan-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.plan-item').forEach(p => p.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

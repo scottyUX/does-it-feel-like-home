@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可衣 - 产品详情</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #ddd;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+}
+
+.product-image {
+    width: 50%;
+    text-align: center;
+}
+
+.product-image img {
+    width: 80%;
+    max-width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.product-details {
+    width: 50%;
+    padding: 20px;
+}
+
+.product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.product-details .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e4393c;
+}
+
+.product-details .sizes {
+    margin-top: 20px;
+}
+
+.product-details .sizes button {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.product-details .sizes button.selected {
+    background-color: #e4393c;
+    color: #fff;
+    border: none;
+}
+
+.product-details button {
+    background-color: #e4393c;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>可衣</h1>
+        <p>上海领先的时尚女装在线商店</p>
+    </header>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="products.html">产品列表</a>
+        <a href="cart.html">购物车</a>
+        <a href="about.html">关于我们</a>
+    </nav>
+    <main>
+        <div class="product-image">
+            <img src="https://via.placeholder.com/400" alt="印花连衣裙">
+        </div>
+        <div class="product-details">
+            <h2>夏季印花连衣裙</h2>
+            <p>这款印花连衣裙采用轻盈透气的面料制成，非常适合夏季穿着。优雅的设计和鲜艳的印花让您成为人群中的焦点。适合日常休闲或约会穿着。</p>
+            <p class="price">¥329</p>
+            <div class="sizes">
+                <h3>选择尺码</h3>
+                <button class="selected">S</button>
+                <button>M</button>
+                <button>L</button>
+            </div>
+            <button>加入购物车</button>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 可衣 - 版权所有
+    </footer>
+</body>
+</html>

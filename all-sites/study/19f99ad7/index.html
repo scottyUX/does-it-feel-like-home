@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 Keyi | 简约都市女装</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* Hero */
+        .hero { background: var(--bg-light); padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; font-weight: 300; }
+        .hero p { font-size: 18px; margin-bottom: 30px; color: #666; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 30px; border-radius: 2px; font-size: 14px; transition: 0.3s; }
+        .btn:hover { background: var(--accent); }
+
+        /* Categories */
+        .categories { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 28px; font-weight: 300; }
+        .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .cat-item { position: relative; overflow: hidden; height: 300px; background: #eee; display: flex; align-items: center; justify-content: center; }
+        .cat-label { background: white; padding: 10px 20px; font-size: 16px; z-index: 2; border: 1px solid var(--primary); }
+        
+        /* Featured */
+        .featured { padding: 60px 0; background: var(--bg-light); }
+        .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { background: white; padding: 15px; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .product-img { height: 200px; background: #f0f0f0; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; }
+        .product-info h3 { font-size: 16px; margin-bottom: 5px; font-weight: normal; }
+        .product-price { color: var(--accent); font-weight: bold; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cat-grid, .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; } /* Simplified for mobile demo */
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>简约都市，自在穿着</h1>
+            <p>精选面料，专为当代女性设计的日常与职场服饰</p>
+            <a href="shop.html" class="btn">立即选购</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">精选系列</h2>
+            <div class="cat-grid">
+                <a href="shop.html?cat=work" class="cat-item"><span class="cat-label">职场通勤</span></a>
+                <a href="shop.html?cat=casual" class="cat-item"><span class="cat-label">休闲周末</span></a>
+                <a href="shop.html?cat=evening" class="cat-item"><span class="cat-label">优雅晚宴</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">本周新品</h2>
+            <div class="product-grid">
+                <a href="product.html" class="product-card">
+                    <div class="product-img">产品图片 01</div>
+                    <div class="product-info">
+                        <h3>法式真丝衬衫</h3>
+                        <p class="product-price">￥399.00</p>
+                    </div>
+                </a>
+                <a href="product.html" class="product-card">
+                    <div class="product-img">产品图片 02</div>
+                    <div class="product-info">
+                        <h3>高腰垂感阔腿裤</h3>
+                        <p class="product-price">￥259.00</p>
+                    </div>
+                </a>
+                <a href="product.html" class="product-card">
+                    <div class="product-img">产品图片 03</div>
+                    <div class="product-info">
+                        <h3>羊毛混纺西装外套</h3>
+                        <p class="product-price">￥599.00</p>
+                    </div>
+                </a>
+                <a href="product.html" class="product-card">
+                    <div class="product-img">产品图片 04</div>
+                    <div class="product-info">
+                        <h3>修身针织连衣裙</h3>
+                        <p class="product-price">￥459.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

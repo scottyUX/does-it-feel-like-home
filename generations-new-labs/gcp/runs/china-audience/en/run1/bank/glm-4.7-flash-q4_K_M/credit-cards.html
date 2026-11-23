@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡中心 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --card-gold: #e0c080;
+            --card-silver: #b0c4de;
+            --max-width: 1200px;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: var(--nav-height);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #003366 0%, #004080 100%);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+        }
+
+        /* Banner */
+        .promo-banner {
+            background-color: #fff8e1;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #d35400;
+            font-weight: 500;
+        }
+
+        /* Cards Container */
+        .cards-section {
+            padding: 60px 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .card-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .card-item {
+            width: 350px;
+            background: linear-gradient(160deg, var(--accent-color) 0%, #bfa04f 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: var(--white);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-item.silver {
+            background: linear-gradient(160deg, #d3d3d3 0%, #a9a9a9 100%);
+            box-shadow: 0 10px 30px rgba(160, 160, 160, 0.3);
+        }
+
+        .card-type {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .card-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .chip-icon {
+            width: 40px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin: 0 auto 20px;
+            position: relative;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .chip-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            right: 5px;
+            height: 1px;
+            background: #ccc;
+        }
+
+        .card-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .card-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-features li::before {
+            content: '✔';
+            margin-right: 8px;
+            color: #fff;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .card-item.silver .apply-btn {
+            color: #555;
+        }
+
+        .apply-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Interest Rates */
+        .rates-section {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+        }
+
+        .rates-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .rate-box {
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .rate-box:last-child {
+            border-right: none;
+        }
+
+        .rate-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .rate-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .rate-unit {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .card-showcase {
+                flex-direction: column;
+                align-items: center;
+            }
+            .rates-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .rate-box {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
+            .rate-box:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">长川银行<span>Changchuan</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal-banking.html">个人业务</a></li>
+                    <li><a href="credit-cards.html" class="active">信用卡</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="login-btn">在线申请</a>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>信用卡服务</h1>
+            <p>精选多款信用卡，满足您的日常消费与出行需求</p>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        新户首刷礼：即日起申办长川信用卡，任意消费即送 50元 返现金红包
+    </div>
+
+    <section class="cards-section">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 10px;">信用卡产品系列</h2>
+            <p class="section-subtitle">选择最适合您的卡片，开启精致生活</p>
+            
+            <div class="card-showcase">
+                <div class="card-item">
+                    <div class="card-type">银联白金卡</div>
+                    <div class="card-name">长川金穗</div>
+                    <div class="chip-icon"></div>
+                    <ul class="card-features">
+                        <li>全场消费 6% 现金返利</li>
+                        <li>机场贵宾厅服务（年累10次）</li>
+                        <li>最长免息期 56天</li>
+                        <li>积分永久有效</li>
+                    </ul>
+                    <a href="#" class="apply-btn">立即申请</a>
+                </div>
+
+                <div class="card-item silver">
+                    <div class="card-type">银联标准卡</div>
+                    <div class="card-name">长川通</div>
+                    <div class="chip-icon"></div>
+                    <ul class="card-features">
+                        <li>基础消费返现 3%</li>
+                        <li>生日当月双倍积分</li>
+                        <li>账单分期手续费低至 1.8%</li>
+                        <li>支持手机NFC支付</li>
+                    </ul>
+                    <a href="#" class="apply-btn">立即申请</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rates-section">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 40px;">费率标准</h2>
+            <div class="rates-grid">
+                <div class="rate-box">
+                    <h4>预借现金手续费</h4>
+                    <div>
+                        <span class="rate-value">0.5%</span>
+                        <span class="rate-unit">最低2元/笔</span>
+                    </div>
+                </div>
+                <div class="rate-box">
+                    <h4>分期付款手续费</h4>
+                    <div>
+                        <span class="rate-value">1.5%</span>
+                        <span class="rate-unit">月费率（12期）</span>
+                    </div>
+                </div>
+                <div class="rate-box">
+                    <h4>违约金</h4>
+                    <div>
+                        <span class="rate-value">最低</span>
+                        <span class="rate-unit">还款金额的5%</span>
+                    </div>
+                </div>
+                <div class="rate-box">
+                    <h4>滞纳金</h4>
+                    <div>
+                        <span class="rate-value">最低</span>
+                        <span class="rate-unit">还款金额的5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 40px 0; color: #ccc; font-size: 14px;">
+            <p>信用卡申请条件：年满18周岁，具有完全民事行为能力，有稳定收入来源。</p>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2023 长川银行 版权所有 | 京ICP备12345678号</p>
+        </div>
+    </footer>
+
+</body>
+</html>

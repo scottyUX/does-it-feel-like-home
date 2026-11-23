@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 - 可衣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2C2C2C;
+            background: #FAF8F5;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #EDE8E3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: #8B7355;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: #2C2C2C;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #8B7355;
+        }
+
+        .nav-cart {
+            position: relative;
+        }
+
+        .nav-cart .badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #8B7355;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Cart Layout */
+        .cart-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .cart-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cart-subtitle {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 32px;
+        }
+
+        /* Cart Items */
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cart-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 90px 1fr auto auto auto;
+            gap: 20px;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+
+        .cart-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        .item-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .item-img-1 { background: linear-gradient(135deg, #F5EDE5, #EDE3D7); }
+        .item-img-2 { background: linear-gradient(135deg, #E8EDF2, #DDE4EC); }
+        .item-img-3 { background: linear-gradient(135deg, #F0F5ED, #E5EDE2); }
+
+        .item-info h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .item-info .variant {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .item-info .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: #F5F0EB;
+            color: #8B7355;
+        }
+
+        .item-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2C2C2C;
+            white-space: nowrap;
+        }
+
+        .item-qty {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qty-btn-sm {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #DDD5CC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            background: #fff;
+            transition: all 0.2s;
+        }
+
+        .qty-btn-sm:hover {
+            border-color: #2C2C2C;
+        }
+
+        .qty-val {
+            font-size: 14px;
+            font-weight: 600;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .item-remove {
+            font-size: 18px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 4px;
+        }
+
+        .item-remove:hover {
+            color: #C75B3A;
+        }
+
+        /* Promo Code */
+        .promo-section {
+            margin-top: 24px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .promo-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #DDD5CC;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: #fff;
+        }
+
+        .promo-input:focus {
+            border-color: #8B7355;
+        }
+
+        .promo-btn {
+            padding: 12px 24px;
+            background: #F5F0EB;
+            border: 1px solid #DDD5CC;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .promo-btn:hover {
+            background: #2C2C2C;
+            color: #fff;
+            border-color: #2C2C2C;
+        }
+
+        /* Summary */
+        .summary {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary h2 {
+            font-size: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #EDE8E3;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .summary-row .label {
+            color: #777;
+        }
+
+        .summary-row .value {
+            font-weight: 500;
+        }
+
+        .summary-row.discount .value {
+            color: #5B8C5A;
+        }
+
+        .summary-divider {
+            height: 1px;
+            background: #EDE8E3;
+            margin: 16px 0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 24px;
+        }
+
+        .summary-total .label {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .summary-total .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #C75B3A;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: #2C2C2C;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .checkout-btn:hover {
+            background: #8B7355;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: #555;
+            border: 1.5px solid #DDD5CC;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .continue-btn:hover {
+            border-color: #2C2C2C;
+            color: #2C2C2C;
+        }
+
+        .summary-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .summary-note .highlight {
+            color: #5B8C5A;
+            font-weight: 500;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #EDE8E3;
+        }
+
+        .trust-item {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: #ccc;
+            padding: 60px 40px 30px;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+            .summary {
+                position: static;
+            }
+            .cart-item {
+                grid-template-columns: 70px 1fr;
+                gap: 16px;
+            }
+            .item-price, .item-qty, .item-remove {
+                grid-column: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            .cart-container {
+                padding: 24px 20px 60px;
+            }
+            .cart-item {
+                grid-template-columns: 1fr;
+            }
+            .item-img {
+                width: 100%;
+                height: 120px;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">单品详情</a>
+                <a href="cart.html" class="nav-cart active">购物车<span class="badge">3</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="cart-container">
+        <!-- Left: Cart Items -->
+        <div class="cart-left">
+            <h1 class="cart-title">我的购物袋</h1>
+            <p class="cart-subtitle">共 3 件商品 · 满 299 元顺丰包邮</p>
+
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="item-img item-img-1">🧥</div>
+                    <div class="item-info">
+                        <h3>垂感西装外套</h3>
+                        <p class="variant">颜色：燕麦白 / 尺码：M</p>
+                        <span class="tag">限时 7.1 折</span>
+                    </div>
+                    <span class="item-price">¥499</span>
+                    <div class="item-qty">
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, -1)">−</button>
+                        <span class="qty-val">1</span>
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, 1)">+</button>
+                    </div>
+                    <span class="item-remove" onclick="removeItem(this)">✕</span>
+                </div>
+
+                <div class="cart-item">
+                    <div class="item-img item-img-2">👕</div>
+                    <div class="item-info">
+                        <h3>亚麻混纺衬衫</h3>
+                        <p class="variant">颜色：雾蓝 / 尺码：S</p>
+                        <span class="tag">新品</span>
+                    </div>
+                    <span class="item-price">¥299</span>
+                    <div class="item-qty">
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, -1)">−</button>
+                        <span class="qty-val">1</span>
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, 1)">+</button>
+                    </div>
+                    <span class="item-remove" onclick="removeItem(this)">✕</span>
+                </div>
+
+                <div class="cart-item">
+                    <div class="item-img item-img-3">👗</div>
+                    <div class="item-info">
+                        <h3>棉质法式连衣裙</h3>
+                        <p class="variant">颜色：燕麦白 / 尺码：M</p>
+                        <span class="tag">限时 7 折</span>
+                    </div>
+                    <span class="item-price">¥399</span>
+                    <div class="item-qty">
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, -1)">−</button>
+                        <span class="qty-val">1</span>
+                        <button class="qty-btn-sm" onclick="changeItemQty(this, 1)">+</button>
+                    </div>
+                    <span class="item-remove" onclick="removeItem(this)">✕</span>
+                </div>
+            </div>
+
+            <div class="promo-section">
+                <input type="text" class="promo-input" placeholder="输入优惠码（如有）">
+                <button class="promo-btn" onclick="applyPromo()">使用</button>
+            </div>
+        </div>
+
+        <!-- Right: Summary -->
+        <div class="summary">
+            <h2>订单摘要</h2>
+
+            <div class="summary-row">
+                <span class="label">商品小计（3 件）</span>
+                <span class="value">¥1,197</span>
+            </div>
+
+            <div class="summary-row discount">
+                <span class="label">满减优惠</span>
+                <span class="value">−¥200</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="label">运费</span>
+                <span class="value" style="color:#5B8C5A;">免运费</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span class="label">应付合计</span>
+                <span class="value">¥997</span>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">去结算</button>
+            <a href="products.html" class="continue-btn">继续购物</a>
+
+            <div class="summary-note">
+                <p class="highlight">✓ 已享满 1000 减 200 优惠</p>
+                <p>支持 7 天无理由退换 · 顺丰包邮</p>
+                <p>预计送达：上海市 4月19日（次日）</p>
+            </div>
+
+            <div class="trust-badges">
+                <span class="trust-item">🔒 安全支付</span>
+                <span class="trust-item">🔄 7天退换</span>
+                <span class="trust-item">🚚 顺丰快递</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>可 衣</h3>
+                <p>上海 · 为都市女性设计的日常与通勤服饰品牌<br>上海市静安区愚园路 88 号 2 层<br>客服时间：周一至周日 9:00-21:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">新品上架</a>
+                <a href="cart.html">我的购物车</a>
+            </div>
+            <div class="footer-col">
+                <h4>售后服务</h4>
+                <a href="#">尺码对照表</a>
+                <a href="#">退换货说明</a>
+                <a href="#">面料护理</a>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <a href="#">service@keyi.cn</a>
+                <a href="#">微信公众号：可衣生活</a>
+                <a href="#">小红书：可衣Keyi</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 可衣 Keyi. 沪ICP备2024XXXXXX号 | 沪公网安备 31010602XXXXXX号
+        </div>
+    </footer>
+
+    <script>
+        function changeItemQty(btn, delta) {
+            var qtyEl = btn.parentElement.querySelector('.qty-val');
+            var val = parseInt(qtyEl.textContent);
+            val = Math.max(1, Math.min(9, val + delta));
+            qtyEl.textContent = val;
+        }
+
+        function removeItem(el) {
+            var item = el.closest('.cart-item');
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(20px)';
+            item.style.transition = 'all 0.3s';
+            setTimeout(function() {
+                item.remove();
+            }, 300);
+        }
+
+        function applyPromo() {
+            var btn = document.querySelector('.promo-btn');
+            btn.textContent = '已应用';
+            btn.style.background = '#5B8C5A';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#5B8C5A';
+        }
+
+        function checkout() {
+            var btn = document.querySelector('.checkout-btn');
+            btn.textContent = '正在跳转支付页面...';
+            btn.style.background = '#5B8C5A';
+            setTimeout(function() {
+                btn.textContent = '去结算';
+                btn.style.background = '#2C2C2C';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 洁家家政</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #28a745;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --white: #ffffff;
+            --grey: #6c757d;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .price-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .price-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .price-card.featured {
+            border: 3px solid var(--primary-color);
+            position: relative;
+        }
+        .featured-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .price span {
+            font-size: 16px;
+            color: var(--grey);
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .features-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        .book-btn {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">✨ 洁家家政</a>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="services.html">服务项目</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="booking.html" class="cta-button">立即预约</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>我们的服务套餐</h1>
+    <div class="pricing-grid">
+        <!-- 套餐 1 -->
+        <div class="price-card">
+            <h3>基础日常保洁</h3>
+            <div class="price">￥50<span> / 小时</span></div>
+            <ul class="features-list">
+                <li>地面除尘与拖地</li>
+                <li>表面家具擦拭</li>
+                <li>垃圾清理与更换</li>
+                <li>洗手间基础清洁</li>
+                <li>厨房表面清洁</li>
+            </ul>
+            <a href="booking.html" class="book-btn">选择此项</a>
+        </div>
+
+        <!-- 套餐 2 -->
+        <div class="price-card featured">
+            <div class="featured-tag">最受欢迎</div>
+            <h3>深度保洁服务</h3>
+            <div class="price">￥350<span> / 起</span></div>
+            <ul class="features-list">
+                <li>包含所有基础保洁项</li>
+                <li>窗框、窗台深度除尘</li>
+                <li>厨卫油垢深度清除</li>
+                <li>门框、踢脚线擦拭</li>
+                <li>电器表面细致清洁</li>
+            </ul>
+            <a href="booking.html" class="book-btn">选择此项</a>
+        </div>
+
+        <!-- 套餐 3 -->
+        <div class="price-card">
+            <h3>开荒/入驻保洁</h3>
+            <div class="price">￥25<span> / 平方米</span></div>
+            <ul class="features-list">
+                <li>新房建筑垃圾清理</li>
+                <li>全屋玻璃及窗框深度洗刷</li>
+                <li>厨卫水泥点清除</li>
+                <li>全方位除尘与消杀</li>
+                <li>专业设备抛光地面</li>
+            </ul>
+            <a href="booking.html" class="book-btn">选择此项</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+        &copy; 2023 洁家家政. 所有权利保留。
+    </div>
+</footer>
+
+</body>
+</html>

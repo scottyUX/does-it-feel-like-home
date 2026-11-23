@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 关于我们</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #d94d3c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #b33022;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .story {
+            display: flex;
+            margin: 3rem 0;
+        }
+        .story-image {
+            flex: 1;
+            margin-right: 2rem;
+        }
+        .story-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .story-content {
+            flex: 2;
+        }
+        .story-content h2 {
+            color: #d94d3c;
+            margin-bottom: 1.5rem;
+        }
+        .story-content p {
+            margin-bottom: 1rem;
+        }
+        .chef-section {
+            margin: 3rem 0;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .chef-section h2 {
+            color: #d94d3c;
+            margin-bottom: 1.5rem;
+        }
+        .chef-profile {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        .chef-image {
+            flex: 1;
+            margin-right: 2rem;
+        }
+        .chef-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .chef-info {
+            flex: 2;
+        }
+        .chef-info h3 {
+            color: #b33022;
+            margin-bottom: 0.5rem;
+        }
+        .chef-info p {
+            margin-bottom: 1rem;
+        }
+        .reservation {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        button {
+            background-color: #d94d3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b33022;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>家味餐厅</h1>
+        <p>杭州经典浙菜，家的味道</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="menu.html">菜单</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="reservation.html">订座</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section class="story">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="餐厅外观">
+            </div>
+            <div class="story-content">
+                <h2>我们的故事</h2>
+                <p>家味餐厅起源于杭州，由一对热爱美食的夫妻创办。二十年前，他们用最简单的食材和最真挚的心意，为街坊邻居烹制美味佳肴。经过多年的努力，家味餐厅逐渐成为杭州本地人和游客喜爱的浙菜餐厅。</p>
+                <p>我们的理念是"让每一道菜都充满家的味道"。从选材到烹饪，我们都严格把关，确保每一道菜品都能让食客感受到家的温暖和关怀。</p>
+                <p>多年来，我们不断学习和创新，将传统浙菜与现代烹饪技术相结合，推出了一系列深受食客喜爱的特色菜品。无论是家庭聚餐还是朋友聚会，家味餐厅都是您理想的选择。</p>
+                <button onclick="window.location.href='reservation.html'">立即预订</button>
+            </div>
+        </section>
+        <section class="chef-section">
+            <h2>我们的主厨</h2>
+            <div class="chef-profile">
+                <div class="chef-image">
+                    <img src="https://images.unsplash.com/photo-1535707804212-b2f845e47b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="主厨照片">
+                </div>
+                <div class="chef-info">
+                    <h3>陈师傅</h3>
+                    <p>拥有20年浙菜烹饪经验，师从多位名厨，深谙传统浙菜精髓。</p>
+                    <p>特别擅长东坡肉、龙井虾仁等经典菜品的制作，对食材有着独到的见解和选择标准。</p>
+                    <p>"烹饪不仅仅是一门技术，更是一门艺术。我希望通过每一道菜，都能传递家的温暖和幸福。"</p>
+                </div>
+            </div>
+        </section>
+        <section class="reservation">
+            <h2>预约用餐</h2>
+            <form>
+                <div>
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="phone">电话：</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div>
+                    <label for="date">日期：</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div>
+                    <label for="time">时间：</label>
+                    <select id="time" name="time" required>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="people">用餐人数：</label>
+                    <input type="number" id="people" name="people" min="1" max="10" required>
+                </div>
+                <button type="submit">确认预订</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2023 家味餐厅. 杭州市西湖区南山路118号</p>
+    </footer>
+</body>
+</html>

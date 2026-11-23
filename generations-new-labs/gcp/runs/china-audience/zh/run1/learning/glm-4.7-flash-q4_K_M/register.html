@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册账户 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --white: #ffffff;
+            --bg-light: #f3f4f6;
+            --border-radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-content { max-width: 1200px; width: 100%; display: flex; justify-content: space-between; align-items: center; margin: 0 auto; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; gap: 20px; font-size: 0.9rem; }
+        .nav-links a { color: var(--text-dark); }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Main */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .register-container {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+        }
+
+        .register-header { text-align: center; margin-bottom: 30px; }
+        .register-header h2 { font-size: 1.8rem; margin-bottom: 10px; }
+        .register-header p { color: var(--text-gray); font-size: 0.9rem; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.95rem; }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-block { width: 100%; padding: 14px; font-size: 1rem; margin-top: 10px; }
+        .btn-primary { background: var(--primary-color); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.2s; }
+        .btn-primary:hover { background: var(--secondary-color); }
+
+        .form-footer { text-align: center; margin-top: 25px; font-size: 0.9rem; color: var(--text-gray); }
+        .form-footer a { color: var(--primary-color); font-weight: 600; }
+        .form-footer a:hover { text-decoration: underline; }
+
+        .form-hint { font-size: 0.8rem; color: #ef4444; margin-top: 5px; display: none; }
+
+        /* Footer */
+        footer { background: #1f2937; color: #9ca3af; padding: 20px 0; text-align: center; font-size: 0.85rem; margin-top: auto; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span>学途</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="courses.html">课程列表</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <div class="register-container">
+            <div class="register-header">
+                <h2>创建账户</h2>
+                <p>加入学途，开启你的学习之旅</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label class="form-label">用户名</label>
+                    <input type="text" class="form-input" placeholder="请输入用户名" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">电子邮箱</label>
+                    <input type="email" class="form-input" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">密码</label>
+                    <input type="password" class="form-input" placeholder="设置6位以上密码" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">确认密码</label>
+                    <input type="password" class="form-input" placeholder="再次输入密码" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">感兴趣的课程领域</label>
+                    <select class="form-select">
+                        <option value="" disabled selected>请选择一个领域</option>
+                        <option value="lang">语言学习</option>
+                        <option value="code">编程开发</option>
+                        <option value="exam">考试备考</option>
+                        <option value="design">设计创意</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; margin-bottom: 20px;">
+                    <input type="checkbox" id="terms" required style="width: auto;">
+                    <label for="terms">我已阅读并同意 <a href="#" style="color: var(--primary-color);">用户服务协议</a> 和 <a href="#" style="color: var(--primary-color);">隐私政策</a></label>
+                </div>
+
+                <button type="submit" class="btn-primary btn-block">立即注册</button>
+            </form>
+
+            <div class="form-footer">
+                已有账户？ <a href="#">直接登录</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 学途在线教育平台. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

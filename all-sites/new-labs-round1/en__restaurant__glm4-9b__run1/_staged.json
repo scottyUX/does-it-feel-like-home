@@ -1,0 +1,11 @@
+{
+  "id": "en__restaurant__glm4-9b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "glm4:9b",
+  "completionTokens": 1811,
+  "seconds": 12,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

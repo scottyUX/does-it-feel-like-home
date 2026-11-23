@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8E354A;
+            --secondary-color: #F4A460;
+            --bg-color: #F9F9F9;
+            --text-color: #333333;
+            --border-radius: 8px;
+            --white: #FFFFFF;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, rgba(142, 53, 74, 0.1), transparent);
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .item-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+
+        .recommendation {
+            background-color: #FFF8E1;
+            border: 1px solid #FFE082;
+        }
+
+        @media (max-width: 600px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .item-price {
+                margin-left: 0;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="index.html" class="logo">道 家味</a>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="menu.html" style="color: var(--primary-color);">菜单</a>
+            <a href="about.html">关于我们</a>
+            <a href="reservation.html">预订</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>精选菜单</h1>
+
+    <div class="menu-category">
+        <h3 class="category-title">经典冷菜</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">极品酱牛肉</div>
+                    <div class="item-desc">选用牛腱子肉，卤制入味，筋道有嚼劲</div>
+                </div>
+                <div class="item-price">58元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">桂花糯米藕</div>
+                    <div class="item-desc">香甜软糯，淋上自酿桂花蜜</div>
+                </div>
+                <div class="item-price">38元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">杭式白切鸡</div>
+                    <div class="item-desc">皮黄肉白，骨中带血，原汁原味</div>
+                </div>
+                <div class="item-price">68元</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h3 class="category-title">招牌热菜</h3>
+        <div class="menu-grid">
+            <div class="menu-item recommendation">
+                <div class="item-details">
+                    <div class="item-name">招牌东坡肉</div>
+                    <div class="item-desc">肥而不腻，入口即化，肥瘦比例完美</div>
+                </div>
+                <div class="item-price">98元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">西湖醋鱼</div>
+                    <div class="item-desc">选用草鱼，酸甜开胃，色泽如水晶</div>
+                </div>
+                <div class="item-price">128元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">龙井虾仁</div>
+                    <div class="item-desc">虾仁白嫩，茶叶清香，清淡爽口</div>
+                </div>
+                <div class="item-price">88元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">浓油赤酱红烧肉</div>
+                    <div class="item-desc">上海经典做法，色泽红亮，咸甜适中</div>
+                </div>
+                <div class="item-price">58元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">清炒河虾仁</div>
+                    <div class="item-desc">现点现杀，个大肉嫩，鲜甜可口</div>
+                </div>
+                <div class="item-price">66元</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h3 class="category-title">时蔬与汤品</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">龙井炒时蔬</div>
+                    <div class="item-desc">当季新鲜绿叶菜，茶香浓郁</div>
+                </div>
+                <div class="item-price">32元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">奶白鱼头汤</div>
+                    <div class="item-desc">大鱼头炖煮，汤色奶白，营养丰富</div>
+                </div>
+                <div class="item-price">88元</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-name">西湖莲藕排骨汤</div>
+                    <div class="item-desc">滋补养生，莲粉软糯，汤汁鲜美</div>
+                </div>
+                <div class="item-price">68元</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="reservation.html" class="btn">预约座位，享用美味</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 餐厅菜单</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;}
+header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:bold;}
+main{padding:20px;}
+.restaurant-header{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+.restaurant-header h2{margin:0;}
+.menu-list{margin-top:20px;}
+.menu-item{background:#fff;border-radius:8px;padding:15px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+.menu-name{font-size:16px;font-weight:bold;}
+.menu-price{font-size:14px;color:#555;}
+.qty-controls{display:flex;align-items:center;}
+.qty-controls button{width:28px;height:28px;border:none;background:#ff6600;color:#fff;border-radius:4px;font-size:18px;margin:0 5px;cursor:pointer;}
+.qty-controls span{font-size:14px;width:20px;text-align:center;}
+.add-btn{background:#ff6600;color:#fff;border:none;padding:10px 15px;border-radius:4px;font-size:14px;cursor:pointer;}
+@media(max-width:600px){
+.restaurant-header{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>快送外卖</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+</header>
+<main>
+<div class="restaurant-header">
+<h2 id="restName">餐厅名</h2>
+<div>
+<span id="rating">4.5星</span> |
+<span id="distance">0.8km</span>
+</div>
+</div>
+<div class="menu-list" id="menu"></div>
+<div style="text-align:center;margin-top:20px;">
+<button class="add-btn" id="toCart">前往购物车</button>
+</div>
+</main>
+<footer>© 2024 快送外卖 版权所有</footer>
+<script>
+function getQueryParam(name){const url=window.location.href;const reg=new RegExp('[?&]'+name+'=([^&#]*)','i');const result=url.match(reg);return result?decodeURIComponent(result[1]):null;}
+const id=getQueryParam('id');
+const restaurants=[
+{ id:1, name:'川味小馆', rating:4.5, distance:'0.8km', menu:[
+{ id:'1a', name:'宫保鸡丁', price:18 },
+{ id:'1b', name:'鱼香肉丝', price:16 },
+{ id:'1c', name:'麻辣香锅', price:22 },
+] },
+{ id:2, name:'面食坊', rating:4.0, distance:'1.2km', menu:[
+{ id:'2a', name:'担担面', price:12 },
+{ id:'2b', name:'刀削面', price:13 },
+{ id:'2c', name:'小炒肉', price:14 },
+] },
+{ id:3, name:'快餐小站', rating:3.8, distance:'0.5km', menu:[
+{ id:'3a', name:'汉堡', price:18 },
+{ id:'3b', name:'炸鸡翅', price:16 },
+{ id:'3c', name:'薯条', price:12 },
+] },
+{ id:4, name:'素食乐园', rating:4.2, distance:'1.0km', menu:[
+{ id:'4a', name:'麻婆豆腐', price:15 },
+{ id:'4b', name:'凉拌木耳', price:10 },
+{ id:'4c', name:'蒸蛋', price:8 },
+] },
+{ id:5, name:'甜蜜时光', rating:4.6, distance:'0.9km', menu:[
+{ id:'5a', name:'红豆包', price:5 },
+{ id:'5b', name:'麻花', price:6 },
+{ id:'5c', name:'蛋糕', price:12 },
+] },
+{ id:6, name:'海鲜盛宴', rating:4.7, distance:'1.3km', menu:[
+{ id:'6a', name:'椒盐虾', price:20 },
+{ id:'6b', name:'清蒸鱼', price:28 },
+{ id:'6c', name:'炒鱿鱼', price:22 },
+] },
+];
+const rest=restaurants.find(r=>r.id==id);
+if(!rest){document.getElementById('restName').textContent='餐厅不存在';return;}
+document.getElementById('restName').textContent=rest.name;
+document.getElementById('rating').textContent=rest.rating+'星';
+document.getElementById('distance').textContent=rest.distance;
+const menuDiv=document.getElementById('menu');
+const cart=JSON.parse(localStorage.getItem('cart')||'{}');
+rest.menu.forEach(item=>{
+const div=document.createElement('div');div.className='menu-item';
+const left=document.createElement('div');left.innerHTML=`<div class="menu-name">${item.name}</div><div class="menu-price">${item.price}元</div>`;
+const right=document.createElement('div');right.className='qty-controls';
+const minus=document.createElement('button');minus.textContent='-';
+const qty=document.createElement('span');qty.textContent='0';
+const plus=document.createElement('button');plus.textContent='+';
+right.appendChild(minus);right.appendChild(qty);right.appendChild(plus);
+div.appendChild(left);div.appendChild(right);
+menuDiv.appendChild(div);
+minus.onclick=function(){const cur=parseInt(qty.textContent);if(cur>0){qty.textContent=cur-1;cart[item.id]=cur-1;localStorage.setItem('cart',JSON.stringify(cart));}}
+plus.onclick=function(){const cur=parseInt(qty.textContent);qty.textContent=cur+1;cart[item.id]=cur+1;localStorage.setItem('cart',JSON.stringify(cart));}
+});
+document.getElementById('toCart').onclick=function(){location.href='order.html';}
+</script>
+</body>
+</html>

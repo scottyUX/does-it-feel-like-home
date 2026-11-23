@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果 - 畅行旅行</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f5f5f5;color:#333;}
+        .container{max-width:1200px;margin:0 auto;padding:20px;}
+        header{background:#0066cc;color:#fff;padding:10px 0;}
+        header .logo{font-size:24px;font-weight:bold;margin-left:20px;}
+        nav{margin-top:10px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .hotel-list{margin-top:30px;}
+        .hotel-item{background:#fff;padding:20px;margin-bottom:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);display:flex;}
+        .hotel-img{width:200px;height:150px;background:#ddd;margin-right:20px;flex-shrink:0;}
+        .hotel-details{flex:1;}
+        .hotel-details h3{margin-top:0;}
+        .price{color:#e91e63;font-size:20px;font-weight:bold;margin-top:10px;}
+        .btn{background:#0066cc;color:#fff;padding:8px 15px;border:none;border-radius:4px;cursor:pointer;font-size:14px;margin-top:10px;}
+        .btn:hover{background:#004a99;}
+        footer{background:#333;color:#fff;padding:20px;text-align:center;margin-top:40px;}
+        @media (max-width:768px){
+            .hotel-item{flex-direction:column;align-items:center;}
+            .hotel-img{margin-bottom:15px;}
+            header .logo,nav{text-align:center;}
+            nav a{display:block;margin:10px 0;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">畅行旅行</div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="about.html">关于我们</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 id="searchTitle">搜索结果</h2>
+        <div class="hotel-list">
+            <div class="hotel-item">
+                <div class="hotel-img"></div>
+                <div class="hotel-details">
+                    <h3>北京东方假日酒店</h3>
+                    <p>位于北京市中心，靠近天安门广场，提供免费Wi-Fi和早餐。</p>
+                    <div class="price">¥ 680 / 晚</div>
+                    <a href="hotel.html?hotel=beijing-oriental" class="btn">查看详情</a>
+                </div>
+            </div>
+            <div class="hotel-item">
+                <div class="hotel-img"></div>
+                <div class="hotel-details">
+                    <h3>上海外滩茂悦大酒店</h3>
+                    <p>坐拥黄浦江景观，靠近外滩和南京路步行街。</p>
+                    <div class="price">¥ 1020 / 晚</div>
+                    <a href="hotel.html?hotel=shanghai-wai" class="btn">查看详情</a>
+                </div>
+            </div>
+            <div class="hotel-item">
+                <div class="hotel-img"></div>
+                <div class="hotel-details">
+                    <h3>丽江古城客栈</h3>
+                    <p>古城内部，拥有独特的纳西族装饰风格，适合浪漫度假。</p>
+                    <div class="price">¥ 450 / 晚</div>
+                    <a href="hotel.html?hotel=lijiang-inn" class="btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 畅行旅行. 保留所有权利.
+    </footer>
+
+    <script>
+        // 读取 URL 参数并显示搜索标题
+        function getParam(name){
+            const url = new URL(window.location);
+            return url.searchParams.get(name);
+        }
+        const dest = getParam('dest');
+        const inDate = getParam('in');
+        const outDate = getParam('out');
+        const titleEl = document.getElementById('searchTitle');
+        if(dest && inDate && outDate){
+            titleEl.textContent = `${dest} 的酒店（${inDate} 至 ${outDate}）`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "id": "zh__bank__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "bank",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 17975,
+  "seconds": 172,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/mapcity/1600/400",
+      "file": "assets/image-52aa182aabc4913e.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/map/800/400",
+      "file": "assets/image-6b4474f9b04072dc.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/loans/400/300",
+      "file": "assets/image-821707fd53d18e89.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/cards/400/300",
+      "file": "assets/image-e3b3aaf25a86e16f.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/funds/400/300",
+      "file": "assets/image-fcd96d298f4abe05.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/bankbuilding/1600/900",
+      "file": "assets/image-6f79ec8e89902f46.jpg"
+    }
+  ]
+}

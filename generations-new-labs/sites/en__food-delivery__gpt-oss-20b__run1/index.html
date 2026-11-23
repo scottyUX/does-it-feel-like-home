@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 首页</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;}
+header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:bold;}
+main{padding:20px;}
+.category-grid{display:flex;flex-wrap:wrap;gap:20px;}
+.category-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);flex:1 1 calc(25% - 20px);padding:20px;text-align:center;cursor:pointer;}
+.category-card h3{margin:10px 0 0;}
+.category-card:hover{box-shadow:0 4px 10px rgba(0,0,0,.15);}
+@media(max-width:800px){.category-card{flex:1 1 calc(50% - 20px);}}
+@media(max-width:500px){.category-card{flex:1 1 100%;}}
+footer{background:#333;color:#ccc;text-align:center;padding:10px;}
+</style>
+</head>
+<body>
+<header>
+<h1>快送外卖</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+</header>
+<main>
+<h2>餐厅分类</h2>
+<div class="category-grid">
+<div class="category-card" onclick="location.href='restaurants.html?cat=川菜'">
+<h3>川菜</h3>
+</div>
+<div class="category-card" onclick="location.href='restaurants.html?cat=面食'">
+<h3>面食</h3>
+</div>
+<div class="category-card" onclick="location.href='restaurants.html?cat=快餐'">
+<h3>快餐</h3>
+</div>
+<div class="category-card" onclick="location.href='restaurants.html?cat=素食'">
+<h3>素食</h3>
+</div>
+<div class="category-card" onclick="location.href='restaurants.html?cat=甜品'">
+<h3>甜品</h3>
+</div>
+<div class="category-card" onclick="location.href='restaurants.html?cat=海鲜'">
+<h3>海鲜</h3>
+</div>
+</div>
+</main>
+<footer>© 2024 快送外卖 版权所有</footer>
+</body>
+</html>

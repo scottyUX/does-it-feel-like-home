@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c3e50; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .top-bar { background: #1a2a4a; color: #b8c6db; font-size: 13px; padding: 8px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #b8c6db; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1a2a4a; }
+        .logo-text span { color: #1a5fb4; }
+        nav { display: flex; gap: 8px; }
+        nav a { padding: 10px 18px; border-radius: 6px; font-size: 15px; font-weight: 500; color: #4a5568; transition: all .2s; }
+        nav a:hover, nav a.active { background: #ebf3ff; color: #1a5fb4; }
+        nav a.cta { background: #1a5fb4; color: #fff; }
+        nav a.cta:hover { background: #1552a0; }
+
+        .page-hero { background: linear-gradient(135deg, #0f2242, #1a5fb4); color: #fff; padding: 72px 0 56px; }
+        .page-hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+        .page-hero p { font-size: 16px; color: #c5d5e8; max-width: 600px; }
+        .breadcrumb { font-size: 13px; color: #8ab0d8; margin-bottom: 20px; }
+        .breadcrumb a:hover { color: #fff; }
+
+        .section { padding: 72px 0; }
+        .section-alt { background: #f6f9fc; }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 28px; font-weight: 700; color: #1a2a4a; margin-bottom: 8px; }
+        .section-header p { font-size: 15px; color: #6b7c93; max-width: 560px; margin: 0 auto; }
+
+        .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .card-item { background: #fff; border: 1px solid #e8ecf1; border-radius: 16px; overflow: hidden; transition: all .3s; display: flex; flex-direction: column; }
+        .card-item:hover { box-shadow: 0 12px 40px rgba(26,95,180,.12); transform: translateY(-4px); border-color: #b8d4f7; }
+        .card-item.featured { border: 2px solid #1a5fb4; position: relative; }
+        .card-item.featured::before { content: '热门'; position: absolute; top: 12px; right: 12px; background: #1a5fb4; color: #fff; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+        .card-visual { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .card-visual .card-shape { width: 140px; height: 88px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.2); transform: perspective(400px) rotateX(10deg); }
+        .cv-standard { background: linear-gradient(135deg, #4a90d9, #6cb3f5); }
+        .cv-gold { background: linear-gradient(135deg, #c9963c, #f0c86e); }
+        .cv-platinum { background: linear-gradient(135deg, #6b7b8d, #a8b8c8); }
+        .cv-diamond { background: linear-gradient(135deg, #1a1a2e, #4a4a6a); }
+        .card-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .card-info h3 { font-size: 18px; font-weight: 600; color: #1a2a4a; margin-bottom: 6px; }
+        .card-info .fee { font-size: 14px; color: #e67e22; font-weight: 600; margin-bottom: 14px; }
+        .card-info ul { list-style: none; flex: 1; }
+        .card-info ul li { font-size: 13px; color: #4a5568; padding: 5px 0; padding-left: 18px; position: relative; }
+        .card-info ul li::before { content: '✓'; position: absolute; left: 0; color: #2d8cf0; font-weight: 700; font-size: 12px; }
+        .card-info .btn-apply { margin-top: 20px; text-align: center; padding: 10px; background: #1a5fb4; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background .2s; }
+        .card-info .btn-apply:hover { background: #1552a0; }
+
+        .compare-table { width: 100%; border-collapse: collapse; margin-top: 32px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+        .compare-table th, .compare-table td { padding: 14px 18px; text-align: center; font-size: 14px; border-bottom: 1px solid #eef2f7; }
+        .compare-table th { background: #f6f9fc; font-weight: 600; color: #1a2a4a; }
+        .compare-table td { color: #4a5568; }
+        .compare-table td:first-child { text-align: left; font-weight: 500; }
+        .compare-table .check { color: #2d8cf0; font-weight: 700; }
+        .compare-table .cross { color: #ccc; }
+
+        .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .perk-item { text-align: center; padding: 28px 20px; background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; }
+        .perk-item .icon { font-size: 36px; margin-bottom: 12px; }
+        .perk-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .perk-item p { font-size: 13px; color: #6b7c93; }
+
+        .steps-apply { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+        .step-apply { text-align: center; padding: 32px 24px; background: #fff; border-radius: 12px; border: 1px solid #e8ecf1; }
+        .step-apply .num { width: 48px; height: 48px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 16px; }
+        .step-apply h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .step-apply p { font-size: 13px; color: #6b7c93; }
+
+        .apply-form { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 40px; max-width: 720px; margin: 0 auto; }
+        .apply-form h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: #1a2a4a; text-align: center; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #4a5568; }
+        .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid #d1dce8; border-radius: 8px; font-size: 14px; font-family: inherit; transition: border-color .2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #1a5fb4; box-shadow: 0 0 0 3px rgba(26,95,180,.1); }
+        .form-submit { text-align: center; margin-top: 24px; }
+        .form-submit .btn { padding: 12px 48px; background: #1a5fb4; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s; }
+        .form-submit .btn:hover { background: #1552a0; }
+        .form-note { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 12px; }
+
+        footer { background: #0f1c30; color: #8a9bb5; padding: 48px 0 28px; font-size: 14px; }
+        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        footer h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a { color: #8a9bb5; transition: color .2s; }
+        footer ul a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e3050; margin-top: 36px; padding-top: 24px; text-align: center; font-size: 13px; }
+
+        @media (max-width: 1024px) {
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .perks { grid-template-columns: 1fr; }
+            .steps-apply { grid-template-columns: 1fr; }
+            footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 28px; }
+            .compare-table { font-size: 12px; }
+            .compare-table th, .compare-table td { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一服务热线：95577</span>
+            <div>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">长</div>
+                <div class="logo-text">长川<span>银行</span></div>
+            </a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html" class="active">信用卡</a>
+                <a href="contact.html">联系网点</a>
+                <a href="#apply" class="cta">立即申请</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">首页</a> / 信用卡</div>
+            <h1>长川银行信用卡</h1>
+            <p>四款产品覆盖日常消费到高端商旅，最高50万元额度，全球消费免货币转换费，让您的每一笔消费都物超所值。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>选择适合您的卡片</h2>
+                <p>从入门到尊享，总有一款契合您的生活方式</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="card-visual" style="background:#f0f7ff;">
+                        <div class="card-shape cv-standard">长川普卡</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>长川普卡</h3>
+                        <div class="fee">年费 80元（首年免）</div>
+                        <ul>
+                            <li>信用额度 1万-5万</li>
+                            <li>境内消费累计10次免次年年费</li>
+                            <li>1.5倍积分（超市、餐饮）</li>
+                            <li>免境外取现手续费</li>
+                            <li>手机银行账单分期0手续费</li>
+                        </ul>
+                        <a href="#apply" class="btn-apply">申请此卡</a>
+                    </div>
+                </div>
+
+                <div class="card-item featured">
+                    <div class="card-visual" style="background:#fff9f0;">
+                        <div class="card-shape cv-gold">长川金卡</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>长川金卡</h3>
+                        <div class="fee">年费 300元（刷卡12次免）</div>
+                        <ul>
+                            <li>信用额度 5万-20万</li>
+                            <li>2倍积分（全品类）</li>
+                            <li>机场贵宾厅每年4次</li>
+                            <li>道路救援服务（每年2次）</li>
+                            <li>境外消费免货币转换费</li>
+                            <li>账单日自动分期，年化费率2.99%起</li>
+                        </ul>
+                        <a href="#apply" class="btn-apply">申请此卡</a>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-visual" style="background:#f5f7fa;">
+                        <div class="card-shape cv-platinum">长川白金卡</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>长川白金卡</h3>
+                        <div class="fee">年费 1,200元（刷卡36次免）</div>
+                        <ul>
+                            <li>信用额度 20万-50万</li>
+                            <li>3倍积分（航空、酒店、餐饮）</li>
+                            <li>机场贵宾厅不限次（含同行1人）</li>
+                            <li>全球紧急医疗救援</li>
+                            <li>酒店延迟退房至14:00</li>
+                            <li>专属客服95577转1</li>
+                        </ul>
+                        <a href="#apply" class="btn-apply">申请此卡</a>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-visual" style="background:#f0f0f8;">
+                        <div class="card-shape cv-diamond">长川钻石卡</div>
+                    </div>
+                    <div class="card-info">
+                        <h3>长川钻石卡</h3>
+                        <div class="fee">年费 5,000元（不可减免）</div>
+                        <ul>
+                            <li>信用额度 50万+</li>
+                            <li>5倍积分（全品类）</li>
+                            <li>全球顶级酒店年度1晚</li>
+                            <li>专属旅行管家服务</li>
+                            <li>高端体检套餐（每年1次）</li>
+                            <li>高尔夫球场年度4次果岭</li>
+                        </ul>
+                        <a href="#apply" class="btn-apply">申请此卡</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>权益对比</h2>
+                <p>一目了然，选出最适合您的那一张</p>
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>权益</th>
+                            <th>普卡</th>
+                            <th>金卡</th>
+                            <th>白金卡</th>
+                            <th>钻石卡</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>最高额度</td>
+                            <td>5万</td>
+                            <td>20万</td>
+                            <td>50万</td>
+                            <td>50万+</td>
+                        </tr>
+                        <tr>
+                            <td>积分倍数</td>
+                            <td>1.5x</td>
+                            <td>2x</td>
+                            <td>3x</td>
+                            <td>5x</td>
+                        </tr>
+                        <tr>
+                            <td>机场贵宾厅</td>
+                            <td class="cross">—</td>
+                            <td>4次/年</td>
+                            <td>不限次</td>
+                            <td>不限次</td>
+                        </tr>
+                        <tr>
+                            <td>境外免转换费</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>道路救援</td>
+                            <td class="cross">—</td>
+                            <td>2次/年</td>
+                            <td>不限次</td>
+                            <td>不限次</td>
+                        </tr>
+                        <tr>
+                            <td>紧急医疗救援</td>
+                            <td class="cross">—</td>
+                            <td class="cross">—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>专属客服</td>
+                            <td>95577</td>
+                            <td>95577</td>
+                            <td>95577转1</td>
+                            <td>1对1</td>
+                        </tr>
+                        <tr>
+                            <td>年费</td>
+                            <td>80元</td>
+                            <td>300元</td>
+                            <td>1,200元</td>
+                            <td>5,000元</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>持卡权益</h2>
+                <p>不止是支付工具，更是您的生活助手</p>
+            </div>
+            <div class="perks">
+                <div class="perk-item">
+                    <div class="icon">✈️</div>
+                    <h4>航空权益</h4>
+                    <p>里程累积、优先登机、行李额提升，与多家航空公司深度合作</p>
+                </div>
+                <div class="perk-item">
+                    <div class="icon">🛡️</div>
+                    <h4>消费保障</h4>
+                    <p>航班延误险、盗刷保障、购物退货保险，安心消费无后顾之忧</p>
+                </div>
+                <div class="perk-item">
+                    <div class="icon">🎁</div>
+                    <h4>专属优惠</h4>
+                    <p>每月8日"长川会员日"，餐饮5折、电影票半价、加油立减</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>申请流程</h2>
+                <p>全程线上，最快2个工作日下卡</p>
+            </div>
+            <div class="steps-apply">
+                <div class="step-apply">
+                    <div class="num">1</div>
+                    <h4>填写申请信息</h4>
+                    <p>在线填写基本信息、职业收入和期望额度，全程约3分钟</p>
+                </div>
+                <div class="step-apply">
+                    <div class="num">2</div>
+                    <h4>审核与确认</h4>
+                    <p>系统自动审核+人工复核，结果通过短信和App通知</p>
+                </div>
+                <div class="step-apply">
+                    <div class="num">3</div>
+                    <h4>收到卡片</h4>
+                    <p>卡片3-5个工作日寄达，App激活即可使用，支持Apple Pay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <h2>在线申请</h2>
+                <p>填写以下信息，提交后我们将在2个工作日内完成审核</p>
+            </div>
+            <div class="apply-form">
+                <h3>信用卡申请表</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" placeholder="请输入身份证姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>证件号码</label>
+                        <input type="text" placeholder="请输入18位身份证号">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>手机号码</label>
+                        <input type="tel" placeholder="请输入11位手机号">
+                    </div>
+                    <div class="form-group">
+                        <label>期望额度（万元）</label>
+                        <select>
+                            <option>1 - 5万</option>
+                            <option>5 - 10万</option>
+                            <option>10 - 20万</option>
+                            <option>20 - 50万</option>
+                            <option>50万以上</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>职业类型</label>
+                        <select>
+                            <option>企业职员</option>
+                            <option>个体工商户/小企业主</option>
+                            <option>公务员/事业单位</option>
+                            <option>自由职业</option>
+                            <option>其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>月均收入（元）</label>
+                        <select>
+                            <option>5,000以下</option>
+                            <option>5,000 - 10,000</option>
+                            <option>10,000 - 30,000</option>
+                            <option>30,000 - 50,000</option>
+                            <option>50,000以上</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>意向卡种</label>
+                    <select>
+                        <option>长川普卡</option>
+                        <option>长川金卡（推荐）</option>
+                        <option>长川白金卡</option>
+                        <option>长川钻石卡</option>
+                    </select>
+                </div>
+                <div class="form-submit">
+                    <button class="btn" onclick="alert('申请已提交！我们将在2个工作日内通过短信通知您审核结果。')">提交申请</button>
+                </div>
+                <p class="form-note">提交申请即表示您同意《长川银行信用卡章程》及《领用合约》。最终额度以审批结果为准。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>长川银行</h4>
+                <p style="margin-top:12px;line-height:1.8;">长川银行股份有限公司成立于2003年，总部位于上海市浦东新区。现有营业网点覆盖全国32个省市，致力于为客户提供全面、专业、有温度的金融服务。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人业务</a></li>
+                    <li><a href="cards.html">信用卡</a></li>
+                    <li><a href="contact.html">联系网点</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="contact.html">网点查询</a></li>
+                    <li><a href="contact.html">在线客服</a></li>
+                    <li><a href="contact.html">投诉建议</a></li>
+                    <li><a href="contact.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <ul>
+                    <li>服务热线：95577</li>
+                    <li>邮箱：service@changchuan.com</li>
+                    <li>地址：上海市浦东新区世纪大道1088号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 长川银行股份有限公司 版权所有 | 沪ICP备05012345号 | 中国银保监会批准设立</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

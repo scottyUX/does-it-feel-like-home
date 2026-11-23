@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单总结</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .order-summary {
+            padding: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>订单总结</h1>
+        <a href="restaurant.html?id=1">返回餐厅页面</a>
+    </div>
+    <div class="order-summary">
+        <h2>您的订单</h2>
+        <p>蜀大侠火锅 x 1</p>
+        <p>总计: ¥ 25.99</p>
+        <form>
+            <label>收货地址:</label>
+            <input type="text" placeholder="请输入收货地址">
+            <br>
+            <label>联系电话:</label>
+            <input type="text" placeholder="请输入联系电话">
+            <br>
+            <button>提交订单</button>
+        </form>
+    </div>
+</body>
+</html>

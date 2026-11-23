@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>洁家家政 - 关于我们</title>
+<style>
+body{margin:0;font-family:"Helvetica Neue","Arial","宋体";color:#333;background:#f5f5f5;}
+header{background:#4a90e2;color:white;padding:15px 0;}
+nav{max-width:1200px;margin:auto;display:flex;justify-content:center;}
+nav a{color:white;text-decoration:none;margin:0 15px;position:relative;padding-bottom:5px;}
+nav a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:2px;background:white;transition:width .3s;}
+nav a:hover::after{width:100%;}
+section{max-width:1200px;margin:40px auto;padding:0 20px;}
+h2{margin-bottom:20px;}
+.team{display:flex;flex-wrap:wrap;gap:20px;}
+.member{background:white;padding:15px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);flex:1 1 calc(33% - 20px);}
+.member img{width:100%;height:auto;border-radius:50%;}
+.member h3{margin:10px 0 5px;}
+footer{background:#333;color:white;text-align:center;padding:15px 0;margin-top:40px;}
+@media(max-width:768px){.team{flex-direction:column;}.member{flex:1 1 100%;}}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<a href="index.html">首页</a>
+<a href="services.html">服务</a>
+<a href="about.html">关于</a>
+<a href="appointment.html">预约</a>
+</nav>
+</header>
+<section>
+<h2>关于洁家家政</h2>
+<p>洁家家政成立于2010年，坐落于北京市核心商务区，专注于为忙碌家庭和上班族提供高效、专业的家庭保洁服务。我们以“品质、信任、便利”为服务宗旨，致力于为客户创造整洁舒适的居住环境。</p>
+<h2>我们的团队</h2>
+<div class="team">
+<div class="member">
+<img src="assets/image-465ad761690597a7.jpg" alt="李经理">
+<h3>李晓明 - 运营总监</h3>
+<p>拥有15年家政行业管理经验，擅长团队建设与服务优化。</p>
+</div>
+<div class="member">
+<img src="assets/image-8ba40c5b95be3afc.jpg" alt="王洁 - 清洁主管">
+<h3>王洁 - 清洁主管</h3>
+<p>专业清洁技术专家，负责制定清洁标准与培训。</p>
+</div>
+<div class="member">
+<img src="assets/image-a7b526eaf40d1ea1.jpg" alt="赵亮 - 客服经理">
+<h3>赵亮 - 客服经理</h3>
+<p>负责客户关系维护与售后跟进，确保服务满意度。</p>
+</div>
+</div>
+</section>
+<footer>
+<p>洁家家政 © 2024 北京市</p>
+</footer>
+</body>
+</html>

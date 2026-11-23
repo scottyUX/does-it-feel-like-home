@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>长川银行 - 信用卡产品</title>
+<style>
+:root{--primary:#0066CC;--secondary:#004C99;--bg:#f5f5f5;--text:#333;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Helvetica Neue","Helvetica","Arial",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+header{background:var(--primary);color:#fff;padding:1rem;}
+nav ul{list-style:none;display:flex;gap:1rem;}
+nav a{color:#fff;text-decoration:none;font-weight:bold;}
+nav a:hover{color:var(--secondary);}
+main{max-width:1200px;margin:2rem auto;padding:0 1rem;}
+section{margin-bottom:2rem;}
+h1{margin-bottom:.5rem;font-size:2.5rem;}
+h2{margin-bottom:.5rem;font-size:1.75rem;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:1.5rem;}
+.card h3{margin-bottom:.75rem;font-size:1.5rem;}
+.card ul{margin-left:1rem;}
+button{background:var(--primary);color:#fff;border:none;padding:.5rem 1rem;border-radius:4px;cursor:pointer;}
+button:hover{background:var(--secondary);}
+footer{background:#333;color:#fff;text-align:center;padding:1rem 0;margin-top:3rem;}
+footer a{color:#fff;text-decoration:none;}
+@media(max-width:600px){
+    header nav ul{flex-direction:column;gap:.5rem;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>长川银行</h1>
+<nav>
+<ul>
+<li><a href="index.html">首页</a></li>
+<li><a href="personal_bank.html">个人银行服务</a></li>
+<li><a href="credit_cards.html">信用卡</a></li>
+<li><a href="contact.html">联系我们</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section>
+<h2>信用卡产品</h2>
+<p>根据您的消费习惯与需求，长川银行提供多种信用卡，满足不同人群的使用场景。</p>
+</section>
+<section>
+<div class="card-grid">
+<div class="card">
+<h3>长川标准卡</h3>
+<ul>
+<li>年费：免费</li>
+<li>信用额度：5,000元</li>
+<li>积分奖励：每消费1元返0.5积分</li>
+<li>消费限额：每日5,000元</li>
+<li>适合：日常购物、线上支付</li>
+</ul>
+<button disabled>了解更多（演示）</button>
+</div>
+<div class="card">
+<h3>长川金卡</h3>
+<ul>
+<li>年费：免费</li>
+<li>信用额度：20,000元</li>
+<li>积分奖励：每消费1元返1积分</li>
+<li>消费限额：每日20,000元</li>
+<li>专属礼遇：机场贵宾厅、酒店积分</li>
+<li>适合：商务出行、频繁购物</li>
+</ul>
+<button disabled>了解更多（演示）</button>
+</div>
+<div class="card">
+<h3>长川白金卡</h3>
+<ul>
+<li>年费：免费</li>
+<li>信用额度：50,000元</li>
+<li>积分奖励：每消费1元返1.5积分</li>
+<li>消费限额：每日50,000元</li>
+<li>专属礼遇：私人理财顾问、国际机场贵宾厅</li>
+<li>适合：高端消费、个人或企业代表</li>
+</ul>
+<button disabled>了解更多（演示）</button>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<p>© 2024 长川银行. 备案号: 12345678.</p>
+</footer>
+</body>
+</html>

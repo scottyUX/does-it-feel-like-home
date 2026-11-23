@@ -1,0 +1,52 @@
+{
+  "id": "zh__food-delivery__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13299,
+  "seconds": 123,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/foodbanner/1200/200",
+      "file": "assets/image-efe72ccfb83bc74e.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/hotpot/300/200",
+      "file": "assets/image-7628388bd546559f.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/burger/300/200",
+      "file": "assets/image-f85914428c905558.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/salad/300/200",
+      "file": "assets/image-f34ef8d9ded2c44d.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/ramen/300/200",
+      "file": "assets/image-5b50d96b559ff204.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/noodle/120/120",
+      "file": "assets/image-72ad0c8244769bb4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/noodle/150/150",
+      "file": "assets/image-86a52ba747692c38.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sushi/150/150",
+      "file": "assets/image-dc6fb4025b4cbed8.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/chicken/150/150",
+      "file": "assets/image-a94f7fed3d6623d9.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/steak/150/150",
+      "file": "assets/image-ff162ec7c94ba76a.jpg"
+    }
+  ]
+}

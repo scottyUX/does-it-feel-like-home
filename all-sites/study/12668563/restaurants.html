@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择餐厅 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ff7875;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .main-layout {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .filters {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group h4 {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-option {
+            display: block;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            margin-right: 10px;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .restaurant-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .res-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .res-details {
+            padding: 1.5rem;
+        }
+
+        .res-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .res-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .res-rating {
+            background: #fff7e6;
+            color: #faad14;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .res-info {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .res-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: #777;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 快送外卖</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html" style="color: var(--primary-color);">所有餐厅</a></li>
+                    <li><a href="checkout.html">我的订单</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <aside class="filters">
+            <div class="filter-group">
+                <h4>排序方式</h4>
+                <label class="filter-option"><input type="radio" name="sort" checked> 综合排序</label>
+                <label class="filter-option"><input type="radio" name="sort"> 配送时间</label>
+                <label class="filter-option"><input type="radio" name="sort"> 评分最高</label>
+                <label class="filter-option"><input type="radio" name="sort"> 距离最近</label>
+            </div>
+            <div class="filter-group">
+                <h4>美食分类</h4>
+                <label class="filter-option"><input type="checkbox" checked> 川菜</label>
+                <label class="filter-option"><input type="checkbox" checked> 快餐</label>
+                <label class="filter-option"><input type="checkbox" checked> 甜点</label>
+                <label class="filter-option"><input type="checkbox" checked> 轻食</label>
+                <label class="filter-option"><input type="checkbox"> 日韩料理</label>
+                <label class="filter-option"><input type="checkbox"> 披萨汉堡</label>
+            </div>
+            <div class="filter-group">
+                <h4>配送费</h4>
+                <label class="filter-option"><input type="checkbox" checked> 免配送费</label>
+                <label class="filter-option"><input type="checkbox"> 配送费 < 5元</label>
+            </div>
+        </aside>
+
+        <main class="restaurant-grid">
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-de3fc7f3c90cf202.jpg" alt="锦江路川味馆" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">锦江路川味馆</p>
+                        <span class="res-rating">★ 4.8</span>
+                    </div>
+                    <div class="res-info">预计 30-45 分钟 | 距离 2.1km</div>
+                    <div class="res-tags">
+                        <span class="tag">经典川菜</span>
+                        <span class="tag">地道成都</span>
+                        <span class="tag">热门</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-b5a573eee7267aab.jpg" alt="极速健康便当" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">极速健康便当</p>
+                        <span class="res-rating">★ 4.5</span>
+                    </div>
+                    <div class="res-info">预计 20-30 分钟 | 距离 1.2km</div>
+                    <div class="res-tags">
+                        <span class="tag">低卡</span>
+                        <span class="tag">轻食</span>
+                        <span class="tag">商务快餐</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-719b5b25200135be.jpg" alt="甜心烘焙坊" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">甜心烘焙坊</p>
+                        <span class="res-rating">★ 4.9</span>
+                    </div>
+                    <div class="res-info">预计 15-25 分钟 | 距离 0.8km</div>
+                    <div class="res-tags">
+                        <span class="tag">精致甜点</span>
+                        <span class="tag">手工咖啡</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-d0e5cc6834ae42f8.jpg" alt="火锅之都外卖" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">火锅之都 (外送版)</p>
+                        <span class="res-rating">★ 4.7</span>
+                    </div>
+                    <div class="res-info">预计 40-60 分钟 | 距离 3.5km</div>
+                    <div class="res-tags">
+                        <span class="tag">麻辣锅底</span>
+                        <span class="tag">多人套餐</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-b990182343bf0192.jpg" alt="极速汉堡王" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">极速汉堡王</p>
+                        <span class="res-rating">★ 4.2</span>
+                    </div>
+                    <div class="res-info">预计 15-25 分钟 | 距离 1.5km</div>
+                    <div class="res-tags">
+                        <span class="tag">美式快餐</span>
+                        <span class="tag">高性价比</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="menu.html" class="restaurant-card">
+                <img src="assets/image-fa112c2c31fa01e1.jpg" alt="锦江米线店" class="res-image">
+                <div class="res-details">
+                    <div class="res-header">
+                        <p class="res-name">锦江米线店</p>
+                        <span class="res-rating">★ 4.6</span>
+                    </div>
+                    <div class="res-info">预计 25-35 分钟 | 距离 2.0km</div>
+                    <div class="res-tags">
+                        <span class="tag">地道小吃</span>
+                        <span class="tag">快捷</span>
+                    </div>
+                </div>
+            </a>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 快送外卖 (Chengdu Fast Delivery). All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 悦容美发美容</title>
+    <style>
+        :root {
+            --primary-color: #b59a7d;
+            --secondary-color: #fcfaf8;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .page-header {
+            background-color: var(--secondary-color);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .category-section {
+            margin-bottom: 60px;
+        }
+        .category-title {
+            font-size: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .price-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        .price-table td {
+            padding: 20px 10px;
+        }
+        .service-name {
+            font-weight: 500;
+            width: 60%;
+        }
+        .service-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+        .price-value {
+            text-align: right;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+        .cta-box {
+            text-align: center;
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #222;
+            color: #eee;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">悦容美发美容</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务项目</a></li>
+                <li><a href="team.html">专业团队</a></li>
+                <li><a href="appointment.html">立即预约</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>我们的服务项目</h1>
+        <p>专业设备，精湛工艺，为您带来质感升级</p>
+    </div>
+
+    <div class="container">
+        <div class="category-section">
+            <div class="category-title">高端美发服务</div>
+            <table class="price-table">
+                <tr>
+                    <td class="service-name">
+                        设计师剪发
+                        <span class="service-desc">根据脸型定制剪裁，包含洗发与基础造型</span>
+                    </td>
+                    <td class="price-value">¥180 - ¥380</td>
+                </tr>
+                <tr>
+                    <td class="service-name">
+                        法式数字烫发
+                        <span class="service-desc">自然卷度，打造轻盈空气感，含深层护理</span>
+                    </td>
+                    <td class="price-value">¥880 - ¥1580</td>
+                </tr>
+                <tr>
+                    <td class="service-name">
+                        高级时装染发
+                        <span class="service-desc">进口染膏，涵盖渐变色、挑染及全头染</span>
+                    </td>
+                    <td class="price-value">¥580 - ¥1280</td>
+                </tr>
+                <tr>
+                    <td class="service-name">
+                        男士精雕造型
+                        <span class="service-desc">专业理容剪发，含胡须修整与头部按摩</span>
+                    </td>
+                    <td class="price-value">¥120 - ¥260</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="category-section">
+            <div class="category-title">专业皮肤管理</div>
+            <table class="price-table">
+                <tr>
+                    <td class="service-name">
+                        深层净肤护理
+                        <span class="service-desc">清洁毛孔，去除老废角质，恢复肌肤光泽</span>
+                    </td>
+                    <td class="price-value">¥480</td>
+                </tr>
+                <tr>
+                    <td class="service-name">
+                        水光补水疗程
+                        <span class="service-desc">深层补水，改善干燥脱皮，提升皮肤弹性</span>
+                    </td>
+                    <td class="price-value">¥680</td>
+                </tr>
+                <tr>
+                    <td class="service-name">
+                        紧致提升按摩
+                        <span class="service-desc">专业手法配合仪器，提升面部轮廓，淡化细纹</span>
+                    </td>
+                    <td class="price-value">¥880</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cta-box">
+            <h3>想要体验这些服务吗？</h3>
+            <p style="margin-bottom: 25px;">预约成功后，我们将为您预留专属时间，无需现场排队。</p>
+            <a href="appointment.html" class="btn">立即预约</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 悦容美发美容. All Rights Reserved.
+    </footer>
+</body>
+</html>

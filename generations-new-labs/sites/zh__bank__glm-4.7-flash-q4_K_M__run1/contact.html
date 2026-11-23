@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网点信息 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4af37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+        .nav a { margin-left: 25px; font-weight: 500; font-size: 14px; }
+        .nav a:hover, .nav a.active { color: var(--secondary-color); }
+
+        .hero {
+            background: url('assets/image-52aa182aabc4913e.jpg') no-repeat center center;
+            background-size: cover;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 51, 102, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 { font-size: 32px; margin-bottom: 10px; }
+
+        main { padding: 40px 0 80px; }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media(max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
+
+        .section-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .branch-list { margin-top: 20px; }
+        
+        .branch-item {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .branch-item:last-child { border-bottom: none; }
+
+        .branch-info { flex: 1; }
+        .branch-name { font-size: 18px; font-weight: bold; color: var(--primary-color); margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .branch-address { font-size: 14px; color: var(--text-light); margin-bottom: 5px; }
+        .branch-contact { font-size: 14px; color: #666; }
+        
+        .branch-map {
+            width: 100%;
+            height: 250px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        .btn-submit:hover { background: var(--secondary-color); }
+
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        /* Branch Map Placeholder */
+        .map-placeholder { border: 1px solid #ddd; height: 350px; width: 100%; display: flex; align-items: center; justify-content: center; color: #666; font-size: 14px; background-image: url('assets/image-6b4474f9b04072dc.jpg'); background-size: cover; position: relative; }
+        .map-overlay { background: rgba(255,255,255,0.8); padding: 20px; border-radius: 4px; text-align: center; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">长川银行</a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人银行</a>
+                <a href="credit_card.html">信用卡</a>
+                <a href="contact.html" class="active">网点信息</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>网点信息</h1>
+            <p>寻找离您最近的长川银行网点</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="grid-layout">
+            
+            <!-- Branch List -->
+            <div>
+                <div class="section-box">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">重点城市网点列表</h2>
+                    
+                    <div class="branch-list">
+                        <div class="branch-item">
+                            <div class="branch-info">
+                                <div class="branch-name">长川银行北京分行 <span style="font-weight: normal; font-size: 14px; color: #666;">营业时间: 09:00-17:00</span></div>
+                                <div class="branch-address">北京市朝阳区建国路88号现代城购物中心1层</div>
+                                <div class="branch-contact">电话: 010-8888-9999</div>
+                            </div>
+                            <div style="width: 40px; text-align: center; color: #ccc;">📍</div>
+                        </div>
+
+                        <div class="branch-item">
+                            <div class="branch-info">
+                                <div class="branch-name">长川银行上海浦东分行 <span style="font-weight: normal; font-size: 14px; color: #666;">营业时间: 09:00-17:00</span></div>
+                                <div class="branch-address">上海市浦东新区陆家嘴环路1000号金融中心A座</div>
+                                <div class="branch-contact">电话: 021-6666-7777</div>
+                            </div>
+                            <div style="width: 40px; text-align: center; color: #ccc;">📍</div>
+                        </div>
+
+                        <div class="branch-item">
+                            <div class="branch-info">
+                                <div class="branch-name">长川银行深圳南山分行 <span style="font-weight: normal; font-size: 14px; color: #666;">营业时间: 09:30-17:30</span></div>
+                                <div class="branch-address">深圳市南山区科技园南区深南大道10000号</div>
+                                <div class="branch-contact">电话: 0755-3333-4444</div>
+                            </div>
+                            <div style="width: 40px; text-align: center; color: #ccc;">📍</div>
+                        </div>
+
+                        <div class="branch-item">
+                            <div class="branch-info">
+                                <div class="branch-name">长川银行广州天河支行 <span style="font-weight: normal; font-size: 14px; color: #666;">营业时间: 09:00-17:00</span></div>
+                                <div class="branch-address">广州市天河区体育西路109号华厦大厦15层</div>
+                                <div class="branch-contact">电话: 020-5555-6666</div>
+                            </div>
+                            <div style="width: 40px; text-align: center; color: #ccc;">📍</div>
+                        </div>
+
+                         <div class="branch-item">
+                            <div class="branch-info">
+                                <div class="branch-name">长川银行杭州西湖支行 <span style="font-weight: normal; font-size: 14px; color: #666;">营业时间: 09:00-17:00</span></div>
+                                <div class="branch-address">杭州市西湖区文三路388号杭州电子科技大学</div>
+                                <div class="branch-contact">电话: 0571-2222-3333</div>
+                            </div>
+                            <div style="width: 40px; text-align: center; color: #ccc;">📍</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Map -->
+                <div class="map-placeholder">
+                    <div class="map-overlay">
+                        <h3>全国网点分布图</h3>
+                        <p style="font-size: 13px; margin-top: 5px;">点击区域查看详情</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <div class="section-box">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">在线联系我们</h2>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">如果您无法前往网点，请通过以下方式联系我们，我们将竭诚为您服务。</p>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label>您的称呼</label>
+                            <input type="text" class="form-control" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>联系电话</label>
+                            <input type="tel" class="form-control" placeholder="请输入手机号">
+                        </div>
+                        <div class="form-group">
+                            <label>咨询内容</label>
+                            <select class="form-control">
+                                <option>业务办理咨询</option>
+                                <option>投诉与建议</option>
+                                <option>密码挂失/重置</option>
+                                <option>网点地址查询</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>详细留言</label>
+                            <textarea class="form-control" rows="4" placeholder="请详细描述您的问题..."></textarea>
+                        </div>
+                        <button type="button" class="btn-submit">提交留言</button>
+                    </form>
+                </div>
+
+                <div class="section-box" style="background: #eef5ff; border: 1px solid #cce0ff;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px; font-size: 16px;">温馨提示</h3>
+                    <ul style="font-size: 13px; color: #555; padding-left: 20px;">
+                        <li style="margin-bottom: 5px;">办理对公业务请务必提前预约。</li>
+                        <li style="margin-bottom: 5px;">办理大额现金存取需携带有效身份证件。</li>
+                        <li style="margin-bottom: 5px;">工作时间：周一至周五 09:00-17:00（节假日除外）。</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 长川银行 版权所有 | 网址: www.ccbank.com.cn</p>
+        </div>
+    </footer>
+
+</body>
+</html>

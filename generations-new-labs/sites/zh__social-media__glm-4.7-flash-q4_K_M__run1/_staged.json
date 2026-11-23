@@ -1,0 +1,124 @@
+{
+  "id": "zh__social-media__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "social-media",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 10311,
+  "seconds": 94,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/me/64/64",
+      "file": "assets/image-c4062f17aa4d192e.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/f1/40/40",
+      "file": "assets/image-10d3361893eb42fb.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/f2/40/40",
+      "file": "assets/image-4c8f6c0e75b988ea.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/f3/40/40",
+      "file": "assets/image-7dcb1e1cdfdeb85f.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u1/40/40",
+      "file": "assets/image-dde68e0c514def36.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/forbidden/800/500",
+      "file": "assets/image-98b8f9fcd97809c3.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u2/40/40",
+      "file": "assets/image-2b7735f67d5759f5.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u3/40/40",
+      "file": "assets/image-eb6d1e324fec3320.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/gym/800/500",
+      "file": "assets/image-dbd55bc1be4fa8b7.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/ru1/40/40",
+      "file": "assets/image-2e32d271925c2204.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/ru2/40/40",
+      "file": "assets/image-664fc67e263dd78c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u1/100/100",
+      "file": "assets/image-7875d7942e3864ad.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/forbidden/800/600",
+      "file": "assets/image-8eb197067d791b96.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u4/50/50",
+      "file": "assets/image-f02890cc793ce743.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u5/50/50",
+      "file": "assets/image-b744359c8d692c75.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/u6/50/50",
+      "file": "assets/image-cdb8dac3cbac6d0c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/me/40/40",
+      "file": "assets/image-ff2f164fcec658e7.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/founder/200/200",
+      "file": "assets/image-203213c082c9bc4c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p1/300/300",
+      "file": "assets/image-472b658d2cdd8346.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p2/300/300",
+      "file": "assets/image-152b5d17ca090bc4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p3/300/300",
+      "file": "assets/image-3f44d128e9ae6f79.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p4/300/300",
+      "file": "assets/image-6fcca09c68580b8c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p5/300/300",
+      "file": "assets/image-f182bc6233740fe2.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p6/300/300",
+      "file": "assets/image-9067e882dc0069aa.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p7/300/300",
+      "file": "assets/image-25a201849cd2e4b1.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/p8/300/300",
+      "file": "assets/image-3e1bdb3636ba577d.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/d1/100/100",
+      "file": "assets/image-79c473cbae7ed8e0.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/d2/100/100",
+      "file": "assets/image-39140087c8ea4472.jpg"
+    }
+  ]
+}

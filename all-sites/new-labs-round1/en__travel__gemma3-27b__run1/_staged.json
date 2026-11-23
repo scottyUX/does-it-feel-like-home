@@ -1,0 +1,16 @@
+{
+  "id": "en__travel__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "travel",
+  "model": "gemma3:27b",
+  "completionTokens": 4503,
+  "seconds": 96,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/800x400",
+      "file": "assets/image-ab1d3854fe36e0ae.png"
+    }
+  ]
+}

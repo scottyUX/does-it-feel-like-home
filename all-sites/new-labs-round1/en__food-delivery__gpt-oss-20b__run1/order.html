@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 订单摘要</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;}
+header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:bold;}
+main{padding:20px;}
+.cart-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;}
+.cart-table th,.cart-table td{padding:12px 15px;border-bottom:1px solid #eee;text-align:left;}
+.cart-table th{background:#f9f9f9;}
+.cart-total{font-size:18px;font-weight:bold;text-align:right;margin-top:10px;}
+.btn-group{text-align:right;margin-top:20px;}
+.btn{background:#ff6600;color:#fff;border:none;padding:10px 15px;border-radius:4px;font-size:14px;margin-left:10px;cursor:pointer;}
+.btn:hover{background:#e65c00;}
+@media(max-width:600px){
+.cart-table th,.cart-table td{font-size:14px;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>快送外卖</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+</header>
+<main>
+<h2>订单摘要</h2>
+<table class="cart-table" id="cartTable">
+<thead><tr><th>菜品</th><th>单价</th><th>数量</th><th>合计</th></tr></thead>
+<tbody></tbody>
+</table>
+<div class="cart-total" id="total">总计: 0元</div>
+<div class="btn-group">
+<button class="btn" id="clearCart">清空购物车</button>
+<button class="btn" id="checkout">提交订单</button>
+</div>
+</main>
+<footer>© 2024 快送外卖 版权所有</footer>
+<script>
+const cartData=JSON.parse(localStorage.getItem('cart')||'{}');
+const items={
+'1a':'宫保鸡丁','1b':'鱼香肉丝','1c':'麻辣香锅',
+'2a':'担担面','2b':'刀削面','2c':'小炒肉',
+'3a':'汉堡','3b':'炸鸡翅','3c':'薯条',
+'4a':'麻婆豆腐','4b':'凉拌木耳','4c':'蒸蛋',
+'5a':'红豆包','5b':'麻花','5c':'蛋糕',
+'6a':'椒盐虾','6b':'清蒸鱼','6c':'炒鱿鱼',
+};
+const prices={
+'1a':18,'1b':16,'1c':22,
+'2a':12,'2b':13,'2c':14,
+'3a':18,'3b':16,'3c':12,
+'4a':15,'4b':10,'4c':8,
+'5a':5,'5b':6,'5c':12,
+'6a':20,'6b':28,'6c':22,
+};
+const tbody=document.querySelector('#cartTable tbody');
+let total=0;
+for(const id in cartData){const qty=cartData[id];if(qty>0){
+const tr=document.createElement('tr');
+tr.innerHTML=`<td>${items[id]||id}</td><td>${prices[id]}元</td><td>${qty}</td><td>${prices[id]*qty}元</td>`;
+tbody.appendChild(tr);
+total+=prices[id]*qty;
+}}
+document.getElementById('total').textContent='总计: '+total+'元';
+document.getElementById('clearCart').onclick=function(){localStorage.removeItem('cart');location.reload();}
+document.getElementById('checkout').onclick=function(){if(total===0){alert('购物车为空');return;}alert('订单已提交，感谢您的支持！');localStorage.removeItem('cart');location.reload();}
+</script>
+</body>
+</html>

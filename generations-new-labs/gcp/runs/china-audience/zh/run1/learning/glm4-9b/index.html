@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学途 - 在线学习平台</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        .header { background: #0056b3; color: white; padding: 10px 20px; }
+        .header h1 { margin: 0; }
+        .nav { background: #004c99; color: white; padding: 5px 0; }
+        .nav a { color: white; text-decoration: none; padding: 0 15px; }
+        .nav a:hover { text-decoration: underline; }
+        .main { padding: 20px; }
+        .course-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 20px; }
+        .course-item { border: 1px solid #ddd; padding: 10px; }
+        .course-item h2 { margin: 0; }
+        .course-item p { margin: 5px 0; }
+        .course-item img { max-width: 100%; height: auto; }
+        .footer { background: #004c99; color: white; text-align: center; padding: 10px 20px; position: relative; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>学途 - 在线学习平台</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程列表</a>
+        <a href="register.html">注册</a>
+    </div>
+    <div class="main">
+        <h2>欢迎来到学途</h2>
+        <p>在这里，您可以找到适合您的语言、计算机技能和考试备考课程。</p>
+        <div class="course-list">
+            <div class="course-item">
+                <img src="language.jpg" alt="语言课程">
+                <h2>语言课程</h2>
+                <p>提升您的英语、日语或法语能力。</p>
+            </div>
+            <div class="course-item">
+                <img src="programming.jpg" alt="编程课程">
+                <h2>编程课程</h2>
+                <p>学习Python、Java或JavaScript等编程语言。</p>
+            </div>
+            <div class="course-item">
+                <img src="examination.jpg" alt="考试备考">
+                <h2>考试备考</h2>
+                <p>提供各类考试备考辅导，如雅思、托福和计算机等级考试。</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 学途 - 在线学习平台</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 分享你的精彩时刻</title>
+    <style>
+        :root {
+            --primary-color: #4F46E5;
+            --primary-hover: #4338ca;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --nav-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-top: var(--nav-height);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .search-bar {
+            display: none;
+        }
+        
+        @media(min-width: 768px) {
+            .search-bar {
+                display: block;
+            }
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-color);
+        }
+
+        .avatar-small {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid transparent;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 900px) {
+            .container {
+                grid-template-columns: 240px 1fr 300px;
+            }
+        }
+
+        /* Feed Section */
+        .feed-post {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .post-user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .post-user-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .post-time {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .post-content {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .post-actions {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .action-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sidebar Widgets */
+        .widget {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .friend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .friend-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .friend-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .friend-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--card-bg);
+            margin-top: auto;
+        }
+
+        /* Mobile Responsive */
+        @media(max-width: 768px) {
+            .nav-actions .btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            .post-actions {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">趣聊</a>
+    <div class="search-bar">
+        <input type="text" placeholder="搜索用户、话题或动态..." style="padding: 8px 16px; border-radius: 20px; border: 1px solid #ddd; width: 300px; outline: none;">
+    </div>
+    <div class="nav-actions">
+        <a href="register.html" class="btn btn-primary">注册</a>
+        <a href="#" class="avatar-small" style="background: url('assets/image-c4062f17aa4d192e.jpg') center/cover; border-color: var(--primary-color);">
+            <img src="assets/image-c4062f17aa4d192e.jpg" style="display:none;">
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Left Sidebar: Navigation Placeholder -->
+    <aside>
+        <div class="widget">
+            <div class="friend-item">
+                <img src="assets/image-10d3361893eb42fb.jpg" class="avatar-small">
+                <div class="friend-info">
+                    <div class="friend-name">李明哲</div>
+                </div>
+            </div>
+            <div class="friend-item">
+                <img src="assets/image-4c8f6c0e75b988ea.jpg" class="avatar-small">
+                <div class="friend-info">
+                    <div class="friend-name">张晓雅</div>
+                </div>
+            </div>
+            <div class="friend-item">
+                <img src="assets/image-7dcb1e1cdfdeb85f.jpg" class="avatar-small">
+                <div class="friend-info">
+                    <div class="friend-name">王大伟</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main>
+        <!-- Post 1 -->
+        <article class="feed-post">
+            <div class="post-header">
+                <div class="post-user-info">
+                    <img src="assets/image-dde68e0c514def36.jpg" class="avatar-small" alt="User">
+                    <div>
+                        <div class="post-user-name">旅行家阿杰</div>
+                        <div class="post-time">2小时前 · 北京</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-content">
+                今天终于去了期待已久的故宫，红墙黄瓦真的太美了。秋天来北京，感受历史的沉淀。🇨🇳
+                #北京旅游 #故宫 #摄影
+            </div>
+            <a href="post_detail.html">
+                <img src="assets/image-98b8f9fcd97809c3.jpg" class="post-image" alt="Forbidden City">
+            </a>
+            <div class="post-actions">
+                <div class="action-item">
+                    <span>❤️</span> 245
+                </div>
+                <div class="action-item">
+                    <span>💬</span> 48
+                </div>
+                <div class="action-item">
+                    <span>🔄</span> 分享
+                </div>
+            </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="feed-post">
+            <div class="post-header">
+                <div class="post-user-info">
+                    <img src="assets/image-2b7735f67d5759f5.jpg" class="avatar-small" alt="User">
+                    <div>
+                        <div class="post-user-name">美食侦探小陈</div>
+                        <div class="post-time">5小时前 · 上海</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-content">
+                这家藏在巷子里的咖啡馆，手冲咖啡真的不错。窗外是老上海的梧桐树，下午茶的好去处。
+            </div>
+            <div class="post-actions">
+                <div class="action-item">
+                    <span>❤️</span> 102
+                </div>
+                <div class="action-item">
+                    <span>💬</span> 15
+                </div>
+                <div class="action-item">
+                    <span>🔄</span> 分享
+                </div>
+            </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="feed-post">
+            <div class="post-header">
+                <div class="post-user-info">
+                    <img src="assets/image-eb6d1e324fec3320.jpg" class="avatar-small" alt="User">
+                    <div>
+                        <div class="post-user-name">健身狂人Mike</div>
+                        <div class="post-time">1天前</div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-content">
+                坚持健身第100天！虽然累，但看到身材的变化一切都值了。大家加油！💪
+            </div>
+            <img src="assets/image-dbd55bc1be4fa8b7.jpg" class="post-image" alt="Gym">
+            <div class="post-actions">
+                <div class="action-item">
+                    <span>❤️</span> 890
+                </div>
+                <div class="action-item">
+                    <span>💬</span> 210
+                </div>
+                <div class="action-item">
+                    <span>🔄</span> 分享
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside>
+        <div class="widget">
+            <h3>热门话题</h3>
+            <span class="tag">#周末去哪儿</span>
+            <span class="tag">#科技新品</span>
+            <span class="tag">#深夜食堂</span>
+            <span class="tag">#职场吐槽</span>
+        </div>
+
+        <div class="widget">
+            <h3>你可能认识的人</h3>
+            <div class="friend-item">
+                <img src="assets/image-2e32d271925c2204.jpg" class="avatar-small">
+                <div class="friend-info">
+                    <div class="friend-name">Sarah Chen</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">共同好友：李明哲</div>
+                </div>
+                <button class="btn btn-outline" style="padding: 2px 10px; font-size: 0.8rem;">关注</button>
+            </div>
+            <div class="friend-item">
+                <img src="assets/image-664fc67e263dd78c.jpg" class="avatar-small">
+                <div class="friend-info">
+                    <div class="friend-name">刘星</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">10个共同好友</div>
+                </div>
+                <button class="btn btn-outline" style="padding: 2px 10px; font-size: 0.8rem;">关注</button>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2023 趣聊. 保留所有权利. <a href="#" style="color: inherit;">隐私政策</a> | <a href="#" style="color: inherit;">服务条款</a></p>
+</footer>
+
+</body>
+</html>

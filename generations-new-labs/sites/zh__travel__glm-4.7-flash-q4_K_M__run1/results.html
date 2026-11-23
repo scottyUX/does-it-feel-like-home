@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #0052a3;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Search Bar in Results */
+        .results-header {
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .results-container {
+            max-width: 1320px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Filters Sidebar */
+        .filters {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            height: fit-content;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            margin-right: 0.5rem;
+        }
+
+        /* Hotel List */
+        .hotel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hotel-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .hotel-image {
+            width: 400px;
+            position: relative;
+        }
+
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 250px;
+        }
+
+        .hotel-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hotel-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .hotel-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .hotel-location {
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hotel-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            color: #ffa500;
+        }
+
+        .stars { color: #ccc; margin-left: 5px; }
+
+        .hotel-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .hotel-amenities {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .amenity-tag {
+            background: #f0f7ff;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .hotel-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .price-block {
+            text-align: right;
+        }
+
+        .price-big {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .price-small {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .btn-book {
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-book:hover {
+            background-color: var(--primary-hover);
+        }
+
+        @media (max-width: 1024px) {
+            .hotel-card {
+                flex-direction: column;
+            }
+            .hotel-image {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">畅行旅行</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="#">国内游</a>
+                <a href="#">国际游</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="results-header">
+        <div class="nav-container" style="font-size: 1.1rem; font-weight: bold;">
+            搜索结果：三亚 · 3月15日 - 3月18日 · 2位成人
+        </div>
+    </div>
+
+    <div class="results-container">
+        <!-- Filters -->
+        <aside class="filters">
+            <div class="filter-section">
+                <span class="filter-title">价格范围</span>
+                <div class="filter-option"><input type="checkbox"> ¥500以下</div>
+                <div class="filter-option"><input type="checkbox" checked> ¥500 - ¥1000</div>
+                <div class="filter-option"><input type="checkbox"> ¥1000 - ¥2000</div>
+                <div class="filter-option"><input type="checkbox"> ¥2000以上</div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-title">酒店设施</span>
+                <div class="filter-option"><input type="checkbox"> 免费WiFi</div>
+                <div class="filter-option"><input type="checkbox"> 游泳池</div>
+                <div class="filter-option"><input type="checkbox"> 停车场</div>
+                <div class="filter-option"><input type="checkbox"> 餐厅</div>
+            </div>
+            <div class="filter-section">
+                <span class="filter-title">评价星级</span>
+                <div class="filter-option"><input type="checkbox"> 5星</div>
+                <div class="filter-option"><input type="checkbox"> 4星</div>
+                <div class="filter-option"><input type="checkbox"> 3星</div>
+            </div>
+        </aside>
+
+        <!-- List -->
+        <main class="hotel-list">
+            <div class="hotel-card" onclick="window.location.href='details.html'">
+                <div class="hotel-image">
+                    <div style="width:100%;height:100%;background-image: url('assets/image-3ffac0f1dd760bc2.jpg');background-size:cover;"></div>
+                </div>
+                <div class="hotel-content">
+                    <div>
+                        <div class="hotel-top">
+                            <div class="hotel-name">三亚亚特兰蒂斯酒店</div>
+                            <div class="hotel-rating">
+                                <span>4.9</span>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">📍 三亚市海棠湾度假区</div>
+                        <p class="hotel-desc">拥有壮丽的海景房和著名的失落的空间水族馆。集住宿、餐饮、娱乐于一体，是全家度假的绝佳选择。</p>
+                        <div class="hotel-amenities">
+                            <span class="amenity-tag">海景房</span>
+                            <span class="amenity-tag">水族馆</span>
+                            <span class="amenity-tag">SPA</span>
+                            <span class="amenity-tag">私人海滩</span>
+                        </div>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="price-block">
+                            <div class="price-big">¥1,299</div>
+                            <div class="price-small">/ 晚起 · 含双早</div>
+                        </div>
+                        <button class="btn-book">预订</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="window.location.href='details.html'">
+                <div class="hotel-image">
+                    <div style="width:100%;height:100%;background-image: url('assets/image-29b81cd5b4a75e3e.jpg');background-size:cover;"></div>
+                </div>
+                <div class="hotel-content">
+                    <div>
+                        <div class="hotel-top">
+                            <div class="hotel-name">三亚湾红树林度假世界</div>
+                            <div class="hotel-rating">
+                                <span>4.7</span>
+                                <span class="stars">★★★★☆</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">📍 三亚市天涯区三亚湾路</div>
+                        <p class="hotel-desc">紧邻三亚凤凰国际机场和市区，交通便利。拥有丰富的娱乐设施和亲子活动区域，性价比之选。</p>
+                        <div class="hotel-amenities">
+                            <span class="amenity-tag">近机场</span>
+                            <span class="amenity-tag">家庭房</span>
+                            <span class="amenity-tag">娱乐城</span>
+                            <span class="amenity-tag">美食广场</span>
+                        </div>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="price-block">
+                            <div class="price-big">¥680</div>
+                            <div class="price-small">/ 晚起 · 含双早</div>
+                        </div>
+                        <button class="btn-book">预订</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="window.location.href='details.html'">
+                <div class="hotel-image">
+                    <div style="width:100%;height:100%;background-image: url('assets/image-f0d8da8aafe286e6.jpg');background-size:cover;"></div>
+                </div>
+                <div class="hotel-content">
+                    <div>
+                        <div class="hotel-top">
+                            <div class="hotel-name">亚龙湾热带天堂森林公园周边民宿</div>
+                            <div class="hotel-rating">
+                                <span>4.6</span>
+                                <span class="stars">★★★★☆</span>
+                            </div>
+                        </div>
+                        <div class="hotel-location">📍 陵水黎族自治县亚龙湾</div>
+                        <p class="hotel-desc">隐匿于热带雨林之中，环境清幽，空气清新。距离亚龙湾沙滩仅5分钟车程，适合静养度假。</p>
+                        <div class="hotel-amenities">
+                            <span class="amenity-tag">雨林景观</span>
+                            <span class="amenity-tag">无噪音</span>
+                            <span class="amenity-tag">免费停车</span>
+                            <span class="amenity-tag">早餐</span>
+                        </div>
+                    </div>
+                    <div class="hotel-footer">
+                        <div class="price-block">
+                            <div class="price-big">¥450</div>
+                            <div class="price-small">/ 晚起 · 含早餐</div>
+                        </div>
+                        <button class="btn-book">预订</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

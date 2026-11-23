@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户主页 - 趣聊</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+        }
+
+        /* 顶部导航栏 (简化版) */
+        .navbar {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link:hover { color: var(--primary); }
+
+        /* 个人资料页容器 */
+        .profile-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* 顶部 Banner */
+        .profile-banner {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e7ff;
+            border-radius: var(--radius);
+            background-image: url('assets/image-15382edf206e1a98.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: -60px; /* 向上重叠头像 */
+            position: relative;
+        }
+
+        .profile-content {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-card);
+            background: #fff;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-info {
+            flex: 1;
+            padding-bottom: 1rem;
+        }
+
+        .profile-name-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .profile-username {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .profile-bio {
+            margin-top: 0.5rem;
+            max-width: 600px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-follow {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 99px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: background 0.2s;
+        }
+
+        .btn-follow:hover { background: var(--primary-hover); }
+
+        /* Tab 导航 */
+        .profile-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        .tab-item {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all 0.2s;
+        }
+
+        .tab-item.active {
+            color: var(--text-main);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 图片网格 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #eee;
+            cursor: pointer;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 列表视图 (帖子) */
+        .post-list {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .mini-post {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .mini-post-content {
+            flex: 1;
+        }
+
+        .mini-post-text {
+            margin-bottom: 0.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .mini-post-actions {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .mini-post-actions span { cursor: pointer; }
+
+        .mini-post-actions span:hover { color: #ef4444; }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            .navbar { padding: 0.5rem 0; }
+            .nav-container { gap: 1rem; font-size: 0.9rem; }
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .profile-name-row { flex-direction: column; gap: 0.25rem; }
+            .profile-stats { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" style="font-weight:800; color:var(--primary); font-size:1.5rem;">趣聊</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="#" class="nav-link">视频</a>
+                <a href="#" class="nav-link">朋友</a>
+                <a href="#" class="nav-link">消息</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <!-- Banner -->
+        <div class="profile-banner"></div>
+
+        <div class="profile-content">
+            <div class="profile-header">
+                <img src="assets/image-0d6b9e5c06628aa2.jpg" alt="Avatar" class="profile-avatar">
+                <div class="profile-info">
+                    <div class="profile-name-row">
+                        <h1 class="profile-name">陈子轩</h1>
+                        <span class="profile-username">@chenzixuan_design</span>
+                    </div>
+                    <p class="profile-bio">UX 设计师 / 摄影爱好者 / 咖啡重度依赖症 ☕️ | 专注于创造简单而有意义的产品。📍 上海</p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-box"><span class="stat-value">128</span><span class="stat-label">帖子</span></div>
+                        <div class="stat-box"><span class="stat-value">34.5k</span><span class="stat-label">粉丝</span></div>
+                        <div class="stat-box"><span class="stat-value">230</span><span class="stat-label">关注</span></div>
+                    </div>
+
+                    <button class="btn-follow">编辑资料</button>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="profile-tabs">
+                <div class="tab-item active">照片与视频</div>
+                <div class="tab-item">动态</div>
+                <div class="tab-item">喜欢</div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content active">
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="assets/image-472b658d2cdd8346.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-152b5d17ca090bc4.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-3f44d128e9ae6f79.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-6fcca09c68580b8c.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-f182bc6233740fe2.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-9067e882dc0069aa.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-25a201849cd2e4b1.jpg" alt=""></div>
+                    <div class="photo-item"><img src="assets/image-3e1bdb3636ba577d.jpg" alt=""></div>
+                </div>
+            </div>
+            
+            <div class="tab-content">
+                <div class="post-list">
+                    <div class="mini-post">
+                        <img src="assets/image-625369f4b62c8aa6.jpg" class="profile-avatar" style="width:50px; height:50px;">
+                        <div class="mini-post-content">
+                            <p class="mini-post-text">最近在做一个关于城市光影的设计项目，灵感来源于晚上的街道。下班路上的霓虹灯真的太迷人了。#设计 #城市</p>
+                            <div class="mini-post-actions">
+                                <span>432 赞</span>
+                                <span>28 评论</span>
+                                <span>15 分享</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-post">
+                        <img src="assets/image-625369f4b62c8aa6.jpg" class="profile-avatar" style="width:50px; height:50px;">
+                        <div class="mini-post-content">
+                            <p class="mini-post-text">终于打卡了这家传说中的网红咖啡店，排队两小时，值得！拿铁的拉花很有水平。</p>
+                            <div class="mini-post-actions">
+                                <span>856 赞</span>
+                                <span>52 评论</span>
+                                <span>108 分享</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-post">
+                        <img src="assets/image-625369f4b62c8aa6.jpg" class="profile-avatar" style="width:50px; height:50px;">
+                        <div class="mini-post-content">
+                            <p class="mini-post-text">周末去郊外徒步，空气真的很清新，远离了城市的喧嚣。</p>
+                            <div class="mini-post-actions">
+                                <span>215 赞</span>
+                                <span>19 评论</span>
+                                <span>45 分享</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div class="empty-state">还没有喜欢的帖子</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

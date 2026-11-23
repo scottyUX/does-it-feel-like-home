@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #1a3668;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 4px solid var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(26, 54, 104, 0.8), rgba(26, 54, 104, 0.8)), #ccc;
+            background-image: linear-gradient(rgba(26, 54, 104, 0.8), rgba(26, 54, 104, 0.8)), linear-gradient(45deg, #bbb, #ddd);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 42px;
+            margin: 0 0 20px 0;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .mission-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mission-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .contact-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo">每日视界</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="category.html">科技</a></li>
+                    <li><a href="category.html">财经</a></li>
+                    <li><a href="category.html">文化</a></li>
+                    <li><a href="about.html" style="color: var(--accent-color);">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="about-hero">
+        <div class="container">
+            <h1>洞察全球，记录当下</h1>
+            <p>致力于提供客观、及时、深度的全方位新闻报道</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-content">
+            <div class="mission-section">
+                <h2>我们的使命</h2>
+                <p>“每日视界”成立于 2015 年，旨在打破碎片化信息的干扰，为现代都市人提供具有深度和逻辑的新闻分析。我们相信，只有在全面理解背景的前提下，读者才能在复杂的世界中做出正确的判断。</p>
+                <p>我们的报道团队覆盖全球 30 多个主要城市，专注于科技前沿、宏观经济、文化演变以及社会议题。我们坚持独立审核机制，确保每一篇推送给读者的文章都经过严格的实证校验。</p>
+                <p>在信息爆炸的时代，我们不追求速度的第一，而追求真相的准确与视角的独特。</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>联系我们</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 20px;">如果您有新闻线索或合作意向，请通过下方表格告知。</p>
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" placeholder="您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>邮箱</label>
+                        <input type="email" placeholder="example@mail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>留言内容</label>
+                        <textarea rows="5" placeholder="请详细描述您的需求..."></textarea>
+                    </div>
+                    <button type="button" class="submit-btn">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="category.html">科技</a>
+                <a href="category.html">财经</a>
+                <a href="about.html">关于我们</a>
+            </div>
+            <p>&copy; 2024 每日视界新闻网. 保留所有权利。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

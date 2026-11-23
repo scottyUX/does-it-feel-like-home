@@ -1,0 +1,11 @@
+{
+  "id": "en__food-delivery__glm4-9b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "glm4:9b",
+  "completionTokens": 2721,
+  "seconds": 18,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

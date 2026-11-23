@@ -1,0 +1,11 @@
+{
+  "id": "en__beauty-salon__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "nemotron3:33b",
+  "completionTokens": 8278,
+  "seconds": 44,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

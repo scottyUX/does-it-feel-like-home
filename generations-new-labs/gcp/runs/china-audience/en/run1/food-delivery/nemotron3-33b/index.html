@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 首页</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#333;background:#f9f9f9;}
+.container{max-width:1200px;margin:auto;padding:0 15px;}
+header{display:flex;justify-content:space-between;align-items:center;background:#00695c;color:#fff;padding:10px 20px;}
+header .logo{font-size:1.5em;font-weight:bold;}
+header nav a{color:#fff;text-decoration:none;margin-left:15px;}
+header nav a:hover{text-decoration:underline;}
+main{padding:20px 0;}
+.category{margin-bottom:30px;}
+.card{background:#fff;border:1px solid #ddd;border-radius:5px;padding:15px;margin-bottom:15px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+.card h3{margin:0 0 5px;color:#00695c;}
+.card p{margin:0 0 10px;line-height:1.5;}
+.card .price{font-weight:bold;color:#e65100;}
+.card button{background:#e53935;color:#fff;border:none;padding:8px 12px;border-radius:3px;cursor:pointer;}
+.card button:hover{background:#c62828;}
+footer{text-align:center;padding:15px;background:#f5f5f5;color:#666;font-size:0.9em;}
+@media (max-width:768px){
+  header{flex-direction:column;align-items:flex-start;}
+  header nav a{margin-left:5px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">快送外卖</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="restaurant_list.html">餐厅列表</a>
+<a href="order_summary.html">订单帮助</a>
+</nav>
+</header>
+
+<main>
+<section class="category">
+<h2>中式快餐</h2>
+<div class="card">
+<h3>阿杰盖饭</h3>
+<p>本地传统盖饭，荤菜丰富，价格亲民。</p>
+<p class="price">25元</p>
+<button class="add-to-cart" data-name="红烧牛肉盖饭" data-price="25">加入购物车</button>
+<a href="restaurant_ajie.html"><button class="view-menu" style="background:#009688;margin-left:10px;">查看菜单</button></a>
+</div>
+</section>
+
+<section class="category">
+<h2>西式快餐</h2>
+<div class="card">
+<h3>小王西式快餐</h3>
+<p>意式风味料理，适合忙碌的上班族。</p>
+<p class="price">38元</p>
+<button class="add-to-cart" data-name="意式番茄牛肉面" data-price="38">加入购物车</button>
+<a href="restaurant_xj.html"><button class="view-menu" style="background:#009688;margin-left:10px;">查看菜单</button></a>
+</div>
+</section>
+
+<section class="category">
+<h2>健康轻食</h2>
+<div class="card">
+<h3>健康轻食小屋</h3>
+<p>低卡沙拉和燕麦粥，适合减脂的学生。</p>
+<p class="price">28元</p>
+<button class="add-to-cart" data-name="鸡胸肉沙拉" data-price="28">加入购物车</button>
+<a href="restaurant_health.html"><button class="view-menu" style="background:#009688;margin-left:10px;">查看菜单</button></a>
+</div>
+</section>
+</main>
+
+<footer>
+© 2025 快送外卖 成都分部
+</footer>
+</div>
+
+<script>
+// Add to cart function
+document.querySelectorAll('.add-to-cart').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const name = btn.getAttribute('data-name');
+    const price = parseInt(btn.getAttribute('data-price'),10);
+    const item = {name:name,price:price};
+    let cart = JSON.parse(localStorage.getItem('cartItems')||'[]');
+    cart.push(item);
+    localStorage.setItem('cartItems',JSON.stringify(cart));
+    alert(name+' 已加入购物车，总价 '+price+' 元');
+  });
+});
+</script>
+</body>
+</html>

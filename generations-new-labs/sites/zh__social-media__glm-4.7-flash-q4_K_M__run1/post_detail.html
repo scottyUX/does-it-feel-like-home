@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情 - 趣聊</title>
+    <style>
+        :root {
+            --primary-color: #4F46E5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+        
+        body { background-color: var(--bg-color); color: var(--text-main); padding-bottom: 4rem; }
+
+        .navbar {
+            position: sticky; top: 0; background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-content {
+            max-width: 800px; margin: 0 auto; padding: 0 1rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .btn-back {
+            padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 6px;
+            background: transparent; cursor: pointer; display: flex; align-items: center; gap: 5px;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+
+        .post-detail-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .big-post-image {
+            width: 100%; border-radius: 12px; margin-bottom: 1.5rem;
+        }
+
+        .detail-header {
+            display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;
+        }
+
+        .detail-user { display: flex; gap: 10px; align-items: center; }
+        
+        .user-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+        .user-meta h2 { font-size: 1.1rem; font-weight: 600; }
+        .user-meta span { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .detail-actions { display: flex; gap: 10px; }
+        
+        .btn-like {
+            background: #fee2e2; color: #ef4444; padding: 6px 12px;
+            border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500;
+        }
+        .btn-share {
+            background: #e0e7ff; color: var(--primary-color); padding: 6px 12px;
+            border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500;
+        }
+
+        .detail-content p { margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.6; }
+        
+        .tags span {
+            background: #f3f4f6; color: var(--text-secondary); padding: 2px 8px;
+            border-radius: 4px; font-size: 0.85rem; margin-right: 8px;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .comment-list { margin-bottom: 2rem; }
+
+        .comment-item {
+            display: flex; gap: 10px; margin-bottom: 1.5rem;
+        }
+
+        .comment-input-area {
+            display: flex; gap: 10px;
+        }
+
+        .comment-input {
+            flex: 1; border: 1px solid var(--border-color); border-radius: 20px;
+            padding: 10px 15px; outline: none; transition: border-color 0.2s;
+        }
+
+        .comment-input:focus { border-color: var(--primary-color); }
+
+        .btn-send {
+            background: var(--primary-color); color: white; border: none;
+            border-radius: 50%; width: 40px; height: 40px; cursor: pointer;
+        }
+
+        @media(max-width: 600px) {
+            .detail-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .detail-actions { width: 100%; justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-content">
+        <button class="btn-back" onclick="window.history.back()">
+            ← 返回首页
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Post Content -->
+    <div class="post-detail-card">
+        <div class="detail-header">
+            <div class="detail-user">
+                <img src="assets/image-7875d7942e3864ad.jpg" class="user-avatar">
+                <div class="user-meta">
+                    <h2>旅行家阿杰</h2>
+                    <span>2小时前 · 北京</span>
+                </div>
+            </div>
+            <div class="detail-actions">
+                <button class="btn-like">❤️ 245</button>
+                <button class="btn-share">↗ 分享</button>
+            </div>
+        </div>
+
+        <div class="tags">
+            <span>#北京旅游</span>
+            <span>#故宫</span>
+            <span>#摄影</span>
+        </div>
+        
+        <div class="detail-content">
+            <p>今天终于去了期待已久的故宫，红墙黄瓦真的太美了。秋天的阳光洒在琉璃瓦上，金光闪闪。虽然人很多，但一想到这是几百年前的历史，一切等待都值得。</p>
+            <p>建议大家早点去，避开人流高峰。相机参数：Sony A7M4，35-70mm镜头。</p>
+        </div>
+
+        <img src="assets/image-8eb197067d791b96.jpg" class="big-post-image" alt="Detail Image">
+    </div>
+
+    <!-- Comments -->
+    <div class="comments-section">
+        <h3>全部评论 (48)</h3>
+        
+        <div class="comment-list">
+            <div class="comment-item">
+                <img src="assets/image-f02890cc793ce743.jpg" style="width:36px; height:36px; border-radius:50%;">
+                <div>
+                    <div style="font-weight: 600; font-size: 0.9rem;">小红书博主</div>
+                    <div style="font-size: 0.95rem; margin-top: 4px;">太棒了！这张构图简直满分。求推荐机位坐标？😍</div>
+                </div>
+            </div>
+            
+            <div class="comment-item">
+                <img src="assets/image-b744359c8d692c75.jpg" style="width:36px; height:36px; border-radius:50%;">
+                <div>
+                    <div style="font-weight: 600; font-size: 0.9rem;">故宫老粉丝</div>
+                    <div style="font-size: 0.95rem; margin-top: 4px;">我也想去！今年秋天去刚好。</div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <img src="assets/image-cdb8dac3cbac6d0c.jpg" style="width:36px; height:36px; border-radius:50%;">
+                <div>
+                    <div style="font-weight: 600; font-size: 0.9rem;">路人甲</div>
+                    <div style="font-size: 0.95rem; margin-top: 4px;">拍得很有感觉，色彩还原很准。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment-input-area">
+            <img src="assets/image-ff2f164fcec658e7.jpg" style="width:36px; height:36px; border-radius:50%;">
+            <input type="text" class="comment-input" placeholder="写下你的评论...">
+            <button class="btn-send">发送</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

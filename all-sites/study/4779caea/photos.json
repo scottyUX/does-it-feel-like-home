@@ -1,0 +1,15 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "course-detail.html",
+   "selector": "div.teacher-avatar",
+   "match": "陈思远 高级数据分析师 · 前某头部互联网大厂数",
+   "url": "assets/photo-84fbd2d87e4ded56.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

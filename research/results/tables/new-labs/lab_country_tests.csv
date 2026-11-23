@@ -1,0 +1,5 @@
+test,accuracy,chance,detail
+Which of 10 models (held-out site types),0.5606,0.1,
+Lab of an unseen model (8 models in two-model labs),0.175,0.1667,gemma-4-31b 5%; gemma-3-27b 0%; gpt-oss-120b 35%; gpt-oss-20b 5%; qwen3.8-27b 95%; qwen3.5-122b 0%; glm-4.7-flash 0%; glm-4-9b 0%
+Country of an unseen lab (6 labs),0.5865,0.5,exact p = 0.067 over 15 assignments; mean of assignments 0.38
+Country of an unseen model (10 models),0.6521,0.5,exact p = 0.067 over 210 assignments; mean of assignments 0.43

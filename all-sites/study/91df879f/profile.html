@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小森的个人主页 - 趣聊</title>
+    <style>
+        :root {
+            --primary: #00897b;
+            --primary-dark: #00695c;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --text-main: #333333;
+            --text-light: #757575;
+            --border: #e0e0e0;
+            --danger: #e53935;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            padding-top: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-item {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: #e0f2f1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: 30px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 15px;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            color: var(--primary);
+        }
+
+        .menu-item span { margin-left: 12px; }
+
+        /* Profile Styles */
+        .profile-header {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .cover-photo {
+            height: 200px;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            position: relative;
+        }
+
+        .profile-info {
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .avatar-lg {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4db6ac, #00897b);
+            border: 4px solid var(--white);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .profile-meta {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .profile-names h1 {
+            font-size: 24px;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .profile-bio {
+            color: var(--text-light);
+            font-size: 14px;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-weight: bold;
+            font-size: 18px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .profile-tabs {
+            display: flex;
+            gap: 30px;
+            border-bottom: 1px solid var(--border);
+            margin-top: 20px;
+            padding: 0 40px;
+        }
+
+        .tab {
+            padding: 15px 0;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) { background: #e0f2f1; }
+        .gallery-item:nth-child(2) { background: #fff3e0; }
+        .gallery-item:nth-child(3) { background: #f3e5f5; }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .profile-info { padding: 0 20px; }
+            .profile-tabs { padding: 0 20px; }
+            .cover-photo { height: 150px; }
+            .avatar-lg { width: 90px; height: 90px; margin-top: -45px; }
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">趣聊</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">首页</a>
+            <a href="profile.html" class="nav-item active">我的</a>
+            <a href="#" class="nav-item">发现</a>
+            <a href="#" class="nav-item">消息</a>
+        </div>
+        <div class="nav-actions">
+            <a href="signup.html" class="btn btn-primary">注册</a>
+            <a href="#" class="btn btn-outline">登录</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="menu-card">
+                <div class="menu-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>动态</span>
+                </div>
+                <div class="menu-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M12 14c-4.4 0-8 3-8 7h16c0-4-3.6-7-8-7z"></path></svg>
+                    <span>个人资料</span>
+                </div>
+                <div class="menu-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    <span>私信</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Profile Main -->
+        <main>
+            <div class="profile-header">
+                <div class="cover-photo"></div>
+                <div class="profile-info">
+                    <div class="avatar-lg">森</div>
+                    <div class="profile-meta">
+                        <div class="profile-names">
+                            <h1>小森</h1>
+                            <div class="profile-bio">
+                                热爱生活的设计师。📍上海。<br>
+                                喜欢摄影、咖啡和极简主义。
+                            </div>
+                            <div class="profile-stats">
+                                <div class="stat-item"><span class="stat-num">142</span><span class="stat-label">帖子</span></div>
+                                <div class="stat-item"><span class="stat-num">3.5k</span><span class="stat-label">关注</span></div>
+                                <div class="stat-item"><span class="stat-num">12k</span><span class="stat-label">粉丝</span></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 24px;">编辑资料</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-tabs">
+                <div class="tab active">全部动态</div>
+                <div class="tab">图片</div>
+                <div class="tab">已赞</div>
+            </div>
+
+            <!-- Photos Grid -->
+            <div class="gallery">
+                <a href="post.html" class="gallery-item" style="display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--text-light);">最新发布的帖子</a>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar">
+            <div class="menu-card">
+                <h3 style="margin-bottom: 15px; font-size: 16px;">我的工具</h3>
+                <div class="menu-item" style="cursor: pointer;">⚙️ 设置</div>
+                <div class="menu-item" style="cursor: pointer;">🛡️ 隐私与安全</div>
+                <div class="menu-item" style="cursor: pointer;">📊 数据分析</div>
+            </div>
+        </aside>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 14px;">
+        <p>&copy; 2024 趣聊。保留所有权利。</p>
+    </footer>
+
+</body>
+</html>

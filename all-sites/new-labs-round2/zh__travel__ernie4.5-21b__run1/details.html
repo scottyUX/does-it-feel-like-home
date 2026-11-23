@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店详情 - 畅行旅行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1e6bb8;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #1e6bb8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-btn:hover {
+            background-color: #13508f;
+        }
+        .hotel-details {
+            padding: 2rem 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .hotel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .hotel-header h2 {
+            font-size: 1.8rem;
+        }
+        .hotel-price {
+            font-weight: bold;
+            color: #1e6bb8;
+        }
+        .hotel-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .hotel-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .hotel-description {
+            padding: 1.5rem;
+        }
+        .hotel-description h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .hotel-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-item {
+            background-color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        .hotel-facilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .facility-item {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        .facility-item i {
+            margin-right: 0.5rem;
+            color: #1e6bb8;
+        }
+        .booking-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .booking-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .booking-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #1e6bb8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .booking-button:hover {
+            background-color: #13508f;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">畅行旅行</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="results.html">搜索结果</a></li>
+                    <li><a href="details.html">酒店详情</a></li>
+                    <li><a href="booking.html">在线预订</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <a href="results.html" class="back-btn">← 返回搜索结果</a>
+            
+            <div class="hotel-details">
+                <div class="hotel-header">
+                    <h2>杭州西湖宾馆</h2>
+                    <span class="hotel-price">¥150/晚起</span>
+                </div>
+
+                <div class="hotel-images">
+                    <img src="https://images.unsplash.com/photo-1534256307664-33447e316a1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="西湖宾馆外观" class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="西湖宾馆房间" class="hotel-image">
+                    <img src="https://images.unsplash.com/photo-1551986791-158bcb906c21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="西湖宾馆餐厅" class="hotel-image">
+                </div>
+
+                <div class="hotel-description">
+                    <h3>酒店简介</h3>
+                    <p>杭州西湖宾馆位于西湖景区附近，是一家具有百年历史的四星级宾馆。酒店毗邻西湖，步行可达断桥、雷峰塔等著名景点，是欣赏西湖美景的理想下榻之处。</p>
+                    <p>酒店装修典雅，设施齐全，提供24小时客房服务、免费WiFi、停车场等便利设施。客房内配备现代化设备，确保宾客的舒适体验。</p>
+                </div>
+
+                <div class="hotel-features">
+                    <div class="feature-item">
+                        <i>🏨 星级：四星级</i>
+                    </div>
+                    <div class="feature-item">
+                        <i>📍 位置：西湖景区附近</i>
+                    </div>
+                    <div class="feature-item">
+                        <i>🕒 营业时间：24小时</i>
+                    </div>
+                </div>
+
+                <div class="hotel-facilities">
+                    <div class="facility-item">
+                        <i>🛁 健身房</i>
+                    </div>
+                    <div class="facility-item">
+                        <i>🍽️ 餐厅</i>
+                    </div>
+                    <div class="facility-item">
+                        <i>🚌 免费接送巴士</i>
+                    </div>
+                    <div class="facility-item">
+                        <i>💆‍♂️ 按摩服务</i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <h2>在线预订</h2>
+                <form class="booking-form" action="booking.html" method="GET">
+                    <div class="form-group">
+                        <label for="check-in">入住日期</label>
+                        <input type="date" id="check-in" name="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">离店日期</label>
+                        <input type="date" id="check-out" name="check-out" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">入住人数</label>
+                        <select id="guests" name="guests" required>
+                            <option value="1">1人</option>
+                            <option value="2">2人</option>
+                            <option value="3">3人</option>
+                            <option value="4">4人</option>
+                            <option value="5">5人及以上</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="booking-button">提交预订</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="results.html">搜索结果</a></li>
+                <li><a href="details.html">酒店详情</a></li>
+                <li><a href="booking.html">在线预订</a></li>
+            </ul>
+            <div class="copyright">© 2023 畅行旅行 版权所有</div>
+        </div>
+    </footer>
+</body>
+</html>

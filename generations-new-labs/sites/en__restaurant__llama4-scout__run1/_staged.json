@@ -1,0 +1,11 @@
+{
+  "id": "en__restaurant__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "llama4:scout",
+  "completionTokens": 2508,
+  "seconds": 45,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

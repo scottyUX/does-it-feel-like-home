@@ -1,0 +1,11 @@
+{
+  "id": "en__restaurant__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "nemotron3:33b",
+  "completionTokens": 10292,
+  "seconds": 56,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

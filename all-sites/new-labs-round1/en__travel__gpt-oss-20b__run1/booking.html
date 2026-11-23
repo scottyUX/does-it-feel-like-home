@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>畅行旅行 - 预订页面</title>
+    <style>
+        body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 30px;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+        nav a{margin-right:20px;color:#333;text-decoration:none;font-weight:500;}
+        nav a:hover{color:#0077cc;}
+        .container{max-width:800px;margin:30px auto;padding:0 20px;}
+        .booking-form{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.1);}
+        .booking-form label{display:block;margin-top:15px;font-weight:600;}
+        .booking-form input, .booking-form textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;margin-top:5px;}
+        .booking-form button{margin-top:20px;padding:10px 20px;background:#0077cc;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;}
+        .booking-form button:hover{background:#005fa3;}
+        footer{background:#333;color:#eee;padding:20px 30px;text-align:center;font-size:14px;}
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="results.html">酒店</a>
+        <a href="booking.html">预订</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>预订信息</h2>
+    <form class="booking-form" onsubmit="return false;">
+        <label for="guest-name">姓名</label>
+        <input type="text" id="guest-name" placeholder="请输入姓名">
+
+        <label for="guest-phone">联系电话</label>
+        <input type="tel" id="guest-phone" placeholder="例如 13812345678">
+
+        <label for="checkin-date">入住日期</label>
+        <input type="date" id="checkin-date">
+
+        <label for="checkout-date">退房日期</label>
+        <input type="date" id="checkout-date">
+
+        <label for="special-requests">特殊需求</label>
+        <textarea id="special-requests" rows="4" placeholder="如需无障碍房间、婴儿床等"></textarea>
+
+        <button type="submit">提交预订</button>
+    </form>
+</div>
+
+<footer>
+    © 2026 畅行旅行
+</footer>
+</body>
+</html>

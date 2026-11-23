@@ -1,0 +1,24 @@
+{
+  "id": "zh__food-delivery__nemotron3-33b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "nemotron3:33b",
+  "completionTokens": 6383,
+  "seconds": 34,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/260x150/ffcc99/333",
+      "file": "assets/image-e7cf961a932b170b.png"
+    },
+    {
+      "url": "https://via.placeholder.com/260x150/99ccff/333",
+      "file": "assets/image-317f314380d73ce3.png"
+    },
+    {
+      "url": "https://via.placeholder.com/260x150/ff9999/333",
+      "file": "assets/image-b71cc06c0d76d439.png"
+    }
+  ]
+}

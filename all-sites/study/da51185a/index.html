@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖 - 成都美食一键直达</title>
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --secondary-color: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #eeeeee;
+            --success-color: #4caf50;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        /* Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .user-actions a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23333" width="100" height="100"/></svg>'); /* Placeholder logic handled by color if image fails, but we simulate a dark overlay */
+            background-color: #333; 
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        .search-box button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Categories */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 24px;
+            background: var(--primary-color);
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .category-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .cat-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .cat-desc {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* Restaurants Preview */
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .rest-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .rest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .rest-img {
+            height: 180px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 40px;
+        }
+        .rest-info {
+            padding: 20px;
+        }
+        .rest-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .rest-meta {
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .rating { color: #ff9800; }
+        
+        /* Footer */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 60px 20px;
+            margin-top: 80px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .nav-links { display: none; } /* Simplified for mobile demo */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                🍜 快送外卖
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html">全部商家</a>
+                <a href="#">会员中心</a>
+                <a href="#">我的订单</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#">登录</a>
+                <a href="cart.html">购物车 <span class="badge">3</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>成都美味，快送上门</h1>
+        <p>无论你在锦里还是在高新，热腾腾的美食半小时送到</p>
+        <div class="search-box">
+            <input type="text" placeholder="搜索菜品或商家，例如：麻辣烫、回锅肉...">
+            <button>搜索</button>
+        </div>
+    </section>
+
+    <div class="section">
+        <div class="section-title">分类推荐</div>
+        <div class="category-grid">
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🌶️</span>
+                <div class="cat-title">川味小吃</div>
+                <div class="cat-desc">地道麻辣，舌尖舞动</div>
+            </div>
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🍱</span>
+                <div class="cat-title">盖浇饭便当</div>
+                <div class="cat-desc">经济实惠，快速管饱</div>
+            </div>
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🥗</span>
+                <div class="cat-title">健康轻食</div>
+                <div class="cat-desc">低卡低脂，减脂必备</div>
+            </div>
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🥣</span>
+                <div class="cat-title">面食水饺</div>
+                <div class="cat-desc">热汤暖心，经典家常</div>
+            </div>
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🍺</span>
+                <div class="cat-title">夜宵烧烤</div>
+                <div class="cat-desc">啤酒烧烤，深夜食堂</div>
+            </div>
+            <div class="category-card" onclick="window.location.href='restaurants.html'">
+                <span class="cat-icon">🥤</span>
+                <div class="cat-title">甜品饮品</div>
+                <div class="cat-desc">解辣神器，快乐水</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">热门商家 <span style="font-size: 16px; color: #999; margin-left: auto; font-weight: normal;">查看更多 &rarr;</span></div>
+        <div class="restaurant-grid">
+            <a href="restaurant-detail.html" class="rest-card">
+                <div class="rest-img" style="background: #ffe0b2; color: #ef6c00;">🥘</div>
+                <div class="rest-info">
+                    <div class="rest-name">
+                        锦里老味道
+                        <span class="rating">★ 4.8</span>
+                    </div>
+                    <div class="rest-meta">
+                        <span>川菜 / 家常菜</span> • <span>30 分钟送达</span> • <span>免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant-detail.html" class="rest-card">
+                <div class="rest-img" style="background: #c8e6c9; color: #388e3c;">🥗</div>
+                <div class="rest-info">
+                    <div class="rest-name">
+                        轻食主义
+                        <span class="rating">★ 4.9</span>
+                    </div>
+                    <div class="rest-meta">
+                        <span>健康餐 / 沙拉</span> • <span>25 分钟送达</span> • <span>¥3 配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant-detail.html" class="rest-card">
+                <div class="rest-img" style="background: #e1bee7; color: #7b1fa2;">🍜</div>
+                <div class="rest-info">
+                    <div class="rest-name">
+                        川大食堂风味
+                        <span class="rating">★ 4.7</span>
+                    </div>
+                    <div class="rest-meta">
+                        <span>面食 / 盖饭</span> • <span>20 分钟送达</span> • <span>¥2 配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant-detail.html" class="rest-card">
+                <div class="rest-img" style="background: #ffccbc; color: #d84315;">🍗</div>
+                <div class="rest-info">
+                    <div class="rest-name">
+                        成都辣子鸡专门店
+                        <span class="rating">★ 4.6</span>
+                    </div>
+                    <div class="rest-meta">
+                        <span>炸鸡 / 辣味</span> • <span>45 分钟送达</span> • <span>¥5 配送费</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="section" style="background-color: #fff3e0; margin-top: 0;">
+        <div class="section-title" style="margin-bottom: 10px;">新人福利</div>
+        <p style="margin-bottom: 20px;">新用户注册首单立减 15 元！</p>
+        <button style="background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer;">立即领取</button>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">配送员招募</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">退款说明</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系快送</h3>
+                <ul>
+                    <li>电话：028-88888888</li>
+                    <li>邮箱：support@kuaisong.com</li>
+                    <li>地址：成都市武侯区天府大道</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 快送外卖 版权所有 | ICP 备案号：蜀 ICP 备 12345678 号</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车 - 可衣 KEYI</title>
+    <style>
+        :root {
+            --primary-color: #4a4a4a;
+            --accent-color: #b5a397;
+            --bg-color: #fafafa;
+            --white: #ffffff;
+            --text-muted: #777;
+            --border-color: #eee;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .cart-page {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .cart-items {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .item-meta {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .item-price {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .item-remove {
+            background: none;
+            border: none;
+            color: #cc0000;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .summary-card {
+            background: var(--white);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--primary-color);
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            margin-top: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #333;
+        }
+
+        @media (max-width: 850px) {
+            .cart-page { grid-template-columns: 1fr; }
+            .container { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">可衣 KEYI</a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="products.html">所有商品</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="cart-page">
+        <div class="cart-items">
+            <h2 style="margin-top: 0;">我的购物车</h2>
+            
+            <div class="cart-item">
+                <img src="assets/image-ecab223ba29c2f2e.jpg" class="item-img" alt="商品">
+                <div class="item-details">
+                    <div class="item-name">极简主义真丝白衬衫</div>
+                    <div class="item-meta">尺码: M | 数量: 1</div>
+                    <div class="item-price">￥499</div>
+                </div>
+                <button class="item-remove" onclick="removeItem(this)">移除</button>
+            </div>
+
+            <div class="cart-item">
+                <img src="assets/image-42180416eb2431e0.jpg" class="item-img" alt="商品">
+                <div class="item-details">
+                    <div class="item-name">垂感高腰直筒西装裤</div>
+                    <div class="item-meta">尺码: S | 数量: 1</div>
+                    <div class="item-price">￥359</div>
+                </div>
+                <button class="item-remove" onclick="removeItem(this)">移除</button>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary-title">订单汇总</div>
+            <div class="summary-row">
+                <span>商品小计</span>
+                <span>￥858</span>
+            </div>
+            <div class="summary-row">
+                <span>配送费</span>
+                <span>￥0 (免运费)</span>
+            </div>
+            <div class="total-row">
+                <span>总计</span>
+                <span>￥858</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">去结算</button>
+        </div>
+    </div>
+
+    <script>
+        function removeItem(btn) {
+            if(confirm('确定要移除该商品吗？')) {
+                btn.parentElement.remove();
+            }
+        }
+
+        function checkout() {
+            alert('跳转至安全支付界面...');
+        }
+    </script>
+
+</body>
+</html>

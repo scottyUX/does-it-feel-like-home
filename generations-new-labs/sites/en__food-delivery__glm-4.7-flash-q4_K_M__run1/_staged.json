@@ -1,0 +1,80 @@
+{
+  "id": "en__food-delivery__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 11251,
+  "seconds": 103,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/food1/300/200",
+      "file": "assets/image-51852bf0ad1a24b4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food2/300/200",
+      "file": "assets/image-8ece98d8e792a691.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food3/300/200",
+      "file": "assets/image-6cffd17554ba3580.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food4/300/200",
+      "file": "assets/image-46b63e37956da6e9.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food5/100/100",
+      "file": "assets/image-b4534ee984fd549c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food5/1200/300",
+      "file": "assets/image-264abe9d7980b3f8.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/bbq/150/150",
+      "file": "assets/image-b5830b20d6e08e58.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/rice/150/150",
+      "file": "assets/image-8d6be4f7ef1f2eaf.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/soup/150/150",
+      "file": "assets/image-14e10e0cc930cfd3.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/noodle/150/150",
+      "file": "assets/image-86a52ba747692c38.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food5/300/200",
+      "file": "assets/image-39cf79ed02538d76.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food6/300/200",
+      "file": "assets/image-4cdc000cdadbd563.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food7/300/200",
+      "file": "assets/image-d7fa4e7892bf1125.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food8/300/200",
+      "file": "assets/image-eb0359fcf5c495a8.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food9/300/200",
+      "file": "assets/image-8ec464fe6b66ecb2.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food10/300/200",
+      "file": "assets/image-52b1fbbad4cfcfc1.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/food11/300/200",
+      "file": "assets/image-501b36b83d5bb6b8.jpg"
+    }
+  ]
+}

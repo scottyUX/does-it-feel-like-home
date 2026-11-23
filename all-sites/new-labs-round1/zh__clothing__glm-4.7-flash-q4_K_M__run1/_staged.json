@@ -1,0 +1,11 @@
+{
+  "id": "zh__clothing__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "clothing",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 15929,
+  "seconds": 264,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

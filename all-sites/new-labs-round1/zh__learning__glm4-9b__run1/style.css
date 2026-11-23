@@ -1,0 +1,16 @@
+body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+.header { background: #0056b3; color: white; padding: 10px 20px; }
+.header h1 { margin: 0; }
+.nav { background: #004c99; color: white; padding: 5px 0; }
+.nav a { color: white; text-decoration: none; padding: 0 15px; }
+.nav a:hover { text-decoration: underline; }
+.main { padding: 20px; }
+.course-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 20px; }
+.course-item { border: 1px solid #ddd; padding: 10px; }
+.course-item h2 { margin: 0; }
+.course-item p { margin: 5px 0; }
+.course-item img { max-width: 100%; height: auto; }
+.footer { background: #004c99; color: white; text-align: center; padding: 10px 20px; position: relative; bottom: 0; width: 100%; }
+input[type="text"], input[type="password"], input[type="email"] { width: 100%; padding: 8px; margin: 5px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; }
+input[type="submit"] { background-color: #0056b3; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; }
+input[type="submit"]:hover { background-color: #004c99; }

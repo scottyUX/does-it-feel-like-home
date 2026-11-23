@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python数据分析与可视化实战 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #0f172a;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; background-color: var(--white); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Breadcrumbs */
+        .breadcrumbs { padding: 20px 0; font-size: 0.9rem; color: var(--text-light); }
+        .breadcrumbs span { margin: 0 5px; }
+        .breadcrumbs a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .course-hero {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #1e293b, #0f172a);
+            color: var(--white);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            border-radius: var(--radius-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgc3Ryb2tlLXdpZHRoPSIxIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgNDBWMGg0MCIvPjwvc3ZnPg==');
+        }
+        .hero-content { position: relative; z-index: 2; display: flex; gap: 40px; align-items: center; }
+        .hero-img { width: 300px; height: 180px; object-fit: cover; border-radius: var(--radius-md); border: 2px solid rgba(255,255,255,0.2); }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .course-tag { background-color: var(--primary-color); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+        .hero-buttons { display: flex; gap: 16px; margin-top: 24px; }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .curriculum-section { margin-bottom: 40px; }
+        .section-title { font-size: 1.5rem; margin-bottom: 20px; color: var(--secondary-color); display: flex; align-items: center; gap: 10px; }
+        
+        .lesson-item {
+            display: flex;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .lesson-item:hover { box-shadow: var(--shadow-md); }
+        .lesson-info { padding: 16px; flex: 1; border-left: 3px solid transparent; }
+        .lesson-info:hover { border-left-color: var(--primary-color); }
+        .lesson-title { font-weight: 600; color: var(--secondary-color); margin-bottom: 4px; }
+        .lesson-meta { font-size: 0.85rem; color: var(--text-light); }
+        .lesson-status { padding: 0 24px; display: flex; align-items: center; color: #22c55e; font-weight: 600; }
+
+        /* Teacher Card */
+        .teacher-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            position: sticky;
+            top: 90px;
+        }
+        .teacher-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .teacher-avatar {
+            width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg-light);
+        }
+        .teacher-name h3 { font-size: 1.1rem; color: var(--secondary-color); }
+        .teacher-name p { font-size: 0.9rem; color: var(--text-light); margin-top: 4px; }
+        .teacher-rating { color: #f59e0b; font-size: 0.9rem; }
+        .teacher-bio { font-size: 0.9rem; color: var(--text-main); margin-bottom: 20px; line-height: 1.5; }
+        .stats-row { display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 16px; font-size: 0.85rem; color: var(--text-light); }
+        
+        .sticky-cta {
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+        .sticky-cta h2 { margin-bottom: 8px; font-size: 1.2rem; }
+        .sticky-cta p { color: #94a3b8; margin-bottom: 12px; font-size: 0.9rem; }
+        .btn-large {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .btn-large:hover { background-color: var(--primary-dark); }
+
+        /* Reviews */
+        .reviews { background-color: var(--bg-light); padding: 40px; border-radius: var(--radius-lg); margin-top: 40px; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 24px; }
+        .review-card { background: white; padding: 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        .review-header { display: flex; gap: 10px; margin-bottom: 12px; }
+        .reviewer-name { font-weight: 600; font-size: 0.95rem; }
+        .review-date { font-size: 0.8rem; color: var(--text-light); margin-left: auto; }
+        .review-text { font-size: 0.9rem; color: var(--text-main); font-style: italic; }
+
+        footer { margin-top: auto; padding: 40px 0; text-align: center; background: var(--secondary-color); color: #64748b; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-img { width: 100%; max-width: 400px; margin: 0 auto; display: block; }
+            .nav-links { display: none; }
+            .sticky-cta { position: static; margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="index.html" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10v6"/><path d="M20 16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2-2z"/><path d="M6 12h.01M18 12h.01"/><path d="M4 4h16v2H4z"/></svg>
+            学途
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="courses.html">全部课程</a>
+            <a href="#">讲师库</a>
+            <a href="#">关于</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="signup.html" class="btn btn-outline btn-small" style="border-color: white; color: white;">登录</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="breadcrumbs">
+        <a href="index.html">首页</a> <span>/</span> <a href="courses.html">全部课程</a> <span>/</span> Python数据分析与可视化实战
+    </div>
+
+    <div class="course-hero">
+        <div class="hero-content">
+            <img src="https://picsum.photos/seed/python/300/180" alt="Python课程封面" class="hero-img">
+            <div class="hero-text">
+                <span class="course-tag">计算机技能</span>
+                <h1>Python数据分析与可视化实战</h1>
+                <p style="color: #cbd5e1; margin-bottom: 20px; font-size: 1.1rem;">
+                    专为职场新人打造。无需编程基础，通过30小时实战训练，掌握数据清洗、分析与图表制作的核心技能，助力职业转型。
+                </p>
+                <div class="hero-buttons">
+                    <a href="signup.html" class="btn btn-primary" style="color: white;">立即报名</a>
+                    <button class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">加入购物车</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-grid">
+        <div class="main-content">
+            <div class="curriculum-section">
+                <h2 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    课程大纲
+                </h2>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第1章：Python环境搭建与基础语法</div>
+                        <div class="lesson-meta">30分钟 • 视频讲解 • 可试看</div>
+                    </div>
+                    <div class="lesson-status">免费</div>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第2章：Python数据类型与结构</div>
+                        <div class="lesson-meta">45分钟 • 视频讲解</div>
+                    </div>
+                    <div class="lesson-status">¥0</div>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第3章：Pandas数据处理实战</div>
+                        <div class="lesson-meta">80分钟 • 视频讲解 • 练习文件下载</div>
+                    </div>
+                    <div class="lesson-status">解锁</div>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第4章：Matplotlib与Seaborn图表绘制</div>
+                        <div class="lesson-meta">60分钟 • 视频讲解 • 项目演示</div>
+                    </div>
+                    <div class="lesson-status">解锁</div>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第5章：真实电商数据分析项目</div>
+                        <div class="lesson-meta">90分钟 • 实战案例</div>
+                    </div>
+                    <div class="lesson-status">解锁</div>
+                </div>
+
+                <div class="lesson-item">
+                    <div class="lesson-info">
+                        <div class="lesson-title">第6章：课程总结与就业指导</div>
+                        <div class="lesson-meta">20分钟 • 问答环节</div>
+                    </div>
+                    <div class="lesson-status">解锁</div>
+                </div>
+            </div>
+
+            <div class="reviews">
+                <h2 class="section-title">学员评价</h2>
+                <div class="review-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%;"></div>
+                            <div class="reviewer-name">李婷</div>
+                        </div>
+                        <p class="review-text">"课程非常实用，讲师张老师讲得很有条理，从最基础的环境安装到最后的案例分析，非常完整。我现在在做运营工作时也能直接用上。"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div style="width: 40px; height: 40px; background: #e2e8f0; border-radius: 50%;"></div>
+                            <div class="reviewer-name">张伟</div>
+                        </div>
+                        <p class="review-text">"作为文科生，本来很害怕编程，但这个课程完全打破了我的顾虑。老师用生活化的例子讲解代码逻辑，非常适合零基础小白。"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <div class="teacher-card">
+                <div class="teacher-header">
+                    <img src="https://picsum.photos/seed/teacher/100/100" alt="讲师头像" class="teacher-avatar">
+                    <div class="teacher-name">
+                        <h3>张伟</h3>
+                        <p>资深数据分析师</p>
+                        <div class="teacher-rating">★★★★★ (4.9)</div>
+                    </div>
+                </div>
+                <p class="teacher-bio">10年大数据行业经验，曾在阿里巴巴、字节跳动担任数据专家。擅长将复杂的算法用通俗易懂的方式传授给学员。</p>
+                <div class="stats-row">
+                    <span>已授课 120 课时</span>
+                    <span>学员 5000+</span>
+                </div>
+
+                <div class="sticky-cta">
+                    <h2>¥299</h2>
+                    <p>终身观看权限</p>
+                    <button class="btn-large">立即购买</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 学途在线教育科技有限公司 版权所有</p>
+</footer>
+
+</body>
+</html>

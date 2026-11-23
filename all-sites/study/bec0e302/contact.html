@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 长川银行</title>
+    <style>
+        :root {
+            --primary-red: #c8102e;
+            --text-dark: #333;
+            --text-light: #666;
+            --border-color: #ddd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", sans-serif; color: var(--text-dark); background: #f5f5f5; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Header */
+        header { background: white; padding: 15px 0; box-shadow: 0 1px 5px rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary-red); }
+        .nav-links a { margin-left: 25px; font-size: 16px; }
+        .nav-links a.active { color: var(--primary-red); font-weight: bold; }
+
+        /* Banner */
+        .page-banner { background: var(--text-dark); color: white; padding: 30px 20px; text-align: center; }
+        
+        /* Layout */
+        .container { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 0 20px; }
+        
+        /* Contact Info Column */
+        .contact-info h2 { margin-bottom: 20px; border-left: 5px solid var(--primary-red); padding-left: 15px; }
+        .info-group { background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #eee; }
+        .info-group h3 { margin-bottom: 15px; font-size: 18px; }
+        .info-item { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .icon { width: 24px; height: 24px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; font-size: 12px; color: var(--primary-red); }
+        
+        .map-box { background: #ddd; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 18px; margin-bottom: 20px; }
+
+        /* Branch Table */
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; }
+        th { text-align: left; padding: 12px; background: #f9f9f9; color: #555; font-size: 14px; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 14px; }
+        tr:hover { background: #fcfcfc; }
+        .status { color: green; font-size: 12px; }
+
+        /* Form Column */
+        .form-wrapper { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: fit-content; }
+        .form-wrapper h2 { margin-bottom: 20px; font-size: 24px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .submit-btn { background: var(--primary-red); color: white; border: none; padding: 12px 30px; border-radius: 4px; font-size: 16px; cursor: pointer; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: #a00d25; }
+
+        /* Footer */
+        footer { background: #333; color: #888; text-align: center; padding: 20px; margin-top: 50px; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">长川银行</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人金融</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html" class="active">联系我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <h1>联系与服务</h1>
+    </div>
+
+    <main class="container">
+        <!-- Left Column: Contact Info & Branches -->
+        <div class="contact-info">
+            <h2>客户服务热线</h2>
+            <div class="info-group">
+                <div class="info-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <p><strong>24 小时客服热线：</strong></p>
+                        <p style="font-size: 20px; color: var(--primary-red);">95588</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <p><strong>企业邮箱：</strong></p>
+                        <p>service@changchuanbank.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">🏢</div>
+                    <div>
+                        <p><strong>总部地址：</strong></p>
+                        <p>中国北京市朝阳区金融大街 1 号长川大厦</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>营业时间</h2>
+            <div class="info-group">
+                <p><strong>对私业务：</strong>周一至周五 9:00 - 17:00；周六、周日 9:00 - 16:00</p>
+                <p><strong>对公业务：</strong>周一至周五 9:00 - 12:00，14:00 - 17:00</p>
+                <p><strong>自助设备：</strong>24 小时服务</p>
+            </div>
+
+            <h2>热门网点</h2>
+            <div class="map-box">
+                [ 交互式地图位置占位符 ]
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>分行名称</th>
+                        <th>地址</th>
+                        <th>电话</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>北京朝阳分行</td>
+                        <td>北京市朝阳区建国路 88 号</td>
+                        <td>010-88881234</td>
+                    </tr>
+                    <tr>
+                        <td>上海浦东分行</td>
+                        <td>上海市浦东新区世纪大道 100 号</td>
+                        <td>021-66669999</td>
+                    </tr>
+                    <tr>
+                        <td>深圳南山分行</td>
+                        <td>深圳市南山区科苑路 2022 号</td>
+                        <td>0755-33336666</td>
+                    </tr>
+                    <tr>
+                        <td>广州天河支行</td>
+                        <td>广州市天河区天河路 500 号</td>
+                        <td>020-88886666</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Right Column: Feedback Form -->
+        <div class="form-wrapper">
+            <h2>在线留言反馈</h2>
+            <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们将尽快通过邮箱或电话与您联系！');">
+                <div class="form-group">
+                    <label for="name">姓名 *</label>
+                    <input type="text" id="name" required placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="phone">手机号码 *</label>
+                    <input type="tel" id="phone" required placeholder="请输入您的手机号码">
+                </div>
+                <div class="form-group">
+                    <label for="type">咨询类型</label>
+                    <select id="type">
+                        <option>账户服务</option>
+                        <option>信用卡业务</option>
+                        <option>贷款咨询</option>
+                        <option>投诉建议</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">留言内容</label>
+                    <textarea id="message" placeholder="请详细描述您的需求或问题..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交反馈</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 长川银行 版权所有 | 地址：北京市朝阳区金融大街 1 号</p>
+    </footer>
+</body>
+</html>
+===== END OF FILES =====

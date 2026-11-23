@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>注册学途</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333;}
+.container {max-width:800px; margin:0 auto; padding:20px;}
+header {background:#004d7a; color:#fff; padding:10px 0; text-align:center;}
+nav a {color:#fff; margin:0 15px; text-decoration:none; font-size:16px;}
+nav a:hover {text-decoration:underline;}
+.hero {background:url('https://via.placeholder.com/800x200') no-repeat center/cover; height:200px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:24px; text-shadow:0 0 5px rgba(0,0,0,0.7);}
+.hero h1 {margin:0;}
+form {background:#fff; padding:20px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+label {display:block; margin-top:15px; font-weight:bold;}
+input[type="text"], input[type="email"], input[type="password"] {width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;}
+select {width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;}
+button {margin-top:20px; padding:10px 20px; background:#0066cc; color:#fff; border:none; border-radius:4px; cursor:pointer;}
+button:hover {background:#004c99;}
+footer {background:#333; color:#ccc; text-align:center; padding:10px; margin-top:40px;}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>学途 注册</h1>
+</header>
+
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="course-list.html">课程列表</a>
+</nav>
+
+<section class="hero">
+<h1>创建您的学习账号</h1>
+</section>
+
+<section class="main">
+<form action="#" method="post" onsubmit="return false;">
+<label for="name">姓名</label>
+<input type="text" id="name" name="name" required>
+
+<label for="email">邮箱</label>
+<input type="email" id="email" name="email" required>
+
+<label for="password">密码</label>
+<input type="password" id="password" name="password" required>
+
+<label for="confirm">确认密码</label>
+<input type="password" id="confirm" name="confirm" required>
+
+<label for="course">想学习的课程</label>
+<select id="course" name="course" required>
+<option value="">-- 请选择 --</option>
+<option value="高级英语口语">高级英语口语</option>
+<option value="Python数据分析入门">Python数据分析入门</option>
+<option value="CET-4考前押题班">CET-4考前押题班</option>
+</select>
+
+<button type="submit">立即注册</button>
+</form>
+</section>
+
+<footer>
+<p>&copy; 2025 学途 所有权利保留</p>
+</footer>
+</div>
+</body>
+</html>

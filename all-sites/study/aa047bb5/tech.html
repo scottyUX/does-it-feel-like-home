@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技频道 - 每日视界</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #c53030;
+            --text-dark: #2d3748;
+            --text-gray: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 3px solid var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .page-title {
+            margin: 40px 0 20px 0;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .page-title::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 32px;
+            background-color: var(--accent-color);
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .article-item {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 20px;
+            padding: 15px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .article-item:hover {
+            background-color: #fcfcfc;
+        }
+
+        .item-img {
+            width: 240px;
+            height: 150px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .item-text h2 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        .item-text p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .item-meta {
+            font-size: 13px;
+            color: #a0aec0;
+        }
+
+        .sidebar-box {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-box h3 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #edf2f7;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--text-gray);
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .content-layout, .article-item {
+                grid-template-columns: 1fr;
+            }
+            .item-img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-main">
+            <a href="index.html" class="logo">每日视界</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="tech.html" style="color: var(--accent-color);">科技</a></li>
+                <li><a href="tech.html">财经</a></li>
+                <li><a href="tech.html">国际</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">科技前沿</h1>
+        
+        <div class="content-layout">
+            <div class="article-list">
+                <!-- Item 1 -->
+                <div class="article-item" onclick="location.href='article.html'">
+                    <img src="assets/image-e287369731830d63.jpg" class="item-img" alt="AI">
+                    <div class="item-text">
+                        <h2>大模型迭代：从文本生成到多模态实时交互</h2>
+                        <p>最新的AI模型不仅能处理文字，更能实时分析视频流并以自然语言进行响应，这将彻底改变我们的办公方式...</p>
+                        <div class="item-meta">2024-05-21 · 深度报道 · 5分钟阅读</div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="article-item" onclick="location.href='article.html'">
+                    <img src="assets/image-041716e7f2358099.jpg" class="item-img" alt="Computing">
+                    <div class="item-text">
+                        <h2>光子芯片研发取得突破：运算速度提升千倍</h2>
+                        <p>研究团队在光子集成电路领域取得关键进展，有望在未来几年内解决高性能计算的能效瓶颈问题...</p>
+                        <div class="item-meta">2024-05-20 · 硬件前瞻 · 8分钟阅读</div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="article-item" onclick="location.href='article.html'">
+                    <img src="assets/image-f8339e00d10052c7.jpg" class="item-img" alt="Robotics">
+                    <div class="item-text">
+                        <h2>人形机器人进入工厂实测阶段：协作效率分析</h2>
+                        <p>首批部署在汽车制造流水线的人形机器人表现出极高的灵活性，但其在极端工况下的稳定性仍待验证...</p>
+                        <div class="item-meta">2024-05-19 · 产业观察 · 6分钟阅读</div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="article-item" onclick="location.href='article.html'">
+                    <img src="assets/image-83ee9dd4cc0b79b1.jpg" class="item-img" alt="Space">
+                    <div class="item-text">
+                        <h2>深空探测计划：揭秘下一代月球科研站布局</h2>
+                        <p>随着多国参与的月球计划推进，未来的科研站将重点关注极地水冰资源以及长期生存的生命支持系统...</p>
+                        <div class="item-meta">2024-05-18 · 宇宙探索 · 10分钟阅读</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-box">
+                    <h3>热门标签</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">人工智能</a>
+                        <a href="#" class="tag">量子计算</a>
+                        <a href="#" class="tag">半导体</a>
+                        <a href="#" class="tag">低空经济</a>
+                        <a href="#" class="tag">生物医疗</a>
+                        <a href="#" class="tag">太空探索</a>
+                        <a href="#" class="tag">Web3.0</a>
+                        <a href="#" class="tag">绿能技术</a>
+                    </div>
+                </div>
+                <div class="sidebar-box">
+                    <h3>频道订阅</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">订阅科技频道，第一时间获取全球前沿科技动态。</p>
+                    <button style="width: 100%; padding: 10px; background-color: var(--primary-color); color: white; border: none; cursor: pointer; font-weight: bold;">立即订阅</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-links">
+            <div>&copy; 2024 每日视界. All Rights Reserved.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="about.html" style="color: white; text-decoration: none;">关于我们</a>
+                <a href="about.html" style="color: white; text-decoration: none;">服务条款</a>
+                <a href="about.html" style="color: white; text-decoration: none;">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

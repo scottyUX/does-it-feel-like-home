@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 订座</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #d94d3c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #b33022;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .reservation-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .reservation-form h2 {
+            color: #d94d3c;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background-color: #d94d3c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #b33022;
+        }
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .error-message {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>家味餐厅</h1>
+        <p>杭州经典浙菜，家的味道</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="menu.html">菜单</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="reservation.html">订座</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section class="reservation-form">
+            <h2>订座预约</h2>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">电话：</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">日期：</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">时间：</label>
+                    <select id="time" name="time" required>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="people">用餐人数：</label>
+                    <input type="number" id="people" name="people" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">特殊要求：</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit">确认预订</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                <p>预订成功！我们会尽快与您确认预订详情。</p>
+                <button onclick="window.location.href='index.html'">返回首页</button>
+            </div>
+            <div class="error-message" id="errorMessage">
+                <p>预订失败，请稍后再试或直接联系我们。</p>
+                <button onclick="window.location.href='reservation.html'">重新预订</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>© 2023 家味餐厅. 杭州市西湖区南山路118号</p>
+    </footer>
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 这里应该添加表单验证逻辑
+            // 实际应用中，应该使用AJAX将数据发送到服务器
+            
+            // 模拟表单提交
+            setTimeout(function() {
+                document.getElementById('reservationForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "id": "zh__beauty-salon__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 12397,
+  "seconds": 114,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/salonhero/1920/1080.jpg",
+      "file": "assets/image-f6d2fb655531e4b0.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/steve/400/500.jpg",
+      "file": "assets/image-b06b5bbd57cc2832.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/lisa/400/500.jpg",
+      "file": "assets/image-23951951c8f58a67.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/wang/400/500.jpg",
+      "file": "assets/image-aa783e349575b7e3.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sarah/400/500.jpg",
+      "file": "assets/image-32767c99af2a47a1.jpg"
+    }
+  ]
+}

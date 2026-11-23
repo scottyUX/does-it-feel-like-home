@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>在线预约 - 洁家家政</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f9f9f9;color:#333;}
+header{background:#fff;padding:20px 0;border-bottom:1px solid #ddd;}
+nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;}
+nav a{margin:0 15px;color:#333;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#0078d4;}
+main{max-width:800px;margin:auto;padding:40px 20px;background:#fff;border:1px solid #ddd;border-radius:5px;}
+h1{font-size:28px;color:#0078d4;text-align:center;margin-bottom:20px;}
+form{display:flex;flex-direction:column;}
+label{font-weight:bold;margin:10px 0 5px;}
+input, select, textarea{padding:10px;border:1px solid #ccc;border-radius:5px;font-size:16px;}
+input[type="submit"]{margin-top:20px;background:#0078d4;color:#fff;border:none;border-radius:5px;cursor:pointer;padding:12px;font-size:18px;}
+input[type="submit"]:hover{background:#005a9e;}
+footer{background:#fff;border-top:1px solid #ddd;text-align:center;padding:20px 0;color:#777;}
+@media (max-width:768px){
+main{margin:20px;padding:20px;}
+}
+</style>
+<script>
+function submitForm(event){
+event.preventDefault();
+alert('感谢您的预约请求！我们将尽快与您联系。');
+document.getElementById('bookingForm').reset();
+}
+</script>
+</head>
+<body>
+<header>
+<nav>
+<a href="index.html">首页</a>
+<a href="services.html">服务项目</a>
+<a href="about.html">关于我们</a>
+<a href="booking.html">在线预约</a>
+</nav>
+</header>
+<main>
+<h1>在线预约</h1>
+<form id="bookingForm" onsubmit="submitForm(event)">
+<label for="name">姓名</label>
+<input type="text" id="name" name="name" required>
+<label for="phone">联系电话</label>
+<input type="tel" id="phone" name="phone" required>
+<label for="address">地址</label>
+<input type="text" id="address" name="address" required>
+<label for="service">服务类型</label>
+<select id="service" name="service" required>
+<option value="">请选择</option>
+<option value="standard">标准清洁套餐</option>
+<option value="deep">深度清洁套餐</option>
+<option value="move">搬家清洁套餐</option>
+<option value="regular">定期保洁套餐</option>
+</select>
+<label for="date">预约日期</label>
+<input type="date" id="date" name="date" required>
+<label for="time">预约时间段</label>
+<select id="time" name="time" required>
+<option value="">请选择</option>
+<option value="morning">上午 9:00-12:00</option>
+<option value="afternoon">下午 14:00-18:00</option>
+<option value="evening">傍晚 18:00-21:00</option>
+</select>
+<label for="note">备注信息</label>
+<textarea id="note" name="note" rows="4" placeholder="如有特殊需求请填写"></textarea>
+<input type="submit" value="提交预约">
+</form>
+</main>
+<footer>© 2024 洁家家政 北京市朝阳区 | 联系电话：010-12345678</footer>
+</body>
+</html>

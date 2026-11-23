@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>长川银行 - 首页</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+        header{background:#004080;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:24px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .hero{background:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwMCIgaGVpZ2h0PSI3MCIgdmlld0JveD0iMCAwIDE0MDAgNzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE0MDAiIGhlaWdodD0iNzAiIGZpbGw9IiMwMDQwODAifTwvc3ZnPg==') center/cover no-repeat;}
+        .hero .overlay{background:rgba(0,0,0,0.4);padding:80px 40px;text-align:center;color:#fff;}
+        .hero h2{font-size:36px;margin:0 0 10px;}
+        .hero p{font-size:18px;margin:0 0 20px;}
+        .hero a{background:#ffcc00;color:#000;padding:12px 24px;border-radius:4px;text-decoration:none;font-weight:bold;}
+        .section{padding:40px 40px;background:#fff;margin:20px auto;max-width:1200px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .section h2{margin-top:0;color:#004080;}
+        .footer{background:#002040;color:#ccc;padding:20px 40px;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            header, .hero .overlay, .section, .footer{padding:20px;}
+            .hero h2{font-size:28px;}
+            .hero p{font-size:16px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>长川银行</h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="personal.html">个人业务</a>
+            <a href="cards.html">信用卡</a>
+            <a href="contact.html">网点与联系</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="overlay">
+            <h2>您的信任，我们的使命</h2>
+            <p>提供个人、企业全方位金融服务，助您实现财富梦想。</p>
+            <a href="personal.html">了解个人业务</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>个人业务概览</h2>
+        <p>长川银行为个人客户提供活期储蓄、定期存款、个人贷款、房屋按揭等多元化金融产品，帮助您轻松管理日常收支，规划未来。</p>
+        <ul>
+            <li>活期储蓄账户：随时取用，年利率 1.5%</li>
+            <li>定期存款：期限灵活，最高年利率 3.2%</li>
+            <li>个人消费贷款：最高 50 万元，审批快速</li>
+            <li>住房按揭贷款：首付低至 20%，利率优惠</li>
+        </ul>
+        <a href="personal.html" style="display:inline-block;margin-top:10px;background:#004080;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">查看详情</a>
+    </section>
+
+    <section class="section">
+        <h2>信用卡产品</h2>
+        <p>多款信用卡满足不同消费需求，积分返现、旅行保险、免年费等福利任您挑选。</p>
+        <a href="cards.html" style="display:inline-block;margin-top:10px;background:#ff6600;color:#fff;padding:10px 20px;text-decoration:none;border-radius:4px;">了解卡片详情</a>
+    </section>
+
+    <footer class="footer">
+        © 2026 长川银行 版权所有 | 京ICP备12345678号
+    </footer>
+</body>
+</html>

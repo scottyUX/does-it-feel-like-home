@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人银行服务 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4af37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+        
+        nav ul { display: flex; gap: 25px; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--secondary-color); }
+
+        .auth-buttons a { padding: 6px 15px; border-radius: 4px; font-size: 14px; }
+
+        /* Hero */
+        .hero-banner {
+            background: linear-gradient(to right, #001a33, #003366);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero-banner h1 { margin-bottom: 10px; font-size: 36px; }
+        .hero-banner p { font-size: 18px; opacity: 0.9; }
+
+        /* Main Content */
+        main { padding: 50px 0; }
+
+        .section-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 { color: var(--primary-color); font-size: 24px; margin-left: 15px; }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .feature-item h3 { color: var(--secondary-color); margin-bottom: 10px; }
+        .feature-item ul { padding-left: 20px; font-size: 14px; color: var(--text-light); }
+        .feature-item li { margin-bottom: 5px; }
+
+        /* Interest Table */
+        .interest-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .interest-table th, .interest-table td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .interest-table th { color: var(--text-light); font-size: 14px; }
+        .interest-table td { font-weight: 500; }
+
+        /* Forms */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-block:hover { background: var(--secondary-color); }
+
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* Grid Layout for Left/Right */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        @media(max-width: 768px) { .split-layout { grid-template-columns: 1fr; } }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">长川银行</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html" class="active">个人银行</a></li>
+                    <li><a href="credit_card.html">信用卡</a></li>
+                    <li><a href="contact.html">网点信息</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="#" style="margin-right:10px;">登录</a>
+                <a href="#" class="btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="container">
+            <h1>个人金融服务</h1>
+            <p>量身定制的财富方案，助力您的事业与生活</p>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Accounts -->
+        <div class="section-card">
+            <div class="section-header">
+                <span style="font-size: 30px; color: var(--accent-color);">🏦</span>
+                <h2>账户服务</h2>
+            </div>
+            <p style="margin-bottom: 20px;">我们提供多种类型的个人账户，满足您的不同资金管理需求。</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>长川灵通卡 (储蓄卡)</h3>
+                    <ul>
+                        <li>全国联网，一卡通用</li>
+                        <li>免费开通网上银行、手机银行</li>
+                        <li>无年费，小额管理费减免</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>长川联名信用卡</h3>
+                    <ul>
+                        <li>购物满减优惠活动</li>
+                        <li>积分兑换礼品</li>
+                        <li>支持绑定微信、支付宝</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h3>公积金联名账户</h3>
+                    <ul>
+                        <li>一站式查询公积金余额</li>
+                        <li>支持公积金提取业务</li>
+                        <li>绑定自动扣款，方便快捷</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loans -->
+        <div class="section-card">
+            <div class="section-header">
+                <span style="font-size: 30px; color: var(--accent-color);">💰</span>
+                <h2>个人贷款</h2>
+            </div>
+            <div class="split-layout">
+                <div>
+                    <div class="feature-item" style="border: none; margin-bottom: 20px;">
+                        <h3>长川消费贷</h3>
+                        <p>额度最高20万元，期限最长3年，随借随还。支持购买家电、装修、旅游等大额消费支出。</p>
+                        <br>
+                        <h3>长川房产抵押贷</h3>
+                        <p>最高可贷500万元，利率低至4.0%起，期限最长10年。用于房屋装修、企业经营周转等用途。</p>
+                    </div>
+                    <button class="btn-block" style="max-width: 200px;">立即申请</button>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">参考利率表</h3>
+                    <table class="interest-table">
+                        <thead>
+                            <tr>
+                                <th>贷款类型</th>
+                                <th>年利率范围</th>
+                                <th>期限</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>长川薪金贷</td>
+                                <td>4.35% - 6.50%</td>
+                                <td>6 - 36期</td>
+                            </tr>
+                            <tr>
+                                <td>长川房抵贷</td>
+                                <td>4.00% - 5.50%</td>
+                                <td>1 - 10年</td>
+                            </tr>
+                            <tr>
+                                <td>长川车贷</td>
+                                <td>3.85% - 5.00%</td>
+                                <td>1 - 3年</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wealth Management -->
+        <div class="section-card">
+            <div class="section-header">
+                <span style="font-size: 30px; color: var(--accent-color);">📈</span>
+                <h2>财富管理</h2>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>长川日日盈</h3>
+                    <p>七日年化收益率 3.20%，万份收益 0.85 元。100元起购，T+0 赎回，灵活存取。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>长川稳健增利</h3>
+                    <p>主要投资于高信用等级债券，风险等级 R2。长期持有年化收益约 4.5%。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>大额存单</h3>
+                    <p>20万元起存，期限3/5年。利率较普通定存上浮20%-40%，锁定长期收益。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="section-card">
+            <div class="section-header">
+                <span style="font-size: 30px; color: var(--accent-color);">📝</span>
+                <h2>服务咨询</h2>
+            </div>
+            <p style="margin-bottom: 20px;">如果您对我们的服务有任何疑问，请填写下方表格，我们的客户经理将在24小时内联系您。</p>
+            <form>
+                <div class="split-layout">
+                    <div class="form-group">
+                        <label>您的姓名</label>
+                        <input type="text" placeholder="请输入姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" placeholder="请输入手机号码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>感兴趣的服务</label>
+                    <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option>请选择服务类型...</option>
+                        <option>个人贷款咨询</option>
+                        <option>理财产品推荐</option>
+                        <option>新户开户指导</option>
+                        <option>其他问题</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>留言内容</label>
+                    <textarea rows="4" placeholder="请简要描述您的需求..."></textarea>
+                </div>
+                <button type="button" class="btn-block">提交咨询</button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 长川银行 版权所有 | 个人银行服务页面</p>
+        </div>
+    </footer>
+
+</body>
+</html>

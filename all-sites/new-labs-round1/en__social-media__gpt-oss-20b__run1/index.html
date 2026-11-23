@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>趣聊 - 首页</title>
+<style>
+body{margin:0;font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;background:#f5f5f5;}
+header{background:#ffffff;box-shadow:0 2px 4px rgba(0,0,0,.1);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:1.8rem;color:#ff5e00;font-weight:bold;}
+nav a{margin-left:20px;color:#333;text-decoration:none;font-size:1rem;}
+nav a:hover{color:#ff5e00;}
+.container{max-width:1000px;margin:20px auto;}
+.post{background:#ffffff;padding:15px;margin-bottom:15px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+.post-header{display:flex;align-items:center;margin-bottom:10px;}
+.avatar{width:40px;height:40px;border-radius:50%;margin-right:10px;}
+.post-user{font-weight:bold;color:#333;}
+.post-time{font-size:.85rem;color:#999;margin-left:10px;}
+.post-content{margin-bottom:10px;font-size:1rem;color:#333;}
+.post-img{width:100%;height:auto;border-radius:5px;margin-bottom:10px;}
+.post-actions{display:flex;gap:20px;}
+button{background:none;border:none;color:#ff5e00;font-size:1rem;cursor:pointer;}
+button:focus{outline:none;}
+footer{background:#ffffff;padding:20px;text-align:center;color:#999;font-size:.9rem;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">趣聊</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="profile.html">个人主页</a>
+<a href="post.html">发布</a>
+<a href="signup.html">注册</a>
+</nav>
+</header>
+<div class="container">
+<div class="post">
+<div class="post-header">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjZGRkZGRkIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiLz48L3N2Zz4=" alt="头像" class="avatar">
+<div>
+<span class="post-user">小李</span>
+<span class="post-time">3小时前</span>
+</div>
+</div>
+<div class="post-content">今天终于完成了新项目的初步设计，心情超好！希望能尽快和团队一起上线。</div>
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTAwIDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNlZWVmZiI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSI4MCIvPjwvc3ZnPg==" alt="帖子图片" class="post-img">
+<div class="post-actions">
+<button>赞</button>
+<button>评论</button>
+</div>
+</div>
+
+<div class="post">
+<div class="post-header">
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjY2NjY2NjIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiLz48L3N2Zz4=" alt="头像" class="avatar">
+<div>
+<span class="post-user">美菜菜</span>
+<span class="post-time">5小时前</span>
+</div>
+</div>
+<div class="post-content">周末想去城市花园散步，谁想一起？#放松 #花园</div>
+<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMTAwIDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNlZWVmZiI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSI4MCIvPjwvc3ZnPg==" alt="帖子图片" class="post-img">
+<div class="post-actions">
+<button>赞</button>
+<button>评论</button>
+</div>
+</div>
+</div>
+<footer>© 2024 趣聊 版权所有</footer>
+<script>
+document.querySelectorAll('button').forEach(btn=>{
+btn.addEventListener('click',()=>{alert('功能暂未实现');});
+});
+</script>
+</body>
+</html>

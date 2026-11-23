@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>畅行旅行 - 酒店列表</title>
+    <style>
+        body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 30px;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+        nav a{margin-right:20px;color:#333;text-decoration:none;font-weight:500;}
+        nav a:hover{color:#0077cc;}
+        .container{max-width:1200px;margin:20px auto;padding:0 20px;}
+        .hotel-card{background:#fff;margin-bottom:20px;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.1);display:flex;flex-wrap:wrap;}
+        .hotel-img{width:100%;height:200px;background-size:cover;background-position:center;}
+        .hotel-info{padding:15px;flex:1;}
+        .hotel-name{font-size:20px;margin:0;}
+        .hotel-rating{color:#ffa500;margin-top:5px;}
+        .hotel-price{margin-top:10px;font-weight:600;}
+        .hotel-detail{margin-top:10px;}
+        .hotel-detail a{color:#0077cc;text-decoration:none;font-weight:500;}
+        .hotel-detail a:hover{text-decoration:underline;}
+        footer{background:#333;color:#eee;padding:20px 30px;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            .hotel-card{flex-direction:column;}
+            .hotel-img{height:250px;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="results.html">酒店</a>
+        <a href="booking.html">预订</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>酒店列表</h2>
+
+    <div class="hotel-card">
+        <div class="hotel-img" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNFN0M5MCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0M3Q0NEMCIgLz48L3N2Zz4=');"></div>
+        <div class="hotel-info">
+            <h3 class="hotel-name">丽江古城酒店</h3>
+            <div class="hotel-rating">★ ★ ★ ★ ☆</div>
+            <div class="hotel-price">¥ 399 / 晚</div>
+            <div class="hotel-detail"><a href="hotel.html">查看详情</a></div>
+        </div>
+    </div>
+
+    <div class="hotel-card">
+        <div class="hotel-img" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNFQTFFRjAiPjxwYXRoIGQ9Ik0wIDBoMTAwdjEwMEgwWiIgZmlsbD0iI0JDRkZGRCIgLz48L3N2Zz4=');"></div>
+        <div class="hotel-info">
+            <h3 class="hotel-name">杭州西湖精品酒店</h3>
+            <div class="hotel-rating">★ ★ ★ ★ ★</div>
+            <div class="hotel-price">¥ 799 / 晚</div>
+            <div class="hotel-detail"><a href="hotel.html">查看详情</a></div>
+        </div>
+    </div>
+
+    <div class="hotel-card">
+        <div class="hotel-img" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiNFRTVEMTIwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNDRkZGRiIgLz48L3N2Zz4=');"></div>
+        <div class="hotel-info">
+            <h3 class="hotel-name">成都青城山度假酒店</h3>
+            <div class="hotel-rating">★ ★ ★ ☆ ☆</div>
+            <div class="hotel-price">¥ 299 / 晚</div>
+            <div class="hotel-detail"><a href="hotel.html">查看详情</a></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 畅行旅行
+</footer>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部商品 - 可衣 KEI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2d2d2d;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .header-top {
+            background: #2d2d2d;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 60px;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2d2d2d;
+        }
+
+        .logo span {
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #999;
+            display: block;
+            margin-top: -2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #555;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #2d2d2d;
+        }
+
+        .nav a.active {
+            color: #2d2d2d;
+            font-weight: 600;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #2d2d2d;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-icons a {
+            font-size: 14px;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: #2d2d2d;
+        }
+
+        .cart-badge {
+            position: relative;
+        }
+
+        .cart-badge .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #c9a96e;
+            color: #fff;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-header {
+            margin-top: 90px;
+            padding: 48px 60px;
+            background: #faf8f5;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .main-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .sidebar {
+            width: 240px;
+            flex-shrink: 0;
+        }
+
+        .filter-group {
+            margin-bottom: 32px;
+        }
+
+        .filter-group h3 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .filter-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #c9a96e;
+        }
+
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .size-options span {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-options span:hover,
+        .size-options span.active {
+            border-color: #2d2d2d;
+            background: #2d2d2d;
+            color: #fff;
+        }
+
+        .products-area {
+            flex: 1;
+        }
+
+        .products-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .products-toolbar .count {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .products-toolbar select {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            color: #555;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: #fff;
+            transition: all 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-card .image {
+            height: 300px;
+            background: #f0ebe5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card .tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #c9a96e;
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 10px;
+            letter-spacing: 1px;
+        }
+
+        .product-card .tag.sale {
+            background: #e74c3c;
+        }
+
+        .product-card .info {
+            padding: 16px;
+        }
+
+        .product-card .info h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-card .info .sizes {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .product-card .info .price {
+            font-size: 16px;
+            color: #c9a96e;
+            font-weight: 600;
+        }
+
+        .product-card .info .price .original {
+            font-size: 12px;
+            color: #ccc;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 60px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c9a96e;
+        }
+
+        .footer-bottom {
+            max-width: 1440px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .header-main {
+                padding: 16px 24px;
+            }
+            .main-content {
+                padding: 40px 24px;
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            新用户首单立减50元 | 全场满399元包邮 | 7天无理由退换
+        </div>
+        <div class="header-main">
+            <a href="index.html" class="logo">可衣<span>KEI SHANGHAI</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">全部商品</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场系列</a>
+                <a href="products.html">日常休闲</a>
+            </nav>
+            <div class="header-icons">
+                <a href="products.html">搜索</a>
+                <a href="cart.html" class="cart-badge">购物车<span class="badge">2</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>全部商品</h1>
+        <p>共 12 件商品</p>
+    </div>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>商品分类</h3>
+                <label><input type="checkbox" checked> 全部</label>
+                <label><input type="checkbox"> 职场通勤</label>
+                <label><input type="checkbox"> 日常休闲</label>
+                <label><input type="checkbox"> 外套大衣</label>
+                <label><input type="checkbox"> 针织上衣</label>
+                <label><input type="checkbox"> 连衣裙</label>
+                <label><input type="checkbox"> 裤装</label>
+            </div>
+            <div class="filter-group">
+                <h3>尺码</h3>
+                <div class="size-options">
+                    <span>XS</span>
+                    <span class="active">S</span>
+                    <span>M</span>
+                    <span>L</span>
+                    <span>XL</span>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>价格区间</h3>
+                <label><input type="checkbox"> ¥200以下</label>
+                <label><input type="checkbox" checked> ¥200 - ¥500</label>
+                <label><input type="checkbox"> ¥500 - ¥800</label>
+                <label><input type="checkbox"> ¥800以上</label>
+            </div>
+            <div class="filter-group">
+                <h3>颜色</h3>
+                <label><input type="checkbox"> 黑色</label>
+                <label><input type="checkbox"> 白色</label>
+                <label><input type="checkbox" checked> 米色/驼色</label>
+                <label><input type="checkbox"> 灰色</label>
+                <label><input type="checkbox"> 藏青色</label>
+                <label><input type="checkbox"> 其他</label>
+            </div>
+        </aside>
+
+        <div class="products-area">
+            <div class="products-toolbar">
+                <span class="count">显示 12 件商品</span>
+                <select>
+                    <option>综合排序</option>
+                    <option>价格从低到高</option>
+                    <option>价格从高到低</option>
+                    <option>最新上架</option>
+                    <option>销量最高</option>
+                </select>
+            </div>
+
+            <div class="products-grid">
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-cbbb86649076a895.jpg" alt="驼色西装外套">
+                        <span class="tag">新品</span>
+                    </div>
+                    <div class="info">
+                        <h4>经典驼色西装外套</h4>
+                        <p class="sizes">尺码：S / M / L / XL</p>
+                        <p class="price">¥599</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-533029e4c6ef3d96.jpg" alt="米色针织衫">
+                        <span class="tag">热卖</span>
+                    </div>
+                    <div class="info">
+                        <h4>慵懒风羊绒针织衫</h4>
+                        <p class="sizes">尺码：XS / S / M / L</p>
+                        <p class="price">¥459</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-581656f27c2cc480.jpg" alt="法式连衣裙">
+                        <span class="tag">新品</span>
+                    </div>
+                    <div class="info">
+                        <h4>法式方领连衣裙</h4>
+                        <p class="sizes">尺码：S / M / L</p>
+                        <p class="price">¥389</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-c25a25ed887f0a6c.jpg" alt="卡其色风衣">
+                        <span class="tag sale">限时折扣</span>
+                    </div>
+                    <div class="info">
+                        <h4>中长款卡其风衣</h4>
+                        <p class="sizes">尺码：S / M / L / XL</p>
+                        <p class="price">¥799 <span class="original">¥999</span></p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-7f89730e37b80034.jpg" alt="白色衬衫">
+                    </div>
+                    <div class="info">
+                        <h4>简约白衬衫</h4>
+                        <p class="sizes">尺码：XS / S / M / L / XL</p>
+                        <p class="price">¥259</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-5c446758abff58bb.jpg" alt="灰色大衣">
+                        <span class="tag">新品</span>
+                    </div>
+                    <div class="info">
+                        <h4>双面呢灰色大衣</h4>
+                        <p class="sizes">尺码：S / M / L</p>
+                        <p class="price">¥1299</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-ac276ab74efde552.jpg" alt="黑色阔腿裤">
+                    </div>
+                    <div class="info">
+                        <h4>高腰黑色阔腿裤</h4>
+                        <p class="sizes">尺码：XS / S / M / L / XL</p>
+                        <p class="price">¥329</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cead0e2?w=400&h=500&fit=crop" alt="条纹T恤">
+                        <span class="tag sale">限时折扣</span>
+                    </div>
+                    <div class="info">
+                        <h4>法式条纹长袖T恤</h4>
+                        <p class="sizes">尺码：S / M / L</p>
+                        <p class="price">¥169 <span class="original">¥229</span></p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-e73b5598665c76bc.jpg" alt="半身裙">
+                    </div>
+                    <div class="info">
+                        <h4>百褶半身裙</h4>
+                        <p class="sizes">尺码：S / M / L</p>
+                        <p class="price">¥299</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-858c6d2797972965.jpg" alt="藏青色西装">
+                        <span class="tag">热卖</span>
+                    </div>
+                    <div class="info">
+                        <h4>藏青色修身西装套装</h4>
+                        <p class="sizes">尺码：S / M / L / XL</p>
+                        <p class="price">¥899</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-dbe0dc97b7e3a58e.jpg" alt="奶茶色开衫">
+                        <span class="tag">新品</span>
+                    </div>
+                    <div class="info">
+                        <h4>奶茶色羊毛开衫</h4>
+                        <p class="sizes">尺码：均码</p>
+                        <p class="price">¥399</p>
+                    </div>
+                </a>
+                <a href="product-detail.html" class="product-card">
+                    <div class="image">
+                        <img src="assets/image-29e5fe96dfaa67ae.jpg" alt="真丝衬衫">
+                    </div>
+                    <div class="info">
+                        <h4>桑蚕丝飘带衬衫</h4>
+                        <p class="sizes">尺码：S / M / L</p>
+                        <p class="price">¥549</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">可衣</div>
+                <p>可衣是一家扎根于上海的设计师女装品牌，致力于为20-40岁的都市女性提供兼具品质与设计感的日常及职场服饰。</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="products.html">尺码指南</a>
+                <a href="cart.html">购物车</a>
+                <a href="products.html">新品上市</a>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <a href="products.html">配送说明</a>
+                <a href="products.html">退换政策</a>
+                <a href="products.html">支付方式</a>
+                <a href="products.html">常见问题</a>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <a href="index.html">品牌故事</a>
+                <a href="products.html">门店信息</a>
+                <a href="products.html">加入我们</a>
+                <a href="products.html">联系客服</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 可衣 KEI 版权所有 | 上海市静安区南京西路1266号 | 沪ICP备20240001号</p>
+        </div>
+    </footer>
+</body>
+</html>

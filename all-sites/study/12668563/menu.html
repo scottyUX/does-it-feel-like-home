@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦江路川味馆 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ff7875;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .res-header-banner {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/image-de3fc7f3c90cf202.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 2rem 3rem 2rem;
+            color: white;
+        }
+
+        .res-title-box h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .res-info-bar {
+            background: var(--white);
+            max-width: 1440px;
+            margin: -2rem auto 2rem auto;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .res-info-bar p {
+            margin: 0;
+            color: var(--light-text);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 2rem;
+            padding: 0 2rem 3rem 2rem;
+        }
+
+        .menu-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-details h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .item-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .item-price-box {
+            text-align: right;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .add-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .cart-panel {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .cart-total {
+            border-top: 2px solid #eee;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🚀 快送外卖</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">所有餐厅</a></li>
+                    <li><a href="checkout.html">我的订单</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="res-header-banner">
+        <div class="res-title-box">
+            <h1>锦江路川味馆</h1>
+        </div>
+    </div>
+
+    <div class="res-info-bar">
+        <div>
+            <p><strong>评分：</strong> ★ 4.8 | <strong>配送时间：</strong> 30-45 分钟</p>
+            <p><strong>地址：</strong> 成都市锦江区锦江路 102 号</p>
+        </div>
+        <div style="color: var(--primary-color); font-weight: bold;">
+            满 50 元免配送费
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="menu-section">
+            <h2 class="category-title">🔥 招牌主菜</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>麻婆豆腐 (经典)</h4>
+                    <p>麻辣鲜香，口感顺滑，下饭神器</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥22</span>
+                    <button class="add-btn" onclick="addToCart('麻婆豆腐', 22)">+ 添加</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>回锅肉</h4>
+                    <p>精选五花肉，煸炒至金黄，香气浓郁</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥35</span>
+                    <button class="add-btn" onclick="addToCart('回锅肉', 35)">+ 添加</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>宫保鸡丁</h4>
+                    <p>酸甜适口，花生脆爽，鸡丁滑嫩</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥28</span>
+                    <button class="add-btn" onclick="addToCart('宫保鸡丁', 28)">+ 添加</button>
+                </div>
+            </div>
+
+            <h2 class="category-title">🥗 清爽凉菜</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>凉拌拍黄瓜</h4>
+                    <p>爽脆清口，蒜香浓郁，解腻必备</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥15</span>
+                    <button class="add-btn" onclick="addToCart('凉拌拍黄瓜', 15)">+ 添加</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>口水鸡</h4>
+                    <p>麻辣红油，鲜嫩鸡肉，口感丰富</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥26</span>
+                    <button class="add-btn" onclick="addToCart('口水鸡', 26)">+ 添加</button>
+                </div>
+            </div>
+
+            <h2 class="category-title">🍚 主食饮品</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>五常大米饭</h4>
+                    <p>晶莹剔透，软糯香甜</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥5</span>
+                    <button class="add-btn" onclick="addToCart('五常大米饭', 5)">+ 添加</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h4>冰镇酸梅汤</h4>
+                    <p>传统手工熬制，清热解暑</p>
+                </div>
+                <div class="item-price-box">
+                    <span class="price">￥8</span>
+                    <button class="add-btn" onclick="addToCart('冰镇酸梅汤', 8)">+ 添加</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-panel">
+            <h3 class="cart-title">🛒 我的订单</h3>
+            <div class="cart-items" id="cart-items">
+                <p style="color: #999; text-align: center;">购物车空空如也</p>
+            </div>
+            <div class="cart-total">
+                <span>合计:</span>
+                <span id="total-price">￥0</span>
+            </div>
+            <a href="checkout.html" class="checkout-btn">去结算</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 快送外卖 (Chengdu Fast Delivery). All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById('cart-items');
+            const totalContainer = document.getElementById('total-price');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="color: #999; text-align: center;">购物车空空如也</p>';
+            } else {
+                cartContainer.innerHTML = '';
+                cart.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'cart-item';
+                    div.innerHTML = `<span>${item.name}</span><span>￥${item.price}</span>`;
+                    cartContainer.appendChild(div);
+                });
+            }
+            totalContainer.innerText = `￥${total}`;
+        }
+    </script>
+</body>
+</html>

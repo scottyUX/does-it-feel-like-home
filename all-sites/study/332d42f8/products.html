@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 可衣 KEYI</title>
+    <style>
+        :root {
+            --primary-color: #4a4a4a;
+            --accent-color: #b5a397;
+            --bg-color: #fafafa;
+            --white: #ffffff;
+            --text-muted: #777;
+            --border-color: #eee;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .filters {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px 0;
+            text-align: left;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .product-sizes {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .container { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">可衣 KEYI</a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="products.html">所有商品</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>精心甄选</h1>
+        <p>品质生活，从一件得体的衣服开始</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active">全部</button>
+        <button class="filter-btn">职场装</button>
+        <button class="filter-btn">日常装</button>
+        <button class="filter-btn">连衣裙</button>
+    </div>
+
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-065a5ee7c13ec47d.jpg" class="product-image" alt="真丝白衬衫">
+            <div class="product-info">
+                <div class="product-name">极简主义真丝白衬衫</div>
+                <div class="product-price">￥499</div>
+                <div class="product-sizes">尺码: S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-956274537204f656.jpg" class="product-image" alt="高腰西装裤">
+            <div class="product-info">
+                <div class="product-name">垂感高腰直筒西装裤</div>
+                <div class="product-price">￥359</div>
+                <div class="product-sizes">尺码: XS / S / M / L / XL</div>
+            </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-e330f58e828a4ae4.jpg" class="product-image" alt="羊绒开衫">
+            <div class="product-info">
+                <div class="product-name">米色系纯羊绒针织开衫</div>
+                <div class="product-price">￥899</div>
+                <div class="product-sizes">尺码: S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-0f6d4b12a82d1f7d.jpg" class="product-image" alt="职场连衣裙">
+            <div class="product-info">
+                <div class="product-name">现代剪裁职场连衣裙</div>
+                <div class="product-price">￥620</div>
+                <div class="product-sizes">尺码: S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 5 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-0b4f3328b6450a8c.jpg" class="product-image" alt="羊毛西装">
+            <div class="product-info">
+                <div class="product-name">廓形羊毛混纺西装外套</div>
+                <div class="product-price">￥1200</div>
+                <div class="product-sizes">尺码: S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 6 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-6ced302d90882040.jpg" class="product-image" alt="日常棉麻裙">
+            <div class="product-info">
+                <div class="product-name">自然风棉麻日常长裙</div>
+                <div class="product-price">￥320</div>
+                <div class="product-sizes">尺码: S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 7 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-90acb557772e05eb.jpg" class="product-image" alt="针织上衣">
+            <div class="product-info">
+                <div class="product-name">修身羊毛针织打底衫</div>
+                <div class="product-price">￥280</div>
+                <div class="product-sizes">尺码: XS / S / M / L</div>
+            </div>
+        </a>
+
+        <!-- Product 8 -->
+        <a href="product-detail.html" class="product-card">
+            <img src="assets/image-f28f59389dfc2fda.jpg" class="product-image" alt="职场半身裙">
+            <div class="product-info">
+                <div class="product-name">经典A字职场半身裙</div>
+                <div class="product-price">￥390</div>
+                <div class="product-sizes">尺码: S / M / L / XL</div>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>

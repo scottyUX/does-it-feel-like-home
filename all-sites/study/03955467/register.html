@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>趣聊 - 注册新账号</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        .nav{display:flex;justify-content:space-between;align-items:center;}
+        .nav a{color:#333;text-decoration:none;margin:0 10px;font-weight:500;}
+        .nav a:hover{color:#ff5a5f;}
+        .container{max-width:480px;margin:40px auto;padding:0 15px;}
+        .card{background:#fff;padding:30px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+        h2{margin-bottom:20px;text-align:center;}
+        .form-group{margin-bottom:15px;}
+        label{display:block;margin-bottom:5px;font-size:14px;}
+        input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;font-size:14px;}
+        button{width:100%;padding:10px;background:#ff5a5f;color:#fff;border:none;border-radius:4px;font-size:16px;cursor:pointer;margin-top:10px;}
+        button:hover{background:#e04e52;}
+        .login-link{margin-top:15px;text-align:center;font-size:14px;}
+        .login-link a{color:#ff5a5f;text-decoration:none;}
+        .login-link a:hover{text-decoration:underline;}
+        footer{background:#fff;padding:15px 20px;text-align:center;font-size:13px;color:#777;margin-top:40px;}
+        @media (max-width:600px){
+            .nav{flex-direction:column;}
+            .nav a{margin:5px 0;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <div><strong>趣聊</strong></div>
+        <div>
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html">注册</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>创建新账号</h2>
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" placeholder="请输入用户名" required>
+            </div>
+            <div class="form-group">
+                <label for="email">电子邮件</label>
+                <input type="email" id="email" placeholder="example@domain.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="设置密码" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm">确认密码</label>
+                <input type="password" id="confirm" placeholder="再次输入密码" required>
+            </div>
+            <button type="submit">立即注册</button>
+        </form>
+        <div class="login-link">
+            已有账号？ <a href="index.html">立即登录</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 趣聊. 保留所有权利.
+</footer>
+</body>
+</html>

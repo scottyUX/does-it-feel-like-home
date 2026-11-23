@@ -1,0 +1,28 @@
+{
+  "id": "zh__home-cleaning__gpt-oss-20b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "home-cleaning",
+  "model": "gpt-oss:20b",
+  "completionTokens": 2929,
+  "seconds": 19,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/200?random=1",
+      "file": "assets/image-465ad761690597a7.jpg"
+    },
+    {
+      "url": "https://picsum.photos/200?random=2",
+      "file": "assets/image-8ba40c5b95be3afc.jpg"
+    },
+    {
+      "url": "https://picsum.photos/200?random=3",
+      "file": "assets/image-a7b526eaf40d1ea1.jpg"
+    },
+    {
+      "url": "https://picsum.photos/1200/500?blur=2",
+      "file": "assets/image-f510a1ae06c5ae42.jpg"
+    }
+  ]
+}

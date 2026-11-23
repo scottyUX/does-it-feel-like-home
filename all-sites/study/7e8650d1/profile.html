@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 趣聊</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-signup {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        .profile-header {
+            background: var(--card-bg);
+            border-radius: 0 0 20px 20px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .banner {
+            height: 200px;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+        }
+
+        .profile-info {
+            padding: 0 20px 30px 20px;
+            position: relative;
+            margin-top: -60px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--card-bg);
+            background-color: #ddd;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .user-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+
+        .user-bio {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+        }
+
+        .user-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .profile-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 0;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .grid-item {
+            aspect-ratio: 1 / 1;
+            background: #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: bold;
+            transition: opacity 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .grid-item:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .post-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">趣聊</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人主页</a>
+            <a href="signup.html" class="btn-signup">立即加入</a>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="banner"></div>
+            <div class="profile-info">
+                <div class="profile-pic" style="background-color: #ff9a9e;"></div>
+                <div class="user-name">林子涵 (Zihan Lin)</div>
+                <div class="user-bio">
+                    热爱摄影、旅行与美食。目前在上海生活，希望能记录下生活中的每一个细碎美好。📸✨
+                </div>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">1,240</span>
+                        <span class="stat-label">粉丝</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">856</span>
+                        <span class="stat-label">关注</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">152</span>
+                        <span class="stat-label">帖子</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <div class="tab active">帖子</div>
+            <div class="tab">相册</div>
+            <div class="tab">收藏</div>
+        </div>
+
+        <div class="post-grid">
+            <div class="grid-item" style="background: linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%); color: #444;" onclick="location.href='post.html'">成都街拍</div>
+            <div class="grid-item" style="background: #ddd; color: #666;">咖啡午后</div>
+            <div class="grid-item" style="background: #ccc; color: #555;">书店之行</div>
+            <div class="grid-item" style="background: #eee; color: #777;">日落海滩</div>
+            <div class="grid-item" style="background: #ddd; color: #666;" onclick="location.href='post.html'">美食地图</div>
+            <div class="grid-item" style="background: #ccc; color: #555;">极简家居</div>
+            <div class="grid-item" style="background: #eee; color: #777;">城市夜景</div>
+            <div class="grid-item" style="background: #ddd; color: #666;">登山日记</div>
+            <div class="grid-item" style="background: #ccc; color: #555;">雨后公园</div>
+        </div>
+    </div>
+
+</body>
+</html>

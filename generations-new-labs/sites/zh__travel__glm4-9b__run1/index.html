@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #f8f8f8; padding: 10px 0; }
+        .container { width: 1200px; margin: auto; }
+        .logo { float: left; }
+        .nav { float: right; list-style: none; }
+        .nav li { display: inline; margin-left: 30px; }
+        .nav a { text-decoration: none; color: #333; }
+        .nav a:hover { text-decoration: underline; }
+        .search-bar { margin: 20px 0; }
+        .search-bar input[type="text"] { width: 400px; padding: 10px; }
+        .search-bar input[type="submit"] { padding: 10px 20px; background: #0084ff; color: white; border: none; }
+        .search-bar input[type="submit"]:hover { background: #0066cc; }
+        .features { margin-top: 20px; }
+        .feature { float: left; width: 48%; margin-bottom: 20px; }
+        .feature img { width: 100%; }
+        .footer { background: #333; color: white; padding: 20px 0; text-align: center; }
+        @media screen and (max-width: 1200px) {
+            .feature { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="畅行旅行">
+            </div>
+            <div class="nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="输入目的地">
+            <input type="date">
+            <input type="submit" value="搜索行程">
+        </div>
+        <div class="features">
+            <div class="feature">
+                <img src="feature1.jpg" alt="特色行程1">
+                <h3>热门线路</h3>
+                <p>发现全国热门旅游线路，享受优惠折扣。</p>
+            </div>
+            <div class="feature">
+                <img src="feature2.jpg" alt="特色行程2">
+                <h3>个性化推荐</h3>
+                <p>根据您的喜好，推荐最适合的旅游方案。</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>畅行旅行 &copy; 2023</p>
+        </div>
+    </div>
+</body>
+</html>
+```

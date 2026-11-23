@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 - 可衣 KEYI</title>
+    <style>
+        :root {
+            --primary-color: #4a4a4a;
+            --accent-color: #b5a397;
+            --bg-color: #fafafa;
+            --white: #ffffff;
+            --text-muted: #777;
+            --border-color: #eee;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .product-info h1 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .description {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .option-group {
+            margin-bottom: 30px;
+        }
+
+        .option-label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-btn {
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover, .size-btn.active {
+            border-color: var(--primary-color);
+            background: #f9f9f9;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #333;
+        }
+
+        .details-table {
+            margin-top: 50px;
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .details-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .details-table td:first-child {
+            color: var(--text-muted);
+            width: 120px;
+        }
+
+        @media (max-width: 850px) {
+            .detail-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">可衣 KEYI</a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="products.html">所有商品</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="detail-container">
+        <div class="product-gallery">
+            <img src="assets/image-a244882afdac59d3.jpg" alt="商品主图">
+        </div>
+
+        <div class="product-info">
+            <h1>极简主义真丝白衬衫</h1>
+            <div class="price">￥499</div>
+            
+            <div class="description">
+                这款衬衫采用100%桑蚕丝面料，具有天然的温润光泽与亲肤感。
+                精巧的剪裁确保了穿着的舒适度，无论是搭配西装裤出席职场会议，
+                还是搭配牛仔裤享受周末午后，都能展现出不经意间的优雅。
+            </div>
+
+            <div class="option-group">
+                <span class="option-label">选择尺码</span>
+                <div class="size-options">
+                    <button class="size-btn" onclick="selectSize(this)">S</button>
+                    <button class="size-btn active" onclick="selectSize(this)">M</button>
+                    <button class="size-btn" onclick="selectSize(this)">L</button>
+                </div>
+            </div>
+
+            <button class="add-to-cart-btn" onclick="addToCart()">加入购物车</button>
+
+            <table class="details-table">
+                <tr>
+                    <td>面料成分</td>
+                    <td>100% 桑蚕丝</td>
+                </tr>
+                <tr>
+                    <td>洗涤方式</td>
+                    <td>专业干洗 / 温水手洗</td>
+                </tr>
+                <tr>
+                    <td>产地</td>
+                    <td>中国上海</td>
+                </tr>
+                <tr>
+                    <td>配送时间</td>
+                    <td>下单后 2-4 个工作日发货</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function selectSize(btn) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function addToCart() {
+            alert('商品已成功加入购物车！');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 - 可衣</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-table th, .cart-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .cart-table th {
+            background-color: #f2f2f2;
+        }
+
+        .checkout-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>可衣</h1>
+        <p>穿出你的风格</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="products.html">商品列表</a>
+        <a href="cart.html">购物车</a>
+        <a href="about.html">关于我们</a>
+    </nav>
+
+    <main>
+        <h2>购物车</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>连衣裙</td>
+                    <td>1</td>
+                    <td>¥199</td>
+                </tr>
+                <tr>
+                    <td>休闲衬衫</td>
+                    <td>2</td>
+                    <td>¥258</td>
+                </tr>
+                <tr>
+                    <td>针织衫</td>
+                    <td>1</td>
+                    <td>¥159</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>总价: ¥616</p>
+        <button class="checkout-button">结算</button>
+    </main>
+
+    <footer>
+        &copy; 2024 可衣.  版权所有.
+    </footer>
+</body>
+</html>

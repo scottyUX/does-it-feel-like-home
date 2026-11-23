@@ -1,0 +1,11 @@
+{
+  "id": "zh__bank__llama4-scout__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "bank",
+  "model": "llama4:scout",
+  "completionTokens": 2528,
+  "seconds": 45,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

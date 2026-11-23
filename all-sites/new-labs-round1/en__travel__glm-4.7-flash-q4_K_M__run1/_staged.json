@@ -1,0 +1,56 @@
+{
+  "id": "en__travel__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "travel",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13533,
+  "seconds": 124,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/luxurybeijing/160/120.jpg",
+      "file": "assets/image-bb35b48a286fcbf8.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/luxurybeijing/1200/600.jpg",
+      "file": "assets/image-bb276b78841ab918.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/beijing/400/300.jpg",
+      "file": "assets/image-5b901e955d9db5f1.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sanya/400/300.jpg",
+      "file": "assets/image-c4ec005cc4801ea0.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/chengdu/400/300.jpg",
+      "file": "assets/image-2639f5c7cdbc94e0.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/xian/400/300.jpg",
+      "file": "assets/image-caacede53e599404.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/travelhero/1440/600.jpg",
+      "file": "assets/image-c3e9730293512d11.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/hotelbeijing1/400/300.jpg",
+      "file": "assets/image-738685252afcaefd.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/hotelbeijing2/400/300.jpg",
+      "file": "assets/image-1573e56edf353712.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/hotelbeijing3/400/300.jpg",
+      "file": "assets/image-19dda69ba8fe2e13.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/hotelbeijing4/400/300.jpg",
+      "file": "assets/image-a56a6a7007accbf9.jpg"
+    }
+  ]
+}

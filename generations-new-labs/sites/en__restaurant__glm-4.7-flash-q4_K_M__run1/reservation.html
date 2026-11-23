@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线预订 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8E354A;
+            --secondary-color: #F4A460;
+            --bg-color: #F4F4F4;
+            --text-color: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .reservation-box {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(142, 53, 74, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #6D2936;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            margin-top: 30px;
+            background-color: #FFF8E1;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #FBC02D;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" class="logo">道 家味</a>
+        <nav style="margin-top: 15px;">
+            <a href="index.html">首页</a>
+            <a href="menu.html">菜单</a>
+            <a href="about.html">关于我们</a>
+            <a href="reservation.html" style="color: var(--primary-color);">预订</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="reservation-box">
+        <h2>预订您的座位</h2>
+        
+        <form id="bookingForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">您的姓名 *</label>
+                    <input type="text" id="name" required placeholder="请输入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="phone">联系电话 *</label>
+                    <input type="tel" id="phone" required placeholder="请输入手机号码">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">用餐日期 *</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">用餐时间 *</label>
+                    <select id="time" required>
+                        <option value="" disabled selected>请选择时间</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="people">用餐人数 *</label>
+                    <select id="people" required>
+                        <option value="1-2">1 - 2 人</option>
+                        <option value="3-4">3 - 4 人</option>
+                        <option value="5-8">5 - 8 人</option>
+                        <option value="8+">8 人以上 (请电话联系)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="remarks">特殊要求 (可选)</label>
+                <textarea id="remarks" rows="4" placeholder="例如：靠窗位置、无辣、过敏史等..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">确认预订</button>
+        </form>
+
+        <div id="successMsg" class="success-message">
+            <h3>预订提交成功！</h3>
+            <p>感谢您的预订。我们会预留好您的座位，如需取消或变更，请在用餐前致电我们。</p>
+            <p style="margin-top:10px; font-size: 14px;">电话：0571-88888888</p>
+        </div>
+
+        <div class="info-card">
+            <h3>预订须知</h3>
+            <ul style="padding-left: 20px; margin-top: 10px; font-size: 14px; color: #555;">
+                <li>本预订仅作为参考，餐厅保留最终安排权。</li>
+                <li>如未在约定时间15分钟内到达，预订将被取消。</li>
+                <li>建议提前1-2天预订热门时段。</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.submit-btn');
+        const originalText = btn.textContent;
+        
+        btn.textContent = '提交中...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>

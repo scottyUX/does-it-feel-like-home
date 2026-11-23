@@ -1,0 +1,11 @@
+{
+  "id": "en__news__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "news",
+  "model": "gemma3:27b",
+  "completionTokens": 12191,
+  "seconds": 261,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

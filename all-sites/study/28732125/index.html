@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>长川银行 - 首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+        header{background:#004c99;color:#fff;padding:20px;}
+        header h1{margin:0;font-size:28px;}
+        nav{display:flex;gap:15px;margin-top:10px;}
+        nav a{color:#fff;text-decoration:none;font-weight:500;}
+        .container{max-width:1200px;margin:auto;padding:20px;}
+        .hero{background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22240%22 height=%22140%22><rect width=%22240%22 height=%22140%22 fill=%22%23004c99%22/><text x=%22120%22 y=%2270%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22white%22>长川银行</text></svg>') center/cover; color:#fff;padding:80px 20px;text-align:center;}
+        .hero h2{font-size:36px;margin-bottom:10px;}
+        .hero p{font-size:18px;margin-bottom:20px;}
+        .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-around;margin-top:30px;}
+        .card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);flex:1 1 260px;max-width:300px;}
+        .card h3{margin-top:0;color:#004c99;}
+        footer{background:#222;color:#ccc;padding:20px;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            .cards{flex-direction:column;align-items:center;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>长川银行</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="personal.html">个人银行</a>
+        <a href="credit.html">信用卡</a>
+        <a href="contact.html">联系我们</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>让财富更简单</h2>
+    <p>全国布局，提供个人、企业一站式金融服务。</p>
+    <a href="personal.html" style="background:#ffcc00;color:#004c99;padding:10px 20px;border-radius:5px;text-decoration:none;font-weight:bold;">了解个人银行服务</a>
+</div>
+
+<div class="container">
+    <section class="cards">
+        <div class="card">
+            <h3>账户服务</h3>
+            <p>活期、定期、理财账户，一键开通，安全可靠。</p>
+            <a href="personal.html#account" style="color:#004c99;">查看详情 &raquo;</a>
+        </div>
+        <div class="card">
+            <h3>信用卡</h3>
+            <p>多种卡片选择，积分返现、旅行特权应有尽有。</p>
+            <a href="credit.html" style="color:#004c99;">查看卡片 &raquo;</a>
+        </div>
+        <div class="card">
+            <h3>贷款服务</h3>
+            <p>个人房贷、车贷、小微企业贷款，审批快速透明。</p>
+            <a href="personal.html#loan" style="color:#004c99;">了解贷款 &raquo;</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    © 2026 长川银行 版权所有 | 全国统一服务热线：400-123-4567
+</footer>
+</body>
+</html>

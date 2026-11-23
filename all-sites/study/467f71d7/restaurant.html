@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦城味道 · 正宗川菜 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #ff8c00;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; padding-bottom: 80px; }
+        header { background-color: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; }
+        .logo span { color: var(--text-dark); margin-left: 5px; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+        .cart-icon { background-color: var(--primary-color); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 14px; }
+        .back-link { display: inline-block; margin: 20px 0; color: var(--text-light); text-decoration: none; font-size: 14px; }
+        .back-link:hover { color: var(--primary-color); }
+        .restaurant-header { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); margin-bottom: 20px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .r-logo { width: 80px; height: 80px; background: #fce4ec; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+        .r-info { flex: 1; }
+        .r-title { font-size: 22px; font-weight: bold; margin-bottom: 5px; }
+        .r-tags { color: var(--text-light); font-size: 13px; margin-bottom: 10px; }
+        .r-meta { display: flex; gap: 15px; font-size: 13px; color: var(--text-light); align-items: center; }
+        .r-rating { color: #ff9800; font-weight: bold; }
+        .menu-section { margin-top: 30px; }
+        .section-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; padding-left: 10px; border-left: 4px solid var(--primary-color); }
+        .menu-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+        .menu-item { background: var(--white); border-radius: 10px; padding: 15px; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; }
+        .menu-details h3 { font-size: 16px; margin-bottom: 5px; }
+        .menu-desc { font-size: 12px; color: var(--text-light); margin-bottom: 10px; }
+        .menu-price { font-weight: bold; color: var(--primary-color); font-size: 16px; }
+        .add-btn { background: var(--primary-color); color: var(--white); border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 14px; }
+        .add-btn:hover { background: #e63e00; }
+        .add-btn:disabled { background: #ccc; cursor: not-allowed; }
+        footer { background: #222; color: #ccc; padding: 40px 0; margin-top: auto; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-col h3 { color: var(--white); margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #ccc; text-decoration: none; }
+        .copyright { text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 14px; }
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin-top: 15px; gap: 15px; }
+            .restaurant-header { flex-direction: column; text-align: center; }
+            .r-info { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">⚡ 快送<span>外卖</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">全城餐厅</a></li>
+                    <li><a href="confirm.html">购物车</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="restaurants.html" class="back-link">← 返回列表</a>
+        <div class="restaurant-header">
+            <div class="r-logo">🥢</div>
+            <div class="r-info">
+                <div class="r-title">锦城味道 · 正宗川菜</div>
+                <div class="r-tags">川菜 · 辣度可选 · 月售 500+ · 营业中</div>
+                <div class="r-meta">
+                    <span class="r-rating">★ 4.9</span>
+                    <span>配送费 ¥0</span>
+                    <span>起送价 ¥15</span>
+                    <span>约 30 分钟</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-title">热销推荐</div>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>宫保鸡丁</h3>
+                        <div class="menu-desc">酸甜微辣，鸡肉嫩滑花生酥脆</div>
+                        <div class="menu-price">¥28</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>水煮鱼</h3>
+                        <div class="menu-desc">麻辣鲜香，现杀草鱼</div>
+                        <div class="menu-price">¥45</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-title">经典川菜</div>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>回锅肉</h3>
+                        <div class="menu-desc">肥而不腻，蒜苗炒香</div>
+                        <div class="menu-price">¥32</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>麻婆豆腐</h3>
+                        <div class="menu-desc">豆腐嫩滑，牛肉末香浓</div>
+                        <div class="menu-price">¥18</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>辣子鸡</h3>
+                        <div class="menu-desc">干辣椒中找鸡肉，越吃越辣</div>
+                        <div class="menu-price">¥35</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <div class="section-title">主食小吃</div>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>米饭</h3>
+                        <div class="menu-desc">优质东北大米</div>
+                        <div class="menu-price">¥3</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <h3>酸菜鱼泡饭</h3>
+                        <div class="menu-desc">开胃下饭</div>
+                        <div class="menu-price">¥15</div>
+                    </div>
+                    <button class="add-btn" onclick="alert('已添加到购物车！')">加购</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">配送员招募</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">退款说明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系方式</h3>
+                    <ul>
+                        <li>电话：028-12345678</li>
+                        <li>地址：成都市武侯区科技大道 88 号</li>
+                        <li>邮箱：support@kuaisong.cn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 快送外卖 版权所有
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

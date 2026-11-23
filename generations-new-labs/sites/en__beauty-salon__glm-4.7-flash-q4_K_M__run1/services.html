@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 悦容美发美容</title>
+    <style>
+        :root {
+            --primary: #b07d4d;
+            --bg-light: #f9f8f6;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-book { background: var(--primary); color: #fff; padding: 0.6rem 1.5rem; border-radius: 20px; }
+
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--text-dark); }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-category {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: var(--primary);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .service-list li span:first-child {
+            font-weight: 500;
+        }
+
+        .price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .service-details {
+            font-size: 0.9rem;
+            color: #888;
+            margin-left: 5px;
+        }
+
+        .service-note {
+            margin-top: 15px;
+            padding: 10px;
+            background: #fff3e0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #8a5e3a;
+        }
+
+        @media (max-width: 900px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">✦ 悦容美发美容</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html">关于我们</a>
+                <a href="services.html" style="color: var(--primary); font-weight: bold;">服务价格</a>
+                <a href="stylists.html">专家团队</a>
+                <a href="appointment.html" class="btn-book">立即预约</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>服务项目与价格</h2>
+            <p>透明消费，品质保证，为您呈现最佳效果</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Category 1 -->
+            <div class="service-category">
+                <h3 class="category-title">男士造型</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>基础剪发</div>
+                            <span class="service-details">包含清洗、剪发、修整</span>
+                        </div>
+                        <span class="price">¥88</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>商务精英剪</div>
+                            <span class="service-details">包含洗护、精剪、造型</span>
+                        </div>
+                        <span class="price">¥168</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>男士染发</div>
+                            <span class="service-details">单色/挑染（不漂底色）</span>
+                        </div>
+                        <span class="price">¥488</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>胡须造型/修面</div>
+                            <span class="service-details">包含清洁与修剪</span>
+                        </div>
+                        <span class="price">¥68</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="service-category">
+                <h3 class="category-title">女士剪发</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>日式剪发</div>
+                            <span class="service-details">根据发质进行分区修剪</span>
+                        </div>
+                        <span class="price">¥188</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>韩式修颜剪</div>
+                            <span class="service-details">针对圆脸/方脸修饰轮廓</span>
+                        </div>
+                        <span class="price">¥268</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>会员特惠剪</div>
+                            <span class="service-details">基础护理全包含</span>
+                        </div>
+                        <span class="price">¥128</span>
+                    </li>
+                </ul>
+                <div class="service-note">
+                    💡 提示：建议购买会员卡享受会员价，剪发+造型套餐更划算。
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="service-category">
+                <h3 class="category-title">色彩与烫染</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>冷/暖棕调染</div>
+                            <span class="service-details">进口染膏，低损伤</span>
+                        </div>
+                        <span class="price">¥580</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>时尚挑染/渐变</div>
+                            <span class="service-details">多色混合，艺术感强</span>
+                        </div>
+                        <span class="price">¥880</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>水波纹烫</div>
+                            <span class="service-details">自然蓬松，适合直发</span>
+                        </div>
+                        <span class="price">¥680</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>锡纸烫/烟花烫</div>
+                            <span class="service-details">个性层次，狂野风格</span>
+                        </div>
+                        <span class="price">¥780</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="service-category">
+                <h3 class="category-title">美发护理</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>基础发膜护理</div>
+                            <span class="service-details">深层滋养，修护干枯</span>
+                        </div>
+                        <span class="price">¥128</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>奢宠精油护发</div>
+                            <span class="service-details">顺滑发质，亮泽光泽</span>
+                        </div>
+                        <span class="price">¥268</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>头皮深层清洁</div>
+                            <span class="service-details">去屑止痒，舒缓压力</span>
+                        </div>
+                        <span class="price">¥188</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="service-category">
+                <h3 class="category-title">皮肤管理</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>基础补水护理</div>
+                            <span class="service-details">深层补水，焕亮肌色</span>
+                        </div>
+                        <span class="price">¥388</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>祛痘疏通管理</div>
+                            <span class="service-details">净化毛孔，消炎镇静</span>
+                        </div>
+                        <span class="price">¥428</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>黑头/毛孔收缩</div>
+                            <span class="service-details">清洁控油，细致肤质</span>
+                        </div>
+                        <span class="price">¥358</span>
+                    </li>
+                </ul>
+            </div>
+            
+             <!-- Category 6 -->
+            <div class="service-category">
+                <h3 class="category-title">美甲造型</h3>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <div>法式单色甲</div>
+                            <span class="service-details">时尚经典，百搭款式</span>
+                        </div>
+                        <span class="price">¥98</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>渐变/猫眼甲</div>
+                            <span class="service-details">流行色系，酷炫质感</span>
+                        </div>
+                        <span class="price">¥128</span>
+                    </li>
+                    <li>
+                        <div>
+                            <div>贴甲片/款式</div>
+                            <span class="service-details">华丽修饰，出席派对</span>
+                        </div>
+                        <span class="price">¥158</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

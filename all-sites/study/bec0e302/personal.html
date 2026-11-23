@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人金融 - 长川银行</title>
+    <style>
+        :root {
+            --primary-red: #c8102e;
+            --primary-gold: #d4af37;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f6f9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", sans-serif; color: var(--text-dark); background: var(--bg-light); }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Navigation (Same as index but simplified) */
+        header { background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary-red); }
+        .nav-links a { margin-left: 25px; font-size: 16px; color: var(--text-dark); }
+        .nav-links a.active { color: var(--primary-red); font-weight: bold; }
+        
+        /* Page Header */
+        .page-header { background: white; padding: 40px 0; text-align: center; border-bottom: 1px solid #eee; }
+        .page-header h1 { font-size: 36px; margin-bottom: 10px; }
+        .breadcrumb { color: #999; font-size: 14px; }
+        .breadcrumb span { margin: 0 5px; }
+
+        /* Content Grid */
+        .content-wrapper { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: 250px 1fr; gap: 40px; padding: 0 20px; }
+        
+        /* Sidebar */
+        .sidebar { background: white; padding: 20px; border-radius: 8px; height: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .sidebar h3 { border-bottom: 2px solid var(--primary-red); padding-bottom: 10px; margin-bottom: 20px; }
+        .sidebar ul li { margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+        .sidebar ul li a:hover { color: var(--primary-red); }
+
+        /* Main Content */
+        .product-card { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; gap: 20px; align-items: center; }
+        .product-image { width: 100px; height: 100px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #ddd; flex-shrink: 0; }
+        .product-info h3 { color: var(--primary-red); margin-bottom: 10px; font-size: 20px; }
+        .product-info p { color: #666; margin-bottom: 15px; font-size: 14px; line-height: 1.6; }
+        .btn-detail { color: var(--primary-red); border: 1px solid var(--primary-red); padding: 5px 15px; border-radius: 4px; font-size: 14px; transition: 0.3s; }
+        .btn-detail:hover { background: var(--primary-red); color: white; }
+
+        /* Footer */
+        footer { background: #333; color: #aaa; padding: 30px 0; text-align: center; margin-top: 50px; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .product-card { flex-direction: column; text-align: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">长川银行</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="personal.html" class="active">个人金融</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="#" onclick="alert('请登录个人网银办理业务。')">个人登录</a>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>个人金融服务中心</h1>
+        <div class="breadcrumb">首页 <span>/</span> 个人金融</div>
+    </div>
+
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <h3>业务分类</h3>
+            <ul>
+                <li><a href="#">活期储蓄</a></li>
+                <li><a href="#">定期存款</a></li>
+                <li><a href="#">大额存单</a></li>
+                <li><a href="#">个人贷款</a></li>
+                <li><a href="#">理财产品</a></li>
+                <li><a href="#">外汇服务</a></li>
+                <li><a href="#">代发工资</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="product-card">
+                <div class="product-image">🏦</div>
+                <div class="product-info">
+                    <h3>长川如意存单</h3>
+                    <p>专为您的长期储蓄设计。起存金额 5 万元，期限灵活可选（3 个月至 5 年）。利率较同期限定期存款上浮 40 个基点，是您稳健理财的首选。</p>
+                    <ul>
+                        <li>🔹 保本保息，资金安全</li>
+                        <li>🔹 支持提前支取，靠档计息</li>
+                        <li>🔹 专属客户经理一对一服务</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn-detail">了解更多</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🚗</div>
+                <div class="product-info">
+                    <h3>个人住房按揭贷款</h3>
+                    <p>助力您安居乐业。首付比例灵活，贷款期限最长可达 30 年。无论是购买一手房还是二手房，我们提供优惠利率和快速审批通道。</p>
+                    <ul>
+                        <li>🔹 最低首付 20%</li>
+                        <li>🔹 利率低至 LPR + 10BP</li>
+                        <li>🔹 线上申请，最快 3 天放款</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn-detail">立即咨询</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">📈</div>
+                <div class="product-info">
+                    <h3>大额存单（20 万起）</h3>
+                    <p>为高净值客户打造的专属存款产品。20 万元起存，期限包含 1 年期、2 年期、3 年期等。可转让、可抵押，流动性与收益性兼备。</p>
+                    <ul>
+                        <li>🔹 年化利率最高可达 3.2%</li>
+                        <li>🔹 支持线上转让</li>
+                        <li>🔹 存款保险全额保障</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn-detail">查看详情</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 长川银行 版权所有</p>
+    </footer>
+</body>
+</html>

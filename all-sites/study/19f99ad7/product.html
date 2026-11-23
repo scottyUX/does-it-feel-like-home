@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法式真丝衬衫 - 可衣 Keyi</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 20px 0; font-size: 13px; color: #888; }
+        .breadcrumb a { color: #888; }
+        .breadcrumb span { margin: 0 5px; }
+
+        /* Product Detail Layout */
+        .product-detail { display: flex; gap: 50px; padding-bottom: 60px; border-bottom: 1px solid var(--border); }
+        .product-gallery { flex: 1; }
+        .main-image { width: 100%; height: 500px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 20px; }
+        .thumbnails { display: flex; gap: 10px; }
+        .thumb { width: 80px; height: 100px; background: #e5e5e5; cursor: pointer; }
+        .thumb.active { border: 2px solid var(--accent); }
+
+        .product-info { flex: 1; padding-top: 20px; }
+        .product-info h1 { font-size: 26px; margin-bottom: 10px; font-weight: normal; }
+        .product-sku { font-size: 12px; color: #999; margin-bottom: 20px; }
+        .product-price { font-size: 24px; color: var(--accent); font-weight: bold; margin-bottom: 25px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 14px; margin-bottom: 8px; font-weight: 500; }
+        
+        .size-selector { display: flex; gap: 10px; }
+        .size-btn { border: 1px solid var(--border); padding: 8px 20px; cursor: pointer; transition: 0.2s; background: white; }
+        .size-btn:hover { border-color: var(--accent); }
+        .size-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .qty-selector { display: flex; align-items: center; border: 1px solid var(--border); width: 120px; }
+        .qty-btn { width: 30px; height: 40px; background: white; border: none; cursor: pointer; font-size: 16px; }
+        .qty-input { width: 40px; height: 40px; border: none; text-align: center; font-size: 16px; }
+        
+        .add-to-cart { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; cursor: pointer; font-size: 16px; margin-top: 30px; transition: 0.3s; }
+        .add-to-cart:hover { background: var(--accent); }
+        
+        .product-desc { margin-top: 40px; }
+        .product-desc h3 { font-size: 18px; margin-bottom: 15px; font-weight: normal; }
+        .desc-text { font-size: 14px; color: #666; line-height: 1.8; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .product-detail { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a> <span>/</span> <a href="shop.html">全部商品</a> <span>/</span> <span>上衣</span>
+        </div>
+
+        <section class="product-detail">
+            <div class="product-gallery">
+                <div class="main-image">主图展示区域</div>
+                <div class="thumbnails">
+                    <div class="thumb active"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                    <div class="thumb"></div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>法式真丝衬衫</h1>
+                <p class="product-sku">SKU: KY-SH-001</p>
+                <p class="product-price">￥399.00</p>
+                
+                <div class="form-group">
+                    <label class="form-label">尺码</label>
+                    <div class="size-selector">
+                        <button class="size-btn" onclick="selectSize(this)">S</button>
+                        <button class="size-btn" onclick="selectSize(this)">M</button>
+                        <button class="size-btn" onclick="selectSize(this)">L</button>
+                        <button class="size-btn" onclick="selectSize(this)">XL</button>
+                    </div>
+                    <p style="font-size:12px; color:#999; margin-top:5px;">*建议参考尺码表选择</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">数量</label>
+                    <div class="qty-selector">
+                        <button class="qty-btn">-</button>
+                        <input type="text" class="qty-input" value="1" readonly>
+                        <button class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <button class="add-to-cart" onclick="addToCart()">加入购物车</button>
+                <p style="text-align:center; font-size:12px; color:#888; margin-top:10px;">已选择：S / 1 件</p>
+
+                <div class="product-desc">
+                    <h3>商品描述</h3>
+                    <div class="desc-text">
+                        <p>这款法式真丝衬衫选用优质桑蚕丝面料，触感柔软顺滑，具有极佳的透气性和垂坠感。宽松的版型设计，既能修饰身形，又不失优雅气质。经典的 V 领剪裁，展现出女性的柔美颈部线条。适合职场通勤或日常休闲穿着。</p>
+                        <p style="margin-top:10px;"><strong>面料成分：</strong>100% 桑蚕丝</p>
+                        <p><strong>洗涤建议：</strong>建议干洗或冷水手洗，不可暴晒</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function selectSize(btn) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+        
+        function addToCart() {
+            alert("已成功加入购物车！");
+        }
+    </script>
+</body>
+</html>

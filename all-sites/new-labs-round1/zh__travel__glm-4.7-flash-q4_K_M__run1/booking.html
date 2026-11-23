@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>确认预订 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #0052a3;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding-bottom: 2rem;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .breadcrumb {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb span {
+            cursor: pointer;
+        }
+        
+        .breadcrumb span:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .booking-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .step-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .step-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-header p {
+            color: var(--text-gray);
+        }
+
+        .summary-box {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .hotel-thumb {
+            width: 80px;
+            height: 80px;
+            background-color: #ddd;
+            border-radius: 6px;
+            background-size: cover;
+            margin-right: 1rem;
+        }
+
+        .hotel-info {
+            flex: 1;
+        }
+
+        .hotel-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hotel-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .price-val {
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .secure-badge {
+            text-align: center;
+            margin-top: 1rem;
+            color: #28a745;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cancel {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background: #eee;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">畅行旅行</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="results.html">酒店</a>
+                <a href="#">我的订单</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <span onclick="window.location.href='index.html'">首页</span> / 
+            <span onclick="window.location.href='results.html'">酒店</span> / 
+            <span>确认预订</span>
+        </div>
+
+        <div class="booking-card">
+            <div class="step-header">
+                <h1>确认您的住宿</h1>
+                <p>请填写以下信息以完成预订，我们将发送确认短信至您的手机。</p>
+            </div>
+
+            <div class="summary-box">
+                <div style="font-weight: bold; margin-bottom: 1rem;">订单摘要</div>
+                <div class="summary-item">
+                    <div style="display: flex; align-items: center;">
+                        <div class="hotel-thumb" style="background-image: url('assets/image-e98fcb27e19b364a.jpg');"></div>
+                        <div class="hotel-info">
+                            <h3>三亚亚特兰蒂斯酒店</h3>
+                            <p>豪华海景房 (1间)</p>
+                        </div>
+                    </div>
+                    <div class="price-val">¥4,047</div>
+                </div>
+                <div class="summary-item">
+                    <span style="color: var(--text-gray);">入住日期</span>
+                    <span>2023-03-15</span>
+                </div>
+                <div class="summary-item">
+                    <span style="color: var(--text-gray);">退房日期</span>
+                    <span>2023-03-18</span>
+                </div>
+                <div class="summary-item">
+                    <span style="color: var(--text-gray);">总计 (3晚)</span>
+                    <span class="price-val">¥4,047</span>
+                </div>
+            </div>
+
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">预订人姓名 <span style="color:red">*</span></label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入真实姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">手机号码 <span style="color:red">*</span></label>
+                        <input type="tel" id="phone" class="form-control" placeholder="请输入11位手机号码" maxlength="11" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="card">身份证号码 <span style="color:red">*</span></label>
+                    <input type="text" id="card" class="form-control" placeholder="中国大陆居民身份证号" maxlength="18" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkin-note">入住备注</label>
+                    <textarea id="checkin-note" class="form-control" rows="3" placeholder="如有特殊需求（如接机、床型等），请在此填写"></textarea>
+                </div>
+
+                <div class="secure-badge">
+                    <span>🔒</span> 您的支付信息受到 SSL 加密保护
+                </div>
+
+                <button type="submit" class="btn-submit">立即支付 ¥4,047</button>
+                
+                <button type="button" class="btn-cancel" onclick="window.location.href='details.html'">取消预订，返回酒店详情</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "处理中...";
+            btn.style.opacity = "0.8";
+            
+            setTimeout(() => {
+                alert("预订成功！我们已发送确认短信到您的手机，祝您旅途愉快。");
+                window.location.href = "index.html";
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

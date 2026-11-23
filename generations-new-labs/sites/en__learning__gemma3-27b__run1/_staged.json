@@ -1,0 +1,20 @@
+{
+  "id": "en__learning__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "gemma3:27b",
+  "completionTokens": 4551,
+  "seconds": 97,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/150",
+      "file": "assets/image-962826ba552be78d.png"
+    },
+    {
+      "url": "https://via.placeholder.com/250x200",
+      "file": "assets/image-a12fd5023d50def9.png"
+    }
+  ]
+}

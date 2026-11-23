@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>可衣、夏季碎花连衣裙</title>
+<style>
+body {margin:0; font-family:Arial,Helvetica,sans-serif; background:#fff; color:#333;}
+.container {max-width:1200px; margin:0 auto; padding:20px;}
+header {background:#2c3e50; color:#fff; padding:10px 0; text-align:center;}
+header .logo {font-size:1.5em; margin-bottom:5px;}
+nav ul {list-style:none; padding:0; margin:0; display:flex; justify-content:center; gap:20px;}
+nav a {color:#fff; text-decoration:none; font-weight:bold;}
+nav a:hover {text-decoration:underline;}
+.main {display:flex; gap:30px; margin-top:20px;}
+.img-placeholder {width:300px; height:300px; background:#ddd; margin-bottom:15px;}
+.info h2 {margin-top:0; font-size:1.8em; color:#2c3e50;}
+.info p {margin:10px 0; line-height:1.5;}
+.size-group {margin:20px 0;}
+.size-group label {margin-right:10px;}
+.quantity {margin-top:10px;}
+.quantity label {display:inline-block; width:60px;}
+.quantity input {width:60px; padding:5px;}
+.btn {margin-top:20px; width:100%; padding:10px; background:#27ae60; color:#fff; border:none; cursor:pointer;}
+footer {text-align:center; padding:20px 0; background:#f0f0f0; margin-top:40px; font-size:0.9em; color:#666;}
+@media (max-width:768px) {
+  .main {flex-direction:column; align-items:center;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">可衣</div>
+<nav>
+<ul>
+<li><a href="index.html">首页</a></li>
+<li><a href="about.html">关于可衣</a></li>
+<li><a href="product-list.html">商品分类</a></li>
+<li><a href="cart.html">购物车</a></li>
+<li><a href="about.html">联系我们</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="main">
+<div class="img-section">
+<div class="img-placeholder"></div>
+</div>
+<div class="info">
+<h2>夏季碎花连衣裙</h2>
+<p>这款夏季碎花连衣裙采用轻盈面料，适合春夏季节的户外活动。设计简约且充满女性气息，适合约会与日常穿着。</p>
+<p>价格：一百九十九元</p>
+
+<div class="size-group">
+<label for="size1">规格：</label>
+<input type="radio" id="size1" name="size" value="小号" checked>
+<label for="size1">小号</label>
+<input type="radio" id="size2" name="size" value="中号">
+<label for="size2">中号</label>
+<input type="radio" id="size3" name="size" value="大号">
+<label for="size3">大号</label>
+<input type="radio" id="size4" name="size" value="特大号">
+<label for="size4">特大号</label>
+</div>
+
+<div class="quantity">
+<label for="qty">数量：</label>
+<input type="number" id="qty" value="1" min="1">
+</div>
+
+<button class="btn">加入购物车</button>
+</div>
+</div>
+
+<footer>
+版权 可衣 上海
+</footer>
+</div>
+</body>
+</html>

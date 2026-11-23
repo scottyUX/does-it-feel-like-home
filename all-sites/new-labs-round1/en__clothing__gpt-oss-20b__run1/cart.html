@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>购物车 - 可衣</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#fafafa;}
+  header{background:#fff;border-bottom:1px solid #e0e0e0;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
+  nav a{margin:0 15px;color:#333;text-decoration:none;font-size:16px;}
+  nav a:hover{color:#007aff;}
+  .container{max-width:1200px;margin:20px auto;padding:0 20px;}
+  table{width:100%;border-collapse:collapse;background:#fff;}
+  th,td{border:1px solid #e0e0e0;padding:12px;text-align:center;}
+  th{background:#f5f5f5;}
+  .actions button{padding:6px 12px;border:none;background:#e91e63;color:#fff;border-radius:4px;cursor:pointer;}
+  .actions button:hover{background:#c21807;}
+  .totals{text-align:right;margin-top:20px;font-size:18px;}
+  .totals span{margin-left:10px;font-weight:bold;}
+  .continue{display:inline-block;background:#007aff;color:#fff;padding:10px 20px;border-radius:4px;text-decoration:none;font-size:16px;}
+  .continue:hover{background:#005bb5;}
+  footer{background:#fff;border-top:1px solid #e0e0e0;text-align:center;padding:20px 0;color:#777;font-size:14px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><a href="index.html" style="font-size:20px;font-weight:bold;color:#333;text-decoration:none;">可衣</a></div>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="products.html">产品</a>
+    <a href="cart.html">购物车</a>
+  </nav>
+</header>
+<section class="container">
+  <h2>购物车</h2>
+  <div id="cart-content"></div>
+</section>
+<footer>© 2024 可衣 上海 | 关注我们：微信、微博</footer>
+<script>
+  const products = [
+    { id: '1', name: '简约连衣裙', price: 299 },
+    { id: '2', name: '高腰牛仔裤', price: 199 },
+    { id: '3', name: '商务衬衫', price: 149 }
+  ];
+
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById('cart-content');
+    if (cart.length === 0) {
+      container.innerHTML = '<p>购物车为空。</p>';
+      return;
+    }
+    let table = '<table><tr><th>商品</th><th>尺码</th><th>单价</th><th>数量</th><th>小计</th><th>操作</th></tr>';
+    let total = 0;
+    cart.forEach((item, index) => {
+      const prod = products.find(p => p.id === item.id);
+      const subtotal = prod.price * item.qty;
+      total += subtotal;
+      table += `<tr>
+        <td>${prod.name}</td>
+        <td>${item.size}</td>
+        <td>¥${prod.price}</td>
+        <td>${item.qty}</td>
+        <td>¥${subtotal}</td>
+        <td class="actions"><button onclick="removeItem(${index})">删除</button></td>
+      </tr>`;
+    });
+    table += '</table>';
+    table += `<div class="totals">总计 <span>¥${total}</span></div>`;
+    table += `<a href="products.html" class="continue">继续购物</a>`;
+    container.innerHTML = table;
+  }
+
+  function removeItem(idx) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(idx, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCart();
+  }
+
+  window.addEventListener('load', loadCart);
+</script>
+</body>
+</html>

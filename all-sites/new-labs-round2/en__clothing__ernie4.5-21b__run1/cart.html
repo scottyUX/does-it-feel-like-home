@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 - 购物车</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>可衣 - 购物车</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">产品列表</a></li>
+                    <li><a href="cart.html">购物车</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cart">
+            <h2>您的购物车</h2>
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="https://via.placeholder.com/100x100" alt="简约连衣裙">
+                    <div class="item-details">
+                        <h3>简约修身连衣裙</h3>
+                        <p class="price">¥299</p>
+                        <div class="quantity-controls">
+                            <button class="btn decrement">-</button>
+                            <span class="quantity">1</span>
+                            <button class="btn increment">+</button>
+                        </div>
+                    </div>
+                    <button class="btn remove-item">删除</button>
+                </div>
+                <div class="cart-item">
+                    <img src="https://via.placeholder.com/100x100" alt="通勤套装">
+                    <div class="item-details">
+                        <h3>职业通勤套装</h3>
+                        <p class="price">¥399</p>
+                        <div class="quantity-controls">
+                            <button class="btn decrement">-</button>
+                            <span class="quantity">1</span>
+                            <button class="btn increment">+</button>
+                        </div>
+                    </div>
+                    <button class="btn remove-item">删除</button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h3>订单摘要</h3>
+                <p>商品总数: 2</p>
+                <p>应付总额: ¥698</p>
+                <a href="checkout.html" class="btn proceed-checkout">结算</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 可衣. 保留所有权利.</p>
+            <p>上海市徐汇区时尚大道888号</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

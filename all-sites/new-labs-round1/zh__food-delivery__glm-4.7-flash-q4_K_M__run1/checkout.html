@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>确认订单 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4400;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+
+        body { background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 80px; }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); cursor: pointer; }
+
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+
+        .step-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .step-bar::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ddd;
+            z-index: 0;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 1;
+            background: var(--bg-light);
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .step-item.active .step-circle { background: var(--primary-color); }
+        .step-item.active span { color: var(--primary-color); font-weight: bold; }
+        .step-item span { font-size: 13px; color: var(--text-gray); }
+
+        /* Address Section */
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title { font-weight: bold; font-size: 16px; }
+
+        .address-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .address-item:last-child { border-bottom: none; }
+
+        .user-info { font-weight: bold; font-size: 16px; }
+        .phone-info { color: var(--text-gray); font-size: 14px; margin-left: 10px; }
+        .address-detail { margin-top: 8px; color: var(--text-gray); font-size: 14px; display: flex; align-items: center; gap: 8px; }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .form-row { display: flex; gap: 15px; }
+        .form-row .form-input { flex: 1; }
+
+        .form-label { font-size: 13px; color: var(--text-gray); margin-bottom: 5px; display: block; }
+
+        /* Order Summary */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover { background: #e03e00; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <div class="logo" onclick="window.location.href='index.html'">⚡ 快送外卖</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="step-bar">
+            <div class="step-item active">
+                <div class="step-circle">1</div>
+                <span>确认订单</span>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">2</div>
+                <span>支付中</span>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">3</div>
+                <span>商家接单</span>
+            </div>
+            <div class="step-item">
+                <div class="step-circle">4</div>
+                <span>配送送达</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">收货地址</div>
+                <span style="color:var(--primary-color); cursor:pointer; font-size:14px;">+ 新增地址</span>
+            </div>
+            <div class="address-item">
+                <div>
+                    <div class="user-info">张先生 <span class="phone-info">138****1234</span></div>
+                    <div class="address-detail">📍 成都市高新区天府大道北段 200 号软件园 A 座 808 室</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">配送信息</div>
+            </div>
+            <div class="form-label">送达时间</div>
+            <div style="display:flex; gap:10px; margin-bottom:15px;">
+                <button class="filter-tag active" style="border-color:var(--primary-color); color:var(--primary-color);">尽快送达</button>
+                <button class="filter-tag" style="border-color:#ddd; color:#666;">预约送达</button>
+            </div>
+            <div class="form-label">备注</div>
+            <input type="text" class="form-input" placeholder="例如：麻烦骑手电话联系，放门口即可">
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">订单详情</div>
+            </div>
+            
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; padding-bottom:15px; border-bottom:1px dashed #eee;">
+                <div>
+                    <div style="font-weight:bold;">阿婆面馆</div>
+                    <div style="font-size:13px; color:#999;">川菜馆</div>
+                </div>
+                <div style="text-align:right; font-weight:bold;">预计送达: 30分钟</div>
+            </div>
+
+            <div class="summary-row">
+                <span>招牌红烧牛肉面 x 1</span>
+                <span>¥22</span>
+            </div>
+            <div class="summary-row">
+                <span>手工素椒杂酱面 x 1</span>
+                <span>¥18</span>
+            </div>
+            <div class="summary-row">
+                <span>冰镇豆奶 x 1</span>
+                <span>¥6</span>
+            </div>
+
+            <div class="total-row">
+                <span>合计</span>
+                <span style="color:var(--primary-color)">¥46</span>
+            </div>
+            <div class="summary-row" style="margin-top:5px;">
+                <span>配送费</span>
+                <span>¥3</span>
+            </div>
+        </div>
+
+        <button class="btn-submit" onclick="alert('下单成功！商家正在为您准备餐点，骑手马上出发。')">提交订单</button>
+    </div>
+
+</body>
+</html>

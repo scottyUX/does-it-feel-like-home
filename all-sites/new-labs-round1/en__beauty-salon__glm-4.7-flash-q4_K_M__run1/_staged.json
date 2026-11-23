@@ -1,0 +1,56 @@
+{
+  "id": "en__beauty-salon__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13133,
+  "seconds": 121,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/saloninterior2/600/400",
+      "file": "assets/image-521647b3c247d5bd.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/saloninterior/1600/400",
+      "file": "assets/image-22312602c2be9971.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/stylistworking/800/600",
+      "file": "assets/image-7e9ee6fff754a138.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/haircut/400/300",
+      "file": "assets/image-e72c5af6900b3b54.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/haircolor/400/300",
+      "file": "assets/image-71f715b65ae42569.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/skincare/400/300",
+      "file": "assets/image-26065007d122ea6c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/salonhero/1600/900",
+      "file": "assets/image-6b69b9b6fd16e31c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/stylist1/400/500",
+      "file": "assets/image-8f83ec3d9a531f7b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/stylist2/400/500",
+      "file": "assets/image-89d4131487dd3c62.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/stylist3/400/500",
+      "file": "assets/image-c45d2ada062c88d1.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/stylist4/400/500",
+      "file": "assets/image-52b0474500e889b2.jpg"
+    }
+  ]
+}

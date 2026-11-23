@@ -1,0 +1,11 @@
+{
+  "id": "zh__travel__llama4-scout__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "travel",
+  "model": "llama4:scout",
+  "completionTokens": 2288,
+  "seconds": 41,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

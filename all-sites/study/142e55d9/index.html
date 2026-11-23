@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 正宗杭州菜 | 西湖美景旁的家常美味</title>
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown - 暖棕色 */
+            --accent-color: #D2691E; /* Chocolate - 巧克力色 */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FAF9F6; /* Off-white */
+            --white: #FFFFFF;
+            --border-color: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-reserve-nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-reserve-nav:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Simplified for this demo */
+            .nav-container { flex-direction: column; gap: 1rem; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 400"><rect fill="%235d4037" width="800" height="400"/><text fill="%23fff" font-family="sans-serif" font-size="20" x="50%" y="50%" text-anchor="middle">（此处展示杭州西湖风景与餐厅内景）</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #b35615;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Featured Dishes */
+        .featured-dishes {
+            background-color: white;
+            padding: 4rem 2rem;
+        }
+
+        .dish-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .dish-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .dish-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .dish-img-placeholder {
+            background-color: #eee;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .dish-info {
+            padding: 1.5rem;
+        }
+
+        .dish-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .dish-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .dish-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ddd;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>家味</span> 餐厅
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" style="color: var(--accent-color);">首页</a></li>
+                    <li><a href="menu.html">特色菜单</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="reserve.html">预定座位</a></li>
+                </ul>
+            </nav>
+            <a href="reserve.html" class="btn-reserve-nav" style="display: none;">立即预定</a> <!-- Mobile fallback -->
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>品味江南 · 回味家乡</h1>
+            <p>在杭州西湖畔，用最地道的食材，为您还原记忆中的家常味道。</p>
+            <a href="menu.html" class="btn-main">查看菜单</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="section-title">
+            <h2>为什么选择家味餐厅</h2>
+            <p>二十年的匠心传承，只为这一口正宗</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🥢</div>
+                <h3>地道杭帮菜</h3>
+                <p>坚持传统烹饪技法，少油少盐，突出食材本味。东坡肉、龙井虾仁等招牌菜均由大厨亲自掌勺。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>新鲜食材</h3>
+                <p>每日清晨从本地农场直采新鲜蔬菜与海鲜，确保每一口都是最新鲜的江南风味。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>家庭温馨氛围</h3>
+                <p>宽敞舒适的包厢与明档座位，无论是家庭聚餐还是商务宴请，都能找到最适合您的位置。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-dishes">
+        <div class="section-title">
+            <h2>本季主打推荐</h2>
+            <p>不容错过的经典美味</p>
+        </div>
+        <div class="dish-grid">
+            <div class="dish-card">
+                <div class="dish-img-placeholder">
+                    图片：色泽红亮的东坡肉
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3>秘制东坡肉</h3>
+                        <span class="dish-price">¥68</span>
+                    </div>
+                    <p class="dish-desc">慢火煨制，肥而不腻，入口即化，配以手工面条一同食用最佳。</p>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-img-placeholder">
+                    图片：龙井虾仁
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3>龙井虾仁</h3>
+                        <span class="dish-price">¥88</span>
+                    </div>
+                    <p class="dish-desc">选用河虾仁，配以清明前的龙井茶叶，色泽雅丽，滋味独特。</p>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-img-placeholder">
+                    图片：西湖醋鱼
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3>西湖醋鱼</h3>
+                        <span class="dish-price">¥58</span>
+                    </div>
+                    <p class="dish-desc">选用草鱼，熟度恰到好处，酸甜适口，带有特殊的蟹肉味。</p>
+                </div>
+            </div>
+            <div class="dish-card">
+                <div class="dish-img-placeholder">
+                    图片：叫花鸡
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3>荷香叫花鸡</h3>
+                        <span class="dish-price">¥78</span>
+                    </div>
+                    <p class="dish-desc">泥煨技法，荷叶包裹，皮脆肉嫩，香气扑鼻。</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="menu.html" class="btn-main" style="background-color: #666;">查看完整菜单</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>家味餐厅</h3>
+                <p>杭州市西湖区龙井路 88 号</p>
+                <p>（近灵隐寺入口）</p>
+            </div>
+            <div class="footer-col">
+                <h3>营业时间</h3>
+                <p>周一至周日：10:30 - 21:30</p>
+                <p>最后点餐时间：21:00</p>
+            </div>
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <p>电话：0571-8888 6666</p>
+                <p>邮箱：contact@jiaweihz.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 家味餐厅 版权所有。仅供演示使用。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2em;
+        }
+        .category {
+            margin: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .category img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .category a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>快送外卖</h1>
+    </div>
+    <div class="categories">
+        <div class="category">
+            <img src="images/chinese-food.jpg" alt="中餐">
+            <a href="restaurant-list.html?category=中餐">中餐</a>
+        </div>
+        <div class="category">
+            <img src="images/pizza.jpg" alt="披萨">
+            <a href="restaurant-list.html?category=披萨">披萨</a>
+        </div>
+        <div class="category">
+            <img src="images/japanese-food.jpg" alt="日餐">
+            <a href="restaurant-list.html?category=日餐">日餐</a>
+        </div>
+        <div class="category">
+            <img src="images/fast-food.jpg" alt="快餐">
+            <a href="restaurant-list.html?category=快餐">快餐</a>
+        </div>
+    </div>
+</body>
+</html>

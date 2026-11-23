@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日视界 - 国内领先的新闻资讯平台</title>
+    <style>
+        :root {
+            --primary-color: #1a3c6e;
+            --accent-color: #c0392b;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover {
+            color: var(--primary-color);
+        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5px 0;
+            font-size: 0.85rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .mobile-menu-btn {
+            display: none;
+        }
+        /* Hero Section */
+        .hero {
+            margin: 30px 0;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .main-story {
+            position: relative;
+            background: #eee;
+            min-height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+        .main-story .placeholder-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #e0e0e0 0%, #cfcfcf 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 3rem;
+            z-index: 1;
+        }
+        .main-story .overlay {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            width: 100%;
+            padding: 40px;
+            color: var(--white);
+        }
+        .main-story h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        .main-story .meta {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        .side-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .side-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+        }
+        .side-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .side-card .meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .tag.urgent { background: var(--accent-color); }
+        
+        /* Latest News Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .news-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-img {
+            height: 180px;
+            background: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .card-body p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        /* Newsletter */
+        .newsletter {
+            background: var(--bg-light);
+            padding: 40px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .newsletter input {
+            padding: 12px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .newsletter button {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #ddd;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Simplified for mobile demo */
+            }
+            .main-story h1 {
+                font-size: 1.5rem;
+            }
+            .newsletter input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .newsletter button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <div class="container">
+            <span>2024 年 5 月 15 日 星期三</span>
+            <span>订阅 | 登录 | 注册</span>
+        </div>
+    </div>
+    <div class="container nav-container">
+        <a href="index.html" class="logo">每日视界</a>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html" style="color: var(--primary-color); font-weight: bold;">首页</a></li>
+                <li><a href="business.html">财经</a></li>
+                <li><a href="business.html">科技</a></li>
+                <li><a href="article.html">深度报道</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="main-story">
+                <div class="placeholder-img">头条</div>
+                <div class="overlay">
+                    <span class="tag urgent">要闻</span>
+                    <h1>中国经济稳中向好，高质量发展取得显著成效</h1>
+                    <div class="meta">来源：每日视界 | 作者：张建国 | 2024-05-15 09:30</div>
+                </div>
+            </div>
+            <div class="side-stories">
+                <div class="side-card">
+                    <span class="tag">科技</span>
+                    <h3><a href="article.html">人工智能推动制造业升级，企业数字化转型加速</a></h3>
+                    <div class="meta">10 分钟前</div>
+                </div>
+                <div class="side-card">
+                    <span class="tag">国际</span>
+                    <h3><a href="article.html">全球气候峰会达成共识，碳排放目标进一步明确</a></h3>
+                    <div class="meta">45 分钟前</div>
+                </div>
+                <div class="side-card">
+                    <span class="tag">财经</span>
+                    <h3><a href="business.html">新能源股票持续攀升，市场信心回暖</a></h3>
+                    <div class="meta">1 小时前</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-header">
+        <h2>最新报道</h2>
+        <a href="business.html" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 ></a>
+    </div>
+
+    <section class="news-grid">
+        <article class="news-card">
+            <div class="card-img">图片占位</div>
+            <div class="card-body">
+                <span class="tag">社会</span>
+                <h3><a href="article.html">城市交通网络优化项目正式完工，市民出行更便捷</a></h3>
+                <p>历时两年的地铁扩建工程今日全线通车，预计将缓解中心城区 30% 的交通压力...</p>
+                <div class="meta">2024-05-14 | 评论 (56)</div>
+            </div>
+        </article>
+        <article class="news-card">
+            <div class="card-img">图片占位</div>
+            <div class="card-body">
+                <span class="tag">财经</span>
+                <h3><a href="business.html">第三季度消费数据出炉，服务业增长强劲</a></h3>
+                <p>统计局发布最新数据显示，消费信心指数回升，旅游餐饮行业复苏明显...</p>
+                <div class="meta">2024-05-14 | 评论 (32)</div>
+            </div>
+        </article>
+        <article class="news-card">
+            <div class="card-img">图片占位</div>
+            <div class="card-body">
+                <span class="tag">科技</span>
+                <h3><a href="article.html">5G 基站覆盖率达到 95%，农村地区网络提速</a></h3>
+                <p>工信部宣布，截至上个月底，全国 5G 基站总数已突破 300 万个...</p>
+                <div class="meta">2024-05-13 | 评论 (128)</div>
+            </div>
+        </article>
+        <article class="news-card">
+            <div class="card-img">图片占位</div>
+            <div class="card-body">
+                <span class="tag">文化</span>
+                <h3><a href="article.html">年度传统文化展览在京开幕，吸引大量观众</a></h3>
+                <p>展览展示了从宋代瓷器到明代书法的珍贵文物，现场一票难求...</p>
+                <div class="meta">2024-05-13 | 评论 (45)</div>
+            </div>
+        </article>
+    </section>
+
+    <section class="newsletter">
+        <h3>订阅每日视界</h3>
+        <p style="margin: 10px 0 20px; color: var(--text-light);">获取最新新闻推送，第一时间掌握天下事</p>
+        <form onsubmit="event.preventDefault(); alert('订阅成功！我们将通过邮件联系您。');">
+            <input type="email" placeholder="请输入您的电子邮箱" required>
+            <button type="submit">订阅</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>每日视界</h4>
+                <ul>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="about.html">联系方式</a></li>
+                    <li><a href="about.html">加入团队</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>栏目</h4>
+                <ul>
+                    <li><a href="business.html">国内新闻</a></li>
+                    <li><a href="business.html">国际新闻</a></li>
+                    <li><a href="business.html">财经资讯</a></li>
+                    <li><a href="business.html">科技前沿</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务</h4>
+                <ul>
+                    <li><a href="about.html">广告合作</a></li>
+                    <li><a href="about.html">内容授权</a></li>
+                    <li><a href="about.html">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 每日视界 版权所有. 京 ICP 备 12345678 号
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人业务 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c3e50; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .top-bar { background: #1a2a4a; color: #b8c6db; font-size: 13px; padding: 8px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #b8c6db; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1a2a4a; }
+        .logo-text span { color: #1a5fb4; }
+        nav { display: flex; gap: 8px; }
+        nav a { padding: 10px 18px; border-radius: 6px; font-size: 15px; font-weight: 500; color: #4a5568; transition: all .2s; }
+        nav a:hover, nav a.active { background: #ebf3ff; color: #1a5fb4; }
+        nav a.cta { background: #1a5fb4; color: #fff; }
+        nav a.cta:hover { background: #1552a0; }
+
+        .page-hero { background: linear-gradient(135deg, #0f2242, #1a5fb4); color: #fff; padding: 72px 0 56px; }
+        .page-hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+        .page-hero p { font-size: 16px; color: #c5d5e8; max-width: 600px; }
+        .breadcrumb { font-size: 13px; color: #8ab0d8; margin-bottom: 20px; }
+        .breadcrumb a:hover { color: #fff; }
+
+        .section { padding: 72px 0; }
+        .section-alt { background: #f6f9fc; }
+        .section-header { margin-bottom: 48px; }
+        .section-header h2 { font-size: 28px; font-weight: 700; color: #1a2a4a; margin-bottom: 8px; }
+        .section-header p { font-size: 15px; color: #6b7c93; }
+
+        .tabs { display: flex; gap: 4px; background: #eef2f7; border-radius: 10px; padding: 4px; margin-bottom: 36px; width: fit-content; }
+        .tab { padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; border: none; background: transparent; color: #4a5568; }
+        .tab.active { background: #fff; color: #1a5fb4; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+        .tab:hover:not(.active) { color: #1a5fb4; }
+
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .product-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 32px; transition: all .3s; }
+        .product-card:hover { box-shadow: 0 8px 32px rgba(26,95,180,.08); border-color: #b8d4f7; }
+        .product-card .tag { display: inline-block; background: #ebf3ff; color: #1a5fb4; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .product-card h3 { font-size: 18px; font-weight: 600; color: #1a2a4a; margin-bottom: 8px; }
+        .product-card .rate { font-size: 28px; font-weight: 700; color: #1a5fb4; margin-bottom: 12px; }
+        .product-card .rate small { font-size: 14px; color: #6b7c93; font-weight: 400; }
+        .product-card ul { list-style: none; margin-top: 16px; }
+        .product-card ul li { font-size: 14px; color: #4a5568; padding: 6px 0; padding-left: 20px; position: relative; }
+        .product-card ul li::before { content: '✓'; position: absolute; left: 0; color: #2d8cf0; font-weight: 700; }
+        .product-card .btn { margin-top: 20px; display: inline-block; padding: 10px 24px; background: #1a5fb4; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 500; transition: background .2s; }
+        .product-card .btn:hover { background: #1552a0; }
+
+        .loans-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+        .loans-table th, .loans-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e8ecf1; font-size: 14px; }
+        .loans-table th { background: #f6f9fc; font-weight: 600; color: #1a2a4a; }
+        .loans-table td { color: #4a5568; }
+        .loans-table .highlight { color: #1a5fb4; font-weight: 600; }
+
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+        .step { text-align: center; padding: 24px 16px; }
+        .step-num { width: 44px; height: 44px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; margin: 0 auto 14px; }
+        .step h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .step p { font-size: 13px; color: #6b7c93; }
+
+        .form-section { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 40px; max-width: 640px; margin: 0 auto; }
+        .form-section h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: #1a2a4a; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #4a5568; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #d1dce8; border-radius: 8px; font-size: 14px; font-family: inherit; transition: border-color .2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #1a5fb4; box-shadow: 0 0 0 3px rgba(26,95,180,.1); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .form-submit { text-align: center; margin-top: 24px; }
+        .form-submit .btn { padding: 12px 40px; background: #1a5fb4; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s; }
+        .form-submit .btn:hover { background: #1552a0; }
+
+        footer { background: #0f1c30; color: #8a9bb5; padding: 48px 0 28px; font-size: 14px; }
+        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        footer h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a { color: #8a9bb5; transition: color .2s; }
+        footer ul a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e3050; margin-top: 36px; padding-top: 24px; text-align: center; font-size: 13px; }
+
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .page-hero h1 { font-size: 28px; }
+            .form-row { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一服务热线：95577</span>
+            <div>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">长</div>
+                <div class="logo-text">长川<span>银行</span></div>
+            </a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="personal.html" class="active">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+                <a href="#open-account" class="cta">立即开户</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">首页</a> / 个人业务</div>
+            <h1>个人银行业务</h1>
+            <p>从日常储蓄到房贷申请，从手机转账到跨境汇款，长川银行为您提供全生命周期的个人金融服务。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>存款产品</h2>
+                <p>多种期限、灵活起存，让每一分闲钱都能获得合理回报</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab(event,'saving')">储蓄存款</button>
+                <button class="tab" onclick="switchTab(event,'deposit')">大额存单</button>
+            </div>
+
+            <div id="tab-saving" class="product-grid">
+                <div class="product-card">
+                    <span class="tag">灵活</span>
+                    <h3>长川活期储蓄</h3>
+                    <div class="rate">0.30% <small>年化利率</small></div>
+                    <ul>
+                        <li>无起存金额限制，随时存取</li>
+                        <li>支持手机银行即时转账</li>
+                        <li>绑定信用卡可享消费返现</li>
+                        <li>免年费、免小额管理费</li>
+                    </ul>
+                    <a href="#open-account" class="btn">立即开户</a>
+                </div>
+                <div class="product-card">
+                    <span class="tag">稳健</span>
+                    <h3>长川定期存款</h3>
+                    <div class="rate">最高 2.85% <small>年化利率</small></div>
+                    <ul>
+                        <li>期限可选3个月、6个月、1年、2年、3年</li>
+                        <li>50元起存，支持自动转存</li>
+                        <li>到期自动转入活期或续存</li>
+                        <li>提前支取按活期计息，灵活无压力</li>
+                    </ul>
+                    <a href="#open-account" class="btn">立即开户</a>
+                </div>
+            </div>
+
+            <div id="tab-deposit" class="product-grid" style="display:none;">
+                <div class="product-card">
+                    <span class="tag">高收益</span>
+                    <h3>长川大额存单（1年）</h3>
+                    <div class="rate">3.15% <small>年化利率</small></div>
+                    <ul>
+                        <li>20万元起存</li>
+                        <li>支持提前支取（靠档计息）</li>
+                        <li>可转让，流动性优于普通定期</li>
+                        <li>每月初限量发售，先到先得</li>
+                    </ul>
+                    <a href="#open-account" class="btn">预约购买</a>
+                </div>
+                <div class="product-card">
+                    <span class="tag">高收益</span>
+                    <h3>长川大额存单（3年）</h3>
+                    <div class="rate">3.85% <small>年化利率</small></div>
+                    <ul>
+                        <li>20万元起存</li>
+                        <li>利率锁定3年，不受降息影响</li>
+                        <li>支持部分提前支取</li>
+                        <li>到期本息自动入账</li>
+                    </ul>
+                    <a href="#open-account" class="btn">预约购买</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>个人贷款</h2>
+                <p>在线申请、快速审批，满足购房、消费、经营等多元资金需求</p>
+            </div>
+
+            <table class="loans-table">
+                <thead>
+                    <tr>
+                        <th>产品类型</th>
+                        <th>额度范围</th>
+                        <th>年化利率（起）</th>
+                        <th>最长期限</th>
+                        <th>审批时效</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>住房按揭贷款</strong></td>
+                        <td>最高 500万</td>
+                        <td class="highlight">3.45%</td>
+                        <td>30年</td>
+                        <td>3-5个工作日</td>
+                    </tr>
+                    <tr>
+                        <td><strong>个人消费贷（畅e贷）</strong></td>
+                        <td>最高 30万</td>
+                        <td class="highlight">5.88%</td>
+                        <td>3年</td>
+                        <td>最快30分钟</td>
+                    </tr>
+                    <tr>
+                        <td><strong>个人经营贷（微e贷）</strong></td>
+                        <td>最高 100万</td>
+                        <td class="highlight">5.25%</td>
+                        <td>5年</td>
+                        <td>最快1个工作日</td>
+                    </tr>
+                    <tr>
+                        <td><strong>汽车消费贷款</strong></td>
+                        <td>最高 50万</td>
+                        <td class="highlight">4.35%</td>
+                        <td>5年</td>
+                        <td>1-2个工作日</td>
+                    </tr>
+                    <tr>
+                        <td><strong>装修分期贷款</strong></td>
+                        <td>最高 20万</td>
+                        <td class="highlight">5.50%</td>
+                        <td>3年</td>
+                        <td>最快1小时</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>在线申请</h4>
+                    <p>手机银行或官网填写基本信息，上传身份证即可提交</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>智能审批</h4>
+                    <p>系统自动审核，纯信用产品最快30分钟出结果</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>签约放款</h4>
+                    <p>线上电子签约，资金实时到账至您指定账户</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>灵活还款</h4>
+                    <p>支持等额本息、先息后本，可提前还款免手续费</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>手机银行与线上服务</h2>
+                <p>95%的日常银行业务，一部手机全部搞定</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="tag">便捷</span>
+                    <h3>长川手机银行 App</h3>
+                    <p style="font-size:14px;color:#6b7c93;margin-top:8px;">下载"长川银行"App，享受以下功能：</p>
+                    <ul>
+                        <li>跨行转账实时到账，每日免费5笔</li>
+                        <li>水电燃气、话费、信用卡一键缴费</li>
+                        <li>活期理财"活期+"，T+0赎回</li>
+                        <li>贷款在线申请、额度实时查询</li>
+                        <li>指纹/面容登录，交易短信+App双重验证</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <span class="tag">跨境</span>
+                    <h3>外汇与跨境汇款</h3>
+                    <p style="font-size:14px;color:#6b7c93;margin-top:8px;">支持20余种主流货币，服务覆盖160+国家和地区：</p>
+                    <ul>
+                        <li>美元、欧元、日元、港币等实时报价</li>
+                        <li>跨境汇款最快2小时到账</li>
+                        <li>留学缴费、商务收款专属通道</li>
+                        <li>汇率优惠：手机银行兑换享95折</li>
+                        <li>境外ATM取现每年前6笔免费</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="open-account">
+        <div class="container">
+            <div class="section-header" style="text-align:center;">
+                <h2>预约开户</h2>
+                <p>填写以下信息，我们将在1个工作日内与您联系确认开户时间</p>
+            </div>
+            <div class="form-section">
+                <h3>开户预约表单</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>手机号码</label>
+                        <input type="tel" placeholder="请输入11位手机号">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>开户类型</label>
+                        <select>
+                            <option>个人储蓄账户</option>
+                            <option>个人结算账户</option>
+                            <option>对公账户（小微企业）</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>意向网点</label>
+                        <select>
+                            <option>上海浦东分行</option>
+                            <option>北京海淀分行</option>
+                            <option>广州天河支行</option>
+                            <option>深圳南山支行</option>
+                            <option>成都春熙路支行</option>
+                            <option>杭州西湖支行</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>备注（选填）</label>
+                    <textarea placeholder="如有特殊需求或问题，请在此说明"></textarea>
+                </div>
+                <div class="form-submit">
+                    <button class="btn" onclick="alert('感谢您的预约！我们的工作人员将在1个工作日内与您联系。')">提交预约</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>长川银行</h4>
+                <p style="margin-top:12px;line-height:1.8;">长川银行股份有限公司成立于2003年，总部位于上海市浦东新区。现有营业网点覆盖全国32个省市，致力于为客户提供全面、专业、有温度的金融服务。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人业务</a></li>
+                    <li><a href="cards.html">信用卡</a></li>
+                    <li><a href="contact.html">联系网点</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="contact.html">网点查询</a></li>
+                    <li><a href="contact.html">在线客服</a></li>
+                    <li><a href="contact.html">投诉建议</a></li>
+                    <li><a href="contact.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <ul>
+                    <li>服务热线：95577</li>
+                    <li>邮箱：service@changchuan.com</li>
+                    <li>地址：上海市浦东新区世纪大道1088号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 长川银行股份有限公司 版权所有 | 沪ICP备05012345号 | 中国银保监会批准设立</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(e, id) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            document.getElementById('tab-saving').style.display = 'none';
+            document.getElementById('tab-deposit').style.display = 'none';
+            document.getElementById('tab-' + id).style.display = 'grid';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

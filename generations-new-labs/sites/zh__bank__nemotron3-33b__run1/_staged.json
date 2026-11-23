@@ -1,0 +1,11 @@
+{
+  "id": "zh__bank__nemotron3-33b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "bank",
+  "model": "nemotron3:33b",
+  "completionTokens": 4758,
+  "seconds": 26,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>附近餐厅 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4400;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+
+        body { background-color: var(--bg-light); color: var(--text-dark); }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
+
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--text-dark); font-weight: 500; }
+        .nav-links a.active { color: var(--primary-color); }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: flex; gap: 30px; }
+
+        /* Sidebar */
+        aside {
+            width: 220px;
+            flex-shrink: 0;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 15px;
+            height: fit-content;
+        }
+
+        aside h3 { font-size: 16px; margin-bottom: 15px; color: var(--text-dark); }
+
+        .category-list li { padding: 10px 0; cursor: pointer; font-size: 14px; color: var(--text-gray); border-bottom: 1px dashed #eee; }
+        .category-list li:hover { color: var(--primary-color); }
+        .category-list li:last-child { border-bottom: none; }
+
+        /* Content Area */
+        main { flex: 1; }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .filter-tag {
+            background: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .filter-tag.active { border-color: var(--primary-color); color: var(--primary-color); }
+
+        .restaurant-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .res-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            gap: 20px;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .res-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: #eee; }
+
+        .res-img { width: 150px; height: 150px; border-radius: 6px; object-fit: cover; background: #eee; }
+
+        .res-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+        .res-header { display: flex; justify-content: space-between; align-items: start; }
+
+        .res-name { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+
+        .res-rating { color: #f90; font-weight: bold; font-size: 16px; background: rgba(255, 153, 0, 0.1); padding: 2px 6px; border-radius: 4px; }
+
+        .res-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+
+        .tag { font-size: 12px; color: #999; background: #f5f5f5; padding: 2px 6px; border-radius: 2px; }
+
+        .tag.high-quality { background: #e6f7ff; color: #1890ff; }
+        .tag.free-delivery { background: #f6ffed; color: #52c41a; }
+
+        .res-footer { display: flex; justify-content: space-between; align-items: center; color: var(--text-gray); font-size: 13px; }
+
+        .res-footer strong { color: var(--text-dark); font-weight: bold; margin-left: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">⚡ 快送外卖</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html" class="active">附近餐厅</a>
+                <a href="#">商家入驻</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h3>地区筛选</h3>
+            <ul class="category-list">
+                <li>全市范围</li>
+                <li>高新区</li>
+                <li>锦江区</li>
+                <li>青羊区</li>
+                <li>武侯区</li>
+                <li>成华区</li>
+            </ul>
+            <h3 style="margin-top: 20px;">价格区间</h3>
+            <ul class="category-list">
+                <li>人均 ¥20 以下</li>
+                <li>人均 ¥20 - ¥50</li>
+                <li>人均 ¥50 - ¥80</li>
+                <li>人均 ¥80 以上</li>
+            </ul>
+        </aside>
+
+        <main>
+            <div class="filters">
+                <div class="filter-tag active">综合排序</div>
+                <div class="filter-tag">销量最高</div>
+                <div class="filter-tag">距离最近</div>
+                <div class="filter-tag">配送最快</div>
+                <div class="filter-tag">好评优先</div>
+            </div>
+
+            <div class="restaurant-list">
+                <!-- 餐厅 1 -->
+                <div class="res-card" onclick="window.location.href='restaurant-detail.html'">
+                    <img src="https://picsum.photos/seed/noodle/150/150" class="res-img" alt="阿婆面馆">
+                    <div class="res-info">
+                        <div class="res-header">
+                            <div>
+                                <div class="res-name">阿婆面馆</div>
+                                <div class="res-tags">
+                                    <span class="tag">家常菜</span>
+                                    <span class="tag">老字号</span>
+                                    <span class="tag high-quality">品质商家</span>
+                                </div>
+                            </div>
+                            <div class="res-rating">4.8</div>
+                        </div>
+                        <div class="res-footer">
+                            <span>起送 ¥20 | 配送 ¥3</span>
+                            <span>30分钟内送达 | 月售 2000+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 餐厅 2 -->
+                <div class="res-card" onclick="window.location.href='restaurant-detail.html'">
+                    <img src="https://picsum.photos/seed/sushi/150/150" class="res-img" alt="鲜味寿司">
+                    <div class="res-info">
+                        <div class="res-header">
+                            <div>
+                                <div class="res-name">鲜味寿司·回转寿司</div>
+                                <div class="res-tags">
+                                    <span class="tag">日料</span>
+                                    <span class="tag free-delivery">免配送费</span>
+                                </div>
+                            </div>
+                            <div class="res-rating">4.6</div>
+                        </div>
+                        <div class="res-footer">
+                            <span>起送 ¥0 | 配送 ¥0</span>
+                            <span>45分钟内送达 | 月售 850+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 餐厅 3 -->
+                <div class="res-card" onclick="window.location.href='restaurant-detail.html'">
+                    <img src="https://picsum.photos/seed/chicken/150/150" class="res-img" alt="香辣鸡腿堡">
+                    <div class="res-info">
+                        <div class="res-header">
+                            <div>
+                                <div class="res-name">香辣鸡腿堡旗舰店</div>
+                                <div class="res-tags">
+                                    <span class="tag">西餐</span>
+                                    <span class="tag">快餐</span>
+                                    <span class="tag high-quality">品质商家</span>
+                                </div>
+                            </div>
+                            <div class="res-rating">4.7</div>
+                        </div>
+                        <div class="res-footer">
+                            <span>起送 ¥15 | 配送 ¥4</span>
+                            <span>25分钟内送达 | 月售 3200+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 餐厅 4 -->
+                <div class="res-card" onclick="window.location.href='restaurant-detail.html'">
+                    <img src="https://picsum.photos/seed/steak/150/150" class="res-img" alt="牛排先生">
+                    <div class="res-info">
+                        <div class="res-header">
+                            <div>
+                                <div class="res-name">牛排先生精致牛排</div>
+                                <div class="res-tags">
+                                    <span class="tag">西餐</span>
+                                    <span class="tag">牛排</span>
+                                </div>
+                            </div>
+                            <div class="res-rating">4.9</div>
+                        </div>
+                        <div class="res-footer">
+                            <span>起送 ¥50 | 配送 ¥8</span>
+                            <span>50分钟内送达 | 月售 300+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

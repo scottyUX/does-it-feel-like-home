@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .nav {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #337ab7;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            color: #23527c;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .category {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        .category img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+        .category h2 {
+            margin: 10px 0;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>快送外卖</h1>
+        </div>
+        <div class="nav">
+            <a href=".">首页</a>
+            <a href="restaurants.html">餐厅列表</a>
+            <a href="about.html">关于我们</a>
+        </div>
+        <h2>热门分类</h2>
+        <div class="categories">
+            <div class="category">
+                <img src="https://via.placeholder.com/200x150?text=%E4%B8%AD%E6%96%87" alt="中餐">
+                <h2>中餐</h2>
+                <p>各种美味的中式菜肴</p>
+                <a href="restaurants.html" class="btn">查看餐厅</a>
+            </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/200x150?text=%E8%A5%B2%E9%A1%B5" alt="西餐">
+                <h2>西餐</h2>
+                <p>西式快餐和正餐</p>
+                <a href="restaurants.html" class="btn">查看餐厅</a>
+            </div>
+            <div class="category">
+                <img src="https://via.placeholder.com/200x150?text=%E7%BE%8A%E9%A3%9F" alt="甜品">
+                <h2>甜品</h2>
+                <p>各种甜点和小吃</p>
+                <a href="restaurants.html" class="btn">查看餐厅</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 快送外卖</p>
+    </div>
+</body>
+</html>

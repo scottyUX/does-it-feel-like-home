@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时尚白衬衫 - 可衣</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            color: #ccc;
+        }
+        .main {
+            padding: 20px;
+        }
+        .product-info {
+            margin-bottom: 20px;
+        }
+        .product-info h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-info p {
+            margin: 10px 0;
+        }
+        .size {
+            margin-bottom: 20px;
+        }
+        .size label {
+            margin-right: 10px;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>可衣</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="products.html">商品列表</a>
+        <a href="cart.html">购物车</a>
+    </div>
+    <div class="main">
+        <h1>时尚白衬衫</h1>
+        <div class="product-info">
+            <p>¥ 128</p>
+            <p>尺码：S,M,L</p>
+        </div>
+        <div class="size">
+            <label>选择尺码：</label>
+            <input type="radio" id="S" name="size" value="S">
+            <label for="S">S</label>
+            <input type="radio" id="M" name="size" value="M">
+            <label for="M">M</label>
+            <input type="radio" id="L" name="size" value="L">
+            <label for="L">L</label>
+        </div>
+        <button>加入购物车</button>
+    </div>
+    <div class="footer">
+        <p>Copyright 2023 可衣</p>
+    </div>
+</body>
+</html>

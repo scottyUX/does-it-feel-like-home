@@ -1,0 +1,48 @@
+{
+  "id": "en__learning__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 17113,
+  "seconds": 160,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/python/300/180",
+      "file": "assets/image-b6db7417d1f0cc93.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/teacher/100/100",
+      "file": "assets/image-531ec9bf4efc56ea.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/python/200/200",
+      "file": "assets/image-d50b820a0f595232.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/web/200/200",
+      "file": "assets/image-e012fd7356e594f4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/japanese/200/200",
+      "file": "assets/image-c9af30ebc68c4f8b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/accounting/200/200",
+      "file": "assets/image-38541437b609a111.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/python/300/200",
+      "file": "assets/image-581320cd2183c096.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/english/300/200",
+      "file": "assets/image-1275a060a430930b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/cpa/300/200",
+      "file": "assets/image-1a70f7bcbe9c0758.jpg"
+    }
+  ]
+}

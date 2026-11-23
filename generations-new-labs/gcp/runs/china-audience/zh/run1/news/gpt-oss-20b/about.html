@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日视界 - 关于我们</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;}
+  header{background:#003366;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:#fff;text-decoration:none;margin-left:20px;}
+  nav a:hover{color:#ffcc00;}
+  .toggle{display:none;cursor:pointer;font-size:1.5em;}
+  main{max-width:1200px;margin:auto;padding:20px;background:#fff;}
+  .section{margin-bottom:20px;}
+  .section h2{margin:0 0 10px;color:#003366;}
+  .section p{margin:10px 0;}
+  footer{background:#003366;color:#fff;text-align:center;padding:10px 0;}
+  @media (max-width:768px){
+    nav a{display:block;margin:10px 0;}
+    nav{display:none;}
+    .toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>每日视界</div>
+  <div class="toggle" onclick="document.getElementById('nav').style.display='block'">&#9776;</div>
+  <nav id="nav">
+    <a href="index.html">首页</a>
+    <a href="finance.html">财经</a>
+    <a href="tech.html">科技</a>
+    <a href="about.html">关于我们</a>
+  </nav>
+</header>
+<main>
+  <h1>关于我们</h1>
+  <div class="section">
+    <h2>使命</h2>
+    <p>每日视界致力于为全国各地的读者提供最及时、最准确、最具深度的新闻资讯，帮助人们在忙碌的生活中快速获取所需信息。</p>
+  </div>
+  <div class="section">
+    <h2>团队</h2>
+    <p>我们拥有一支由资深记者、分析师、编辑和技术团队组成的专业团队，分布在北京、上海、广州、深圳等主要城市，确保信息来源的多元与报道的权威。</p>
+  </div>
+  <div class="section">
+    <h2>联系方式</h2>
+    <p>如果您有任何问题、建议或想与我们合作，欢迎通过以下方式与我们联系：</p>
+    <p>邮箱：contact@dailyview.cn</p>
+    <p>电话：+86-10-1234-5678</p>
+  </div>
+</main>
+<footer>
+  © 2026 每日视界，保留所有权利
+</footer>
+<script>
+  window.addEventListener('click',function(e){
+    if(e.target.className!='toggle' && e.target.parentNode.id!='nav'){
+      document.getElementById('nav').style.display='none';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "id": "zh__social-media__gemma3-27b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "social-media",
+  "model": "gemma3:27b",
+  "completionTokens": 4321,
+  "seconds": 92,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/40",
+      "file": "assets/image-73308e8b4212f64f.png"
+    },
+    {
+      "url": "https://via.placeholder.com/600x400",
+      "file": "assets/image-a3731e0a021008c6.png"
+    },
+    {
+      "url": "https://via.placeholder.com/100",
+      "file": "assets/image-0bfef5c29ec207f4.png"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>北京王府大酒店 - 畅行旅行</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+.container{max-width:1440px;margin:0 auto;padding:20px;}
+header{background:#004d7a;color:#fff;padding:15px;text-align:center;}
+nav{margin-top:10px;}
+nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
+nav a:hover{text-decoration:underline;}
+main{background:#fff;padding:20px;margin-top:20px;border:1px solid #ddd;}
+.hotel-detail{display:flex;flex-wrap:wrap;gap:20px;}
+.hotel-info{flex:2 1 600px;}
+.hotel-info img{max-width:100%;height:auto;border-radius:4px;margin-bottom:15px;}
+.hotel-info h2{margin-top:0;font-size:1.8em;}
+.hotel-info p{color:#666;margin-bottom:10px;}
+.hotel-info .price{font-size:1.4em;color:#0066cc;margin:10px 0;}
+.hotel-info .book-btn{background:#004d7a;color:#fff;padding:10px 15px;border:none;border-radius:4px;cursor:pointer;font-size:1em;}
+.hotel-gallery{flex:1 1 300px;}
+.hotel-gallery img{width:100%;height:auto;border-radius:4px;margin-bottom:10px;}
+footer{background:#f0f0f0;text-align:center;padding:10px;margin-top:30px;font-size:0.9em;color:#666;}
+@media(max-width:768px){
+  .hotel-detail{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>北京王府大酒店</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="results.html">目的地</a>
+<a href="hotel.html">酒店</a>
+<a href="booking.html">预订</a>
+</nav>
+<main class="hotel-detail">
+<div class="hotel-info">
+<img src="beijing.jpg" alt="北京王府大酒店外观">
+<h2>北京王府大酒店</h2>
+<p>这家五星级酒店坐落于北京历史文化街区，建筑风格融合古典与现代，提供豪华客房、全日制餐饮、健身中心和宴会厅。</p>
+<p>房间配备免费Wi‑Fi、液晶电视、独立浴室和舒适床品，部分套房设有私人露台。</p>
+<div class="price">¥1200 / 晚</div>
+<button class="book-btn" onclick="document.getElementById('bookingForm').style.display='block();">立即预订</button>
+</div>
+<div class="hotel-gallery">
+<img src="beijing1.jpg" alt="客房图片">
+<img src="beijing2.jpg" alt="餐厅环境">
+<img src="beijing3.jpg" alt="健身房设施">
+</div>
+</main>
+<footer>
+© 2025 畅行旅行 旅游预订平台
+</footer>
+
+<div id="bookingForm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;">
+<div style="background:#fff;padding:20px;border:1px solid #ccc;border-radius:4px;max-width:400px;width:90%;">
+<h3>预订表单</h3>
+<label>姓名：<input type="text" name="name" required style="width:100%;margin-top:5px;"></label><br>
+<label>手机：<input type="text" name="phone" required style="width:100%;margin-top:5px;"></label><br>
+<label>入住日期：<input type="date" name="checkin" required style="width:100%;margin-top:5px;"></label><br>
+<label>离店日期：<input type="date" name="checkout" required style="width:100%;margin-top:5px;"></label><br>
+<label>房型：<select name="room" required style="width:100%;margin-top:5px;">
+<option value="">请选择</option>
+<option value="标准间">标准间</option>
+<option value="高级间">高级间</option>
+<option value="套房">套房</option>
+</select></label><br>
+<label>人数：<input type="number" name="guests" min="1" value="2" style="width:100%;margin-top:5px;"></label><br>
+<button style="background:#004d7a;color:#fff;padding:8px 12px;border:none;border-radius:4px;cursor:pointer;width:100%;">提交预订</button>
+</div>
+</div>
+</div>
+</body>
+</html>

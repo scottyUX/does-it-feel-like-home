@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 可衣</title>
+    <style>
+        body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#f9f9f9;color:#333;}
+        header{background:#fff;padding:20px 40px;border-bottom:1px solid #ddd;display:flex;align-items:center;justify-content:space-between;}
+        header h1{font-size:24px;}
+        nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:500;}
+        main{max-width:1200px;margin:0 auto;padding:40px 20px;}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+        .product{background:#fff;padding:15px;border:1px solid #ddd;border-radius:4px;text-align:center;}
+        .product img{max-width:100%;height:auto;border-radius:4px;}
+        .product h3{font-size:18px;margin:10px 0 8px;}
+        .product p{color:#777;margin-bottom:10px;}
+        .size-select{margin:5px 0;}
+        .price{font-size:16px;color:#ff4081;font-weight:500;}
+        footer{background:#fff;padding:20px;text-align:center;border-top:1px solid #ddd;margin-top:40px;}
+        @media(max-width:600px){
+            header{flex-direction:column;align-items:flex-start;}
+            nav{margin-top:10px;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>可衣</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="cart.html">购物车</a>
+    </nav>
+</header>
+<main>
+    <h2>全部商品</h2>
+    <div class="grid">
+        <article class="product">
+            <img src="images/blouse.jpg" alt="简约衬衫">
+            <h3>简约衬衫</h3>
+            <p class="price">￥199</p>
+            <div class="size-select">
+                <label for="size1">尺码：</label>
+                <select id="size1">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <a href="product1.html">查看详情</a>
+        </article>
+        <article class="product">
+            <img src="images/blazer.jpg" alt="修身西装外套">
+            <h3>修身西装外套</h3>
+            <p class="price">￥399</p>
+            <div class="size-select">
+                <label for="size2">尺码：</label>
+                <select id="size2">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <a href="product2.html">查看详情</a>
+        </article>
+        <article class="product">
+            <img src="images/sweater.jpg" alt="针织衫">
+            <h3>针织衫</h3>
+            <p class="price">￥149</p>
+            <div class="size-select">
+                <label for="size3">尺码：</label>
+                <select id="size3">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <a href="product3.html">查看详情</a>
+        </article>
+        <article class="product">
+            <img src="images/dress.jpg" alt="连衣裙">
+            <h3>连衣裙</h3>
+            <p class="price">￥279</p>
+            <div class="size-select">
+                <label for="size4">尺码：</label>
+                <select id="size4">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <a href="product4.html">查看详情</a>
+        </article>
+    </div>
+</main>
+<footer>
+    © 2026 可衣. 版权所有
+</footer>
+</body>
+</html>

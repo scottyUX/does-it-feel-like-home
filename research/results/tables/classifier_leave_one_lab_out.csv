@@ -1,0 +1,7 @@
+dataset,classifier,sites,labs,chinese_labs,balanced_accuracy,null_mean,p
+"Arena, Chinese prompts",Logistic regression,203,11,7,0.3896,0.4037,0.6468
+"Arena, Chinese prompts",Random forest,203,11,7,0.2616,0.3936,0.9048
+"Arena, English prompts",Logistic regression,203,11,7,0.2951,0.3962,0.9652
+"Arena, English prompts",Random forest,203,11,7,0.3245,0.3791,0.7619
+"Arena, both",Logistic regression,406,11,7,0.3621,0.4022,0.7413
+"Arena, both",Random forest,406,11,7,0.3079,0.3861,0.9524

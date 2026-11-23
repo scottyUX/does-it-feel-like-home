@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学途 - 在线学习平台</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#2c3e50;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:24px;}
+        nav a{color:#fff;margin-left:20px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .hero{background:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iNzIwIiBmaWxsPSIjN2U4ZGY2Ii8+PHRleHQgeD0iNjQwIiB5PSIzNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIzNiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+5Y+v5Z+f5b6FPC90ZXh0Pjwvc3ZnPg==') center/cover no-repeat;height:400px;display:flex;align-items:center;justify-content:center;color:#fff;}
+        .hero h2{font-size:48px;margin:0;background:rgba(0,0,0,0.5);padding:20px 40px;border-radius:8px;}
+        .section{padding:40px;}
+        .section h3{font-size:28px;margin-bottom:20px;}
+        .cards{display:flex;flex-wrap:wrap;gap:20px;}
+        .card{background:#fff;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1);flex:1 1 calc(33% - 20px);max-width:calc(33% - 20px);padding:20px;box-sizing:border-box;}
+        .card img{width:100%;height:150px;object-fit:cover;border-radius:4px;}
+        .card h4{margin:15px 0 10px;font-size:20px;}
+        .card p{margin:0 0 10px;color:#666;}
+        .card .price{font-size:18px;color:#e67e22;font-weight:bold;}
+        .card a{display:inline-block;margin-top:10px;color:#2980b9;text-decoration:none;}
+        .card a:hover{text-decoration:underline;}
+        footer{background:#2c3e50;color:#fff;text-align:center;padding:20px;}
+        @media(max-width:1024px){
+            .card{flex:1 1 calc(50% - 20px);max-width:calc(50% - 20px);}
+        }
+        @media(max-width:600px){
+            .card{flex:1 1 100%;max-width:100%;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>学途</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程</a>
+        <a href="signup.html">注册</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>让学习更简单、更高效</h2>
+</div>
+
+<section class="section">
+    <h3>热门课程</h3>
+    <div class="cards">
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="英语口语">
+            <h4>实用英语口语</h4>
+            <p>针对职场与旅行的实战口语训练</p>
+            <div class="price">¥199</div>
+            <a href="course.html">查看详情 &raquo;</a>
+        </div>
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="Python入门">
+            <h4>Python 编程入门</h4>
+            <p>零基础学会数据处理与自动化脚本</p>
+            <div class="price">¥299</div>
+            <a href="course.html">查看详情 &raquo;</a>
+        </div>
+        <div class="card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="GRE备考">
+            <h4>GRE 高分攻略</h4>
+            <p>系统复习，词汇、阅读、写作全覆盖</p>
+            <div class="price">¥399</div>
+            <a href="course.html">查看详情 &raquo;</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 学途在线学习平台
+</footer>
+</body>
+</html>

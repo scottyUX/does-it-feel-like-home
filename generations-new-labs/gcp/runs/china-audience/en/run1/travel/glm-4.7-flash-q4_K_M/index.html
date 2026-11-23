@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 发现您的下一次旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-dark: #004c99;
+            --secondary-color: #ff9900;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/travelhero/1440/600.jpg') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Search Box */
+        .search-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1fr auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-group input, .input-group select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-search {
+            height: 46px;
+            font-size: 16px;
+        }
+
+        /* Categories */
+        .categories {
+            max-width: 1200px;
+            margin: 60px auto 30px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 150px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 15px;
+            color: var(--white);
+        }
+
+        .category-overlay h3 {
+            font-size: 18px;
+        }
+
+        /* Features */
+        .features {
+            background: var(--white);
+            padding: 60px 0;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 300px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .search-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">畅行 <span>旅行</span></a>
+        <nav class="nav-links">
+            <a href="index.html" class="active">首页</a>
+            <a href="#">国内游</a>
+            <a href="#">海外游</a>
+            <a href="#">特惠活动</a>
+            <a href="#">会员中心</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline">登录</a>
+            <a href="#" class="btn btn-primary">注册</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>探索中国之美</h1>
+        <p>预订北京、上海、三亚、成都等地的酒店与行程</p>
+        
+        <div class="search-container">
+            <div class="input-group">
+                <label>目的地</label>
+                <input type="text" placeholder="城市、酒店或景点名称">
+            </div>
+            <div class="input-group">
+                <label>入住日期</label>
+                <input type="date">
+            </div>
+            <div class="input-group">
+                <label>离店日期</label>
+                <input type="date">
+            </div>
+            <div class="input-group">
+                <label>住客数</label>
+                <select>
+                    <option>1人</option>
+                    <option>2人</option>
+                    <option>3人</option>
+                    <option>4人</option>
+                </select>
+            </div>
+            <button onclick="window.location.href='search_results.html'" class="btn btn-primary btn-search">搜索</button>
+        </div>
+    </div>
+</section>
+
+<section class="categories">
+    <h2 class="section-title">热门目的地</h2>
+    <div class="category-grid">
+        <div class="category-card" onclick="window.location.href='search_results.html'">
+            <img src="https://picsum.photos/seed/beijing/400/300.jpg" alt="北京">
+            <div class="category-overlay">
+                <h3>北京</h3>
+                <p>人文历史与现代化都市</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="window.location.href='search_results.html'">
+            <img src="https://picsum.photos/seed/sanya/400/300.jpg" alt="三亚">
+            <div class="category-overlay">
+                <h3>三亚</h3>
+                <p>热带海岛阳光沙滩</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="window.location.href='search_results.html'">
+            <img src="https://picsum.photos/seed/chengdu/400/300.jpg" alt="成都">
+            <div class="category-overlay">
+                <h3>成都</h3>
+                <p>悠闲生活与美味火锅</p>
+            </div>
+        </div>
+        <div class="category-card" onclick="window.location.href='search_results.html'">
+            <img src="https://picsum.photos/seed/xian/400/300.jpg" alt="西安">
+            <div class="category-overlay">
+                <h3>西安</h3>
+                <p>古丝绸之路起点</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="features-container">
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <h4>最优惠价格</h4>
+                <p>保证全网最低价，提前预订立减20%</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">₩</div>
+            <div>
+                <h4>无忧退款</h4>
+                <p>取消政策灵活，支持24小时免费取消</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div>
+                <h4>安全预订</h4>
+                <p>银行级SSL加密，保障您的资金与隐私安全</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <ul>
+                <li><a href="#">品牌故事</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">新闻动态</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul>
+                <li><a href="#">预订指南</a></li>
+                <li><a href="#">取消政策</a></li>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">联系客服</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>合作伙伴</h4>
+            <ul>
+                <li><a href="#">酒店入住</a></li>
+                <li><a href="#">旅游业者</a></li>
+                <li><a href="#">联盟计划</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>联系方式</h4>
+            <ul>
+                <li>客服热线：400-123-4567</li>
+                <li>邮箱：support@changxingtravel.com</li>
+                <li>地址：北京市朝阳区科技园路88号</li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 畅行旅行. 保留所有权利.
+    </div>
+</footer>
+
+</body>
+</html>

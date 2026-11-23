@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡 - 长川银行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-button {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .card-container {
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .card-container h2 {
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        .card-features {
+            margin-top: 20px;
+        }
+        .card-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .card-features i {
+            margin-right: 10px;
+            color: #1a5276;
+        }
+        .card-benefits {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .card-benefits h2 {
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+        .benefit-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .benefit-item {
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">长川银行</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人银行服务</a></li>
+                    <li><a href="credit.html">信用卡</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <a href="index.html" class="back-button">返回首页</a>
+
+    <section class="cards">
+        <div class="card-container">
+            <h2>标准信用卡</h2>
+            <p>我们的标准信用卡提供基础的信用卡服务，适合日常消费。无年费，享受基础利率和消费保障。</p>
+            <ul class="card-features">
+                <li><i>💳 无年费</i></li>
+                <li><i>📈 基础利率</i></li>
+                <li><i>🛍️ 消费保障</i></li>
+            </ul>
+        </div>
+        <div class="card-container">
+            <h2>金卡信用卡</h2>
+            <p>专为高消费人群设计的信用卡，提供更高的信用额度、更低的利率和额外的消费奖励。</p>
+            <ul class="card-features">
+                <li><i>💳 更高的信用额度</i></li>
+                <li><i>📉 更低的利率</i></li>
+                <li><i>🎁 消费奖励计划</i></li>
+            </ul>
+        </div>
+        <div class="card-container">
+            <h2>白金信用卡</h2>
+            <p>顶级信用卡服务，专为高净值客户设计。提供专属优惠、全球服务支持和顶级消费奖励。</p>
+            <ul class="card-features">
+                <li><i>💎 专属优惠</i></li>
+                <li><i>🌍 全球服务支持</i></li>
+                <li><i>🎁 顶级消费奖励</i></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="card-benefits">
+        <h2>信用卡优势</h2>
+        <div class="benefit-list">
+            <div class="benefit-item">
+                <h3>安全保障</h3>
+                <p>先进的欺诈检测系统，确保您的交易安全。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>便捷服务</h3>
+                <p>24/7在线客服，随时解决您的问题。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>灵活还款</h3>
+                <p>多种还款选项，包括自动还款和在线还款。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>消费奖励</h3>
+                <p>每笔消费都为您赚取积分，可兑换礼品或抵扣现金。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>专属优惠</h3>
+                <p>享受合作商户的独家折扣和优惠。</p>
+            </div>
+            <div class="benefit-item">
+                <h3>旅行保险</h3>
+                <p>提供全面的旅行保险，包括意外伤害、医疗和行李保障。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 长川银行. 保留所有权利.</p>
+    </footer>
+</body>
+</html>

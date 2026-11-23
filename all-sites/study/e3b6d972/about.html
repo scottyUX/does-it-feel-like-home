@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 洁家家政</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            z-index: 1000;
+            padding: 0 24px;
+        }
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a7a4c;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a7a4c, #2ecc71);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 15px;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+        .nav-links a:hover {
+            color: #1a7a4c;
+        }
+        .nav-links a.active {
+            color: #1a7a4c;
+            font-weight: 600;
+        }
+        .nav-cta {
+            background: #1a7a4c;
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover {
+            background: #145c3a !important;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e8f8f0 100%);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            font-size: 16px;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Section */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        .section-sub {
+            font-size: 15px;
+            color: #718096;
+            margin-bottom: 32px;
+        }
+        /* About Intro */
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 16px;
+        }
+        .about-text p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .highlight-item {
+            background: #f7fdf9;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .highlight-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a7a4c;
+        }
+        .highlight-label {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 4px;
+        }
+        /* Values */
+        .values-section {
+            background: #f7fdf9;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .value-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+        .value-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        .value-card p {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.6;
+        }
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .team-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .team-card:hover {
+            border-color: #1a7a4c;
+            box-shadow: 0 12px 36px rgba(26,122,76,0.1);
+            transform: translateY(-3px);
+        }
+        .team-avatar {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #e2e8f0, #f7fdf9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 16px;
+            border: 3px solid #f0fff4;
+        }
+        .team-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+        .team-role {
+            font-size: 13px;
+            color: #1a7a4c;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .team-desc {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.7;
+        }
+        .team-exp {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #a0aec0;
+            background: #f7fafc;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        /* Certificates */
+        .cert-section {
+            background: #1a202c;
+            padding: 60px 0;
+        }
+        .cert-section h2 {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .cert-item {
+            background: #2d3748;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .cert-item .cert-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .cert-item p {
+            font-size: 13px;
+            color: #a0aec0;
+        }
+        /* Timeline */
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 32px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 32px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: #1a7a4c;
+            border-radius: 50%;
+            border: 3px solid #f0fff4;
+        }
+        .timeline-year {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a7a4c;
+            margin-bottom: 4px;
+        }
+        .timeline-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+        .timeline-item p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.7;
+        }
+        /* CTA */
+        .cta-bar {
+            background: linear-gradient(135deg, #1a7a4c, #145c3a);
+            padding: 48px 0;
+            text-align: center;
+        }
+        .cta-bar h2 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .cta-bar p {
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+        .btn-white {
+            background: #fff;
+            color: #1a7a4c;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #718096;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            font-size: 13px;
+            color: #718096;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover {
+            color: #2ecc71;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px 0;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        @media (max-width: 1024px) {
+            .about-intro {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .page-header h1 { font-size: 28px; }
+            .values-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">洁</div>
+                洁家家政
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务项目</a></li>
+                <li><a href="about.html" class="active">关于我们</a></li>
+                <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <div id="mobileMenu" style="display:none; position:fixed; top:72px; left:0; right:0; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,0.1); z-index:999; padding:16px 24px;">
+        <a href="index.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">首页</a>
+        <a href="services.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0;">服务项目</a>
+        <a href="about.html" style="display:block; padding:12px 0; font-size:16px; border-bottom:1px solid #e2e8f0; color:#1a7a4c; font-weight:600;">关于我们</a>
+        <a href="booking.html" style="display:block; padding:12px 0; font-size:16px; color:#1a7a4c; font-weight:600;">立即预约</a>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>关于洁家家政</h1>
+        <p>八年深耕北京家庭保洁，用专业和诚信赢得50,000+家庭的信赖</p>
+    </div>
+
+    <!-- About Intro -->
+    <section class="section">
+        <div class="container">
+            <div class="about-intro">
+                <div class="about-text">
+                    <h2>让"打扫"不再是一件事，而是一种享受</h2>
+                    <p>洁家家政成立于2016年，总部位于北京市朝阳区。从最初3个人的小团队，到如今拥有80余名专业保洁人员的服务网络，我们始终只做一件事：把家里打扫干净。</p>
+                    <p>我们深知，对于每天加班到八九点的上班族、忙于照顾孩子的年轻父母，"谁来打扫"是一个真实而紧迫的问题。我们的目标不是让您"将就着住"，而是让您每次推开门的那一刻，都能感受到"这个家很干净、很安心"。</p>
+                    <p>所有保洁人员均经过48小时系统培训、持健康证和上岗证服务，全程使用可降解环保清洁剂。我们相信，干净的家是幸福生活最基础的保障。</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-num">8年</div>
+                        <div class="highlight-label">行业经验</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-num">50,000+</div>
+                        <div class="highlight-label">服务家庭</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-num">80+</div>
+                        <div class="highlight-label">持证保洁人员</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-num">98%</div>
+                        <div class="highlight-label">客户好评率</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section values-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center; margin-bottom:8px;">我们的服务承诺</h2>
+            <p class="section-sub" style="text-align:center;">写进合同里的保障，不是口头说说</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🛡️</div>
+                    <h4>持证上岗</h4>
+                    <p>每位保洁人员均持健康证、职业资格证，身份信息在预约单上可查验</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌿</div>
+                    <h4>环保安全</h4>
+                    <p>使用可降解清洁剂，对儿童和宠物友好，不残留有害化学成分</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔄</div>
+                    <h4>免费重做</h4>
+                    <p>验收不满意，当场返工；仍不达标，24小时内二次上门，不收费</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📋</div>
+                    <h4>保险保障</h4>
+                    <p>每位服务人员购买家政责任险，服务期间意外损坏物品有赔偿保障</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">核心团队</h2>
+            <p class="section-sub">一支有温度、有标准、有经验的团队</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍💼</div>
+                    <h4>赵明远</h4>
+                    <div class="team-role">创始人 / 总经理</div>
+                    <p class="team-desc">前酒店运营经理，8年酒店管理背景。坚信"家庭保洁应该达到酒店标准"，亲自制定所有服务流程和质检标准。</p>
+                    <div class="team-exp">行业经验 12年</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h4>林晓薇</h4>
+                    <div class="team-role">服务总监</div>
+                    <p class="team-desc">负责80余名保洁人员的培训、排班和质量管理。每天随机抽查3个服务现场，确保每一单都达到标准。客户投诉响应不超过30分钟。</p>
+                    <div class="team-exp">管理经验 7年</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧</div>
+                    <h4>陈国栋</h4>
+                    <div class="team-role">首席技师 / 培训主管</div>
+                    <p class="team-desc">15年保洁行业经验，擅长深度清洁和疑难污渍处理。所有新员工的实操考核都由他主持，"陈师傅点头才能上岗"是洁家的规矩。</p>
+                    <div class="team-exp">保洁经验 15年</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="cert-section">
+        <h2>资质与认证</h2>
+        <div class="cert-grid">
+            <div class="cert-item">
+                <div class="cert-icon">📜</div>
+                <p>营业执照<br>统一社会信用代码</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">✅</div>
+                <p>家政服务<br>规范经营认证</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🏥</div>
+                <p>全员持有<br>有效健康证明</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">📑</div>
+                <p>家政责任<br>保险全覆盖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" style="text-align:center; margin-bottom:8px;">发展历程</h2>
+            <p class="section-sub" style="text-align:center;">从3个人到80人团队，每一步都走得踏实</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2016年</div>
+                    <h4>公司成立</h4>
+                    <p>赵明远与两位保洁师傅在朝阳区建国路租下30平办公室，正式开展家庭保洁服务，首月服务27个家庭。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2018年</div>
+                    <h4>标准化体系建设</h4>
+                    <p>引入酒店管理标准，制定《洁家保洁操作手册》，统一清洁剂品牌和工具配置，保洁人员扩至30人。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">

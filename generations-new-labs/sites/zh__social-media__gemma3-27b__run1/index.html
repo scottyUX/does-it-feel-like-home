@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 发现更多精彩</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #262626;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3897f6;
+        }
+
+        .search-bar {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #262626;
+            font-weight: bold;
+        }
+
+        .post {
+            background-color: #fff;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-author {
+            font-weight: bold;
+        }
+
+        .post-time {
+            font-size: 0.8em;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        .post-content {
+            margin-bottom: 10px;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .post-actions button {
+            background-color: transparent;
+            border: none;
+            color: #262626;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .post-actions button:hover {
+            color: #3897f6;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">趣聊</div>
+        <input type="text" class="search-bar" placeholder="搜索您感兴趣的人或内容">
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html">注册</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="post">
+            <div class="post-header">
+                <img class="post-avatar" src="assets/image-73308e8b4212f64f.png" alt="头像">
+                <div class="post-author">用户A</div>
+                <div class="post-time">2小时前</div>
+            </div>
+            <div class="post-content">
+                今天天气真好，出门走走心情都变好了！
+            </div>
+            <img class="post-image" src="assets/image-a3731e0a021008c6.png" alt="图片">
+            <div class="post-actions">
+                <button>点赞</button>
+                <button>评论</button>
+                <button>分享</button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img class="post-avatar" src="assets/image-73308e8b4212f64f.png" alt="头像">
+                <div class="post-author">用户B</div>
+                <div class="post-time">1天前</div>
+            </div>
+            <div class="post-content">
+                周末在家看电影也是一种享受。推荐一部最近看的电影《XXX》。
+            </div>
+            <img class="post-image" src="assets/image-a3731e0a021008c6.png" alt="图片">
+            <div class="post-actions">
+                <button>点赞</button>
+                <button>评论</button>
+                <button>分享</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2023 趣聊 - 版权所有
+    </footer>
+</body>
+</html>

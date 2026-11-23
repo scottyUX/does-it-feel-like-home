@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 可衣</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .product-item {
+            width: 22%;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .product-item p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 0.8em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>可衣</h1>
+        <p>穿出你的风格</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="products.html">商品列表</a>
+        <a href="cart.html">购物车</a>
+        <a href="about.html">关于我们</a>
+    </nav>
+
+    <main>
+        <h2>商品列表</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="连衣裙1">
+                <h3>连衣裙1</h3>
+                <p>¥199</p>
+                <p>尺码: S, M, L</p>
+                <a href="product-detail.html?id=1">查看详情</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="连衣裙2">
+                <h3>连衣裙2</h3>
+                <p>¥229</p>
+                <p>尺码: M, L, XL</p>
+                <a href="product-detail.html?id=2">查看详情</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="休闲裤1">
+                <h3>休闲裤1</h3>
+                <p>¥159</p>
+                <p>尺码: 26, 28, 30</p>
+                <a href="product-detail.html?id=3">查看详情</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="衬衫1">
+                <h3>衬衫1</h3>
+                <p>¥129</p>
+                <p>尺码: S, M, L</p>
+                <a href="product-detail.html?id=4">查看详情</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="外套1">
+                <h3>外套1</h3>
+                <p>¥399</p>
+                <p>尺码: S, M, L</p>
+                <a href="product-detail.html?id=5">查看详情</a>
+            </div>
+            <div class="product-item">
+                <img src="assets/image-ead01fe75fede6c8.png" alt="半身裙1">
+                <h3>半身裙1</h3>
+                <p>¥189</p>
+                <p>尺码: S, M, L</p>
+                <a href="product-detail.html?id=6">查看详情</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 可衣.  版权所有.
+    </footer>
+</body>
+</html>

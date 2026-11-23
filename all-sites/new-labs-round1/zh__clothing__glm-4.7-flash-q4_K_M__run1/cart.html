@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 - 可衣</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --bg-color: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-color: #333333;
+            --gray-text: #666666;
+            --border-color: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: var(--text-color); background-color: var(--bg-color); }
+
+        a { text-decoration: none; color: inherit; }
+        
+        header { border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: var(--primary-color); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-color); }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .cart-table { width: 100%; border-collapse: collapse; }
+        
+        .cart-table th { text-align: left; padding: 15px 0; border-bottom: 2px solid var(--border-color); font-weight: 500; color: var(--gray-text); font-size: 14px; }
+        
+        .cart-table td { padding: 25px 0; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+
+        .product-cell { display: flex; gap: 20px; align-items: center; }
+        
+        .product-thumb { width: 80px; height: 100px; background: #eee; flex-shrink: 0; }
+        
+        .product-name { font-weight: 500; display: block; margin-bottom: 5px; cursor: pointer; }
+        
+        .product-attr { font-size: 12px; color: var(--gray-text); }
+
+        .qty-control { display: flex; align-items: center; border: 1px solid var(--border-color); width: fit-content; }
+        
+        .qty-btn { width: 30px; height: 30px; border: none; background: none; cursor: pointer; font-size: 14px; color: var(--gray-text); }
+        
+        .qty-input { width: 30px; text-align: center; border: none; outline: none; font-size: 14px; }
+
+        .price-cell { font-family: "Courier New", Courier, monospace; font-weight: 500; }
+
+        .remove-link { color: #999; font-size: 13px; cursor: pointer; text-decoration: underline; }
+        .remove-link:hover { color: #ff4d4f; }
+
+        .summary-box { background: var(--light-bg); padding: 30px; height: fit-content; }
+        
+        .summary-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; }
+        
+        .summary-total { font-size: 20px; font-weight: bold; color: var(--primary-color); border-top: 1px solid #ddd; padding-top: 15px; margin-top: 15px; }
+        
+        .btn-checkout { width: 100%; display: block; text-align: center; margin-top: 20px; padding: 15px; background-color: var(--primary-color); color: #fff; font-weight: bold; cursor: pointer; }
+        
+        .btn-checkout:hover { background-color: #333; }
+        
+        .continue-shopping { display: block; text-align: center; margin-top: 15px; color: var(--accent-color); cursor: pointer; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .cart-layout { grid-template-columns: 1fr; }
+            .cart-table { display: block; }
+            .cart-table tr { margin-bottom: 20px; border: 1px solid var(--border-color); padding: 15px; }
+            .cart-table td { display: block; padding: 5px 0; text-align: right; }
+            .product-cell { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 KOYI</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场通勤</a>
+                <a href="products.html">日常穿搭</a>
+                <a href="cart.html" style="color: var(--primary-color);">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container cart-layout">
+        <!-- Left: Cart Items -->
+        <div>
+            <h2 style="margin-bottom: 30px;">购物车 (3)</h2>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>商品信息</th>
+                        <th style="width: 100px;">单价</th>
+                        <th style="width: 100px;">数量</th>
+                        <th style="width: 120px;">小计</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="product-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+                                <div>
+                                    <span class="product-name">极简真丝衬衫</span>
+                                    <span class="product-attr">黑色 / M / 桑蚕丝</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥599</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <input type="text" class="qty-input" value="1">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥599</td>
+                        <td><span class="remove-link">删除</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="product-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+                                <div>
+                                    <span class="product-name">高腰阔腿西装裤</span>
+                                    <span class="product-attr">米色 / L / 混纺羊毛</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥459</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <input type="text" class="qty-input" value="1">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥459</td>
+                        <td><span class="remove-link">删除</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product-cell">
+                                <div class="product-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+                                <div>
+                                    <span class="product-name">棉麻简约上衣</span>
+                                    <span class="product-attr">白色 / S / 棉麻混纺</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥259</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <input type="text" class="qty-input" value="2">
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td class="price-cell">¥518</td>
+                        <td><span class="remove-link">删除</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Right: Summary -->
+        <aside class="summary-box">
+            <h3>订单汇总</h3>
+            <div style="margin-top: 20px;">
+                <div class="summary-item">
+                    <span>商品小计</span>
+                    <span>¥1,576</span>
+                </div>
+                <div class="summary-item">
+                    <span>运费</span>
+                    <span>¥0</span>
+                </div>
+                <div class="summary-item">
+                    <span>优惠减免</span>
+                    <span style="color: #e74c3c;">-¥50</span>
+                </div>
+                <div class="summary-item summary-total">
+                    <span>实付款</span>
+                    <span>¥1,526</span>
+                </div>
+            </div>
+            
+            <button class="btn-checkout" onclick="alert('演示模式：正在跳转至支付页面')">立即结算</button>
+            
+            <a href="products.html" class="continue-shopping">继续购物</a>
+            
+            <p style="margin-top: 20px; font-size: 12px; color: #999; line-height: 1.6;">
+                可衣承诺在7天内提供无忧退换货服务。<br>
+                好评返现活动正在进行中。
+            </p>
+        </aside>
+    </div>
+</body>
+</html>

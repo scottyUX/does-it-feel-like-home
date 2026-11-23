@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>趣聊 - 首页</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; padding: 10px 0; }
+        header a { color: white; text-decoration: none; padding: 0 15px; }
+        nav { background-color: #444; padding: 5px 0; }
+        nav ul { list-style-type: none; margin: 0; padding: 0; display: flex; justify-content: center; }
+        nav ul li { display: inline; margin: 0 10px; }
+        .content { max-width: 1440px; margin: auto; padding: 20px; }
+        .feed { background-color: white; padding: 20px; margin-top: 20px; border-radius: 5px; }
+        .feed-post { margin-bottom: 20px; }
+        .feed-post img { width: 100%; border-radius: 5px; }
+        .feed-post .post-info { padding: 10px; }
+        .feed-post .post-info h3 { margin: 0; }
+        .feed-post .post-info p { margin: 5px 0; }
+        .feed-post .post-footer { border-top: 1px solid #ddd; padding-top: 10px; }
+        .feed-post .post-footer a { color: #333; text-decoration: none; }
+        .footer { background-color: #333; color: white; text-align: center; padding: 10px 0; margin-top: 20px; }
+        @media (max-width: 1440px) {
+            .content { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="logo.png" alt="趣聊"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="signup.html">注册</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        <div class="feed">
+            <div class="feed-post">
+                <img src="post1.jpg" alt="Post Image">
+                <div class="post-info">
+                    <h3>标题1</h3>
+                    <p>发布者：张三</p>
+                    <p>内容：今天天气不错，适合出去走走。</p>
+                </div>
+                <div class="post-footer">
+                    <a href="single-post.html">查看评论</a>
+                </div>
+            </div>
+            <div class="feed-post">
+                <img src="post2.jpg" alt="Post Image">
+                <div class="post-info">
+                    <h3>标题2</h3>
+                    <p>发布者：李四</p>
+                    <p>内容：昨晚看了部电影，推荐给大家。</p>
+                </div>
+                <div class="post-footer">
+                    <a href="single-post.html">查看评论</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2023 趣聊版权所有</p>
+    </footer>
+</body>
+</html>

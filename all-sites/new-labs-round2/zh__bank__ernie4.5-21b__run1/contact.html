@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 长川银行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-button {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .info-card {
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .info-card h2 {
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .info-item i {
+            margin-right: 10px;
+            color: #1a5276;
+        }
+        .map-section {
+            margin-bottom: 60px;
+        }
+        .map-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .form-section {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-section h2 {
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .submit-button {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">长川银行</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人银行服务</a></li>
+                    <li><a href="credit.html">信用卡</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <a href="index.html" class="back-button">返回首页</a>
+
+    <section class="contact-info">
+        <div class="info-card">
+            <h2>客服热线</h2>
+            <div class="info-item">
+                <i>📞</i>
+                <span>400-888-1234</span>
+            </div>
+            <div class="info-item">
+                <i>⏰</i>
+                <span>周一至周日 8:00-22:00</span>
+            </div>
+        </div>
+        <div class="info-card">
+            <h2>营业时间</h2>
+            <div class="info-item">
+                <i>🏦</i>
+                <span>周一至周五 9:00-17:00</span>
+            </div>
+            <div class="info-item">
+                <i>🏦</i>
+                <span>周六至周日 10:00-16:00</span>
+            </div>
+        </div>
+        <div class="info-card">
+            <h2>营业地点</h2>
+            <div class="info-item">
+                <i>📍</i>
+                <span>北京市朝阳区建国路88号</span>
+            </div>
+            <div class="info-item">
+                <i>📍</i>
+                <span>上海市浦东新区陆家嘴环路1000号</span>
+            </div>
+            <div class="info-item">
+                <i>📍</i>
+                <span>广州市天河区珠江新城CBD</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <p>这里是地图容器，实际部署时可以嵌入真实的地图服务。</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <h2>发送消息</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">电子邮箱</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">电话号码</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="message">留言内容</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">发送消息</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2023 长川银行. 保留所有权利.</p>
+    </footer>
+</body>
+</html>

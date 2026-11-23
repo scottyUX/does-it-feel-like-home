@@ -1,0 +1,17 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+.header { background: #ff69b4; color: white; padding: 10px 0; text-align: center; }
+.nav { background: #333; color: white; padding: 10px 0; }
+.nav a { color: white; text-decoration: none; padding: 0 20px; }
+.nav a:hover { background: #555; }
+.content { padding: 20px; }
+.footer { background: #333; color: white; text-align: center; padding: 10px 0; }
+.banner { background: url('banner.jpg') no-repeat center center; background-size: cover; height: 400px; }
+.banner h1 { color: white; text-align: center; padding-top: 150px; }
+.services { display: flex; flex-wrap: wrap; justify-content: space-around; }
+.service { margin: 10px; padding: 10px; text-align: center; width: 30%; }
+.service img { width: 100%; }
+.news { margin-top: 20px; }
+.news h2 { margin-top: 0; }
+.news-item { border-bottom: 1px solid #ddd; padding: 10px 0; }
+.news-item a { text-decoration: none; color: #333; }
+.news-item a:hover { text-decoration: underline; }

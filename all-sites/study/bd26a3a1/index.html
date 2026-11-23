@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长川银行 - 陪伴您共同成长</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #c5a059;
+            --text-color: #333;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23002244"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #b08e4a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 80px 0;
+        }
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        .service-card p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cta-section {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            font-size: 14px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">长川银行 CHANGCHUAN BANK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="personal.html">个人银行</a></li>
+                <li><a href="cards.html">信用卡</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>稳健经营，长川之水，润泽未来</h1>
+        <p>为您提供专业、便捷、安全的金融解决方案，助力个人财富增长与企业规模扩张。</p>
+        <a href="personal.html" class="btn">探索我们的服务</a>
+    </div>
+</section>
+
+<div class="container">
+    <section class="services-grid">
+        <div class="service-card">
+            <h3>个人储蓄</h3>
+            <p>提供灵活的活期账户与高收益的定期存款产品，让您的资金在安全中增值。</p>
+            <a href="personal.html" class="btn">了解详情</a>
+        </div>
+        <div class="service-card">
+            <h3>信用卡服务</h3>
+            <p>多样化的信用卡选择，涵盖消费返现、机场贵宾厅及专属财务管理工具。</p>
+            <a href="cards.html" class="btn">查看卡种</a>
+        </div>
+        <div class="service-card">
+            <h3>小企业贷款</h3>
+            <p>针对初创及成长型企业，提供快速审批的信用贷款与抵押贷款支持。</p>
+            <a href="personal.html" class="btn">申请贷款</a>
+        </div>
+    </section>
+</div>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>准备好开启您的财务增长之旅了吗？</h2>
+        <p>我们的专业客户经理随时准备为您提供量身定制的建议。</p>
+        <br>
+        <a href="contact.html" class="btn">预约面谈</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>&copy; 2023 长川银行 版权所有。</div>
+            <div>
+                <a href="contact.html" style="color: #ccc; text-decoration: none; margin-left: 20px;">隐私政策</a>
+                <a href="contact.html" style="color: #ccc; text-decoration: none; margin-left: 20px;">服务协议</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

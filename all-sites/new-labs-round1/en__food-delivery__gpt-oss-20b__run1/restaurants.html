@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>快送外卖 - 餐厅列表</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;}
+header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:bold;}
+main{padding:20px;}
+.restaurant-list{display:flex;flex-direction:column;gap:15px;}
+.restaurant-card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:center;padding:15px;}
+.restaurant-info{display:flex;align-items:center;}
+.restaurant-img{width:60px;height:60px;border-radius:4px;background:#ccc;margin-right:15px;}
+.restaurant-name{font-size:18px;font-weight:bold;}
+.restaurant-meta{font-size:14px;color:#777;}
+.restaurant-link{color:#ff6600;font-weight:bold;text-decoration:none;}
+.restaurant-link:hover{text-decoration:underline;}
+@media(max-width:600px){.restaurant-card{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<header>
+<h1>快送外卖</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+</header>
+<main>
+<h2 id="title">餐厅列表</h2>
+<div class="restaurant-list" id="list"></div>
+</main>
+<footer>© 2024 快送外卖 版权所有</footer>
+<script>
+function getQueryParam(name){const url=window.location.href;const reg=new RegExp('[?&]'+name+'=([^&#]*)','i');const result=url.match(reg);return result?decodeURIComponent(result[1]):null;}
+const category=getQueryParam('cat')||'全部';
+document.getElementById('title').textContent='餐厅列表 - '+category;
+const restaurants=[
+{ id:1, name:'川味小馆', rating:4.5, distance:'0.8km', category:'川菜'},
+{ id:2, name:'面食坊', rating:4.0, distance:'1.2km', category:'面食'},
+{ id:3, name:'快餐小站', rating:3.8, distance:'0.5km', category:'快餐'},
+{ id:4, name:'素食乐园', rating:4.2, distance:'1.0km', category:'素食'},
+{ id:5, name:'甜蜜时光', rating:4.6, distance:'0.9km', category:'甜品'},
+{ id:6, name:'海鲜盛宴', rating:4.7, distance:'1.3km', category:'海鲜'},
+];
+const list=document.getElementById('list');
+restaurants.filter(r=>category==='全部'||r.category===category).forEach(r=>{
+const card=document.createElement('div');card.className='restaurant-card';
+const info=document.createElement('div');info.className='restaurant-info';
+const img=document.createElement('div');img.className='restaurant-img';
+const name=document.createElement('div');name.className='restaurant-name';name.textContent=r.name;
+info.appendChild(img);info.appendChild(name);
+const meta=document.createElement('div');meta.className='restaurant-meta';meta.textContent=r.rating+'星 | '+r.distance;
+info.appendChild(meta);
+card.appendChild(info);
+const link=document.createElement('a');link.href='restaurant.html?id='+r.id;link.className='restaurant-link';link.textContent='查看菜单';
+card.appendChild(link);
+list.appendChild(card);
+});
+</script>
+</body>
+</html>

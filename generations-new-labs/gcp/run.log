@@ -1,0 +1,281 @@
+11:23 pull glm-4.7-flash:q4_K_M
+11:24 generate glm-4.7-flash:q4_K_M zh
+11:24 start china-audience zh run1 clothing glm-4.7-flash:q4_K_M attempt 1
+11:29 done china-audience zh run1 clothing glm-4.7-flash:q4_K_M pages=4 264s
+11:29 start china-audience zh run1 restaurant glm-4.7-flash:q4_K_M attempt 1
+11:30 done china-audience zh run1 restaurant glm-4.7-flash:q4_K_M pages=4 103s
+11:30 start china-audience zh run1 news glm-4.7-flash:q4_K_M attempt 1
+11:32 done china-audience zh run1 news glm-4.7-flash:q4_K_M pages=5 121s
+11:32 start china-audience zh run1 social-media glm-4.7-flash:q4_K_M attempt 1
+11:34 done china-audience zh run1 social-media glm-4.7-flash:q4_K_M pages=4 94s
+11:34 start china-audience zh run1 travel glm-4.7-flash:q4_K_M attempt 1
+11:36 done china-audience zh run1 travel glm-4.7-flash:q4_K_M pages=4 136s
+11:36 start china-audience zh run1 bank glm-4.7-flash:q4_K_M attempt 1
+11:39 done china-audience zh run1 bank glm-4.7-flash:q4_K_M pages=4 172s
+11:39 start china-audience zh run1 food-delivery glm-4.7-flash:q4_K_M attempt 1
+11:41 done china-audience zh run1 food-delivery glm-4.7-flash:q4_K_M pages=5 123s
+11:41 start china-audience zh run1 beauty-salon glm-4.7-flash:q4_K_M attempt 1
+11:43 done china-audience zh run1 beauty-salon glm-4.7-flash:q4_K_M pages=5 114s
+11:43 start china-audience zh run1 learning glm-4.7-flash:q4_K_M attempt 1
+11:45 done china-audience zh run1 learning glm-4.7-flash:q4_K_M pages=4 128s
+11:45 start china-audience zh run1 home-cleaning glm-4.7-flash:q4_K_M attempt 1
+11:47 done china-audience zh run1 home-cleaning glm-4.7-flash:q4_K_M pages=4 114s
+11:47 all finished
+11:47 generate glm-4.7-flash:q4_K_M en
+11:47 start china-audience en run1 clothing glm-4.7-flash:q4_K_M attempt 1
+11:51 done china-audience en run1 clothing glm-4.7-flash:q4_K_M pages=5 261s
+11:51 start china-audience en run1 restaurant glm-4.7-flash:q4_K_M attempt 1
+11:53 done china-audience en run1 restaurant glm-4.7-flash:q4_K_M pages=4 89s
+11:53 start china-audience en run1 news glm-4.7-flash:q4_K_M attempt 1
+11:55 done china-audience en run1 news glm-4.7-flash:q4_K_M pages=4 137s
+11:55 start china-audience en run1 social-media glm-4.7-flash:q4_K_M attempt 1
+11:58 done china-audience en run1 social-media glm-4.7-flash:q4_K_M pages=4 150s
+11:58 start china-audience en run1 travel glm-4.7-flash:q4_K_M attempt 1
+12:00 done china-audience en run1 travel glm-4.7-flash:q4_K_M pages=4 124s
+12:00 start china-audience en run1 bank glm-4.7-flash:q4_K_M attempt 1
+12:02 done china-audience en run1 bank glm-4.7-flash:q4_K_M pages=4 121s
+12:02 start china-audience en run1 food-delivery glm-4.7-flash:q4_K_M attempt 1
+12:03 done china-audience en run1 food-delivery glm-4.7-flash:q4_K_M pages=4 103s
+12:03 start china-audience en run1 beauty-salon glm-4.7-flash:q4_K_M attempt 1
+12:05 done china-audience en run1 beauty-salon glm-4.7-flash:q4_K_M pages=5 121s
+12:05 start china-audience en run1 learning glm-4.7-flash:q4_K_M attempt 1
+12:08 done china-audience en run1 learning glm-4.7-flash:q4_K_M pages=4 160s
+12:08 start china-audience en run1 home-cleaning glm-4.7-flash:q4_K_M attempt 1
+12:10 done china-audience en run1 home-cleaning glm-4.7-flash:q4_K_M pages=4 99s
+12:10 all finished
+12:10 pull llama4:scout
+12:16 generate llama4:scout zh
+12:16 start china-audience zh run1 clothing llama4:scout attempt 1
+12:19 done china-audience zh run1 clothing llama4:scout pages=5 138s
+12:19 start china-audience zh run1 restaurant llama4:scout attempt 1
+12:20 done china-audience zh run1 restaurant llama4:scout pages=4 47s
+12:20 start china-audience zh run1 news llama4:scout attempt 1
+12:21 done china-audience zh run1 news llama4:scout pages=9 84s
+12:21 start china-audience zh run1 social-media llama4:scout attempt 1
+12:22 done china-audience zh run1 social-media llama4:scout pages=5 63s
+12:22 start china-audience zh run1 travel llama4:scout attempt 1
+12:23 done china-audience zh run1 travel llama4:scout pages=5 41s
+12:23 start china-audience zh run1 bank llama4:scout attempt 1
+12:23 done china-audience zh run1 bank llama4:scout pages=4 45s
+12:23 start china-audience zh run1 food-delivery llama4:scout attempt 1
+12:24 done china-audience zh run1 food-delivery llama4:scout pages=5 61s
+12:24 start china-audience zh run1 beauty-salon llama4:scout attempt 1
+12:25 done china-audience zh run1 beauty-salon llama4:scout pages=4 44s
+12:25 start china-audience zh run1 learning llama4:scout attempt 1
+12:26 done china-audience zh run1 learning llama4:scout pages=5 52s
+12:26 start china-audience zh run1 home-cleaning llama4:scout attempt 1
+12:27 done china-audience zh run1 home-cleaning llama4:scout pages=4 43s
+12:27 all finished
+12:27 generate llama4:scout en
+12:27 start china-audience en run1 clothing llama4:scout attempt 1
+12:28 done china-audience en run1 clothing llama4:scout pages=4 47s
+12:28 start china-audience en run1 restaurant llama4:scout attempt 1
+12:28 done china-audience en run1 restaurant llama4:scout pages=4 45s
+12:28 start china-audience en run1 news llama4:scout attempt 1
+12:30 done china-audience en run1 news llama4:scout pages=9 89s
+12:30 start china-audience en run1 social-media llama4:scout attempt 1
+12:30 done china-audience en run1 social-media llama4:scout pages=4 33s
+12:30 start china-audience en run1 travel llama4:scout attempt 1
+12:31 done china-audience en run1 travel llama4:scout pages=4 34s
+12:31 start china-audience en run1 bank llama4:scout attempt 1
+12:32 done china-audience en run1 bank llama4:scout pages=4 46s
+12:32 start china-audience en run1 food-delivery llama4:scout attempt 1
+12:32 done china-audience en run1 food-delivery llama4:scout pages=4 30s
+12:32 start china-audience en run1 beauty-salon llama4:scout attempt 1
+12:33 done china-audience en run1 beauty-salon llama4:scout pages=4 48s
+12:33 start china-audience en run1 learning llama4:scout attempt 1
+12:34 done china-audience en run1 learning llama4:scout pages=4 53s
+12:34 start china-audience en run1 home-cleaning llama4:scout attempt 1
+12:35 done china-audience en run1 home-cleaning llama4:scout pages=4 45s
+12:35 all finished
+12:35 pull nemotron3:33b
+12:37 generate nemotron3:33b zh
+12:37 start china-audience zh run1 clothing nemotron3:33b attempt 1
+12:39 done china-audience zh run1 clothing nemotron3:33b pages=5 127s
+12:39 start china-audience zh run1 restaurant nemotron3:33b attempt 1
+12:39 done china-audience zh run1 restaurant nemotron3:33b pages=4 27s
+12:39 start china-audience zh run1 news nemotron3:33b attempt 1
+12:40 done china-audience zh run1 news nemotron3:33b pages=10 52s
+12:40 start china-audience zh run1 social-media nemotron3:33b attempt 1
+12:41 done china-audience zh run1 social-media nemotron3:33b pages=5 72s
+12:41 start china-audience zh run1 travel nemotron3:33b attempt 1
+12:42 done china-audience zh run1 travel nemotron3:33b pages=5 57s
+12:42 start china-audience zh run1 bank nemotron3:33b attempt 1
+12:43 done china-audience zh run1 bank nemotron3:33b pages=4 26s
+12:43 start china-audience zh run1 food-delivery nemotron3:33b attempt 1
+12:43 done china-audience zh run1 food-delivery nemotron3:33b pages=5 34s
+12:43 start china-audience zh run1 beauty-salon nemotron3:33b attempt 1
+12:44 done china-audience zh run1 beauty-salon nemotron3:33b pages=4 34s
+12:44 start china-audience zh run1 learning nemotron3:33b attempt 1
+12:44 done china-audience zh run1 learning nemotron3:33b pages=5 30s
+12:44 start china-audience zh run1 home-cleaning nemotron3:33b attempt 1
+12:45 done china-audience zh run1 home-cleaning nemotron3:33b pages=4 39s
+12:45 all finished
+12:45 generate nemotron3:33b en
+12:45 start china-audience en run1 clothing nemotron3:33b attempt 1
+12:47 done china-audience en run1 clothing nemotron3:33b pages=5 132s
+12:47 start china-audience en run1 restaurant nemotron3:33b attempt 1
+12:48 done china-audience en run1 restaurant nemotron3:33b pages=4 56s
+12:48 start china-audience en run1 news nemotron3:33b attempt 1
+12:50 done china-audience en run1 news nemotron3:33b pages=4 89s
+12:50 start china-audience en run1 social-media nemotron3:33b attempt 1
+12:50 done china-audience en run1 social-media nemotron3:33b pages=5 53s
+12:50 start china-audience en run1 travel nemotron3:33b attempt 1
+12:51 done china-audience en run1 travel nemotron3:33b pages=5 53s
+12:51 start china-audience en run1 bank nemotron3:33b attempt 1
+12:53 done china-audience en run1 bank nemotron3:33b pages=4 110s
+12:53 start china-audience en run1 food-delivery nemotron3:33b attempt 1
+12:56 incomplete china-audience en run1 food-delivery nemotron3:33b pages=5 175s
+12:56 start china-audience en run1 food-delivery nemotron3:33b attempt 2
+12:58 done china-audience en run1 food-delivery nemotron3:33b pages=8 96s
+12:58 start china-audience en run1 beauty-salon nemotron3:33b attempt 1
+12:58 done china-audience en run1 beauty-salon nemotron3:33b pages=4 44s
+12:58 start china-audience en run1 learning nemotron3:33b attempt 1
+12:59 done china-audience en run1 learning nemotron3:33b pages=5 63s
+12:59 start china-audience en run1 home-cleaning nemotron3:33b attempt 1
+13:01 incomplete china-audience en run1 home-cleaning nemotron3:33b pages=0 104s
+13:01 start china-audience en run1 home-cleaning nemotron3:33b attempt 2
+13:03 done china-audience en run1 home-cleaning nemotron3:33b pages=4 86s
+13:03 all finished
+13:03 pull glm4:9b
+13:03 generate glm4:9b zh
+13:03 start china-audience zh run1 clothing glm4:9b attempt 1
+13:04 done china-audience zh run1 clothing glm4:9b pages=5 27s
+13:04 start china-audience zh run1 restaurant glm4:9b attempt 1
+13:04 done china-audience zh run1 restaurant glm4:9b pages=4 13s
+13:04 start china-audience zh run1 news glm4:9b attempt 1
+13:04 done china-audience zh run1 news glm4:9b pages=4 12s
+13:04 start china-audience zh run1 social-media glm4:9b attempt 1
+13:04 done china-audience zh run1 social-media glm4:9b pages=5 12s
+13:04 start china-audience zh run1 travel glm4:9b attempt 1
+13:04 done china-audience zh run1 travel glm4:9b pages=5 15s
+13:04 start china-audience zh run1 bank glm4:9b attempt 1
+13:05 done china-audience zh run1 bank glm4:9b pages=4 13s
+13:05 start china-audience zh run1 food-delivery glm4:9b attempt 1
+13:05 done china-audience zh run1 food-delivery glm4:9b pages=6 24s
+13:05 start china-audience zh run1 beauty-salon glm4:9b attempt 1
+13:05 done china-audience zh run1 beauty-salon glm4:9b pages=4 13s
+13:05 start china-audience zh run1 learning glm4:9b attempt 1
+13:05 done china-audience zh run1 learning glm4:9b pages=4 14s
+13:05 start china-audience zh run1 home-cleaning glm4:9b attempt 1
+13:06 done china-audience zh run1 home-cleaning glm4:9b pages=4 9s
+13:06 all finished
+13:06 generate glm4:9b en
+13:06 start china-audience en run1 clothing glm4:9b attempt 1
+13:06 done china-audience en run1 clothing glm4:9b pages=5 21s
+13:06 start china-audience en run1 restaurant glm4:9b attempt 1
+13:06 done china-audience en run1 restaurant glm4:9b pages=4 12s
+13:06 start china-audience en run1 news glm4:9b attempt 1
+13:06 done china-audience en run1 news glm4:9b pages=4 10s
+13:06 start china-audience en run1 social-media glm4:9b attempt 1
+13:07 done china-audience en run1 social-media glm4:9b pages=4 12s
+13:07 start china-audience en run1 travel glm4:9b attempt 1
+13:07 done china-audience en run1 travel glm4:9b pages=4 11s
+13:07 start china-audience en run1 bank glm4:9b attempt 1
+13:07 done china-audience en run1 bank glm4:9b pages=4 13s
+13:07 start china-audience en run1 food-delivery glm4:9b attempt 1
+13:07 done china-audience en run1 food-delivery glm4:9b pages=5 18s
+13:07 start china-audience en run1 beauty-salon glm4:9b attempt 1
+13:07 done china-audience en run1 beauty-salon glm4:9b pages=4 13s
+13:07 start china-audience en run1 learning glm4:9b attempt 1
+13:08 done china-audience en run1 learning glm4:9b pages=7 25s
+13:08 start china-audience en run1 home-cleaning glm4:9b attempt 1
+13:08 done china-audience en run1 home-cleaning glm4:9b pages=4 12s
+13:08 all finished
+13:08 pull gemma3:27b
+13:10 generate gemma3:27b zh
+13:10 start china-audience zh run1 clothing gemma3:27b attempt 1
+13:12 done china-audience zh run1 clothing gemma3:27b pages=5 145s
+13:12 start china-audience zh run1 restaurant gemma3:27b attempt 1
+13:24 incomplete china-audience zh run1 restaurant gemma3:27b pages=1 700s
+13:24 start china-audience zh run1 restaurant gemma3:27b attempt 2
+13:36 incomplete china-audience zh run1 restaurant gemma3:27b pages=1 704s
+13:36 start china-audience zh run1 news gemma3:27b attempt 1
+13:37 done china-audience zh run1 news gemma3:27b pages=4 82s
+13:37 start china-audience zh run1 social-media gemma3:27b attempt 1
+13:38 done china-audience zh run1 social-media gemma3:27b pages=4 92s
+13:38 start china-audience zh run1 travel gemma3:27b attempt 1
+13:40 done china-audience zh run1 travel gemma3:27b pages=4 70s
+13:40 start china-audience zh run1 bank gemma3:27b attempt 1
+13:41 done china-audience zh run1 bank gemma3:27b pages=4 76s
+13:41 start china-audience zh run1 food-delivery gemma3:27b attempt 1
+13:42 done china-audience zh run1 food-delivery gemma3:27b pages=6 94s
+13:42 start china-audience zh run1 beauty-salon gemma3:27b attempt 1
+13:44 done china-audience zh run1 beauty-salon gemma3:27b pages=4 84s
+13:44 start china-audience zh run1 learning gemma3:27b attempt 1
+13:46 done china-audience zh run1 learning gemma3:27b pages=4 101s
+13:46 start china-audience zh run1 home-cleaning gemma3:27b attempt 1
+13:57 incomplete china-audience zh run1 home-cleaning gemma3:27b pages=3 702s
+13:57 start china-audience zh run1 home-cleaning gemma3:27b attempt 2
+14:09 incomplete china-audience zh run1 home-cleaning gemma3:27b pages=3 701s
+14:09 all finished
+14:09 generate gemma3:27b en
+14:09 start china-audience en run1 clothing gemma3:27b attempt 1
+14:11 done china-audience en run1 clothing gemma3:27b pages=5 114s
+14:11 start china-audience en run1 restaurant gemma3:27b attempt 1
+14:12 done china-audience en run1 restaurant gemma3:27b pages=4 87s
+14:12 start china-audience en run1 news gemma3:27b attempt 1
+14:17 done china-audience en run1 news gemma3:27b pages=16 261s
+14:17 start china-audience en run1 social-media gemma3:27b attempt 1
+14:18 done china-audience en run1 social-media gemma3:27b pages=4 73s
+14:18 start china-audience en run1 travel gemma3:27b attempt 1
+14:19 done china-audience en run1 travel gemma3:27b pages=5 96s
+14:19 start china-audience en run1 bank gemma3:27b attempt 1
+14:21 done china-audience en run1 bank gemma3:27b pages=4 72s
+14:21 start china-audience en run1 food-delivery gemma3:27b attempt 1
+14:22 done china-audience en run1 food-delivery gemma3:27b pages=4 76s
+14:22 start china-audience en run1 beauty-salon gemma3:27b attempt 1
+14:23 done china-audience en run1 beauty-salon gemma3:27b pages=4 82s
+14:23 start china-audience en run1 learning gemma3:27b attempt 1
+14:25 done china-audience en run1 learning gemma3:27b pages=5 97s
+14:25 start china-audience en run1 home-cleaning gemma3:27b attempt 1
+14:26 done china-audience en run1 home-cleaning gemma3:27b pages=4 80s
+14:26 all finished
+14:26 pull gpt-oss:20b
+14:27 generate gpt-oss:20b zh
+14:27 start china-audience zh run1 clothing gpt-oss:20b attempt 1
+14:29 done china-audience zh run1 clothing gpt-oss:20b pages=7 80s
+14:29 start china-audience zh run1 restaurant gpt-oss:20b attempt 1
+14:29 done china-audience zh run1 restaurant gpt-oss:20b pages=4 20s
+14:29 start china-audience zh run1 news gpt-oss:20b attempt 1
+14:30 done china-audience zh run1 news gpt-oss:20b pages=5 27s
+14:30 start china-audience zh run1 social-media gpt-oss:20b attempt 1
+14:33 incomplete china-audience zh run1 social-media gpt-oss:20b pages=1 218s
+14:33 start china-audience zh run1 social-media gpt-oss:20b attempt 2
+14:34 done china-audience zh run1 social-media gpt-oss:20b pages=4 29s
+14:34 start china-audience zh run1 travel gpt-oss:20b attempt 1
+14:34 done china-audience zh run1 travel gpt-oss:20b pages=4 22s
+14:34 start china-audience zh run1 bank gpt-oss:20b attempt 1
+14:34 done china-audience zh run1 bank gpt-oss:20b pages=4 24s
+14:34 start china-audience zh run1 food-delivery gpt-oss:20b attempt 1
+14:35 done china-audience zh run1 food-delivery gpt-oss:20b pages=4 28s
+14:35 start china-audience zh run1 beauty-salon gpt-oss:20b attempt 1
+14:35 done china-audience zh run1 beauty-salon gpt-oss:20b pages=4 23s
+14:35 start china-audience zh run1 learning gpt-oss:20b attempt 1
+14:36 done china-audience zh run1 learning gpt-oss:20b pages=4 28s
+14:36 start china-audience zh run1 home-cleaning gpt-oss:20b attempt 1
+14:36 done china-audience zh run1 home-cleaning gpt-oss:20b pages=4 19s
+14:36 all finished
+14:36 generate gpt-oss:20b en
+14:36 start china-audience en run1 clothing gpt-oss:20b attempt 1
+14:37 done china-audience en run1 clothing gpt-oss:20b pages=4 44s
+14:37 start china-audience en run1 restaurant gpt-oss:20b attempt 1
+14:37 done china-audience en run1 restaurant gpt-oss:20b pages=4 25s
+14:37 start china-audience en run1 news gpt-oss:20b attempt 1
+14:38 done china-audience en run1 news gpt-oss:20b pages=9 35s
+14:38 start china-audience en run1 social-media gpt-oss:20b attempt 1
+14:38 done china-audience en run1 social-media gpt-oss:20b pages=4 35s
+14:38 start china-audience en run1 travel gpt-oss:20b attempt 1
+14:39 done china-audience en run1 travel gpt-oss:20b pages=4 29s
+14:39 start china-audience en run1 bank gpt-oss:20b attempt 1
+14:39 done china-audience en run1 bank gpt-oss:20b pages=4 20s
+14:39 start china-audience en run1 food-delivery gpt-oss:20b attempt 1
+14:40 done china-audience en run1 food-delivery gpt-oss:20b pages=4 32s
+14:40 start china-audience en run1 beauty-salon gpt-oss:20b attempt 1
+14:40 done china-audience en run1 beauty-salon gpt-oss:20b pages=4 23s
+14:40 start china-audience en run1 learning gpt-oss:20b attempt 1
+14:41 done china-audience en run1 learning gpt-oss:20b pages=4 30s
+14:41 start china-audience en run1 home-cleaning gpt-oss:20b attempt 1
+14:41 done china-audience en run1 home-cleaning gpt-oss:20b pages=4 24s
+14:41 all finished
+14:41 ALL ROUNDS FINISHED

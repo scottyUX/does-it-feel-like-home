@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>每日视界 - 财经</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+        header{background:#004d7a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:1.5rem;}
+        nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        .container{max-width:1440px;margin:auto;padding:1rem 2rem;}
+        .article-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:1rem;}
+        .article-item{background:#fff;padding:1rem;border-radius:6px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        .article-item h3{margin:0 0 .5rem;font-size:1.2rem;}
+        .article-item p{margin:0;font-size:.9rem;color:#555;}
+        .article-item a{display:inline-block;margin-top:.5rem;color:#004d7a;text-decoration:none;font-weight:bold;}
+        footer{background:#222;color:#ddd;padding:1rem 2rem;text-align:center;font-size:.9rem;}
+        @media(max-width:768px){
+            header{flex-direction:column;align-items:flex-start;}
+            nav ul{flex-direction:column;gap:0.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>每日视界</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="finance.html">财经</a></li>
+                <li><a href="tech.html">科技</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>财经栏目</h2>
+        <p>提供宏观经济、金融市场、企业动态等深度报道，帮助读者洞悉财富趋势。</p>
+
+        <div class="article-list">
+            <div class="article-item">
+                <h3>人民币汇率再创新高，背后因素解析</h3>
+                <p>受多重宏观因素影响，人民币对美元汇率突破关键阻力位。</p>
+                <a href="article.html?title=人民币汇率再创新高，背后因素解析">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>新能源车企市值突增，行业格局或将重塑</h3>
+                <p>随着政策扶持和技术突破，新能源车企市值在过去半年内翻倍。</p>
+                <a href="article.html?title=新能源车企市值突增，行业格局或将重塑">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>央行发布最新贷款基准利率，企业融资成本下降</h3>
+                <p>本次降息幅度为0.25个百分点，预计将刺激制造业投资。</p>
+                <a href="article.html?title=央行发布最新贷款基准利率，企业融资成本下降">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>全球债市动荡：美债收益率上升背后的风险</h3>
+                <p>美国财政赤字扩大引发债券市场波动，投资者需关注利率走势。</p>
+                <a href="article.html?title=全球债市动荡：美债收益率上升背后的风险">阅读全文 &raquo;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 每日视界 | 版权所有
+    </footer>
+</body>
+</html>

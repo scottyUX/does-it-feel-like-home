@@ -1,0 +1,11 @@
+{
+  "id": "zh__news__glm4-9b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "news",
+  "model": "glm4:9b",
+  "completionTokens": 1732,
+  "seconds": 12,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

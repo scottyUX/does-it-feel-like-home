@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>味满园 - 菜单详情</title>
+<style>
+    body{font-family:Arial,sans-serif;margin:0;padding:0;color:#333;background:#f9f9f9;}
+    .container{max-width:1200px;margin:0 auto;padding:20px;}
+    header{background:#004d40;color:#fff;padding:15px 0;text-align:center;position:sticky;top:0;z-index:10;}
+    nav a{color:#fff;text-decoration:none;margin:0 15px;font-weight:bold;}
+    .menu{background:#fff;padding:30px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .menu h2{margin-top:0;color:#004d40;}
+    .item{margin-bottom:20px;}
+    .item h3{margin:0 0 5px;color:#d35400;}
+    .item p{margin:0 0 5px;color:#555;}
+    .price{font-weight:bold;color:#e74c3c;}
+    .quantity{width:60px;}
+    .btn{background:#28a745;color:#fff;padding:10px 15px;border:none;border-radius:4px;cursor:pointer;margin-top:10px;}
+    footer{background:#222;color:#ccc;text-align:center;padding:15px 0;margin-top:40px;}
+    @media (max-width:768px){
+        .container{padding:10px;}
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1>味满园</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="restaurants.html">餐厅列表</a>
+        <a href="order_confirm.html">订单确认</a>
+    </nav>
+</header>
+
+<section class="menu">
+    <h2>菜单</h2>
+    <div class="item">
+        <h3>宫保鸡丁</h3>
+        <p>经典川菜，辣而不燥，鸡肉鲜嫩。</p>
+        <p class="price">¥38</p>
+        <input type="number" class="quantity" min="1" value="1">
+        <button class="btn">加入购物车</button>
+    </div>
+    <div class="item">
+        <h3>水煮鱼片</h3>
+        <p>麻辣鲜香，鱼片柔软，配以豆豉。</p>
+        <p class="price">¥48</p>
+        <input type="number" class="quantity" min="1" value="1">
+        <button class="btn">加入购物车</button>
+    </div>
+    <div class="item">
+        <h3>红油抄手</h3>
+        <p>细腻手工面皮，红油香辣，口感丰富。</p>
+        <p class="price">¥28</p>
+        <input type="number" class="quantity" min="1" value="1">
+        <button class="btn">加入购物车</button>
+    </div>
+    <div class="item">
+        <h3>酸辣粉</h3>
+        <p>凉拌酸辣粉，口味可选，配以花生。</p>
+        <p class="price">¥18</p>
+        <input type="number" class="quantity" min="1" value="1">
+        <button class="btn">加入购物车</button>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 快送外卖 · 成都配送服务</p>
+    <p>联系电话：138-0011-2233</p>
+</footer>
+</div>
+</body>
+</html>

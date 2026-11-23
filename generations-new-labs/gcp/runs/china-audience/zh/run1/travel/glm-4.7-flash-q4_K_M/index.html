@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 发现您的下一个度假目的地</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #0052a3;
+            --accent-color: #ff9900;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-search-nav {
+            padding: 0.5rem 1.2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-search-nav:hover {
+            background-color: #e68a00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1440&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Search Widget */
+        .search-widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin: -60px auto 2rem auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .btn-submit {
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        /* Grid */
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-img {
+            height: 220px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 102, 204, 0.9);
+            color: white;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .card-meta {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .price span {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        .btn-card {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .btn-card:hover {
+            background-color: #e0e6ed;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">畅行旅行</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="results.html">目的地</a>
+                <a href="about.html" style="display:none;">关于我们</a>
+            </div>
+            <a href="results.html" class="btn-search-nav">预订行程</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <h1>探索您的下一个假期</h1>
+            <p>搜索国内热门城市，开启一场说走就走的旅行</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Search Widget -->
+        <div class="search-widget">
+            <form class="search-form" onsubmit="event.preventDefault(); window.location.href='results.html'">
+                <div class="form-group">
+                    <label for="search-destination">目的地</label>
+                    <select id="search-destination">
+                        <option value="all">所有目的地</option>
+                        <option value="sanya">三亚</option>
+                        <option value="yunnan">云南</option>
+                        <option value="chengdu">成都</option>
+                        <option value="xizang">西藏</option>
+                        <option value="xiangyang">襄阳</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="search-checkin">入住日期</label>
+                    <input type="date" id="search-checkin">
+                </div>
+                <div class="form-group">
+                    <label for="search-checkout">退房日期</label>
+                    <input type="date" id="search-checkout">
+                </div>
+                <div class="form-group">
+                    <label for="search-guests">入住人数</label>
+                    <select id="search-guests">
+                        <option value="1">1位成人</option>
+                        <option value="2" selected>2位成人</option>
+                        <option value="3">3位成人</option>
+                        <option value="4">4位或以上</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">搜索酒店</button>
+            </form>
+        </div>
+
+        <!-- Popular Destinations -->
+        <h2 class="section-title">热门推荐目的地</h2>
+        <div class="destination-grid">
+            <div class="card" onclick="window.location.href='results.html'">
+                <div class="card-img">
+                    <div style="width:100%;height:100%;background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80');background-size:cover;"></div>
+                    <span class="card-badge">三亚</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">阳光沙滩与椰风海韵</h3>
+                    <div class="card-meta">
+                        <span>⭐ 4.8分 (1,200+条评价)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥500<span>/晚起</span></div>
+                        <a href="results.html" class="btn-card">查看酒店</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="window.location.href='results.html'">
+                <div class="card-img">
+                    <div style="width:100%;height:100%;background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80');background-size:cover;"></div>
+                    <span class="card-badge">云南</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">彩云之南的梦幻之旅</h3>
+                    <div class="card-meta">
+                        <span>⭐ 4.9分 (950+条评价)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥800<span>/晚起</span></div>
+                        <a href="results.html" class="btn-card">查看酒店</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="window.location.href='results.html'">
+                <div class="card-img">
+                    <div style="width:100%;height:100%;background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80');background-size:cover;"></div>
+                    <span class="card-badge">西藏</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">朝圣与纯净的高原</h3>
+                    <div class="card-meta">
+                        <span>⭐ 5.0分 (400+条评价)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥1200<span>/晚起</span></div>
+                        <a href="results.html" class="btn-card">查看酒店</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <h2 class="section-title">为什么选择畅行旅行</h2>
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">✈️</div>
+                <h3>全网比价</h3>
+                <p>我们聚合全网资源，确保您能以最优惠的价格预订到心仪的酒店。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎧</div>
+                <h3>24/7 客服</h3>
+                <p>无论您身在何处，专业的客服团队随时为您解决旅途中的问题。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <h3>安全放心</h3>
+                <p>提供官方支付渠道和先行赔付保障，让您的每一笔消费都安心无忧。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="color:white; margin-bottom: 1rem;">畅行旅行</div>
+                <p>专注于国内高品质旅行服务，为您提供最便捷的住宿预订体验。</p>
+            </div>
+            <div class="footer-col">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="results.html">三亚酒店</a></li>
+                    <li><a href="results.html">云南度假</a></li>
+                    <li><a href="results.html">成都美食</a></li>
+                    <li><a href="results.html">西藏探险</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">退款政策</a></li>
+                    <li><a href="#">隐私声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>订阅我们</h4>
+                <p>获取最新的旅游优惠和特价信息。</p>
+                <div style="margin-top: 10px;">
+                    <input type="email" placeholder="您的邮箱地址" style="padding: 8px; border-radius: 4px; border: none; width: 80%;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 畅行旅行. All rights reserved. 网站演示仅供参考。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

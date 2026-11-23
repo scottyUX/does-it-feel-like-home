@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蜀香小馆 · 家常川菜 - 快送外卖</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #333; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #ff5722; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #ff5722, #ff9800); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+.nav { display: flex; gap: 32px; }
+.nav a { font-size: 15px; color: #555; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+.nav a:hover, .nav a.active { color: #ff5722; border-bottom-color: #ff5722; }
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-actions .btn-order { background: #ff5722; color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; cursor: pointer; font-weight: 600; }
+
+.shop-banner { background: linear-gradient(135deg, #ff6b35, #ff9a56); padding: 50px 0; color: #fff; }
+.shop-banner-inner { display: flex; align-items: center; gap: 40px; }
+.shop-logo { width: 120px; height: 120px; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 56px; flex-shrink: 0; }
+.shop-info h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
+.shop-info .tags { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.shop-info .tag { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-size: 13px; }
+.shop-info .meta { display: flex; gap: 20px; font-size: 14px; opacity: 0.9; }
+
+.main-content { display: flex; gap: 30px; padding: 40px 0 60px; }
+.menu-section { flex: 1; }
+.menu-section h2 { font-size: 20px; font-weight: 700; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #ff5722; display: inline-block; }
+.dish-list { display: grid; gap: 16px; }
+.dish-item { background: #fff; border-radius: 12px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 6px rgba(0,0,0,0.04); transition: all 0.2s; }
+.dish-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.dish-left { display: flex; align-items: center; gap: 14px; }
+.dish-img { width: 56px; height: 56px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+.dish-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.dish-info p { font-size: 13px; color: #999; }
+.dish-right { display: flex; align-items: center; gap: 14px; }
+.dish-price { font-size: 17px; font-weight: 700; color: #ff5722; }
+.dish-add { width: 32px; height: 32px; border-radius: 50%; background: #ff5722; color: #fff; border: none; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+.dish-add:hover { transform: scale(1.1); }
+.dish-badge { font-size: 11px; background: #fff3e0; color: #ff5722; padding: 2px 8px; border-radius: 8px; }
+
+.order-panel { width: 340px; flex-shrink: 0; }
+.order-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: sticky; top: 88px; }
+.order-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 16px; }
+.order-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; }
+.order-item .qty { background: #f5f5f5; padding: 2px 10px; border-radius: 10px; font-size: 13px; }
+.order-total { margin-top: 16px; padding-top: 16px; border-top: 2px solid #f0f0f0; }
+.order-total-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; color: #666; }
+.order-total-final { display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 700; margin-top: 12px; }
+.order-total-final .amount { color: #ff5722; font-size: 22px; }
+.btn-submit { width: 100%; margin-top: 18px; padding: 14px; background: linear-gradient(135deg, #ff5722, #ff9800); color: #fff; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
+.btn-submit:hover { opacity: 0.9; }
+.order-note { margin-top: 14px; padding: 12px; background: #fff8f0; border-radius: 8px; font-size: 13px; color: #ff9800; }
+
+.review-section { margin-top: 40px; }
+.review-section h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.review-item { background: #fff; border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.review-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.review-user { font-size: 14px; font-weight: 600; }
+.review-date { font-size: 12px; color: #aaa; }
+.review-text { font-size: 14px; color: #555; }
+.review-stars { color: #ff9800; font-size: 13px; margin-top: 6px; }
+
+.footer { background: #222; color: #aaa; padding: 40px 0 24px; }
+.footer-bottom { border-top: 1px solid #444; padding-top: 16px; font-size: 13px; text-align: center; color: #777; }
+
+@media (max-width: 900px) {
+  .shop-banner-inner { flex-direction: column; text-align: center; }
+  .main-content { flex-direction: column; }
+  .order-panel { width: 100%; }
+  .order-card { position: static; }
+  .nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🍜</div>
+      快送外卖
+    </a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="restaurants.html">全部餐厅</a>
+      <a href="restaurant-detail.html" class="active">热门餐厅</a>
+      <a href="order-confirm.html">我的订单</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-order">立即点餐</button>
+    </div>
+  </div>
+</header>
+
+<div class="shop-banner">
+  <div class="container shop-banner-inner">
+    <div class="shop-logo">🐉</div>
+    <div class="shop-info">
+      <h1>蜀香小馆 · 家常川菜</h1>
+      <div class="tags">
+        <span class="tag">🔥 月销 2300+</span>
+        <span class="tag">⭐ 4.9 分</span>
+        <span class="tag">📍 锦江区春熙路</span>
+        <span class="tag">⏱ 25分钟达</span>
+      </div>
+      <div class="meta">
+        <span>起送 ¥20</span>
+        <span>免配送费</span>
+        <span>营业时间 10:30-21:30</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container main-content">
+  <div class="menu-section">
+    <h2>招牌菜</h2>
+    <div class="dish-list">
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#fff3e0;">🐟</div>
+          <div class="dish-info">
+            <h4>水煮鱼片 <span class="dish-badge">招牌</span></h4>
+            <p>新鲜草鱼，手工片制，麻辣鲜香，配米饭一绝</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥42</span>
+          <button class="dish-add" onclick="addToOrder('水煮鱼片', 42)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#fce4ec;">🥘</div>
+          <div class="dish-info">
+            <h4>麻婆豆腐 <span class="dish-badge">必点</span></h4>
+            <p>嫩滑豆腐，郫县豆瓣，花椒飘香，下饭神器</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥22</span>
+          <button class="dish-add" onclick="addToOrder('麻婆豆腐', 22)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#e8f5e9;">🍗</div>
+          <div class="dish-info">
+            <h4>宫保鸡丁</h4>
+            <p>鸡腿肉丁，花生米，酸甜微辣，经典川味</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥28</span>
+          <button class="dish-add" onclick="addToOrder('宫保鸡丁', 28)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:32px;">小炒热菜</h2>
+    <div class="dish-list">
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#fff8e1;">🥩</div>
+          <div class="dish-info">
+            <h4>回锅肉</h4>
+            <p>二刀肉片，蒜苗同炒，肥而不腻，酱香浓郁</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥26</span>
+          <button class="dish-add" onclick="addToOrder('回锅肉', 26)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#e0f2f1;">🌶️</div>
+          <div class="dish-info">
+            <h4>辣子鸡 <span class="dish-badge">辣</span></h4>
+            <p>鸡块炸至酥脆，干辣椒段爆香，越嚼越香</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥32</span>
+          <button class="dish-add" onclick="addToOrder('辣子鸡', 32)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#f3e5f5;">🥬</div>
+          <div class="dish-info">
+            <h4>干煸四季豆</h4>
+            <p>四季豆煸至起皱，肉末提香，简单又下饭</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥18</span>
+          <button class="dish-add" onclick="addToOrder('干煸四季豆', 18)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#e8eaf6;">🍄</div>
+          <div class="dish-info">
+            <h4>鱼香肉丝</h4>
+            <p>猪肉丝配木耳黄瓜，鱼香汁酸甜微辣</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥24</span>
+          <button class="dish-add" onclick="addToOrder('鱼香肉丝', 24)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:32px;">汤品 / 主食</h2>
+    <div class="dish-list">
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#fffde7;">🥣</div>
+          <div class="dish-info">
+            <h4>番茄蛋花汤</h4>
+            <p>酸甜开胃，适合搭配重口味川菜</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥12</span>
+          <button class="dish-add" onclick="addToOrder('番茄蛋花汤', 12)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#efebe9;">🍚</div>
+          <div class="dish-info">
+            <h4>白米饭（大碗）</h4>
+            <p>东北大米，颗粒饱满，250g/份</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥4</span>
+          <button class="dish-add" onclick="addToOrder('白米饭', 4)">+</button>
+        </div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-left">
+          <div class="dish-img" style="background:#e0f7fa;">🥟</div>
+          <div class="dish-info">
+            <h4>红油抄手（8只）</h4>
+            <p>薄皮大馅，红油蘸碟，川味小食</p>
+          </div>
+        </div>
+        <div class="dish-right">
+          <span class="dish-price">¥14</span>
+          <button class="dish-add" onclick="addToOrder('红油抄手', 14)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-section">
+      <h2>用户评价（1200+条）</h2>
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-user">成都小陈</span>
+          <span class="review-date">2025-01-15</span>
+        </div>
+        <p class="review-text">水煮鱼真的绝了！鱼肉嫩滑，汤汁浓郁，配两碗米饭都嫌不够。配送也很快，25分钟就到了，包装没洒。</p>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-user">高新区打工人</span>
+          <span class="review-date">2025-01-12</span>
+        </div>
+        <p class="review-text">每天中午都点这家，宫保鸡丁和回锅肉轮换着吃。比自己去食堂强太多了，而且不用排队。麻婆豆腐的豆瓣味很正。</p>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-user">锦里美食探</span>
+          <span class="review-date">2025-01-08</span>
+        </div>
+        <p class="review-text">辣子鸡很干香，不油腻。鱼香肉丝调味到位。就是干煸四季豆稍微有点咸，其他都满意。推荐搭配番茄蛋花汤解辣。</p>
+        <div class="review-stars">⭐⭐⭐⭐</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-panel">
+    <div class="order-card">
+      <h3>🛒 购物车</h3>
+      <div id="orderItems">
+        <div class="order-item">
+          <span>水煮鱼片 × 1</span>
+          <span>¥42</span>
+        </div>
+        <div class="order-item">
+          <span>麻婆豆腐 × 1</span>
+          <span>¥22</span>
+        </div>
+        <div class="order-item">
+          <span>白米饭 × 2</span>
+          <span>¥8</span>
+        </div>
+      </div>
+      <div class="order-total">
+        <div class="order-total-row">
+          <span>商品合计</span>
+          <span id="subtotal">¥72</span>
+        </div>
+        <div class="order-total-row">
+          <span>配送费</span>
+          <span style="color:#4caf50;">免配送</span>
+        </div>
+        <div class="order-total-row">
+          <span>新客优惠</span>
+          <span style="color:#ff5722;">-¥5</span>
+        </div>
+        <div class="order-total-final">
+          <span>实付金额</span>
+          <span class="amount" id="finalPrice">¥67</span>
+        </div>
+        <a href="order-confirm.html"><button class="btn-submit">去结算</button></a>
+      </div>
+      <div class="order-note">📍 配送至：锦江区 东御街18号 万科天荟 1203室</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      © 2025 快送外卖 版权所有 | 蜀ICP备2025001234号
+    </div>
+  </div>
+</footer>
+
+<script>
+let orderData = [
+  { name: '水煮鱼片', price: 42, qty: 1 },
+  { name: '麻婆豆腐', price: 22, qty: 1 },
+  { name: '白米饭', price: 4, qty: 2 }
+];
+
+function addToOrder(name, price) {
+  const existing = orderData.find(item => item.name === name);
+  if (existing) {
+    existing.qty++;
+  } else {
+    orderData.push({ name, price, qty: 1 });
+  }
+  renderOrder();
+}
+
+function renderOrder() {
+  const container = document.getElementById('orderItems');
+  container.innerHTML = '';
+  let subtotal = 0;
+  orderData.forEach(item => {
+    const total = item.price * item.qty;
+    subtotal += total;
+    container.innerHTML += `<div class="order-item"><span>${item.name} × ${item.qty}</span><span>¥${total}</span></div>`;
+  });
+  const final = Math.max(subtotal - 5, 0);
+  document.getElementById('subtotal').textContent = '¥' + subtotal;
+  document.getElementById('finalPrice').textContent = '¥' + final;
+}
+</script>
+
+</body>
+</html>

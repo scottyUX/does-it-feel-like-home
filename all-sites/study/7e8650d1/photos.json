@@ -1,0 +1,27 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.post-image",
+   "match": "苏小雨 昨天 推荐一家超绝的咖啡馆！在静安区的小",
+   "url": "assets/photo-313a51fdd583f84f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Newark-on-Trent, Interior of 'Cherizena Coffee Shop', 23-24 Stodman Street - geograph.org.uk - 7846323.jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "minimalist coffee shop interior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Newark-on-Trent%2C_Interior_of_%27Cherizena_Coffee_Shop%27%2C_23-24_Stodman_Street_-_geograph.org.uk_-_7846323.jpg/960px-Newark-on-Trent%2C_Interior_of_%27Cherizena_Coffee_Shop%27%2C_23-24_Stodman_Street_-_geograph.org.uk_-_7846323.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.profile-pic",
+   "match": "林子涵 (Zihan Lin) 热爱摄影、旅行与",
+   "url": "assets/photo-4ddaf96e5961ec67.jpg",
+   "hideText": false,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}
