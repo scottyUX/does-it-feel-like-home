@@ -1,0 +1,6904 @@
+[
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f2c0f-587a-7077-86f7-5446caaebcba-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 105.0,
+   "footer_links": 14.0,
+   "visible_links": 19.0,
+   "page_screens": 3.28111,
+   "mobile_page_screens": 5.29739,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2c0f-587a-7077-86f7-5446caaebcba-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 131.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.97111,
+   "mobile_page_screens": 3.01303,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2dbd-211c-7426-9fc3-5925b350776e-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 246.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.98333,
+   "mobile_page_screens": 4.06754,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f2dbd-211c-7426-9fc3-5925b350776e-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 652.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.19444,
+   "mobile_page_screens": 1.46801,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f312b-2303-7888-a019-5598afe53dd3-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 509.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f312b-2303-7888-a019-5598afe53dd3-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 105.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f3163-ff29-7ae8-8e45-bdab93b7588f-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f3163-ff29-7ae8-8e45-bdab93b7588f-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f3266-a7a7-724a-8102-fd5c22819f52-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 72.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f3266-a7a7-724a-8102-fd5c22819f52-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 31.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f3523-1e5a-7ed3-a2a8-5648d7a092d7-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.04556,
+   "mobile_page_screens": 1.85308,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f3523-1e5a-7ed3-a2a8-5648d7a092d7-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 43.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f37ac-2b47-7f4d-850d-48b29b6325cd-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 81.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.51,
+   "mobile_page_screens": 1.66469,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-flash-lite-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f37ac-2b47-7f4d-850d-48b29b6325cd-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 18.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f44af-d699-755d-b823-05c6170855d9-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 87.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.08889,
+   "mobile_page_screens": 2.08886,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f44af-d699-755d-b823-05c6170855d9-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 61.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f45ac-01ee-7083-a4da-009db386c22b-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 138.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.20333,
+   "mobile_page_screens": 3.9609,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f45ac-01ee-7083-a4da-009db386c22b-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 111.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.66444,
+   "mobile_page_screens": 1.77488,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f49e2-166f-743a-b2a8-7af91b048fdf-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f49e2-166f-743a-b2a8-7af91b048fdf-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 158.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f4d75-7e9d-7941-a89e-0707a785e641-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 36.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f4d75-7e9d-7941-a89e-0707a785e641-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 655.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f5069-5558-747c-8cc9-c04d8fe09537-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 162.0,
+   "footer_links": 8.0,
+   "visible_links": 15.0,
+   "page_screens": 6.60333,
+   "mobile_page_screens": 11.14573,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f5069-5558-747c-8cc9-c04d8fe09537-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f5165-c32b-776c-a489-8c9087650222-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 381.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f5165-c32b-776c-a489-8c9087650222-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 230.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-terra-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f5976-8a6b-7f30-a96d-91b5e67e15c7-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 256.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.03444,
+   "mobile_page_screens": 2.37559,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f5976-8a6b-7f30-a96d-91b5e67e15c7-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 66.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.4-high",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f5a67-c911-7ba6-a7ed-b071de23bd07-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 131.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.20444,
+   "mobile_page_screens": 2.96445,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f5a67-c911-7ba6-a7ed-b071de23bd07-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f6064-adc8-7cf7-a98c-5da9f88d0779-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6064-adc8-7cf7-a98c-5da9f88d0779-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 69.0,
+   "footer_links": 1.0,
+   "visible_links": 1.0,
+   "page_screens": 2.71778,
+   "mobile_page_screens": 4.31991,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-haiku-4-5-20251001",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f65e9-dd1f-7bed-b001-7c67c4688220-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 126.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.03,
+   "mobile_page_screens": 1.84242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f65e9-dd1f-7bed-b001-7c67c4688220-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 130.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.03,
+   "mobile_page_screens": 1.84242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f662e-c2e9-7d70-8115-915aa4fa1d00-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 142.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.4-mini-high",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f662e-c2e9-7d70-8115-915aa4fa1d00-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 52.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f665c-677f-7faa-b360-2bbcba467577-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 52.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f665c-677f-7faa-b360-2bbcba467577-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 291.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 2.29333,
+   "mobile_page_screens": 3.56043,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f66a9-5720-74ae-b8cd-c6fc599ab9fd-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 76.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 4.14111,
+   "mobile_page_screens": 6.03673,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-luna-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f66a9-5720-74ae-b8cd-c6fc599ab9fd-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 66.0,
+   "footer_links": 0.0,
+   "visible_links": 13.0,
+   "page_screens": 7.07333,
+   "mobile_page_screens": 10.24052,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6859-7def-7619-b0a7-a44ba8294725-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 313.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 4.66333,
+   "mobile_page_screens": 10.49763,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.6",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6859-7def-7619-b0a7-a44ba8294725-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 402.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.62,
+   "mobile_page_screens": 2.5,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.4-high",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f685f-9ca0-7a9a-84db-2600f19b35a1-a",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 133.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.89222,
+   "mobile_page_screens": 4.52133,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f685f-9ca0-7a9a-84db-2600f19b35a1-b",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 97.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.49882,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f68c4-c90f-7dc9-bd81-5e4eb62af39f-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 67.0,
+   "footer_links": 7.0,
+   "visible_links": 16.0,
+   "page_screens": 9.17889,
+   "mobile_page_screens": 11.51422,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f68c4-c90f-7dc9-bd81-5e4eb62af39f-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 2.0,
+   "visible_links": 2.0,
+   "page_screens": 4.16778,
+   "mobile_page_screens": 7.4455,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f68e6-2925-7c81-9bb8-14a36054d6bb-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 179.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.4-high",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f68e6-2925-7c81-9bb8-14a36054d6bb-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 54.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 4.32667,
+   "mobile_page_screens": 6.17062,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f68ee-3f62-758b-af39-0079786570f1-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 108.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f68ee-3f62-758b-af39-0079786570f1-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 88.0,
+   "footer_links": 0.0,
+   "visible_links": 12.0,
+   "page_screens": 2.57333,
+   "mobile_page_screens": 4.44076,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f68f8-c7bf-72bb-878c-882886a383a0-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 294.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 4.52444,
+   "mobile_page_screens": 5.69905,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.20-beta-0309-reasoning",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f68f8-c7bf-72bb-878c-882886a383a0-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 318.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 4.01778,
+   "mobile_page_screens": 4.48697,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f68fb-4dc5-7640-9a61-9de566336b62-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 201.0,
+   "footer_links": 1.0,
+   "visible_links": 5.0,
+   "page_screens": 4.90889,
+   "mobile_page_screens": 4.65758,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f68fb-4dc5-7640-9a61-9de566336b62-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 139.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f690c-69ac-76a1-8496-20ea16cab703-a",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 203.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.29667,
+   "mobile_page_screens": 1.4609,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-flash-lite",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f690c-69ac-76a1-8496-20ea16cab703-b",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 1.08889,
+   "mobile_page_screens": 1.14218,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6922-a3ff-7938-b9d2-f3efd5e93c64-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 2.0,
+   "page_screens": 38.11778,
+   "mobile_page_screens": 17.29976,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-luna-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6922-a3ff-7938-b9d2-f3efd5e93c64-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 3.90556,
+   "mobile_page_screens": 4.26777,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-luna-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6943-0c06-7cc9-8235-8945085ca54c-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 94.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6943-0c06-7cc9-8235-8945085ca54c-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6974-2f59-7caf-a3cb-5be497526b5a-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 42.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6974-2f59-7caf-a3cb-5be497526b5a-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 145.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "longcat-2.0",
+  "lab": "Meituan",
+  "origin": "China",
+  "site": "019f699f-e175-7a4f-9453-dcfa362224d5-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f699f-e175-7a4f-9453-dcfa362224d5-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 54.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f69b6-0f2f-76d3-b79c-379812da4361-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 78.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 13.54889,
+   "mobile_page_screens": 6.12796,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f69b6-0f2f-76d3-b79c-379812da4361-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 60.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 4.16778,
+   "mobile_page_screens": 6.53673,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6a6c-52ea-7539-9ef6-24bed8798187-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 19.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6a6c-52ea-7539-9ef6-24bed8798187-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.6",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6abe-c899-7b36-afed-5a9979042dd9-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 68.0,
+   "footer_links": 21.0,
+   "visible_links": 31.0,
+   "page_screens": 6.78222,
+   "mobile_page_screens": 11.8045,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6abe-c899-7b36-afed-5a9979042dd9-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 3.0,
+   "visible_links": 12.0,
+   "page_screens": 5.54222,
+   "mobile_page_screens": 5.43839,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6af5-e462-70af-8bb9-ea8cb1b764e9-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 363.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.39778,
+   "mobile_page_screens": 2.60664,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6af5-e462-70af-8bb9-ea8cb1b764e9-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 181.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.08444,
+   "mobile_page_screens": 1.87678,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6b14-ba03-7ce3-ae3c-c238534cb0b4-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 146.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 2.41222,
+   "mobile_page_screens": 5.02133,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6b14-ba03-7ce3-ae3c-c238534cb0b4-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 75.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.12222,
+   "mobile_page_screens": 2.31043,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-luna-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6b35-1891-7db9-a3f8-c655444e42ae-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f6b35-1891-7db9-a3f8-c655444e42ae-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 81.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.34667,
+   "mobile_page_screens": 3.99289,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6b43-b01b-75a6-b173-bf2bf8c1763b-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6b43-b01b-75a6-b173-bf2bf8c1763b-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 60.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f6b68-8f38-72fa-9f76-f143a3bdb3b4-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 118.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-terra-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6b68-8f38-72fa-9f76-f143a3bdb3b4-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 478.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f6b78-6f09-793f-b5c6-dd99a1f8750e-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 98.0,
+   "footer_links": 14.0,
+   "visible_links": 24.0,
+   "page_screens": 7.93222,
+   "mobile_page_screens": 14.38981,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-medium",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6b78-6f09-793f-b5c6-dd99a1f8750e-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 129.0,
+   "footer_links": 4.0,
+   "visible_links": 13.0,
+   "page_screens": 7.23667,
+   "mobile_page_screens": 15.11848,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6db6-5e70-70cf-83cc-6f361ce14379-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 41.0,
+   "footer_links": 0.0,
+   "visible_links": 8.0,
+   "page_screens": 7.78889,
+   "mobile_page_screens": 8.60664,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6db6-5e70-70cf-83cc-6f361ce14379-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 227.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 3.18222,
+   "mobile_page_screens": 3.68009,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-medium",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6db8-d0cd-7cfe-87ee-ccd50afa0b09-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 168.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.82556,
+   "mobile_page_screens": 4.01066,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6db8-d0cd-7cfe-87ee-ccd50afa0b09-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 318.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6e05-4ba7-7508-942d-1cda1eba0dfa-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 3.0,
+   "visible_links": 12.0,
+   "page_screens": 3.43889,
+   "mobile_page_screens": 4.88507,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f6e05-4ba7-7508-942d-1cda1eba0dfa-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 75.0,
+   "footer_links": 18.0,
+   "visible_links": 30.0,
+   "page_screens": 5.84333,
+   "mobile_page_screens": 9.54502,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6f53-7a70-7cfb-9bb0-44eb71e04a5a-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 81.0,
+   "footer_links": 1.0,
+   "visible_links": 7.0,
+   "page_screens": 11.49333,
+   "mobile_page_screens": 14.63863,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6f53-7a70-7cfb-9bb0-44eb71e04a5a-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 5.21667,
+   "mobile_page_screens": 6.43365,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6f71-1867-7ecc-a2d6-926eef21c2c0-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 13.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6f71-1867-7ecc-a2d6-926eef21c2c0-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 13.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f71ca-3c1c-7701-8833-44d9d0f7a069-a",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 276.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.78673,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f71ca-3c1c-7701-8833-44d9d0f7a069-b",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 136.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f74a3-c8f7-705b-8b42-de58f0c02d13-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 469.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f74a3-c8f7-705b-8b42-de58f0c02d13-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 286.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f75a0-6b22-784f-bf08-5fdd283c2a33-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f75a0-6b22-784f-bf08-5fdd283c2a33-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f75ac-29b1-7380-a9a1-3aa7cf223a60-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 330.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.05333,
+   "mobile_page_screens": 2.27607,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "longcat-2.0",
+  "lab": "Meituan",
+  "origin": "China",
+  "site": "019f75ac-29b1-7380-a9a1-3aa7cf223a60-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 19.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f76de-fac7-71f5-90ef-05e665049b02-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 270.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.62222,
+   "mobile_page_screens": 3.25,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f76de-fac7-71f5-90ef-05e665049b02-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 270.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.62222,
+   "mobile_page_screens": 3.25,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-flash-lite",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f79e6-5cb2-7971-b46f-467760249a26-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 8.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f7ecf-ff11-704a-ac0b-8de3c030644c-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 53.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 12.0,
+   "mobile_page_screens": 12.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f7ecf-ff11-704a-ac0b-8de3c030644c-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 61.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 9.0,
+   "mobile_page_screens": 9.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f7ff6-b00e-7f6a-a295-fbec48e95cc4-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-high-public",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7ff6-b00e-7f6a-a295-fbec48e95cc4-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 9.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f8247-da04-7aad-a16c-ae06e9f301a0-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 59.0,
+   "footer_links": 15.0,
+   "visible_links": 35.0,
+   "page_screens": 14.96222,
+   "mobile_page_screens": 23.49171,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f8247-da04-7aad-a16c-ae06e9f301a0-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 6.0,
+   "visible_links": 11.0,
+   "page_screens": 6.74,
+   "mobile_page_screens": 11.04147,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f832f-7ae6-7e96-8e82-25df926a442c-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 50.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f832f-7ae6-7e96-8e82-25df926a442c-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 50.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f84af-24af-714c-8d6b-452690413419-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-haiku-4-5-20251001",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f84af-24af-714c-8d6b-452690413419-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f8557-601c-7427-8880-2b99f6f9fcc6-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 77.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f8557-601c-7427-8880-2b99f6f9fcc6-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 81.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 1.88333,
+   "mobile_page_screens": 2.44431,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f8572-d9d7-7482-ad85-e355742af70a-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f8572-d9d7-7482-ad85-e355742af70a-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f8792-6c11-7308-8b7e-e15dcd126226-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 99.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f8792-6c11-7308-8b7e-e15dcd126226-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f87f4-ea75-7a55-bcfa-61e37474239e-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f87f4-ea75-7a55-bcfa-61e37474239e-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 83.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f88c9-e597-7107-bd46-b450a9b4e71a-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f88c9-e597-7107-bd46-b450a9b4e71a-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 3.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f8dcc-d19d-7021-818c-f083a9b95720-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 160.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.29,
+   "mobile_page_screens": 1.78081,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f8dcc-d19d-7021-818c-f083a9b95720-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 60.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.20444,
+   "mobile_page_screens": 1.3128,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-high-public",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8f28-cfee-739e-a313-d405de8fa6ab-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 101.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.28667,
+   "mobile_page_screens": 2.45498,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f8f28-cfee-739e-a313-d405de8fa6ab-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 101.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.28667,
+   "mobile_page_screens": 2.45498,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f8fbf-1a04-74e6-8b70-1f786cd72655-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 87.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f8fbf-1a04-74e6-8b70-1f786cd72655-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 87.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f927f-f49a-7af4-8c8f-4579375d54c1-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 100.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.33444,
+   "mobile_page_screens": 4.09242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f927f-f49a-7af4-8c8f-4579375d54c1-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 83.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.20222,
+   "mobile_page_screens": 2.18957,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f92d9-31ad-7066-b438-05e07b3ff580-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 68.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f92d9-31ad-7066-b438-05e07b3ff580-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 131.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f9433-1ab8-7fd0-8891-fff015943243-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f9433-1ab8-7fd0-8891-fff015943243-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 21.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-high-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f9548-b513-75c2-9ca9-297efa25b870-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 53.0,
+   "footer_links": 9.0,
+   "visible_links": 18.0,
+   "page_screens": 8.70778,
+   "mobile_page_screens": 13.83531,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f9548-b513-75c2-9ca9-297efa25b870-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 71.0,
+   "footer_links": 4.0,
+   "visible_links": 5.0,
+   "page_screens": 4.72,
+   "mobile_page_screens": 8.55213,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f97be-05ff-7312-ae81-5150a4ffece6-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 416.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f97be-05ff-7312-ae81-5150a4ffece6-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 306.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f9ac9-4dab-7574-963e-7aeee331d0e7-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 99.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 10.11222,
+   "mobile_page_screens": 17.71564,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9ac9-4dab-7574-963e-7aeee331d0e7-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 157.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.28778,
+   "mobile_page_screens": 4.6019,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f9d2e-69d3-7458-a8ce-d3be7ae9500b-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 103.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9d2e-69d3-7458-a8ce-d3be7ae9500b-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 109.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 4.38556,
+   "mobile_page_screens": 8.59242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9db5-62a1-781a-810e-54c4168ca2d4-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 10.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f9db5-62a1-781a-810e-54c4168ca2d4-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 29.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9e5f-a23f-7861-832c-65a791c63242-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 224.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.85,
+   "mobile_page_screens": 6.25711,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f9e5f-a23f-7861-832c-65a791c63242-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 143.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.54222,
+   "mobile_page_screens": 2.21327,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f9e70-f7d6-75fa-b8b3-ecaad6d172a0-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 115.0,
+   "footer_links": 0.0,
+   "visible_links": 10.0,
+   "page_screens": 11.05667,
+   "mobile_page_screens": 13.82583,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9e70-f7d6-75fa-b8b3-ecaad6d172a0-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 110.0,
+   "footer_links": 6.0,
+   "visible_links": 16.0,
+   "page_screens": 8.99222,
+   "mobile_page_screens": 15.88389,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f9e8b-eaaf-7d49-8a24-55207183247b-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 145.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-high-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f9e8b-eaaf-7d49-8a24-55207183247b-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 190.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.60444,
+   "mobile_page_screens": 3.46564,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019fa0dc-33e9-7bf9-b4a3-006cab3d0c6d-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 113.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa0dc-33e9-7bf9-b4a3-006cab3d0c6d-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa0f8-fe09-7701-a443-2663bd322d87-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 137.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.28222,
+   "mobile_page_screens": 3.42417,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fa0f8-fe09-7701-a443-2663bd322d87-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fa1ad-aac4-7cbe-9904-deb352dd952a-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa1ad-aac4-7cbe-9904-deb352dd952a-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 123.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fa269-8bd1-7d4f-a484-cc1afdfdb1c0-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.12444,
+   "mobile_page_screens": 1.19905,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa269-8bd1-7d4f-a484-cc1afdfdb1c0-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 255.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.12,
+   "mobile_page_screens": 1.91114,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa28e-1807-7ae2-ac2f-0c24e4e0bbb7-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fa28e-1807-7ae2-ac2f-0c24e4e0bbb7-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fa2c7-9aa0-70b3-9514-736907d894c0-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 180.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa2c7-9aa0-70b3-9514-736907d894c0-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 392.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019fa2d3-3577-747f-991b-0bf4019ca96c-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 11.0,
+   "visible_links": 11.0,
+   "page_screens": 5.69222,
+   "mobile_page_screens": 9.62204,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa2d3-3577-747f-991b-0bf4019ca96c-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 0.0,
+   "visible_links": 10.0,
+   "page_screens": 11.65889,
+   "mobile_page_screens": 17.10664,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019fa2ee-de62-7d77-a238-4dd978f47b0e-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa2ee-de62-7d77-a238-4dd978f47b0e-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 179.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fa464-0caa-75a3-94d2-c2b1d946a311-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 190.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.02222,
+   "mobile_page_screens": 1.18957,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa464-0caa-75a3-94d2-c2b1d946a311-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 113.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-high-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa60c-4472-7636-8b23-36937ecce037-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019fa60c-4472-7636-8b23-36937ecce037-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fa80b-5cf8-7882-be31-740628792c40-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 175.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa80b-5cf8-7882-be31-740628792c40-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 196.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fa958-ce9b-7827-820c-0683ee8f5b8f-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 94.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-medium",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa958-ce9b-7827-820c-0683ee8f5b8f-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 242.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.72111,
+   "mobile_page_screens": 3.7737,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fac96-f0c5-7b66-9ef3-6d2f170f44a4-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 222.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fac96-f0c5-7b66-9ef3-6d2f170f44a4-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 72.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fad09-a044-7a45-b3b0-8c5725bf1061-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 11.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019fad09-a044-7a45-b3b0-8c5725bf1061-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 11.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019fad51-43b4-7f82-8ac8-ed998f195425-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 132.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 3.20778,
+   "mobile_page_screens": 12.28555,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fad51-43b4-7f82-8ac8-ed998f195425-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 0.0,
+   "visible_links": 7.0,
+   "page_screens": 15.77,
+   "mobile_page_screens": 38.15758,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-luna-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fadcd-b49b-75d5-8c54-8bad3a1931b5-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 299.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.30111,
+   "mobile_page_screens": 2.34834,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fadcd-b49b-75d5-8c54-8bad3a1931b5-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 86.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.02333,
+   "mobile_page_screens": 1.69787,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb1be-acec-75b3-b700-d048fe292d08-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 170.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.00444,
+   "mobile_page_screens": 1.00474,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fb1be-acec-75b3-b700-d048fe292d08-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fb219-b0eb-70bd-b993-0bf9b04fcc4d-a",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 88.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.00111,
+   "mobile_page_screens": 1.16943,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-haiku-4-5-20251001",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb219-b0eb-70bd-b993-0bf9b04fcc4d-b",
+  "type": "reference based design",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 78.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.87204,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb298-4f94-7088-a843-7fdd7fd1bce9-a",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 1.0,
+   "visible_links": 8.0,
+   "page_screens": 5.72778,
+   "mobile_page_screens": 9.76066,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb298-4f94-7088-a843-7fdd7fd1bce9-b",
+  "type": "data and analytics applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 223.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.16333,
+   "mobile_page_screens": 2.70972,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb2dd-3669-73c5-befe-57e8b63628bd-a",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 102.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fb2dd-3669-73c5-befe-57e8b63628bd-b",
+  "type": "gaming",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 102.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb36e-5a13-7c8d-a79d-d47ebc09e83a-a",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.13626,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fb36e-5a13-7c8d-a79d-d47ebc09e83a-b",
+  "type": "simulations",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 203.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb655-fbb7-7d45-85c6-9472c745ecf3-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 25.0,
+   "footer_links": 3.0,
+   "visible_links": 12.0,
+   "page_screens": 4.47778,
+   "mobile_page_screens": 4.36019,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb655-fbb7-7d45-85c6-9472c745ecf3-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 5.0,
+   "page_screens": 4.32556,
+   "mobile_page_screens": 5.54976,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb690-85a3-7dbf-b9a8-40474a050385-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 96.0,
+   "footer_links": 19.0,
+   "visible_links": 23.0,
+   "page_screens": 5.92778,
+   "mobile_page_screens": 11.27014,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb690-85a3-7dbf-b9a8-40474a050385-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 102.0,
+   "footer_links": 5.0,
+   "visible_links": 12.0,
+   "page_screens": 5.71778,
+   "mobile_page_screens": 7.74645,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb6b1-ad30-75cd-8c9a-036544ffba3b-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 9.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb6b1-ad30-75cd-8c9a-036544ffba3b-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb772-ee10-7b92-863b-0a8a8ee026ba-a",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 97.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.21445,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-high-20260730-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fb772-ee10-7b92-863b-0a8a8ee026ba-b",
+  "type": "consumer product and platform applications",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 161.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-high-20260730-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fb89f-1c16-7a33-ae2e-31aa9171f5f5-a",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 70.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 6.93,
+   "mobile_page_screens": 11.16825,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fb89f-1c16-7a33-ae2e-31aa9171f5f5-b",
+  "type": "content creation and editing tools",
+  "prompt": "zh",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 146.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.73889,
+   "mobile_page_screens": 5.35308,
+   "price_in_yuan": 1.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f2049-57d5-7f3e-8dfc-8b0c01eb50c3-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 92.0,
+   "footer_links": 21.0,
+   "visible_links": 32.0,
+   "page_screens": 9.18222,
+   "mobile_page_screens": 15.95142,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2049-57d5-7f3e-8dfc-8b0c01eb50c3-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 155.0,
+   "footer_links": 16.0,
+   "visible_links": 27.0,
+   "page_screens": 14.91889,
+   "mobile_page_screens": 25.63863,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2241-04bc-7a51-ada7-248cd98c2da7-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 63.0,
+   "footer_links": 7.0,
+   "visible_links": 16.0,
+   "page_screens": 12.02444,
+   "mobile_page_screens": 18.51422,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f2241-04bc-7a51-ada7-248cd98c2da7-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 11.56889,
+   "mobile_page_screens": 15.76422,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f241e-7021-7faa-8b8d-5e3927784ab7-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 154.0,
+   "footer_links": 8.0,
+   "visible_links": 16.0,
+   "page_screens": 13.44,
+   "mobile_page_screens": 26.16114,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f241e-7021-7faa-8b8d-5e3927784ab7-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 142.0,
+   "footer_links": 24.0,
+   "visible_links": 31.0,
+   "page_screens": 9.20444,
+   "mobile_page_screens": 18.79621,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f26a5-aca9-7c6a-b4ee-8cfc3e922b4c-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 78.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f26a5-aca9-7c6a-b4ee-8cfc3e922b4c-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 81.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 8.0,
+   "mobile_page_screens": 8.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2768-3b00-7ef8-b586-0ca72eddd744-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 290.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f2768-3b00-7ef8-b586-0ca72eddd744-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 132.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.23556,
+   "mobile_page_screens": 2.00711,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f27a0-8193-73d8-82a5-ac46a3670bc6-a",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 119.0,
+   "footer_links": 3.0,
+   "visible_links": 3.0,
+   "page_screens": 6.14333,
+   "mobile_page_screens": 12.12678,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f27a0-8193-73d8-82a5-ac46a3670bc6-b",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 130.0,
+   "footer_links": 6.0,
+   "visible_links": 6.0,
+   "page_screens": 3.52556,
+   "mobile_page_screens": 7.11256,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f27de-333a-74c7-92dc-30a41760fef1-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 89.0,
+   "footer_links": 26.0,
+   "visible_links": 44.0,
+   "page_screens": 11.46444,
+   "mobile_page_screens": 19.94905,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f27de-333a-74c7-92dc-30a41760fef1-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 94.0,
+   "footer_links": 26.0,
+   "visible_links": 36.0,
+   "page_screens": 11.59,
+   "mobile_page_screens": 19.95853,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f2888-4dea-7114-8c67-da8201eba37f-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 173.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.43444,
+   "mobile_page_screens": 1.8519,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.20-beta-0309-reasoning",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f2888-4dea-7114-8c67-da8201eba37f-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 231.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 1.24333,
+   "mobile_page_screens": 1.48934,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f2c63-b041-76c1-9567-1b5c4cd9696a-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 105.0,
+   "footer_links": 23.0,
+   "visible_links": 41.0,
+   "page_screens": 11.98444,
+   "mobile_page_screens": 20.55213,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f2c63-b041-76c1-9567-1b5c4cd9696a-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 80.0,
+   "footer_links": 23.0,
+   "visible_links": 38.0,
+   "page_screens": 9.04556,
+   "mobile_page_screens": 16.09242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f2eae-1b7e-7876-83b3-5c0f4da53bde-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 177.0,
+   "footer_links": 1.0,
+   "visible_links": 1.0,
+   "page_screens": 1.56111,
+   "mobile_page_screens": 3.31043,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f2eae-1b7e-7876-83b3-5c0f4da53bde-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 12.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 7.2,
+   "mobile_page_screens": 7.20024,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f307c-d3bf-7aad-9428-bb9bdecafd74-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 14.0,
+   "visible_links": 14.0,
+   "page_screens": 12.16778,
+   "mobile_page_screens": 5.62441,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3-flash-thinking-minimal",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f307c-d3bf-7aad-9428-bb9bdecafd74-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 52.0,
+   "footer_links": 13.0,
+   "visible_links": 19.0,
+   "page_screens": 3.78778,
+   "mobile_page_screens": 7.08175,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f3188-7c60-7b62-8a06-85369a05b78b-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 84.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f3188-7c60-7b62-8a06-85369a05b78b-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 9.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f31bf-2ac0-71ac-a7ed-608298b116ad-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 160.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f31bf-2ac0-71ac-a7ed-608298b116ad-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f325f-2416-774b-b1ce-c779fa81e438-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 86.0,
+   "footer_links": 0.0,
+   "visible_links": 2.0,
+   "page_screens": 13.47889,
+   "mobile_page_screens": 29.65521,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f325f-2416-774b-b1ce-c779fa81e438-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 15.0,
+   "visible_links": 25.0,
+   "page_screens": 9.60667,
+   "mobile_page_screens": 21.8045,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f364d-5d6c-7755-b0e6-bf1fe1f7c1eb-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 336.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.44556,
+   "mobile_page_screens": 5.94313,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f364d-5d6c-7755-b0e6-bf1fe1f7c1eb-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 366.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.85889,
+   "mobile_page_screens": 6.0782,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.20-beta-0309-reasoning",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f3749-b2a3-7fbf-99a3-f7a7ab851194-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 91.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 2.52556,
+   "mobile_page_screens": 4.61493,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f3749-b2a3-7fbf-99a3-f7a7ab851194-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 126.0,
+   "footer_links": 0.0,
+   "visible_links": 4.0,
+   "page_screens": 3.84667,
+   "mobile_page_screens": 7.83768,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f3793-ba4e-7ad2-a3c3-1a3fb71db79e-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f3793-ba4e-7ad2-a3c3-1a3fb71db79e-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f389e-db5e-74f4-8702-a3db16ab1b7e-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f389e-db5e-74f4-8702-a3db16ab1b7e-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f396e-7785-7f60-a0ae-ba68fadf1c03-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f396e-7785-7f60-a0ae-ba68fadf1c03-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 61.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.34111,
+   "mobile_page_screens": 1.33531,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f3acd-a4fd-73b9-919a-d2498386723c-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f3acd-a4fd-73b9-919a-d2498386723c-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 304.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f3bf9-13f0-7736-9e41-12699b5d6778-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 233.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.70444,
+   "mobile_page_screens": 2.88152,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f3bf9-13f0-7736-9e41-12699b5d6778-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.08531,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f3d60-df8c-7eb2-85c9-b220d65a006a-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f3d60-df8c-7eb2-85c9-b220d65a006a-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 3.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f3de1-dca4-7bbd-8833-977683062aa5-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f3de1-dca4-7bbd-8833-977683062aa5-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f3ed3-7543-7579-a3b8-445765a5fee9-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 51.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.62333,
+   "mobile_page_screens": 2.06754,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3-flash-thinking-minimal",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f3ed3-7543-7579-a3b8-445765a5fee9-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 52.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 1.87222,
+   "mobile_page_screens": 2.33412,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f41cc-fbf9-74ab-8c70-977ab7163b6e-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 1.0,
+   "visible_links": 7.0,
+   "page_screens": 3.40111,
+   "mobile_page_screens": 4.58294,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f41cc-fbf9-74ab-8c70-977ab7163b6e-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 33.0,
+   "footer_links": 0.0,
+   "visible_links": 11.0,
+   "page_screens": 3.19444,
+   "mobile_page_screens": 4.23104,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f45a3-207c-7428-b1bc-bbfbcb021bb3-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f45a3-207c-7428-b1bc-bbfbcb021bb3-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 1.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f46a3-f300-7200-85e6-29f11e9b3a3f-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 122.0,
+   "footer_links": 24.0,
+   "visible_links": 30.0,
+   "page_screens": 8.10667,
+   "mobile_page_screens": 14.86374,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f46a3-f300-7200-85e6-29f11e9b3a3f-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 99.0,
+   "footer_links": 28.0,
+   "visible_links": 33.0,
+   "page_screens": 9.50222,
+   "mobile_page_screens": 17.79028,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f4a35-8b51-70e0-bfbf-7ea806bc5127-a",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 6.0,
+   "visible_links": 9.0,
+   "page_screens": 13.92111,
+   "mobile_page_screens": 50.61374,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f4a35-8b51-70e0-bfbf-7ea806bc5127-b",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 89.0,
+   "footer_links": 6.0,
+   "visible_links": 9.0,
+   "page_screens": 15.53556,
+   "mobile_page_screens": 56.18246,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f4f0d-c9db-71dd-89bd-7d53077abb0d-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f4f0d-c9db-71dd-89bd-7d53077abb0d-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 72.0,
+   "footer_links": 5.0,
+   "visible_links": 13.0,
+   "page_screens": 9.64778,
+   "mobile_page_screens": 17.16943,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f5002-73ba-79bd-ad97-7cd6d7f369f0-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 83.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.57222,
+   "mobile_page_screens": 2.12441,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f5002-73ba-79bd-ad97-7cd6d7f369f0-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 80.0,
+   "footer_links": 5.0,
+   "visible_links": 5.0,
+   "page_screens": 6.12444,
+   "mobile_page_screens": 10.45142,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f5245-ac7c-7c2e-a420-8bc4286de7be-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 164.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f5245-ac7c-7c2e-a420-8bc4286de7be-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 154.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.7263,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f5486-2ce7-7184-a934-4f7e1b6b024a-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 192.0,
+   "footer_links": 4.0,
+   "visible_links": 4.0,
+   "page_screens": 1.13556,
+   "mobile_page_screens": 2.859,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f5486-2ce7-7184-a934-4f7e1b6b024a-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 123.0,
+   "footer_links": 15.0,
+   "visible_links": 24.0,
+   "page_screens": 3.19778,
+   "mobile_page_screens": 7.17062,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f597c-ccc4-7c54-b63a-45117aae5313-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 3.0,
+   "visible_links": 9.0,
+   "page_screens": 7.70333,
+   "mobile_page_screens": 14.74882,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f597c-ccc4-7c54-b63a-45117aae5313-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 35.0,
+   "footer_links": 0.0,
+   "visible_links": 9.0,
+   "page_screens": 7.55,
+   "mobile_page_screens": 14.609,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f5c91-4a31-7b54-b21b-88febeaf59ce-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f5c91-4a31-7b54-b21b-88febeaf59ce-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 60.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f5c9a-7907-7ac6-8817-cdd5041b792b-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 56.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-flash-lite",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f5c9a-7907-7ac6-8817-cdd5041b792b-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f5df2-e4c2-7cf2-bde8-fc23ee507d40-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-medium",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f5df2-e4c2-7cf2-bde8-fc23ee507d40-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 148.0,
+   "footer_links": 1.0,
+   "visible_links": 1.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.60545,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f60de-1589-78b0-8f6b-b23654ad30bb-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-haiku-4-5-20251001",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f60de-1589-78b0-8f6b-b23654ad30bb-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f64d1-deca-7800-8459-55485a1130c3-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 26.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.24,
+   "mobile_page_screens": 1.53199,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f64d1-deca-7800-8459-55485a1130c3-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.12444,
+   "mobile_page_screens": 1.41588,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6515-bdef-7b90-a472-4fbc23dd047b-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 78.0,
+   "footer_links": 19.0,
+   "visible_links": 28.0,
+   "page_screens": 11.35222,
+   "mobile_page_screens": 21.28081,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6515-bdef-7b90-a472-4fbc23dd047b-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 56.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 8.28,
+   "mobile_page_screens": 18.31872,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f663c-9921-77eb-80da-386fb1fb416a-a",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 122.0,
+   "footer_links": 24.0,
+   "visible_links": 44.0,
+   "page_screens": 11.03778,
+   "mobile_page_screens": 19.00948,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-7-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f663c-9921-77eb-80da-386fb1fb416a-b",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 188.0,
+   "footer_links": 25.0,
+   "visible_links": 39.0,
+   "page_screens": 9.20222,
+   "mobile_page_screens": 16.5391,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f66a8-dba9-7da8-bae7-25bd84f92326-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 143.0,
+   "footer_links": 4.0,
+   "visible_links": 15.0,
+   "page_screens": 11.42,
+   "mobile_page_screens": 16.48934,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f66a8-dba9-7da8-bae7-25bd84f92326-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 101.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3-flash-thinking-minimal",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6939-13fc-72e4-9c1d-cac022d62aff-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-plus",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6939-13fc-72e4-9c1d-cac022d62aff-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 42.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6987-7d01-7bef-9387-44e46270fb71-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 172.0,
+   "footer_links": 15.0,
+   "visible_links": 19.0,
+   "page_screens": 9.02667,
+   "mobile_page_screens": 16.90166,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.5-397b-a17b-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6987-7d01-7bef-9387-44e46270fb71-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 117.0,
+   "footer_links": 0.0,
+   "visible_links": 3.0,
+   "page_screens": 6.83778,
+   "mobile_page_screens": 13.99052,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6a21-55a8-7ae1-aae9-af18eec690e7-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 119.0,
+   "footer_links": 23.0,
+   "visible_links": 29.0,
+   "page_screens": 2.59889,
+   "mobile_page_screens": 5.59716,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6a21-55a8-7ae1-aae9-af18eec690e7-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 127.0,
+   "footer_links": 12.0,
+   "visible_links": 12.0,
+   "page_screens": 4.64333,
+   "mobile_page_screens": 9.01777,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f6b12-3768-76b2-a620-cb39ad199294-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.83,
+   "mobile_page_screens": 3.55332,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6b12-3768-76b2-a620-cb39ad199294-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 155.0,
+   "footer_links": 24.0,
+   "visible_links": 29.0,
+   "page_screens": 4.10222,
+   "mobile_page_screens": 8.23934,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6c2b-8fbe-7bf4-8f2b-ead218a33936-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 75.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 16.01556,
+   "mobile_page_screens": 20.08768,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f6c2b-8fbe-7bf4-8f2b-ead218a33936-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 95.0,
+   "footer_links": 6.0,
+   "visible_links": 17.0,
+   "page_screens": 12.00667,
+   "mobile_page_screens": 16.85427,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6cd6-a6e2-7f7f-94c5-246e60e73779-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 118.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6cd6-a6e2-7f7f-94c5-246e60e73779-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 44.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f6db8-8347-77f8-9678-4130f68970bb-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6db8-8347-77f8-9678-4130f68970bb-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 165.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.65047,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6e2d-10ea-7465-b1ac-a001ca100664-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 63.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.06,
+   "mobile_page_screens": 1.53318,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6e2d-10ea-7465-b1ac-a001ca100664-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 39.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.06444,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f6e3e-bae3-72d5-b9f0-ca72daa5b312-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 58.0,
+   "footer_links": 6.0,
+   "visible_links": 6.0,
+   "page_screens": 15.22889,
+   "mobile_page_screens": 14.3436,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f6e3e-bae3-72d5-b9f0-ca72daa5b312-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 66.0,
+   "footer_links": 6.0,
+   "visible_links": 6.0,
+   "page_screens": 14.76,
+   "mobile_page_screens": 13.69905,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f6f2b-b2ec-7816-8c2b-4faccc1b20df-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 225.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f6f2b-b2ec-7816-8c2b-4faccc1b20df-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 86.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f6f64-3dd7-7253-9213-280a705ed709-a",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 19.0,
+   "footer_links": 3.0,
+   "visible_links": 8.0,
+   "page_screens": 3.57778,
+   "mobile_page_screens": 6.90284,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f6f64-3dd7-7253-9213-280a705ed709-b",
+  "type": "consumer product and platform applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 41.0,
+   "footer_links": 15.0,
+   "visible_links": 24.0,
+   "page_screens": 6.48111,
+   "mobile_page_screens": 9.21564,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3-flash-thinking-minimal",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f702e-cc0d-7de5-a5be-aea51e38eedf-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 122.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.58294,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f702e-cc0d-7de5-a5be-aea51e38eedf-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 118.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f7039-ac84-7135-a11a-0675b4cbab5b-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 161.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.33,
+   "mobile_page_screens": 1.46327,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7039-ac84-7135-a11a-0675b4cbab5b-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 143.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.26778,
+   "mobile_page_screens": 1.44076,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f709b-93b6-7832-86bc-f91976fa3b22-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 33.0,
+   "visible_links": 52.0,
+   "page_screens": 12.20222,
+   "mobile_page_screens": 21.33175,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f709b-93b6-7832-86bc-f91976fa3b22-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 63.0,
+   "footer_links": 21.0,
+   "visible_links": 33.0,
+   "page_screens": 9.51556,
+   "mobile_page_screens": 16.88507,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f7173-6f3e-7557-a26b-ae792296084a-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 76.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f7173-6f3e-7557-a26b-ae792296084a-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.7-code",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f71a8-fc95-78df-8c5d-e58ab31e4bcf-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 67.0,
+   "footer_links": 0.0,
+   "visible_links": 6.0,
+   "page_screens": 4.82333,
+   "mobile_page_screens": 8.25829,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-flash-lite",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f71a8-fc95-78df-8c5d-e58ab31e4bcf-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 13.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f71e6-e6cc-77ff-b706-60e29442121a-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 12.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f71e6-e6cc-77ff-b706-60e29442121a-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f7283-9e1a-7abb-b732-52d4cba6736c-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 76.0,
+   "footer_links": 20.0,
+   "visible_links": 38.0,
+   "page_screens": 3.30778,
+   "mobile_page_screens": 6.3045,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7283-9e1a-7abb-b732-52d4cba6736c-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 260.0,
+   "footer_links": 0.0,
+   "visible_links": 1.0,
+   "page_screens": 4.75778,
+   "mobile_page_screens": 12.60782,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f739f-6174-7a4d-9786-58f773453955-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 469.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.94222,
+   "mobile_page_screens": 4.09242,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f739f-6174-7a4d-9786-58f773453955-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 53.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.0,
+   "mobile_page_screens": 2.11611,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.1-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f75d8-0a07-71d9-aeb1-1b8a377e59d2-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 55.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-high-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f75d8-0a07-71d9-aeb1-1b8a377e59d2-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 63.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f75e1-c5d2-71be-8198-7f34bfa75b5e-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f75e1-c5d2-71be-8198-7f34bfa75b5e-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-fable-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f75e9-80a1-77e2-9abd-919cc3a8cbfa-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 20.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f75e9-80a1-77e2-9abd-919cc3a8cbfa-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f7638-8116-7bf1-b53e-e5376d67deff-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 221.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7638-8116-7bf1-b53e-e5376d67deff-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 51.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7657-01af-7ed2-aa7d-707973a9c2f2-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 80.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f7657-01af-7ed2-aa7d-707973a9c2f2-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f766a-3e40-7120-b88a-43ae91c7802a-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 318.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-8-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f766a-3e40-7120-b88a-43ae91c7802a-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 174.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f76b8-67e9-7503-baac-5b997da147ae-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 59.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 3.75222,
+   "mobile_page_screens": 6.70735,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f76b8-67e9-7503-baac-5b997da147ae-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 50.0,
+   "footer_links": 12.0,
+   "visible_links": 15.0,
+   "page_screens": 5.75222,
+   "mobile_page_screens": 10.49171,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f7ac2-f725-7c21-aff7-8c85c0cab8ad-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 24.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f7ac2-f725-7c21-aff7-8c85c0cab8ad-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 43.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f7af4-2baa-7a83-a2d6-95f7539dc593-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 42.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.95556,
+   "mobile_page_screens": 3.43839,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m2.7",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019f7af4-2baa-7a83-a2d6-95f7539dc593-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 23.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f7e15-fa6d-7e8e-850c-16d774d29cf3-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 15.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.4-high",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f7e15-fa6d-7e8e-850c-16d774d29cf3-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f7e35-6dc9-72a3-a142-2ccdd7e25f98-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 110.0,
+   "footer_links": 27.0,
+   "visible_links": 43.0,
+   "page_screens": 9.69556,
+   "mobile_page_screens": 16.05806,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3-flash-thinking-minimal",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f7e35-6dc9-72a3-a142-2ccdd7e25f98-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 15.0,
+   "visible_links": 15.0,
+   "page_screens": 5.98444,
+   "mobile_page_screens": 5.97749,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-haiku-4-5-20251001",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f7f51-665d-749e-bec0-f6adcee353d2-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 22.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f7f51-665d-749e-bec0-f6adcee353d2-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 3.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.20-beta-0309-reasoning",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f8547-aeb6-7f2e-a936-cf718a32a91e-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 46.0,
+   "footer_links": 1.0,
+   "visible_links": 1.0,
+   "page_screens": 10.37,
+   "mobile_page_screens": 13.53199,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f8547-aeb6-7f2e-a936-cf718a32a91e-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 82.0,
+   "footer_links": 1.0,
+   "visible_links": 4.0,
+   "page_screens": 5.26778,
+   "mobile_page_screens": 6.28673,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f85ab-d670-717d-9ff5-8eaf7d6ba587-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f85ab-d670-717d-9ff5-8eaf7d6ba587-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 38.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k2.5-webdev",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f8999-b7da-7ef5-ad39-a7c809c0a6c9-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 16.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019f8999-b7da-7ef5-ad39-a7c809c0a6c9-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f8cfe-f17d-7b9c-8240-9892532feac8-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 102.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "grok-4.3-webdev",
+  "lab": "xAI",
+  "origin": "US",
+  "site": "019f8cfe-f17d-7b9c-8240-9892532feac8-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 80.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.01111,
+   "mobile_page_screens": 1.13507,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f8de5-9873-7aad-b47c-f2a18ba5da08-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 14.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8de5-9873-7aad-b47c-f2a18ba5da08-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 100.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8e30-3fd4-741f-b526-51ffbe1a1c41-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 150.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.06,
+   "mobile_page_screens": 2.79265,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f8e30-3fd4-741f-b526-51ffbe1a1c41-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 199.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.05556,
+   "mobile_page_screens": 5.90403,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019f8e62-f6c4-786c-82cd-66457bd2e81c-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 98.0,
+   "footer_links": 15.0,
+   "visible_links": 27.0,
+   "page_screens": 12.72667,
+   "mobile_page_screens": 20.17773,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8e62-f6c4-786c-82cd-66457bd2e81c-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 170.0,
+   "footer_links": 12.0,
+   "visible_links": 20.0,
+   "page_screens": 15.05,
+   "mobile_page_screens": 31.08886,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8e75-81a8-758e-a328-c9ea320180f8-a",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 237.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.10222,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f8e75-81a8-758e-a328-c9ea320180f8-b",
+  "type": "content creation and editing tools",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 79.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.16444,
+   "mobile_page_screens": 1.58294,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f8f1f-a2d8-7d9e-8239-aad56839bdf7-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 61.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.15521,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5v-turbo",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f8f1f-a2d8-7d9e-8239-aad56839bdf7-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 47.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.03556,
+   "mobile_page_screens": 1.03791,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f9014-0b45-7618-b1fb-cff53431e656-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 130.0,
+   "footer_links": 20.0,
+   "visible_links": 45.0,
+   "page_screens": 11.99222,
+   "mobile_page_screens": 21.95498,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019f9014-0b45-7618-b1fb-cff53431e656-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 83.0,
+   "footer_links": 24.0,
+   "visible_links": 51.0,
+   "page_screens": 13.69333,
+   "mobile_page_screens": 21.3436,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9232-f519-7b65-8a7b-ff809dac625b-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 122.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.09111,
+   "mobile_page_screens": 1.20616,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f9232-f519-7b65-8a7b-ff809dac625b-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 53.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.6-flash",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f93de-9014-70b3-9361-92ce2197d00f-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 74.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.7-max",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019f93de-9014-70b3-9361-92ce2197d00f-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 40.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "longcat-2.0",
+  "lab": "Meituan",
+  "origin": "China",
+  "site": "019f97d8-fe50-7467-9015-1cc5566ba6c0-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 12.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-high-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019f97d8-fe50-7467-9015-1cc5566ba6c0-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 42.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-pro-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019f9afc-1b4e-7ae0-a356-8540277dcaa4-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 19.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9afc-1b4e-7ae0-a356-8540277dcaa4-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 0.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019f9db5-ea46-73a2-8af5-02941fbe4b6b-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 45.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019f9db5-ea46-73a2-8af5-02941fbe4b6b-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 123.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.54265,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fa2a1-d647-72de-b8ff-bdd1013199d2-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 160.0,
+   "footer_links": 15.0,
+   "visible_links": 33.0,
+   "page_screens": 13.29889,
+   "mobile_page_screens": 25.4064,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-max-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa2a1-d647-72de-b8ff-bdd1013199d2-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 159.0,
+   "footer_links": 15.0,
+   "visible_links": 45.0,
+   "page_screens": 13.45,
+   "mobile_page_screens": 25.88981,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-terra-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fa3b9-2b6f-7b2a-8a52-9e0760ce7a2f-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 305.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 2.47749,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fa3b9-2b6f-7b2a-8a52-9e0760ce7a2f-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 91.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.11137,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa6d8-a209-712b-8c0d-bf519f871d54-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 36.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019fa6d8-a209-712b-8c0d-bf519f871d54-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 134.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-medium",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fa733-48ce-7adf-9dd4-6216c9c71180-a",
+  "type": "gaming",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 32.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "kimi-k3",
+  "lab": "Moonshot",
+  "origin": "China",
+  "site": "019fa733-48ce-7adf-9dd4-6216c9c71180-b",
+  "type": "gaming",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 27.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.5-flash-medium",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fa73f-faf2-7bd8-b51a-b9e8b97c8538-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 138.0,
+   "footer_links": 3.0,
+   "visible_links": 15.0,
+   "page_screens": 4.88,
+   "mobile_page_screens": 10.14692,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fa73f-faf2-7bd8-b51a-b9e8b97c8538-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 193.0,
+   "footer_links": 3.0,
+   "visible_links": 14.0,
+   "page_screens": 4.27111,
+   "mobile_page_screens": 8.29858,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019fa8e1-3b4d-7d20-847a-9f5fe6ab3310-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 10.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6-thinking-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fa8e1-3b4d-7d20-847a-9f5fe6ab3310-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 17.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "mimo-v2.5-webdev",
+  "lab": "Xiaomi",
+  "origin": "China",
+  "site": "019fad12-0e13-76a1-b1fe-2b0de7f5ed5f-a",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fad12-0e13-76a1-b1fe-2b0de7f5ed5f-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-sonnet-5-webdev",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019faf52-6662-7570-8cd4-b71d11799347-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 123.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.23444,
+   "mobile_page_screens": 2.67062,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-27b",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019faf52-6662-7570-8cd4-b71d11799347-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 123.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.23556,
+   "mobile_page_screens": 2.6718,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-5-medium",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb154-7fbc-7efa-90c7-1894d188ea32-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 88.0,
+   "footer_links": 22.0,
+   "visible_links": 30.0,
+   "page_screens": 6.64222,
+   "mobile_page_screens": 11.70379,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb154-7fbc-7efa-90c7-1894d188ea32-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 86.0,
+   "footer_links": 19.0,
+   "visible_links": 19.0,
+   "page_screens": 2.38,
+   "mobile_page_screens": 4.82938,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-thinking-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fb23c-3c44-7c6f-a425-8dd15af6e0ce-a",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 119.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 2.37667,
+   "mobile_page_screens": 3.68602,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb23c-3c44-7c6f-a425-8dd15af6e0ce-b",
+  "type": "data and analytics applications",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 78.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 8.42222,
+   "mobile_page_screens": 15.52725,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.5-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb278-6957-7a18-b153-db83f52fd706-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 134.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "qwen3.6-plus-v1-webdev",
+  "lab": "Alibaba",
+  "origin": "China",
+  "site": "019fb278-6957-7a18-b153-db83f52fd706-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 136.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gemini-3.1-pro-preview",
+  "lab": "Google",
+  "origin": "US",
+  "site": "019fb69c-ce98-73cb-8563-b049c2df9e46-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 8.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "glm-5.2-code",
+  "lab": "Zhipu",
+  "origin": "China",
+  "site": "019fb69c-ce98-73cb-8563-b049c2df9e46-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 28.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-flash-high-20260730-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fb87e-9387-71f4-bd6f-209d611cfada-a",
+  "type": "simulations",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 264.0,
+   "footer_links": 23.0,
+   "visible_links": 36.0,
+   "page_screens": 14.14889,
+   "mobile_page_screens": 32.43602,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "gpt-5.6-sol-xhigh-webdev",
+  "lab": "OpenAI",
+  "origin": "US",
+  "site": "019fb87e-9387-71f4-bd6f-209d611cfada-b",
+  "type": "simulations",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 56.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 9.58667,
+   "mobile_page_screens": 17.58886,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "claude-opus-4-6",
+  "lab": "Anthropic",
+  "origin": "US",
+  "site": "019fb8d9-4ed5-7bd1-ad76-99afee8c5a9d-a",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": true,
+  "values": {
+   "visible_elements_first_screen": 88.0,
+   "footer_links": 12.0,
+   "visible_links": 23.0,
+   "page_screens": 9.08778,
+   "mobile_page_screens": 19.73934,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "deepseek-v4-pro-webdev",
+  "lab": "DeepSeek",
+  "origin": "China",
+  "site": "019fb8d9-4ed5-7bd1-ad76-99afee8c5a9d-b",
+  "type": "brand marketing and informational websites",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 34.0,
+   "footer_links": 3.0,
+   "visible_links": 11.0,
+   "page_screens": 5.46778,
+   "mobile_page_screens": 10.74882,
+   "price_in_yuan": 0.0
+  }
+ },
+ {
+  "model": "minimax-m3",
+  "lab": "MiniMax",
+  "origin": "China",
+  "site": "019fb9ad-604e-7a73-ad6a-91328a330bed-b",
+  "type": "reference based design",
+  "prompt": "en",
+  "won": false,
+  "values": {
+   "visible_elements_first_screen": 30.0,
+   "footer_links": 0.0,
+   "visible_links": 0.0,
+   "page_screens": 1.0,
+   "mobile_page_screens": 1.0,
+   "price_in_yuan": 0.0
+  }
+ }
+]

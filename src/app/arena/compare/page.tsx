@@ -2,30 +2,71 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArenaMetricCharts } from "@/components/arena-metric-charts";
+import { ArenaDatasetComparison, type ComparisonRow } from "@/components/arena-dataset-comparison";
+import { ArenaPreference, type ArenaPreferenceData } from "@/components/arena-preference";
+import { CountrySignalPlots, type SignalPage } from "@/components/country-signal-plots";
+import { ModelsCard } from "@/components/models-card";
+import { measureGroups, measureNotes } from "@/lib/arena/study-measures";
 import "../research.css";
 
 export const instant = false;
 
-type Pair = { id: string; model_a: string; model_b: string };
-type Measurements = Record<string, Record<string, Record<string, unknown>>>;
+const fiveSignals = new Set(["visible_elements_first_screen", "footer_links", "visible_links", "page_screens", "price_in_yuan"]);
+// Both written by research/analysis/export_country_signals.py.
+const sources = { ours: "research/results/new-labs/country-signals.json", arena: "research/results/tables/arena-country-signals.json" };
+const tabs = [{ key: "ours", label: "Our generated sites" }, { key: "arena", label: "Arena WebDev" }, { key: "comparison", label: "Arena vs our study" }] as const;
 
-export default async function ComparePage() {
+export default async function ComparePage({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
   if (process.env.NODE_ENV !== "development") notFound();
-  const folder = path.join(process.cwd(), "arena-data/pilot");
-  const [pairs, measurements] = await Promise.all([
-    readFile(path.join(folder, "pairs.json"), "utf8").then((value) => JSON.parse(value) as Pair[]).catch(() => []),
-    readFile(path.join(folder, "measurements.json"), "utf8").then((value) => JSON.parse(value) as Measurements).catch(() => ({} as Measurements)),
-  ]);
-  const observations = pairs.flatMap((pair) => (["a", "b"] as const).flatMap((side) => {
-    const values = measurements[pair.id]?.[side];
-    return values ? [{ pairId: pair.id, model: pair[`model_${side}`], values }] : [];
-  }));
+  const selected = (await searchParams).data;
+  const tab = selected === "arena" ? "arena" : selected === "comparison" ? "comparison" : "ours";
+  if (tab === "comparison") {
+    const rows = await readFile(path.join(process.cwd(), "research/results/tables/dataset-comparison.json"), "utf8").then((value) => JSON.parse(value) as ComparisonRow[]).catch(() => [] as ComparisonRow[]);
+    return <main className="arena-dashboard arena-compare-page"><Link href="/arena" className="arena-compare-back">← Back to Arena</Link><div className="arena-compare-heading"><p className="arena-eyebrow">EXPLORATORY ANALYSIS</p><h1>Arena vs our study</h1><p>Compare paired design signals across two datasets.</p></div><nav className="data-tabs" aria-label="Data set">{tabs.map((item) => <Link key={item.key} href={item.key === "ours" ? "/arena/compare" : `/arena/compare?data=${item.key}`} aria-current={item.key === tab ? "page" : undefined}>{item.label}</Link>)}</nav>{rows.length ? <ArenaDatasetComparison rows={rows} /> : <p>Comparison data unavailable. Run <code>python3 research/analysis/export_dataset_comparison.py</code>.</p>}</main>;
+  }
+  const pages = await readFile(path.join(process.cwd(), sources[tab]), "utf8")
+    .then((value) => JSON.parse(value) as SignalPage[]).catch(() => [] as SignalPage[]);
+  const preference = tab === "arena" ? await readFile(path.join(process.cwd(), "research/results/tables/arena-preference.json"), "utf8")
+    .then((value) => JSON.parse(value) as ArenaPreferenceData).catch(() => null) : null;
+  const distinct = (key: "model" | "lab" | "type", origin?: string) => new Set(pages.filter((page) => !origin || page.origin === origin).map((page) => page[key])).size;
+  const labs = (origin: string) => [...new Set(pages.filter((page) => page.origin === origin).map((page) => page.lab))].sort().join(", ");
+  const byPrompt = `${pages.filter((page) => page.prompt === "zh").length} from Chinese prompts, ${pages.filter((page) => page.prompt === "en").length} from English`;
+  const measures = { label: "Measures", value: measureGroups.reduce((n, group) => n + group.measures.length, 0), note: "Page structure, screenshots and local features" };
+  const cards = tab === "ours" ? [
+    { label: "Home pages", value: pages.length, note: byPrompt },
+    { label: "Models", value: distinct("model"), note: `${distinct("model", "China")} Chinese, ${distinct("model", "US")} US, run locally` },
+    { label: "Labs", value: distinct("lab"), note: `China: ${labs("China")}. US: ${labs("US")}` },
+    { label: "Site types", value: distinct("type"), note: "Each asked for once per prompt language" },
+    measures,
+  ] : [
+    { label: "Sites", value: pages.length, note: byPrompt },
+    { label: "Battles", value: new Set(pages.map((page) => page.site.replace(/-[ab]$/, ""))).size, note: "Each a US model against a Chinese model on the same prompt" },
+    { label: "Models", value: distinct("model"), note: `${distinct("model", "China")} Chinese, ${distinct("model", "US")} US` },
+    { label: "Labs", value: distinct("lab"), note: `China: ${labs("China")}. US: ${labs("US")}` },
+    measures,
+  ];
   return <main className="arena-dashboard arena-compare-page">
     <Link href="/arena" className="arena-compare-back">← Back to Arena</Link>
-    <div className="arena-compare-heading"><p className="arena-eyebrow">PILOT ANALYSIS</p><h1>Compare model properties</h1><p>Explore measurements from the rendered Arena sites, grouped by model.</p></div>
-    <div className="arena-compare-notice">Exploratory pilot · Different models received different prompts, and some have only one site. These graphs describe the sample, not a controlled ranking. External resources were blocked during rendering.</div>
-    <ArenaMetricCharts observations={observations} />
-    <section className="arena-future-measures"><h2>Research measures to add</h2><p>These measures from <a href="https://doi.org/10.1145/3411764.3445156" target="_blank" rel="noreferrer">Goree and colleagues</a> have not been calculated yet.</p><div><article><strong>Layout distance</strong><span>Compare the visual arrangement of two screenshots.</span></article><article><strong>Color distance</strong><span>Compare the distribution of colors across two screenshots.</span></article><article><strong>Library overlap</strong><span>Compare detected libraries while accounting for the shared starting stack.</span></article></div></section>
+    <div className="arena-compare-heading"><p className="arena-eyebrow">EXPLORATORY ANALYSIS</p><h1>{tab === "ours" ? "Five signals that separate Chinese and US models" : "Do the five signals show up on Arena?"}</h1><p>{tab === "ours"
+      ? `${pages.length} home pages from ${distinct("model")} local models, each asked for ${distinct("type")} site types with a Chinese and an English prompt.`
+      : `${pages.length} sites from Arena WebDev battles between a US and a Chinese model, July 2026.`}</p></div>
+    <nav className="data-tabs" aria-label="Data set">{tabs.map((item) => <Link key={item.key} href={item.key === "ours" ? "/arena/compare" : `/arena/compare?data=${item.key}`} aria-current={tab === item.key ? "page" : undefined}>{item.label}</Link>)}</nav>
+    {pages.length > 0 && <div className="data-cards">{cards.map((card) => card.label === "Models"
+      ? <ModelsCard key={card.label} pages={pages} note={card.note} />
+      : <div className="arena-card" key={card.label}><span>{card.label}</span><strong>{card.value}</strong><small>{card.note}</small></div>)}</div>}
+    {preference && <ArenaPreference data={preference} />}
+    <div className="arena-compare-notice">{tab === "ours"
+      ? <>Exploratory · These five came out on top of 40 measures after we looked at the data, so they are hypotheses, not findings (exact model-level p 0.010 to 0.024 each, q = 0.11 after correcting for 40 measures). &ldquo;Model pairs agreeing&rdquo; counts how many of the 24 Chinese–US model pairs have the Chinese model higher. A pre-registered test on new labs is pending.</>
+      : <>A second look · The five signals were picked on our own sites; this tab shows the same measures on Arena, where they were not chosen. Arena sites start from a shared starter template, and voters and prompts are self-selected. Rows are labs because most of the {distinct("model")} models have only a few sites; &ldquo;Lab pairs agreeing&rdquo; counts the Chinese–US lab pairs with the Chinese lab higher.</>}</div>
+    {pages.length ? <CountrySignalPlots key={tab} pages={pages} rowBy={tab === "arena" ? "lab" : "model"} /> : <p className="arena-empty">No data. Run <code>python research/analysis/export_country_signals.py</code> from the repo root.</p>}
+    <section className="measure-list">
+      <h2>All 40 measures and how they are calculated</h2>
+      <ul>{measureNotes.map((note) => <li key={note}>{note}</li>)}</ul>
+      {measureGroups.map((group) => <div className="arena-table-wrap" key={group.name}><table>
+        <caption>{group.name}</caption>
+        <thead><tr><th>Measure</th><th>How it is calculated</th></tr></thead>
+        <tbody>{group.measures.map((measure) => <tr key={measure.key}><td><strong>{measure.label}</strong>{fiveSignals.has(measure.key) && <span className="measure-tag">One of the five</span>}<small><code>{measure.key}</code></small></td><td>{measure.calculation}</td></tr>)}</tbody>
+      </table></div>)}
+    </section>
   </main>;
 }
