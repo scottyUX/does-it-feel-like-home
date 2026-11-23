@@ -1,0 +1,16 @@
+measure,label,zh,en,diff,models_zh_higher,models_en_higher,models_tied,p,zh_minus_en:qwen/qwen3.5-122b,zh_minus_en:qwen/qwen3.8-27b,zh_minus_en:zhipu/glm-4-9b,zh_minus_en:zhipu/glm-4.7-flash,zh_minus_en:google/gemma-3-27b,zh_minus_en:google/gemma-4-31b,zh_minus_en:meta/llama-4-scout,zh_minus_en:nvidia/nemotron-3-33b,zh_minus_en:openai/gpt-oss-120b,zh_minus_en:openai/gpt-oss-20b,q
+price_in_yuan,Prices in yuan,0.2725,0.245,0.0275,4,1,5,0.375,0.1,0.0,0.1,0.1,-0.125,0.0,0.0,0.0,0.1,0.0,1.0
+wechat,WeChat,0.08,0.07,0.01,2,1,7,1.0,0.1,0.0,0.0,0.1,0.0,0.0,0.0,0.0,0.0,-0.1,1.0
+alipay,Alipay,0.0,0.0,0.0,0,0,10,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+china_phone,Chinese phone number,0.24,0.12,0.12,5,1,4,0.25,0.5,0.6,0.0,-0.2,0.0,0.1,0.0,0.0,0.1,0.1,1.0
+icp_record,ICP registration record,0.14,0.13,0.01,2,2,6,1.0,0.2,0.0,0.0,-0.1,0.0,0.0,0.0,0.0,-0.1,0.1,1.0
+chinese_platforms,"Weibo, Xiaohongshu, Douyin, QQ",0.02,0.03,-0.01,1,2,7,1.0,0.0,-0.1,0.0,0.1,0.0,0.0,0.0,0.0,0.0,-0.1,1.0
+western_platforms,"Google, Facebook, PayPal…",0.0,0.0,0.0,0,0,10,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+qr_code,QR code,0.0,0.0,0.0,0,0,10,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+chinese_date,Chinese date format,0.03,0.06,-0.03,1,4,5,0.375,-0.1,0.1,0.0,-0.1,0.0,0.0,-0.1,0.0,-0.1,0.0,1.0
+customer_service,Customer service,0.11,0.1,0.01,2,2,6,1.0,-0.2,0.3,0.0,-0.1,0.0,0.0,0.0,0.0,0.0,0.1,1.0
+login,Login or sign-up,0.2675,0.225,0.0425,4,1,5,0.25,-0.1,0.0,0.1,0.2,0.125,0.1,0.0,0.0,0.0,0.0,1.0
+search_box,Search box,0.0925,0.06,0.0325,2,0,8,0.5,0.0,0.2,0.0,0.0,0.125,0.0,0.0,0.0,0.0,0.0,1.0
+language_switch,Language switch,0.0,0.0,0.0,0,0,10,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+chinese_font_share,Text in a chosen Chinese font,0.2793,0.2855,-0.0063,4,2,4,0.9688,0.1994,0.0142,0.0,-0.3997,0.0,-0.0766,0.0,0.1,0.0,0.1,1.0
+latin_share,Latin letters among letters,0.0303,0.0316,-0.0013,5,5,0,0.9473,0.0359,-0.0006,-0.0014,0.0312,0.0087,-0.0019,-0.0721,0.0074,-0.0239,0.0041,1.0

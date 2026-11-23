@@ -3,6 +3,7 @@
 import { useState, type CSSProperties } from "react";
 
 export type SignalPage = { model: string; lab: string; origin: "China" | "US"; site: string; type: string; prompt: string; values: Record<string, number | null> };
+type RowBy = "model" | "lab";
 
 type Signal = { key: string; label: string; unit: string; phone?: string; share?: boolean };
 const signals: Signal[] = [
@@ -17,54 +18,57 @@ const names: Record<string, string> = {
   "google/gemma-4-31b": "Gemma 4 31B", "google/gemma-3-27b": "Gemma 3 27B", "openai/gpt-oss-120b": "gpt-oss 120B", "openai/gpt-oss-20b": "gpt-oss 20B",
   "meta/llama-4-scout": "Llama 4 Scout", "nvidia/nemotron-3-33b": "Nemotron 3 33B",
 };
-const origins = [{ origin: "China", title: "Chinese models" }, { origin: "US", title: "US models" }] as const;
+const name = (model: string) => names[model] ?? model;
+const prompts = [{ value: "all", label: "Both prompt languages" }, { value: "zh", label: "Chinese prompts" }, { value: "en", label: "English prompts" }];
 
 const mean = (values: number[]) => values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
 const niceStep = (max: number) => { const raw = max / 4, power = 10 ** Math.floor(Math.log10(raw || 1)); return [1, 2, 2.5, 5, 10].map((m) => m * power).find((step) => step >= raw) ?? raw; };
 const jitter = (seed: string) => { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) | 0; return ((h >>> 0) % 1000) / 1000 - 0.5; };
 
-function SignalPlot({ signal, rank, pages }: { signal: Signal; rank: number; pages: SignalPage[] }) {
-  const [hover, setHover] = useState<{ model: string; site: string } | null>(null);
+function SignalPlot({ signal, rank, pages, rowBy }: { signal: Signal; rank: number; pages: SignalPage[]; rowBy: RowBy }) {
+  const [hover, setHover] = useState<string | null>(null);
+  const unit = rowBy === "lab" ? "Lab" : "Model";
   const format = (value: number) => signal.share ? `${Math.round(value * 100)}%` : value < 20 && !Number.isInteger(value) ? value.toFixed(1) : Math.round(value).toLocaleString();
-  const models = origins.map(({ origin, title }) => {
-    const list = [...new Set(pages.filter((page) => page.origin === origin).map((page) => page.model))].sort((a, b) => (names[a] ?? a).localeCompare(names[b] ?? b)).map((model) => {
-      const sites = pages.filter((page) => page.model === model && page.values[signal.key] != null);
+  const groups = (["China", "US"] as const).map((origin) => {
+    const rows = [...new Set(pages.filter((page) => page.origin === origin).map((page) => page[rowBy]))].sort((a, b) => name(a).localeCompare(name(b))).map((row) => {
+      const sites = pages.filter((page) => page[rowBy] === row && page.values[signal.key] != null);
       const phone = signal.phone ? mean(sites.flatMap((page) => page.values[signal.phone!] ?? [])) : undefined;
-      return { model, lab: sites[0]?.lab ?? "", sites, mean: mean(sites.map((page) => page.values[signal.key]!)), phone, hits: sites.filter((page) => page.values[signal.key]).length };
-    });
-    return { origin, title, list, mean: mean(list.map((item) => item.mean)), phone: signal.phone ? mean(list.map((item) => item.phone ?? 0)) : undefined };
+      return { row, sites, mean: mean(sites.map((page) => page.values[signal.key]!)), phone, hits: sites.filter((page) => page.values[signal.key]).length, lab: sites[0]?.lab ?? "", models: new Set(sites.map((page) => page.model)).size };
+    }).filter((item) => item.sites.length);
+    return { origin, title: `${origin === "China" ? "Chinese" : "US"} ${rowBy === "lab" ? "labs" : "models"}`, rows, mean: mean(rows.map((item) => item.mean)), phone: signal.phone ? mean(rows.map((item) => item.phone ?? 0)) : undefined };
   });
-  const [china, us] = models;
-  const agree = china.list.reduce((n, c) => n + us.list.filter((u) => c.mean > u.mean).length, 0);
-  const max = signal.share ? 1 : Math.max(...pages.flatMap((page) => page.values[signal.key] ?? []));
+  const [china, us] = groups;
+  const agree = china.rows.reduce((n, c) => n + us.rows.filter((u) => c.mean > u.mean).length, 0);
+  const max = signal.share ? 1 : Math.max(1, ...pages.flatMap((page) => page.values[signal.key] ?? []));
   const step = signal.share ? 0.25 : niceStep(max), top = Math.ceil(max / step) * step;
   const ticks = Array.from({ length: Math.round(top / step) + 1 }, (_, i) => i * step);
   const x = (value: number) => `${(value / top) * 100}%`;
+  const promptName = (prompt: string) => prompt === "zh" ? "Chinese prompt" : "English prompt";
   return <section className="signal-plot" aria-label={signal.label}>
     <header className="signal-plot-heading">
       <span className="signal-rank">{rank}</span>
-      <div><h2>{signal.label}</h2><p>{signal.share ? "Share of each model's home pages that show a price in yuan." : `Per home page, in ${signal.unit}.`}{signal.phone && ` On a phone: Chinese ${format(china.phone!)} vs US ${format(us.phone!)} screens.`}</p></div>
+      <div><h2>{signal.label}</h2><p>{signal.share ? `Share of each ${unit.toLowerCase()}'s sites that show a price in yuan.` : `Per site, in ${signal.unit}.`}{signal.phone && ` On a phone: Chinese ${format(china.phone!)} vs US ${format(us.phone!)} screens.`}</p></div>
       <dl className="signal-stats">
-        <div><dt>Chinese models</dt><dd>{format(china.mean)}</dd></div>
-        <div><dt>US models</dt><dd>{format(us.mean)}</dd></div>
-        <div><dt>Model pairs agreeing</dt><dd>{agree} / {china.list.length * us.list.length}</dd></div>
+        <div><dt>Chinese {rowBy}s</dt><dd>{format(china.mean)}</dd></div>
+        <div><dt>US {rowBy}s</dt><dd>{format(us.mean)}</dd></div>
+        <div><dt>{unit} pairs agreeing</dt><dd>{agree} / {china.rows.length * us.rows.length}</dd></div>
       </dl>
     </header>
     <div className="signal-rows">
-      {models.map((group) => <div className="signal-group" key={group.origin} style={{ "--signal-color": group.origin === "China" ? "var(--signal-china)" : "var(--signal-us)" } as CSSProperties}>
-        <div className="signal-group-title"><strong>{group.title}</strong><span>average of model means: {format(group.mean)}</span></div>
-        {group.list.map((item) => <div className="signal-row" key={item.model}>
-          <div className="signal-model"><strong>{names[item.model] ?? item.model}</strong><span>{item.lab} · {signal.share ? `${item.hits} of ${item.sites.length} sites` : `${item.sites.length} sites · mean ${format(item.mean)}`}</span></div>
+      {groups.map((group) => <div className="signal-group" key={group.origin} style={{ "--signal-color": group.origin === "China" ? "var(--signal-china)" : "var(--signal-us)" } as CSSProperties}>
+        <div className="signal-group-title"><strong>{group.title}</strong><span>average of {rowBy} means: {format(group.mean)}</span></div>
+        {group.rows.map((item) => <div className="signal-row" key={item.row}>
+          <div className="signal-model"><strong>{name(item.row)}</strong><span>{rowBy === "lab" ? `${item.models} ${item.models === 1 ? "model" : "models"} · ` : `${item.lab} · `}{signal.share ? `${item.hits} of ${item.sites.length} sites` : `${item.sites.length} sites · mean ${format(item.mean)}`}</span></div>
           <div className="signal-track">
             {ticks.map((tick) => <i className="signal-grid" key={tick} style={{ left: x(tick) }} />)}
             <i className="signal-country-mean" style={{ left: x(group.mean) }} />
             {!signal.share && item.sites.map((page) => {
-              const value = page.values[signal.key]!, active = hover?.model === item.model && hover.site === page.site;
-              return <button type="button" className="signal-dot" key={page.site} style={{ left: x(value), top: `calc(50% + ${jitter(page.site) * 18}px)` }} onMouseEnter={() => setHover({ model: item.model, site: page.site })} onMouseLeave={() => setHover(null)} onFocus={() => setHover({ model: item.model, site: page.site })} onBlur={() => setHover(null)} aria-label={`${names[item.model]}, ${page.type}, ${page.prompt === "zh" ? "Chinese" : "English"} prompt: ${format(value)}`}>
-                {active && <span className="signal-tooltip" role="tooltip"><strong>{format(value)} {signal.unit}</strong>{names[item.model]} · {page.type} · {page.prompt === "zh" ? "Chinese" : "English"} prompt</span>}
+              const value = page.values[signal.key]!, label = `${name(page.model)} · ${page.type} · ${promptName(page.prompt)}`;
+              return <button type="button" className="signal-dot" key={page.site} style={{ left: x(value), top: `calc(50% + ${jitter(page.site) * 18}px)` }} onMouseEnter={() => setHover(page.site)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(page.site)} onBlur={() => setHover(null)} aria-label={`${label}: ${format(value)}`}>
+                {hover === page.site && <span className="signal-tooltip" role="tooltip"><strong>{format(value)} {signal.unit}</strong>{label}</span>}
               </button>;
             })}
-            <span className={signal.share ? "signal-share" : "signal-mean"} style={{ left: x(item.mean) }} title={`${names[item.model]} mean: ${format(item.mean)}`} />
+            <span className={signal.share ? "signal-share" : "signal-mean"} style={{ left: x(item.mean) }} title={`${name(item.row)} mean: ${format(item.mean)}`} />
           </div>
         </div>)}
       </div>)}
@@ -73,13 +77,18 @@ function SignalPlot({ signal, rank, pages }: { signal: Signal; rank: number; pag
   </section>;
 }
 
-export function CountrySignalPlots({ pages }: { pages: SignalPage[] }) {
+export function CountrySignalPlots({ pages, rowBy = "model" }: { pages: SignalPage[]; rowBy?: RowBy }) {
+  const [prompt, setPrompt] = useState("all");
+  const shown = prompt === "all" ? pages : pages.filter((page) => page.prompt === prompt);
   return <section className="signal-plots">
-    <div className="signal-legend" aria-hidden="true">
-      <span><i className="signal-legend-dot" style={{ background: "var(--signal-china)" }} /><i className="signal-legend-dot" style={{ background: "var(--signal-us)" }} /> One home page (Chinese / US model)</span>
-      <span><i className="signal-legend-mean" /> Model mean</span>
-      <span><i className="signal-legend-country" /> Country average</span>
+    <div className="signal-toolbar">
+      <div className="signal-legend" aria-hidden="true">
+        <span><i className="signal-legend-dot" style={{ background: "var(--signal-china)" }} /><i className="signal-legend-dot" style={{ background: "var(--signal-us)" }} /> One site (Chinese / US {rowBy})</span>
+        <span><i className="signal-legend-mean" /> {rowBy === "lab" ? "Lab" : "Model"} mean</span>
+        <span><i className="signal-legend-country" /> Country average</span>
+      </div>
+      <label className="signal-filter">Prompt language<select value={prompt} onChange={(event) => setPrompt(event.target.value)}>{prompts.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></label>
     </div>
-    {signals.map((signal, index) => <SignalPlot key={signal.key} signal={signal} rank={index + 1} pages={pages} />)}
+    {signals.map((signal, index) => <SignalPlot key={signal.key} signal={signal} rank={index + 1} pages={shown} rowBy={rowBy} />)}
   </section>;
 }
