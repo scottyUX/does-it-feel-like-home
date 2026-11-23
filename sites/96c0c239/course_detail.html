@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>课程详情 - 学途</title>
+    <style>
+        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333;}
+        a{color:#0066cc;text-decoration:none;}
+        a:hover{color:#004999;}
+        header{background:#0066cc;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:1.6em;font-weight:bold;}
+        nav a{margin:0 15px;color:#fff;font-size:1em;}
+        .container{max-width:900px;margin:auto;padding:30px 40px;background:#fff;border-radius:6px;margin-top:30px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        h1{font-size:2em;margin-bottom:10px;}
+        .price{font-size:1.5em;color:#ff6600;margin:15px 0;}
+        .info{margin:20px 0;}
+        .info p{margin:8px 0;line-height:1.5;}
+        .schedule{margin:20px 0;}
+        .schedule table{width:100%;border-collapse:collapse;}
+        .schedule th,.schedule td{border:1px solid #ddd;padding:8px;text-align:center;}
+        .schedule th{background:#f0f0f0;}
+        .teacher{display:flex;align-items:center;margin:20px 0;}
+        .teacher img{width:120px;height:120px;border-radius:50%;margin-right:20px;object-fit:cover;}
+        .teacher div{flex:1;}
+        .enroll{display:block;background:#0066cc;color:#fff;padding:12px 0;text-align:center;border-radius:4px;margin-top:30px;font-size:1.1em;}
+        .footer{background:#333;color:#ccc;padding:30px 40px;text-align:center;font-size:0.9em;margin-top:60px;}
+        @media (max-width:600px){
+            .teacher{flex-direction:column;align-items:flex-start;}
+            .teacher img{margin-bottom:15px;}
+        }
+    </style>
+    <script>
+        // 简单的查询参数解析
+        function getQueryParam(name){
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+        function loadCourse(){
+            const courseId = getQueryParam('course') || 'python';
+            const data = {
+                english:{
+                    title:'实用英语口语',
+                    price:'¥1,200 / 30课时',
+                    desc:'针对职场、出国、日常交流的实战口语训练，配合情景对话与即时反馈。课程包含小组练习、口语直播点评、发音纠正等环节。',
+                    schedule:[
+                        {date:'2024-09-01',time:'19:00-20:30'},
+                        {date:'2024-09-08',time:'19:00-20:30'},
+                        {date:'2024-09-15',time:'19:00-20:30'}
+                    ],
+                    teacher:{name:'李娜',bio:'拥有10年英语教学经验，曾任职于跨国企业培训部，擅长商务英语和口语表达。'}
+                },
+                japanese:{
+                    title:'日语入门Ⅰ',
+                    price:'¥1,000 / 20课时',
+                    desc:'从平假名、片假名到基础会话，帮助零基础学员快速上手。每节课配套练习册，课堂互动丰富。',
+                    schedule:[
+                        {date:'2024-09-03',time:'18:00-19:30'},
+                        {date:'2024-09-10',time:'18:00-19:30'},
+                        {date:'2024-09-17',time:'18:00-19:30'}
+                    ],
+                    teacher:{name:'山本健',bio:'日本留学归国，持有日语二级证书，擅长发音与听力教学。'}
+                },
+                python:{
+                    title:'Python零基础实战',
+                    price:'¥2,500 / 40课时',
+                    desc:'从语法到项目实战，覆盖数据分析、Web开发全链路。课程采用案例驱动，学完即可独立完成小型项目。',
+                    schedule:[
+                        {date:'2024-09-05',time:'20:00-22:00'},
+                        {date:'2024-09-12',time:'20:00-22:00'},
+                        {date:'2024-09-19',time:'20:00-22:00'}
+                    ],
+                    teacher:{name:'张伟',bio:'资深Python开发工程师，拥有5年企业项目经验，熟悉数据科学与后台开发。'}
+                },
+                data:{
+                    title:'Excel & PowerBI数据分析',
+                    price:'¥1,800 / 25课时',
+                    desc:'掌握高级Excel技巧与PowerBI可视化，提升职场竞争力。课程包含实战案例、数据清洗与报表设计。',
+                    schedule:[
+                        {date:'2024-09-07',time:'19:30-21:00'},
+                        {date:'2024-09-14',time:'19:30-21:00'},
+                        {date:'2024-09-21',time:'19:30-21:00'}
+                    ],
+                    teacher:{name:'王芳',bio:'企业数据分析师，擅长用PowerBI将数据转化为商业洞察。'}
+                },
+                greenglish:{
+                    title:'考研英语高分突破',
+                    price:'¥2,200 / 30课时',
+                    desc:'词汇、阅读、写作全覆盖，配套真题解析与写作批改。帮助考研学生在英语科目中突破80分大关。',
+                    schedule:[
+                        {date:'2024-09-02',time:'18:30-20:30'},
+                        {date:'2024-09-09',time:'18:30-20:30'},
+                        {date:'2024-09-16',time:'18:30-20:30'}
+                    ],
+                    teacher:{name:'陈晨',bio:'考研英语辅导老师，累计帮助上千名学生实现提分。'}
+                },
+                cpp:{
+                    title:'计算机二级（C语言）全程辅导',
+                    price:'¥1,600 / 20课时',
+                    desc:'从基础语法到上机实践，帮助学员一次通过二级考试。提供真题练习与答疑直播。',
+                    schedule:[
+                        {date:'2024-09-04',time:'19:00-21:00'},
+                        {date:'2024-09-11',time:'19:00-21:00'},
+                        {date:'2024-09-18',time:'19:00-21:00'}
+                    ],
+                    teacher:{name:'刘涛',bio:'多年高校计算机教学经验，熟悉二级考试要点。'}
+                }
+            };
+            const c = data[courseId] || data['python'];
+            document.title = c.title + ' - 学途';
+            document.getElementById('title').textContent = c.title;
+            document.getElementById('price').textContent = c.price;
+            document.getElementById('desc').textContent = c.desc;
+            // schedule
+            const tbody = document.getElementById('schedule-body');
+            tbody.innerHTML = '';
+            c.schedule.forEach(item=>{
+                const tr=document.createElement('tr');
+                tr.innerHTML=`<td>${item.date}</td><td>${item.time}</td>`;
+                tbody.appendChild(tr);
+            });
+            // teacher
+            document.getElementById('teacher-name').textContent = c.teacher.name;
+            document.getElementById('teacher-bio').textContent = c.teacher.bio;
+        }
+        document.addEventListener('DOMContentLoaded',loadCourse);
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">学途</div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="courses.html">课程列表</a>
+            <a href="register.html">注册报名</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 id="title">课程标题</h1>
+        <div class="price" id="price">价格</div>
+        <div class="info">
+            <p id="desc">课程简介</p>
+        </div>
+
+        <div class="schedule">
+            <h3>课时安排</h3>
+            <table>
+                <thead>
+                    <tr><th>日期</th><th>时间</th></tr>
+                </thead>
+                <tbody id="schedule-body">
+                    <!-- 动态填充 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="teacher">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNmMmYyZjIiLz48L3N2Zz4=" alt="教师头像">
+            <div>
+                <h3 id="teacher-name">教师姓名</h3>
+                <p id="teacher-bio">教师简介</p>
+            </div>
+        </div>
+
+        <a class="enroll" href="register.html">立即报名</a>
+    </div>
+
+    <footer class="footer">
+        © 2026 学途 在线学习平台
+    </footer>
+</body>
+</html>

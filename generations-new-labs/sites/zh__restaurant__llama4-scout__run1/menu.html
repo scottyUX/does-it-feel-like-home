@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单 - 家味餐厅</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            color: #ccc;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .menu {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .menu h2 {
+            margin-top: 0;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu li {
+            margin-bottom: 10px;
+        }
+        .menu .name {
+            font-weight: bold;
+        }
+        .menu .price {
+            color: #666;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>家味餐厅</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="menu.html">菜单</a>
+        <a href="about.html">关于我们</a>
+        <a href="reservation.html">订座</a>
+    </div>
+    <div class="main">
+        <div class="menu">
+            <h2>菜单</h2>
+            <ul>
+                <li>
+                    <span class="name">西湖醋鱼</span>
+                    <span class="price">¥ 48</span>
+                    <p>西湖醋鱼是一道经典的浙江菜，以西湖水为原料，烹饪出酸甜适口的味道。</p>
+                </li>
+                <li>
+                    <span class="name">东坡肉</span>
+                    <span class="price">¥ 38</span>
+                    <p>东坡肉是一道著名的浙江菜，以猪肉为原料，烹饪出酥烂的口感。</p>
+                </li>
+                <li>
+                    <span class="name">宁波汤圆</span>
+                    <span class="price">¥ 25</span>
+                    <p>宁波汤圆是一道传统的浙江甜点，以糯米粉为原料，烹饪出软糯的口感。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 家味餐厅</p>
+    </div>
+</body>
+</html>

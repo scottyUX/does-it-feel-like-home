@@ -1,0 +1,11 @@
+{
+  "id": "en__restaurant__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "gemma3:27b",
+  "completionTokens": 4089,
+  "seconds": 87,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

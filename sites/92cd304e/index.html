@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>畅行旅行 - 首页</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+        header{background:#0066cc;color:#fff;padding:20px;text-align:center;}
+        header h1{margin:0;font-size:2em;}
+        nav{background:#004c99;padding:10px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
+        .container{max-width:1200px;margin:auto;padding:20px;}
+        .search-box{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .search-box h2{margin-top:0;}
+        .search-box label{display:block;margin-top:10px;font-weight:600;}
+        .search-box input{width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:4px;}
+        .search-box button{margin-top:15px;padding:10px 20px;background:#0066cc;color:#fff;border:none;border-radius:4px;cursor:pointer;}
+        .search-box button:hover{background:#004c99;}
+        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:40px;}
+        @media (max-width:768px){
+            header h1{font-size:1.5em;}
+            nav a{display:block;margin:5px 0;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>畅行旅行</h1>
+</header>
+<nav>
+    <a href="index.html">首页</a>
+    <a href="about.html">关于我们</a>
+    <a href="contact.html">联系我们</a>
+</nav>
+<div class="container">
+    <section class="search-box">
+        <h2>搜索目的地和日期</h2>
+        <form action="results.html" method="GET">
+            <label for="dest">目的地</label>
+            <input type="text" id="dest" name="dest" placeholder="如：北京、三亚" required>
+
+            <label for="start">入住日期</label>
+            <input type="date" id="start" name="start" required>
+
+            <label for="end">离店日期</label>
+            <input type="date" id="end" name="end" required>
+
+            <button type="submit">搜索行程</button>
+        </form>
+    </section>
+</div>
+<footer>
+    © 2026 畅行旅行 - 为您提供国内优质旅游预订服务
+</footer>
+</body>
+</html>

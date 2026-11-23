@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>服务项目 - 洁家家政</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333;}
+        header{background:#2c7dfa;color:#fff;padding:20px;}
+        .container{width:90%;max-width:1200px;margin:auto;}
+        nav ul{display:flex;list-style:none;flex-wrap:wrap;}
+        nav li{margin-right:20px;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        h1{margin-top:20px;text-align:center;color:#2c7dfa;}
+        .price-table{width:100%;border-collapse:collapse;margin-top:30px;}
+        .price-table th,.price-table td{border:1px solid #ddd;padding:12px;text-align:center;}
+        .price-table th{background:#2c7dfa;color:#fff;}
+        .price-table tr:nth-child(even){background:#f2f2f2;}
+        .btn{display:inline-block;background:#ff7f50;color:#fff;padding:10px 20px;border-radius:4px;margin-top:20px;text-decoration:none;}
+        footer{background:#333;color:#fff;padding:20px;text-align:center;font-size:0.9rem;margin-top:40px;}
+        @media (max-width:768px){
+            nav ul{flex-direction:column;}
+            nav li{margin-bottom:10px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>洁家家政</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="contact.html">预约保洁</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>服务项目与价格</h1>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>内容说明</th>
+                    <th>单次价格</th>
+                    <th>套餐价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>单次深度清洁</td>
+                    <td>厨房、卫生间、客厅、卧室全方位除尘、拖地、玻璃擦拭</td>
+                    <td>¥199</td>
+                    <td>5次 ¥950</td>
+                </tr>
+                <tr>
+                    <td>每周保洁</td>
+                    <td>每周一次，主要包括吸尘、拖地、厨房台面、卫生间表面清洁</td>
+                    <td>¥180/次</td>
+                    <td>每月 ¥680</td>
+                </tr>
+                <tr>
+                    <td>月度全包套餐</td>
+                    <td>每周深度一次+日常保洁一次，保持全屋洁净</td>
+                    <td>¥0（已含在套餐内）</td>
+                    <td>¥1200/月</td>
+                </tr>
+                <tr>
+                    <td>搬家清洁</td>
+                    <td>搬出前/搬入后全屋深度清洁，含厨房、卫生间、窗帘、地板</td>
+                    <td>¥300</td>
+                    <td>3间以上 ¥850</td>
+                </tr>
+                <tr>
+                    <td>消毒除螨套餐</td>
+                    <td>专业除螨仪+全屋消毒喷雾，适合过敏体质家庭</td>
+                    <td>¥250</td>
+                    <td>4次 ¥900</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="text-align:center;">
+            <a class="btn" href="contact.html">立即预约服务</a>
+        </p>
+    </div>
+
+    <footer>
+        © 2026 洁家家政 · 北京市朝阳区建国路88号 · 电话: 010-1234-5678
+    </footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>课程列表 - 学途</title>
+    <style>
+        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333;}
+        a{color:#0066cc;text-decoration:none;}
+        a:hover{color:#004999;}
+        header{background:#0066cc;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:1.6em;font-weight:bold;}
+        nav a{margin:0 15px;color:#fff;font-size:1em;}
+        .container{max-width:1200px;margin:auto;padding:30px 40px;}
+        h1{font-size:2.2em;margin-bottom:20px;}
+        .category{margin-top:40px;}
+        .category h2{font-size:1.8em;border-left:4px solid #0066cc;padding-left:10px;margin-bottom:20px;}
+        .cards{display:flex;flex-wrap:wrap;gap:20px;}
+        .card{background:#fff;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.1);flex:1 1 calc(33% - 20px);min-width:260px;display:flex;flex-direction:column;}
+        .card img{width:100%;height:150px;object-fit:cover;border-top-left-radius:6px;border-top-right-radius:6px;}
+        .card-content{padding:15px;flex-grow:1;display:flex;flex-direction:column;}
+        .card-content h3{margin:0 0 10px;font-size:1.3em;}
+        .card-content p{flex-grow:1;margin:0 0 15px;color:#555;line-height:1.4;}
+        .price{font-size:1.2em;color:#ff6600;font-weight:bold;}
+        .card-content a{margin-top:auto;background:#0066cc;color:#fff;padding:8px 12px;text-align:center;border-radius:4px;}
+        .footer{background:#333;color:#ccc;padding:30px 40px;text-align:center;font-size:0.9em;margin-top:60px;}
+        @media (max-width:992px){
+            .card{flex:1 1 calc(45% - 20px);}
+        }
+        @media (max-width:600px){
+            .card{flex:1 1 100%;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">学途</div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="courses.html">课程列表</a>
+            <a href="register.html">注册报名</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>课程列表</h1>
+
+        <div class="category">
+            <h2>语言课程</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="英语口语">
+                    <div class="card-content">
+                        <h3>实用英语口语</h3>
+                        <p>针对职场、出国、日常交流的实战口语训练，配合情景对话与即时反馈。</p>
+                        <div class="price">¥1,200 / 30课时</div>
+                        <a href="course_detail.html?course=english">查看详情</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="日语入门">
+                    <div class="card-content">
+                        <h3>日语入门Ⅰ</h3>
+                        <p>从平假名、片假名到基础会话，帮助零基础学员快速上手。</p>
+                        <div class="price">¥1,000 / 20课时</div>
+                        <a href="course_detail.html?course=japanese">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>计算机技能</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="Python编程">
+                    <div class="card-content">
+                        <h3>Python零基础实战</h3>
+                        <p>从语法到项目实战，覆盖数据分析、Web开发全链路。</p>
+                        <div class="price">¥2,500 / 40课时</div>
+                        <a href="course_detail.html?course=python">查看详情</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="数据分析">
+                    <div class="card-content">
+                        <h3>Excel & PowerBI数据分析</h3>
+                        <p>掌握高级Excel技巧与PowerBI可视化，提升职场竞争力。</p>
+                        <div class="price">¥1,800 / 25课时</div>
+                        <a href="course_detail.html?course=data">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h2>考试备考</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="考研英语">
+                    <div class="card-content">
+                        <h3>考研英语高分突破</h3>
+                        <p>词汇、阅读、写作全覆盖，配套真题解析与写作批改。</p>
+                        <div class="price">¥2,200 / 30课时</div>
+                        <a href="course_detail.html?course=greenglish">查看详情</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDMwMCAxNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNkZGRkZCIvPjwvc3ZnPg==" alt="计算机二级">
+                    <div class="card-content">
+                        <h3>计算机二级（C语言）全程辅导</h3>
+                        <p>从基础语法到上机实践，帮助学员一次通过二级考试。</p>
+                        <div class="price">¥1,600 / 20课时</div>
+                        <a href="course_detail.html?course=cpp">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2026 学途 在线学习平台
+    </footer>
+</body>
+</html>

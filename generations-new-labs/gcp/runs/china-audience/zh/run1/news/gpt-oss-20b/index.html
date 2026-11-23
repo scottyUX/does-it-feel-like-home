@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日视界 - 首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;}
+  header{background:#003366;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:#fff;text-decoration:none;margin-left:20px;}
+  nav a:hover{color:#ffcc00;}
+  .toggle{display:none;cursor:pointer;font-size:1.5em;}
+  main{max-width:1200px;margin:auto;padding:20px;background:#fff;}
+  .headline{margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid #ddd;}
+  .headline h2{margin:0;font-size:1.5em;color:#003366;}
+  .headline p{margin:5px 0 0;line-height:1.6;}
+  footer{background:#003366;color:#fff;text-align:center;padding:10px 0;}
+  @media (max-width:768px){
+    nav a{display:block;margin:10px 0;}
+    nav{display:none;}
+    .toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>每日视界</div>
+  <div class="toggle" onclick="document.getElementById('nav').style.display='block'">&#9776;</div>
+  <nav id="nav">
+    <a href="index.html">首页</a>
+    <a href="finance.html">财经</a>
+    <a href="tech.html">科技</a>
+    <a href="about.html">关于我们</a>
+  </nav>
+</header>
+<main>
+  <section class="headline">
+    <h2>国内外最新头条：全球经济复苏步伐加快</h2>
+    <p>本周全球多国经济数据显示，复苏进程稳中向好，市场对政策刺激保持乐观预期。详情请阅读完整报道。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </section>
+  <section class="headline">
+    <h2>科技创新：华为发布全新5G芯片</h2>
+    <p>华为最新研发的5G芯片性能提升显著，将进一步推动通信行业的技术升级。了解更多。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </section>
+  <section class="headline">
+    <h2>金融市场：股票指数持续攀升</h2>
+    <p>沪深股指连续上涨，投资者对未来增长前景保持积极态度。跟踪最新行情。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </section>
+  <!-- 其他头条可继续添加 -->
+</main>
+<footer>
+  © 2026 每日视界，保留所有权利
+</footer>
+<script>
+  window.addEventListener('click',function(e){
+    if(e.target.className!='toggle' && e.target.parentNode.id!='nav'){
+      document.getElementById('nav').style.display='none';
+    }
+  });
+</script>
+</body>
+</html>

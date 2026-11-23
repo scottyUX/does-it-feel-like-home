@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单确认 - 快送外卖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+        .menu li {
+            margin-left: 1.5rem;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #333;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .order-confirmation {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .order-confirmation h2 {
+            margin-bottom: 1rem;
+        }
+        .order-confirmation p {
+            margin-bottom: 1.5rem;
+        }
+        .order-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f44336;
+        }
+        .btn-confirm {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">快送外卖</div>
+                <ul class="menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">餐厅列表</a></li>
+                    <li><a href="order.html">下单确认</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title">订单确认</h1>
+
+        <div class="order-confirmation">
+            <h2>您的订单已提交成功！</h2>
+            
+            <div>
+                <p>订单编号：<span style="font-weight: bold;">KSF20231115-123456</span></p>
+                <p>配送地址：<span style="font-weight: bold;">成都市武侯区人民南路四段3号</span></p>
+                <p>下单时间：<span style="font-weight: bold;">2023年11月15日 14:30:25</span></p>
+            </div>
+
+            <h3>已选择的餐厅和菜品：</h3>
+            <div>
+                <p><strong>餐厅名称：</strong>蜀九香火锅</p>
+                <p><strong>菜品：</strong>麻辣牛肉、鲜毛肚、鲜鸭肠</p>
+                <p><strong>数量：</strong>各1份</p>
+            </div>
+
+            <div class="order-details">
+                <div>
+                    <p>小计：</p>
+                    <p>配送费：</p>
+                    <p>总计：</p>
+                </div>
+                <div>
+                    <p>¥288</p>
+                    <p>¥10</p>
+                    <p class="total">¥298</p>
+                </div>
+            </div>
+
+            <div>
+                <p>预计送达时间：2023年11月15日 15:00-15:30</p>
+                <p>骑手信息：张师傅 电话：13800138000</p>
+            </div>
+
+            <div>
+                <a href="restaurants.html" class="btn-confirm">继续点餐</a>
+                <a href="index.html" class="btn-back">返回首页</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 快送外卖. 成都地区美食配送服务</p>
+        </div>
+    </footer>
+</body>
+</html>

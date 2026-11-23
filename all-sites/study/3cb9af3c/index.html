@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 杭州正宗浙江菜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --accent: #C0392B;
+            --bg-cream: #FDF8F0;
+            --bg-warm: #FAF3E8;
+            --text-dark: #2C1810;
+            --text-mid: #5C4033;
+            --text-light: #8B7355;
+            --white: #FFFFFF;
+            --border: #E8D5C0;
+            --shadow: rgba(139, 69, 19, 0.1);
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-mid);
+            transition: all 0.25s;
+        }
+
+        .nav-links a:hover {
+            background: var(--bg-warm);
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: #A93226 !important;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #2C1810 0%, #4A2C17 50%, #6B3A1F 100%);
+            padding: 100px 40px 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #F5E6D3;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #D4B896;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: #B8977A;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #A93226;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(192, 57, 43, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 90px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-warm);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Popular Dishes */
+        .dishes-section {
+            background: var(--bg-warm);
+        }
+
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .dish-card {
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px var(--shadow);
+        }
+
+        .dish-img {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            background: linear-gradient(135deg, #F5E6D3, #E8D5C0);
+        }
+
+        .dish-info {
+            padding: 20px;
+        }
+
+        .dish-info h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .dish-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .dish-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-stars {
+            color: #F39C12;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .author-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .author-tag {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #4A2C17, #6B3A1F);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            color: #D4B896;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        /* Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .info-card h3 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: #9B8B7A;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            color: var(--white);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: #9B8B7A;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #D4B896;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: #7A6B5A;
+        }
+
+        /* Page Header (for sub-pages) */
+        .page-header {
+            background: linear-gradient(135deg, #2C1810, #4A2C17);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #D4B896;
+        }
+
+        /* Menu Page */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.25s;
+            color: var(--text-mid);
+        }
+
+        .menu-tab.active,
+        .menu-tab:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .menu-category {
+            margin-bottom: 56px;
+        }
+
+        .menu-category h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .menu-item-desc {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .menu-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: #FFF3E0;
+            color: #E65100;
+            border-radius: 4px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        /* About Page */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 56px;
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-section p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .about-highlight {
+            background: var(--bg-warm);
+            border-left: 4px solid var(--primary);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .about-highlight p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .chef-card {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        .chef-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .chef-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chef-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .value-item {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .value-item .value-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .value-item h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .value-item p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Reserve Page */
+        .reserve-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .reserve-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .reserve-form h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .reserve-form > p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .form-submit:hover {
+            background: #A93226;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(192, 57, 43, 0.3);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .reserve-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .reserve-info-card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .reserve-info-card h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .reserve-info-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .reserve-info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reserve-info-card ul li {
+            font-size: 14px;
+            color: var(--text-mid);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--bg-warm);
+        }
+
+        .reserve-info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid,
+            .testimonials-grid,
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dishes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+
+            .reserve-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 24px 80px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 60px 24px;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dishes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .chef-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">家</div>
+                <span class="nav-logo-text">家味餐厅</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">首页</a>
+                <a href="menu.html">菜单</a>
+                <a href="about.html">关于我们</a>
+                <a href="reserve.html" class="nav-cta">在线订座</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">杭州 · 正宗浙江菜 · 家庭餐厅</div>
+            <h1>家味餐厅</h1>
+            <p class="hero-subtitle">一桌好菜，温暖一座城</p>
+            <p class="hero-desc">坐落于杭州西湖区，二十年专注浙江家常味。选用当日新鲜食材，传承经典浙菜技法，为每一个家庭打造有温度的餐桌。</p>
+            <div class="hero-buttons">
+                <a href="reserve.html" class="btn btn-primary">立即订座</a>
+                <a href="menu.html" class="btn btn-outline">查看菜单</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-label">为什么选择我们</div>
+            <h2 class="section-title">家味，是回家吃饭的味道</h2>
+            <p class="section-desc">我们相信，最好的味道来自对食材的尊重和对传统技法的坚守</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🥬</div>
+                <h3>当日鲜材</h3>
+                <p>每日清晨从杭州本地农贸市场和千岛湖直采新鲜蔬菜、河鲜与山货，确保每一道菜的时令风味。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>二十年经验</h3>
+                <p>主厨团队拥有超过二十年的浙菜烹饪经验，精通杭帮菜、宁波菜、绍兴菜等地方风味。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>家庭友好</h3>
+                <p>宽敞明亮的用餐环境，设有儿童座椅和家庭包间，适合全家聚餐、朋友小聚和商务宴请。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="dishes-section">
+        <div class="section">
+            <div class="section-header">
+                <div class="section-label">招牌推荐</div>
+                <h2 class="section-title">食客必点的经典好菜</h2>
+                <p class="section-desc">每一道菜都经过反复打磨，保留最地道的浙江风味</p>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-img">🐟</div>
+                    <div class="dish-info">
+                        <h4>西湖醋鱼</h4>
+                        <p>选用千岛湖草鱼，糖醋汁酸甜适口，鱼肉细嫩鲜美</p>
+                        <span class="dish-price">¥68</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img">🦐</div>
+                    <div class="dish-info">
+                        <h4>龙井虾仁</h4>
+                        <p>明前龙井茶香入菜，河虾仁晶莹剔透，清淡雅致</p>
+                        <span class="dish-price">¥88</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img">🥩</div>
+                    <div class="dish-info">
+                        <h4>东坡肉</h4>
+                        <p>五花肉慢炖三小时，肥而不腻，入口即化，配荷叶蒸</p>
+                        <span class="dish-price">¥58</span>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img">🍲</div>
+                    <div class="dish-info">
+                        <h4>宋嫂鱼丸</h4>
+                        <p>百年传承古法，鱼丸弹牙鲜甜，汤底清澈鲜美</p>
+                        <span class="dish-price">¥48</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="menu.html" class="btn btn-primary">查看完整菜单</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="section-header">
+            <div class="section-label">食客评价</div>
+            <h2 class="section-title">听听他们怎么说</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"带父母来吃饭，东坡肉和西湖醋鱼都是奶奶说的那味道。环境干净舒适，服务员很有耐心，孩子也有专门的小椅子。"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">王</div>
+                    <div>
+                        <div class="author-name">王丽</div>
+                        <div class="author-tag">本地家庭 · 常客</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"出差到杭州，同事推荐了这家。龙井虾仁和笋干老鸭煲特别惊艳，分量足、味道正。工作日午餐套餐也很划算，性价比很高。"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">陈</div>
+                    <div>
+                        <div class="author-name">陈志强</div>
+                        <div class="author-tag">商务出差 · 上班族</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★☆</div>
+                <p class="testimonial-text">"旅游时在大众点评上找到的，位置好找。叫花鸡外酥里嫩，汤很鲜美。唯一建议是周末人比较多，最好提前订位。整体体验很棒！"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">李</div>
+                    <div>
+                        <div class="author-name">李小雨</div>
+                        <div class="author-tag">外地游客 · 情侣出行</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>今晚，一起吃顿好饭吧</h2>
+        <p>提前预订可免等位，家庭聚餐享九折优惠</p>
+        <a href="reserve.html" class="btn btn-primary">预订您的座位</a>
+    </section>
+
+    <!-- Info -->
+    <section class="section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>📍 地址</h3>
+                <p>杭州市西湖区文三路 128 号<br>近学院路口，地铁 2 号线学院路站 B 口步行 3 分钟</p>
+            </div>
+            <div class="info-card">
+                <h3>🕐 营业时间</h3>
+                <p>午市：11:00 - 14:00<br>晚市：17:00 - 21:30<br>全年无休（春节假期除外）</p>
+            </div>
+            <div class="info-card">
+                <h3>📞 联系方式</h3>
+                <p>订座电话：0571-8888-6666<br>手机号码：138-0571-2345<br>微信公众号：家味餐厅杭州</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>家味餐厅</h3>
+                    <p>二十年专注浙江家常味<br>用一桌好菜，连接每一个家</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <a href="index.html">首页</a>
+                    <a href="menu.html">菜单</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="reserve.html">在线订座</a>
+                </div>
+                <div class="footer-col">
+                    <h4>营业时间</h4>
+                    <a href="reserve.html">午市 11:00-14:00</a>
+                    <a href="reserve.html">晚市 17:00-21:30</a>
+                    <a href="reserve.html">全年无休</a>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <a href="reserve.html">0571-8888-6666</a>
+                    <a href="reserve.html">138-0571-2345</a>
+                    <a href="reserve.html">西湖区文三路 128 号</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 家味餐厅 · 杭州市西湖区文三路 128 号 · 浙ICP备2024001288号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

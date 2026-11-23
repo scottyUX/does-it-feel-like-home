@@ -12,14 +12,16 @@ export const Introduction = ({ locale, pairCount }: IntroductionProps) => {
   const text = copy[locale];
 
   return (
-    <StudyShell locale={locale}>
+    <StudyShell locale={locale} lockHistory>
       <div className="static-page">
         <main className="intro-card">
           <header className="intro-heading">
             <span className="concept-kicker">{text.studyKicker}</span>
             <h1>{text.welcomeTitle}</h1>
             <p>{text.welcomeLead}</p>
-            <p>{text.welcomeTask.replace("{count}", String(pairCount))}</p>
+            <p>{text.welcomeTask
+                .replace("{count}", String(pairCount))
+                .replace("{pairs}", pairCount === 1 ? "pair" : "pairs")}</p>
           </header>
           <section className="how-it-works">
             <h2>{text.howTitle}</h2>

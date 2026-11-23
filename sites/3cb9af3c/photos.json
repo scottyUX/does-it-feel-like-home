@@ -1,0 +1,73 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.chef-avatar",
+   "match": "周建国 创始人 · 行政主厨 绍兴人，1968 ",
+   "url": "assets/photo-1dc8e100f440928e.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.chef-avatar",
+   "index": 1,
+   "url": "assets/photo-d78c94c65f790d76.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img",
+   "match": "西湖醋鱼 选用千岛湖草鱼，糖醋汁酸甜适口，鱼肉细",
+   "url": "assets/photo-864b89c7ef194aaa.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:West Lake Fish in Vinegar Gravy.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake vinegar fish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/West_Lake_Fish_in_Vinegar_Gravy.jpg/960px-West_Lake_Fish_in_Vinegar_Gravy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img",
+   "match": "龙井虾仁 明前龙井茶香入菜，河虾仁晶莹剔透，清淡",
+   "url": "assets/photo-559c41bb0d5d5993.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Longjing prawns in Hangzhou Restaurant 2015-07.JPG",
+   "license": "CC BY-SA 4.0",
+   "subject": "longjing tea shrimp",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG/960px-Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img",
+   "match": "东坡肉 五花肉慢炖三小时，肥而不腻，入口即化，配",
+   "url": "assets/photo-1c0a715dd28dbda2.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Dongpo pork by superturtle.jpg",
+   "license": "CC BY 2.0",
+   "subject": "dongpo pork",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Dongpo_pork_by_superturtle.jpg/960px-Dongpo_pork_by_superturtle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dish-img",
+   "match": "宋嫂鱼丸 百年传承古法，鱼丸弹牙鲜甜，汤底清澈鲜",
+   "url": "assets/photo-3d4fa5411e65180e.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Fish balls and Fish rolls with Fish Meats rice noodle soup in Hong Kong.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "song sister fish balls soup",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Fish_balls_and_Fish_rolls_with_Fish_Meats_rice_noodle_soup_in_Hong_Kong.jpg/960px-Fish_balls_and_Fish_rolls_with_Fish_Meats_rice_noodle_soup_in_Hong_Kong.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

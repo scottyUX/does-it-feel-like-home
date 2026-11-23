@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 - 极简真丝衬衫 - 可衣</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #8c7b75;
+            --bg-color: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-color: #333333;
+            --gray-text: #666666;
+            --border-color: #e5e5e5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: var(--text-color); background-color: var(--bg-color); }
+
+        a { text-decoration: none; color: inherit; }
+
+        header { border-bottom: 1px solid var(--border-color); position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); z-index: 100; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: var(--primary-color); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-color); }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* Detail Layout */
+        .detail-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 60px 0;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-list {
+            display: flex;
+            gap: 15px;
+        }
+
+        .thumb-item {
+            width: 80px;
+            height: 80px;
+            background-color: #eee;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .thumb-item.active {
+            border: 2px solid var(--accent-color);
+            opacity: 1;
+        }
+
+        .product-info-block { padding-top: 20px; }
+
+        .breadcrumb { font-size: 13px; color: var(--gray-text); margin-bottom: 20px; }
+        
+        .product-title { font-size: 28px; font-weight: 400; margin-bottom: 15px; }
+        
+        .price-tag { font-size: 24px; color: var(--primary-color); font-weight: bold; margin-bottom: 30px; }
+
+        .description { margin-bottom: 30px; line-height: 1.8; color: #555; }
+
+        .options { margin-bottom: 30px; }
+        
+        .option-label { font-weight: 500; margin-bottom: 10px; display: block; }
+
+        .color-options, .size-options { display: flex; gap: 10px; }
+        
+        .color-dot {
+            width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid transparent;
+        }
+        
+        .color-dot.active { border-color: #000; transform: scale(1.1); }
+
+        .size-btn {
+            width: 40px; height: 40px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;
+        }
+
+        .size-btn.active { background-color: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+
+        .action-area { display: flex; gap: 20px; align-items: center; margin-bottom: 40px; }
+        
+        .quantity-control { display: flex; align-items: center; border: 1px solid var(--border-color); }
+        
+        .qty-btn { width: 40px; height: 40px; border: none; background: none; cursor: pointer; font-size: 18px; }
+        
+        .qty-input { width: 40px; text-align: center; border: none; outline: none; }
+        
+        .add-cart-btn {
+            flex: 1; padding: 15px; background-color: var(--primary-color); color: #fff; text-align: center; font-weight: bold; cursor: pointer;
+        }
+        
+        .add-cart-btn:hover { background-color: #333; }
+
+        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; padding: 20px; background: var(--light-bg); border-radius: 4px; }
+        
+        .spec-item h4 { font-size: 12px; color: var(--gray-text); margin-bottom: 5px; }
+        .spec-item p { font-size: 14px; }
+
+        .recommendation { margin-top: 60px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        
+        .rec-title { font-size: 18px; margin-bottom: 20px; font-weight: 500; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 KOYI</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场通勤</a>
+                <a href="products.html">日常穿搭</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container detail-wrapper">
+        <!-- Left: Gallery -->
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/><path d="M20 80 L80 20" stroke="#ccc" stroke-width="2"/></svg>
+            </div>
+            <div class="thumb-list">
+                <div class="thumb-item active"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPS="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+                <div class="thumb-item"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPS="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><rect x="30%" y="30%" width="40%" height="40%" fill="#e0e0e0"/></svg></div>
+                <div class="thumb-item"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPS="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+                <div class="thumb-item"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPS="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff"/><circle cx="50%" cy="50%" r="30%" fill="#e0e0e0"/></svg></div>
+            </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="product-info-block">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / <a href="products.html">职场通勤</a> / 极简真丝衬衫
+            </div>
+            <h1 class="product-title">极简真丝衬衫</h1>
+            <div class="price-tag">¥599</div>
+            <p class="description">
+                采用顶级桑蚕丝面料，亲肤透气，触感顺滑。法式复古领口设计，搭配简约剪裁，完美展现职场女性的干练与优雅。日常通勤、商务洽谈皆宜。
+            </p>
+
+            <div class="options">
+                <span class="option-label">颜色选择</span>
+                <div class="color-options">
+                    <div class="color-dot active" style="background-color: #fff; border: 1px solid #ccc;" title="白色"></div>
+                    <div class="color-dot" style="background-color: #000;" title="黑色"></div>
+                    <div class="color-dot" style="background-color: #333;" title="烟灰色"></div>
+                    <div class="color-dot" style="background-color: #e5cfa1;" title="珍珠白"></div>
+                </div>
+            </div>
+
+            <div class="options">
+                <span class="option-label">尺码选择</span>
+                <div class="size-options">
+                    <div class="size-btn">XS</div>
+                    <div class="size-btn">S</div>
+                    <div class="size-btn active">M</div>
+                    <div class="size-btn">L</div>
+                    <div class="size-btn">XL</div>
+                </div>
+                <p style="font-size: 12px; color: #999; margin-top: 10px;">*尺码表已根据人体工学调整，建议参考具体数据</p>
+            </div>
+
+            <div class="action-area">
+                <div class="quantity-control">
+                    <button class="qty-btn">-</button>
+                    <input type="text" class="qty-input" value="1" readonly>
+                    <button class="qty-btn">+</button>
+                </div>
+                <div class="add-cart-btn" onclick="window.location.href='cart.html'">
+                    加入购物车
+                </div>
+                <div style="font-size: 24px; cursor: pointer;">♥</div>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>商品名称</h4>
+                    <p>可衣品牌 极简真丝衬衫</p>
+                </div>
+                <div class="spec-item">
+                    <h4>商品编号</h4>
+                    <p>COYI-SS2024-001</p>
+                </div>
+                <div class="spec-item">
+                    <h4>材质成分</h4>
+                    <p>100% 100%桑蚕丝</p>
+                </div>
+                <div class="spec-item">
+                    <h4>产地</h4>
+                    <p>中国上海</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="container recommendation">
+        <h3 class="rec-title">搭配推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+            <div style="cursor: pointer;">
+                <div style="width: 100%; aspect-ratio: 3/4; background: #eee;"></div>
+                <h4 style="font-size: 14px; margin-top: 10px;">高腰阔腿西装裤</h4>
+                <div style="color: #666; font-size: 14px;">¥459</div>
+            </div>
+            <div style="cursor: pointer;">
+                <div style="width: 100%; aspect-ratio: 3/4; background: #eee;"></div>
+                <h4 style="font-size: 14px; margin-top: 10px;">真丝半身裙</h4>
+                <div style="color: #666; font-size: 14px;">¥399</div>
+            </div>
+            <div style="cursor: pointer;">
+                <div style="width: 100%; aspect-ratio: 3/4; background: #eee;"></div>
+                <h4 style="font-size: 14px; margin-top: 10px;">丝绒质感开衫</h4>
+                <div style="color: #666; font-size: 14px;">¥599</div>
+            </div>
+            <div style="cursor: pointer;">
+                <div style="width: 100%; aspect-ratio: 3/4; background: #eee;"></div>
+                <h4 style="font-size: 14px; margin-top: 10px;">简约皮腰带</h4>
+                <div style="color: #666; font-size: 14px;">¥199</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

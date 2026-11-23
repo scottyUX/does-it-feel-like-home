@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部商品 - 可衣</title>
+    <style>
+        :root {
+            --primary-color: #2c2c2c;
+            --accent-color: #c4a484;
+            --bg-color: #f9f9f9;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --text-gray: #666666;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--primary-color); background-color: var(--bg-color); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        header { background: var(--white); border-bottom: 1px solid var(--border-color); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        nav ul { display: flex; gap: 30px; }
+        nav a { font-size: 16px; transition: color 0.3s; }
+        nav a:hover { color: var(--accent-color); }
+        .cart-icon { position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background: var(--accent-color); color: var(--white); font-size: 12px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        
+        .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: flex; gap: 40px; }
+        .sidebar { width: 250px; flex-shrink: 0; }
+        .sidebar h3 { font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .filter-group { margin-bottom: 30px; }
+        .filter-option { display: block; margin-bottom: 8px; color: var(--text-gray); cursor: pointer; }
+        .filter-option:hover { color: var(--primary-color); }
+        
+        .product-list { flex-grow: 1; }
+        .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .sort-select { padding: 8px; border: 1px solid var(--border-color); background: var(--white); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .product-card { background: var(--white); cursor: pointer; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { width: 100%; height: 280px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; margin-bottom: 10px; }
+        .product-info { padding: 10px; }
+        .product-name { font-size: 15px; margin-bottom: 5px; height: 40px; overflow: hidden; }
+        .product-price { color: var(--accent-color); font-weight: bold; font-size: 14px; }
+        .size-tag { font-size: 12px; color: #999; margin-top: 5px; display: block; }
+        
+        footer { background: var(--primary-color); color: #ccc; padding: 40px; margin-top: 60px; text-align: center; font-size: 14px; }
+        footer a:hover { color: var(--white); }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            nav ul { display: none; }
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; }
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">可衣 KEYI</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="products.html">全部商品</a></li>
+                <li><a href="products.html">新品</a></li>
+                <li><a href="products.html">配饰</a></li>
+            </ul>
+        </nav>
+        <a href="cart.html" class="cart-icon">
+            <span>购物车</span>
+            <span class="cart-count">2</span>
+        </a>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>价格区间</h3>
+                <label class="filter-option">全部</label>
+                <label class="filter-option">¥0 - ¥300</label>
+                <label class="filter-option">¥300 - ¥600</label>
+                <label class="filter-option">¥600 以上</label>
+            </div>
+            <div class="filter-group">
+                <h3>尺码</h3>
+                <label class="filter-option">S</label>
+                <label class="filter-option">M</label>
+                <label class="filter-option">L</label>
+                <label class="filter-option">XL</label>
+            </div>
+            <div class="filter-group">
+                <h3>颜色</h3>
+                <label class="filter-option">黑色</label>
+                <label class="filter-option">白色</label>
+                <label class="filter-option">米色</label>
+                <label class="filter-option">灰色</label>
+            </div>
+        </aside>
+
+        <div class="product-list">
+            <div class="toolbar">
+                <span>共找到 24 件商品</span>
+                <select class="sort-select">
+                    <option>综合排序</option>
+                    <option>价格从低到高</option>
+                    <option>价格从高到低</option>
+                    <option>新品优先</option>
+                </select>
+            </div>
+            <div class="grid">
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">经典羊绒大衣 驼色</div>
+                        <div class="product-price">¥1299</div>
+                        <span class="size-tag">S / M / L</span>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">法式真丝衬衫 象牙白</div>
+                        <div class="product-price">¥599</div>
+                        <span class="size-tag">S / M / L / XL</span>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">高腰阔腿西裤 黑色</div>
+                        <div class="product-price">¥399</div>
+                        <span class="size-tag">S / M / L</span>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">修身针织连衣裙 灰色</div>
+                        <div class="product-price">¥450</div>
+                        <span class="size-tag">S / M / L</span>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">V 领西装外套 卡其色</div>
+                        <div class="product-price">¥699</div>
+                        <span class="size-tag">M / L</span>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">棉麻混纺半身裙 米白</div>
+                        <div class="product-price">¥299</div>
+                        <span class="size-tag">S / M / L / XL</span>
+                    </div>
+                </div>
+                 <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">羊毛混纺开衫 燕麦色</div>
+                        <div class="product-price">¥350</div>
+                        <span class="size-tag">S / M / L</span>
+                    </div>
+                </div>
+                 <div class="product-card" onclick="location.href='product-detail.html'">
+                    <div class="product-image">图片</div>
+                    <div class="product-info">
+                        <div class="product-name">休闲直筒牛仔裤 浅蓝</div>
+                        <div class="product-price">¥380</div>
+                        <span class="size-tag">26 / 27 / 28 / 29</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 可衣 上海女装在线商店 版权所有</p>
+    </footer>
+
+</body>
+</html>

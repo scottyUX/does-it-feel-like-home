@@ -1,0 +1,20 @@
+{
+  "id": "en__social-media__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "social-media",
+  "model": "llama4:scout",
+  "completionTokens": 1858,
+  "seconds": 33,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/800x150",
+      "file": "assets/image-8cc8cc1936f33c11.png"
+    },
+    {
+      "url": "https://via.placeholder.com/100x100",
+      "file": "assets/image-c511bf6aa3ccb90f.png"
+    }
+  ]
+}

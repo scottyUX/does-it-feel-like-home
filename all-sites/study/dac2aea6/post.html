@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西湖骑行日记 - 苏雨桐 - 趣聊</title>
+    <style>
+        :root {
+            --primary: #FF5E62;
+            --primary-light: #FF8A8D;
+            --primary-dark: #E8444A;
+            --accent: #6C5CE7;
+            --bg: #F5F6FA;
+            --card: #FFFFFF;
+            --text: #2D3436;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 32px; }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            background: rgba(255,94,98,0.08);
+        }
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 8px 16px;
+            gap: 8px;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            width: 160px;
+            color: var(--text);
+        }
+        .nav-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .btn-signup {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-signup:hover { background: var(--primary-dark); }
+
+        /* Post Detail */
+        .post-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 40px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .back-link:hover { color: var(--primary); }
+
+        .post-detail {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .post-detail-header {
+            display: flex;
+            align-items: center;
+            padding: 20px 24px;
+            gap: 14px;
+        }
+
+        .post-detail-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .post-detail-user { flex: 1; }
+        .post-detail-name {
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .post-detail-name:hover { color: var(--primary); }
+        .post-detail-time { font-size: 13px; color: var(--text-secondary); }
+
+        .btn-follow-post {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-follow-post:hover { background: var(--primary-dark); }
+
+        .post-detail-body { padding: 0 24px 20px; }
+        .post-detail-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .post-detail-text .tag {
+            color: var(--accent);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .post-detail-image {
+            width: 100%;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            position: relative;
+        }
+
+        .post-detail-image .img-label {
+            position: absolute;
+            bottom: 16px;
+            left: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        .post-detail-actions {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            gap: 8px;
+            border-top: 1px solid var(--border);
+        }
+
+        .detail-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border: none;
+            background: none;
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .detail-action:hover { background: var(--bg); color: var(--primary); }
+        .detail-action.liked { color: var(--primary); }
+
+        /* Comments */
+        .comments-section {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .comments-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .comment-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .comment-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .comment-input-wrap { flex: 1; }
+
+        .comment-input {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 14px;
+            outline: none;
+            resize: none;
+            min-height: 44px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .comment-input:focus { border-color: var(--primary); }
+
+        .comment-submit {
+            margin-top: 8px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            float: right;
+        }
+        .comment-submit:hover { background: var(--primary-dark); }
+
+        .comment-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .comment-item:last-child { border-bottom: none; }
+
+        .comment-item-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .comment-item-content { flex: 1; }
+        .comment-item-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .comment-item-name .time {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-left: 8px;
+        }
+        .comment-item-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        .comment-item-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 6px;
+        }
+        .comment-item-actions span {
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .comment-item-actions span:hover { color: var(--primary); }
+
+        .comment-reply {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            font-size: 13px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+        .comment-reply-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 32px 40px;
+            margin-top: 40px;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-brand { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-copy { font-size: 12px; color: var(--text-secondary); }
+
+        @media (max-width: 800px) {
+            .post-container { padding: 16px; }
+            .navbar { padding: 0 16px; }
+            .search-box { display: none; }
+            .nav-links { display: none; }
+            .post-detail-image { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">趣</div>
+                趣聊
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="profile.html">个人主页</a></li>
+                <li><a href="post.html" class="active">热门帖子</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="搜索帖子、用户、话题...">
+            </div>
+            <div class="nav-avatar">林</div>
+            <a href="signup.html" class="btn-signup">邀请好友</a>
+        </div>
+    </nav>
+
+    <div class="post-container">
+        <a href="index.html" class="back-link">← 返回信息流</a>
+
+        <article class="post-detail">
+            <div class="post-detail-header">
+                <div class="post-detail-avatar">苏</div>
+                <div class="post-detail-user">
+                    <a href="profile.html" class="post-detail-name">苏雨桐</a>
+                    <div class="post-detail-time">今天 14:23 · 杭州 · 已分享</div>
+                </div>
+                <button class="btn-follow-post">关注</button>
+            </div>
+
+            <div class="post-detail-body">
+                <p class="post-detail-text">周末去西湖边骑车，夕阳把湖面染成了金色，真的不要太美。从断桥骑到苏堤，一路上都是这种暖洋洋的光，拍了一百多张照片。最后选出了这一张，希望把这份温暖分享给你们。#周末去哪玩 #杭州 #骑行日记 #摄影日常</p>
+            </div>
+
+            <div class="post-detail-image" style="background:linear-gradient(135deg, #F6D365 0%, #FDA085 40%, #f093fb 100%);">
+                <span>🌅</span>
+                <span class="img-label">西湖 · 断桥 → 苏堤 · 17:42</span>
+            </div>
+
+            <div class="post-detail-actions">
+                <button class="detail-action liked">❤️ 1,284</button>
+                <button class="detail-action">💬 86 条评论</button>
+                <button class="detail-action">🔄 转发 32</button>
+                <button class="detail-action">🔖 收藏</button>
+                <button class="detail-action">📤 分享</button>
+            </div>
+        </article>
+
+        <section class="comments-section">
+            <h2 class="comments-title">评论 (86)</h2>
+
+            <div class="comment-form">
+                <div class="comment-avatar">林</div>
+                <div class="comment-input-wrap">
+                    <textarea class="comment-input" rows="2" placeholder="写下你的想法..."></textarea>
+                    <button class="comment-submit">发表评论</button>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">陈</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">陈宇航 <span class="time">2小时前</span></div>
+                    <p class="comment-item-text">天哪这也太美了！我上周去西湖玩完全没赶上这个光线，感觉亏了一个亿。下次一定挑傍晚去骑车。</p>
+                    <div class="comment-item-actions">
+                        <span>👍 23</span>
+                        <span>回复</span>
+                    </div>
+                    <div class="comment-reply">
+                        <div class="comment-reply-avatar">苏</div>
+                        <div>对！一定要五点半以后到，光线是最好的。而且人少，骑起来很自在～</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">何</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">何嘉怡 <span class="time">1小时前</span></div>
+                    <p class="comment-item-text">请问你骑的什么车呀？看轮子好像是公路车？我最近也想入一辆，预算三千左右，求推荐！</p>
+                    <div class="comment-item-actions">
+                        <span>👍 8</span>
+                        <span>回复</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#fa709a,#fee140);">孙</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">孙一诺 <span class="time">1小时前</span></div>
+                    <p class="comment-item-text">每次看到西湖的照片就觉得这座城市真的很会生活。周末骑完车再吃一碗片儿川，完美。</p>
+                    <div class="comment-item-actions">
+                        <span>👍 31</span>
+                        <span>回复</span>
+                    </div>
+                    <div class="comment-reply">
+                        <div class="comment-reply-avatar">苏</div>
+                        <div>哈哈哈片儿川yyds！我每次骑车回来都要去知味观来一碗。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">吴</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">吴思远 <span class="time">54分钟前</span></div>
+                    <p class="comment-item-text">这张构图绝了，湖面的反光和远处的山形成了很好的层次。你平时用什么相机拍？感觉色彩特别舒服。</p>
+                    <div class="comment-item-actions">
+                        <span>👍 15</span>
+                        <span>回复</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">李</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">李沐宸 <span class="time">32分钟前</span></div>
+                    <p class="comment-item-text">看你的帖子心情都变好了。最近工作压力大，好想去西湖边走走，放空一下。</p>
+                    <div class="comment-item-actions">
+                        <span>👍 12</span>
+                        <span>回复</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-item">
+                <div class="comment-item-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2);">王</div>
+                <div class="comment-item-content">
+                    <div class="comment-item-name">王芷若 <span class="time">18分钟前</span></div>
+                    <p class="comment-item-text">已收藏！下周准备去杭州出差，必须安排一次傍晚骑行。谢谢分享这么美的画面～</p>
+                    <div class="comment-item-actions">
+                        <span>👍 5</span>
+                        <span>回复</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">趣聊</div>
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="profile.html">个人主页</a>
+                <a href="signup.html">加入我们</a>
+            </div>
+            <div class="footer-copy">© 2025 趣聊 · 记录生活，分享快乐</div>
+        </div>
+    </footer>
+
+    <script>
+        // Like toggle
+        document.querySelectorAll('.detail-action').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent.includes('❤️')) {
+                    this.classList.toggle('liked');
+                }
+            });
+        });
+
+        // Comment form interaction
+        document.querySelector('.comment-submit').addEventListener('click', function() {
+            const input = document.querySelector('.comment-input');
+            if (input.value.trim()) {
+                alert('评论已发送（演示模式）');
+                input.value = '';
+            } else {
+                input.focus();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长川银行 - 值得信赖的金融服务伙伴</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c3e50; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        .top-bar { background: #1a2a4a; color: #b8c6db; font-size: 13px; padding: 8px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #b8c6db; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1a2a4a; }
+        .logo-text span { color: #1a5fb4; }
+
+        nav { display: flex; gap: 8px; }
+        nav a { padding: 10px 18px; border-radius: 6px; font-size: 15px; font-weight: 500; color: #4a5568; transition: all .2s; }
+        nav a:hover, nav a.active { background: #ebf3ff; color: #1a5fb4; }
+        nav a.cta { background: #1a5fb4; color: #fff; }
+        nav a.cta:hover { background: #1552a0; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #0f2242 0%, #1a5fb4 100%); color: #fff; padding: 100px 0 80px; position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; border-radius: 50%; background: rgba(255,255,255,.03); }
+        .hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero h1 { font-size: 42px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+        .hero p { font-size: 18px; color: #c5d5e8; margin-bottom: 36px; line-height: 1.8; }
+        .hero-btns { display: flex; gap: 16px; }
+        .btn { display: inline-block; padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+        .btn-primary { background: #2d8cf0; color: #fff; }
+        .btn-primary:hover { background: #1a7ae0; transform: translateY(-1px); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+        .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .stat-card { background: rgba(255,255,255,.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 28px; }
+        .stat-card .num { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
+        .stat-card .label { font-size: 14px; color: #a8bdd4; }
+
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-header h2 { font-size: 32px; font-weight: 700; color: #1a2a4a; margin-bottom: 12px; }
+        .section-header p { font-size: 16px; color: #6b7c93; max-width: 560px; margin: 0 auto; }
+
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .service-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 36px 28px; transition: all .3s; }
+        .service-card:hover { box-shadow: 0 12px 40px rgba(26,95,180,.1); border-color: #b8d4f7; transform: translateY(-4px); }
+        .service-icon { width: 56px; height: 56px; background: #ebf3ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #1a2a4a; }
+        .service-card p { font-size: 14px; color: #6b7c93; line-height: 1.7; }
+        .service-card a { display: inline-block; margin-top: 16px; font-size: 14px; color: #1a5fb4; font-weight: 500; }
+        .service-card a:hover { text-decoration: underline; }
+
+        /* Trust */
+        .trust { background: #f6f9fc; }
+        .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+        .trust-item .num { font-size: 36px; font-weight: 700; color: #1a5fb4; }
+        .trust-item .desc { font-size: 14px; color: #6b7c93; margin-top: 6px; }
+
+        /* CTA Banner */
+        .cta-banner { background: linear-gradient(135deg, #1a5fb4, #2d8cf0); padding: 64px 0; text-align: center; color: #fff; }
+        .cta-banner h2 { font-size: 28px; margin-bottom: 12px; }
+        .cta-banner p { font-size: 16px; color: #d0e3f8; margin-bottom: 28px; }
+        .cta-banner .btn { background: #fff; color: #1a5fb4; }
+        .cta-banner .btn:hover { background: #f0f7ff; }
+
+        /* Footer */
+        footer { background: #0f1c30; color: #8a9bb5; padding: 56px 0 28px; font-size: 14px; }
+        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        footer h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a { color: #8a9bb5; transition: color .2s; }
+        footer ul a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e3050; margin-top: 40px; padding-top: 24px; text-align: center; font-size: 13px; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 30px; }
+            .services-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .hero-btns { flex-direction: column; }
+            .hero-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一服务热线：95577</span>
+            <div>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">长</div>
+                <div class="logo-text">长川<span>银行</span></div>
+            </a>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+                <a href="personal.html" class="cta">立即开户</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div>
+                <h1>让每一分钱<br>都为您创造价值</h1>
+                <p>长川银行深耕金融服务二十余年，为超过三千万个人客户和八万家小微企业提供安全、便捷、高效的综合金融服务。无论您是在寻找稳健的储蓄方案，还是需要灵活的信贷支持，我们都为您准备了合适的选择。</p>
+                <div class="hero-btns">
+                    <a href="personal.html" class="btn btn-primary">了解个人业务</a>
+                    <a href="cards.html" class="btn btn-outline">申请信用卡</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="num">3,200万+</div>
+                    <div class="label">个人客户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">486家</div>
+                    <div class="label">全国营业网点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">99.99%</div>
+                    <div class="label">系统可用率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">22年</div>
+                    <div class="label">安全运营记录</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>核心服务</h2>
+                <p>覆盖储蓄、贷款、信用卡、外汇等全方位金融需求，为您和您的事业保驾护航</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>储蓄与存款</h3>
+                    <p>提供活期、定期、大额存单等多种存款产品，年化利率最高可达3.85%，让您的闲钱稳步增值。</p>
+                    <a href="personal.html">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>个人贷款</h3>
+                    <p>房贷、消费贷、经营贷一站式办理。线上审批最快30分钟出结果，额度最高500万元。</p>
+                    <a href="personal.html">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💳</div>
+                    <h3>信用卡</h3>
+                    <p>四款信用卡产品满足不同消费场景，最高50万元信用额度，享全球免手续费消费。</p>
+                    <a href="cards.html">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>手机银行</h3>
+                    <p>转账、缴费、理财、贷款申请一站式完成。支持指纹登录、人脸识别，安全便捷。</p>
+                    <a href="personal.html">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>外汇与跨境</h3>
+                    <p>提供20余种货币兑换、跨境汇款服务，为企业和个人出海提供高效的资金通道。</p>
+                    <a href="personal.html">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>小微金融服务</h3>
+                    <p>专属小微团队上门服务，"微e贷"纯信用产品最快当天放款，助力小微企业发展。</p>
+                    <a href="personal.html">查看详情 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section trust">
+        <div class="container">
+            <div class="section-header">
+                <h2>值得信赖</h2>
+                <p>以科技为驱动，以客户为中心，用二十年时间筑起安全防线</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="num">12,600亿</div>
+                    <div class="desc">资产规模（元）</div>
+                </div>
+                <div class="trust-item">
+                    <div class="num">8.2万</div>
+                    <div class="desc">服务小微企业</div>
+                </div>
+                <div class="trust-item">
+                    <div class="num">320+</div>
+                    <div class="desc">覆盖城市</div>
+                </div>
+                <div class="trust-item">
+                    <div class="num">4.9分</div>
+                    <div class="desc">客户满意度评分</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h2>三步开启您的长川账户</h2>
+            <p>在线预约 → 到网点面签 → 即开即用，全程不超过30分钟</p>
+            <a href="personal.html" class="btn">立即预约开户</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>长川银行</h4>
+                <p style="margin-top:12px;line-height:1.8;">长川银行股份有限公司成立于2003年，总部位于上海市浦东新区。现有营业网点覆盖全国32个省市，致力于为客户提供全面、专业、有温度的金融服务。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人业务</a></li>
+                    <li><a href="cards.html">信用卡</a></li>
+                    <li><a href="contact.html">联系网点</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="contact.html">网点查询</a></li>
+                    <li><a href="contact.html">在线客服</a></li>
+                    <li><a href="contact.html">投诉建议</a></li>
+                    <li><a href="contact.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <ul>
+                    <li>服务热线：95577</li>
+                    <li>邮箱：service@changchuan.com</li>
+                    <li>地址：上海市浦东新区世纪大道1088号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 长川银行股份有限公司 版权所有 | 沪ICP备05012345号 | 中国银保监会批准设立</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll and nav highlight
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+                if (!this.classList.contains('cta')) this.classList.add('active');
+            });
+        });
+
+        // Animate stats on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .stat-card, .trust-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity .5s, transform .5s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

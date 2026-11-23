@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>畅行旅行 - 畅游中国</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>畅行旅行</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="results.html">目的地</a>
+<a href="hotel_detail.html">酒店</a>
+<a href="booking.html">预订</a>
+</nav>
+</header>
+
+<main>
+<section class="search-section">
+<h2>查找目的地与日期</h2>
+<form id="searchForm" action="results.html" method="GET">
+<label for="destination">目的地:</label>
+<input type="text" id="destination" name="destination" placeholder="如：北京" required>
+<label for="checkin">入住日期:</label>
+<input type="date" id="checkin" name="checkin" required>
+<label for="checkout">离开日期:</label>
+<input type="date" id="checkout" name="checkout" required>
+<button type="submit">搜索</button>
+</form>
+</section>
+
+<section class="highlights-section">
+<h2>热门目的地</h2>
+<p>北京、上海、广州、成都、桂林、张家界、西安、青岛、厦门、苏州。</p>
+</section>
+</main>
+
+<footer>
+<p>© 2025 畅行旅行. 版权所有.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

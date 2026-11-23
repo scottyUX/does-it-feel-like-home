@@ -1,0 +1,11 @@
+{
+  "id": "en__social-media__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "social-media",
+  "model": "nemotron3:33b",
+  "completionTokens": 9711,
+  "seconds": 53,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

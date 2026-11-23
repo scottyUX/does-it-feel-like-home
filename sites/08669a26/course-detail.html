@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程详情 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .btn-signup {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+        }
+
+        .main-layout {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+        }
+
+        .course-header {
+            margin-bottom: 2rem;
+        }
+
+        .course-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-description {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .syllabus {
+            list-style: none;
+        }
+
+        .syllabus-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .syllabus-item:last-child {
+            border-bottom: none;
+        }
+
+        .teacher-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+        }
+
+        .teacher-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+            border: 4px solid var(--bg-light);
+        }
+
+        .teacher-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .teacher-bio {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .price-box {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .btn-enroll {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-enroll:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        @media (max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .teacher-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">学途 XUE TU</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="courses.html">所有课程</a>
+                <a href="signup.html" class="btn-signup">立即加入</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-layout">
+        <div class="course-main">
+            <div class="course-header">
+                <h1>Python 零基础入门到精通</h1>
+                <div class="course-meta">
+                    <span>🕒 48 小时视频课程</span>
+                    <span>⭐ 4.9 (1,200+ 评价)</span>
+                    <span>🎓 初学者级别</span>
+                </div>
+            </div>
+
+            <div class="course-description">
+                <h2 class="section-title">课程介绍</h2>
+                <p>本课程旨在帮助没有任何编程基础的初学者快速掌握 Python 语言。我们将从最基础的语法开始，逐步深入到面向对象编程、文件处理以及第三方库的使用。通过大量真实的案例分析和课后练习，你将能够独立开发简单的自动化脚本和数据分析工具。</p>
+                <p style="margin-top: 1rem;">无论你是想要转换职业方向的职场新人，还是希望提升效率的大学生，本课程都将为你提供最系统的学习路径。</p>
+            </div>
+
+            <div class="course-description">
+                <h2 class="section-title">课程大纲</h2>
+                <ul class="syllabus">
+                    <li class="syllabus-item">
+                        <span>第一章：Python 环境搭建与 Hello World</span>
+                        <span>2 小时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span>第二章：变量、数据类型与基本运算符</span>
+                        <span>4 小时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span>第三章：流程控制：条件判断与循环</span>
+                        <span>6 小时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span>第四章：函数定义与模块化编程</span>
+                        <span>8 小时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span>第五章：面向对象编程 (OOP) 核心概念</span>
+                        <span>10 小时</span>
+                    </li>
+                    <li class="syllabus-item">
+                        <span>第六章：实战项目：开发一个个人财务管理软件</span>
+                        <span>18 小时</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="course-sidebar">
+            <div class="teacher-card">
+                <img src="assets/image-7cf34b168777a22b.jpg" alt="Teacher" class="teacher-img">
+                <div class="teacher-name">张铭 老师</div>
+                <div class="teacher-bio">
+                    前硅谷资深软件工程师，拥有 10 年工业级 Python 开发经验，致力于将复杂的技术概念简单化。
+                </div>
+                <div class="price-box">¥ 499</div>
+                <a href="signup.html" class="btn-enroll">立即报名</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">首页</a>
+            <a href="courses.html">课程中心</a>
+            <a href="#">关于我们</a>
+            <a href="#">隐私政策</a>
+        </div>
+        <p>&copy; 2023 学途在线学习平台. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

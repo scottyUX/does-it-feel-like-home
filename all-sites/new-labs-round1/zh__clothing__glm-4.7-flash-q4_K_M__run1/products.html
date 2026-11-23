@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 可衣</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #8c7b75;
+            --bg-color: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-color: #333333;
+            --gray-text: #666666;
+            --border-color: #e5e5e5;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Shared Header Styles */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 100;
+        }
+
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+        
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: var(--primary-color); }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-color); }
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .sidebar h3 { font-size: 16px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #ddd; }
+
+        .filter-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--gray-text);
+            cursor: pointer;
+        }
+
+        .filter-list li:hover { color: var(--primary-color); }
+
+        .price-range {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .price-inputs input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Product Grid */
+        .filter-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--gray-text);
+            font-size: 14px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background-color: #eee;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info h3 { font-size: 14px; font-weight: 500; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .product-info .price { font-size: 14px; color: var(--gray-text); }
+        .product-tags { margin-bottom: 5px; font-size: 12px; color: var(--accent-color); }
+
+        .pagination {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .page-btn {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            margin: 0 5px;
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .page-btn.active, .page-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .sidebar { display: none; } /* Hide sidebar on mobile for simplicity */
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 KOYI</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场通勤</a>
+                <a href="products.html">日常穿搭</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-layout">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <h3>商品分类</h3>
+            <ul class="filter-list">
+                <li style="color: #000; font-weight: bold;">全部商品</li>
+                <li>职场套装</li>
+                <li>连衣裙</li>
+                <li>上衣 / 针织衫</li>
+                <li>半身裙</li>
+                <li>外套 / 大衣</li>
+                <li>裤装 / 阔腿裤</li>
+            </ul>
+
+            <h3>价格区间</h3>
+            <div class="price-range">
+                <div class="price-inputs">
+                    <input type="number" placeholder="最低价">
+                    <input type="number" placeholder="最高价">
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 10px; padding: 8px;">筛选</button>
+            </div>
+
+            <h3>尺码筛选</h3>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="width: 30px; height: 30px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer;">S</div>
+                <div style="width: 30px; height: 30px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer;">M</div>
+                <div style="width: 30px; height: 30px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer;">L</div>
+                <div style="width: 30px; height: 30px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer;">XL</div>
+            </div>
+        </aside>
+
+        <!-- Product Area -->
+        <section>
+            <div class="filter-info">
+                <span>共找到 28 件商品</span>
+                <div>
+                    <span>排序方式：</span>
+                    <select style="border: none; outline: none; cursor: pointer; font-size: 14px;">
+                        <option>默认排序</option>
+                        <option>销量优先</option>
+                        <option>价格从低到高</option>
+                        <option>价格从高到低</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><circle cx="50%" cy="40%" r="15%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tags">新品</div>
+                        <h3>极简白衬衫 - 纯棉</h3>
+                        <div class="price">¥299</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><rect x="40%" y="30%" width="20%" height="40%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>亚麻背心</h3>
+                        <div class="price">¥199</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><path d="M50 80 L80 30 L20 30 Z" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tags">职场热销</div>
+                        <h3>高腰阔腿西装裤</h3>
+                        <div class="price">¥459</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><rect x="30%" y="50%" width="40%" height="20%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>波点收腰裙</h3>
+                        <div class="price">¥399</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><rect x="40%" y="20%" width="20%" height="60%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>丝绒质感开衫</h3>
+                        <div class="price">¥599</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><circle cx="50%" cy="50%" r="20%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>经典卡其风衣</h3>
+                        <div class="price">¥899</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><rect x="20%" y="40%" width="60%" height="40%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>棉麻套装</h3>
+                        <div class="price">¥699</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#eee" stroke-width="1"/><path d="M40 80 L60 20 L80 80 Z" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-tags">夏季特惠</div>
+                        <h3>雪纺印花衬衫</h3>
+                        <div class="price">¥259</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span class="page-btn active">1</span>
+                <span class="page-btn">2</span>
+                <span class="page-btn">3</span>
+                <span class="page-btn">></span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

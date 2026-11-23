@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约服务 - 悦容美发美容</title>
+    <style>
+        :root {
+            --primary-color: #c5a47e;
+            --secondary-color: #333333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --text-color: #444444;
+            --border-color: #e0e0e0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: var(--primary-color);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .cta-btn:hover {
+            background-color: #b08d66;
+            color: var(--white);
+        }
+        /* Page Header */
+        .page-header {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--secondary-color);
+        }
+        .page-header p {
+            margin-top: 10px;
+            color: #666;
+        }
+        /* Booking Form */
+        .booking-section {
+            padding: 80px 0;
+        }
+        .booking-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(197, 164, 126, 0.3);
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #b08d66;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-section p, .footer-section a {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+        /* Mobile */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .page-header h1 {
+                font-size: 28px;
+            }
+            .booking-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">悦容<span>美发美容</span></a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="services.html">服务项目</a>
+                <a href="team.html">我们的团队</a>
+                <a href="booking.html" class="cta-btn">立即预约</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>在线预约</h1>
+            <p>请填写表单，我们将尽快通过电话或短信与您确认预约详情</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <label for="name">您的姓名 *</label>
+                    <input type="text" id="name" class="form-control" required placeholder="请输入您的姓名">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">联系电话 *</label>
+                    <input type="tel" id="phone" class="form-control" required placeholder="请输入手机号码">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">预约服务 *</label>
+                    <select id="service" class="form-control" required>
+                        <option value="" disabled selected>请选择服务类型</option>
+                        <option value="cut">女士精剪 / 男士修剪</option>
+                        <option value="color">染发 / 烫发</option>
+                        <option value="care">深层护理 / SPA</option>
+                        <option value="skin">面部护肤 / 美容</option>
+                        <option value="other">其他需求</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>推荐发型师 (选填)</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="stylist" value="any" checked> 任选
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="stylist" value="kevin"> Kevin
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="stylist" value="susu"> 苏苏
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="stylist" value="ajie"> 阿杰
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="stylist" value="linda"> Linda
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">期望日期 *</label>
+                    <input type="date" id="date" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">期望时段 *</label>
+                    <select id="time" class="form-control" required>
+                        <option value="" disabled selected>请选择时间</option>
+                        <option value="10:00">10:00 - 12:00</option>
+                        <option value="12:00">12:00 - 14:00</option>
+                        <option value="14:00">14:00 - 16:00</option>
+                        <option value="16:00">16:00 - 18:00</option>
+                        <option value="18:00">18:00 - 20:00</option>
+                        <option value="20:00">20:00 - 22:00</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">备注说明 (选填)</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="例如：发质受损、过敏史、具体要求等"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">提交预约申请</button>
+                <p class="note">提交后工作人员将在 1 小时内联系您确认。如需取消请至少提前 4 小时通知。</p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>悦容美发美容</h4>
+                    <p>地址：广州市天河区天河路 123 号悦汇广场 A 座 3 层</p>
+                    <p>电话：020-8888 6666</p>
+                    <p>营业时间：周一至周日 10:00 - 22:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速导航</h4>
+                    <a href="index.html">首页</a>
+                    <a href="services.html">服务项目</a>
+                    <a href="team.html">团队介绍</a>
+                    <a href="booking.html">预约服务</a>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>微信：YuerongBeauty</p>
+                    <p>邮箱：contact@yuerong-beauty.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 悦容美发美容 版权所有。粤 ICP 备 88888888 号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的日期限制脚本，禁止选择过去的日期
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+        });
+
+        // 表单提交拦截，仅做演示反馈
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert('感谢您的预约申请，' + name + '！\n我们已收到您的信息，稍后将致电给您确认。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

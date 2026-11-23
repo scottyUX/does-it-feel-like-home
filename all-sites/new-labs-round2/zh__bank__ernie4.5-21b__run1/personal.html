@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人银行服务 - 长川银行</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-button {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .account-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .account-card {
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .account-card h2 {
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        .account-features {
+            margin-top: 20px;
+        }
+        .account-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .account-features i {
+            margin-right: 10px;
+            color: #1a5276;
+        }
+        .loan-options {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+        }
+        .loan-options h2 {
+            margin-bottom: 20px;
+            color: #1a5276;
+        }
+        .loan-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .loan-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .loan-card h3 {
+            margin-bottom: 15px;
+            color: #1a5276;
+        }
+        .loan-features {
+            margin-top: 15px;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">长川银行</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人银行服务</a></li>
+                    <li><a href="credit.html">信用卡</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <a href="index.html" class="back-button">返回首页</a>
+
+    <section class="account-types">
+        <div class="account-card">
+            <h2>储蓄账户</h2>
+            <p>我们的储蓄账户提供竞争力的利率，帮助您的资金增值。选择适合您的存款期限，享受灵活的提款选项。</p>
+            <ul class="account-features">
+                <li><i>📈 竞争性利率</i></li>
+                <li><i>📅 灵活提款选项</i></li>
+                <li><i>🔒 安全可靠的存款保障</i></li>
+            </ul>
+        </div>
+        <div class="account-card">
+            <h2>支票账户</h2>
+            <p>我们的支票账户设计用于日常交易，提供便捷的支票写作、自动取款机使用和在线银行服务。</p>
+            <ul class="account-features">
+                <li><i>📝 便捷支票写作</i></li>
+                <li><i>🏧 全国范围内的ATM使用</i></li>
+                <li><i>💻 全面的在线银行服务</i></li>
+            </ul>
+        </div>
+        <div class="account-card">
+            <h2>特别账户</h2>
+            <p>为特定需求设计的特别账户，如教育储蓄账户、退休账户等，帮助您实现长期财务目标。</p>
+            <ul class="account-features">
+                <li><i>🎓 教育储蓄</i></li>
+                <li><i>👵 退休规划</i></li>
+                <li><i>🏦 灵活的存款和提款选项</i></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="loan-options">
+        <h2>贷款服务</h2>
+        <p>我们提供多种贷款选择，帮助您实现各种财务目标。无论是购房、购车还是个人消费，我们都能为您提供合适的融资方案。</p>
+        <div class="loan-types">
+            <div class="loan-card">
+                <h3>个人贷款</h3>
+                <p>灵活的贷款额度，用于各种个人用途。快速审批流程，帮助您及时获得所需资金。</p>
+                <ul class="loan-features">
+                    <li><i>📈 灵活的贷款额度</i></li>
+                    <li><i>⏰ 快速审批流程</i></li>
+                    <li><i>📅 可选择的还款期限</i></li>
+                </ul>
+            </div>
+            <div class="loan-card">
+                <h3>汽车贷款</h3>
+                <p>为您的新车或二手车提供优惠的融资方案。低利率和灵活的还款选项，让您的购车更轻松。</p>
+                <ul class="loan-features">
+                    <li><i>🚗 低利率优惠</i></li>
+                    <li><i>📅 灵活的还款选项</i></li>
+                    <li><i>💳 无需高额首付</i></li>
+                </ul>
+            </div>
+            <div class="loan-card">
+                <h3>房屋抵押贷款</h3>
+                <p>为购房或再融资提供灵活的贷款方案。享受有竞争力的利率和灵活的还款选项。</p>
+                <ul class="loan-features">
+                    <li><i>🏠 购房或再融资</i></li>
+                    <li><i>📈 有竞争力的利率</i></li>
+                    <li><i>📅 灵活的还款选项</i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 长川银行. 保留所有权利.</p>
+    </footer>
+</body>
+</html>

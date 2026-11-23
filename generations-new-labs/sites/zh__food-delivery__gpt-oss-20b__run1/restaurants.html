@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>餐厅列表 - 快送外卖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+header{background:#ff6b6b;color:#fff;padding:20px;text-align:center;}
+nav{display:flex;justify-content:center;background:#333;color:#fff;}
+nav a{color:#fff;text-decoration:none;padding:15px 20px;}
+nav a:hover{background:#444;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+.card{background:#fff;border-radius:8px;margin:10px 0;padding:20px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.card h3{margin-top:0;}
+.card a{color:#ff6b6b;text-decoration:none;font-weight:bold;}
+footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:20px;}
+@media(max-width:600px){.container{padding:10px;}}
+</style>
+</head>
+<body>
+<header>
+<h1>餐厅列表</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+<div class="container">
+<div id="filter"></div>
+<div id="list"></div>
+</div>
+<footer>
+<p>&copy; 2024 快送外卖 成都</p>
+</footer>
+<script>
+const restaurants = [
+{ name: '小龙坎火锅', category: '快餐', address: '成都人民南路', type: '火锅' },
+{ name: '川味小厨', category: '中餐', address: '成都锦江区', type: '川菜' },
+{ name: '寿司一号', category: '日料', address: '成都锦江区', type: '寿司' },
+{ name: '甜蜜屋', category: '甜品', address: '成都青羊区', type: '甜品' },
+{ name: '茶饮工坊', category: '饮料', address: '成都锦江区', type: '奶茶' },
+{ name: '烤串之家', category: '快餐', address: '成都双流区', type: '烤串' }
+];
+function getQueryParam(name){
+const urlParams = new URLSearchParams(window.location.search);
+return urlParams.get(name);
+}
+function render(){
+const cat = getQueryParam('category');
+const listEl = document.getElementById('list');
+listEl.innerHTML='';
+const filtered = cat? restaurants.filter(r=>r.category===cat): restaurants;
+filtered.forEach(r=>{
+const div = document.createElement('div');
+div.className='card';
+div.innerHTML=`<h3>${r.name}</h3>
+<p>类别: ${r.category}</p>
+<p>地址: ${r.address}</p>
+<a href="restaurant.html?name=${encodeURIComponent(r.name)}">查看菜单</a>`;
+listEl.appendChild(div);
+});
+}
+function renderFilter(){
+const cat = getQueryParam('category');
+const filterEl=document.getElementById('filter');
+filterEl.innerHTML=`<p>当前分类：${cat||'全部'}</p>`;
+}
+renderFilter();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿婆面馆 - 快送外卖</title>
+    <style>
+        :root {
+            --primary-color: #ff4400;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+
+        body { background-color: var(--bg-light); color: var(--text-dark); padding-bottom: 80px; }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 30px; }
+
+        .logo { font-size: 20px; font-weight: bold; color: var(--primary-color); cursor: pointer; }
+        .back-btn { font-size: 14px; color: var(--text-gray); cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .back-btn:hover { color: var(--primary-color); }
+
+        /* Rest Info */
+        .rest-header { background: var(--white); padding: 30px 20px; border-bottom: 1px solid #eee; display: flex; gap: 20px; align-items: flex-start; }
+
+        .rest-img { width: 120px; height: 120px; border-radius: 8px; object-fit: cover; background: #eee; }
+
+        .rest-text h1 { font-size: 24px; margin-bottom: 10px; }
+        
+        .rest-stats { display: flex; gap: 20px; font-size: 13px; color: var(--text-gray); margin-bottom: 15px; }
+        .stat-item span { color: #333; font-weight: bold; margin-right: 4px; }
+
+        .rest-brief { font-size: 13px; color: var(--text-gray); line-height: 1.6; max-width: 600px; }
+
+        /* Menu Section */
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; display: flex; gap: 30px; }
+
+        .menu-list { flex: 1; background: var(--white); padding: 20px; border-radius: 8px; }
+
+        .menu-tabs { display: flex; gap: 20px; margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; overflow-x: auto; }
+        .menu-tab { font-size: 15px; color: var(--text-gray); cursor: pointer; padding-bottom: 5px; position: relative; }
+        .menu-tab.active { color: var(--text-dark); font-weight: bold; }
+        .menu-tab.active::after { content: ''; position: absolute; bottom: -16px; left: 0; width: 100%; height: 3px; background: var(--primary-color); }
+
+        .menu-item { display: flex; margin-bottom: 20px; gap: 15px; border-bottom: 1px dashed #eee; padding-bottom: 20px; }
+        .menu-item:last-child { border-bottom: none; }
+
+        .menu-details { flex: 1; }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .item-name { font-weight: bold; font-size: 16px; margin-right: 10px; }
+        .item-price { color: var(--primary-color); font-weight: bold; }
+        .item-desc { font-size: 12px; color: var(--text-gray); margin-top: 4px; line-height: 1.4; }
+
+        .add-btn {
+            width: 30px; height: 30px;
+            background: #ddd;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #666;
+            font-size: 18px;
+            line-height: 1;
+        }
+        .add-btn:hover { background: var(--primary-color); color: white; }
+
+        /* Sidebar Cart */
+        .cart-sidebar {
+            width: 280px;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 15px;
+            position: fixed;
+            right: 20px;
+            bottom: 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .cart-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        
+        .cart-items { max-height: 200px; overflow-y: auto; font-size: 13px; margin-bottom: 15px; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--text-gray); }
+
+        .cart-footer { border-top: 1px solid #eee; padding-top: 10px; }
+        .cart-total { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; font-weight: bold; }
+        
+        .checkout-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .checkout-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="nav-inner">
+            <div class="logo" onclick="window.location.href='restaurants.html'">⚡ 快送外卖</div>
+            <div class="back-btn" onclick="window.location.href='restaurants.html'">← 返回餐厅列表</div>
+        </div>
+    </div>
+
+    <div class="rest-header">
+        <img src="https://picsum.photos/seed/noodle/120/120" class="rest-img" alt="阿婆面馆">
+        <div class="rest-text">
+            <h1>阿婆面馆</h1>
+            <div class="rest-stats">
+                <span class="stat-item">4.8 <span>月售</span></span>
+                <span class="stat-item">50% <span>好评</span></span>
+                <span class="stat-item">20条 <span>评价</span></span>
+                <span class="stat-item">1.2km <span>距离</span></span>
+            </div>
+            <p class="rest-brief">地道成都风味，现熬骨汤，手工制作面条。主要经营各类臊子面、杂酱面，口味正宗，分量十足，是您工作午餐、家庭聚餐的不二之选。</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="menu-list">
+            <div class="menu-tabs">
+                <div class="menu-tab active">推荐热卖</div>
+                <div class="menu-tab">招牌主食</div>
+                <div class="menu-tab">小菜凉菜</div>
+                <div class="menu-tab">饮品汤品</div>
+            </div>
+
+            <div id="menu-container">
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <div class="item-header">
+                            <div class="item-name">招牌红烧牛肉面</div>
+                            <div class="item-price">¥22</div>
+                        </div>
+                        <div class="item-desc">每日新鲜熬制牛骨汤，配上秘制酱料，口感浓郁，牛肉大块。</div>
+                    </div>
+                    <div class="add-btn" onclick="addToCart(this, '招牌红烧牛肉面', 22)">+</div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <div class="item-header">
+                            <div class="item-name">手工素椒杂酱面</div>
+                            <div class="item-price">¥18</div>
+                        </div>
+                        <div class="item-desc">四川传统面食，花椒面提香，肉酱香而不腻。</div>
+                    </div>
+                    <div class="add-btn" onclick="addToCart(this, '手工素椒杂酱面', 18)">+</div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item">
+                    <div class="menu-details">
+                        <div class="item-header">
+                            <div class="item-name">酸菜肉丝面</div>
+                            <div class="item-price">¥20</div>
+                        </div>
+                        <div class="item-desc">酸爽开胃，面条劲道，适合不爱吃辣的朋友。</div>
+                    </div>
+                    <div class="add-btn" onclick="addToCart(this, '酸菜肉丝面', 20)">+</div>
+                </div>
+
+                 <!-- Item 4 -->
+                 <div class="menu-item">
+                    <div class="menu-details">
+                        <div class="item-header">
+                            <div class="item-name">凉拌黄瓜</div>
+                            <div class="item-price">¥8</div>
+                        </div>
+                        <div class="item-desc">爽脆解腻，佐餐小菜。</div>
+                    </div>
+                    <div class="add-btn" onclick="addToCart(this, '凉拌黄瓜', 8)">+</div>
+                </div>
+
+                 <!-- Item 5 -->
+                 <div class="menu-item">
+                    <div class="menu-details">
+                        <div class="item-header">
+                            <div class="item-name">冰镇豆奶</div>
+                            <div class="item-price">¥6</div>
+                        </div>
+                        <div class="item-desc">原味豆奶，冷藏后饮用更佳。</div>
+                    </div>
+                    <div class="add-btn" onclick="addToCart(this, '冰镇豆奶', 6)">+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Cart Sidebar -->
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <span>已选商品 <span id="count">0</span> 份</span>
+                <span style="cursor:pointer" onclick="clearCart()">清空</span>
+            </div>
+            <div class="cart-items" id="cart-list">
+                <div style="text-align:center; color:#999; padding:10px;">购物车是空的</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>预计送达：</span>
+                    <span>¥30</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn" onclick="window.location.href='checkout.html'" disabled>去结算</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        const deliveryFee = 3;
+        
+        function addToCart(btn, name, price) {
+            btn.style.background = 'var(--primary-color)';
+            btn.style.color = 'white';
+            btn.innerHTML = '✓';
+            
+            setTimeout(() => {
+                btn.style.background = '#ddd';
+                btn.style.color = '#666';
+                btn.innerHTML = '+';
+            }, 500);
+
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('count');
+            const listEl = document.getElementById('cart-list');
+            const btnEl = document.getElementById('checkoutBtn');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            countEl.textContent = totalItems;
+            listEl.innerHTML = '';
+            
+            if (cart.length === 0) {
+                listEl.innerHTML = '<div style="text-align:center; color:#999; padding:10px;">购物车是空的</div>';
+                btnEl.disabled = true;
+                return;
+            }
+
+            btnEl.disabled = false;
+
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <span>${item.name} x ${item.qty}</span>
+                    <span>¥${item.price * item.qty}</span>
+                `;
+                listEl.appendChild(div);
+            });
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>

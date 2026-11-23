@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦里老味道 - 菜单</title>
+    <style>
+        :root {
+            --primary-color: #ff6b00;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #eeeeee;
+            --bg-grey: #f5f5f5;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-grey);
+            color: var(--text-dark);
+            padding-bottom: 100px; /* Space for cart bar */
+        }
+
+        /* Header (Simplified) */
+        header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 5px rgba(0,0,0,0.05); }
+        .back-link { text-decoration: none; color: var(--text-dark); font-weight: 500; }
+        .logo { font-size: 20px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+
+        /* Banner */
+        .banner {
+            background: #333;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+        .banner-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px 25px;
+            border-radius: 4px;
+        }
+        .banner h1 { margin: 0; font-size: 24px; }
+        .banner .info { margin-top: 5px; font-size: 14px; color: #ddd; }
+
+        /* Main Grid */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            overflow: hidden;
+        }
+
+        /* Sidebar Menu */
+        .menu-nav {
+            background: #fafafa;
+            border-right: 1px solid var(--border-color);
+            padding: 10px 0;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .menu-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+        .menu-item.active {
+            background: white;
+            font-weight: bold;
+            border-left-color: var(--primary-color);
+        }
+
+        /* Menu List */
+        .menu-list {
+            padding: 20px;
+        }
+        .menu-section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 10px;
+        }
+        .dish-card {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+        .dish-info h3 { margin: 0 0 5px 0; font-size: 16px; }
+        .dish-desc { color: var(--text-light); font-size: 13px; margin-bottom: 10px; max-width: 300px; }
+        .dish-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .price { color: #d32f2f; font-weight: bold; font-size: 18px; }
+        .price small { font-size: 14px; }
+        .add-btn {
+            background: white;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 2px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .add-btn:hover { background: var(--primary-color); color: white; }
+        
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .qty-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qty-num { font-weight: bold; }
+
+        /* Floating Cart Footer */
+        .cart-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .cart-icon-wrap {
+            position: relative;
+            margin-right: 20px;
+        }
+        .cart-bubble {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .checkout-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .checkout-btn.disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 80px 1fr; }
+            .menu-item { text-align: center; padding: 15px 5px; font-size: 12px; }
+            .menu-nav { width: 80px; }
+            .dish-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .dish-action { width: 100%; }
+            .price { font-size: 14px; }
+            .add-btn { padding: 5px 15px; }
+            .cart-bar { bottom: 0; width: 100%; border-radius: 20px 20px 0 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="restaurants.html" class="back-link">&larr; 返回</a>
+        <a href="index.html" class="logo">快送外卖</a>
+        <a href="#">搜索</a>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1>锦里老味道</h1>
+            <div class="info">评分 4.8 | 人均 ¥45 | 营业中 09:00-21:00</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Navigation -->
+        <nav class="menu-nav">
+            <div class="menu-item active">热销推荐</div>
+            <div class="menu-item">招牌川菜</div>
+            <div class="menu-item">经典盖饭</div>
+            <div class="menu-item">爽口凉菜</div>
+            <div class="menu-item">小吃主食</div>
+            <div class="menu-item">解辣饮品</div>
+        </nav>
+
+        <!-- Menu Items -->
+        <main class="menu-list">
+            <h2 class="menu-section-title">热销推荐</h2>
+
+            <div class="dish-card">
+                <div class="dish-info">
+                    <h3>招牌麻婆豆腐饭</h3>
+                    <p class="dish-desc">特制牛肉末，麻辣鲜香，超级下饭。</p>
+                    <div class="dish-action">
+                        <span class="price"><small>¥</small>18.00</span>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <span class="qty-num">2</span>
+                            <button class="qty-btn" onclick="addToCart('招牌麻婆豆腐饭')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <div class="dish-info">
+                    <h3>宫保鸡丁</h3>
+                    <p class="dish-desc">酸甜微辣，花生酥脆，传统川菜。</p>
+                    <div class="dish-action">
+                        <span class="price"><small>¥</small>32.00</span>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <span class="qty-num">0</span>
+                            <button class="qty-btn" onclick="addToCart('宫保鸡丁')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="menu-section-title">经典盖饭</h2>
+
+            <div class="dish-card">
+                <div class="dish-info">
+                    <h3>红烧肉饭</h3>
+                    <p class="dish-desc">精选五花肉，肥而不腻，入口即化。</p>
+                    <div class="dish-action">
+                        <span class="price"><small>¥</small>28.00</span>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <span class="qty-num">0</span>
+                            <button class="qty-btn" onclick="addToCart('红烧肉饭')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dish-card">
+                <div class="dish-info">
+                    <h3>鱼香肉丝</h3>
+                    <p class="dish-desc">木耳丝、笋丝、肉丝，酸甜适中。</p>
+                    <div class="dish-action">
+                        <span class="price"><small>¥</small>24.00</span>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <span class="qty-num">0</span>
+                            <button class="qty-btn" onclick="addToCart('鱼香肉丝')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <h2 class="menu-section-title">解辣饮品</h2>
+
+            <div class="dish-card">
+                <div class="dish-info">
+                    <h3>唯怡豆奶 (大)</h3>
+                    <p class="dish-desc">四川火锅伴侣，解辣神器。</p>
+                    <div class="dish-action">
+                        <span class="price"><small>¥</small>6.00</span>
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <span class="qty-num">0</span>
+                            <button class="qty-btn" onclick="addToCart('唯怡豆奶')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Cart Bar -->
+    <div class="cart-bar">
+        <div class="cart-icon-wrap">
+            <div style="font-size: 24px;">🛒</div>
+            <div class="cart-bubble">3</div>
+        </div>
+        <div style="flex: 1; margin-right: 20px;">
+            <div class="cart-price">¥56.00</div>
+        </div>
+        <button class="checkout-btn" onclick="window.location.href='cart.html'">去结算</button>
+    </div>
+
+    <script>
+        function addToCart(dishName) {
+            alert('已将 [' + dishName + '] 加入购物车');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约服务</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            color: #ccc;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .reservation {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .reservation h2 {
+            margin-bottom: 10px;
+        }
+        .reservation p {
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>预约服务</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="service.html">服务项目</a>
+        <a href="team.html">团队介绍</a>
+        <a href="reservation.html">预约服务</a>
+    </div>
+    <div class="main">
+        <h2>预约表格</h2>
+        <form>
+            <p>姓名：<input type="text"></p>
+            <p>电话：<input type="text"></p>
+            <p>服务项目：<select>
+                <option>理发</option>
+                <option>染发</option>
+                <option>护肤</option>
+            </select></p>
+            <p>预约时间：<input type="date"> <input type="time"></p>
+            <button>提交预约</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 悦容美发美容</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财经频道 - 每日视界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .top-bar {
+            background: #1a1a2e;
+            color: #ccc;
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: #ccc;
+            margin-left: 16px;
+        }
+        .top-bar a:hover {
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #c0392b;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: #1a1a2e;
+        }
+        .nav {
+            display: flex;
+            gap: 8px;
+        }
+        .nav a {
+            padding: 8px 16px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            background: #f5f5f5;
+            color: #c0392b;
+        }
+        .nav a.active {
+            color: #c0392b;
+            font-weight: 600;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 6px 16px;
+            gap: 8px;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            width: 140px;
+        }
+        .page-banner {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 48px 0;
+            margin-bottom: 40px;
+        }
+        .page-banner h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        .tabs a {
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .tabs a:hover {
+            color: #1a1a1a;
+        }
+        .tabs a.active {
+            color: #c0392b;
+            font-weight: 600;
+            border-bottom-color: #c0392b;
+        }
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .article-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .article-item:hover {
+            background: #fafafa;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 4px;
+        }
+        .article-item .thumb {
+            width: 200px;
+            height: 130px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .article-item .thumb.t1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .article-item .thumb.t2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .article-item .thumb.t3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .article-item .thumb.t4 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .article-item .thumb.t5 { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .article-item .thumb.t6 { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+        .article-item .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .article-item .info .tag {
+            font-size: 12px;
+            color: #c0392b;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .article-item .info h2 {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .article-item .info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-item .info .meta {
+            font-size: 13px;
+            color: #999;
+            display: flex;
+            gap: 16px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+        .pagination a, .pagination span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.2s;
+        }
+        .pagination a:hover {
+            border-color: #c0392b;
+            color: #c0392b;
+        }
+        .pagination .current {
+            background: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            margin-top: 60px;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-grid h4 {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .footer-grid p {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        .footer-grid ul {
+            list-style: none;
+        }
+        .footer-grid ul li {
+            margin-bottom: 10px;
+        }
+        .footer-grid ul li a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            transition: color 0.2s;
+        }
+        .footer-grid ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+        }
+        @media (max-width: 768px) {
+            .article-item {
+                flex-direction: column;
+            }
+            .article-item .thumb {
+                width: 100%;
+                height: 160px;
+            }
+            .nav {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>2025年1月15日 星期三</span>
+            <div>
+                <a href="index.html">首页</a>
+                <a href="tech.html">科技</a>
+                <a href="about.html">关于</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <a href="index.html" class="logo">每日<span>视界</span></a>
+                <nav class="nav">
+                    <a href="index.html">首页</a>
+                    <a href="finance.html" class="active">财经</a>
+                    <a href="tech.html">科技</a>
+                    <a href="index.html#society">社会</a>
+                    <a href="index.html#world">国际</a>
+                    <a href="about.html">关于我们</a>
+                </nav>
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" placeholder="搜索新闻...">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <div class="container">
+            <h1>财经频道</h1>
+            <p>覆盖宏观经济、资本市场、产业趋势与深度投资分析，为投资者提供专业、及时的财经资讯。</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="tabs">
+            <a href="finance.html" class="active">全部</a>
+            <a href="finance.html">宏观经济</a>
+            <a href="finance.html">资本市场</a>
+            <a href="finance.html">产业经济</a>
+            <a href="finance.html">企业动态</a>
+            <a href="finance.html">深度分析</a>
+        </div>
+
+        <div class="article-list">
+            <a href="article.html" class="article-item">
+                <div class="thumb t1">📈</div>
+                <div class="info">
+                    <div class="tag">宏观经济</div>
+                    <h2>央行宣布下调存款准备金率0.5个百分点 释放长期流动性约1.2万亿元</h2>
+                    <p>中国人民银行今日公告，决定于2025年1月20日下调金融机构存款准备金率0.5个百分点。此次降准预计释放长期流动性约1.2万亿元，旨在加大对实体经济的支持力度。</p>
+                    <div class="meta">
+                        <span>2025年1月15日 09:15</span>
+                        <span>128.6万阅读</span>
+                        <span>326条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t2">💹</div>
+                <div class="info">
+                    <div class="tag">资本市场</div>
+                    <h2>A股三大指数集体收涨 半导体板块领涨 北向资金净流入超80亿元</h2>
+                    <p>1月15日，A股三大指数集体收涨。上证指数涨1.2%报3312.45点，深证成指涨1.8%，创业板指涨2.1%。半导体、AI算力板块领涨，多只个股涨停。</p>
+                    <div class="meta">
+                        <span>2025年1月15日 15:32</span>
+                        <span>86.3万阅读</span>
+                        <span>512条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t3">🏭</div>
+                <div class="info">
+                    <div class="tag">产业经济</div>
+                    <h2>2025年政府工作报告亮点速读：GDP目标增长5%左右 新增3000万个城镇岗位</h2>
+                    <p>2025年政府工作报告提出，全年GDP增长目标设定为5%左右。报告强调要着力扩大内需、推动产业升级、深化改革开放，确保经济持续回升向好。</p>
+                    <div class="meta">
+                        <span>2025年1月14日 18:20</span>
+                        <span>88.7万阅读</span>
+                        <span>1243条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t4">🚗</div>
+                <div class="info">
+                    <div class="tag">企业动态</div>
+                    <h2>新能源汽车12月销量创新高 单月突破150万辆 市场渗透率首破50%</h2>
+                    <p>乘联会数据显示，12月国内新能源汽车零售销量达152.3万辆，同比增长38%。月度市场渗透率首次突破50%大关，意味着每卖出两辆车中就有一辆是新能源。</p>
+                    <div class="meta">
+                        <span>2025年1月13日 14:10</span>
+                        <span>58.9万阅读</span>
+                        <span>287条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t5">🏠</div>
+                <div class="info">
+                    <div class="tag">深度分析</div>
+                    <h2>北京、上海、深圳三城同日取消住房限购 释放刚需购房群体</h2>
+                    <p>1月13日，北京、上海、深圳三地住建部门同步宣布全面取消住房限购政策。分析人士认为，此举将有效释放被压抑的刚需和改善型需求，有助于稳定房地产市场预期。</p>
+                    <div class="meta">
+                        <span>2025年1月13日 10:30</span>
+                        <span>55.4万阅读</span>
+                        <span>876条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t6">💰</div>
+                <div class="info">
+                    <div class="tag">宏观经济</div>
+                    <h2>2025年财政政策十大看点：赤字率提至3.8% 专项债规模增至4.4万亿元</h2>
+                    <p>2025年财政政策基调延续积极扩大规模。赤字率拟按3.8%左右安排，地方专项债券额度拟安排4.4万亿元，较上年增加4000亿元，重点支持基础设施建设。</p>
+                    <div class="meta">
+                        <span>2025年1月12日 16:45</span>
+                        <span>43.2万阅读</span>
+                        <span>198条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t1">📊</div>
+                <div class="info">
+                    <div class="tag">资本市场</div>
+                    <h2>沪深北交易所发布程序化交易管理实施细则 下月起正式施行</h2>
+                    <p>三大交易所联合发布程序化交易管理实施细则，明确了高频交易认定标准、报告要求和交易行为监管措施。新规将于2025年3月1日起正式施行。</p>
+                    <div class="meta">
+                        <span>2025年1月11日 20:15</span>
+                        <span>38.7万阅读</span>
+                        <span>421条评论</span>
+                    </div>
+                </div>
+            </a>
+            <a href="article.html" class="article-item">
+                <div class="thumb t3">🔋</div>
+                <div class="info">
+                    <div class="tag">产业经济</div>
+                    <h2>锂电池产业链价格企稳回升 碳酸锂期货突破12万元/吨</h2>
+                    <p>经历连续三个月下跌后，碳酸锂价格近期企稳回升。15日碳酸锂期货主力合约盘中突破12万元/吨，较上月低点反弹超过15%。下游电池厂采购意愿明显增强。</p>
+                    <div class="meta">
+                        <span>2025年1月11日 14:30</span>
+                        <span>32.1万阅读</span>
+                        <span>156条评论</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="pagination">
+            <span class="current">1</span>
+            <a href="finance.html">2</a>
+            <a href="finance.html">3</a>
+            <a href="finance.html">4</a>
+            <a href="finance.html">5</a>
+            <a href="finance.html">→</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>每日视界</h4>
+                    <p>每日视界是一家全国性网络新闻媒体，致力于为读者提供权威、及时、深度的新闻报道。我们坚守新闻专业主义，覆盖财经、科技、社会、国际等核心领域。</p>
+                </div>
+                <div>
+                    <h4>新闻频道</h4>
+                    <ul>
+                        <li><a href="finance.html">财经</a></li>
+                        <li><a href="tech.html">科技</a></li>
+                        <li><a href="index.html#society">社会</a></li>
+                        <li><a href="index.html#world">国际</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="about.html">团队介绍</a></li>
+                        <li><a href="about.html">编辑准则</a></li>
+                        <li><a href="about.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="index.html">RSS订阅</a></li>
+                        <li><a href="index.html">客户端下载</a></li>
+                        <li><a href="index.html">每日简报</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 每日视界 · 互联网新闻信息服务许可证 编号：010520250115 · 京ICP备2025001152号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

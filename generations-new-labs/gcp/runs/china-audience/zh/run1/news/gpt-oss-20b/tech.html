@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日视界 - 科技</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;}
+  header{background:#003366;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:#fff;text-decoration:none;margin-left:20px;}
+  nav a:hover{color:#ffcc00;}
+  .toggle{display:none;cursor:pointer;font-size:1.5em;}
+  main{max-width:1200px;margin:auto;padding:20px;background:#fff;}
+  .article{margin-bottom:20px;}
+  .article h3{margin:0;font-size:1.3em;color:#003366;}
+  .article p{margin:5px 0 0;line-height:1.6;}
+  footer{background:#003366;color:#fff;text-align:center;padding:10px 0;}
+  @media (max-width:768px){
+    nav a{display:block;margin:10px 0;}
+    nav{display:none;}
+    .toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>每日视界</div>
+  <div class="toggle" onclick="document.getElementById('nav').style.display='block'">&#9776;</div>
+  <nav id="nav">
+    <a href="index.html">首页</a>
+    <a href="finance.html">财经</a>
+    <a href="tech.html">科技</a>
+    <a href="about.html">关于我们</a>
+  </nav>
+</header>
+<main>
+  <h1>科技栏目</h1>
+  <div class="article">
+    <h3>AI芯片突破：国产技术实现自给自足</h3>
+    <p>最新发布的国产AI芯片性能与国际主流产品不相上下，标志着我国在高性能计算领域迈出重要一步。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </div>
+  <div class="article">
+    <h3>量子通信试点城市上线商用服务</h3>
+    <p>国内首个量子通信商用试点项目顺利上线，为国家网络安全提供了强有力支撑。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </div>
+  <div class="article">
+    <h3>5G+AI驱动智慧城市建设加速推进</h3>
+    <p>多座城市利用5G和AI技术实现交通、能源、公共服务的智能化升级。</p>
+    <a href="article.html">阅读全文 &gt;&gt;</a>
+  </div>
+  <!-- 更多科技文章可添加 -->
+</main>
+<footer>
+  © 2026 每日视界，保留所有权利
+</footer>
+<script>
+  window.addEventListener('click',function(e){
+    if(e.target.className!='toggle' && e.target.parentNode.id!='nav'){
+      document.getElementById('nav').style.display='none';
+    }
+  });
+</script>
+</body>
+</html>

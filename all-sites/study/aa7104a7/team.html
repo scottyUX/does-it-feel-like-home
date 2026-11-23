@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的团队 - 悦容美发美容</title>
+    <style>
+        :root {
+            --primary-color: #c5a47e;
+            --secondary-color: #333333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --text-color: #444444;
+            --border-color: #e0e0e0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: var(--primary-color);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .cta-btn:hover {
+            background-color: #b08d66;
+            color: var(--white);
+        }
+        /* Page Header */
+        .page-header {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--secondary-color);
+        }
+        /* Team Grid */
+        .team-section {
+            padding: 80px 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .team-avatar {
+            height: 250px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+        .team-name {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        .team-role {
+            font-size: 14px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .team-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .team-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #555;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .footer-section p, .footer-section a {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+        /* Mobile */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .page-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">悦容<span>美发美容</span></a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="services.html">服务项目</a>
+                <a href="team.html">我们的团队</a>
+                <a href="booking.html" class="cta-btn">立即预约</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>遇见我们的发型师</h1>
+            <p>每一位发型师都经过严格筛选，拥有 5 年以上从业经验</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <br>
+                            形象展示区
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Kevin</h3>
+                        <p class="team-role">首席创意总监</p>
+                        <p class="team-desc">从业 12 年，曾在东京进修造型艺术。擅长根据顾客脸型设计个性化发型，多次获得地区美发大赛奖项。</p>
+                        <div class="team-tags">
+                            <span class="tag">烫染专家</span>
+                            <span class="tag">创意剪裁</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <br>
+                            形象展示区
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">苏苏</h3>
+                        <p class="team-role">高级美容顾问</p>
+                        <p class="team-desc">专注面部护理与皮肤管理 8 年。性格温柔细致，善于倾听客户需求，擅长通过手部舒缓技巧改善客户压力。</p>
+                        <div class="team-tags">
+                            <span class="tag">问题肌修复</span>
+                            <span class="tag">抗衰护理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <br>
+                            形象展示区
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">阿杰</h3>
+                        <p class="team-role">资深发型设计师</p>
+                        <p class="team-desc">拥有 7 年发型设计经验，对流行色号有独到见解。特别擅长男士油头修剪及复古风格造型。</p>
+                        <div class="team-tags">
+                            <span class="tag">男士造型</span>
+                            <span class="tag">复古发色</span>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Member 4 -->
+                 <div class="team-card">
+                    <div class="team-avatar">
+                        <div>
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <br>
+                            形象展示区
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Linda</h3>
+                        <p class="team-role">资深美容师</p>
+                        <p class="team-desc">皮肤学爱好者，精通各种面部按摩手法。坚持使用天然有机产品，致力于为顾客带来健康、自然的护肤体验。</p>
+                        <div class="team-tags">
+                            <span class="tag">深层补水</span>
+                            <span class="tag">敏感肌护理</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>悦容美发美容</h4>
+                    <p>地址：广州市天河区天河路 123 号悦汇广场 A 座 3 层</p>
+                    <p>电话：020-8888 6666</p>
+                    <p>营业时间：周一至周日 10:00 - 22:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速导航</h4>
+                    <a href="index.html">首页</a>
+                    <a href="services.html">服务项目</a>
+                    <a href="team.html">团队介绍</a>
+                    <a href="booking.html">预约服务</a>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>微信：YuerongBeauty</p>
+                    <p>邮箱：contact@yuerong-beauty.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 悦容美发美容 版权所有。粤 ICP 备 88888888 号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

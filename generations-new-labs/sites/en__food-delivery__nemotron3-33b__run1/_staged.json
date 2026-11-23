@@ -1,0 +1,11 @@
+{
+  "id": "en__food-delivery__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "nemotron3:33b",
+  "completionTokens": 17855,
+  "seconds": 96,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

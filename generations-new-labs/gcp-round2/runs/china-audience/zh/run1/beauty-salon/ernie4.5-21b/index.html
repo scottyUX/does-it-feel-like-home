@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦容美发美容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ff7b7b;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://example.com/hairdressing.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ff7b7b;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #ff5a5a;
+        }
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-card h3 {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        .service-card p {
+            padding: 0 1rem 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>悦容美发美容</h1>
+            <p>专业美发美容服务，焕发您的美丽光彩</p>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <a href="index.html">首页</a>
+            <a href="services.html">服务项目</a>
+            <a href="team.html">我们的团队</a>
+            <a href="appointment.html">预约服务</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>为您量身定制美丽</h1>
+            <p>专业的美发师和美容师团队，提供优质的美发美容服务</p>
+            <a href="appointment.html" class="btn">立即预约</a>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>我们提供的服务</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://example.com/haircut.jpg" alt="男士发型">
+                    <h3>男士发型</h3>
+                    <p>专业发型师为您打造时尚、精致的男士发型，包括剪发、造型和保养。</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://example.com/haircolor.jpg" alt="女士染发">
+                    <h3>女士染发</h3>
+                    <p>各种高级染发技术，让您的秀发焕发光彩，展现独特魅力。</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://example.com/skincare.jpg" alt="护肤服务">
+                    <h3>护肤服务</h3>
+                    <p>专业的护肤团队，为您定制个性化的护肤方案，提升肌肤质量。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 悦容美发美容. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>

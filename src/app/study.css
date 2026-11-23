@@ -1596,3 +1596,57 @@
   color: var(--text-primary);
   font-size: var(--type-label);
 }
+
+/* Testing aid, only rendered when the gallery is unlocked. */
+.site-details {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border: 1px solid var(--border-control);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  color: var(--text-primary, #111);
+  font-size: var(--type-label);
+}
+
+.site-details button {
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+}
+
+/* Testing aid on the thank-you page, only rendered when the gallery is unlocked. */
+.restart-study button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  font-size: var(--type-body-sm, 14px);
+  font-weight: 500;
+}
+
+.history-notice {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 40;
+  transform: translateX(-50%);
+  max-width: min(480px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--action-primary);
+  color: var(--text-on-dark);
+  font-size: var(--type-control);
+  line-height: 1.4;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}

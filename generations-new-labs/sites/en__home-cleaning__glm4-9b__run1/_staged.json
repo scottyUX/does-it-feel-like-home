@@ -1,0 +1,11 @@
+{
+  "id": "en__home-cleaning__glm4-9b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "home-cleaning",
+  "model": "glm4:9b",
+  "completionTokens": 1813,
+  "seconds": 12,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

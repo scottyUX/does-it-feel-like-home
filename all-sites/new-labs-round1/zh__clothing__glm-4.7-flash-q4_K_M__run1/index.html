@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 - 悦享都市时尚</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #8c7b75;
+            --bg-color: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-color: #333333;
+            --gray-text: #666666;
+            --border-color: #e5e5e5;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #000;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-icons span {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Categories */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 60px 0 40px;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .category-card:hover .category-overlay {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .category-name {
+            color: #fff;
+            font-size: 24px;
+            border: 1px solid #fff;
+            padding: 8px 20px;
+        }
+
+        /* Featured Products */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background-color: #eee;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info h3 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-info .price {
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #999;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .category-grid, .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 KOYI</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="products.html">新品上市</a>
+                <a href="products.html">职场通勤</a>
+                <a href="products.html">日常穿搭</a>
+                <a href="products.html">关于我们</a>
+            </nav>
+            <div class="nav-icons">
+                <span onclick="alert('演示模式：仅查看购物车')">
+                    <!-- Cart Icon Placeholder -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                </span>
+                <a href="cart.html">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <!-- Simulated image with CSS gradient -->
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#333;stop-opacity:1" /><stop offset="100%" style="stop-color:#000;stop-opacity:1" /></linearGradient></defs><rect width="100%" height="100%" fill="url(#grad1)" /></svg>
+            <div class="hero-content">
+                <h1>2024 春夏 新系列</h1>
+                <p>简洁线条与自然材质的完美融合，展现都市女性的自信与从容。</p>
+                <a href="products.html" class="btn">立即选购</a>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container">
+            <h2 class="section-title">探索分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#e0e0e0" /><circle cx="50%" cy="50%" r="30%" fill="#ccc" /></svg>
+                    <div class="category-overlay">
+                        <span class="category-name">职场通勤</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#e0e0e0" /><rect x="20%" y="20%" width="60%" height="60%" fill="#ccc" /></svg>
+                    <div class="category-overlay">
+                        <span class="category-name">优雅连衣裙</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#e0e0e0" /><rect x="30%" y="40%" width="40%" height="40%" fill="#ccc" /></svg>
+                    <div class="category-overlay">
+                        <span class="category-name">休闲家居</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="container">
+            <h2 class="section-title">当季热卖</h2>
+            <div class="featured-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#ddd" stroke-width="1"/><path d="M20 50 L30 80 L70 80 L80 50 Z" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>法式真丝衬衫</h3>
+                        <div class="price">¥599</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#ddd" stroke-width="1"/><circle cx="50%" cy="50%" r="20%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>羊毛混纺大衣</h3>
+                        <div class="price">¥1,299</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#ddd" stroke-width="1"/><rect x="30%" y="30%" width="20%" height="50%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>宽松阔腿裤</h3>
+                        <div class="price">¥359</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9"100%" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#fff" stroke="#ddd" stroke-width="1"/><rect x="40%" y="20%" width="20%" height="60%" fill="#ddd"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <h3>棉麻简约上衣</h3>
+                        <div class="price">¥259</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="products.html" class="btn-outline">查看更多商品</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">可衣 KOYI</div>
+                    <p>上海可衣服饰有限公司<br>Shanghai Ko-Yi Clothing Co., Ltd.</p>
+                    <p style="margin-top: 20px; font-size: 14px; color: #666;">专注于为都市女性提供高品质的日常与职场服装。<br>地址：上海市徐汇区淮海中路999号</p>
+                </div>
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul>
+                        <li><a href="#">购物流程</a></li>
+                        <li><a href="#">支付方式</a></li>
+                        <li><a href="#">配送说明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">在线招聘</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li>WeChat Official Account</li>
+                        <li>Weibo</li>
+                        <li>Little Red Book</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 上海可衣服饰有限公司 版权所有
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

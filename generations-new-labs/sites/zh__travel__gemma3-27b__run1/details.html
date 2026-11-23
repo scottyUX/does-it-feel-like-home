@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 酒店详情</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .details-container {
+            padding: 20px;
+        }
+
+        .hotel-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .hotel-description {
+            margin-bottom: 20px;
+        }
+
+        .amenities {
+            list-style: none;
+            padding: 0;
+        }
+
+        .amenities li {
+            margin-bottom: 5px;
+        }
+
+        .book-now-button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>畅行旅行</h1>
+        <p>探索中国，享受旅程</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="results.html">搜索结果</a>
+        <a href="details.html">酒店详情</a>
+        <a href="booking.html">预订</a>
+    </nav>
+
+    <div class="details-container">
+        <h2>丽江古城客栈</h2>
+
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w+b+ABgAD8Aw+D3/8G8gAAAABJRU5ErkJggg==" alt="丽江古城客栈" class="hotel-image">
+
+        <div class="hotel-description">
+            <h3>关于</h3>
+            <p>这家迷人的客栈位于丽江古城中心，提供舒适的客房和友好的服务。您可以轻松探索古城的历史和文化景点。客栈周围环绕着各种餐馆和商店。</p>
+            <h3>设施</h3>
+            <ul class="amenities">
+                <li>免费无线网络</li>
+                <li>24小时前台</li>
+                <li>行李寄存</li>
+                <li>花园</li>
+            </ul>
+        </div>
+
+        <button class="book-now-button">立即预订</button>
+    </div>
+
+    <footer>
+        &copy; 2024 畅行旅行 - 版权所有
+    </footer>
+
+</body>
+</html>

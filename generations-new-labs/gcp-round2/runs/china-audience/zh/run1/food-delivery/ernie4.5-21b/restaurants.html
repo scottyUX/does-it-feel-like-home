@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐厅列表 - 快送外卖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+        .menu li {
+            margin-left: 1.5rem;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #333;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .restaurants {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 0 0 2rem;
+        }
+        .restaurant {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .restaurant img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .restaurant-info {
+            padding: 1rem;
+        }
+        .restaurant-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .restaurant-rating {
+            color: #f44336;
+            font-size: 1rem;
+        }
+        .restaurant-price {
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .restaurant-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .btn-order {
+            display: block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">快送外卖</div>
+                <ul class="menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">餐厅列表</a></li>
+                    <li><a href="order.html">下单确认</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← 返回首页</a>
+        <h1 class="section-title">餐厅列表</h1>
+
+        <div class="restaurants">
+            <!-- 餐厅1 -->
+            <div class="restaurant">
+                <img src="https://via.placeholder.com/300x180/FF5722/FFFFFF?text=蜀九香火锅" alt="蜀九香火锅">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name">蜀九香火锅</h2>
+                    <div class="restaurant-rating">★★★★☆ (4.5)</div>
+                    <div class="restaurant-price">¥98-¥158/人</div>
+                    <p class="restaurant-description">正宗川味火锅，特色九宫格锅底，新鲜毛肚和嫩牛肉是必点菜品。</p>
+                    <a href="restaurant1.html" class="btn-order">立即点餐</a>
+                </div>
+            </div>
+
+            <!-- 餐厅2 -->
+            <div class="restaurant">
+                <img src="https://via.placeholder.com/300x180/9C27B0/FFFFFF?text=大龙燚火锅" alt="大龙燚火锅">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name">大龙燚火锅</h2>
+                    <div class="restaurant-rating">★★★★☆ (4.6)</div>
+                    <div class="restaurant-price">¥108-¥188/人</div>
+                    <p class="restaurant-description">超辣火锅，精选牛油锅底，搭配各种新鲜食材，适合喜欢重口味的朋友。</p>
+                    <a href="restaurant2.html" class="btn-order">立即点餐</a>
+                </div>
+            </div>
+
+            <!-- 餐厅3 -->
+            <div class="restaurant">
+                <img src="https://via.placeholder.com/300x180/2196F3/FFFFFF?text=海底捞火锅" alt="海底捞火锅">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name">海底捞火锅</h2>
+                    <div class="restaurant-rating">★★★★★ (5.0)</div>
+                    <div class="restaurant-price">¥128-¥208/人</div>
+                    <p class="restaurant-description">全国知名火锅品牌，优质服务，特色菜品如虾滑和牛油锅底深受欢迎。</p>
+                    <a href="restaurant3.html" class="btn-order">立即点餐</a>
+                </div>
+            </div>
+
+            <!-- 餐厅4 -->
+            <div class="restaurant">
+                <img src="https://via.placeholder.com/300x180/FFC107/FFFFFF?text=小龙坎火锅" alt="小龙坎火锅">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name">小龙坎火锅</h2>
+                    <div class="restaurant-rating">★★★★☆ (4.4)</div>
+                    <div class="restaurant-price">¥88-¥148/人</div>
+                    <p class="restaurant-description">成都本地老字号火锅，传统川味，多种特色菜品可选。</p>
+                    <a href="restaurant4.html" class="btn-order">立即点餐</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 快送外卖. 成都地区美食配送服务</p>
+        </div>
+    </footer>
+</body>
+</html>

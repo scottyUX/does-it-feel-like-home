@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人银行服务 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif; color: #2d3748; background: #f8fafc; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .top-bar { background: #0f2440; color: #a0b8d4; font-size: 13px; padding: 6px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #a0b8d4; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #1a3a5c; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        header .container { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #e8a020, #f5c84e); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 22px; }
+        .logo-text { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+        .logo-sub { color: #8ab4d4; font-size: 11px; display: block; letter-spacing: 1px; }
+        nav { display: flex; gap: 8px; }
+        nav a { color: #c8dce8; padding: 10px 18px; border-radius: 6px; font-size: 15px; transition: all .2s; }
+        nav a:hover, nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+        .header-cta { background: #e8a020; color: #fff; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background .2s; }
+        .header-cta:hover { background: #d4911a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .page-hero { background: linear-gradient(135deg, #1a3a5c, #2c5f8a); color: #fff; padding: 60px 0; text-align: center; }
+        .page-hero h1 { font-size: 36px; margin-bottom: 12px; }
+        .page-hero p { color: #b8d4e8; font-size: 16px; max-width: 600px; margin: 0 auto; }
+
+        .section { padding: 64px 0; }
+        .section-alt { background: #fff; }
+
+        .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 64px; }
+        .service-block:last-child { margin-bottom: 0; }
+        .service-info h3 { font-size: 26px; color: #1a3a5c; font-weight: 700; margin-bottom: 16px; }
+        .service-info h3 small { font-size: 14px; color: #e8a020; font-weight: 400; display: block; margin-top: 4px; }
+        .service-info p { font-size: 15px; color: #475569; margin-bottom: 20px; line-height: 1.9; }
+        .service-features { list-style: none; }
+        .service-features li { padding: 8px 0 8px 24px; position: relative; font-size: 14px; color: #475569; }
+        .service-features li::before { content: "✓"; position: absolute; left: 0; color: #e8a020; font-weight: 700; }
+
+        .rate-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+        .rate-table th { background: #1a3a5c; color: #fff; padding: 14px 18px; font-size: 14px; text-align: left; }
+        .rate-table td { padding: 14px 18px; font-size: 14px; border-bottom: 1px solid #e8edf2; }
+        .rate-table tr:last-child td { border-bottom: none; }
+        .rate-table .highlight { color: #e8a020; font-weight: 700; }
+        .rate-table tr:hover td { background: #f8fafc; }
+
+        .btn { display: inline-block; padding: 13px 30px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+        .btn-primary { background: #e8a020; color: #fff; }
+        .btn-primary:hover { background: #d4911a; }
+        .btn-outline { background: transparent; color: #1a3a5c; border: 2px solid #1a3a5c; }
+        .btn-outline:hover { background: #1a3a5c; color: #fff; }
+
+        .cta-strip { background: #1a3a5c; padding: 48px 0; text-align: center; color: #fff; }
+        .cta-strip h2 { font-size: 24px; margin-bottom: 10px; }
+        .cta-strip p { color: #b8d4e8; margin-bottom: 24px; }
+
+        footer { background: #0f2440; color: #8ab4d4; padding: 48px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .footer-grid h4 { color: #fff; font-size: 15px; margin-bottom: 14px; }
+        .footer-grid a { display: block; font-size: 13px; color: #8ab4d4; margin-bottom: 10px; }
+        .footer-grid a:hover { color: #f5c84e; }
+        .footer-about p { font-size: 13px; line-height: 1.8; margin-top: 12px; }
+        .footer-bottom { text-align: center; padding: 18px 0; font-size: 12px; color: #5a7a96; }
+
+        @media (max-width: 768px) {
+            .service-block { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一客服热线：400-888-6600</span>
+            <div>
+                <a href="index.html">首页</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">川</div>
+                <div>
+                    <span class="logo-text">长川银行</span>
+                    <span class="logo-sub">CHANGCHUAN BANK</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="services.html" class="active">个人银行服务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="header-cta">立即咨询</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>个人银行服务</h1>
+            <p>从日常储蓄到人生大额支出，长川银行以专业的产品和贴心的服务，陪伴您每一个重要时刻。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="service-block">
+                <div class="service-info">
+                    <h3>储蓄存款产品<small>让闲钱不再"睡觉"</small></h3>
+                    <p>长川银行为个人客户提供了灵活多样的存款产品组合，从随存随取的活期账户到锁定收益的定期存款，满足不同资金周转和收益需求。所有存款均受《存款保险条例》保护，50万元以内本息全额保障。</p>
+                    <ul class="service-features">
+                        <li>活期存款：0.20% 年利率，随时支取，适合日常资金存放</li>
+                        <li>整存整取定期：1年 1.75% / 2年 2.10% / 3年 2.65% / 5年 2.80%</li>
+                        <li>大额存单（20万起）：3年期 3.45%，支持提前转让，流动性好</li>
+                        <li>通知存款：7天通知 0.90%，适合短期闲置资金</li>
+                        <li>零存整取：每月定额存入，1年期 1.50%，培养储蓄习惯</li>
+                    </ul>
+                </div>
+                <div>
+                    <table class="rate-table">
+                        <thead>
+                            <tr><th>产品类型</th><th>期限</th><th>起存金额</th><th>年利率</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>活期存款</td><td>不限</td><td>1元</td><td class="highlight">0.20%</td></tr>
+                            <tr><td>整存整取</td><td>3个月</td><td>50元</td><td>1.30%</td></tr>
+                            <tr><td>整存整取</td><td>6个月</td><td>50元</td><td>1.50%</td></tr>
+                            <tr><td>整存整取</td><td>1年</td><td>50元</td><td>1.75%</td></tr>
+                            <tr><td>整存整取</td><td>2年</td><td>50元</td><td>2.10%</td></tr>
+                            <tr><td>整存整取</td><td>3年</td><td>50元</td><td class="highlight">2.65%</td></tr>
+                            <tr><td>整存整取</td><td>5年</td><td>50元</td><td>2.80%</td></tr>
+                            <tr><td>大额存单</td><td>3年</td><td>20万元</td><td class="highlight">3.45%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="service-block">
+                <div>
+                    <table class="rate-table">
+                        <thead>
+                            <tr><th>贷款类型</th><th>最长期限</th><th>最高额度</th><th>年利率（起）</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>住房按揭贷款</td><td>30年</td><td>800万元</td><td class="highlight">3.10%</td></tr>
+                            <tr><td>二手房贷款</td><td>25年</td><td>500万元</td><td class="highlight">3.30%</td></tr>
+                            <tr><td>个人消费贷款</td><td>5年</td><td>50万元</td><td>4.35%</td></tr>
+                            <tr><td>个人经营贷款</td><td>10年</td><td>200万元</td><td>4.60%</td></tr>
+                            <tr><td>汽车消费贷款</td><td>5年</td><td>80万元</td><td>3.80%</td></tr>
+                            <tr><td>教育分期贷款</td><td>3年</td><td>10万元</td><td>4.00%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="service-info">
+                    <h3>个人贷款服务<small>让资金需求不再等待</small></h3>
+                    <p>无论是购置首套住房、改善居住条件，还是日常消费、经营周转，长川银行都为您准备了合适的贷款方案。我们坚持透明定价，所有费用在签约前一次性告知，绝不收取任何隐性费用。</p>
+                    <ul class="service-features">
+                        <li>线上预审批：3分钟完成额度查询，无需跑网点</li>
+                        <li>纯信用消费贷：无需抵押，最高50万，额度随借随还</li>
+                        <li>房贷组合：首付贷 + 装修贷 + 家电贷，一站式解决</li>
+                        <li>经营贷：支持个体户和中小微企业，最快次日放款</li>
+                        <li>提前还款：无违约金，灵活调整还款计划</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-block">
+                <div class="service-info">
+                    <h3>投资理财服务<small>专业配置，稳健增长</small></h3>
+                    <p>长川银行理财中心汇聚了经验丰富的投顾团队，根据您的风险偏好和资金规划，量身定制投资方案。我们不承诺"保本保收益"，但承诺透明、合规、专业。</p>
+                    <ul class="service-features">
+                        <li>结构性存款：收益有保底，有机会获得更高回报</li>
+                        <li>银行理财（R1-R4级）：满足不同风险偏好的配置需求</li>
+                        <li>基金代销：覆盖 1,200+ 只基金，申购费率最低一折</li>
+                        <li>保险代理：涵盖寿险、年金险、重疾险等 30+ 产品</li>
+                        <li>黄金积存：1克起买，灵活定投，支持实物提取</li>
+                        <li>一对一投顾：AUM 50万以上客户享专属理财经理</li>
+                    </ul>
+                </div>
+                <div>
+                    <table class="rate-table">
+                        <thead>
+                            <tr><th>产品名称</th><th>风险等级</th><th>投资期限</th><th>业绩比较基准</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>安享稳利90天</td><td>R1</td><td>90天</td><td>2.10%-2.50%</td></tr>
+                            <tr><td>长川增利180天</td><td>R2</td><td>180天</td><td>2.80%-3.50%</td></tr>
+                            <tr><td>结构性存款·鑫悦3M</td><td>R1</td><td>3个月</td><td>1.80%-3.20%</td></tr>
+                            <tr><td>长川价值精选（基金）</td><td>R3</td><td>不限</td><td>—</td></tr>
+                            <tr><td>鑫安养老年金险</td><td>R2</td><td>10年</td><td>2.50%-3.00%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="service-block">
+                <div>
+                    <table class="rate-table">
+                        <thead>
+                            <tr><th>服务项目</th><th>收费标准</th><th>说明</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>本行同城转账</td><td class="highlight">免费</td><td>柜台/网银/手机银行</td></tr>
+                            <tr><td>本行异地转账</td><td class="highlight">免费</td><td>手机银行无限次免手续费</td></tr>
+                            <tr><td>跨行转账（手机银行）</td><td class="highlight">免费</td><td>5万元以下免手续费</td></tr>
+                            <tr><td>跨行转账（柜台，5万以下）</td><td>5元/笔</td><td>超限部分按0.05%收取</td></tr>
+                            <tr><td>借记卡年费</td><td class="highlight">免费</td><td>全卡种免收</td></tr>
+                            <tr><td>短信通知费</td><td>2元/月</td><td>手机银行替代后可免</td></tr>
+                            <tr><td>挂失补卡</td><td>20元/次</td><td>含工本费</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="service-info">
+                    <h3>账户与支付服务<small>透明收费，便捷体验</small></h3>
+                    <p>长川银行始终关注客户使用成本，在手机银行渠道实现大量免费服务。我们相信，好的银行服务不应让客户为"基本操作"买单。</p>
+                    <ul class="service-features">
+                        <li>手机银行转账全免费：本行及跨行均不收手续费</li>
+                        <li>借记卡免年费、免工本费，终身有效</li>
+                        <li>境外取现：免收本行手续费，仅收发卡行通道费</li>
+                        <li>电子对账：手机银行/网银免费获取月度账单</li>
+                        <li>多账户管理：一个APP管理多个账户，快捷切换</li>
+                        <li>24小时自助服务：ATM、CRS、智能柜员机全网点覆盖</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-strip">
+        <div class="container">
+            <h2>不确定哪款产品适合您？</h2>
+            <p>拨打 400-888-6600 或前往任意长川银行网点，专业顾问将为您一对一解答。</p>
+            <a href="contact.html" class="btn btn-primary">查找附近网点</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <div class="logo-icon" style="width:36px;height:36px;font-size:18px;">川</div>
+                        <span class="logo-text" style="font-size:18px;">长川银行</span>
+                    </div>
+                    <p>长川银行成立于1999年，总部位于杭州，是全国性股份制商业银行。秉承"稳健、专业、客户至上"的经营理念。</p>
+                </div>
+                <div>
+                    <h4>产品服务</h4>
+                    <a href="services.html">储蓄存款</a>
+                    <a href="services.html">个人贷款</a>
+                    <a href="cards.html">信用卡</a>
+                    <a href="services.html">投资理财</a>
+                </div>
+                <div>
+                    <h4>关于长川</h4>
+                    <a href="contact.html">联系我们</a>
+                    <a href="contact.html">网点查询</a>
+                    <a href="index.html">返回首页</a>
+                    <a href="cards.html">信用卡专区</a>
+                </div>
+                <div>
+                    <h4>客户服务</h4>
+                    <a href="contact.html">客服热线 400-888-6600</a>
+                    <a href="contact.html">投诉与建议</a>
+                    <a href="services.html">安全提示</a>
+                    <a href="contact.html">营业时间</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 长川银行 版权所有 | 银行许可证编号 B0312H133010001 | 浙ICP备12038866号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

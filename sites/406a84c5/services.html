@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 洁家家政</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif; color: #2d3748; line-height: 1.7; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        header { background: #fff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #1a6fb5; }
+        .logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #1a6fb5, #4ecdc4); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+        nav { display: flex; gap: 32px; }
+        nav a { font-size: 15px; font-weight: 500; color: #4a5568; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        nav a:hover, nav a.active { color: #1a6fb5; border-bottom-color: #1a6fb5; }
+        .header-cta { background: #1a6fb5; color: #fff; padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background 0.2s; }
+        .header-cta:hover { background: #15588f; }
+
+        .page-hero { background: linear-gradient(135deg, #e8f4fd 0%, #f0fff0 100%); padding: 56px 0; text-align: center; }
+        .page-hero h1 { font-size: 36px; font-weight: 800; color: #1a202c; margin-bottom: 12px; }
+        .page-hero p { font-size: 16px; color: #4a5568; max-width: 560px; margin: 0 auto; }
+
+        .section { padding: 64px 0; }
+        .section-alt { background: #f7fafc; }
+
+        .pkg-section { padding: 56px 0; }
+        .pkg-header { text-align: center; margin-bottom: 40px; }
+        .pkg-header h2 { font-size: 28px; font-weight: 700; color: #1a202c; margin-bottom: 8px; }
+        .pkg-header p { font-size: 15px; color: #718096; }
+
+        .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+        .pkg-card { background: #fff; border: 2px solid #e2e8f0; border-radius: 18px; padding: 36px 28px; transition: all 0.3s; position: relative; }
+        .pkg-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+        .pkg-card.featured { border-color: #1a6fb5; }
+        .pkg-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #1a6fb5; color: #fff; font-size: 12px; font-weight: 600; padding: 4px 16px; border-radius: 20px; }
+        .pkg-name { font-size: 16px; font-weight: 600; color: #718096; margin-bottom: 8px; }
+        .pkg-price { font-size: 36px; font-weight: 800; color: #1a202c; margin-bottom: 4px; }
+        .pkg-price span { font-size: 14px; font-weight: 400; color: #718096; }
+        .pkg-desc { font-size: 13px; color: #718096; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0; }
+        .pkg-list { list-style: none; margin-bottom: 28px; }
+        .pkg-list li { font-size: 14px; color: #4a5568; padding: 6px 0; display: flex; align-items: center; gap: 8px; }
+        .pkg-list li::before { content: '✓'; color: #48bb78; font-weight: bold; font-size: 13px; }
+        .pkg-btn { display: block; text-align: center; background: #1a6fb5; color: #fff; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; transition: all 0.2s; }
+        .pkg-btn:hover { background: #15588f; }
+        .pkg-btn.outline { background: #fff; color: #1a6fb5; border: 2px solid #1a6fb5; }
+        .pkg-btn.outline:hover { background: #e8f4fd; }
+
+        .detail-section { padding: 64px 0; }
+        .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .detail-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; }
+        .detail-card h3 { font-size: 18px; font-weight: 700; color: #1a202c; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .detail-card .icon { font-size: 22px; }
+        .detail-card ul { list-style: none; }
+        .detail-card ul li { font-size: 14px; color: #4a5568; padding: 8px 0; border-bottom: 1px solid #f7fafc; display: flex; justify-content: space-between; }
+        .detail-card ul li:last-child { border-bottom: none; }
+        .detail-card ul li .price { font-weight: 600; color: #1a6fb5; }
+
+        .note-section { padding: 40px 0; }
+        .note-box { background: #fffbeb; border: 1px solid #f6e05e; border-radius: 12px; padding: 24px 28px; }
+        .note-box h4 { font-size: 15px; font-weight: 700; color: #744210; margin-bottom: 8px; }
+        .note-box p { font-size: 13px; color: #975a16; line-height: 1.8; }
+
+        .faq-section { padding: 64px 0; }
+        .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+        .faq-q { padding: 18px 24px; font-size: 15px; font-weight: 600; color: #1a202c; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .faq-q:hover { background: #f7fafc; }
+        .faq-q .arrow { transition: transform 0.3s; font-size: 12px; color: #718096; }
+        .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.3s; }
+        .faq-a p { font-size: 14px; color: #4a5568; padding-bottom: 18px; line-height: 1.8; }
+        .faq-item.open .faq-a { max-height: 200px; padding-top: 0; }
+        .faq-item.open .arrow { transform: rotate(180deg); }
+
+        .cta-banner { background: linear-gradient(135deg, #1a6fb5 0%, #2d8fbb 100%); border-radius: 20px; padding: 48px; text-align: center; margin: 48px auto; }
+        .cta-banner h2 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+        .cta-banner p { font-size: 15px; color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+        .cta-banner .btn-light { background: #fff; color: #1a6fb5; padding: 14px 36px; border-radius: 10px; font-size: 15px; font-weight: 600; display: inline-block; transition: all 0.2s; }
+        .cta-banner .btn-light:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+        footer { background: #1a202c; color: #a0aec0; padding: 48px 0 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer-brand .logo { color: #fff; margin-bottom: 12px; }
+        .footer-brand p { font-size: 13px; line-height: 1.8; color: #718096; }
+        .footer-col h4 { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 14px; }
+        .footer-col a { display: block; font-size: 13px; color: #718096; padding: 4px 0; transition: color 0.2s; }
+        .footer-col a:hover { color: #4ecdc4; }
+        .footer-bottom { border-top: 1px solid #2d3748; padding-top: 24px; text-align: center; font-size: 12px; color: #4a5568; }
+
+        @media (max-width: 1024px) {
+            .pkg-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .page-hero h1 { font-size: 28px; }
+            .section, .pkg-section, .detail-section, .faq-section { padding: 40px 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">洁</div>
+                洁家家政
+            </div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="services.html" class="active">服务项目</a>
+                <a href="about.html">关于我们</a>
+                <a href="booking.html">在线预约</a>
+            </nav>
+            <a href="booking.html" class="header-cta">立即预约</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>服务项目与价格</h1>
+            <p>所有报价为透明定价，无上门费、无隐性收费。根据实际面积和脏污程度可能微调，预约时客服会提前告知。</p>
+        </div>
+    </section>
+
+    <section class="pkg-section">
+        <div class="container">
+            <div class="pkg-header">
+                <h2>精选套餐</h2>
+                <p>根据您的需求选择对应套餐，或致电客服定制专属方案</p>
+            </div>
+            <div class="pkg-grid">
+                <div class="pkg-card">
+                    <div class="pkg-name">日常保洁 · 基础版</div>
+                    <div class="pkg-price">¥199 <span>/ 次 · 约2小时</span></div>
+                    <div class="pkg-desc">适合90㎡以下户型，保持日常整洁</div>
+                    <ul class="pkg-list">
+                        <li>客厅、卧室地面清洁</li>
+                        <li>桌面、台面擦拭除尘</li>
+                        <li>厨房台面及水槽清洁</li>
+                        <li>卫生间地面及洁具擦拭</li>
+                        <li>垃圾整理打包</li>
+                    </ul>
+                    <a href="booking.html" class="pkg-btn outline">选择此套餐</a>
+                </div>
+                <div class="pkg-card featured">
+                    <div class="pkg-badge">最受欢迎</div>
+                    <div class="pkg-name">深度大扫除 · 标准版</div>
+                    <div class="pkg-price">¥499 <span>/ 次 · 约4小时</span></div>
+                    <div class="pkg-desc">适合100-140㎡户型，季度深度清洁</div>
+                    <ul class="pkg-list">
+                        <li>全屋地面深度清洗</li>
+                        <li>厨房油烟机拆洗除油</li>
+                        <li>卫生间除水垢除霉</li>
+                        <li>玻璃门窗及纱窗清洗</li>
+                        <li>衣柜内部除尘擦拭</li>
+                        <li>踢脚线、门框、开关面板</li>
+                        <li>空调滤网拆洗</li>
+                        <li>完工后空气消毒除味</li>
+                    </ul>
+                    <a href="booking.html" class="pkg-btn">选择此套餐</a>
+                </div>
+                <div class="pkg-card">
+                    <div class="pkg-name">深度大扫除 · 旗舰版</div>
+                    <div class="pkg-price">¥799 <span>/ 次 · 约6小时</span></div>
+                    <div class="pkg-desc">适合140㎡以上或半年未大扫除</div>
+                    <ul class="pkg-list">
+                        <li>包含标准版全部项目</li>
+                        <li>冰箱内外深度清洁消毒</li>
+                        <li>洗衣机内筒拆洗除垢</li>
+                        <li>沙发/床品专业除螨</li>
+                        <li>窗帘拆洗（3幅以内）</li>
+                        <li>灯具、天花板除尘</li>
+                        <li>阳台、储物间清洁</li>
+                        <li>2人团队同时作业</li>
+                    </ul>
+                    <a href="booking.html" class="pkg-btn outline">选择此套餐</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-section section-alt">
+        <div class="container">
+            <div class="pkg-header">
+                <h2>单项服务报价</h2>
+                <p>可按需组合，灵活搭配</p>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3><span class="icon">🧹</span> 地面与墙面</h3>
+                    <ul>
+                        <li>瓷砖/大理石地面打蜡抛光 <span class="price">¥3/㎡</span></li>
+                        <li>实木地板清洁养护 <span class="price">¥5/㎡</span></li>
+                        <li>踢脚线、门槛石除尘 <span class="price">¥20/户</span></li>
+                        <li>墙面除尘（局部） <span class="price">¥50/面墙</span></li>
+                        <li>阳台、飘窗深度清洁 <span class="price">¥80/处</span></li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">🍳</span> 厨房专项</h3>
+                    <ul>
+                        <li>油烟机拆洗（含滤网） <span class="price">¥120/台</span></li>
+                        <li>灶台及台面除油 <span class="price">¥60/处</span></li>
+                        <li>橱柜内外除尘擦拭 <span class="price">¥80/组</span></li>
+                        <li>冰箱内外清洁消毒 <span class="price">¥100/台</span></li>
+                        <li>水槽除垢除锈 <span class="price">¥40/个</span></li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">🚿</span> 卫生间专项</h3>
+                    <ul>
+                        <li>马桶深度除垢除菌 <span class="price">¥50/个</span></li>
+                        <li>淋浴房玻璃除水垢 <span class="price">¥80/面</span></li>
+                        <li>浴室瓷砖缝隙除霉 <span class="price">¥60/面墙</span></li>
+                        <li>洗手台及镜面清洁 <span class="price">¥30/处</span></li>
+                        <li>卫生间排风口清洁 <span class="price">¥40/个</span></li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">🪟</span> 玻璃与门窗</h3>
+                    <ul>
+                        <li>内窗玻璃清洗（含窗框） <span class="price">¥25/扇</span></li>
+                        <li>外窗玻璃清洗（2楼起） <span class="price">¥45/扇</span></li>
+                        <li>纱窗拆洗 <span class="price">¥15/扇</span></li>
+                        <li>推拉门滑轨除灰 <span class="price">¥30/套</span></li>
+                        <li>入户门清洁抛光 <span class="price">¥50/樘</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pkg-section">
+        <div class="container">
+            <div class="pkg-header">
+                <h2>特殊场景服务</h2>
+            </div>
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3><span class="icon">🏗️</span> 开荒保洁</h3>
+                    <ul>
+                        <li>新房装修后全屋开荒 <span class="price">¥8/㎡起</span></li>
+                        <li>老房翻新后清洁 <span class="price">¥10/㎡起</span></li>
+                        <li>办公室搬迁后保洁 <span class="price">¥12/㎡起</span></li>
+                        <li>含：除尘、除胶、除漆、玻璃、地面</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">🛋️</span> 布艺清洗</h3>
+                    <ul>
+                        <li>布艺沙发清洗（3-4座） <span class="price">¥299/组</span></li>
+                        <li>床垫深度除螨清洗 <span class="price">¥199/张</span></li>
+                        <li>地毯清洗（按面积） <span class="price">¥40/㎡</span></li>
+                        <li>窗帘拆洗（含安装） <span class="price">¥120/幅</span></li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">🐾</span> 除螨与消毒</h3>
+                    <ul>
+                        <li>全屋除螨（含床品、沙发） <span class="price">¥349/次</span></li>
+                        <li>空调管道除菌（含滤网） <span class="price">¥150/台</span></li>
+                        <li>全屋空气消毒（臭氧） <span class="price">¥200/次</span></li>
+                        <li>宠物家庭深度除味除菌 <span class="price">¥459/次</span></li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3><span class="icon">📅</span> 定期上门服务</h3>
+                    <ul>
+                        <li>每周1次 · 8次起 <span class="price">¥159/次</span></li>
+                        <li>每周2次 · 12次起 <span class="price">¥139/次</span></li>
+                        <li>每两周1次 · 6次起 <span class="price">¥179/次</span></li>
+                        <li>含：固定保洁师、优先排期、免费加时30min</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container note-section">
+        <div class="note-box">
+            <h4>💡 价格说明</h4>
+            <p>1. 以上报价适用于建筑面积90-140㎡的普通住宅。超出面积部分按单价加收，具体以客服现场评估为准。<br>
+            2. 首次预约新客户享8折优惠，老客户推荐新客户双方各减50元。<br>
+            3. 预约后如需改期或取消，请提前12小时通知，临时取消收取30%违约金。<br>
+            4. 所有价格含清洁剂、工具及保险费用，无任何额外收费。</p>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="pkg-header">
+                <h2>常见问题</h2>
+            </div>
+            <div style="max-width: 720px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">保洁师上门需要我在家吗？<span class="arrow">▼</span></div>
+                    <div class="faq-a"><p>建议首次服务时在家，方便沟通需求和验收。后续如信任度已建立，可远程拍照验收。如需您不在家，请提前告知并确认贵重物品收纳位置。</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">家里有宠物需要注意什么？<span class="arrow">▼</span></div>
+                    <div class="faq-a"><p>保洁师会使用对宠物无毒的清洁剂，并尽量将宠物引导至安全区域。建议服务期间将猫关在单独房间，狗狗可带至阳台。如有多宠物家庭，请告知数量及品种，我们安排更有经验的保洁师。</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">清洁后多久可以正常使用厨房？<span class="arrow">▼</span></div>
+                    <div class="faq-a"><p>常规清洁后30分钟即可使用。如使用了除油剂或消毒产品，建议通风1小时后再烹饪。所有清洁剂均为食品级安全配方，无残留危害。</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">如果我不满意可以返工吗？<span class="arrow">▼</span></div>
+                    <div class="faq-a"><p>当然可以。服务完成后24小时内，如果您对清洁效果不满意，拨打客服电话即可安排同一位保洁师免费返工，不收任何费用，最多可返工2次。</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">你们能开发票吗？<span class="arrow">▼</span></div>
+                    <div class="faq-a"><p>可以。我们支持开具增值税普通发票和专用发票，下单时备注抬头和税号即可，服务完成后3个工作日内发送到您的邮箱。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="cta-banner">
+            <h2>不确定选哪个套餐？</h2>
+            <p>拨打 010-6688-9900，客服根据您的户型和需求免费推荐最合适的方案。</p>
+            <a href="booking.html" class="btn-light">在线预约，首次8折</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom:12px;">
+                        <div class="logo-icon" style="width:32px;height:32px;font-size:14px;">洁</div>
+                        洁家家政
+                    </div>
+                    <p>北京洁家物业管理有限公司<br>专注家庭清洁服务十年<br>服务覆盖北京城六区及近郊</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <a href="index.html">首页</a>
+                    <a href="services.html">服务项目</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="booking.html">在线预约</a>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <a href="tel:010-66889900">电话：010-6688-9900</a>
+                    <a href="mailto:service@jjclean.cn">邮箱：service@jjclean.cn</a>
+                    <a href="javascript:void(0)">地址：朝阳区建国路88号SOHO现代城A座1206</a>
+                </div>
+                <div class="footer-col">
+                    <h4>服务时间</h4>
+                    <a href="javascript:void(0)">周一至周日 8:00 - 20:00</a>
+                    <a href="javascript:void(0)">节假日正常服务</a>
+                    <a href="javascript:void(0)">紧急单2小时上门</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 北京洁家物业管理有限公司 · 京ICP备18056723号 · 营业执照：91110105MA01XK7T2B</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
+</body>
+</html>

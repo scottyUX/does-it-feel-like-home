@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 杭州经典浙菜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #d94d3c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #b33022;
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .menu-section {
+            margin: 3rem 0;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .menu-price {
+            color: #d94d3c;
+        }
+        .reservation {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        button {
+            background-color: #d94d3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b33022;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>家味餐厅</h1>
+        <p>杭州经典浙菜，家的味道</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="menu.html">菜单</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="reservation.html">订座</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>欢迎来到家味餐厅</h2>
+                <p>体验正宗的杭州风味，感受家的温暖</p>
+                <button onclick="window.location.href='reservation.html'">立即预订</button>
+            </div>
+        </section>
+        <section class="menu-section">
+            <h2>我们的菜单</h2>
+            <div class="menu-item">
+                <span class="menu-name">东坡肉</span>
+                <span class="menu-price">¥48</span>
+            </div>
+            <div class="menu-item">
+                <span class="menu-name">龙井虾仁</span>
+                <span class="menu-price">¥68</span>
+            </div>
+            <div class="menu-item">
+                <span class="menu-name">宋嫂鱼羹</span>
+                <span class="menu-price">¥38</span>
+            </div>
+            <div class="menu-item">
+                <span class="menu-name">片儿川</span>
+                <span class="menu-price">¥28</span>
+            </div>
+            <div class="menu-item">
+                <span class="menu-name">叫化鸡</span>
+                <span class="menu-price">¥88</span>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>© 2023 家味餐厅. 杭州市西湖区南山路118号</p>
+    </footer>
+</body>
+</html>

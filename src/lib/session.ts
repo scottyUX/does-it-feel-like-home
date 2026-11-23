@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { assignVisit } from "@/lib/assign";
+import { assignFromPairs, assignVisit } from "@/lib/assign";
 import { getSql } from "@/lib/db";
 import { loadManifest } from "@/lib/manifest";
 import type { BackgroundAnswers } from "@/lib/background";
@@ -37,25 +37,30 @@ export const readSessionId = async () => {
   return store.get(SESSION_COOKIE)?.value ?? null;
 };
 
+// Drops this browser's link to its session; the saved answers stay in the database.
+export const forgetSession = async () => {
+  const store = await cookies();
+  store.delete(SESSION_COOKIE);
+};
+
 export const createParticipantSession = async (
   locale: Locale,
   metadata: { screen: { width: number; height: number }; browser: string },
 ) => {
   const manifest = await loadManifest();
-  // One category with all four models is enough to build a pair.
-  if (!manifest || manifest.sites.length < 4)
+  // One category with a US-side and a China-side site is enough to build a pair.
+  if (!manifest || manifest.sites.length < 2)
     return { error: "not_ready" as const };
   const sql = getSql();
   if (!sql) return { error: "store" as const };
 
   const sequence =
     await sql`select nextval('participant_assignment_seq') as rotation`;
+  const rotation = Number(sequence[0].rotation);
   const availableTypes = [...new Set(manifest.sites.map((site) => site.type))];
-  const assigned = assignVisit(
-    manifest.sites,
-    Number(sequence[0].rotation),
-    availableTypes,
-  );
+  const assigned = manifest.pairs?.length
+    ? assignFromPairs(manifest.pairs, rotation)
+    : assignVisit(manifest.sites, rotation, availableTypes);
   const id = crypto.randomUUID();
   await sql`
     insert into sessions (id, locale, combination, pair_order, sides, study_data)

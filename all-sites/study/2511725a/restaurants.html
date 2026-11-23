@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快送外卖 - 餐厅列表</title>
+    <style>
+        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fafafa;color:#333}
+        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}
+        header h1{margin:0;font-size:1.4em}
+        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}
+        .container{padding:20px}
+        .filter{margin-bottom:20px}
+        .list{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+        .card{background:#fff;width:260px;padding:15px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer}
+        .card img{width:100%;height:140px;object-fit:cover;border-radius:5px}
+        .card h3{margin:10px 0 5px}
+        .card p{margin:0;color:#777;font-size:0.9em}
+        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}
+        a{color:inherit;text-decoration:none}
+    </style>
+</head>
+<body>
+<header>
+    <h1>餐厅列表</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="restaurants.html">餐厅列表</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="filter">
+        <strong>分类：</strong>
+        <span id="catName">全部</span>
+    </div>
+    <div class="list" id="restaurantList"></div>
+</div>
+
+<footer>
+    © 2026 快送外卖
+</footer>
+
+<script>
+    // 模拟餐厅数据
+    const restaurants = [
+        {id:1, name:'蜀味巴蜀', type:'中餐', cat:'中餐', rating:4.5, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Authentic_Mapo_Tofu.jpg/960px-Authentic_Mapo_Tofu.jpg'},
+        {id:2, name:'意大利小镇', type:'西餐', cat:'西餐', rating:4.2, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Margherita_Originale.JPG/960px-Margherita_Originale.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail'},
+        {id:3, name:'速食堡', type:'快餐', cat:'快餐', rating:4.0, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Homemade_hamburger_with_french_fries_in_Argentina.jpg/960px-Homemade_hamburger_with_french_fries_in_Argentina.jpg'},
+        {id:4, name:'串串香', type:'小吃', cat:'小吃', rating:4.6, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Fried_Chuan.jpg/960px-Fried_Chuan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail'},
+        {id:5, name:'川湘汇', type:'中餐', cat:'中餐', rating:4.3, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mapo_tofu_in_big_bowl.jpg/960px-Mapo_tofu_in_big_bowl.jpg'},
+        {id:6, name:'美式汉堡', type:'快餐', cat:'快餐', rating:4.1, img:'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg/960px-Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg'}
+    ];
+
+    // 读取 URL 参数
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('cat');
+
+    const listEl = document.getElementById('restaurantList');
+    const catNameEl = document.getElementById('catName');
+
+    const filtered = cat ? restaurants.filter(r=>r.cat===cat) : restaurants;
+    catNameEl.textContent = cat ? cat : '全部';
+
+    filtered.forEach(r=>{
+        const card = document.createElement('div');
+        card.className='card';
+        card.innerHTML=`
+            <img src="${r.img}" alt="${r.name}">
+            <h3>${r.name}</h3>
+            <p>类型：${r.type}　 评分：${r.rating}⭐</p>
+        `;
+        card.onclick=()=>location.href=`restaurant.html?id=${r.id}`;
+        listEl.appendChild(card);
+    });
+</script>
+</body>
+</html>

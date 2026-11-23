@@ -1,0 +1,24 @@
+{
+  "id": "en__clothing__gemma3-27b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "clothing",
+  "model": "gemma3:27b",
+  "completionTokens": 5281,
+  "seconds": 114,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/100",
+      "file": "assets/image-0bfef5c29ec207f4.png"
+    },
+    {
+      "url": "https://via.placeholder.com/200",
+      "file": "assets/image-78fdc2abd960c29b.png"
+    },
+    {
+      "url": "https://via.placeholder.com/400",
+      "file": "assets/image-f6e09db0aaaecd03.png"
+    }
+  ]
+}

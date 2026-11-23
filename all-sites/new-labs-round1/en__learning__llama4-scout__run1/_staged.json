@@ -1,0 +1,11 @@
+{
+  "id": "en__learning__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "llama4:scout",
+  "completionTokens": 2954,
+  "seconds": 53,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

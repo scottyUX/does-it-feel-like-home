@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退换货政策 - 可衣 Keyi</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* Policy Content */
+        .policy-page { padding: 60px 0; }
+        .policy-page h1 { font-size: 28px; font-weight: 300; margin-bottom: 40px; }
+        .policy-section { margin-bottom: 40px; }
+        .policy-section h2 { font-size: 18px; margin-bottom: 15px; font-weight: normal; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .policy-section p { font-size: 14px; color: #666; margin-bottom: 10px; }
+        .policy-section ul { padding-left: 20px; }
+        .policy-section li { font-size: 14px; color: #666; margin-bottom: 8px; list-style-type: disc; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container policy-page">
+        <h1>退换货政策</h1>
+        
+        <div class="policy-section">
+            <h2>退换条件</h2>
+            <p>我们承诺为您提供的商品均为全新、正品。如您收到商品后不满意，请遵循以下退换货流程：</p>
+            <ul>
+                <li>商品必须在签收之日起 7 天内申请退换货。</li>
+                <li>商品必须保持原样，吊牌未拆，且未洗涤、未穿着、未损坏。</li>
+                <li>请保留原始包装及发货清单，以便我们核对。</li>
+                <li>特价清仓商品（折扣超过 50%）及贴身衣物（如内衣、袜子）不支持无理由退换。</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>换货流程</h2>
+            <p>如需换货（同款不同色或尺码），请在收到商品后 7 天内联系客服，并提供订单号和换货原因。我们将为您寄出符合条件的商品，您需寄回原商品。</p>
+            <p>换货运费由客户承担。如属于我方发错货或商品质量问题，运费由我们承担。</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>退款说明</h2>
+            <p>退货申请审核通过后，我们将原路退回您的支付款项。退款到账时间通常为 3-10 个工作日，具体取决于您的支付渠道和银行处理速度。</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>联系我们</h2>
+            <p>如有任何疑问，请通过以下方式联系我们：</p>
+            <p>电话：021-12345678（工作日 9:00 - 18:00）</p>
+            <p>邮箱：service@keyi-store.cn</p>
+            <a href="index.html" style="color: var(--accent); margin-top: 20px; display: inline-block;">返回首页</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

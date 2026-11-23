@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 分享你的精彩生活</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-signup {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 24px auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 24px;
+            padding: 0 20px;
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .composer {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .composer textarea {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            resize: none;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+        }
+
+        .composer-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .post {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .user-info .name {
+            font-weight: 600;
+            display: block;
+        }
+
+        .user-info .time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .post-content {
+            padding: 0 16px 16px 16px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            object-fit: cover;
+        }
+
+        .post-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-card h3 {
+            margin-top: 0;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .trend-item {
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .trend-item .topic {
+            font-weight: 600;
+            display: block;
+        }
+
+        .trend-item .count {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .follow-btn {
+            margin-left: auto;
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">趣聊</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人主页</a>
+            <a href="signup.html" class="btn-signup">立即加入</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="feed">
+            <div class="composer">
+                <textarea placeholder="今天有什么新鲜事想分享？" rows="3"></textarea>
+                <div class="composer-actions">
+                    <button class="btn-primary">发布</button>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar" style="background-color: #ff9a9e;"></div>
+                    <div class="user-info">
+                        <span class="name">林子涵</span>
+                        <span class="time">2小时前</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    终于完成了这次的毕业旅行！在成都度过了完美的五天，火锅太辣了但真的超级好吃！🥘✨
+                </div>
+                <div class="post-image" style="background: linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%); color: #444; font-weight: bold;">
+                    [ 成都太古里街拍照片 ]
+                </div>
+                <div class="post-footer">
+                    <button class="action-btn" onclick="location.href='post.html'">❤️ 1.2k 点赞</button>
+                    <button class="action-btn" onclick="location.href='post.html'">💬 84 条评论</button>
+                    <button class="action-btn">🔄 分享</button>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar" style="background-color: #a1c4fd;"></div>
+                    <div class="user-info">
+                        <span class="name">陈墨</span>
+                        <span class="time">5小时前</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    最近在读《瓦尔登湖》，在这个快节奏的时代，这种极简主义的生活方式真的很让人向往。你们最近在读什么书？📖
+                </div>
+                <div class="post-footer">
+                    <button class="action-btn" onclick="location.href='post.html'">❤️ 456 点赞</button>
+                    <button class="action-btn" onclick="location.href='post.html'">💬 12 条评论</button>
+                    <button class="action-btn">🔄 分享</button>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar" style="background-color: #fad0c4;"></div>
+                    <div class="user-info">
+                        <span class="name">苏小雨</span>
+                        <span class="time">昨天</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    推荐一家超绝的咖啡馆！在静安区的小巷子里，环境安静且咖啡风味独特。☕️
+                </div>
+                <div class="post-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); color: #444; font-weight: bold;">
+                    [ 极简风咖啡馆内景照片 ]
+                </div>
+                <div class="post-footer">
+                    <button class="action-btn" onclick="location.href='post.html'">❤️ 892 点赞</button>
+                    <button class="action-btn" onclick="location.href='post.html'">💬 31 条评论</button>
+                    <button class="action-btn">🔄 分享</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3>热门话题</h3>
+                <div class="trend-item">
+                    <span class="topic">#春季穿搭指南</span>
+                    <span class="count">12.5k 讨论</span>
+                </div>
+                <div class="trend-item">
+                    <span class="topic">#我的第一份工作</span>
+                    <span class="count">8.1k 讨论</span>
+                </div>
+                <div class="trend-item">
+                    <span class="topic">#周末去哪儿</span>
+                    <span class="count">5.4k 讨论</span>
+                </div>
+                <div class="trend-item">
+                    <span class="topic">#AI绘画挑战</span>
+                    <span class="count">3.2k 讨论</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>推荐关注</h3>
+                <div class="suggestion-item">
+                    <div class="avatar" style="background-color: #c2e9fb;"></div>
+                    <span class="name">张伟</span>
+                    <button class="follow-btn">关注</button>
+                </div>
+                <div class="suggestion-item">
+                    <div class="avatar" style="background-color: #ffddd2;"></div>
+                    <span class="name">李萌</span>
+                    <button class="follow-btn">关注</button>
+                </div>
+                <div class="suggestion-item">
+                    <div class="avatar" style="background-color: #d4fc79;"></div>
+                    <span class="name">王强</span>
+                    <button class="follow-btn">关注</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

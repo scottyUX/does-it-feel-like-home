@@ -1,0 +1,11 @@
+{
+  "id": "zh__learning__gemma3-27b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "learning",
+  "model": "gemma3:27b",
+  "completionTokens": 4733,
+  "seconds": 101,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

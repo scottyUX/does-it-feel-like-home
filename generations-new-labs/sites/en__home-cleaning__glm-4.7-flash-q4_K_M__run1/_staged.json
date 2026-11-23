@@ -1,0 +1,28 @@
+{
+  "id": "en__home-cleaning__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "home-cleaning",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 10873,
+  "seconds": 99,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/sister1/200/200",
+      "file": "assets/image-007d508a48cce264.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sister2/200/200",
+      "file": "assets/image-9edc7c319cc7b6bd.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sister3/200/200",
+      "file": "assets/image-6e6cca60731d005b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/cleanhome/1440/600",
+      "file": "assets/image-c26d1b7311856405.jpg"
+    }
+  ]
+}

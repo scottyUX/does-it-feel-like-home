@@ -1,0 +1,67 @@
+dataset,classifier,lab,origin,sites,correct
+"Arena, Chinese prompts",Logistic regression,Alibaba,China,26,0.4615
+"Arena, Chinese prompts",Logistic regression,Anthropic,US,39,0.1795
+"Arena, Chinese prompts",Logistic regression,DeepSeek,China,18,0.6111
+"Arena, Chinese prompts",Logistic regression,Google,US,35,0.3143
+"Arena, Chinese prompts",Logistic regression,Meituan,China,2,0.5
+"Arena, Chinese prompts",Logistic regression,MiniMax,China,12,0.4167
+"Arena, Chinese prompts",Logistic regression,Moonshot,China,24,0.3333
+"Arena, Chinese prompts",Logistic regression,OpenAI,US,25,0.48
+"Arena, Chinese prompts",Logistic regression,Xiaomi,China,9,0.5556
+"Arena, Chinese prompts",Logistic regression,Zhipu,China,10,0.6
+"Arena, Chinese prompts",Logistic regression,xAI,US,3,0.3333
+"Arena, Chinese prompts",Random forest,Alibaba,China,26,0.3462
+"Arena, Chinese prompts",Random forest,Anthropic,US,39,0.1026
+"Arena, Chinese prompts",Random forest,DeepSeek,China,18,0.4444
+"Arena, Chinese prompts",Random forest,Google,US,35,0.1714
+"Arena, Chinese prompts",Random forest,Meituan,China,2,0.5
+"Arena, Chinese prompts",Random forest,MiniMax,China,12,0.3333
+"Arena, Chinese prompts",Random forest,Moonshot,China,24,0.1667
+"Arena, Chinese prompts",Random forest,OpenAI,US,25,0.24
+"Arena, Chinese prompts",Random forest,Xiaomi,China,9,0.5556
+"Arena, Chinese prompts",Random forest,Zhipu,China,10,0.5
+"Arena, Chinese prompts",Random forest,xAI,US,3,0.3333
+"Arena, English prompts",Logistic regression,Alibaba,China,21,0.4286
+"Arena, English prompts",Logistic regression,Anthropic,US,25,0.16
+"Arena, English prompts",Logistic regression,DeepSeek,China,24,0.2917
+"Arena, English prompts",Logistic regression,Google,US,46,0.087
+"Arena, English prompts",Logistic regression,Meituan,China,1,0.0
+"Arena, English prompts",Logistic regression,MiniMax,China,7,0.4286
+"Arena, English prompts",Logistic regression,Moonshot,China,22,0.3182
+"Arena, English prompts",Logistic regression,OpenAI,US,21,0.4286
+"Arena, English prompts",Logistic regression,Xiaomi,China,15,0.5333
+"Arena, English prompts",Logistic regression,Zhipu,China,12,0.5
+"Arena, English prompts",Logistic regression,xAI,US,9,0.3333
+"Arena, English prompts",Random forest,Alibaba,China,21,0.381
+"Arena, English prompts",Random forest,Anthropic,US,25,0.08
+"Arena, English prompts",Random forest,DeepSeek,China,24,0.375
+"Arena, English prompts",Random forest,Google,US,46,0.1739
+"Arena, English prompts",Random forest,Meituan,China,1,1.0
+"Arena, English prompts",Random forest,MiniMax,China,7,0.8571
+"Arena, English prompts",Random forest,Moonshot,China,22,0.2727
+"Arena, English prompts",Random forest,OpenAI,US,21,0.2857
+"Arena, English prompts",Random forest,Xiaomi,China,15,0.2667
+"Arena, English prompts",Random forest,Zhipu,China,12,0.9167
+"Arena, English prompts",Random forest,xAI,US,9,0.5556
+"Arena, both",Logistic regression,Alibaba,China,47,0.383
+"Arena, both",Logistic regression,Anthropic,US,64,0.2344
+"Arena, both",Logistic regression,DeepSeek,China,42,0.381
+"Arena, both",Logistic regression,Google,US,81,0.1975
+"Arena, both",Logistic regression,Meituan,China,3,1.0
+"Arena, both",Logistic regression,MiniMax,China,19,0.6316
+"Arena, both",Logistic regression,Moonshot,China,46,0.3478
+"Arena, both",Logistic regression,OpenAI,US,46,0.3696
+"Arena, both",Logistic regression,Xiaomi,China,24,0.7917
+"Arena, both",Logistic regression,Zhipu,China,22,0.5455
+"Arena, both",Logistic regression,xAI,US,12,0.25
+"Arena, both",Random forest,Alibaba,China,47,0.4043
+"Arena, both",Random forest,Anthropic,US,64,0.1406
+"Arena, both",Random forest,DeepSeek,China,42,0.4524
+"Arena, both",Random forest,Google,US,81,0.1235
+"Arena, both",Random forest,Meituan,China,3,1.0
+"Arena, both",Random forest,MiniMax,China,19,0.6316
+"Arena, both",Random forest,Moonshot,China,46,0.2391
+"Arena, both",Random forest,OpenAI,US,46,0.1957
+"Arena, both",Random forest,Xiaomi,China,24,0.5
+"Arena, both",Random forest,Zhipu,China,22,0.6818
+"Arena, both",Random forest,xAI,US,12,0.5

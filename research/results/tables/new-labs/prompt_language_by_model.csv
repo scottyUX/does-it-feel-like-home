@@ -1,0 +1,11 @@
+model,lab,pairs,measures_tested,clear
+google/gemma-4-31b,Google,10,40,0
+google/gemma-3-27b,Google,8,40,0
+openai/gpt-oss-120b,OpenAI,10,40,0
+openai/gpt-oss-20b,OpenAI,10,40,0
+meta/llama-4-scout,Meta,10,40,0
+nvidia/nemotron-3-33b,NVIDIA,10,40,0
+qwen/qwen3.8-27b,Alibaba,10,40,0
+qwen/qwen3.5-122b,Alibaba,10,40,0
+zhipu/glm-4.7-flash,Zhipu,10,40,0
+zhipu/glm-4-9b,Zhipu,10,40,0

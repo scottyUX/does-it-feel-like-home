@@ -1,0 +1,35 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.avatar",
+   "match": "张明远 总编辑 从事新闻工作 20 年，曾获多项",
+   "url": "assets/photo-792506de39344daa.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.avatar",
+   "match": "李华 财经频道主编 前华尔街分析师，擅长资本市场",
+   "url": "assets/photo-e0fd347b0eeaa7b9.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.avatar",
+   "match": "王晓雨 科技频道主编 计算机科学博士背景，关注前",
+   "url": "assets/photo-695fa3cbedd6c1da.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

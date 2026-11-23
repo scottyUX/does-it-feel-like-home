@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于悦容 - 广州高端美发美容沙龙</title>
+    <style>
+        :root {
+            --primary: #b07d4d;
+            --primary-dark: #8a5e3a;
+            --bg-light: #f9f8f6;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a { font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-book {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-image: url('https://picsum.photos/seed/saloninterior/1600/400');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .page-header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+        }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+
+        .about-img img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .values-section {
+            margin-top: 80px;
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .value-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .value-item h3 { margin-bottom: 10px; }
+
+        @media (max-width: 768px) {
+            .about-grid, .values-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">✦ 悦容美发美容</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html" style="color: var(--primary); font-weight: bold;">关于我们</a>
+                <a href="services.html">服务项目</a>
+                <a href="stylists.html">专家团队</a>
+                <a href="appointment.html" class="btn-book">立即预约</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>关于我们</h1>
+    </div>
+
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>优雅如初，悦见真我</h2>
+                <p>悦容美发美容成立于2010年，坐落于广州市天河区珠江新城核心商圈。作为一家集高端剪发、色彩设计、皮肤管理于一体的综合造型机构，我们始终秉持“专业、自然、时尚”的美学理念。</p>
+                <p>在这里，我们不只是简单的理发，更是在倾听每一位顾客的需求，通过精湛的手艺和高品质的产品，为您打造最适合当下生活状态的美丽造型。无论您是追求职场的干练，还是享受生活的精致，悦容都是您的最佳选择。</p>
+                <p>我们拒绝流水线的作业模式，每一位发型师都拥有自己独特的艺术风格，旨在为您呈现独一无二的视觉美感。</p>
+            </div>
+            <div class="about-img">
+                <img src="https://picsum.photos/seed/saloninterior2/600/400" alt="悦容沙龙内部环境">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="values-section">
+            <h3 style="text-align: center;">我们的核心价值</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i>◆</i>
+                    <h3>匠心专业</h3>
+                    <p>坚持技术优先，定期聘请国际名师培训，严苛执行每一道工序。</p>
+                </div>
+                <div class="value-item">
+                    <i>◆</i>
+                    <h3>尊贵私密</h3>
+                    <p>提供独立VIP包间，享受不被打扰的极致服务体验。</p>
+                </div>
+                <div class="value-item">
+                    <i>◆</i>
+                    <h3>品质承诺</h3>
+                    <p>全线使用进口日系/韩系专业沙龙产品，安全护发，色彩持久。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center; color: #ccc;">
+            <p>地址：广州市天河区珠江新城花城大道123号<br>电话：020-88888888 | 邮箱：contact@yuerong-salon.com</p>
+        </div>
+    </footer>
+</body>
+</html>

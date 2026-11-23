@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可衣 - 上海女性服饰 | 日常与通勤的优雅之选</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2C2C2C;
+            background: #FAF8F5;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #EDE8E3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #2C2C2C;
+        }
+
+        .logo span {
+            color: #8B7355;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: #2C2C2C;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #8B7355;
+        }
+
+        .nav-cart {
+            position: relative;
+        }
+
+        .nav-cart .badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #8B7355;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            height: 520px;
+            background: linear-gradient(135deg, #F5F0EB 0%, #EDE5DC 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(160deg, #D4C4B0, #C4A882);
+            border-radius: 200px 200px 20px 20px;
+            opacity: 0.6;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: 180px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            height: 360px;
+            background: linear-gradient(180deg, #F0E8E0, #E8DDD3);
+            border-radius: 140px 140px 12px 12px;
+            opacity: 0.7;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #8B7355;
+            color: #fff;
+            font-size: 13px;
+            padding: 6px 16px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: #2C2C2C;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 480px;
+            margin-bottom: 36px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #2C2C2C;
+            color: #fff;
+            padding: 14px 40px;
+            font-size: 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            background: #8B7355;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid #2C2C2C;
+            color: #2C2C2C;
+            padding: 13px 40px;
+            font-size: 15px;
+            border-radius: 4px;
+            margin-left: 16px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #2C2C2C;
+            color: #fff;
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 36px 24px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: #F5F0EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .category-card h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .category-card p {
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* Product Preview */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+
+        .product-img {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+        }
+
+        .product-img-1 { background: linear-gradient(135deg, #F5EDE5, #EDE3D7); }
+        .product-img-2 { background: linear-gradient(135deg, #E8EDF2, #DDE4EC); }
+        .product-img-3 { background: linear-gradient(135deg, #F2EDE8, #EAE2D9); }
+        .product-img-4 { background: linear-gradient(135deg, #EDE8F0, #E4DDE9); }
+        .product-img-5 { background: linear-gradient(135deg, #F0F5ED, #E5EDE2); }
+        .product-img-6 { background: linear-gradient(135deg, #F5F0E8, #EDE5D8); }
+        .product-img-7 { background: linear-gradient(135deg, #F2EEF5, #EAE3ED); }
+        .product-img-8 { background: linear-gradient(135deg, #EEF2F5, #E3EAEE); }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #8B7355;
+            color: #fff;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        .product-tag.new {
+            background: #5B8C5A;
+        }
+
+        .product-info {
+            padding: 18px 20px;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-info .desc {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #8B7355;
+        }
+
+        .product-price .original {
+            font-size: 13px;
+            color: #bbb;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        /* Brand Section */
+        .brand-section {
+            background: #F5F0EB;
+            border-radius: 16px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .brand-text h2 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .brand-text p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .brand-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: #ccc;
+            padding: 60px 40px 30px;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid, .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .brand-section {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+            .hero::before, .hero::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            .nav {
+                gap: 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .section {
+                padding: 50px 20px;
+            }
+            .product-grid, .category-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+            .brand-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html" class="active">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">单品详情</a>
+                <a href="cart.html" class="nav-cart">购物车<span class="badge">3</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="hero-tag">2024 春夏系列已上市</span>
+            <h1>穿一件合身的好衣服，<br>过从容的一天</h1>
+            <p>可衣，为都市女性甄选日常与通勤服饰。精选面料、舒适剪裁，让每一天的穿着都轻松而得体。</p>
+            <a href="products.html" class="btn-primary">浏览全部商品</a>
+            <a href="product-detail.html" class="btn-outline">查看新品</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section">
+        <div class="section-header">
+            <h2>按场景选购</h2>
+            <p>从办公室到周末，找到适合每个场合的那一件</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card" onclick="location.href='products.html'">
+                <div class="category-icon">👔</div>
+                <h3>通勤必备</h3>
+                <p>西装、衬衫、半裙</p>
+            </div>
+            <div class="category-card" onclick="location.href='products.html'">
+                <div class="category-icon">🌿</div>
+                <h3>休闲日常</h3>
+                <p>T恤、牛仔裤、针织衫</p>
+            </div>
+            <div class="category-card" onclick="location.href='products.html'">
+                <div class="category-icon">🌸</div>
+                <h3>春夏新品</h3>
+                <p>连衣裙、防晒衫</p>
+            </div>
+            <div class="category-card" onclick="location.href='products.html'">
+                <div class="category-icon">✨</div>
+                <h3>质感升级</h3>
+                <p>羊毛、真丝、羊绒</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" style="padding-top: 0;">
+        <div class="section-header">
+            <h2>本季热销</h2>
+            <p>超过 12,000 位女性的选择</p>
+        </div>
+        <div class="product-grid">
+            <a href="product-detail.html" class="product-card">
+                <div class="product-img product-img-1">
+                    <span class="product-tag">热卖</span>
+                    👔
+                </div>
+                <div class="product-info">
+                    <h3>垂感西装外套</h3>
+                    <p class="desc">醋酸面料 · 3色可选</p>
+                    <span class="product-price">¥499</span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="product-img product-img-2">
+                    <span class="product-tag new">新品</span>
+                    👕
+                </div>
+                <div class="product-info">
+                    <h3>亚麻混纺衬衫</h3>
+                    <p class="desc">透气亲肤 · 4色可选</p>
+                    <span class="product-price">¥299</span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="product-img product-img-3">
+                    <span class="product-tag">热卖</span>
+                    👗
+                </div>
+                <div class="product-info">
+                    <h3>棉质法式连衣裙</h3>
+                    <p class="desc">A字版型 · 2色可选</p>
+                    <span class="product-price">¥399 <span class="original">¥459</span></span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <div class="product-img product-img-4">
+                    <span class="product-tag new">新品</span>
+                    👖
+                </div>
+                <div class="product-info">
+                    <h3>弹力阔腿裤</h3>
+                    <p class="desc">高腰修身 · 3色可选</p>
+                    <span class="product-price">¥279</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section class="section" style="padding-top: 0;">
+        <div class="brand-section">
+            <div class="brand-text">
+                <h2>关于可衣</h2>
+                <p>2019 年，可衣在上海一间 40 平方米的小工作室创立。我们的初衷很简单：做一件让普通女生穿上就觉得"对"的衣服。不追逐潮流，只关注面料触感、版型舒适度和日常实穿性。</p>
+                <p>如今，可衣的产品覆盖了从周一晨会到周六 brunch 的所有场景。每一件衣服都经过至少三轮试穿调整，确保 S 到 XL 码都能穿出自己的样子。</p>
+            </div>
+            <div class="brand-features">
+                <div class="feature-item">
+                    <h4>🧵 面料讲究</h4>
+                    <p>与江苏、山东三家工厂直供合作</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📐 版型舒适</h4>
+                    <p>基于 2000+ 亚洲女性体型数据打版</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔄 7天无理由</h4>
+                    <p>收到不满意，免费退货换货</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🚚 顺丰包邮</h4>
+                    <p>上海次日达，全国 48 小时送达</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>可 衣</h3>
+                <p>上海 · 为都市女性设计的日常与通勤服饰品牌<br>上海市静安区愚园路 88 号 2 层<br>客服时间：周一至周日 9:00-21:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">新品上架</a>
+                <a href="cart.html">我的购物车</a>
+            </div>
+            <div class="footer-col">
+                <h4>售后服务</h4>
+                <a href="#">尺码对照表</a>
+                <a href="#">退换货说明</a>
+                <a href="#">面料护理</a>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <a href="#">service@keyi.cn</a>
+                <a href="#">微信公众号：可衣生活</a>
+                <a href="#">小红书：可衣Keyi</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 可衣 Keyi. 沪ICP备2024XXXXXX号 | 沪公网安备 31010602XXXXXX号
+        </div>
+    </footer>
+</body>
+</html>

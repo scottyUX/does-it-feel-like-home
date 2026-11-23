@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预约服务 - 悦容美发美容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f9f9f9;color:#333;}
+        header{background:#6c2d6a;color:#fff;padding:20px;text-align:center;}
+        nav{background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+        nav ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;}
+        nav li{margin:0 15px;}
+        nav a{color:#6c2d6a;text-decoration:none;font-weight:bold;padding:15px 0;display:block;}
+        nav a:hover{color:#c45ea5;}
+        .section{padding:40px 20px;max-width:600px;margin:auto;}
+        h2{color:#6c2d6a;margin-bottom:20px;}
+        form{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+        label{display:block;margin-top:15px;font-weight:bold;}
+        input, select, textarea{width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:4px;font-size:14px;}
+        textarea{resize:vertical;height:80px;}
+        .btn{margin-top:20px;background:#6c2d6a;color:#fff;padding:12px;border:none;border-radius:4px;width:100%;font-size:16px;cursor:pointer;}
+        .btn:hover{background:#5a2555;}
+        .message{margin-top:15px;color:#c45ea5;display:none;}
+        .footer{background:#333;color:#fff;padding:20px;text-align:center;font-size:14px;margin-top:40px;}
+        @media (max-width:768px){
+            nav ul{flex-direction:column;}
+            nav li{margin:5px 0;}
+        }
+    </style>
+    <script>
+        function validateForm(event){
+            event.preventDefault();
+            const name=document.getElementById('name').value.trim();
+            const phone=document.getElementById('phone').value.trim();
+            const service=document.getElementById('service').value;
+            const date=document.getElementById('date').value;
+            const time=document.getElementById('time').value;
+            const msg=document.getElementById('msg');
+
+            if(!name||!phone||!service||!date||!time){
+                msg.textContent='请完整填写所有必填信息。';
+                msg.style.display='block';
+                return;
+            }
+            msg.textContent='感谢您的预约！我们将在24小时内与您确认。';
+            msg.style.display='block';
+            // 表单不实际提交
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>悦容美发美容</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="services.html">服务项目</a></li>
+            <li><a href="team.html">我们的团队</a></li>
+            <li><a href="appointment.html">预约服务</a></li>
+        </ul>
+    </nav>
+
+    <section class="section">
+        <h2>在线预约</h2>
+        <form onsubmit="validateForm(event)">
+            <label for="name">姓名 *</label>
+            <input type="text" id="name" placeholder="请输入姓名" required>
+
+            <label for="phone">手机号 *</label>
+            <input type="tel" id="phone" placeholder="如：13800138000" required pattern="1[3-9]\d{9}">
+
+            <label for="email">电子邮箱</label>
+            <input type="email" id="email" placeholder="可选，便于接收确认邮件">
+
+            <label for="service">选择服务 *</label>
+            <select id="service" required>
+                <option value="">请选择服务</option>
+                <option value="cut">剪发 / 烫发</option>
+                <option value="color">染发</option>
+                <option value="skin">面部护肤</option>
+                <option value="combo">套餐（剪+染）</option>
+            </select>
+
+            <label for="date">预约日期 *</label>
+            <input type="date" id="date" required>
+
+            <label for="time">预约时间 *</label>
+            <select id="time" required>
+                <option value="">请选择时间段</option>
+                <option>09:00 - 10:00</option>
+                <option>10:30 - 11:30</option>
+                <option>12:00 - 13:00</option>
+                <option>13:30 - 14:30</option>
+                <option>15:00 - 16:00</option>
+                <option>16:30 - 17:30</option>
+                <option>18:00 - 19:00</option>
+            </select>
+
+            <label for="note">备注（可选）</label>
+            <textarea id="note" placeholder="例如：对染发颜色的偏好"></textarea>
+
+            <button type="submit" class="btn">提交预约</button>
+            <div id="msg" class="message"></div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        © 2026 悦容美发美容 · 广州市天河区体育东路88号 · 电话：020-1234-5678
+    </footer>
+</body>
+</html>

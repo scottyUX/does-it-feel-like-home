@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学途 - 注册报名</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#f0f2f5;color:#333;}
+        header{background:#2c3e50;color:#fff;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:22px;}
+        nav a{color:#fff;margin-left:15px;text-decoration:none;}
+        nav a:hover{text-decoration:underline;}
+        .form-container{max-width:600px;margin:40px auto;background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        h2{margin-top:0;font-size:24px;text-align:center;}
+        .form-group{margin-bottom:20px;}
+        label{display:block;margin-bottom:6px;font-weight:bold;}
+        input, select{width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:14px;box-sizing:border-box;}
+        button{width:100%;background:#e67e22;color:#fff;border:none;padding:12px;font-size:16px;border-radius:4px;cursor:pointer;}
+        button:hover{background:#d35400;}
+        footer{background:#2c3e50;color:#fff;text-align:center;padding:15px;margin-top:40px;}
+    </style>
+</head>
+<body>
+<header>
+    <h1>学途</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程</a>
+        <a href="signup.html">注册</a>
+    </nav>
+</header>
+
+<div class="form-container">
+    <h2>课程报名</h2>
+    <form onsubmit="return false;">
+        <div class="form-group">
+            <label for="name">姓名</label>
+            <input type="text" id="name" placeholder="请输入真实姓名" required>
+        </div>
+        <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" id="email" placeholder="example@domain.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">手机号码</label>
+            <input type="tel" id="phone" placeholder="请输入手机号码" required>
+        </div>
+        <div class="form-group">
+            <label for="course">选择课程</label>
+            <select id="course" required>
+                <option value="">-- 请选择课程 --</option>
+                <option>实用英语口语</option>
+                <option>Python 编程入门</option>
+                <option>前端开发实战</option>
+                <option>雅思全程冲刺</option>
+                <option>考研数学强化班</option>
+            </select>
+        </div>
+        <button type="submit">提交报名</button>
+    </form>
+</div>
+
+<footer>
+    © 2026 学途在线学习平台
+</footer>
+</body>
+</html>

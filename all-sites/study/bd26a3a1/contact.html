@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #c5a059;
+            --text-color: #333;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .page-header {
+            background-color: #e9eff2;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .contact-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 60px 0;
+        }
+        .contact-info {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .info-item {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .info-item .icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        .info-text h4 {
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
+        }
+        .info-text p {
+            margin: 0;
+            color: #666;
+        }
+
+        .branch-list {
+            margin-top: 40px;
+        }
+        .branch-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .branch-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .contact-main { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">长川银行 CHANGCHUAN BANK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="personal.html">个人银行</a></li>
+                <li><a href="cards.html">信用卡</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-header">
+    <div class="container">
+        <h1>联系我们</h1>
+        <p>我们随时准备为您提供最专业的金融服务</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="contact-main">
+        <div class="contact-info">
+            <h2>服务热线与网点</h2>
+            
+            <div class="info-item">
+                <div class="icon">☎</div>
+                <div class="info-text">
+                    <h4>客户服务中心</h4>
+                    <p>电话：400-888-XXXX（24小时服务）</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">✉</div>
+                <div class="info-text">
+                    <h4>电子邮箱</h4>
+                    <p>support@changchuanbank.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="icon">📍</div>
+                <div class="info-text">
+                    <h4>总部地址</h4>
+                    <p>北京市金融街长川大厦 12 层</p>
+                </div>
+            </div>
+
+            <div class="branch-list">
+                <h3>主要分行信息</h3>
+                <div class="branch-item">
+                    <span><strong>上海分行</strong> - 南京东路金融中心 A 座</span>
+                    <span>021-XXXX-XXXX</span>
+                </div>
+                <div class="branch-item">
+                    <span><strong>广州分行</strong> - 天河区珠江新城 CBD</span>
+                    <span>020-XXXX-XXXX</span>
+                </div>
+                <div class="branch-item">
+                    <span><strong>成都分行</strong> - 春熙路金融街 8 号</span>
+                    <span>028-XXXX-XXXX</span>
+                </div>
+                <div class="branch-item">
+                    <span><strong>深圳分行</strong> - 福田区深南大道 200 号</span>
+                    <span>0755-XXXX-XXXX</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>提交咨询请求</h2>
+            <p style="margin-bottom: 30px; color: #666;">如果您有任何疑问，请填写下方表单，我们的客户经理将在 1 个工作日内给您回电。</p>
+            <form onsubmit="event.preventDefault(); alert('您的信息已发送，请保持电话畅通。');">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>咨询业务</label>
+                    <select style="width:100%; padding:10px; border:1px solid #ddd; border-radius:4px;">
+                        <option>账户开立</option>
+                        <option>信用卡申请</option>
+                        <option>贷款咨询</option>
+                        <option>财富管理</option>
+                        <option>其他问题</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>详细内容</label>
+                    <textarea rows="5"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">发送请求</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2023 长川银行 版权所有。
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #fbbc04;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .about-hero {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            line-height: 1.8;
+        }
+
+        .content-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .value-item h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        footer {
+            background: #333;
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">✈️ 畅行旅行</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="results.html">目的地搜索</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>关于畅行旅行</h1>
+        <p>让每一次出发，都成为一段美好的回忆</p>
+    </section>
+
+    <div class="content-section">
+        <h2>我们的使命</h2>
+        <p>畅行旅行致力于打造国内最专业、最便捷的在线旅游预订平台。我们相信旅行不仅是从一个地方到另一个地方，更是对生活的热爱与对世界的探索。通过精准的推荐、透明的价格和优质的服务，我们希望让每一个旅行者都能轻松找到最适合自己的理想居所。</p>
+        
+        <h2>为什么选择我们？</h2>
+        <p>在信息碎片化的时代，寻找一家真正优质的酒店往往需要花费大量时间。畅行旅行通过严苛的筛选机制，将全国数以万计的住宿产品精简为真正值得推荐的精选列表。无论您是追求奢华的度假者，还是寻找当地风情的背包客，我们都能提供量身定制的解决方案。</p>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>极致品质</h3>
+                <p>所有入驻酒店均经过实地考察，确保服务质量。</p>
+            </div>
+            <div class="value-item">
+                <h3>价格透明</h3>
+                <p>绝无隐藏费用，所见即所得，保障用户权益。</p>
+            </div>
+            <div class="value-item">
+                <h3>快捷预订</h3>
+                <p>极简的预订流程，最快 30 秒即可完成确认。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 畅行旅行 国内旅游服务平台 版权所有</p>
+    </footer>
+
+</body>
+</html>

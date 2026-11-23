@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的团队 - 悦容美发美容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #ff7b7b;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .team-member img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .team-member h3 {
+            padding: 1rem;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+        .team-member p {
+            padding: 0 1rem 1rem;
+        }
+        .specialty {
+            font-style: italic;
+            color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>我们的团队 - 悦容美发美容</h1>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <a href="index.html">首页</a>
+            <a href="services.html">服务项目</a>
+            <a href="team.html">我们的团队</a>
+            <a href="appointment.html">预约服务</a>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <h2>专业美发师</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://example.com/hairstylist1.jpg" alt="美发师张女士">
+                    <h3>张女士</h3>
+                    <p class="specialty">资深美发师，拥有10年行业经验，擅长各种时尚发型设计。</p>
+                    <p>张女士毕业于广州美发艺术学院，多次获得行业奖项，以精湛的技术和独特的审美著称。</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://example.com/hairstylist2.jpg" alt="美发师李先生">
+                    <h3>李先生</h3>
+                    <p class="specialty">高级美发师，专注于男士发型设计。</p>
+                    <p>李先生曾获得多项国际美发比赛奖项，以其专业的男士造型技术深受客户好评。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>美容师团队</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://example.com/skincare1.jpg" alt="美容师王女士">
+                    <h3>王女士</h3>
+                    <p class="specialty">资深美容师，擅长皮肤护理和抗衰老治疗。</p>
+                    <p>王女士拥有5年美容行业经验，持有国际美容师资格证书，以其专业的护肤方案受到客户信赖。</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://example.com/skincare2.jpg" alt="美容师陈先生">
+                    <h3>陈先生</h3>
+                    <p class="specialty">高级美容师，专注于男士护肤。</p>
+                    <p>陈先生毕业于广州美容医学学院，以其专业的男士护肤技术帮助众多客户改善肌肤状况。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>团队理念</h2>
+            <p>我们的团队由经验丰富的专业人士组成，致力于为客户提供最优质的美发美容服务。我们不断学习和创新，紧跟时尚潮流，同时注重每一位客户的个性化需求。我们的目标是让每一位客户都能感受到专业和关怀，焕发自信光彩。</p>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 悦容美发美容. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>

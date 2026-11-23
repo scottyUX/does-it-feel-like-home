@@ -1,0 +1,38 @@
+{
+  "description": "Same news brief for Gemini 4 Argon and Kimi K3, with the instructions and prompt written entirely in English or entirely in Simplified Chinese. All allow remote photos.",
+  "minPages": 4,
+  "runs": [
+    {
+      "label": "gemini-en",
+      "model": "google/gemini-4-argon",
+      "siteType": "news",
+      "instructions": "en-instructions.txt",
+      "prompt": "en-prompt.txt",
+      "repair": "The previous answer was incomplete or not valid HTML. Return the full site again in the FILE format. Keep the same design and the same Simplified Chinese copy."
+    },
+    {
+      "label": "gemini-zh",
+      "model": "google/gemini-4-argon",
+      "siteType": "news",
+      "instructions": "zh-instructions.txt",
+      "prompt": "zh-prompt.txt",
+      "repair": "上一次的回答不完整或不是有效的 HTML。请按 FILE 格式重新返回完整的网站，保持相同的设计和相同的简体中文文案。"
+    },
+    {
+      "label": "kimi-en",
+      "model": "moonshotai/kimi-k3",
+      "siteType": "news",
+      "instructions": "en-instructions.txt",
+      "prompt": "en-prompt.txt",
+      "repair": "The previous answer was incomplete or not valid HTML. Return the full site again in the FILE format. Keep the same design and the same Simplified Chinese copy."
+    },
+    {
+      "label": "kimi-zh",
+      "model": "moonshotai/kimi-k3",
+      "siteType": "news",
+      "instructions": "zh-instructions.txt",
+      "prompt": "zh-prompt.txt",
+      "repair": "上一次的回答不完整或不是有效的 HTML。请按 FILE 格式重新返回完整的网站，保持相同的设计和相同的简体中文文案。"
+    }
+  ]
+}

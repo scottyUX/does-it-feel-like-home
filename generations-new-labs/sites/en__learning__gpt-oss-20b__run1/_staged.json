@@ -1,0 +1,11 @@
+{
+  "id": "en__learning__gpt-oss-20b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "gpt-oss:20b",
+  "completionTokens": 4616,
+  "seconds": 30,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

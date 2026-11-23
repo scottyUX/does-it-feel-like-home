@@ -1,0 +1,68 @@
+{
+  "id": "zh__restaurant__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "restaurant",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 11267,
+  "seconds": 103,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/chef_cooking/600/400",
+      "file": "assets/image-d3f49d40abcb1571.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person1/300/300",
+      "file": "assets/image-915284a519082d76.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person2/300/300",
+      "file": "assets/image-bb107c2dbb74173d.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person3/300/300",
+      "file": "assets/image-5adc109b88e4b9b2.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person4/300/300",
+      "file": "assets/image-b91f846f214c52a6.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/restaurant_bg/1440/600",
+      "file": "assets/image-def8450151c9441c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/cold_dish1/400/300",
+      "file": "assets/image-ef4d92a3d1fb3f9e.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sausage/400/300",
+      "file": "assets/image-e01f4cdbeddd419a.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/crab/400/300",
+      "file": "assets/image-6344500945741a6b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/pork/400/300",
+      "file": "assets/image-f3538618becb19ea.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/beef/400/300",
+      "file": "assets/image-1b27e954720af6b2.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/eggplant/400/300",
+      "file": "assets/image-96cd17b6fba32057.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/seafood/400/300",
+      "file": "assets/image-069ab53e02ffde84.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/fish/400/300",
+      "file": "assets/image-9c395c27cc612ad0.jpg"
+    }
+  ]
+}

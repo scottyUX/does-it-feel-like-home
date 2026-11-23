@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 1em;
+            text-align: center;
+        }
+        .nav {
+            background-color: #f0f0f0;
+            padding: 1em;
+            text-align: center;
+        }
+        .nav a {
+            color: #337ab7;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+        .nav a:hover {
+            color: #23527c;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+        .branch {
+            background-color: #f7f7f7;
+            padding: 1em;
+            margin: 1em;
+            border: 1px solid #dddddd;
+        }
+        .footer {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>长川银行</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="personal.html">个人金融</a>
+        <a href="credit.html">信用卡</a>
+        <a href="contact.html">联系我们</a>
+    </div>
+    <div class="main">
+        <h2>联系我们</h2>
+        <div class="branch">
+            <h3>北京分行</h3>
+            <p>地址：北京市朝阳区建国路123号</p>
+            <p>电话：010-12345678</p>
+            <p>邮箱：[beijing@changchuanbank.com](mailto:beijing@changchuanbank.com)</p>
+        </div>
+        <div class="branch">
+            <h3>上海分行</h3>
+            <p>地址：上海市浦东新区世纪大道456号</p>
+            <p>电话：021-98765432</p>
+            <p>邮箱：[shanghai@changchuanbank.com](mailto:shanghai@changchuanbank.com)</p>
+        </div>
+        <form>
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="message">留言：</label>
+            <textarea id="message" name="message"></textarea><br><br>
+            <button>提交</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 长川银行</p>
+    </div>
+</body>
+</html>

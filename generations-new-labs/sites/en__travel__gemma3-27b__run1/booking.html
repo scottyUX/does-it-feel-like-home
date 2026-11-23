@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订确认 - 畅行旅行</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .booking-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .booking-container h2 {
+            margin-top: 0;
+        }
+        .booking-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .booking-container input[type="text"],
+        .booking-container input[type="email"],
+        .booking-container input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .booking-container button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>畅行旅行</h1>
+        <p>探索中国的美丽</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="results.html">搜索结果</a>
+    </nav>
+
+    <div class="booking-container">
+        <h2>预订确认</h2>
+        <p>请填写以下信息以确认您的预订。</p>
+
+        <label for="name">姓名:</label>
+        <input type="text" id="name" placeholder="请输入您的姓名">
+
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" placeholder="请输入您的邮箱">
+
+        <label for="phone">电话:</label>
+        <input type="tel" id="phone" placeholder="请输入您的电话">
+
+        <label for="notes">特殊要求:</label>
+        <input type="text" id="notes" placeholder="例如：需要婴儿床">
+
+        <button>确认预订</button>
+    </div>
+
+    <footer>
+        &copy; 2024 畅行旅行. 版权所有.
+    </footer>
+</body>
+</html>

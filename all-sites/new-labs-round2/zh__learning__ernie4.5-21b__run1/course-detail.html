@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程详情 - 学途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .course-detail {
+            padding: 3rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        .course-header {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        .course-image {
+            flex: 1;
+            height: 300px;
+            background-color: #eee;
+        }
+        .course-content {
+            flex: 1;
+            padding: 0 2rem;
+        }
+        .course-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .course-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .course-description {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+        .course-schedule {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .schedule-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .schedule-table th {
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .schedule-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .instructor {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .instructor-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .instructor-image {
+            float: left;
+            margin-right: 2rem;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        .instructor-content {
+            overflow: hidden;
+        }
+        .instructor-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .instructor-title {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        .instructor-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .instructor-experience {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        .enroll-section {
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .enroll-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        .enroll-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group .radio-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .form-group .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        .form-group .radio-option input {
+            margin-right: 0.5rem;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        .btn-secondary {
+            background-color: #ecf0f1;
+            color: #333;
+        }
+        .btn-secondary:hover {
+            background-color: #bdc3c7;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">学途</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="courses.html">课程列表</a></li>
+                    <li><a href="register.html">注册报名</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-detail">
+        <div class="container">
+            <div class="course-header">
+                <div class="course-image"></div>
+                <div class="course-content">
+                    <h1 class="course-title">Python编程进阶</h1>
+                    <div class="course-price">¥1599/期</div>
+                    <p class="course-description">深入学习Python编程，掌握面向对象编程、设计模式等核心概念，提升数据处理和自动化脚本编写能力。</p>
+                    <div class="course-meta">
+                        <span>课程类型: 计算机课程</span>
+                        <span>课时: 96小时</span>
+                        <span>适合人群: 计算机相关专业学生、IT从业者、数据分析师等</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-schedule">
+                <h2 class="section-title">课程安排</h2>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>周次</th>
+                            <th>日期</th>
+                            <th>时间</th>
+                            <th>内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-4</td>
+                            <td>2023-11-01 至 2023-11-21</td>
+                            <td>周二、周四 19:00-21:00</td>
+                            <td>Python基础语法、面向对象编程、函数式编程</td>
+                        </tr>
+                        <tr>
+                            <td>5-8</td>
+                            <td>2023-11-28 至 2023-12-18</td>
+                            <td>周二、周四 19:00-21:00</td>
+                            <td>文件操作与异常处理、装饰器与生成器、模块与包</td>
+                        </tr>
+                        <tr>
+                            <td>9-12</td>
+                            <td>2023-12-19 至 2024-01-08</td>
+                            <td>周二、周四 19:00-21:00</td>
+                            <td>正则表达式、多线程与异步编程、数据库编程</td>
+                        </tr>
+                        <tr>
+                            <td>13-16</td>
+                            <td>2024-01-09 至 2024-01-29</td>
+                            <td>周二、周四 19:00-21:00</td>
+                            <td>Web开发基础、Flask框架、Django框架</td>
+                        </tr>
+                        <tr>
+                            <td>17-20</td>
+                            <td>2024-02-05 至 2024-02-25</td>
+                            <td>周二、周四 19:00-21:00</td>
+                            <td>数据分析与可视化、机器学习基础、项目实战</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="instructor">
+                <h2 class="section-title">授课教师</h2>
+                <div class="instructor-content">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="张教授" class="instructor-image">
+                    <div>
+                        <h3 class="instructor-name">张教授</h3>
+                        <p class="instructor-title">计算机科学与技术教授</p>
+                        <p class="instructor-description">拥有15年Python教学经验，参与多个大型Python项目开发，发表多篇学术论文。</p>
+                        <p class="instructor-experience">教学经验丰富，注重理论与实践结合，善于启发式教学。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="enroll-section">
+                <h2 class="section-title">立即报名</h2>
+                <form class="enroll-form" id="enrollForm">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">手机号码</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>学习目标</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="goal1" name="goal" value="找工作" required>
+                                <label for="goal1">找工作</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal2" name="goal" value="转行">
+                                <label for="goal2">转行</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="goal3" name="goal" value="提升技能">
+                                <label for="goal3">提升技能</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">留言</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">取消</button>
+                        <button type="submit" class="btn btn-primary">提交报名</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 学途在线学习平台. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取表单元素
+            const enrollForm = document.getElementById('enrollForm');
+            const cancelBtn = document.getElementById('cancelBtn');
+            
+            // 添加取消按钮事件监听器
+            cancelBtn.addEventListener('click', function() {
+                enrollForm.reset();
+            });
+            
+            // 添加表单提交事件监听器
+            enrollForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const formData = new FormData(enrollForm);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+                
+                // 这里可以添加表单验证逻辑
+                console.log('报名信息:', data);
+                
+                // 模拟表单提交成功
+                alert('报名成功！我们会尽快与您联系。');
+                enrollForm.reset();
+            });
+            
+            // 添加课程价格变化监听（示例：通过URL参数）
+            const urlParams = new URLSearchParams(window.location.search);
+            const priceParam = urlParams.get('price');
+            if (priceParam) {
+                const priceElement = document.querySelector('.course-price');
+                if (priceElement) {
+                    priceElement.textContent = `¥${priceParam}/期`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

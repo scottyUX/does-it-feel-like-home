@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日视界 - 今日头条新闻</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;color:#1a1a1a;background:#f4f5f7;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.topbar{background:#0d1b2a;color:#fff;font-size:13px;padding:6px 0}
+.topbar .wrap{display:flex;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 20px}
+.topbar a{color:#cfd8e3;margin-left:16px}
+.topbar a:hover{color:#fff}
+header{background:#fff;border-bottom:3px solid #c8102e}
+.navwrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-size:30px;font-weight:800;color:#c8102e;letter-spacing:2px}
+.logo span{color:#0d1b2a}
+nav a{margin-left:26px;font-size:16px;font-weight:600;color:#333;padding:6px 2px}
+nav a:hover,nav a.active{color:#c8102e;border-bottom:2px solid #c8102e}
+.container{max-width:1200px;margin:24px auto;padding:0 20px;display:grid;grid-template-columns:2fr 1fr;gap:24px}
+.hero{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.hero img{width:100%;height:400px;object-fit:cover;display:block}
+.hero-body{padding:20px 24px}
+.tag{display:inline-block;background:#c8102e;color:#fff;font-size:12px;padding:2px 10px;border-radius:2px;margin-bottom:10px}
+.hero h1{font-size:26px;line-height:1.4}
+.hero h1 a:hover{color:#c8102e}
+.hero p{color:#555;margin-top:10px;font-size:15px}
+.meta{color:#999;font-size:13px;margin-top:12px}
+.card{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:20px 24px;margin-bottom:20px}
+.card h2{font-size:18px;border-left:4px solid #c8102e;padding-left:10px;margin-bottom:14px}
+.headline{padding:12px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.headline:last-child{border-bottom:none}
+.headline a{font-size:16px}
+.headline a:hover{color:#c8102e}
+.headline time{color:#aaa;font-size:13px;white-space:nowrap}
+.side-item{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:18px 20px;margin-bottom:20px}
+.side-item h3{font-size:17px;border-left:4px solid #c8102e;padding-left:10px;margin-bottom:12px}
+.rank{list-style:none;counter-reset:r}
+.rank li{counter-increment:r;padding:9px 0;border-bottom:1px dashed #e5e5e5;font-size:15px}
+.rank li:last-child{border:none}
+.rank li::before{content:counter(r);display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;background:#999;color:#fff;font-size:12px;margin-right:8px;border-radius:2px}
+.rank li:nth-child(1)::before{background:#c8102e}
+.rank li:nth-child(2)::before{background:#e0642f}
+.rank li:nth-child(3)::before{background:#e6a23c}
+.rank a:hover{color:#c8102e}
+.thumb{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #eee}
+.thumb:last-child{border:none}
+.thumb img{width:110px;height:74px;object-fit:cover;flex-shrink:0}
+.thumb a{font-size:14px;line-height:1.5}
+.thumb a:hover{color:#c8102e}
+footer{background:#0d1b2a;color:#8fa1b3;margin-top:40px;padding:36px 20px;font-size:13px}
+footer .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+footer a{color:#cfd8e3;margin-right:16px}
+footer a:hover{color:#fff}
+@media(max-width:900px){.container{grid-template-columns:1fr}.navwrap{flex-direction:column;height:auto;padding:14px 20px;gap:10px}nav a{margin:0 10px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span id="today">2025年6月12日 星期四</span><span><a href="about.html">关于我们</a><a href="about.html">联系我们</a><a href="about.html">订阅新闻信</a></span></div></div>
+<header><div class="navwrap">
+<a class="logo" href="index.html">每日<span>视界</span></a>
+<nav>
+<a href="index.html" class="active">首页</a>
+<a href="category.html">财经</a>
+<a href="category.html">科技</a>
+<a href="category.html">文化</a>
+<a href="category.html">体育</a>
+<a href="article.html">热点</a>
+</nav>
+</div></header>
+
+<main class="container">
+<div>
+<article class="hero">
+<img src="https://picsum.photos/seed/citysky/900/480" alt="城市天际线">
+<div class="hero-body">
+<span class="tag">头条</span>
+<h1><a href="article.html">全国高铁网络再添新线：东部沿海通道全线贯通</a></h1>
+<p>历经六年建设，东部沿海高铁通道今日正式全线开通运营。新线路将沿线十余座城市的通行时间大幅缩短，预计每年服务旅客超过一亿人次，为区域经济一体化注入新动力。</p>
+<div class="meta">记者 陈立群 ｜ 2025年6月12日 08:30 ｜ 阅读 12.6万</div>
+</div>
+</article>
+
+<section class="card" style="margin-top:20px">
+<h2>最新要闻</h2>
+<div class="headline"><a href="article.html">国家统计局：上半年消费市场稳步回暖，服务消费增长明显</a><time>08:10</time></div>
+<div class="headline"><a href="article.html">多部门联合发布新规，加强个人信息保护与数据安全</a><time>07:45</time></div>
+<div class="headline"><a href="article.html">南方多地迎来强降雨，各地启动防汛应急响应</a><time>07:20</time></div>
+<div class="headline"><a href="article.html">国际医学期刊发表我国团队癌症早期筛查新成果</a><time>06:58</time></div>
+<div class="headline"><a href="article.html">全国夏粮收购进度过半，收购价格总体平稳</a><time>06:30</time></div>
+<div class="headline"><a href="article.html">城市更新试点扩围，老旧小区改造惠及百万居民</a><time>06:05</time></div>
+</section>
+</div>
+
+<aside>
+<div class="side-item">
+<h3>热榜</h3>
+<ol class="rank">
+<li><a href="article.html">东部沿海高铁通道全线贯通</a></li>
+<li><a href="article.html">新能源汽车下乡政策再加码</a></li>
+<li><a href="article.html">高校毕业生就业服务季启动</a></li>
+<li><a href="article.html">多家博物馆延长暑期开放时间</a></li>
+<li><a href="article.html">国产大型邮轮完成第三次试航</a></li>
+<li><a href="article.html">全国游泳锦标赛多项纪录刷新</a></li>
+</ol>
+</div>
+<div class="side-item">
+<h3>图说新闻</h3>
+<div class="thumb"><img src="https://picsum.photos/seed/train/220/148" alt="高铁"><a href="article.html">新一代动车组投入运营，车厢设施全面升级</a></div>
+<div class="thumb"><img src="https://picsum.photos/seed/market/220/148" alt="市集"><a href="article.html">夜市经济升温，城市烟火气回归街头巷尾</a></div>
+<div class="thumb"><img src="https://picsum.photos/seed/park/220/148" alt="公园"><a href="article.html">城市口袋公园建设提速，市民出门见绿</a></div>
+</div>
+</aside>
+</main>
+
+<footer><div class="wrap">
+<div><strong style="color:#fff">每日视界</strong><br>快速、准确、深入的全国新闻报道</div>
+<div><a href="index.html">首页</a><a href="category.html">财经</a><a href="article.html">热点</a><a href="about.html">关于我们</a></div>
+<div>© 2025 每日视界 版权所有 ｜ 京ICP备00000000号</div>
+</div></footer>
+<script>
+var d=new Date(),w=["日","一","二","三","四","五","六"];
+document.getElementById("today").textContent=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日 星期"+w[d.getDay()];
+</script>
+</body>
+</html>

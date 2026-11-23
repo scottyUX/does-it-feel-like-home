@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>订单确认 - 快送外卖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+header{background:#ff6b6b;color:#fff;padding:20px;text-align:center;}
+nav{display:flex;justify-content:center;background:#333;color:#fff;}
+nav a{color:#fff;text-decoration:none;padding:15px 20px;}
+nav a:hover{background:#444;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+table{width:100%;border-collapse:collapse;background:#fff;}
+th,td{border-bottom:1px solid #ddd;padding:12px;text-align:left;}
+th{background:#f0f0f0;}
+tfoot td{font-weight:bold;}
+button{background:#ff6b6b;color:#fff;border:none;padding:10px 15px;border-radius:4px;}
+footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:20px;}
+@media(max-width:600px){.container{padding:10px;}}
+</style>
+</head>
+<body>
+<header>
+<h1>订单确认</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+<div class="container" id="orderContainer"></div>
+<footer>
+<p>&copy; 2024 快送外卖 成都</p>
+</footer>
+<script>
+function renderOrder(){
+const container=document.getElementById('orderContainer');
+const cart = JSON.parse(localStorage.getItem('orderItems'))||[];
+if(cart.length===0){
+container.innerHTML='<p>暂无已添加的菜品，请先选择餐厅并加入订单。</p>';
+return;
+}
+let total=0;
+let html=`<h2>已选菜品</h2>
+<table>
+<tr><th>菜品</th><th>单价(元)</th><th>数量</th><th>小计</th></tr>`;
+cart.forEach(item=>{
+const subtotal=item.price*item.quantity;
+total+=subtotal;
+html+=`<tr><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}</td><td>${subtotal}</td></tr>`;
+});
+html+=`<tfoot><tr><td colspan="3">总计</td><td>${total}</td></tr></tfoot></table>
+<button onclick="clearCart()">清空订单</button>`;
+container.innerHTML=html;
+}
+function clearCart(){
+localStorage.removeItem('orderItems');
+renderOrder();
+}
+renderOrder();
+</script>
+</body>
+</html>

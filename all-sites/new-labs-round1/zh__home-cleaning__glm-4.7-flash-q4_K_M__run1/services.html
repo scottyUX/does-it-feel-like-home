@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务项目与价格 - 洁家家政</title>
+    <style>
+        /* 引入首页样式以保持一致性 */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a8e8;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+        }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text-color); background-color: var(--white); line-height: 1.6; margin: 0; padding: 0; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        ul { list-style: none; margin: 0; padding: 0; }
+        img { max-width: 100%; display: block; }
+
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .top-bar { background-color: var(--primary-color); color: var(--white); text-align: center; font-size: 0.85rem; padding: 0.5rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .logo span { color: var(--text-color); margin-left: 0.5rem; font-weight: normal; font-size: 1rem; }
+        nav ul { display: flex; gap: 2rem; }
+        nav a { font-weight: 500; color: var(--text-color); }
+        nav a:hover, nav a.active { color: var(--primary-color); }
+        .cta-btn { background-color: var(--accent-color); color: var(--white); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+        
+        .page-title { text-align: center; margin-bottom: 3rem; }
+        .page-title h1 { color: var(--primary-color); font-size: 2.2rem; }
+        .page-title p { color: #666; margin-top: 0.5rem; }
+
+        .service-category { margin-bottom: 3rem; }
+        .category-title { font-size: 1.5rem; margin-bottom: 1.5rem; padding-left: 1rem; border-left: 4px solid var(--primary-color); }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: var(--white);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .card-img-placeholder {
+            height: 180px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .card-img-placeholder::after {
+            content: "✨ 专业清洁演示";
+            position: absolute;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .card-body { padding: 1.5rem; }
+        .card-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .card-desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; min-height: 3rem; }
+        .card-price { font-size: 1.2rem; font-weight: bold; color: var(--accent-color); margin-bottom: 1rem; }
+        .card-price span { font-size: 0.8rem; color: #999; font-weight: normal; }
+        .service-features { font-size: 0.85rem; color: #555; margin-bottom: 1.5rem; background: var(--bg-light); padding: 0.5rem; border-radius: 4px; }
+        
+        .card-btn { display: block; text-align: center; width: 100%; padding: 0.6rem; background-color: var(--primary-color); color: white; border-radius: 4px; font-weight: bold; transition: background 0.3s; }
+        .card-btn:hover { background-color: #004494; }
+
+        footer { background-color: #2c3e50; color: #bdc3c7; padding: 2rem; text-align: center; margin-top: 4rem; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">服务覆盖北京全境 | 员工全保险 | 满意才结款</div>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">洁家家政<span>您的家庭健康卫士</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html" class="active">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="booking.html">在线预约</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="cta-btn">预约服务</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>透明报价，高品质服务</h1>
+            <p>根据您的房屋面积和清洁需求，提供量身定制的清洁方案</p>
+        </div>
+
+        <!-- 深度保洁套餐 -->
+        <section class="service-category">
+            <h2 class="category-title">家庭深度清洁套餐</h2>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <div class="card-img-placeholder" style="background-color: #e3f2fd;"></div>
+                    <div class="card-body">
+                        <div class="card-title">单次深度保洁</div>
+                        <div class="card-desc">适合平时工作忙无暇打扫的家庭，对房屋进行一次全方位的精细化清洁。</div>
+                        <div class="card-price">¥49 起/平<span>米</span></div>
+                        <div class="service-features">
+                            包含：全屋除尘、玻璃清洁、厨房油污去除、卫生间洁具消毒、地面清洁
+                        </div>
+                        <a href="booking.html" class="card-btn">立即预约</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-img-placeholder" style="background-color: #e0f7fa;"></div>
+                    <div class="card-body">
+                        <div class="card-title">月度常规保洁</div>
+                        <div class="card-desc">建立定期保洁习惯，保持家庭环境整洁卫生，预防灰尘堆积。</div>
+                        <div class="card-price">¥360 起/次<span>(推荐)</span></div>
+                        <div class="service-features">
+                            包含：常规整理、地面清扫、家具表面擦拭、垃圾清理、卫生间基础清洁
+                        </div>
+                        <a href="booking.html" class="card-btn">开通月度卡</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-img-placeholder" style="background-color: #fff3e0;"></div>
+                    <div class="card-body">
+                        <div class="card-title">新居开荒保洁</div>
+                        <div class="card-desc">装修后遗留的沙砾、水泥点和油漆点较多，必须进行彻底的开荒处理。</div>
+                        <div class="card-price">¥580 起/套<span>装</span></div>
+                        <div class="service-features">
+                            重点区域：墙面顶面、玻璃缝隙、橱柜内部、地面垃圾清理、去除装修污渍
+                        </div>
+                        <a href="booking.html" class="card-btn">预约开荒</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-img-placeholder" style="background-color: #fce4ec;"></div>
+                    <div class="card-body">
+                        <div class="card-title">专项深度清洁</div>
+                        <div class="card-desc">针对顽固污渍进行深度处理，如油烟机、空调、洗衣机等家电内部清洁。</div>
+                        <div class="card-price">¥100 起<span>/件</span></div>
+                        <div class="service-features">
+                            专业设备上门，去除顽固油污、霉菌，恢复家电洁净如新
+                        </div>
+                        <a href="booking.html" class="card-btn">咨询详情</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-category">
+            <h2 class="category-title">特殊服务</h2>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-title">地毯清洗</div>
+                        <div class="card-desc">专业干洗或水洗服务，去除地毯深层污渍和异味。</div>
+                        <div class="service-features">¥15/平，约100平起做</div>
+                        <a href="booking.html" class="card-btn">查看报价</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-body">
+                        <div class="card-title">床垫清洗</div>
+                        <div class="card-desc">专业除螨、杀菌，去除汗渍和皮屑，改善睡眠环境。</div>
+                        <div class="service-features">¥100/张</div>
+                        <a href="booking.html" class="card-btn">查看报价</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 洁家家政 北京有限公司</p>
+        <p>服务热线：010-8888-6666</p>
+    </footer>
+</body>
+</html>

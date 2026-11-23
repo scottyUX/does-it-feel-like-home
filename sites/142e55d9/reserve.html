@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订座位 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --accent-color: #D2691E;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FAF9F6;
+            --white: #FFFFFF;
+            --border-color: #ddd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { font-weight: 500; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent-color); }
+
+        /* Reservation Container */
+        .reserve-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .page-title p {
+            color: var(--text-light);
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .row > div {
+            flex: 1;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Success Message (Hidden by default) */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        #success-message h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .check-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: #ddd;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            .reserve-container { margin: 1.5rem; padding: 1.5rem; }
+            nav ul { display: none; } /* Simplified */
+            .row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>家味</span> 餐厅
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="menu.html">特色菜单</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="reserve.html" class="active">预定座位</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Form View -->
+    <div class="reserve-container" id="booking-form-container">
+        <div class="page-title">
+            <h1>在线预订</h1>
+            <p>填写下方信息即可锁定您的座位，请提前至少 2 小时预订。</p>
+        </div>
+
+        <form id="reservationForm" onsubmit="handleReserve(event)">
+            <div class="row">
+                <div class="form-group">
+                    <label for="date">预订日期 *</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">用餐时间 *</label>
+                    <select id="time" required>
+                        <option value="">请选择时间</option>
+                        <option value="11:00">11:00 (午市)</option>
+                        <option value="11:30">11:30 (午市)</option>
+                        <option value="12:00">12:00 (午市)</option>
+                        <option value="17:30">17:30 (晚市)</option>
+                        <option value="18:00">18:00 (晚市)</option>
+                        <option value="18:30">18:30 (晚市)</option>
+                        <option value="19:00">19:00 (晚市)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="people">用餐人数 *</label>
+                    <select id="people" required>
+                        <option value="">请选择人数</option>
+                        <option value="1">1 人</option>
+                        <option value="2">2 人</option>
+                        <option value="3">3 人</option>
+                        <option value="4">4 人</option>
+                        <option value="5">5 人</option>
+                        <option value="6">6 人</option>
+                        <option value="8">8 人以上 (请联系经理)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="seating">座位偏好</label>
+                    <select id="seating">
+                        <option value="window">靠窗位置</option>
+                        <option value="booth">卡座</option>
+                        <option value="private">包厢 (需额外预约)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">您的姓名 *</label>
+                <input type="text" id="name" placeholder="请输入您的真实姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">联系电话 *</label>
+                <input type="tel" id="phone" placeholder="用于接收确认短信" required>
+            </div>
+
+            <div class="form-group">
+                <label for="request">特殊要求 (选填)</label>
+                <textarea id="request" placeholder="例如：对海鲜过敏、需要婴儿椅、庆祝生日等"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">提交预订</button>
+            
+            <p class="note">提交后我们将发送短信确认您的预订。若未收到确认，请致电 0571-8888 6666。</p>
+        </form>
+    </div>
+
+    <!-- Success Message View -->
+    <div class="reserve-container" id="success-message">
+        <div class="check-icon">✓</div>
+        <h2>预订成功！</h2>
+        <p>感谢您选择家味餐厅。</p>
+        <p style="margin-top: 1rem; color: #666;">预订信息：</p>
+        <p id="confirm-details" style="margin-bottom: 1.5rem; font-weight: bold;"></p>
+        <button class="btn-submit" onclick="resetForm()" style="background-color: #666;">返回首页</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅。所有服务最终解释权归本店所有。</p>
+    </footer>
+
+    <script>
+        // Simple script to simulate form handling
+        function handleReserve(e) {
+            e.preventDefault();
+            
+            // Get values
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const people = document.getElementById('people').value;
+            
+            // Show confirmation
+            document.getElementById('booking-form-container').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('confirm-details').innerText = `${date} ${time} - 共 ${people} 人`;
+            
+            // In a real app, this would send data to a server
+            console.log("Booking submitted:", date, time, people);
+        }
+
+        function resetForm() {
+            document.getElementById('reservationForm').reset();
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('booking-form-container').style.display = 'block';
+        }
+
+        // Set min date to today
+        (function setMinDate() {
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        })();
+    </script>
+
+</body>
+</html>

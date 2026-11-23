@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部商品 - 可衣 KEEWEAR</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c2c2c; background: #fff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .top-bar { background: #2c2c2c; color: #fff; font-size: 12px; padding: 6px 0; text-align: center; }
+        .top-bar span { margin: 0 15px; }
+        .header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1440px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+        .logo span { color: #b8860b; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { font-size: 15px; color: #555; padding: 8px 0; border-bottom: 2px solid transparent; transition: all .3s; }
+        .nav a:hover, .nav a.active { color: #2c2c2c; border-bottom-color: #b8860b; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .search-box { display: flex; align-items: center; background: #f5f5f5; border-radius: 20px; padding: 6px 14px; }
+        .search-box input { border: none; background: none; outline: none; font-size: 13px; width: 140px; }
+        .search-box svg { margin-right: 8px; opacity: .4; }
+        .cart-icon { position: relative; cursor: pointer; }
+        .cart-icon .badge { position: absolute; top: -6px; right: -6px; background: #c0392b; color: #fff; font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .breadcrumb { max-width: 1440px; margin: 0 auto; padding: 20px 40px; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #b8860b; }
+
+        .products-layout { max-width: 1440px; margin: 0 auto; padding: 0 40px 80px; display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
+
+        /* Sidebar */
+        .filter-panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        .filter-group { margin-bottom: 28px; }
+        .filter-group h4 { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .filter-option { display: flex; align-items: center; margin-bottom: 8px; cursor: pointer; font-size: 14px; color: #666; }
+        .filter-option input { margin-right: 10px; accent-color: #b8860b; }
+        .filter-option:hover { color: #2c2c2c; }
+        .size-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+        .size-btn { padding: 6px 14px; border: 1px solid #ddd; font-size: 13px; cursor: pointer; border-radius: 2px; transition: all .2s; background: #fff; }
+        .size-btn:hover, .size-btn.active { border-color: #2c2c2c; background: #2c2c2c; color: #fff; }
+        .price-range { display: flex; align-items: center; gap: 8px; }
+        .price-range input { width: 80px; padding: 6px 8px; border: 1px solid #ddd; font-size: 13px; outline: none; }
+        .filter-reset { display: inline-block; margin-top: 8px; font-size: 13px; color: #b8860b; cursor: pointer; }
+
+        /* Product List */
+        .list-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .list-header .count { font-size: 14px; color: #666; }
+        .list-header .sort { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #666; }
+        .list-header .sort select { padding: 6px 12px; border: 1px solid #ddd; font-size: 13px; outline: none; cursor: pointer; }
+        .list-header .view-toggle { display: flex; gap: 4px; }
+        .view-toggle button { width: 32px; height: 32px; border: 1px solid #ddd; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .view-toggle button.active { background: #2c2c2c; border-color: #2c2c2c; }
+
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .product-card { border: 1px solid #f0f0f0; border-radius: 4px; overflow: hidden; transition: box-shadow .3s, transform .3s; cursor: pointer; }
+        .product-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08); transform: translateY(-2px); }
+        .product-img { height: 300px; position: relative; }
+        .product-img .img-inner { width: 100%; height: 100%; }
+        .product-img .quick-add { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(44,44,44,.9); color: #fff; text-align: center; padding: 10px; font-size: 13px; transform: translateY(100%); transition: transform .3s; }
+        .product-card:hover .quick-add { transform: translateY(0); }
+        .product-info { padding: 16px; }
+        .product-info h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+        .product-info .desc { font-size: 12px; color: #999; margin-bottom: 10px; }
+        .product-info .price { font-size: 15px; color: #c0392b; font-weight: 600; }
+        .product-info .price .original { font-size: 12px; color: #aaa; text-decoration: line-through; margin-left: 6px; }
+        .product-info .sizes { display: flex; gap: 6px; margin-top: 10px; }
+        .product-info .sizes span { font-size: 11px; color: #888; border: 1px solid #e0e0e0; padding: 2px 6px; border-radius: 2px; }
+        .product-info .tag { display: inline-block; font-size: 11px; background: #fff3e0; color: #b8860b; padding: 2px 6px; border-radius: 2px; margin-bottom: 8px; }
+
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
+        .pagination a, .pagination span { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 13px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer; }
+        .pagination .active { background: #2c2c2c; color: #fff; border-color: #2c2c2c; }
+        .pagination a:hover { border-color: #2c2c2c; }
+
+        .footer { background: #2c2c2c; color: #aaa; padding: 40px; text-align: center; font-size: 12px; }
+
+        @media (max-width: 1024px) {
+            .products-layout { grid-template-columns: 1fr; }
+            .filter-panel { display: none; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .header-inner { padding: 14px 20px; }
+            .nav { display: none; }
+            .breadcrumb, .products-layout { padding-left: 20px; padding-right: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <span>全场满 599 元免运费</span>
+        <span>|</span>
+        <span>新客首单享 9 折优惠</span>
+        <span>|</span>
+        <span>30 天无忧退换</span>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">全部商品</a>
+                <a href="products.html">日常系列</a>
+                <a href="products.html">职场系列</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <input type="text" placeholder="搜索商品...">
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb"><a href="index.html">首页</a> / 全部商品</div>
+
+    <div class="products-layout">
+        <aside class="filter-panel">
+            <h3>筛选</h3>
+            <div class="filter-group">
+                <h4>分类</h4>
+                <label class="filter-option"><input type="checkbox" checked> 通勤职场</label>
+                <label class="filter-option"><input type="checkbox" checked> 日常休闲</label>
+                <label class="filter-option"><input type="checkbox"> 约会周末</label>
+                <label class="filter-option"><input type="checkbox"> 季节外套</label>
+                <label class="filter-option"><input type="checkbox"> 内搭打底</label>
+            </div>
+            <div class="filter-group">
+                <h4>尺码</h4>
+                <div class="size-btns">
+                    <button class="size-btn active">S</button>
+                    <button class="size-btn active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>价格区间</h4>
+                <div class="price-range">
+                    <input type="text" placeholder="¥ 299">
+                    <span>—</span>
+                    <input type="text" placeholder="¥ 1,680">
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>颜色</h4>
+                <label class="filter-option"><input type="checkbox"> 黑色</label>
+                <label class="filter-option"><input type="checkbox" checked> 驼色 / 米色</label>
+                <label class="filter-option"><input type="checkbox"> 白色 / 奶白</label>
+                <label class="filter-option"><input type="checkbox"> 雾霾蓝</label>
+                <label class="filter-option"><input type="checkbox"> 莫兰迪粉</label>
+                <label class="filter-option"><input type="checkbox"> 深灰 / 藏青</label>
+            </div>
+            <div class="filter-group">
+                <h4>面料</h4>
+                <label class="filter-option"><input type="checkbox"> 羊绒 / 羊毛</label>
+                <label class="filter-option"><input type="checkbox" checked> 真丝</label>
+                <label class="filter-option"><input type="checkbox"> 棉麻混纺</label>
+                <label class="filter-option"><input type="checkbox"> 针织</label>
+                <label class="filter-option"><input type="checkbox"> 醋酸面料</label>
+            </div>
+            <a href="#" class="filter-reset">重置所有筛选</a>
+        </aside>
+
+        <main>
+            <div class="list-header">
+                <span class="count">共 36 件商品 · 当前显示第 1-12 件</span>
+                <div class="sort">
+                    <span>排序：</span>
+                    <select>
+                        <option>综合推荐</option>
+                        <option>价格从低到高</option>
+                        <option>价格从高到低</option>
+                        <option>最新上架</option>
+                        <option>销量优先</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#e8d5c4,#c9a88c);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">热卖</span>
+                        <h3>「云感」羊绒混纺开衫</h3>
+                        <p class="desc">80% 羊绒 + 20% 羊毛 · 落肩设计</p>
+                        <span class="price">¥ 899 <span class="original">¥ 1,299</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#d6dce5,#a8b8cc);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">新品</span>
+                        <h3>「轻语」真丝方领衬衫</h3>
+                        <p class="desc">19 姆米桑蚕丝 · 法式方领</p>
+                        <span class="price">¥ 659 <span class="original">¥ 899</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#3c3c3c,#5a5a5a);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">职场必备</span>
+                        <h3>通勤高腰直筒九分裤</h3>
+                        <p class="desc">醋酸混纺 · 高腰显瘦 · 九分裤长</p>
+                        <span class="price">¥ 459</span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#f2d7d7,#d4a0a0);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">限时 7 折</span>
+                        <h3>「柔光」缎面吊带连衣裙</h3>
+                        <p class="desc">醋酸缎面 · A 字裙摆 · 可外搭开衫</p>
+                        <span class="price">¥ 729 <span class="original">¥ 999</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#e6e0d4,#c4b896);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>「素履」高腰阔腿西裤</h3>
+                        <p class="desc">混纺面料 · 阔腿版型 · 侧缝口袋</p>
+                        <span class="price">¥ 529</span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#c8d8e8,#8aa8c4);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">新品</span>
+                        <h3>「雾蓝」翻领针织小西装</h3>
+                        <p class="desc">美利奴羊毛 · 单排扣 · 内搭友好</p>
+                        <span class="price">¥ 1,099 <span class="original">¥ 1,499</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#f5f0e8,#e0d4c0);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>「素白」圆领棉质长袖 T 恤</h3>
+                        <p class="desc">精梳长绒棉 · 220g 重磅 · 不易变形</p>
+                        <span class="price">¥ 299</span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#5c4a3a,#8b6f50);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">热卖</span>
+                        <h3>「秋栗」双面羊绒大衣</h3>
+                        <p class="desc">100% 双面羊绒 · 中长款 · 落肩</p>
+                        <span class="price">¥ 2,680 <span class="original">¥ 3,280</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#e8e0f0,#c4b0d8);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>「薄雾」V 领真丝围巾</h3>
+                        <p class="desc">桑蚕丝 90×200cm · 手工卷边</p>
+                        <span class="price">¥ 399</span>
+                        <div class="sizes"><span>均码</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#2c3e50,#4a6580);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">职场必备</span>
+                        <h3>「沉稳」双排扣修身西装外套</h3>
+                        <p class="desc">精纺羊毛 · 修身剪裁 · 可单穿</p>
+                        <span class="price">¥ 1,280 <span class="original">¥ 1,680</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#f8e8d8,#e0c8a8);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>「暖阳」高领羊毛打底衫</h3>
+                        <p class="desc">美利奴羊毛 · 修身 · 内搭首选</p>
+                        <span class="price">¥ 429</span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+                    </div>
+                </a>
+
+                <a href="product-detail.html" class="product-card">
+                    <div class="product-img">
+                        <div class="img-inner" style="background:linear-gradient(160deg,#d8e8d8,#a0c4a0);"></div>
+                        <div class="quick-add">快速加入购物袋</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="tag">新品</span>
+                        <h3>「春苔」棉麻混纺衬衫裙</h3>
+                        <p class="desc">棉 60% + 亚麻 40% · 中长款 · 腰带</p>
+                        <span class="price">¥ 559 <span class="original">¥ 729</span></span>
+                        <div class="sizes"><span>S</span><span>M</span><span>L</span></div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="pagination">
+                <span class="active">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">下一页 →</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        © 2024 可衣 KEEWEAR · 沪ICP备 2019-08623 号 · 上海市静安区常德路 1155 号
+    </footer>
+
+    <script>
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

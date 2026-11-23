@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 探索国内美景，预订您的完美假期</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #fbbc04;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="500" viewBox="0 0 1440 500"><rect width="1440" height="500" fill="%234a90e2"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="40">风景如画的背景图</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1100px;
+            color: var(--text-dark);
+        }
+
+        .search-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .search-group input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 48px;
+            margin-top: auto;
+        }
+
+        .search-btn:hover {
+            background-color: #1557b0;
+        }
+
+        .featured {
+            max-width: 1440px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #333;
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">✈️ 畅行旅行</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="results.html">目的地搜索</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>探索中国的每一个角落</h1>
+        <p>为您精心挑选最舒适的酒店与行程，让旅行变得简单</p>
+        <form class="search-container" action="results.html">
+            <div class="search-group">
+                <label>目的地</label>
+                <input type="text" placeholder="例如：杭州、西安、三亚..." required>
+            </div>
+            <div class="search-group">
+                <label>入住日期</label>
+                <input type="date" required>
+            </div>
+            <div class="search-group">
+                <label>离店日期</label>
+                <input type="date" required>
+            </div>
+            <div class="search-group">
+                <label>人数</label>
+                <input type="number" min="1" value="2">
+            </div>
+            <button type="submit" class="search-btn">搜索酒店</button>
+        </form>
+    </section>
+
+    <section class="featured">
+        <h2 class="section-title">热门推荐目的地</h2>
+        <div class="destinations-grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23a8dadc%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23457b9d%22>杭州西湖</text></svg>')"></div>
+                <div class="card-content">
+                    <h3 class="card-title">杭州 · 诗意江南</h3>
+                    <p class="card-desc">漫步西湖边，感受南宋的古韵与现代城市的繁华交织。</p>
+                    <a href="results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23f1faee%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%231d3557%22>西安古城</text></svg>')"></div>
+                <div class="card-content">
+                    <h3 class="card-title">西安 · 十三朝古都</h3>
+                    <p class="card-desc">探索秦砖汉瓦，在兵马俑与大雁塔间穿梭于历史长河。</p>
+                    <a href="results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22><rect width=%22300%22 height=%22200%22 fill=%22%23e9c46a%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23f4a261%22>三亚海滩</text></svg>')"></div>
+                <div class="card-content">
+                    <h3 class="card-title">三亚 · 热带天堂</h3>
+                    <p class="card-desc">阳光、沙滩、椰林，在湛蓝的海边享受纯净的度假时光。</p>
+                    <a href="results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="#">隐私条款</a>
+            <a href="#">客户服务</a>
+        </div>
+        <p>&copy; 2023 畅行旅行 国内旅游服务平台 版权所有</p>
+    </footer>
+
+</body>
+</html>

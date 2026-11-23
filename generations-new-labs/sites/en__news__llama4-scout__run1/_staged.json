@@ -1,0 +1,11 @@
+{
+  "id": "en__news__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "news",
+  "model": "llama4:scout",
+  "completionTokens": 4980,
+  "seconds": 89,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

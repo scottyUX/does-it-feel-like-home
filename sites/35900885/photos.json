@@ -1,0 +1,101 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.dest-img.dest-img-1",
+   "match": "三亚 热带海滨度假 · 52 家精选酒店 ¥68",
+   "url": "assets/photo-b81b4714c06ed32f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Beachfront hotel, Hastings Street, Noosa Heads 01.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "sanya beachfront hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Beachfront_hotel%2C_Hastings_Street%2C_Noosa_Heads_01.jpg/960px-Beachfront_hotel%2C_Hastings_Street%2C_Noosa_Heads_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dest-img.dest-img-2",
+   "match": "大理 苍山洱海 · 47 家精选酒店 ¥428 ",
+   "url": "assets/photo-1179161e2d6da39d.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Hotel Indigo Dali Erhai (20200123082437).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "dali cangshan erhai hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Hotel_Indigo_Dali_Erhai_%2820200123082437%29.jpg/960px-Hotel_Indigo_Dali_Erhai_%2820200123082437%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.dest-img.dest-img-3",
+   "match": "杭州 西湖江南 · 89 家精选酒店 ¥518 ",
+   "url": "assets/photo-81ae535ddd6501c7.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Four Seasons Hotel Hangzhou West Lake 20201001.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake hangzhou hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg/960px-Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search.html",
+   "selector": "div.hotel-img.hotel-img-1",
+   "match": "三亚海棠湾君悦度假酒店 4.9 超棒 (2,84",
+   "url": "assets/photo-61e7ebc4b34ef971.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Sanya HNA Resort - panoramio.jpg",
+   "license": "CC BY 3.0",
+   "subject": "hyatt sanya haitang bay resort",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Sanya_HNA_Resort_-_panoramio.jpg/960px-Sanya_HNA_Resort_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search.html",
+   "selector": "div.hotel-img.hotel-img-2",
+   "match": "三亚亚特兰蒂斯天堂别墅 4.8 超棒 (1,52",
+   "url": "assets/photo-4359564dc462ebb0.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Entrance of Atlantis Aquaventure, Sanya (20230328135457).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "atlantis sanya resort",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Entrance_of_Atlantis_Aquaventure%2C_Sanya_%2820230328135457%29.jpg/960px-Entrance_of_Atlantis_Aquaventure%2C_Sanya_%2820230328135457%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search.html",
+   "selector": "div.hotel-img.hotel-img-3",
+   "match": "三亚天域森林度假酒店 4.7 优秀 (1,932",
+   "url": "assets/photo-59a443914e30d85f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Sanya Narada Resort ^ Spa - panoramio (2).jpg",
+   "license": "CC BY 3.0",
+   "subject": "forest resort sanya",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Sanya_Narada_Resort_%5E_Spa_-_panoramio_%282%29.jpg/960px-Sanya_Narada_Resort_%5E_Spa_-_panoramio_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search.html",
+   "selector": "div.hotel-img.hotel-img-4",
+   "match": "三亚凤凰岛凯悦酒店 4.8 超棒 (3,210)",
+   "url": "assets/photo-201ffb1ee56c3aa9.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Hotel Sumba Cala Millor Son Moro Mallorca exterior.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hyatt sanya phoenix island hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Hotel_Sumba_Cala_Millor_Son_Moro_Mallorca_exterior.jpg/960px-Hotel_Sumba_Cala_Millor_Son_Moro_Mallorca_exterior.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search.html",
+   "selector": "div.hotel-img.hotel-img-5",
+   "match": "三亚大东海蓝湾精品酒店 4.6 优秀 (876)",
+   "url": "assets/photo-168c8966e1f169a2.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Sanya Dadonghay Mandarin Oriental - panoramio (18).jpg",
+   "license": "CC BY 3.0",
+   "subject": "blue bay boutique hotel sanya",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Sanya_Dadonghay_Mandarin_Oriental_-_panoramio_%2818%29.jpg/960px-Sanya_Dadonghay_Mandarin_Oriental_-_panoramio_%2818%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

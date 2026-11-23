@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 | 可衣 KE YI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">可衣 KE YI</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">系列商品</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">🛒</a>
+                <div class="cart-count">2</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="product-detail">
+            <div>
+                <img src="https://picsum.photos/seed/silkblouse/800/1000" class="detail-image" alt="浅灰真丝印花衬衫">
+            </div>
+            <div class="detail-info">
+                <p class="product-category" style="text-align: left;">职场通勤</p>
+                <h1>浅灰真丝印花衬衫</h1>
+                <p class="detail-price">¥899.00</p>
+                
+                <div class="size-selector">
+                    <p>选择尺码</p>
+                    <div class="size-options">
+                        <div class="size-btn selected">S</div>
+                        <div class="size-btn">M</div>
+                        <div class="size-btn">L</div>
+                        <div class="size-btn">XL</div>
+                    </div>
+                </div>
+
+                <p class="detail-desc">
+                    这款衬衫采用100%桑蚕丝面料，质地柔软轻盈。简约的剪裁结合精美的复古印花，完美融合职场干练与女性柔美。适合搭配高腰西裤或半裙，是您日常通勤的理想选择。
+                </p>
+                
+                <p style="font-size: 14px; margin-bottom: 10px;"><strong>商品详情：</strong></p>
+                <ul style="font-size: 14px; color: var(--text-color); margin-bottom: 30px; padding-left: 20px;">
+                    <li>100% 桑蚕丝</li>
+                    <li>适合机洗或手洗（冷水）</li>
+                    <li>建议干洗以保持最佳质感</li>
+                    <li>上海原厂定制剪裁</li>
+                </ul>
+
+                <button class="add-to-cart-btn" onclick="addToCart(this)">加入购物车</button>
+                
+                <div style="margin-top: 30px; font-size: 13px; color: var(--light-text);">
+                    <p>✓ 赠送运费险</p>
+                    <p>✓ 7天无理由退换</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 相关推荐 -->
+        <section class="section-title" style="text-align: left;">
+            <h2>相关推荐</h2>
+        </section>
+        <div class="grid-products">
+            <div class="product-card">
+                <img src="https://picsum.photos/seed/waistcoat/400/500" class="product-image" alt="马甲">
+                <div class="product-info">
+                    <p class="product-category">职场通勤</p>
+                    <h3 class="product-title">棉质条纹针织马甲</h3>
+                    <p class="product-price">¥399.00</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://picsum.photos/seed/belt/400/500" class="product-image" alt="皮带">
+                <div class="product-info">
+                    <p class="product-category">配饰</p>
+                    <h3 class="product-title">复古牛皮皮带</h3>
+                    <p class="product-price">¥299.00</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://picsum.photos/seed/shoes1/400/500" class="product-image" alt="高跟鞋">
+                <div class="product-info">
+                    <p class="product-category">鞋履</p>
+                    <h3 class="product-title">尖头真皮低跟鞋</h3>
+                    <p class="product-price">¥699.00</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://picsum.photos/seed/tights/400/500" class="product-image" alt="丝袜">
+                <div class="product-info">
+                    <p class="product-category">配饰</p>
+                    <h3 class="product-title">透肉无痕丝袜</h3>
+                    <p class="product-price">¥99.00</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">可衣 KE YI</div>
+                    <p style="font-size: 14px; color: var(--text-color);">我们致力于为现代都市女性提供高品质、设计感与舒适度并存的服饰。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul>
+                        <li><a href="products.html">所有商品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="about.html">品牌故事</a></li>
+                        <li><a href="#">配送说明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>订阅我们</h4>
+                    <p style="font-size: 13px; margin-bottom: 10px;">获取最新款通知与独家折扣。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;">
+                    <button class="btn" style="padding: 8px 15px; font-size: 12px;">订阅</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 可衣 KE YI 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(this) {
+            btn.innerText = '已加入购物车';
+            btn.style.backgroundColor = '#28a745';
+            setTimeout(() => {
+                btn.innerText = '加入购物车';
+                btn.style.backgroundColor = '';
+            }, 2000);
+        }
+
+        // 尺码选择逻辑
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

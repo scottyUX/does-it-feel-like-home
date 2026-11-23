@@ -1,0 +1,65 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.post-image.img1",
+   "match": "林 林小北 2 小时前 · 北京 摄影 周末去了",
+   "url": "assets/photo-e683d2e43900b0a4.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Seventeen Arch Bridge at winter solstice sunset (20201222160731).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "seventeen arch bridge sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222160731%29.jpg/960px-Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222160731%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.post-image.img2",
+   "match": "苏 苏晚晴 4 小时前 · 上海 美食 终于找到",
+   "url": "assets/photo-9af6d4190438dc97.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Sushi - Shira Nui AUD18 special lunch set (4734585503).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "handcrafted omakase sushi platter",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Sushi_-_Shira_Nui_AUD18_special_lunch_set_%284734585503%29.jpg/960px-Sushi_-_Shira_Nui_AUD18_special_lunch_set_%284734585503%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "post.html",
+   "selector": "div.post-image",
+   "match": "林 林小北 2 小时前 · 北京 · 摄影 + ",
+   "url": "assets/photo-e683d2e43900b0a4.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Seventeen Arch Bridge at winter solstice sunset (20201222160731).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "seventeen arch bridge sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222160731%29.jpg/960px-Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222160731%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.post-image.i1",
+   "match": "林 林小北 2 小时前 周末去了趟颐和园，夕阳下",
+   "url": "assets/photo-6164755c2f0fd18a.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Seventeen Arch Bridge at winter solstice sunset (20201222161423).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "seventeen arch bridge sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222161423%29.jpg/960px-Seventeen_Arch_Bridge_at_winter_solstice_sunset_%2820201222161423%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.post-image.i2",
+   "match": "林 林小北 3 天前 五环边上开的一家精品咖啡馆",
+   "url": "assets/photo-cbc72da59e7e5808.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Latte Art of cute cat.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "handcrafted latte with cat latte art",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Latte_Art_of_cute_cat.jpg/960px-Latte_Art_of_cute_cat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

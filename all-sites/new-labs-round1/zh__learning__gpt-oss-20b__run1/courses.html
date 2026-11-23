@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>学途 - 课程列表</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f9f9f9;color:#333}
+header{background:#0050b3;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
+header a{color:#fff;text-decoration:none;margin-left:15px;font-size:1rem}
+header a:hover{text-decoration:underline}
+.main{max-width:1200px;margin:0 auto;padding:40px 20px}
+.tabs{display:flex;margin-bottom:20px}
+.tabs button{flex:1;padding:10px;border:none;background:#e0e0e0;color:#333;cursor:pointer;font-size:1rem}
+.tabs button.active{background:#0050b3;color:#fff}
+.card{background:#fff;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,.1);padding:20px;margin-bottom:20px}
+.card h3{font-size:1.5rem;margin-bottom:10px}
+.card p{margin-bottom:15px}
+.card a{display:inline-block;background:#0050b3;color:#fff;padding:8px 15px;border-radius:4px;text-decoration:none;font-size:0.9rem}
+.card a:hover{background:#00408b}
+footer{background:#333;color:#ccc;text-align:center;padding:20px;font-size:0.9rem}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+const tabs=document.querySelectorAll('.tabs button');
+const lists=document.querySelectorAll('.course-list');
+tabs.forEach((tab,i)=>{
+tab.addEventListener('click',()=>{
+tabs.forEach(btn=>btn.classList.remove('active'));
+tab.classList.add('active');
+lists.forEach(list=>list.style.display='none');
+lists[i].style.display='block';
+});
+});
+tabs[0].click();
+});
+</script>
+</head>
+<body>
+<header>
+<div class="logo"><a href="index.html"><strong>学途</strong></a></div>
+<nav>
+<a href="index.html">首页</a>
+<a href="courses.html">课程</a>
+<a href="register.html">注册</a>
+</nav>
+</header>
+<main class="main">
+<h2>课程列表</h2>
+<div class="tabs">
+<button>语言</button>
+<button>计算机</button>
+<button>考试备考</button>
+</div>
+<div class="course-list">
+<div class="card"><h3>商务英语写作</h3><p>商务邮件与报告写作技巧，适合职场新人。</p><p>价格：<strong>¥1299</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>雅思考试冲刺</h3><p>全方位听说读写训练，模拟真题练习。</p><p>价格：<strong>¥1499</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>托福备考课程</h3><p>提升听力与写作能力，官方真题解析。</p><p>价格：<strong>¥1599</strong></p><a href="course-detail.html">查看详情</a></div>
+</div>
+<div class="course-list" style="display:none;">
+<div class="card"><h3>Python编程入门</h3><p>从基础语法到实战项目，零经验亦可。</p><p>价格：<strong>¥999</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>前端开发实战</h3><p>HTML、CSS、JavaScript全栈实战项目。</p><p>价格：<strong>¥1199</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>Java后端开发</h3><p>Spring框架与微服务实战，适合求职方向。</p><p>价格：<strong>¥1399</strong></p><a href="course-detail.html">查看详情</a></div>
+</div>
+<div class="course-list" style="display:none;">
+<div class="card"><h3>雅思考试冲刺</h3><p>全方位听说读写训练，模拟真题练习。</p><p>价格：<strong>¥1499</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>托福备考课程</h3><p>提升听力与写作能力，官方真题解析。</p><p>价格：<strong>¥1599</strong></p><a href="course-detail.html">查看详情</a></div>
+<div class="card"><h3>CFA一级考试</h3><p>财经、财务与投资分析全科目讲解。</p><p>价格：<strong>¥1999</strong></p><a href="course-detail.html">查看详情</a></div>
+</div>
+</main>
+<footer>
+<p>© 2024 学途在线学习平台 | 联系我们: <a href="mailto:support@xuntu.com" style="color:#ff5722">support@xuntu.com</a></p>
+</footer>
+</body>
+</html>

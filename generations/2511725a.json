@@ -1,0 +1,184 @@
+{
+  "id": "2511725a",
+  "type": "food-delivery",
+  "country": "US",
+  "model": "gpt-oss:120b",
+  "promptLanguage": "zh",
+  "runtime": "ollama on NVIDIA DGX Spark",
+  "siteType": "food-delivery",
+  "attempt": 1,
+  "seconds": 221,
+  "doneReason": "stop",
+  "promptTokens": 502,
+  "completionTokens": 8596,
+  "tokensPerSecond": 41.3,
+  "files": [
+    "index.html",
+    "restaurants.html",
+    "restaurant.html",
+    "order.html"
+  ],
+  "createdAt": "2026-11-10T11:57:28-0800",
+  "thinking": "We need to output multiple files: index.html, maybe categories.html, restaurant.html, order.html. Must include CSS and JS inline. Use relative links. All visible text in Simplified Chinese. No mention of instructions. Provide realistic content: \"快送外卖\", location Chengdu, categories like 中餐, 西餐, 快餐, 小吃. Restaurant list page shows restaurants. Restaurant page shows dishes and prices, with add to cart button. Order confirmation page shows summary.\n\nNeed to ensure links use relative paths: e.g., href=\"categories.html\" or \"restaurant.html? id\". Since static site, we can simulate with separate HTML files per restaurant. For simplicity: index.html (home with categories), categories.html (list of restaurants per category maybe?), restaurant1.html, restaurant2.html, order.html.\n\nBut requirement: at least index.html and two other pages. We'll provide maybe index.html, restaurant.html (generic but with placeholder), order.html. But need \"餐厅列表页\". So we need a list page. So files: index.html (home with categories), restaurants.html (list of restaurants), restaurant.html (detail page), order.html (order confirm). That's 4 files.\n\nAll CSS/JS inline. Should be responsive, maybe use simple flexbox.\n\nWe need navigation links between pages: Home, 餐厅列表, 购物车? Provide nav bar.\n\nAdd form for order with \"确认下单\" button but not submit.\n\nWe should avoid target=\"_blank\". Use same tab.\n\nAdd simple JS to manage cart (client side). Use localStorage to store cart items.\n\nMake it look professional.\n\nAll meta tags not contain AI references.\n\nLet's craft each file.\n\nFile: index.html\n- Title: 快送外卖 - 首页\n- Header with logo, nav: 首页, 餐厅列表\n- Main: Banner, categories grid with images (placeholder via unsplash? can't use remote images? Could use data URI or simple background colors). Use placeholder text.\n- Each category links to restaurants.html?category=... we can link to restaurants.html with query param.\n\nAdd script to parse URL maybe.\n\nFile: restaurants.html\n- Parse query param category, display list of restaurants in that category.\n- Provide static data: an array of restaurants objects with id, name, type, rating, image (maybe base64 small placeholder). For simplicity, we can embed images as base64 small icons.\n\n- Each restaurant links to restaurant.html?id=...\n\nFile: restaurant.html\n- Parse id, display restaurant details, dishes list with price and add to cart button.\n- JS to add to cart (store in localStorage as array of items).\n- Show cart summary link to order.html.\n\nFile: order.html\n- Display items from cart, total price, and a \"确认下单\" button (no actual submit). Provide button to clear cart.\n\nAdd CSS for layout.\n\nMake sure all links relative.\n\nOk let's craft.\n\nWill embed small base64 placeholder for images (like a 1x1 pixel). Or use CSS background colors.\n\nSimplify: use placeholder div with background color.\n\nLet's write code.\n\n",
+  "content": "===== FILE: index.html =====\n```html\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>快送外卖 - 首页</title>\n    <style>\n        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333}\n        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}\n        header h1{margin:0;font-size:1.5em}\n        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}\n        .banner{background:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUQEBIVFhUVFRUVFRUQFRUWFhUVFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGisdHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKAAoAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQADBgIBB//EADsQAAEDAgMFBgQEBgIDAAAAAAEAAgMEEQUSITEGEyJBUWEUcYGRobHB0RRC8CUjYnKC4fAVFjOTk6Ky/8QAGgEAAgMBAQAAAAAAAAAAAAAAAQIAAwQFBv/EAC8RAAICAQIEBQMFAQAAAAAAAQIDEQQSITEFQRNRYXGBkaGx8CKR4fD/2gAMAwEAAhEDEQA/ANyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRrO0zVJ2lXGz6a+M6vKfO3c9z6cTtR1Z2tN4U8lZ3vL1Xc7V2uG1xV+7pM1M5X9vV6rGqVnqj1zq3eV6YtRz1+K4tV6V6a8Vj8vV9Y7nJ8V7f8AcfT/AF5zU6VfLrVdV2N5a9dM1vZ5e9ZJtV7eZ5V6Tt1xqZK2tR1c9R5N9v9a9jM+G6rj8V1zVx6b6e3fX/ANu9+KX1f8AlXcV3vY5Wv3K3K+9e8vK5rPpPp6jP1d9P6vN/3X7pXbX6V3X+XJ7fK9c6j+VZcK7fK4tJ+R1l+G9vN9R4P2vXc5KjTjz6q8eKjWfZJc6qvK6rj0V5T1l9K6Lr8c9U9PqT6+8J+J3lXr1+eZc5L8Zz9T1n3zV+ZtL7j6N9VvN/3W3/AKK0Z0r9eV1nV/9n3v+V+fX8U1Z8r0n5W8n+eW+qNfG6c8VZ2vG6VfZ7v+1b9d/4Z1Z2c9Zb6V6n+vR+R6+0V+W/0V9R8Z3JtZ2Vb+8X3z6K+6vJ9V9+fXc9R6n2V+G+R1J9r3nZV+T1v+R1bZc+X6fG+X+G4r8N9U6+R+V1J2X6R+VZc9r8d9v8A9+T6X8N3fZ6rP8L+F6r7t8vZ9Vv8AAcZz3N5t+f+V1X7N9Rz+X+H6T8X9X9D5T+J6X8U6V9N8c+J+V+U9f0+F6v8V4r1X0cZpN8f+J8Y6+L+R6j9c1L5j6+V+X9W+K9fN1+L9L7dX6t9T+P3/AB+V3eV6/8AE6T8U6Z9r7X+J+V+N9X8N5V4t2P+N+Fz/AKVb0X8Z1H5V6Z1b8Y8D7fU1b6J+vKXnV3dZzX6+X7Zf9Z/AGb8v6eJ7j+zZ/0eG+6+fU6tJ+X2N9t6n9c8V+5/8ALX+5R7+K7c1KcP5J6c8Z+R5V6f9U6v2+vJ2V+P9Wz6V7c2Z/0c3+V9K8f9V/ADj5N/9V5e0X6H5X5Pz6X5V6c9V4V7+TzX0e+W/2+K8f8A9z8R6U5j6t6ZfW6R+Z+P5H7c6v+X/AKc3b7T8P8A6+Z+V0X8+V0+R+5V+6n+V8X9V6V+Zf5T6P5X+S+Z6P5P5X+V+f5X+U+R+H+V+X+z6p+F6X6D5P8U/9+P9D+U/9f8Q+V+Z+R+Z+P8U+V+z+K+V+f/2Q==');background-size:cover;height:200px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2em}\n        .categories{display:flex;flex-wrap:wrap;padding:20px;gap:20px;justify-content:center}\n        .cat{background:#fff;padding:15px;width:220px;text-align:center;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer}\n        .cat img{width:100%;height:120px;object-fit:cover;border-radius:5px}\n        .cat h3{margin:10px 0 5px}\n        .cat p{margin:0;color:#777;font-size:0.9em}\n        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}\n        a{color:inherit;text-decoration:none}\n    </style>\n</head>\n<body>\n<header>\n    <h1>快送外卖</h1>\n    <nav>\n        <a href=\"index.html\">首页</a>\n        <a href=\"restaurants.html\">餐厅列表</a>\n    </nav>\n</header>\n\n<div class=\"banner\">美味送到手，快捷又安心</div>\n\n<section class=\"categories\">\n    <div class=\"cat\" onclick=\"location.href='restaurants.html?cat=中餐'\">\n        <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAACqG+XDAAAAJ0lEQVR4nO3BMQEAAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAB4G2YAAQbH3ZsAAAAASUVORK5CYII=\" alt=\"中餐\">\n        <h3>中餐</h3>\n        <p>川菜、湘菜、东北菜等</p>\n    </div>\n    <div class=\"cat\" onclick=\"location.href='restaurants.html?cat=西餐'\">\n        <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAACqG+XDAAAAJ0lEQVR4nO3BMQEAAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAB4G2YAAQbH3ZsAAAAASUVORK5CYII=\" alt=\"西餐\">\n        <h3>西餐</h3>\n        <p>意大利、法国、美国等</p>\n    </div>\n    <div class=\"cat\" onclick=\"location.href='restaurants.html?cat=快餐'\">\n        <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAACqG+XDAAAAJ0lEQVR4nO3BMQEAAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAB4G2YAAQbH3ZsAAAAASUVORK5CYII=\" alt=\"快餐\">\n        <h3>快餐</h3>\n        <p>汉堡、炸鸡、薯条等</p>\n    </div>\n    <div class=\"cat\" onclick=\"location.href='restaurants.html?cat=小吃'\">\n        <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAACqG+XDAAAAJ0lEQVR4nO3BMQEAAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAB4G2YAAQbH3ZsAAAAASUVORK5CYII=\" alt=\"小吃\">\n        <h3>小吃</h3>\n        <p>串串、火锅底料、甜品等</p>\n    </div>\n</section>\n\n<footer>\n    © 2026 快送外卖 · 成都市 · 电话：028-1234‑5678\n</footer>\n</body>\n</html>\n```\n\n===== FILE: restaurants.html =====\n```html\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>快送外卖 - 餐厅列表</title>\n    <style>\n        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fafafa;color:#333}\n        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}\n        header h1{margin:0;font-size:1.4em}\n        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}\n        .container{padding:20px}\n        .filter{margin-bottom:20px}\n        .list{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}\n        .card{background:#fff;width:260px;padding:15px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);cursor:pointer}\n        .card img{width:100%;height:140px;object-fit:cover;border-radius:5px}\n        .card h3{margin:10px 0 5px}\n        .card p{margin:0;color:#777;font-size:0.9em}\n        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}\n        a{color:inherit;text-decoration:none}\n    </style>\n</head>\n<body>\n<header>\n    <h1>餐厅列表</h1>\n    <nav>\n        <a href=\"index.html\">首页</a>\n        <a href=\"restaurants.html\">餐厅列表</a>\n    </nav>\n</header>\n\n<div class=\"container\">\n    <div class=\"filter\">\n        <strong>分类：</strong>\n        <span id=\"catName\">全部</span>\n    </div>\n    <div class=\"list\" id=\"restaurantList\"></div>\n</div>\n\n<footer>\n    © 2026 快送外卖\n</footer>\n\n<script>\n    // 模拟餐厅数据\n    const restaurants = [\n        {id:1, name:'蜀味巴蜀', type:'中餐', cat:'中餐', rating:4.5, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw0FQ6jT2QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='},\n        {id:2, name:'意大利小镇', type:'西餐', cat:'西餐', rating:4.2, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw8wYB+vXwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='},\n        {id:3, name:'速食堡', type:'快餐', cat:'快餐', rating:4.0, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4XQ3kT7QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='},\n        {id:4, name:'串串香', type:'小吃', cat:'小吃', rating:4.6, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4QJc3KpAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='},\n        {id:5, name:'川湘汇', type:'中餐', cat:'中餐', rating:4.3, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4wT4lFHQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='},\n        {id:6, name:'美式汉堡', type:'快餐', cat:'快餐', rating:4.1, img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw8Kj9W6KgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII='}\n    ];\n\n    // 读取 URL 参数\n    const params = new URLSearchParams(location.search);\n    const cat = params.get('cat');\n\n    const listEl = document.getElementById('restaurantList');\n    const catNameEl = document.getElementById('catName');\n\n    const filtered = cat ? restaurants.filter(r=>r.cat===cat) : restaurants;\n    catNameEl.textContent = cat ? cat : '全部';\n\n    filtered.forEach(r=>{\n        const card = document.createElement('div');\n        card.className='card';\n        card.innerHTML=`\n            <img src=\"${r.img}\" alt=\"${r.name}\">\n            <h3>${r.name}</h3>\n            <p>类型：${r.type}　 评分：${r.rating}⭐</p>\n        `;\n        card.onclick=()=>location.href=`restaurant.html?id=${r.id}`;\n        listEl.appendChild(card);\n    });\n</script>\n</body>\n</html>\n```\n\n===== FILE: restaurant.html =====\n```html\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>快送外卖 - 餐厅详情</title>\n    <style>\n        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333}\n        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}\n        header h1{margin:0;font-size:1.2em}\n        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}\n        .container{padding:20px;max-width:900px;margin:auto}\n        .info{display:flex;gap:20px;flex-wrap:wrap}\n        .info img{width:300px;height:200px;object-fit:cover;border-radius:8px}\n        .info div{flex:1}\n        .info h2{margin-top:0}\n        .menu{margin-top:30px}\n        .dish{background:#fff;padding:15px;margin-bottom:10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,0.1)}\n        .dish div{flex:1}\n        .dish h4{margin:0 0 5px}\n        .dish p{margin:0;color:#777;font-size:0.9em}\n        .price{font-weight:bold;color:#e91e63;margin-right:20px}\n        button{background:#ff6600;color:#fff;border:none;padding:8px 12px;border-radius:4px;cursor:pointer}\n        button:hover{background:#e65500}\n        .cart-link{margin-top:20px;text-align:right}\n        .cart-link a{color:#ff6600;font-weight:bold}\n        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}\n        a{color:inherit;text-decoration:none}\n    </style>\n</head>\n<body>\n<header>\n    <h1>餐厅详情</h1>\n    <nav>\n        <a href=\"index.html\">首页</a>\n        <a href=\"restaurants.html\">餐厅列表</a>\n    </nav>\n</header>\n\n<div class=\"container\" id=\"restaurantContainer\">\n    <!-- 动态填充 -->\n</div>\n\n<div class=\"cart-link\">\n    <a href=\"order.html\">查看订单（<span id=\"cartCount\">0</span> 件）</a>\n</div>\n\n<footer>\n    © 2026 快送外卖\n</footer>\n\n<script>\n    // 餐厅与菜品数据\n    const data = {\n        1:{\n            name:'蜀味巴蜀',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw0FQ6jT2QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'中餐',\n            description:'正宗川菜，麻辣鲜香，适合学生、上班族快速下单。',\n            dishes:[\n                {id:101,name:'宫保鸡丁',price:22,desc:'鸡肉丁配花生，微辣'},\n                {id:102,name:'麻婆豆腐',price:18,desc:'豆腐嫩滑，辣味十足'},\n                {id:103,name:'水煮牛肉',price:28,desc:'牛肉片鲜嫩，红油浸透'},\n                {id:104,name:'夫妻肺片',price:20,desc:'牛肉牛杂凉拌，香辣开胃'}\n            ]\n        },\n        2:{\n            name:'意大利小镇',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw8wYB+vXwAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'西餐',\n            description:'意式手工披萨与意面，午餐、晚餐的理想选择。',\n            dishes:[\n                {id:201,name:'玛格丽塔披萨',price:45,desc:'经典番茄酱+莫扎瑞拉'},\n                {id:202,name:'意式肉酱面',price:38,desc:'浓郁肉酱配意大利面'},\n                {id:203,name:'海鲜烩饭',price:58,desc:'大虾、贻贝、鱿鱼同煮'},\n                {id:204,name:'提拉米苏',price:22,desc:'浓郁咖啡奶酪甜点'}\n            ]\n        },\n        3:{\n            name:'速食堡',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4XQ3kT7QAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'快餐',\n            description:'快捷汉堡、炸鸡套餐，学生宿舍、公司茶水间的首选。',\n            dishes:[\n                {id:301,name:'经典牛肉堡',price:32,desc:'鲜嫩牛肉饼+蔬菜'},\n                {id:302,name:'炸鸡块套餐',price:28,desc:'酥脆鸡块+薯条+饮料'},\n                {id:303,name:'双层芝士堡',price:36,desc:'双层牛肉+双层芝士'},\n                {id:304,name:'可乐（350ml）',price:8,desc:'冰爽汽水'}\n            ]\n        },\n        4:{\n            name:'串串香',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4QJc3KpAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'小吃',\n            description:'成都传统串串，麻辣鲜香，适合聚餐或宵夜。',\n            dishes:[\n                {id:401,name:'牛肉串',price:2,desc:'精选牛肉切块'},\n                {id:402,name:'鸡心串',price:1.5,desc:'鲜嫩鸡心'},\n                {id:403,name:'土豆片串',price:1.2,desc:'香脆土豆'},\n                {id:404,name:'毛肚串',price:2.5,desc:'爽滑毛肚'}\n            ]\n        },\n        5:{\n            name:'川湘汇',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw4wT4lFHQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'中餐',\n            description:'川湘融合菜系，辣而不燥，口味多样。',\n            dishes:[\n                {id:501,name:'香辣蟹',price:68,desc:'大闸蟹配香辣酱'},\n                {id:502,name:'酸菜鱼',price:55,desc:'鲜鱼片与酸菜共炖'},\n                {id:503,name:'干锅牛蛙',price:48,desc:'麻辣牛蛙干锅'},\n                {id:504,name:'红油抄手',price:20,desc:'辣味抄手'}\n            ]\n        },\n        6:{\n            name:'美式汉堡',\n            img:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAABf8/4xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5QgZCw8Kj9W6KgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAABGSURBVHja7cExAQAAAMKg9U9tCF8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgV1wAAeRz5jYAAAAASUVORK5CYII=',\n            type:'快餐',\n            description:'美式经典汉堡，搭配薯条和可乐，满足学生和上班族的速食需求。',\n            dishes:[\n                {id:601,name:'原味牛肉堡',price:30,desc:'经典牛肉饼配生菜'},\n                {id:602,name:'培根芝士堡',price:38,desc:'培根+双层芝士'},\n                {id:603,name:'鸡肉堡',price:34,desc:'酥脆鸡排'},\n                {id:604,name:'中薯条（大）',price:12,desc:'金黄酥脆'}\n            ]\n        }\n    };\n\n    // 读取餐厅ID\n    const params = new URLSearchParams(location.search);\n    const id = params.get('id');\n    const restaurant = data[id];\n    const container = document.getElementById('restaurantContainer');\n\n    if (!restaurant){\n        container.innerHTML = '<p>未找到对应的餐厅信息。</p>';\n    }else{\n        container.innerHTML = `\n            <div class=\"info\">\n                <img src=\"${restaurant.img}\" alt=\"${restaurant.name}\">\n                <div>\n                    <h2>${restaurant.name}</h2>\n                    <p>类型：${restaurant.type}</p>\n                    <p>${restaurant.description}</p>\n                </div>\n            </div>\n            <div class=\"menu\">\n                <h3>菜单</h3>\n                ${restaurant.dishes.map(d=>`\n                    <div class=\"dish\" data-id=\"${d.id}\" data-name=\"${d.name}\" data-price=\"${d.price}\">\n                        <div>\n                            <h4>${d.name}</h4>\n                            <p>${d.desc}</p>\n                        </div>\n                        <div class=\"price\">¥${d.price}</div>\n                        <button onclick=\"addToCart(this.parentNode.dataset)\">加入购物车</button>\n                    </div>\n                `).join('')}\n            </div>\n        `;\n    }\n\n    // 购物车操作（使用 localStorage）\n    function addToCart(item){\n        const cart = JSON.parse(localStorage.getItem('cart')||'[]');\n        const exists = cart.find(i=>i.id===item.id);\n        if (exists){\n            exists.qty++;\n        }else{\n            cart.push({id:item.id, name:item.name, price:parseFloat(item.price), qty:1});\n        }\n        localStorage.setItem('cart', JSON.stringify(cart));\n        updateCartCount();\n    }\n\n    function updateCartCount(){\n        const cart = JSON.parse(localStorage.getItem('cart')||'[]');\n        const total = cart.reduce((sum,i)=>sum+i.qty,0);\n        document.getElementById('cartCount').textContent = total;\n    }\n\n    // 页面加载时刷新购物车数量\n    updateCartCount();\n</script>\n</body>\n</html>\n```\n\n===== FILE: order.html =====\n```html\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>快送外卖 - 订单确认</title>\n    <style>\n        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f4f4;color:#333}\n        header{background:#ff6600;color:#fff;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}\n        header h1{margin:0;font-size:1.2em}\n        nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}\n        .container{max-width:800px;margin:auto;padding:20px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,0.1);border-radius:8px;margin-top:30px}\n        h2{margin-top:0}\n        table{width:100%;border-collapse:collapse;margin-top:15px}\n        th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}\n        th{background:#f0f0f0}\n        .total{font-weight:bold;font-size:1.1em;text-align:right}\n        .actions{text-align:right;margin-top:20px}\n        button{background:#ff6600;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer}\n        button:hover{background:#e65500}\n        .empty{text-align:center;color:#777;padding:30px 0}\n        footer{background:#333;color:#fff;text-align:center;padding:15px;margin-top:30px}\n        a{color:inherit;text-decoration:none}\n    </style>\n</head>\n<body>\n<header>\n    <h1>订单确认</h1>\n    <nav>\n        <a href=\"index.html\">首页</a>\n        <a href=\"restaurants.html\">餐厅列表</a>\n    </nav>\n</header>\n\n<div class=\"container\" id=\"orderContainer\">\n    <!-- 动态内容 -->\n</div>\n\n<footer>\n    © 2026 快送外卖\n</footer>\n\n<script>\n    const container = document.getElementById('orderContainer');\n    const cart = JSON.parse(localStorage.getItem('cart')||'[]');\n\n    if (cart.length===0){\n        container.innerHTML = '<p class=\"empty\">购物车为空，请先选择菜品。</p>';\n    }else{\n        let rows = '';\n        let total = 0;\n        cart.forEach(item=>{\n            const subtotal = item.price*item.qty;\n            total += subtotal;\n            rows+=`\n                <tr>\n                    <td>${item.name}</td>\n                    <td>¥${item.price.toFixed(2)}</td>\n                    <td>${item.qty}</td>\n                    <td>¥${subtotal.toFixed(2)}</td>\n                </tr>\n            `;\n        });\n        container.innerHTML = `\n            <h2>您的订单</h2>\n            <table>\n                <thead>\n                    <tr><th>菜品</th><th>单价</th><th>数量</th><th>小计</th></tr>\n                </thead>\n                <tbody>\n                    ${rows}\n                </tbody>\n                <tfoot>\n                    <tr><td colspan=\"3\" class=\"total\">合计</td><td class=\"total\">¥${total.toFixed(2)}</td></tr>\n                </tfoot>\n            </table>\n            <div class=\"actions\">\n                <button onclick=\"confirmOrder()\">确认下单</button>\n                <button style=\"margin-left:10px;background:#777\" onclick=\"clearCart()\">清空购物车</button>\n            </div>\n        `;\n    }\n\n    function confirmOrder(){\n        alert('订单已确认！我们将尽快为您配送。');\n        localStorage.removeItem('cart');\n        location.reload();\n    }\n\n    function clearCart(){\n        if (confirm('确定要清空购物车吗？')){\n            localStorage.removeItem('cart');\n            location.reload();\n        }\n    }\n</script>\n</body>\n</html>\n```",
+  "photoFixes": [
+    {
+      "page": "index.html",
+      "original": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGB…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Chinese_food_dishes.jpg/960px-Chinese_food_dishes.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Chinese food dishes.jpg",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Chen_Mapo_Tofu.jpg/960px-Chen_Mapo_Tofu.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Chen Mapo Tofu.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Pizza-napoletana.jpg/960px-Pizza-napoletana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Pizza-napoletana.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/McDonald%27s_hamburger_and_French_fries_on_New_Year%27s_Day_2023.jpg/960px-McDonald%27s_hamburger_and_French_fries_on_New_Year%27s_Day_2023.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:McDonald's hamburger and French fries on New Year's Day 2023.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "index.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Freshippo_red_willow_twig_lamb_skewers.jpg/960px-Freshippo_red_willow_twig_lamb_skewers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Freshippo red willow twig lamb skewers.jpg",
+      "license": "CC0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Authentic_Mapo_Tofu.jpg/960px-Authentic_Mapo_Tofu.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Authentic Mapo Tofu.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Margherita_Originale.JPG/960px-Margherita_Originale.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Margherita Originale.JPG",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Homemade_hamburger_with_french_fries_in_Argentina.jpg/960px-Homemade_hamburger_with_french_fries_in_Argentina.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Homemade hamburger with french fries in Argentina.jpg",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Fried_Chuan.jpg/960px-Fried_Chuan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Fried Chuan.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mapo_tofu_in_big_bowl.jpg/960px-Mapo_tofu_in_big_bowl.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Mapo tofu in big bowl.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurant.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg/960px-Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Hamburger with blue cheese, guacamole, and other toppings, plus French fries - Massachusetts.jpg",
+      "license": "CC0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Authentic_Mapo_Tofu.jpg/960px-Authentic_Mapo_Tofu.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Authentic Mapo Tofu.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Margherita_Originale.JPG/960px-Margherita_Originale.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Margherita Originale.JPG",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Homemade_hamburger_with_french_fries_in_Argentina.jpg/960px-Homemade_hamburger_with_french_fries_in_Argentina.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Homemade hamburger with french fries in Argentina.jpg",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Fried_Chuan.jpg/960px-Fried_Chuan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "Wikimedia Commons",
+      "title": "File:Fried Chuan.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Mapo_tofu_in_big_bowl.jpg/960px-Mapo_tofu_in_big_bowl.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Mapo tofu in big bowl.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "page": "restaurants.html",
+      "original": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAYAAA…",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg/960px-Hamburger_with_blue_cheese%2C_guacamole%2C_and_other_toppings%2C_plus_French_fries_-_Massachusetts.jpg",
+      "source": "Wikimedia Commons",
+      "title": "File:Hamburger with blue cheese, guacamole, and other toppings, plus French fries - Massachusetts.jpg",
+      "license": "CC0"
+    }
+  ],
+  "imageAudit": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Chen_Mapo_Tofu.jpg/960px-Chen_Mapo_Tofu.jpg",
+      "file": "assets/image-32198280e873acd7.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Pizza-napoletana.jpg/960px-Pizza-napoletana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "file": "assets/image-12723461932d11a6.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/McDonald%27s_hamburger_and_French_fries_on_New_Year%27s_Day_2023.jpg/960px-McDonald%27s_hamburger_and_French_fries_on_New_Year%27s_Day_2023.jpg",
+      "file": "assets/image-7717d9ea8d5860e7.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Freshippo_red_willow_twig_lamb_skewers.jpg/960px-Freshippo_red_willow_twig_lamb_skewers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "file": "assets/image-1f1cb8546a9de354.jpg"
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Chinese_food_dishes.jpg/960px-Chinese_food_dishes.jpg",
+      "file": "assets/image-aa7762f1f3385acf.jpg"
+    }
+  ]
+}

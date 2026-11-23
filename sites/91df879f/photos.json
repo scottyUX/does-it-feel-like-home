@@ -1,0 +1,53 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "a.post-image",
+   "match": "旅行日记 2 小时前 终于来到了心心念念的洱海边",
+   "url": "assets/photo-e97d9d675755ccbf.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Erhai Lake in January 2023.jpg",
+   "license": "CC0",
+   "subject": "erhai lake view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Erhai_Lake_in_January_2023.jpg/960px-Erhai_Lake_in_January_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "a.post-image",
+   "match": "吃货小丽 昨天 这家新开的日料店味道绝了！特别是",
+   "url": "assets/photo-14e7d7d60284789c.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Eel bowl, bowl of eel and rice; 2013.jpg",
+   "license": "CC BY 2.0",
+   "subject": "japanese eel rice bowl",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Eel_bowl%2C_bowl_of_eel_and_rice%3B_2013.jpg/960px-Eel_bowl%2C_bowl_of_eel_and_rice%3B_2013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "post.html",
+   "selector": "div.post-image-large",
+   "match": "旅行日记 10 月 24 日 14:30 终于来",
+   "url": "assets/photo-e97d9d675755ccbf.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Erhai Lake in January 2023.jpg",
+   "license": "CC0",
+   "subject": "erhai lake view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Erhai_Lake_in_January_2023.jpg/960px-Erhai_Lake_in_January_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.cover-photo",
+   "match": "森 小森 热爱生活的设计师。📍上海。 喜欢摄影、",
+   "url": "assets/photo-e433b85de12e7744.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Coffee cup next to laptop on wooden table in cozy indoor workspace during daytime.jpg",
+   "license": "CC BY 2.0",
+   "subject": "minimalist coffee workspace",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Coffee_cup_next_to_laptop_on_wooden_table_in_cozy_indoor_workspace_during_daytime.jpg/960px-Coffee_cup_next_to_laptop_on_wooden_table_in_cozy_indoor_workspace_during_daytime.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

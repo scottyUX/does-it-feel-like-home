@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>预约清洁 - 洁家家政</title>
+<style>
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#fafafa;color:#333;margin:0;padding:0;}
+header{background:#004d40;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{color:#fff;margin:0 10px;text-decoration:none;font-weight:bold;}
+nav a:hover{text-decoration:underline;}
+main{max-width:1200px;margin:0 auto;padding:20px;background:#fff;box-shadow:0 0 5px rgba(0,0,0,0.1);}
+form{max-width:600px;margin:0 auto;}
+label{display:block;margin-top:10px;}
+input,select{width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:4px;}
+button{margin-top:20px;padding:10px 20px;background:#009688;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:1em;}
+button:hover{background:#00796b;}
+.error{color:#d32f2f;font-size:0.9em;margin-top:5px;}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">洁家家政</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="services.html">服务项目</a>
+<a href="booking.html">预约清洁</a>
+</nav>
+</header>
+<main>
+<section>
+<h2>预约清洁</h2>
+<form id="bookingForm" onsubmit="return validateForm(event)">
+<div class="field">
+<label for="name">姓名</label>
+<input type="text" id="name" name="name" required>
+<div class="error" id="error-name"></div>
+</div>
+<div class="field">
+<label for="phone">电话</label>
+<input type="text" id="phone" name="phone" required>
+<div class="error" id="error-phone"></div>
+</div>
+<div class="field">
+<label for="email">邮箱</label>
+<input type="email" id="email" name="email" required>
+<div class="error" id="error-email"></div>
+</div>
+<div class="field">
+<label for="service">服务类型</label>
+<select id="service" name="service" required>
+<option value="">请选择</option>
+<option value="常规">常规清洁</option>
+<option value="深度">深度清洁</option>
+<option value="一次性">一次性清洁</option>
+</select>
+<div class="error" id="error-service"></div>
+</div>
+<div class="field">
+<label for="date">日期</label>
+<input type="date" id="date" name="date" required>
+<div class="error" id="error-date"></div>
+</div>
+<div class="field">
+<label for="time">时间段</label>
+<select id="time" name="time" required>
+<option value="">请选择</option>
+<option value="上午">上午</option>
+<option value="下午">下午</option>
+</select>
+<div class="error" id="error-time"></div>
+</div>
+<div class="field">
+<label for="note">备注</label>
+<textarea id="note" name="note" rows="3"></textarea>
+</div>
+<button type="submit">预约清洁</button>
+</form>
+</section>
+</main>
+<footer>
+<p>北京市朝阳区建国门外大街十八号 二零零二室 | 电话: 13800112233 | 邮箱: 洁家家政</p>
+</footer>
+<script>
+function validateForm(event){
+event.preventDefault();
+var form=document.getElementById('bookingForm');
+var name=form.name.value.trim();
+var phone=form.phone.value.trim();
+var email=form.email.value.trim();
+var service=form.service.value;
+var date=form.date.value;
+var time=form.time.value;
+var errors=[];
+if(name===''){
+errors.push('请输入姓名');
+document.getElementById('error-name').textContent='请输入姓名';
+}else{
+document.getElementById('error-name').textContent='';
+}
+if(phone===''){
+errors.push('请输入电话');
+document.getElementById('error-phone').textContent='请输入电话';
+}else{
+document.getElementById('error-phone').textContent='';
+}
+if(email===''){
+errors.push('请输入邮箱');
+document.getElementById('error-email').textContent='请输入邮箱';
+}else{
+document.getElementById('error-email').textContent='';
+}
+if(service===''){
+errors.push('请选择服务类型');
+document.getElementById('error-service').textContent='请选择服务类型';
+}else{
+document.getElementById('error-service').textContent='';
+}
+if(date===''){
+errors.push('请选择日期');
+document.getElementById('error-date').textContent='请选择日期';
+}else{
+document.getElementById('error-date').textContent='';
+}
+if(time===''){
+errors.push('请选择时间段');
+document.getElementById('error-time').textContent='请选择时间段';
+}else{
+document.getElementById('error-time').textContent='';
+}
+if(errors.length>0){
+alert('请填写必填项：\n' + errors.join('\n'));
+return false;
+}
+alert('预约成功！我们将在一天内与您联系。');
+return true;
+}
+</script>
+</body>
+</html>

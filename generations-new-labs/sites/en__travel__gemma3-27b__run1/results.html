@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 畅行旅行</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .results-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .hotel-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        .hotel-item h3 {
+            margin-top: 0;
+        }
+        .hotel-item p {
+            margin-bottom: 5px;
+        }
+        .hotel-item .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .hotel-item a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>畅行旅行</h1>
+        <p>探索中国的美丽</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="results.html">搜索结果</a>
+    </nav>
+
+    <div class="results-container">
+        <h2>搜索结果</h2>
+
+        <div class="hotel-item">
+            <h3>北京四季酒店</h3>
+            <p>地址：北京市朝阳区亮马桥路48号</p>
+            <p>评分：4.8/5</p>
+            <p class="price">价格：每晚 1500 元起</p>
+            <a href="hotel_detail.html">查看详情</a>
+        </div>
+
+        <div class="hotel-item">
+            <h3>上海浦东丽思卡尔顿酒店</h3>
+            <p>地址：上海市浦东新区世纪大道8号</p>
+            <p>评分：4.7/5</p>
+            <p class="price">价格：每晚 1800 元起</p>
+            <a href="hotel_detail.html">查看详情</a>
+        </div>
+
+        <div class="hotel-item">
+            <h3>杭州西湖国宾馆</h3>
+            <p>地址：浙江省杭州市西湖区北山路53号</p>
+            <p>评分：4.6/5</p>
+            <p class="price">价格：每晚 1200 元起</p>
+            <a href="hotel_detail.html">查看详情</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 畅行旅行. 版权所有.
+    </footer>
+</body>
+</html>

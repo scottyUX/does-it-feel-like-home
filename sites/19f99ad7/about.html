@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于可衣 - 可衣 Keyi</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* About Content */
+        .about-hero { background: var(--bg-light); padding: 80px 0; text-align: center; }
+        .about-hero h1 { font-size: 36px; font-weight: 300; margin-bottom: 20px; }
+        .about-hero p { font-size: 16px; color: #666; max-width: 600px; margin: 0 auto; }
+        
+        .about-content { padding: 60px 0; display: flex; gap: 60px; align-items: center; }
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: 24px; margin-bottom: 20px; font-weight: normal; }
+        .about-text p { margin-bottom: 20px; color: #666; }
+        .about-image { flex: 1; height: 400px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px; }
+        
+        .values { padding: 60px 0; background: var(--bg-light); }
+        .values-grid { display: flex; justify-content: space-between; text-align: center; }
+        .value-item { flex: 1; padding: 20px; }
+        .value-item h3 { font-size: 18px; margin-bottom: 10px; font-weight: normal; }
+        .value-item p { font-size: 14px; color: #666; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .about-content { flex-direction: column; }
+            .values-grid { flex-direction: column; gap: 30px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>关于我们</h1>
+            <p>致力于为中国女性打造简约而不简单的日常与职场穿搭。</p>
+        </div>
+    </section>
+
+    <section class="container about-content">
+        <div class="about-text">
+            <h2>品牌故事</h2>
+            <p>“可衣”成立于上海，我们相信服装不仅是遮体的布料，更是表达自我、舒适生活的载体。我们的设计团队深入研究了现代都市女性的生活节奏，从办公室到周末聚会，从通勤路上到休闲时光。</p>
+            <p>我们坚持使用高品质面料，如新疆长绒棉、真丝和优质羊毛，确保每一件衣物在保持美观的同时，也能提供极佳的穿着体验。简约的线条、中性的色调，旨在帮助每位女性在忙碌的生活中找到属于自己的从容与优雅。</p>
+            <p>我们希望通过“可衣”，让每一位顾客都能感受到：“穿得舒服，才更自在。”</p>
+            <a href="shop.html" style="color: var(--accent); border-bottom: 1px solid var(--accent);">立即选购 ></a>
+        </div>
+        <div class="about-image">
+            团队与工作室图片
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container values-grid">
+            <div class="value-item">
+                <h3>舒适面料</h3>
+                <p>精选天然材质，亲肤透气，全天候舒适体验。</p>
+            </div>
+            <div class="value-item">
+                <h3>简约设计</h3>
+                <p>去除繁复装饰，专注于剪裁与线条，经典永不过时。</p>
+            </div>
+            <div class="value-item">
+                <h3>可持续理念</h3>
+                <p>关注环保包装与生产流程，为社会尽一份心力。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

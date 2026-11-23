@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>垂感西装外套 - 可衣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #2C2C2C;
+            background: #FAF8F5;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #EDE8E3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: #8B7355;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.2s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: #2C2C2C;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #8B7355;
+        }
+
+        .nav-cart {
+            position: relative;
+        }
+
+        .nav-cart .badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #8B7355;
+            color: #fff;
+            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 40px 0;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .breadcrumb a {
+            color: #8B7355;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Detail */
+        .detail-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Left - Image */
+        .detail-images {
+            position: sticky;
+            top: 100px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 480px;
+            background: linear-gradient(135deg, #F5EDE5, #EDE3D7);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin-bottom: 16px;
+        }
+
+        .thumb-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .thumb:hover, .thumb.active {
+            border-color: #8B7355;
+        }
+
+        .thumb-1 { background: linear-gradient(135deg, #F5EDE5, #EDE3D7); }
+        .thumb-2 { background: linear-gradient(135deg, #E8EDF2, #DDE4EC); }
+        .thumb-3 { background: linear-gradient(135deg, #F2EDE8, #EAE2D9); }
+        .thumb-4 { background: linear-gradient(135deg, #EDE8F0, #E4DDE9); }
+
+        /* Right - Info */
+        .detail-info {
+            padding-top: 8px;
+        }
+
+        .product-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-subtitle {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 24px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .price-current {
+            font-size: 32px;
+            font-weight: 700;
+            color: #C75B3A;
+        }
+
+        .price-original {
+            font-size: 16px;
+            color: #bbb;
+            text-decoration: line-through;
+        }
+
+        .price-tag {
+            background: #FFF3E8;
+            color: #C75B3A;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Color Selection */
+        .option-group {
+            margin-bottom: 24px;
+        }
+
+        .option-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .option-label span {
+            color: #999;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-option {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #E5E0DA;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .color-option:hover, .color-option.selected {
+            border-color: #2C2C2C;
+            transform: scale(1.1);
+        }
+
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 0 0 4px rgba(0,0,0,0.5);
+        }
+
+        /* Size Selection */
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            min-width: 48px;
+            height: 42px;
+            padding: 0 16px;
+            border: 1.5px solid #DDD5CC;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+
+        .size-option:hover, .size-option.selected {
+            border-color: #2C2C2C;
+            background: #2C2C2C;
+            color: #fff;
+        }
+
+        .size-guide {
+            font-size: 12px;
+            color: #8B7355;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .size-guide:hover {
+            text-decoration: underline;
+        }
+
+        /* Quantity */
+        .qty-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid #DDD5CC;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            background: #fff;
+            transition: all 0.2s;
+        }
+
+        .qty-btn:hover {
+            border-color: #2C2C2C;
+        }
+
+        .qty-value {
+            font-size: 16px;
+            font-weight: 600;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            padding: 16px 32px;
+            background: #2C2C2C;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .btn-add-cart:hover {
+            background: #8B7355;
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            padding: 16px 32px;
+            background: #C75B3A;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .btn-buy-now:hover {
+            background: #A84A2E;
+        }
+
+        /* Info Tabs */
+        .info-tabs {
+            margin-top: 48px;
+            border-top: 1px solid #EDE8E3;
+            padding-top: 32px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            font-size: 14px;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            color: #777;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            color: #2C2C2C;
+            border-bottom-color: #8B7355;
+        }
+
+        .tab-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 2;
+        }
+
+        .tab-content h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #2C2C2C;
+        }
+
+        .tab-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tab-content ul li {
+            padding: 4px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tab-content ul li span:first-child {
+            color: #999;
+        }
+
+        /* Size Table */
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .size-table th, .size-table td {
+            padding: 10px 16px;
+            text-align: center;
+            border: 1px solid #EDE8E3;
+        }
+
+        .size-table th {
+            background: #F5F0EB;
+            font-weight: 600;
+        }
+
+        /* Related Products */
+        .related-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        .related-section h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .related-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .related-img {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .related-info {
+            padding: 14px 16px;
+        }
+
+        .related-info h4 {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .related-info .price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #8B7355;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2C2C2C;
+            color: #ccc;
+            padding: 60px 40px 30px;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #999;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid #444;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .detail-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .detail-images {
+                position: static;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+            .breadcrumb, .detail-container, .related-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .product-name {
+                font-size: 22px;
+            }
+            .price-current {
+                font-size: 26px;
+            }
+            .action-buttons {
+                flex-direction: column;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html" class="active">单品详情</a>
+                <a href="cart.html" class="nav-cart">购物车<span class="badge">3</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">首页</a> / <a href="products.html">外套</a> / 垂感西装外套
+    </div>
+
+    <div class="detail-container">
+        <!-- Left: Images -->
+        <div class="detail-images">
+            <div class="main-image">🧥</div>
+            <div class="thumb-row">
+                <div class="thumb thumb-1 active">🧥</div>
+                <div class="thumb thumb-2">👤</div>
+                <div class="thumb thumb-3">📐</div>
+                <div class="thumb thumb-4">🔍</div>
+            </div>
+        </div>
+
+        <!-- Right: Info -->
+        <div class="detail-info">
+            <h1 class="product-name">垂感西装外套</h1>
+            <p class="product-subtitle">醋酸混纺面料 · 微收腰设计 · 通勤与日常两相宜</p>
+
+            <div class="price-row">
+                <span class="price-current">¥499</span>
+                <span class="price-original">¥699</span>
+                <span class="price-tag">限时 7.1 折</span>
+            </div>
+
+            <div class="option-group">
+                <div class="option-label">颜色 <span>燕麦白</span></div>
+                <div class="color-options">
+                    <div class="color-option selected" style="background:#F5F0EB" title="燕麦白"></div>
+                    <div class="color-option" style="background:#2C2C2C" title="经典黑"></div>
+                    <div class="color-option" style="background:#8B7355" title="焦糖棕"></div>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <div class="option-label">尺码 <span>建议选平时穿的码</span></div>
+                <div class="size-options">
+                    <div class="size-option">S</div>
+                    <div class="size-option selected">M</div>
+                    <div class="size-option">L</div>
+                    <div class="size-option">XL</div>
+                </div>
+                <div class="size-guide" onclick="document.getElementById('sizeTab').click()">查看尺码对照表 →</div>
+            </div>
+
+            <div class="option-group">
+                <div class="option-label">数量</div>
+                <div class="qty-row">
+                    <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                    <span class="qty-value" id="qty">1</span>
+                    <button class="qty-btn" onclick="changeQty(1)">+</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-add-cart" onclick="addToCartDetail()">加入购物袋</button>
+                <button class="btn-buy-now" onclick="location.href='cart.html'">立即购买</button>
+            </div>
+
+            <!-- Info Tabs -->
+            <div class="info-tabs">
+                <div class="tab-buttons">
+                    <span class="tab-btn active" onclick="switchTab(this, 'desc')">商品详情</span>
+                    <span class="tab-btn" id="sizeTab" onclick="switchTab(this, 'size')">尺码参考</span>
+                    <span class="tab-btn" onclick="switchTab(this, 'care')">洗护说明</span>
+                    <span class="tab-btn" onclick="switchTab(this, 'review')">用户评价 (286)</span>
+                </div>
+
+                <div class="tab-content" id="tab-desc">
+                    <h4>面料与工艺</h4>
+                    <ul>
+                        <li><span>面料成分</span><span>65% 醋酸纤维 / 30% 聚酯纤维 / 5% 氨纶</span></li>
+                        <li><span>克重</span><span>220g/m²</span></li>
+                        <li><span>内里</span><span>无里 · 裸缝工艺</span></li>
+                        <li><span>版型</span><span>微收腰 · 正肩 · 衣长 72cm（M码）</span></li>
+                        <li><span>细节</span><span>单粒扣 · 双侧斜插口袋 · 后开衩</span></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="tab-size" style="display:none;">
+                    <h4>尺码对照表（单位：cm）</h4>
+                    <table class="size-table">
+                        <tr>
+                            <th>尺码</th>
+                            <th>胸围</th>
+                            <th>肩宽</th>
+                            <th>衣长</th>
+                            <th>袖长</th>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>92</td>
+                            <td>36</td>
+                            <td>70</td>
+                            <td>58</td>
+                        </tr>
+                        <tr>
+                            <td>M</td>
+                            <td>96</td>
+                            <td>37.5</td>
+                            <td>72</td>
+                            <td>59.5</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>100</td>
+                            <td>39</td>
+                            <td>74</td>
+                            <td>61</td>
+                        </tr>
+                        <tr>
+                            <td>XL</td>
+                            <td>104</td>
+                            <td>40.5</td>
+                            <td>76</td>
+                            <td>62.5</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="tab-care" style="display:none;">
+                    <h4>洗护建议</h4>
+                    <ul>
+                        <li><span>洗涤方式</span><span>建议干洗 / 30°C 以下手洗</span></li>
+                        <li><span>晾晒</span><span>阴干 · 避免暴晒</span></li>
+                        <li><span>熨烫</span><span>低温熨烫（≤110°C）· 可垫布</span></li>
+                        <li><span>注意</span><span>请勿使用含氯漂白剂</span></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="tab-review" style="display:none;">
+                    <h4>用户评价（综合 4.8 / 5.0）</h4>
+                    <p style="margin-bottom:12px;">"面料垂感非常好，穿了一整周没有皱，上班开会穿很得体。比预期薄一些，适合春秋穿。" <span style="color:#999; font-size:12px;">— 林女士 · 上海 · M码</span></p>
+                    <p style="margin-bottom:12px;">"焦糖色太温柔了！收腰设计显得腰很细，搭配高腰裤绝了。" <span style="color:#999; font-size:12px;">— 小周 · 杭州 · L码</span></p>
+                    <p>"黑色那件质感很高级，同事都问我在哪买的。唯一希望口袋能再深一点。" <span style="color:#999; font-size:12px;">— 陈女士 · 北京 · M码</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related -->
+    <section class="related-section">
+        <h2>搭配推荐</h2>
+        <div class="related-grid">
+            <a href="product-detail.html" class="related-card">
+                <div class="related-img" style="background:linear-gradient(135deg,#F0F5ED,#E5EDE2)">👗</div>
+                <div class="related-info">
+                    <h4>棉质法式连衣裙</h4>
+                    <span class="price">¥399</span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="related-img" style="background:linear-gradient(135deg,#F5EDE5,#EDE3D7)">👖</div>
+                <div class="related-info">
+                    <h4>弹力阔腿裤</h4>
+                    <span class="price">¥279</span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="related-img" style="background:linear-gradient(135deg,#EDE8F0,#E4DDE9)">👚</div>
+                <div class="related-info">
+                    <h4>法式方领上衣</h4>
+                    <span class="price">¥249</span>
+                </div>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="related-img" style="background:linear-gradient(135deg,#EEF2F5,#E3EAEE)">🧥</div>
+                <div class="related-info">
+                    <h4>针织开衫</h4>
+                    <span class="price">¥269</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>可 衣</h3>
+                <p>上海 · 为都市女性设计的日常与通勤服饰品牌<br>上海市静安区愚园路 88 号 2 层<br>客服时间：周一至周日 9:00-21:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>购物指南</h4>
+                <a href="products.html">全部商品</a>
+                <a href="product-detail.html">新品上架</a>
+                <a href="cart.html">我的购物车</a>
+            </div>
+            <div class="footer-col">
+                <h4>售后服务</h4>
+                <a href="#">尺码对照表</a>
+                <a href="#">退换货说明</a>
+                <a href="#">面料护理</a>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <a href="#">service@keyi.cn</a>
+                <a href="#">微信公众号：可衣生活</a>
+                <a href="#">小红书：可衣Keyi</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 可衣 Keyi. 沪ICP备2024XXXXXX号 | 沪公网安备 31010602XXXXXX号
+        </div>
+    </footer>
+
+    <script>
+        let qty = 1;
+
+        function changeQty(delta) {
+            qty = Math.max(1, Math.min(9, qty + delta));
+            document.getElementById('qty').textContent = qty;
+        }
+
+        function addToCartDetail() {
+            const btn = document.querySelector('.btn-add-cart');
+            btn.textContent = '✓ 已加入购物袋';
+            btn.style.background = '#5B8C5A';
+            setTimeout(function() {
+                btn.textContent = '加入购物袋';
+                btn.style.background = '#2C2C2C';
+            }, 2000);
+        }
+
+        function switchTab(el, tabId) {
+            document.querySelectorAll('.tab-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            el.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(function(tab) {
+                tab.style.display = 'none';
+            });
+            document.getElementById('tab-' + tabId).style.display = 'block';
+        }
+
+        // Color selection
+        document.querySelectorAll('.color-option').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(function(o) {
+                    o.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // Size selection
+        document.querySelectorAll('.size-option').forEach(function(opt) {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(function(o) {
+                    o.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        // Thumb selection
+        document.querySelectorAll('.thumb').forEach(function(thumb) {
+            thumb.addEventListener('click', function() {
+                document.querySelectorAll('.thumb').forEach(function(t) {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

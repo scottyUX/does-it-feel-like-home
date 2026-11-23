@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程详情 - Python 数据分析与可视化实战 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        header { background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; color: var(--text-dark); }
+        .btn { padding: 10px 25px; border-radius: 6px; font-weight: 500; cursor: pointer; border: none; }
+        .btn-outline { border: 1px solid var(--text-gray); background: transparent; color: var(--text-dark); }
+        .btn-primary { background: var(--primary-color); color: var(--white); }
+
+        /* Main Content */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+
+        .course-header { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 30px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .breadcrumb { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 10px; }
+        .breadcrumb a:hover { color: var(--primary-color); text-decoration: underline; }
+        .course-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
+        .course-meta { display: flex; gap: 30px; color: var(--text-gray); font-size: 0.95rem; margin-bottom: 20px; }
+        .meta-item { display: flex; align-items: center; gap: 5px; }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .course-gallery {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .main-image { width: 100%; border-radius: var(--border-radius); height: 400px; object-fit: cover; margin-bottom: 20px; }
+        
+        .sidebar {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .price-tag { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); margin-bottom: 20px; }
+        .price-tag span { font-size: 1rem; color: var(--text-gray); font-weight: 400; text-decoration: line-through; margin-right: 10px; }
+        
+        .info-grid { margin-bottom: 30px; }
+        .info-item { margin-bottom: 20px; }
+        .info-label { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 5px; font-weight: 600; }
+        .info-content { font-size: 1rem; }
+
+        .teacher-card {
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .teacher-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .teacher-info h5 { font-size: 1rem; margin-bottom: 2px; }
+        .teacher-info p { font-size: 0.85rem; color: var(--text-gray); }
+
+        /* Content Sections */
+        .course-section { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 30px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 30px; border-left: 4px solid var(--primary-color); padding-left: 15px; }
+
+        .syllabus-list { list-style: none; }
+        .syllabus-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+        }
+        .syllabus-item:last-child { border-bottom: none; }
+        .module-name { font-weight: 600; }
+        .lesson-count { color: var(--text-gray); font-size: 0.9rem; }
+
+        .features-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .feature-check { display: flex; gap: 10px; align-items: start; }
+        .check-icon { color: var(--primary-color); margin-top: 3px; }
+
+        /* Footer */
+        footer { background: #1f2937; color: #9ca3af; padding: 40px 0; text-align: center; font-size: 0.9rem; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .main-image { height: 250px; }
+            .features-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                <span>学途</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="courses.html">课程列表</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <button class="btn btn-primary">立即报名</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="course-header">
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / <a href="courses.html">课程列表</a> / Python 数据分析与可视化实战
+            </div>
+            <h1 class="course-title">Python 数据分析与可视化实战</h1>
+            <div class="course-meta">
+                <div class="meta-item">⏱️ 持续更新</div>
+                <div class="meta-item">👥 4,520 人已学</div>
+                <div class="meta-item">★ 4.9 (890 评价)</div>
+            </div>
+            <div class="features-list" style="max-width: 600px; grid-template-columns: 1fr 1fr 1fr 1fr; margin-top: 20px;">
+                <div style="text-align: center; padding: 10px; background: #eff6ff; border-radius: 8px;">
+                    <div style="font-size: 0.8rem; color: #666;">课时</div>
+                    <div style="font-weight: bold;">128 节</div>
+                </div>
+                <div style="text-align: center; padding: 10px; background: #eff6ff; border-radius: 8px;">
+                    <div style="font-size: 0.8rem; color: #666;">时长</div>
+                    <div style="font-weight: bold;">28 小时</div>
+                </div>
+                <div style="text-align: center; padding: 10px; background: #eff6ff; border-radius: 8px;">
+                    <div style="font-size: 0.8rem; color: #666;">难度</div>
+                    <div style="font-weight: bold;">初级入门</div>
+                </div>
+                <div style="text-align: center; padding: 10px; background: #eff6ff; border-radius: 8px;">
+                    <div style="font-size: 0.8rem; color: #666;">语言</div>
+                    <div style="font-weight: bold;">中文授课</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-grid">
+            <div class="course-gallery">
+                <img src="assets/image-50fb7e8407860dd0.jpg" alt="课程主图" class="main-image">
+                <div style="display: flex; gap: 10px; overflow-x: auto;">
+                    <img src="assets/image-46020aadc944e61f.jpg" style="border-radius: 4px; flex-shrink: 0; cursor: pointer;">
+                    <img src="assets/image-c2ae65e6d5b3bbba.jpg" style="border-radius: 4px; flex-shrink: 0; cursor: pointer;">
+                    <img src="assets/image-21d4f63b00303951.jpg" style="border-radius: 4px; flex-shrink: 0; cursor: pointer;">
+                    <img src="assets/image-d1cbcac101586dc8.jpg" style="border-radius: 4px; flex-shrink: 0; cursor: pointer;">
+                </div>
+            </div>
+            
+            <aside class="sidebar">
+                <div class="price-tag">¥<span>599</span> 399</div>
+                <p style="margin-bottom: 25px; color: var(--text-gray); font-size: 0.9rem;">限时早鸟优惠，立即加入学习</p>
+                
+                <div class="teacher-card">
+                    <img src="assets/image-4b55e0297140b181.jpg" alt="讲师" class="teacher-avatar">
+                    <div class="teacher-info">
+                        <h5>张老师</h5>
+                        <p>资深数据科学家，前BAT算法工程师</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-bottom: 15px; padding: 15px;">立即购买课程</button>
+                <button class="btn btn-outline" style="width: 100%;">加入购物车</button>
+            </aside>
+        </div>
+
+        <section class="course-section">
+            <h2 class="section-title">课程简介</h2>
+            <p style="color: #4b5563; line-height: 1.8;">
+                本课程专为希望进入数据分析领域的初学者设计。通过系统的讲解，你将掌握 Python 最核心的库（Pandas, NumPy, Matplotlib, Seaborn），并学会使用数据进行清洗、处理和可视化分析。课程包含大量实战案例，帮助你快速搭建数据分析思维体系，为求职面试或实际工作打下坚实基础。
+            </p>
+        </section>
+
+        <section class="course-section">
+            <h2 class="section-title">课程大纲</h2>
+            <ul class="syllabus-list">
+                <li class="syllabus-item">
+                    <div>
+                        <div class="module-name">第一章：Python 基础回顾与安装</div>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">环境搭建、基础语法、IDE推荐</div>
+                    </div>
+                    <div class="lesson-count">4 节课</div>
+                </li>
+                <li class="syllabus-item">
+                    <div>
+                        <div class="module-name">第二章：NumPy 数值计算入门</div>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">数组操作、数学函数、矩阵运算</div>
+                    </div>
+                    <div class="lesson-count">8 节课</div>
+                </li>
+                <li class="syllabus-item">
+                    <div>
+                        <div class="module-name">第三章：Pandas 数据处理大师</div>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">DataFrame 操作、数据清洗、缺失值处理</div>
+                    </div>
+                    <div class="lesson-count">15 节课</div>
+                </li>
+                <li class="syllabus-item">
+                    <div>
+                        <div class="module-name">第四章：Matplotlib 与 Seaborn 可视化</div>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">折线图、柱状图、散点图、热力图绘制</div>
+                    </div>
+                    <div class="lesson-count">12 节课</div>
+                </li>
+                <li class="syllabus-item">
+                    <div>
+                        <div class="module-name">第五章：实战项目：电商数据分析</div>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">综合运用所学知识完成真实数据报告</div>
+                    </div>
+                    <div class="lesson-count">6 节课</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="course-section">
+            <h2 class="section-title">你将学到什么</h2>
+            <div class="features-list">
+                <div class="feature-check">✓ 掌握 Python 核心数据分析语法</div>
+                <div class="feature-check">✓ 独立完成数据清洗和预处理流程</div>
+                <div class="feature-check">✓ 绘制专业级的数据可视化图表</div>
+                <div class="feature-check">✓ 搭建完整的数据分析实战案例</div>
+                <div class="feature-check">✓ 获得数据分析相关面试经验分享</div>
+                <div class="feature-check">✓ 永久观看，不断更新迭代内容</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2023 学途在线教育平台. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

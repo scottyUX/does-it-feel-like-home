@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表 - 可衣 Keyi</title>
+    <style>
+        :root {
+            --primary: #333333;
+            --accent: #b08d76;
+            --bg-light: #f9f9f9;
+            --border: #e5e5e5;
+            --text: #444444;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); line-height: 1.6; background: var(--white); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 15px; color: var(--primary); }
+        .nav-links a:hover { color: var(--accent); }
+        .cart-icon { position: relative; }
+        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--accent); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; }
+
+        /* Shop Layout */
+        .shop-header { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        .shop-header h1 { font-size: 28px; font-weight: 300; }
+        
+        .shop-layout { display: flex; gap: 40px; padding: 40px 0; }
+        
+        /* Sidebar */
+        .sidebar { width: 250px; flex-shrink: 0; }
+        .filter-group { margin-bottom: 30px; }
+        .filter-title { font-weight: bold; margin-bottom: 15px; font-size: 14px; }
+        .filter-option { display: flex; align-items: center; margin-bottom: 8px; font-size: 14px; color: #666; cursor: pointer; }
+        .filter-option input { margin-right: 10px; }
+        
+        /* Grid */
+        .product-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .product-card { border: 1px solid transparent; padding: 10px; transition: 0.3s; }
+        .product-card:hover { border-color: var(--border); background: #fafafa; }
+        .product-img { height: 240px; background: #f0f0f0; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; position: relative; }
+        .badge { position: absolute; top: 10px; left: 10px; background: var(--accent); color: white; font-size: 11px; padding: 3px 8px; }
+        .product-info h3 { font-size: 15px; margin-bottom: 5px; font-weight: normal; line-height: 1.4; }
+        .product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .product-price { color: var(--accent); font-weight: bold; font-size: 16px; }
+        .product-size { font-size: 12px; color: #888; }
+
+        /* Footer */
+        footer { background: var(--primary); color: #ccc; padding: 50px 0; margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 16px; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 13px; }
+        .footer-col ul li a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; font-size: 12px; }
+
+        @media (max-width: 900px) {
+            .shop-layout { flex-direction: column; }
+            .sidebar { width: 100%; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">可衣 Keyi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">查看所有商品</a></li>
+                    <li><a href="shop.html?cat=new">新品上市</a></li>
+                    <li><a href="shop.html?cat=work">职场系列</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">购物车 (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container shop-header">
+        <h1>所有商品</h1>
+        <p style="color:#666; margin-top:5px;">共找到 24 件商品</p>
+    </div>
+
+    <div class="container shop-layout">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <div class="filter-title">价格区间</div>
+                <label class="filter-option"><input type="radio" name="price"> 100 - 299 元</label>
+                <label class="filter-option"><input type="radio" name="price"> 300 - 599 元</label>
+                <label class="filter-option"><input type="radio" name="price"> 600 元以上</label>
+            </div>
+            <div class="filter-group">
+                <div class="filter-title">分类</div>
+                <label class="filter-option"><input type="checkbox" checked> 上衣</label>
+                <label class="filter-option"><input type="checkbox"> 下装</label>
+                <label class="filter-option"><input type="checkbox"> 连衣裙</label>
+                <label class="filter-option"><input type="checkbox"> 外套</label>
+            </div>
+            <div class="filter-group">
+                <div class="filter-title">尺码</div>
+                <label class="filter-option"><input type="checkbox"> S</label>
+                <label class="filter-option"><input type="checkbox"> M</label>
+                <label class="filter-option"><input type="checkbox"> L</label>
+                <label class="filter-option"><input type="checkbox"> XL</label>
+            </div>
+        </aside>
+
+        <main class="product-grid">
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>法式真丝衬衫</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥399.00</span>
+                        <span class="product-size">S/M/L</span>
+                    </div>
+                </div>
+            </a>
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span class="badge">热销</span>
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>高腰垂感阔腿裤</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥259.00</span>
+                        <span class="product-size">S/M/L/XL</span>
+                    </div>
+                </div>
+            </a>
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>羊毛混纺西装外套</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥599.00</span>
+                        <span class="product-size">S/M/L</span>
+                    </div>
+                </div>
+            </a>
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>修身针织连衣裙</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥459.00</span>
+                        <span class="product-size">M/L/XL</span>
+                    </div>
+                </div>
+            </a>
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>纯棉基础款 T 恤</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥129.00</span>
+                        <span class="product-size">S/M/L/XL</span>
+                    </div>
+                </div>
+            </a>
+            <a href="product.html" class="product-card">
+                <div class="product-img">
+                    <span>产品图片</span>
+                </div>
+                <div class="product-info">
+                    <h3>经典风衣外套</h3>
+                    <div class="product-meta">
+                        <span class="product-price">￥699.00</span>
+                        <span class="product-size">S/M/L</span>
+                    </div>
+                </div>
+            </a>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>关于可衣</h4>
+                <ul>
+                    <li><a href="about.html">品牌故事</a></li>
+                    <li><a href="shop.html?cat=sale">促销优惠</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">尺码指南</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li>微信公众号：可衣 Keyi</li>
+                    <li>上海市徐汇区时尚路 88 号</li>
+                    <li>电话：021-12345678</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            &copy; 2023 可衣 Keyi. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖 - 成都外卖配送服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+        .menu li {
+            margin-left: 1.5rem;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #333;
+        }
+        .hero {
+            background-color: #4CAF50;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #f44336;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 2rem 0;
+        }
+        .category {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .category img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .category h3 {
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        .restaurants {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+        .restaurant {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .restaurant img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .restaurant-info {
+            padding: 1rem;
+        }
+        .restaurant-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .restaurant-price {
+            color: #f44336;
+            font-weight: bold;
+        }
+        .restaurant-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .btn-order {
+            display: block;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .order-confirmation {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .order-confirmation h2 {
+            margin-bottom: 1rem;
+        }
+        .order-confirmation p {
+            margin-bottom: 1.5rem;
+        }
+        .order-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">快送外卖</div>
+                <ul class="menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="restaurants.html">餐厅列表</a></li>
+                    <li><a href="order.html">下单确认</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>成都美食配送到家</h1>
+            <p>我们提供最快30分钟送达的高品质外卖服务</p>
+            <a href="restaurants.html" class="btn">查看餐厅</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">分类推荐</h2>
+            <div class="categories">
+                <div class="category">
+                    <img src="https://via.placeholder.com/300x150/4CAF50/FFFFFF?text=川菜" alt="川菜">
+                    <h3>川菜</h3>
+                </div>
+                <div class="category">
+                    <img src="https://via.placeholder.com/300x150/2196F3/FFFFFF?text=西餐" alt="西餐">
+                    <h3>西餐</h3>
+                </div>
+                <div class="category">
+                    <img src="https://via.placeholder.com/300x150/FF9800/FFFFFF?text=日韩" alt="日韩">
+                    <h3>日韩</h3>
+                </div>
+                <div class="category">
+                    <img src="https://via.placeholder.com/300x150/9C27B0/FFFFFF?text=其他" alt="其他">
+                    <h3>其他</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 快送外卖. 成都地区美食配送服务</p>
+        </div>
+    </footer>
+</body>
+</html>

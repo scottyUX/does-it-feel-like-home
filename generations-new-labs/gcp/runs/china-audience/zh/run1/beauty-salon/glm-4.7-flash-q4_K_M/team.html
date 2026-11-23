@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>团队介绍 - 悦容美发美容</title>
+    <link rel="stylesheet" href="common.html">
+    <style>
+        :root {
+            --primary-color: #c08552;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #fcfcfc;
+        }
+
+        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        header .container { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+        nav ul { display: flex; list-style: none; padding: 0; margin: 0; gap: 30px; }
+        nav a { text-decoration: none; color: var(--text-color); font-size: 16px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: var(--primary-color); font-weight: bold; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .member-role {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .member-qualifications {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .qual-badge {
+            background: #f4eadd;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        footer { margin-top: 0; }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+            .member-img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">悦容美发美容</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="services.html" class="nav-link">服务项目</a></li>
+                    <li><a href="team.html" class="nav-link active">团队介绍</a></li>
+                    <li><a href="appointment.html" class="nav-link">在线预约</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>专家团队</h1>
+                <p>汇聚行业精英，成就您的完美造型</p>
+            </div>
+        </div>
+
+        <div class="container team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="https://picsum.photos/seed/steve/400/500.jpg" alt="张伟" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">张伟</h3>
+                    <span class="member-role">创意总监 / 高级发型师</span>
+                    <p class="member-bio">
+                        拥有15年美发行业经验，曾多次获得国际美容时尚周大奖。擅长日韩系剪裁与欧美前卫造型，对色彩管理有独到见解。注重与客人的沟通，致力于打造既时尚又实用的发型。
+                    </p>
+                    <div class="member-qualifications">
+                        <span class="qual-badge">国际发型师认证</span>
+                        <span class="qual-badge">色彩专家</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="https://picsum.photos/seed/lisa/400/500.jpg" alt="李娜" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">李娜</h3>
+                    <span class="member-role">资深美容顾问 / 按摩师</span>
+                    <p class="member-bio">
+                        柔美派的护肤专家，对皮肤结构有着深入的研究。擅长针对不同肤质（干性、油性、敏感肌）定制护理方案。手法细腻温柔，让客人在放松中享受美容过程。
+                    </p>
+                    <div class="member-qualifications">
+                        <span class="qual-badge">高级美容师</span>
+                        <span class="qual-badge">皮肤管理师</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="https://picsum.photos/seed/wang/400/500.jpg" alt="王强" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">王强</h3>
+                    <span class="member-role">明星造型师 / 染烫专家</span>
+                    <p class="member-bio">
+                        凭借精湛的染烫技术和对潮流的敏锐嗅觉，成为众多时尚博主的首选造型师。精通植物染护技术，最大程度保护发质健康，创造出自然光泽的完美发色。
+                    </p>
+                    <div class="member-qualifications">
+                        <span class="qual-badge">CIC 颜色管理师</span>
+                        <span class="qual-badge">烫发技师</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img src="https://picsum.photos/seed/sarah/400/500.jpg" alt="陈静" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">陈静</h3>
+                    <span class="member-role">前台经理 / 预约顾问</span>
+                    <p class="member-bio">
+                        亲切热情的前台负责人，拥有丰富的服务经验。无论是发型推荐还是美容项目咨询，她都能为您提供最贴心的建议。负责统筹店内服务流程，确保每一位客人都有完美的体验。
+                    </p>
+                    <div class="member-qualifications">
+                        <span class="qual-badge">服务管理认证</span>
+                        <span class="qual-badge">形象顾问</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 引入通用页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <h3>悦容美发美容</h3>
+                <p>地址：广州市天河区林和西路123号</p>
+                <p>电话：020-88888888</p>
+                <p>营业时间：09:00 - 22:00</p>
+            </div>
+            <div class="footer-links">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="team.html">发型师团队</a></li>
+                    <li><a href="appointment.html">在线预约</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 悦容美发美容. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

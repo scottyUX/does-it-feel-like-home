@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 国内旅行预订服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1e6bb8;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1558228541-5c79761a037f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .hero-content {
+            background-color: rgba(0,0,0,0.6);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .search-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .search-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .search-form button {
+            background-color: #1e6bb8;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .search-form button:hover {
+            background-color: #13508f;
+        }
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 4rem 0;
+        }
+        .destination {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .destination img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .destination-content {
+            padding: 1.5rem;
+        }
+        .destination-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .destination-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        .price {
+            font-weight: bold;
+            color: #1e6bb8;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">畅行旅行</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="results.html">搜索结果</a></li>
+                    <li><a href="details.html">酒店详情</a></li>
+                    <li><a href="booking.html">在线预订</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>探索国内美景，畅享完美旅程</h1>
+                <p>找到并预订最适合您的国内旅行行程，让每一次出行都成为难忘回忆</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <h2>搜索目的地</h2>
+                <form class="search-form" action="results.html" method="GET">
+                    <input type="text" name="destination" placeholder="输入目的地城市或景点" required>
+                    <input type="date" name="date" required>
+                    <button type="submit">搜索行程</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="destinations">
+            <div class="destination">
+                <img src="https://images.unsplash.com/photo-1534256307664-33447e316a1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="杭州西湖">
+                <div class="destination-content">
+                    <h3>杭州西湖</h3>
+                    <p>中国最著名的湖泊之一，四季风景各异，是休闲漫步和体验江南水乡风情的绝佳去处。</p>
+                    <div class="price">¥150/晚起</div>
+                    <a href="details.html" style="color: #1e6bb8; text-decoration: none;">查看详情 →</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="桂林山水">
+                <div class="destination-content">
+                    <h3>桂林山水</h3>
+                    <p>以"山青、水秀、洞奇、石美"著称，是喀斯特地貌的典型代表，被誉为"天下第一奇山"。</p>
+                    <div class="price">¥200/晚起</div>
+                    <a href="details.html" style="color: #1e6bb8; text-decoration: none;">查看详情 →</a>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="https://images.unsplash.com/photo-1551986791-158bcb906c21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="九寨沟">
+                <div class="destination-content">
+                    <h3>九寨沟</h3>
+                    <p>世界自然遗产，以其多彩的湖泊、瀑布和雪山景观闻名于世，被誉为"童话世界"。</p>
+                    <div class="price">¥300/晚起</div>
+                    <a href="details.html" style="color: #1e6bb8; text-decoration: none;">查看详情 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="results.html">搜索结果</a></li>
+                <li><a href="details.html">酒店详情</a></li>
+                <li><a href="booking.html">在线预订</a></li>
+            </ul>
+            <div class="copyright">© 2023 畅行旅行 版权所有</div>
+        </div>
+    </footer>
+</body>
+</html>

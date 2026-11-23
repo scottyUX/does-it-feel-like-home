@@ -44,3 +44,9 @@ next-env.d.ts
 # Browser verification artifacts
 /test-results/
 /playwright-report/
+
+# Private Arena datasets and analysis outputs (all-sites/arena is a copy of them; kept in the backups only)
+/arena-data/
+/.arena-venv/
+/all-sites/arena/
+__pycache__/

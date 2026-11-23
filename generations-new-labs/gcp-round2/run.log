@@ -1,0 +1,27 @@
+16:40 pull hf.co/unsloth/ERNIE-4.5-21B-A3B-PT-GGUF:Q4_K_M
+16:44 generate ernie4.5:21b zh
+16:44 start china-audience zh run1 clothing ernie4.5:21b attempt 1
+16:45 done china-audience zh run1 clothing ernie4.5:21b pages=3 45s
+16:45 start china-audience zh run1 restaurant ernie4.5:21b attempt 1
+16:46 done china-audience zh run1 restaurant ernie4.5:21b pages=4 40s
+16:46 start china-audience zh run1 news ernie4.5:21b attempt 1
+16:46 done china-audience zh run1 news ernie4.5:21b pages=3 29s
+16:46 start china-audience zh run1 social-media ernie4.5:21b attempt 1
+16:47 done china-audience zh run1 social-media ernie4.5:21b pages=3 46s
+16:47 start china-audience zh run1 travel ernie4.5:21b attempt 1
+16:48 done china-audience zh run1 travel ernie4.5:21b pages=3 44s
+16:48 start china-audience zh run1 bank ernie4.5:21b attempt 1
+16:48 done china-audience zh run1 bank ernie4.5:21b pages=4 44s
+16:48 start china-audience zh run1 food-delivery ernie4.5:21b attempt 1
+16:49 done china-audience zh run1 food-delivery ernie4.5:21b pages=3 29s
+16:49 start china-audience zh run1 beauty-salon ernie4.5:21b attempt 1
+16:49 done china-audience zh run1 beauty-salon ernie4.5:21b pages=4 37s
+16:49 start china-audience zh run1 learning ernie4.5:21b attempt 1
+16:50 done china-audience zh run1 learning ernie4.5:21b pages=3 53s
+16:50 start china-audience zh run1 home-cleaning ernie4.5:21b attempt 1
+16:51 done china-audience zh run1 home-cleaning ernie4.5:21b pages=3 31s
+16:51 all finished
+16:51 generate ernie4.5:21b en
+16:51 start china-audience en run1 clothing ernie4.5:21b attempt 1
+16:52 done china-audience en run1 clothing ernie4.5:21b pages=4 77s
+16:52 start china-audience en run1 restaurant ernie4.5:21b attempt 1

@@ -1,0 +1,25 @@
+features,train,test,scaling,test_sites,accuracy,majority,p_vs_50,predicted_chinese_share
+All measures,Study sites,"Arena, Chinese prompts",pooled,203,0.4581,0.5025,0.89682,0.448
+All measures,Study sites,"Arena, Chinese prompts",per dataset,203,0.4581,0.5025,0.89682,0.448
+All measures,Study sites,"Arena, English prompts",pooled,203,0.4778,0.5025,0.75857,0.414
+All measures,Study sites,"Arena, English prompts",per dataset,203,0.4778,0.5025,0.75857,0.443
+All measures,"Arena, Chinese prompts",Study sites,pooled,80,0.6875,0.5,0.00053,0.262
+All measures,"Arena, Chinese prompts",Study sites,per dataset,80,0.6625,0.5,0.00243,0.562
+All measures,"Arena, English prompts",Study sites,pooled,80,0.6125,0.5,0.02833,0.562
+All measures,"Arena, English prompts",Study sites,per dataset,80,0.5,0.5,0.54446,0.45
+All measures,"Arena, Chinese prompts","Arena, English prompts",pooled,203,0.601,0.5025,0.00244,0.557
+All measures,"Arena, Chinese prompts","Arena, English prompts",per dataset,203,0.5813,0.5025,0.01223,0.576
+All measures,"Arena, English prompts","Arena, Chinese prompts",pooled,203,0.5468,0.5025,0.10318,0.409
+All measures,"Arena, English prompts","Arena, Chinese prompts",per dataset,203,0.5567,0.5025,0.06118,0.478
+"Density, layout and navigation only",Study sites,"Arena, Chinese prompts",pooled,203,0.4187,0.5025,0.9916,0.478
+"Density, layout and navigation only",Study sites,"Arena, Chinese prompts",per dataset,203,0.4089,0.5025,0.99625,0.438
+"Density, layout and navigation only",Study sites,"Arena, English prompts",pooled,203,0.4975,0.5025,0.55579,0.473
+"Density, layout and navigation only",Study sites,"Arena, English prompts",per dataset,203,0.4828,0.5025,0.71271,0.419
+"Density, layout and navigation only","Arena, Chinese prompts",Study sites,pooled,80,0.725,0.5,4e-05,0.275
+"Density, layout and navigation only","Arena, Chinese prompts",Study sites,per dataset,80,0.45,0.5,0.84285,0.475
+"Density, layout and navigation only","Arena, English prompts",Study sites,pooled,80,0.6,0.5,0.04646,0.625
+"Density, layout and navigation only","Arena, English prompts",Study sites,per dataset,80,0.475,0.5,0.71178,0.475
+"Density, layout and navigation only","Arena, Chinese prompts","Arena, English prompts",pooled,203,0.6108,0.5025,0.00097,0.606
+"Density, layout and navigation only","Arena, Chinese prompts","Arena, English prompts",per dataset,203,0.6355,0.5025,7e-05,0.621
+"Density, layout and navigation only","Arena, English prompts","Arena, Chinese prompts",pooled,203,0.5813,0.5025,0.01223,0.69
+"Density, layout and navigation only","Arena, English prompts","Arena, Chinese prompts",per dataset,203,0.6207,0.5025,0.00036,0.631

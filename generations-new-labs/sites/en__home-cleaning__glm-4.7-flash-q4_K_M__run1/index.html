@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洁家家政 - 北京专业家庭清洁服务专家</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004499;
+            --accent-color: #ff9900;
+            --text-color: #333;
+            --light-text: #f4f4f4;
+            --bg-light: #f9f9f9;
+            --border-radius: 8px;
+            --spacing: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/image-c26d1b7311856405.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px var(--spacing);
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 60px var(--spacing);
+            text-align: center;
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .testimonial span {
+            display: block;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px var(--spacing);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px var(--spacing);
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                <span>洁家家政</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="booking.html" class="cta-button">立即预约</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>还您一个温馨洁净的家</h1>
+            <p>北京专业家庭清洁服务 · 专注家庭 · 诚信专业 · 让生活更轻松</p>
+            <a href="booking.html" class="cta-button" style="background-color: var(--accent-color); color: #000;">获取报价</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>专业培训</h3>
+                <p>所有保洁人员经过严格筛选与系统培训，持有健康证明。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧼</div>
+                <h3>环保清洁</h3>
+                <p>使用国际环保清洁剂，无异味，呵护家人与宠物的健康。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>价格透明</h3>
+                <p>服务前明确价格，无隐形消费，拒绝坐地起价。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>不满意重做</h3>
+                <p>服务结束验收不满意，承诺免费重新服务直到满意。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="features-grid">
+            <div>
+                <p>“因为工作太忙，一直没时间打扫卫生。洁家家政的阿姨太专业了，把家里打扫得一尘不染，用完的毛巾都擦桌子了，太感动了！”</p>
+                <span>—— 李女士，海淀居民</span>
+            </div>
+            <div>
+                <p>“第一次尝试开荒保洁，效果超出预期。没有灰尘死角，地板亮得反光。以后新家清洁就认准洁家了。”</p>
+                <span>—— 王先生，朝阳居民</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>周末不想做家务？现在就预约！</h2>
+        <p>享受专业团队带来的洁净体验，仅限前50名咨询享9折优惠。</p>
+        <br>
+        <a href="booking.html" class="cta-button" style="background-color: white; color: var(--primary-color);">免费预约上门</a>
+    </section>
+
+    <footer>
+        <p>地址：北京市朝阳区建国路88号SOHO现代城A座</p>
+        <p>服务热线：010-88888888 / 139-0000-0000</p>
+        <p>© 2023 洁家家政 版权所有</p>
+    </footer>
+</body>
+</html>

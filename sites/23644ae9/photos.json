@@ -1,0 +1,101 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "hotel-details.html",
+   "selector": "div.room-img",
+   "match": "豪华大床房 ¥899 30 平方米 | 1 张 ",
+   "url": "assets/photo-a3a2faa978470ffc.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Canopy bed of Amantaka Suite in Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "luxury king bed hotel room",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Canopy_bed_of_Amantaka_Suite_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/960px-Canopy_bed_of_Amantaka_Suite_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "hotel-details.html",
+   "selector": "div.room-img",
+   "match": "行政套房 ¥1580 60 平方米 | 1 张 ",
+   "url": "assets/photo-6cf14c25d3248617.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Executive Suites living room (5078265197).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "executive suite hotel room",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Executive_Suites_living_room_%285078265197%29.jpg/960px-Executive_Suites_living_room_%285078265197%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "北京 历史文化名城，故宫与长城的故乡。 查看酒店",
+   "url": "assets/photo-77c37e0b3ff1384f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Beijing City (4214640799).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "beijing city skyline",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Beijing_City_%284214640799%29.jpg/960px-Beijing_City_%284214640799%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "上海 现代化国际大都市，外滩夜景迷人。 查看酒店",
+   "url": "assets/photo-0be9698a3e0f5125.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:The Bund, Shanghai at night.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "shanghai waterfront night view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/The_Bund%2C_Shanghai_at_night.jpg/960px-The_Bund%2C_Shanghai_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "成都 悠闲城市，大熊猫与美食天堂。 查看酒店 →",
+   "url": "assets/photo-2cf6012af29a8105.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Chengdu Day 2 - Flickr - Prince Roy.jpg",
+   "license": "CC BY 2.0",
+   "subject": "chengdu city view with pandas",
+   "original": "https://upload.wikimedia.org/wikipedia/commons/2/23/Chengdu_Day_2_-_Flickr_-_Prince_Roy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  {
+   "page": "search-results.html",
+   "selector": "div.hotel-img",
+   "match": "北京国际中心酒店 ★★★★★ 4.8 北京市朝阳",
+   "url": "assets/photo-18914c71f32f9f94.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Beijing International Convention Center (20200810181742).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hotel exterior beijing international center",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Beijing_International_Convention_Center_%2820200810181742%29.jpg/960px-Beijing_International_Convention_Center_%2820200810181742%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search-results.html",
+   "selector": "div.hotel-img",
+   "match": "北京王府井假日酒店 ★★★★☆ 4.6 北京市东",
+   "url": "assets/photo-9ca47bc6010bb693.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Holiday Inn hotel in Sarajevo in 2014.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hotel exterior wangfujing holiday hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Holiday_Inn_hotel_in_Sarajevo_in_2014.jpg/960px-Holiday_Inn_hotel_in_Sarajevo_in_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "search-results.html",
+   "selector": "div.hotel-img",
+   "match": "首都机场速 8 酒店 ★★★☆☆ 4.2 北京市",
+   "url": "assets/photo-e7855c1fd363040e.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Hilton Beijing Capital Airport (20200526161318).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "hotel exterior capital airport hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Hilton_Beijing_Capital_Airport_%2820200526161318%29.jpg/960px-Hilton_Beijing_Capital_Airport_%2820200526161318%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

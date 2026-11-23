@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>菜单 - 快送外卖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+header{background:#ff6b6b;color:#fff;padding:20px;text-align:center;}
+nav{display:flex;justify-content:center;background:#333;color:#fff;}
+nav a{color:#fff;text-decoration:none;padding:15px 20px;}
+nav a:hover{background:#444;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+table{width:100%;border-collapse:collapse;background:#fff;}
+th,td{border-bottom:1px solid #ddd;padding:12px;text-align:left;}
+th{background:#f0f0f0;}
+input[type=number]{width:60px;}
+button{background:#ff6b6b;color:#fff;border:none;padding:8px 12px;border-radius:4px;}
+footer{background:#333;color:#fff;text-align:center;padding:20px;margin-top:20px;}
+@media(max-width:600px){.container{padding:10px;}}
+</style>
+</head>
+<body>
+<header>
+<h1>餐厅菜单</h1>
+</header>
+<nav>
+<a href="index.html">首页</a>
+<a href="restaurants.html">餐厅列表</a>
+<a href="order.html">我的订单</a>
+</nav>
+<div class="container" id="content"></div>
+<footer>
+<p>&copy; 2024 快送外卖 成都</p>
+</footer>
+<script>
+const menuData = {
+'小龙坎火锅': [
+{ dish: '麻辣牛肉', price: 30 },
+{ dish: '鲜虾丸', price: 25 },
+{ dish: '毛肚', price: 28 },
+{ dish: '金针菇', price: 12 }
+],
+'川味小厨': [
+{ dish: '宫保鸡丁', price: 35 },
+{ dish: '宫保虾仁', price: 38 },
+{ dish: '水煮鱼', price: 45 }
+],
+'寿司一号': [
+{ dish: '金枪鱼握寿司', price: 22 },
+{ dish: '三文鱼卷', price: 25 },
+{ dish: '鳗鱼饭', price: 30 }
+],
+'甜蜜屋': [
+{ dish: '芝士蛋糕', price: 18 },
+{ dish: '红豆冰淇淋', price: 12 },
+{ dish: '提拉米苏', price: 20 }
+],
+'茶饮工坊': [
+{ dish: '原味奶茶', price: 12 },
+{ dish: '水果奶茶', price: 15 },
+{ dish: '柠檬红茶', price: 10 }
+],
+'烤串之家': [
+{ dish: '羊肉串', price: 20 },
+{ dish: '鸡翅', price: 18 },
+{ dish: '素串', price: 12 }
+]
+};
+function getQueryParam(name){
+const urlParams = new URLSearchParams(window.location.search);
+return urlParams.get(name);
+}
+function addToOrder(item){
+let cart = JSON.parse(localStorage.getItem('orderItems'))||[];
+const exist = cart.find(i=>i.name===item.name);
+if(exist){
+exist.quantity += item.quantity;
+}else{
+cart.push(item);
+}
+localStorage.setItem('orderItems',JSON.stringify(cart));
+alert('已加入订单');
+}
+function render(){
+const name = getQueryParam('name');
+const container=document.getElementById('content');
+if(!name||!menuData[name]){
+container.innerHTML='<p>未找到该餐厅信息。</p>';
+return;
+}
+let html=`<h2>${name}</h2>
+<table>
+<tr><th>菜品</th><th>价格(元)</th><th>数量</th><th>操作</th></tr>`;
+menuData[name].forEach((d,idx)=>{
+html+=`<tr>
+<td>${d.dish}</td>
+<td>${d.price}</td>
+<td><input type="number" id="qty_${idx}" min="1" value="1" style="width:60px;"></td>
+<td><button onclick="addItem(${idx})">加入订单</button></td>
+</tr>`;
+});
+html+='</table>';
+container.innerHTML=html;
+}
+function addItem(idx){
+const name = getQueryParam('name');
+const qtyEl=document.getElementById(`qty_${idx}`);
+const qty=parseInt(qtyEl.value)||1;
+const dish=menuData[name][idx];
+addToOrder({name:dish.dish,price:dish.price,quantity:qty});
+}
+render();
+</script>
+</body>
+</html>

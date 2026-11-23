@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全部餐厅 - 快送外卖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: #333;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #e63e1e;
+            flex-shrink: 0;
+        }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: #e63e1e;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        .search-box {
+            flex: 1;
+            max-width: 480px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 44px 12px 16px;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus { border-color: #e63e1e; }
+        .search-btn {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            background: #e63e1e;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+        .loc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #fff;
+            color: #555;
+        }
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: #e63e1e;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            font-weight: 500;
+        }
+        .cart-count {
+            background: #fff;
+            color: #e63e1e;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .nav-bar {
+            background: #fff;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 32px;
+        }
+        .nav-link {
+            padding: 12px 0;
+            font-size: 14px;
+            color: #666;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active { color: #e63e1e; }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e63e1e;
+            border-radius: 1px;
+        }
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+        .page-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #222;
+        }
+        .result-count {
+            font-size: 14px;
+            color: #999;
+        }
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 13px;
+            background: #fff;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            border-color: #e63e1e;
+            color: #e63e1e;
+            background: #fff5f2;
+        }
+        .sort-select {
+            margin-left: auto;
+            padding: 8px 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 13px;
+            background: #fff;
+            color: #555;
+            cursor: pointer;
+            outline: none;
+        }
+        .rest-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .rest-item {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #f0f0f0;
+        }
+        .rest-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .rest-item-img {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+        }
+        .ri-1 { background: linear-gradient(135deg, #fff5f0, #ffe8dd); }
+        .ri-2 { background: linear-gradient(135deg, #f0fff5, #e0ffe8); }
+        .ri-3 { background: linear-gradient(135deg, #fff8f0, #fff0e0); }
+        .ri-4 { background: linear-gradient(135deg, #f5f0ff, #ede5ff); }
+        .ri-5 { background: linear-gradient(135deg, #f0fff8, #e0fff0); }
+        .ri-6 { background: linear-gradient(135deg, #fff5f5, #ffe8e8); }
+        .ri-7 { background: linear-gradient(135deg, #fffcf0, #fff8e0); }
+        .ri-8 { background: linear-gradient(135deg, #fff0f8, #ffe0f0); }
+        .ri-9 { background: linear-gradient(135deg, #f0f8ff, #e0f0ff); }
+        .promo-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e63e1e;
+            color: #fff;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .rest-item-body {
+            padding: 16px;
+        }
+        .rest-item-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        .rest-item-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .rating { color: #ff9800; font-weight: 600; }
+        .tag {
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: #f5f5f5;
+            color: #666;
+        }
+        .tag-hot {
+            background: #fff0ed;
+            color: #e63e1e;
+        }
+        .rest-item-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #f5f5f5;
+        }
+        .price { font-size: 15px; color: #e63e1e; font-weight: 600; }
+        .deliver { font-size: 12px; color: #999; }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+        .page-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            background: #fff;
+            color: #555;
+        }
+        .page-btn.active {
+            background: #e63e1e;
+            color: #fff;
+            border-color: #e63e1e;
+        }
+        .footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 24px 24px;
+            margin-top: 40px;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-brand h4 { color: #fff; font-size: 18px; margin-bottom: 12px; }
+        .footer-brand p { font-size: 13px; line-height: 1.8; }
+        .footer-col h5 { color: #fff; font-size: 14px; margin-bottom: 12px; }
+        .footer-col a { display: block; font-size: 13px; color: #999; margin-bottom: 8px; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+        }
+        @media (max-width: 900px) {
+            .rest-list { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .header-inner { flex-wrap: wrap; }
+            .search-box { order: 3; max-width: 100%; width: 100%; }
+            .sort-select { margin-left: 0; }
+        }
+        @media (max-width: 600px) {
+            .rest-list { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">快</span>
+                快送外卖
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="搜索餐厅、菜品，如：麻婆豆腐、冒菜…">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="header-actions">
+                <button class="loc-btn">📍 武侯区·成都理工大学</button>
+                <a href="order.html" class="cart-btn">🛒 购物车 <span class="cart-count">3</span></a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="restaurants.html" class="nav-link active">全部餐厅</a>
+            <a href="restaurant.html" class="nav-link">蜀香阁</a>
+            <a href="order.html" class="nav-link">我的订单</a>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h1 class="page-title">附近餐厅</h1>
+            <span class="result-count">共 3,241 家 · 按距离排序</span>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">川菜小炒</button>
+            <button class="filter-btn">火锅冒菜</button>
+            <button class="filter-btn">面馆粉店</button>
+            <button class="filter-btn">快餐便当</button>
+            <button class="filter-btn">轻食沙拉</button>
+            <button class="filter-btn">饮品甜品</button>
+            <button class="filter-btn">烧烤小吃</button>
+            <select class="sort-select">
+                <option>综合排序</option>
+                <option>距离最近</option>
+                <option>销量最高</option>
+                <option>评分最高</option>
+                <option>起送价最低</option>
+            </select>
+        </div>
+
+        <div class="rest-list">
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-1">
+                    🥘
+                    <span class="promo-tag">满25减5</span>
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">蜀香阁·正宗川菜</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.9</span>
+                        <span>月售 3200+</span>
+                        <span class="tag tag-hot">招牌川菜</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥28</span>
+                        <span class="deliver">25min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-2">
+                    🍜
+                    <span class="promo-tag">新人立减3元</span>
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">巷子口·手工面馆</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.8</span>
+                        <span>月售 5100+</span>
+                        <span class="tag tag-hot">手工现做</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥16</span>
+                        <span class="deliver">20min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-3">
+                    🍲
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">老成都·冒菜火锅</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.7</span>
+                        <span>月售 2800+</span>
+                        <span class="tag">秘制汤底</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥32</span>
+                        <span class="deliver">30min · ¥3配送</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-4">
+                    🍱
+                    <span class="promo-tag">第二份半价</span>
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">川味小厨·快餐便当</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.6</span>
+                        <span>月售 4500+</span>
+                        <span class="tag tag-hot">一人食</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥18</span>
+                        <span class="deliver">18min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-5">
+                    🥗
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">绿叶轻食·健康餐</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.8</span>
+                        <span>月售 1800+</span>
+                        <span class="tag">低卡轻食</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥25</span>
+                        <span class="deliver">22min · ¥2配送</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-6">
+                    🧋
+                    <span class="promo-tag">买一送一</span>
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">蜀茶坊·川式茶饮</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.7</span>
+                        <span>月售 6200+</span>
+                        <span class="tag tag-hot">网红饮品</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥15</span>
+                        <span class="deliver">15min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-7">
+                    🔥
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">熊猫烧烤·夜宵小串</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.6</span>
+                        <span>月售 2100+</span>
+                        <span class="tag">夜宵推荐</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥22</span>
+                        <span class="deliver">28min · ¥3配送</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-8">
+                    🍰
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">甜心坊·手工甜品</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.9</span>
+                        <span>月售 1500+</span>
+                        <span class="tag tag-hot">手工现烤</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥12</span>
+                        <span class="deliver">20min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="restaurant.html" class="rest-item">
+                <div class="rest-item-img ri-9">
+                    🦐
+                </div>
+                <div class="rest-item-body">
+                    <div class="rest-item-name">椒麻鲜·椒麻鸡专门店</div>
+                    <div class="rest-item-meta">
+                        <span class="rating">★ 4.8</span>
+                        <span>月售 3600+</span>
+                        <span class="tag tag-hot">椒麻风味</span>
+                    </div>
+                    <div class="rest-item-bottom">
+                        <span class="price">人均 ¥35</span>
+                        <span class="deliver">25min · 免配送费</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">…</button>
+            <button class="page-btn">›</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h4>快送外卖</h4>
+                <p>成都本地生活服务平台，专注为大学生和上班族提供安全、快速、美味的餐饮配送服务。</p>
+            </div>
+            <div class="footer-col">
+                <h5>快速链接</h5>
+                <a href="index.html">首页</a>
+                <a href="restaurants.html">全部餐厅</a>
+                <a href="restaurant.html">推荐餐厅</a>
+                <a href="order.html">我的订单</a>
+            </div>
+            <div class="footer-col">
+                <h5>服务支持</h5>
+                <a href="#">配送范围</a>
+                <a href="#">费用说明</a>
+                <a href="#">食品安全</a>
+                <a href="#">退款政策</a>
+            </div>
+            <div class="footer-col">
+                <h5>联系我们</h5>
+                <a href="#">客服电话：400-888-6666</a>
+                <a href="#">商务合作</a>
+                <a href="#">骑手招募</a>
+                <a href="#">商家入驻</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 快送外卖 蜀ICP备2025001234号 | 食品经营许可证：JY15101070001234</p>
+        </div>
+    </footer>
+
+    <script>
+        // 筛选按钮交互
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 分页按钮
+        const pageBtns = document.querySelectorAll('.page-btn');
+        pageBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent >= '1' && this.textContent <= '5') {
+                    pageBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

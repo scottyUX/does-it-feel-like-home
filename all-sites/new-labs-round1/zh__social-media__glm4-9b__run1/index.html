@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 首页</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .header { background-color: #f8f8f8; padding: 10px 0; }
+        .header h1 { margin: 0; padding: 0 20px; }
+        .container { width: 1200px; margin: 0 auto; }
+        .content { margin-top: 20px; }
+        .post { border: 1px solid #ddd; padding: 10px; margin-bottom: 20px; }
+        .post img { max-width: 100%; height: auto; }
+        .post footer { margin-top: 10px; }
+        .post footer .meta { color: #666; }
+        .post footer .meta a { color: #333; text-decoration: none; }
+        .post footer .meta a:hover { text-decoration: underline; }
+        .footer { background-color: #f8f8f8; padding: 10px 0; text-align: center; }
+        .footer a { color: #333; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 1200px) {
+            .container { width: 95%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>趣聊</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="post">
+                <img src="example-image.jpg" alt="示例图片">
+                <p>今天天气不错，大家都在晒太阳。</p>
+                <footer class="meta">
+                    <p>发布者：小星星 <a href="user-home.html">个人主页</a></p>
+                </footer>
+            </div>
+            <div class="post">
+                <img src="example-image2.jpg" alt="示例图片">
+                <p>刚刚喝了一杯好喝的咖啡。</p>
+                <footer class="meta">
+                    <p>发布者：咖啡控 <a href="user-home.html">个人主页</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2023 趣聊</p>
+            <a href="about.html">关于我们</a>
+            <a href="register.html">注册</a>
+        </div>
+    </div>
+</body>
+</html>

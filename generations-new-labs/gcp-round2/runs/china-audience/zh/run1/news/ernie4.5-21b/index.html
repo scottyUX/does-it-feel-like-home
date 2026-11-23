@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日视界 - 最新新闻资讯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .main-content {
+            max-width: 1440px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .hero {
+            background-color: #1e90ff;
+            color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .top-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .story-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .story-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .story-content {
+            padding: 1rem;
+        }
+        .story-content h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">每日视界</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经</a></li>
+                    <li><a href="tech.html">科技</a></li>
+                    <li><a href="sports.html">体育</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>每日最新资讯，尽在每日视界</h1>
+            <p>快速获取国内外重要新闻，专注品质阅读体验</p>
+        </section>
+
+        <section class="top-stories">
+            <div class="story-card">
+                <img src="https://via.placeholder.com/600x400?text=财经新闻" alt="财经新闻" class="story-image">
+                <div class="story-content">
+                    <h2>央行宣布降准0.25个百分点 释放长期资金约5000亿元</h2>
+                    <p>中国人民银行今日宣布，为支持实体经济稳定增长，决定下调金融机构存款准备金率0.25个百分点...</p>
+                    <a href="article.html" style="color: #1e90ff; text-decoration: none;">阅读全文 &raquo;</a>
+                </div>
+            </div>
+            <div class="story-card">
+                <img src="https://via.placeholder.com/600x400?text=科技动态" alt="科技动态" class="story-image">
+                <div class="story-content">
+                    <h2>苹果发布新款iPad Pro：搭载M2芯片 售价6799元起</h2>
+                    <p>苹果今日正式推出新一代iPad Pro，搭载全新M2芯片，支持第二代Apple Pencil，起售价6799元...</p>
+                    <a href="article.html" style="color: #1e90ff; text-decoration: none;">阅读全文 &raquo;</a>
+                </div>
+            </div>
+            <div class="story-card">
+                <img src="https://via.placeholder.com/600x400?text=体育赛事" alt="体育赛事" class="story-image">
+                <div class="story-content">
+                    <h2>中国女排3-1战胜日本 卫冕世界联赛冠军</h2>
+                    <p>在昨晚结束的世界女排联赛决赛中，中国女排以3-1的比分战胜日本队，成功卫冕冠军，朱婷荣膺MVP...</p>
+                    <a href="article.html" style="color: #1e90ff; text-decoration: none;">阅读全文 &raquo;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 每日视界 版权所有</p>
+        <p>联系我们：service@meiri.com | 客服电话：400-123-4567</p>
+    </footer>
+</body>
+</html>

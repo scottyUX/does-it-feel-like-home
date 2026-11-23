@@ -1,0 +1,11 @@
+{
+  "id": "en__travel__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "travel",
+  "model": "nemotron3:33b",
+  "completionTokens": 9723,
+  "seconds": 53,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

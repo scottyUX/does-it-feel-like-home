@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户主页 - 趣聊</title>
+    <style>
+        :root {
+            --primary-color: #4F46E5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --nav-height: 60px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-top: var(--nav-height);
+        }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: var(--nav-height); background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; z-index: 100;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary-color); text-decoration: none; }
+        
+        .btn {
+            padding: 0.5rem 1rem; border-radius: 9999px; border: none; cursor: pointer;
+            font-size: 0.9rem; font-weight: 500; transition: all 0.2s; text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary { background: var(--primary-color); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
+
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+
+        .profile-header {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media(max-width: 640px) {
+            .profile-header { flex-direction: column; text-align: center; }
+        }
+
+        .big-avatar {
+            width: 120px; height: 120px; border-radius: 50%;
+            object-fit: cover; border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-info h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .profile-bio { color: var(--text-secondary); margin-bottom: 1rem; font-size: 1rem; }
+        
+        .profile-stats {
+            display: flex; gap: 2rem; margin-bottom: 1.5rem;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-num { font-weight: 700; font-size: 1.2rem; display: block; }
+        .stat-label { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .tabs { display: flex; gap: 2rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+        .tab { padding: 0.5rem 0; font-weight: 500; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; }
+        .tab.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
+
+        .photo-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .grid-img {
+            width: 100%; height: 150px; object-fit: cover; border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .post-preview {
+            background: var(--card-bg); border-radius: 12px; padding: 1rem;
+            margin-bottom: 1rem; display: flex; gap: 1rem;
+        }
+
+        .post-preview img {
+            width: 60px; height: 60px; border-radius: 8px; object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">趣聊</a>
+    <div class="nav-actions">
+        <a href="register.html" class="btn btn-primary">注册</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="profile-header">
+        <img src="https://picsum.photos/seed/founder/200/200" class="big-avatar" alt="Avatar">
+        <div class="profile-info">
+            <h1>摄影师Mike</h1>
+            <p class="profile-bio">📷 摄影师 | 📍 沈阳<br>📷 捕捉生活中的美好瞬间。喜欢旅行、美食和猫咪。</p>
+            <div class="profile-stats">
+                <div class="stat-item"><span class="stat-num">1.2k</span><span class="stat-label">粉丝</span></div>
+                <div class="stat-item"><span class="stat-num">342</span><span class="stat-label">关注</span></div>
+                <div class="stat-item"><span class="stat-num">89</span><span class="stat-label">获赞</span></div>
+            </div>
+            <div>
+                <button class="btn btn-outline" style="margin-right: 10px;">关注</button>
+                <button class="btn btn-outline">私信</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active">照片</div>
+        <div class="tab">动态</div>
+        <div class="tab">喜欢</div>
+    </div>
+
+    <h3 style="margin-bottom: 1rem;">最近上传</h3>
+    <div class="photo-grid">
+        <img src="https://picsum.photos/seed/p1/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p2/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p3/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p4/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p5/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p6/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p7/300/300" class="grid-img">
+        <img src="https://picsum.photos/seed/p8/300/300" class="grid-img">
+    </div>
+
+    <h3 style="margin: 2rem 0 1rem 0;">发布动态</h3>
+    
+    <div class="post-preview">
+        <img src="https://picsum.photos/seed/d1/100/100" alt="Post">
+        <div>
+            <div style="font-weight: 600;">摄影师Mike</div>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 5px;">昨天</div>
+            <div style="color: #333;">周末去郊外采风，空气真好！</div>
+        </div>
+    </div>
+
+    <div class="post-preview">
+        <img src="https://picsum.photos/seed/d2/100/100" alt="Post">
+        <div>
+            <div style="font-weight: 600;">摄影师Mike</div>
+            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 5px;">3天前</div>
+            <div style="color: #333;">终于入手了这台新镜头，效果太惊艳了！</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

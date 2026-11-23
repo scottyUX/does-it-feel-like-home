@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学途 - 课程详情</title>
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#333;}
+        header{background:#2c3e50;color:#fff;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:22px;}
+        nav a{color:#fff;margin-left:15px;text-decoration:none;}
+        nav a:hover{text-decoration:underline;}
+        .container{max-width:960px;margin:30px auto;padding:0 20px;}
+        .title{font-size:28px;margin-bottom:10px;}
+        .price{font-size:22px;color:#e67e22;font-weight:bold;margin-bottom:20px;}
+        .info{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:30px;}
+        .info img{width:300px;height:auto;border-radius:6px;}
+        .details{flex:1;min-width:250px;}
+        .details p{margin:8px 0;line-height:1.6;}
+        .lessons{margin-top:30px;}
+        .lessons h3{font-size:24px;margin-bottom:10px;}
+        .lessons ul{list-style:none;padding:0;}
+        .lessons li{background:#f9f9f9;padding:10px 15px;margin-bottom:5px;border-radius:4px;}
+        .teacher{margin-top:30px;}
+        .teacher h3{font-size:24px;margin-bottom:10px;}
+        .teacher .profile{display:flex;align-items:center;gap:15px;}
+        .teacher img{width:80px;height:80px;border-radius:50%;object-fit:cover;}
+        .teacher .bio{font-size:14px;color:#555;}
+        .enroll{margin-top:30px;text-align:center;}
+        .enroll button{background:#e67e22;color:#fff;border:none;padding:12px 30px;font-size:18px;border-radius:4px;cursor:pointer;}
+        .enroll button:hover{background:#d35400;}
+        footer{background:#2c3e50;color:#fff;text-align:center;padding:15px;margin-top:40px;}
+    </style>
+</head>
+<body>
+<header>
+    <h1>学途</h1>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程</a>
+        <a href="signup.html">注册</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="title">前端开发实战</div>
+    <div class="price">¥299</div>
+
+    <div class="info">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiM3ZThkZjYiLz48L3N2Zz4=" alt="前端开发实战">
+        <div class="details">
+            <p>本课程面向零基础到有一定编程经验的学习者，系统讲解HTML、CSS、JavaScript以及常用框架React的核心概念与实战技巧。</p>
+            <p>课程时长：30 小时（共 10 章节），每章节配套练习与项目案例。</p>
+            <p>适合人群：大学生、职场新人、想转型前端的技术爱好者。</p>
+        </div>
+    </div>
+
+    <div class="lessons">
+        <h3>课程章节</h3>
+        <ul>
+            <li>第 1 章：HTML 基础与语义化</li>
+            <li>第 2 章：CSS 布局与响应式设计</li>
+            <li>第 3 章：JavaScript 语言核心</li>
+            <li>第 4 章：DOM 操作与事件处理</li>
+            <li>第 5 章：ES6+ 新特性</li>
+            <li>第 6 章：前端工具链（Webpack、Babel）</li>
+            <li>第 7 章：React 基础与组件化</li>
+            <li>第 8 章：状态管理（Redux）</li>
+            <li>第 9 章：项目实战：个人博客系统</li>
+            <li>第 10 章：项目实战：电商前端页面</li>
+        </ul>
+    </div>
+
+    <div class="teacher">
+        <h3>授课教师</h3>
+        <div class="profile">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0iIzdjNGZmZiIvPjwvc3ZnPg==" alt="老师头像">
+            <div class="bio">
+                <strong>李晓明</strong>，前端工程师，10 年大型互联网项目开发经验，擅长 React 与 Vue 生态体系。曾在多家知名企业担任技术负责人，热爱分享与教学。
+            </div>
+        </div>
+    </div>
+
+    <div class="enroll">
+        <button onclick="location.href='signup.html'">立即报名</button>
+    </div>
+</div>
+
+<footer>
+    © 2026 学途在线学习平台
+</footer>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「云感」羊绒混纺开衫 - 可衣 KEEWEAR</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c2c2c; background: #fff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .top-bar { background: #2c2c2c; color: #fff; font-size: 12px; padding: 6px 0; text-align: center; }
+        .top-bar span { margin: 0 15px; }
+        .header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1440px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+        .logo span { color: #b8860b; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { font-size: 15px; color: #555; padding: 8px 0; border-bottom: 2px solid transparent; transition: all .3s; }
+        .nav a:hover, .nav a.active { color: #2c2c2c; border-bottom-color: #b8860b; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .search-box { display: flex; align-items: center; background: #f5f5f5; border-radius: 20px; padding: 6px 14px; }
+        .search-box input { border: none; background: none; outline: none; font-size: 13px; width: 140px; }
+        .search-box svg { margin-right: 8px; opacity: .4; }
+        .cart-icon { position: relative; cursor: pointer; }
+        .cart-icon .badge { position: absolute; top: -6px; right: -6px; background: #c0392b; color: #fff; font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .breadcrumb { max-width: 1440px; margin: 0 auto; padding: 20px 40px 0; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #b8860b; }
+
+        .detail-layout { max-width: 1440px; margin: 0 auto; padding: 30px 40px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+
+        /* Left: Images */
+        .detail-images { position: sticky; top: 100px; }
+        .main-image { width: 100%; height: 560px; border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+        .main-image .img-fill { width: 100%; height: 100%; background: linear-gradient(160deg, #e8d5c4, #c9a88c); position: relative; }
+        .main-image .img-fill::after { content: '羊绒混纺开衫 · 驼色'; position: absolute; bottom: 20px; left: 20px; font-size: 13px; color: rgba(255,255,255,.7); }
+        .thumb-row { display: flex; gap: 12px; }
+        .thumb { width: 80px; height: 80px; border-radius: 4px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: border .2s; }
+        .thumb.active, .thumb:hover { border-color: #b8860b; }
+        .thumb .t-fill { width: 100%; height: 100%; }
+
+        /* Right: Info */
+        .detail-info h1 { font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+        .detail-info .subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+        .detail-price { font-size: 28px; color: #c0392b; font-weight: 700; margin-bottom: 6px; }
+        .detail-price .original { font-size: 16px; color: #aaa; text-decoration: line-through; margin-left: 12px; font-weight: 400; }
+        .detail-price .discount { font-size: 12px; color: #fff; background: #c0392b; padding: 2px 8px; border-radius: 2px; margin-left: 12px; vertical-align: middle; }
+        .rating { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+        .rating .stars { color: #b8860b; font-size: 14px; }
+        .rating .count { font-size: 12px; color: #999; }
+
+        .option-group { margin-bottom: 24px; }
+        .option-group label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-bottom: 10px; }
+        .color-options { display: flex; gap: 12px; }
+        .color-dot { width: 36px; height: 36px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: border .2s; position: relative; }
+        .color-dot.active, .color-dot:hover { border-color: #2c2c2c; }
+        .color-dot .tooltip { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #999; white-space: nowrap; }
+
+        .size-options { display: flex; gap: 10px; }
+        .size-opt { width: 48px; height: 48px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: all .2s; }
+        .size-opt:hover, .size-opt.active { border-color: #2c2c2c; background: #2c2c2c; color: #fff; }
+        .size-opt.disabled { opacity: .3; cursor: not-allowed; }
+        .size-guide { font-size: 12px; color: #b8860b; cursor: pointer; margin-top: 8px; display: inline-block; }
+
+        .qty-row { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+        .qty-row label { font-size: 13px; font-weight: 600; color: #555; }
+        .qty-controls { display: flex; align-items: center; }
+        .qty-controls button { width: 36px; height: 36px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-size: 16px; }
+        .qty-controls button:hover { background: #f5f5f5; }
+        .qty-controls input { width: 50px; height: 36px; border: 1px solid #ddd; border-left: none; border-right: none; text-align: center; font-size: 14px; outline: none; }
+
+        .action-btns { display: flex; gap: 12px; margin-bottom: 30px; }
+        .btn-add-cart { flex: 1; padding: 16px; background: #2c2c2c; color: #fff; border: none; font-size: 15px; cursor: pointer; letter-spacing: 2px; transition: background .3s; }
+        .btn-add-cart:hover { background: #b8860b; }
+        .btn-buy-now { flex: 1; padding: 16px; background: #b8860b; color: #fff; border: none; font-size: 15px; cursor: pointer; letter-spacing: 2px; transition: background .3s; }
+        .btn-buy-now:hover { background: #9a7209; }
+        .btn-wishlist { width: 52px; height: 52px; border: 1px solid #ddd; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .btn-wishlist:hover { border-color: #c0392b; }
+
+        .detail-features { border-top: 1px solid #eee; padding-top: 20px; }
+        .detail-features .feature { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: #666; }
+        .detail-features .feature .icon { color: #b8860b; flex-shrink: 0; margin-top: 2px; }
+
+        /* Tabs */
+        .tabs { max-width: 1440px; margin: 0 auto; padding: 0 40px 60px; }
+        .tab-header { display: flex; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+        .tab-btn { padding: 14px 28px; font-size: 15px; color: #666; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .2s; }
+        .tab-btn.active { color: #2c2c2c; font-weight: 600; border-bottom-color: #b8860b; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+        .tab-content p { font-size: 14px; color: #666; line-height: 2; margin-bottom: 16px; }
+        .spec-table { width: 100%; max-width: 600px; border-collapse: collapse; }
+        .spec-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+        .spec-table td:first-child { color: #999; width: 120px; }
+        .spec-table td:last-child { color: #333; }
+
+        .related-section { max-width: 1440px; margin: 0 auto; padding: 0 40px 80px; }
+        .related-section h2 { font-size: 20px; font-weight: 500; margin-bottom: 24px; }
+        .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .related-card { cursor: pointer; }
+        .related-card .r-img { height: 200px; border-radius: 4px; margin-bottom: 12px; }
+        .related-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+        .related-card .r-price { font-size: 14px; color: #c0392b; font-weight: 600; }
+
+        .footer { background: #2c2c2c; color: #aaa; padding: 40px; text-align: center; font-size: 12px; }
+
+        @media (max-width: 1024px) {
+            .detail-layout { grid-template-columns: 1fr; gap: 40px; }
+            .detail-images { position: static; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .detail-layout { padding: 20px; }
+            .breadcrumb { padding: 16px 20px 0; }
+            .main-image { height: 400px; }
+            .nav { display: none; }
+            .header-inner { padding: 14px 20px; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <span>全场满 599 元免运费</span>
+        <span>|</span>
+        <span>30 天无忧退换</span>
+        <span>|</span>
+        <span>顺丰包邮 · 48 小时内发货</span>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html" class="active">全部商品</a>
+                <a href="products.html">日常系列</a>
+                <a href="products.html">职场系列</a>
+                <a href="cart.html">购物车</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <input type="text" placeholder="搜索商品...">
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb"><a href="index.html">首页</a> / <a href="products.html">全部商品</a> / <a href="products.html">通勤职场</a> / 「云感」羊绒混纺开衫</div>
+
+    <div class="detail-layout">
+        <div class="detail-images">
+            <div class="main-image">
+                <div class="img-fill"></div>
+            </div>
+            <div class="thumb-row">
+                <div class="thumb active"><div class="t-fill" style="background:linear-gradient(160deg,#e8d5c4,#c9a88c);"></div></div>
+                <div class="thumb"><div class="t-fill" style="background:linear-gradient(160deg,#f5f0e8,#e0d4c0);"></div></div>
+                <div class="thumb"><div class="t-fill" style="background:linear-gradient(160deg,#d6dce5,#a8b8cc);"></div></div>
+                <div class="thumb"><div class="t-fill" style="background:linear-gradient(160deg,#3c3c3c,#5a5a5a);"></div></div>
+                <div class="thumb"><div class="t-fill" style="background:linear-gradient(160deg,#f2d7d7,#d4a0a0);"></div></div>
+            </div>
+        </div>
+
+        <div class="detail-info">
+            <h1>「云感」羊绒混纺开衫</h1>
+            <p class="subtitle">2024 秋冬系列 · 通勤 / 日常 · 落肩宽松版型</p>
+
+            <div class="detail-price">
+                ¥ 899
+                <span class="original">¥ 1,299</span>
+                <span class="discount">7 折</span>
+            </div>
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="count">4.9 分 · 326 条评价</span>
+            </div>
+
+            <div class="option-group">
+                <label>颜色 — 驼色</label>
+                <div class="color-options">
+                    <div class="color-dot active" style="background:#c9a88c;"><span class="tooltip">驼色</span></div>
+                    <div class="color-dot" style="background:#f5f0e8;"><span class="tooltip">奶白</span></div>
+                    <div class="color-dot" style="background:#a8b8cc;"><span class="tooltip">雾霾蓝</span></div>
+                    <div class="color-dot" style="background:#3c3c3c;"><span class="tooltip">深灰</span></div>
+                    <div class="color-dot" style="background:#d4a0a0;"><span class="tooltip">莫兰迪粉</span></div>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>尺码</label>
+                <div class="size-options">
+                    <div class="size-opt">S</div>
+                    <div class="size-opt active">M</div>
+                    <div class="size-opt">L</div>
+                    <div class="size-opt disabled">XL</div>
+                </div>
+                <span class="size-guide">📐 查看尺码对照表</span>
+            </div>
+
+            <div class="qty-row">
+                <label>数量</label>
+                <div class="qty-controls">
+                    <button type="button">−</button>
+                    <input type="text" value="1" readonly>
+                    <button type="button">+</button>
+                </div>
+                <span style="font-size:12px;color:#999;">库存充足（M 码）</span>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-add-cart" type="button">加入购物袋</button>
+                <button class="btn-buy-now" type="button">立即购买</button>
+                <button class="btn-wishlist" type="button" title="加入心愿单">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+            </div>
+
+            <div class="detail-features">
+                <div class="feature"><span class="icon">✓</span> 80% 内蒙古阿拉善羊绒 + 20% 新西兰美利奴羊毛</div>
+                <div class="feature"><span class="icon">✓</span> 落肩设计，肩线自然下垂，不挑肩型</div>
+                <div class="feature"><span class="icon">✓</span> 可机洗（冷水轻柔模式），不易起球</div>
+                <div class="feature"><span class="icon">✓</span> 通过 OEKO-TEX Standard 100 认证</div>
+                <div class="feature"><span class="icon">✓</span> 顺丰包邮 · 48 小时内发货 · 30 天无理由退换</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-header">
+            <div class="tab-btn active" data-tab="desc">商品描述</div>
+            <div class="tab-btn" data-tab="specs">规格参数</div>
+            <div class="tab-btn" data-tab="review">顾客评价 (326)</div>
+            <div class="tab-btn" data-tab="ship">配送与退换</div>
+        </div>
+
+        <div class="tab-content active" id="tab-desc">
+            <h3>设计理念</h3>
+            <p>「云感」系列是我们每年秋天最先开发的单品。设计初衷是找到一件"穿上去就忘了它在身上"的开衫——不厚重、不扎人、不挑内搭。我们用了三个月从阿拉善、锡林郭勒和鄂尔多斯三个牧场选出了最终的面料供应商，确保纤维细度在 15.5 微米以下。</p>
+            <h3 style="margin-top:24px;">面料与工艺</h3>
+            <p>采用 80% 羊绒 + 20% 美利奴羊毛混纺。羊绒提供柔软和保暖，美利奴羊毛增加结构感，让开衫不会"塌"。织造密度为 24 针，兼顾透气与保暖。领口、袖口和下摆采用罗纹收边，不易松垮变形。</p>
+            <p>整衣在苏州的针织工厂完成，从裁剪到成衣由同一组工人经手，确保针脚一致。每件开衫出厂前经过 4 道手工整检，剪除多余线头，熨烫定型。</p>
+            <h3 style="margin-top:24px;">搭配建议</h3>
+            <p>内搭一件真丝衬衫或高领打底衫，下装搭配高腰直筒裤或阔腿西裤，即刻完成一套得体的通勤 look。周末则可以搭高腰牛仔裤和乐福鞋，松弛感立现。开衫也可作为薄外套单穿，春秋季节刚好。</p>
+        </div>
+
+        <div class="tab-content" id="tab-specs">
+            <table class="spec-table">
+                <tr><td>品名</td><td>「云感」羊绒混纺开衫</td></tr>
+                <tr><td>系列</td><td>2024 秋冬 · 通勤系列</td></tr>
+                <tr><td>面料成分</td><td>羊绒 80% / 美利奴羊毛 20%</td></tr>
+                <tr><td>克重</td><td>约 380g（M 码）</td></tr>
+                <tr><td>织造密度</td><td>24 针</td></tr>
+                <tr><td>版型</td><td>落肩宽松 · 中长款（衣长约 65cm）</td></tr>
+                <tr><td>领型</td><td>V 领（领口宽约 8cm）</td></tr>
+                <tr><td>门襟</td><td>四粒包扣 · 树脂仿珍珠扣</td></tr>
+                <tr><td>口袋</td><td>两侧手袋（贴袋）</td></tr>
+                <tr><td>尺码</td><td>S / M / L / XL</td></tr>
+                <tr><td>颜色</td><td>驼色 / 奶白 / 雾霾蓝 / 深灰 / 莫兰迪粉</td></tr>
+                <tr><td>洗涤方式</td><td>可机洗（冷水轻柔模式，使用羊绒洗涤剂）</td></tr>
+                <tr><td>产地</td><td>中国 · 江苏苏州</td></tr>
+                <tr><td>认证</td><td>OEKO-TEX Standard 100 · Class I</td></tr>
+            </table>
+        </div>
+
+        <div class="tab-content" id="tab-review">
+            <h3>评分分布</h3>
+            <div style="margin-bottom:24px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:6px;"><span style="width:20px;">5★</span><div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"><div style="width:88%;height:100%;background:#b8860b;border-radius:4px;"></div></div><span>287 条</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:6px;"><span style="width:20px;">4★</span><div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"><div style="width:9%;height:100%;background:#b8860b;border-radius:4px;"></div></div><span>29 条</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:6px;"><span style="width:20px;">3★</span><div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"><div style="width:2%;height:100%;background:#b8860b;border-radius:4px;"></div></div><span>7 条</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:6px;"><span style="width:20px;">2★</span><div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"><div style="width:1%;height:100%;background:#b8860b;border-radius:4px;"></div></div><span>2 条</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="width:20px;">1★</span><div style="flex:1;height:8px;background:#f0f0f0;border-radius:4px;"><div style="width:1%;height:100%;background:#b8860b;border-radius:4px;"></div></div><span>1 条</span></div>
+            </div>
+            <h3>精选评价</h3>
+            <p style="background:#fafafa;padding:20px;border-radius:4px;margin-bottom:16px;">★★★★★ 面料真的如名称一样，软糯到不想脱下来。M 码 162/54kg 穿刚好，肩线落在肩峰外侧一点点，很自然。驼色百搭，配白衬衫和烟管裤去开会，配高领打底和阔腿裤周末逛街，一件顶三件。<br><span style="font-size:12px;color:#999;">— 林女士 · 上海 · 2024.11 · 已购买驼色 M 码</span></p>
+            <p style="background:#fafafa;padding:20px;border-radius:4px;margin-bottom:16px;">★★★★★ 之前买过别的品牌羊绒衫，起球扎人。这件洗了五次依然平整，完全不扎。V 领设计露出锁骨，不会像圆领那么"闷"。扣子质量很好，不是那种一扯就断的。<br><span style="font-size:12px;color:#999;">— 周女士 · 杭州 · 2024.10 · 已购买奶白 S 码</span></p>
+            <p style="background:#fafafa;padding:20px;border-radius:4px;">★★★★☆ 整体很好，唯一的小遗憾是袖子稍长，我 158 穿 M 袖口会盖住半个手掌。如果出个短款袖就完美了。面料和做工没得挑，值得。<br><span style="font-size:12px;color:#999;">— 方女士 · 南京 · 2024.11 · 已购买雾霾蓝 S 码</span></p>
+        </div>
+
+        <div class="tab-content" id="tab-ship">
+            <h3>配送</h3>
+            <p>· 满 ¥599 全国顺丰包邮，不满 ¥599 运费 ¥15<br>· 上海 / 北京 / 广州 / 深圳 48 小时内发货，其他城市 72 小时内<br>· 偏远地区（新疆、西藏、内蒙古部分地区）发货后 5-7 天送达<br>· 工作日 16:00 前下单当天发出</p>
+            <h3 style="margin-top:24px;">退换货</h3>
+            <p>· 签收后 30 天内可无理由退换（商品未洗涤、吊牌完好）<br>· 退换运费：质量问题由可衣承担；非质量问题买家承担退回运费（首次免退运费券）<br>· 退款在收到退回商品并质检通过后 3-5 个工作日内原路退回<br>· 定制尺码或已剪吊牌的商品不支持无理由退货</p>
+            <h3 style="margin-top:24px;">售后</h3>
+            <p>· 羊绒制品在正常穿着下出现起球属正常现象，可联系售后获取护理建议<br>· 质保期内（6 个月）非人为损坏的脱线、开扣等问题免费修补<br>· 客服工作时间：周一至周日 9:00-21:00</p>
+        </div>
+    </div>
+
+    <section class="related-section">
+        <h2>搭配推荐</h2>
+        <div class="related-grid">
+            <a href="product-detail.html" class="related-card">
+                <div class="r-img" style="background:linear-gradient(160deg,#d6dce5,#a8b8cc);"></div>
+                <h4>「轻语」真丝方领衬衫</h4>
+                <span class="r-price">¥ 659</span>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="r-img" style="background:linear-gradient(160deg,#3c3c3c,#5a5a5a);"></div>
+                <h4>通勤高腰直筒九分裤</h4>
+                <span class="r-price">¥ 459</span>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="r-img" style="background:linear-gradient(160deg,#f5f0e8,#e0d4c0);"></div>
+                <h4>「素白」圆领棉质长袖 T 恤</h4>
+                <span class="r-price">¥ 299</span>
+            </a>
+            <a href="product-detail.html" class="related-card">
+                <div class="r-img" style="background:linear-gradient(160deg,#c8d8e8,#8aa8c4);"></div>
+                <h4>「雾蓝」翻领针织小西装</h4>
+                <span class="r-price">¥ 1,099</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © 2024 可衣 KEEWEAR · 沪ICP备 2019-08623 号 · 上海市静安区常德路 1155 号
+    </footer>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Color selection
+        document.querySelectorAll('.color-dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Size selection
+        document.querySelectorAll('.size-opt:not(.disabled)').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-opt').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Thumbnail selection
+        document.querySelectorAll('.thumb').forEach(t => {
+            t.addEventListener('click', function() {
+                document.querySelectorAll('.thumb').forEach(th => th.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Quantity
+        let qty = 1;
+        const qtyInput = document.querySelector('.qty-controls input');
+        document.querySelector('.qty-controls button:first-child').addEventListener('click', function() {
+            if (qty > 1) { qty--; qtyInput.value = qty; }
+        });
+        document.querySelector('.qty-controls button:last-child').addEventListener('click', function() {
+            if (qty < 10) { qty++; qtyInput.value = qty; }
+        });
+    </script>
+</body>
+</html>

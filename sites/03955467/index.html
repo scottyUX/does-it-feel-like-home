@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>趣聊 - 动态首页</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        .nav{display:flex;justify-content:space-between;align-items:center;}
+        .nav a{color:#333;text-decoration:none;margin:0 10px;font-weight:500;}
+        .nav a:hover{color:#ff5a5f;}
+        .container{max-width:960px;margin:20px auto;padding:0 15px;}
+        .post{background:#fff;margin-bottom:20px;padding:15px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+        .post-header{display:flex;align-items:center;margin-bottom:10px;}
+        .avatar{width:40px;height:40px;border-radius:50%;background:#bbb;margin-right:10px;}
+        .username{font-weight:600;}
+        .post-content{margin-bottom:10px;line-height:1.5;}
+        .post-image{width:100%;height:200px;background:#ddd;border-radius:6px;margin:10px 0;}
+        .post-actions{display:flex;justify-content:space-between;font-size:14px;color:#777;}
+        .post-actions a{color:#777;text-decoration:none;}
+        .post-actions a:hover{color:#ff5a5f;}
+        footer{background:#fff;padding:15px 20px;text-align:center;font-size:13px;color:#777;margin-top:40px;}
+        @media (max-width:600px){
+            .nav{flex-direction:column;}
+            .nav a{margin:5px 0;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <div><strong>趣聊</strong></div>
+        <div>
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html">注册</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- 示例帖子 1 -->
+    <section class="post">
+        <div class="post-header">
+            <div class="avatar"></div>
+            <div class="username">小明</div>
+        </div>
+        <div class="post-content">
+            今天天气真好，和朋友一起去郊外骑行，超开心的！🚴‍♂️
+        </div>
+        <div class="post-image"></div>
+        <div class="post-actions">
+            <span>👍 124</span>
+            <a href="post.html">💬 8 条评论</a>
+        </div>
+    </section>
+
+    <!-- 示例帖子 2 -->
+    <section class="post">
+        <div class="post-header">
+            <div class="avatar"></div>
+            <div class="username">旅行达人</div>
+        </div>
+        <div class="post-content">
+            刚从巴厘岛回来，海岛的日落真的美到窒息，推荐大家来玩~
+        </div>
+        <div class="post-image"></div>
+        <div class="post-actions">
+            <span>👍 98</span>
+            <a href="post.html">💬 12 条评论</a>
+        </div>
+    </section>
+
+    <!-- 示例帖子 3 -->
+    <section class="post">
+        <div class="post-header">
+            <div class="avatar"></div>
+            <div class="username">音乐狂热</div>
+        </div>
+        <div class="post-content">
+            刚买了最新的耳机，音质惊人！强烈推荐给爱音乐的你们 🎧
+        </div>
+        <div class="post-image"></div>
+        <div class="post-actions">
+            <span>👍 76</span>
+            <a href="post.html">💬 5 条评论</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 趣聊. 保留所有权利.
+</footer>
+</body>
+</html>

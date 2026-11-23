@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林小曼的个人主页 - 趣聊</title>
+    <style>
+        :root {
+            --primary: #FF5E62;
+            --primary-light: #FF8A8D;
+            --primary-dark: #E8444A;
+            --accent: #6C5CE7;
+            --bg: #F5F6FA;
+            --card: #FFFFFF;
+            --text: #2D3436;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --radius: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 32px; }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            background: rgba(255,94,98,0.08);
+        }
+
+        .nav-right { display: flex; align-items: center; gap: 16px; }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 8px 16px;
+            gap: 8px;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 14px;
+            width: 160px;
+            color: var(--text);
+        }
+        .nav-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .btn-signup {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-signup:hover { background: var(--primary-dark); }
+
+        /* Profile Header */
+        .profile-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 40px;
+        }
+
+        .profile-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+
+        .profile-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+        }
+
+        .profile-cover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.1));
+        }
+
+        .profile-info {
+            padding: 0 32px 28px;
+            position: relative;
+        }
+
+        .profile-avatar-large {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 4px solid var(--card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: -48px;
+            margin-bottom: 16px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .profile-handle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            max-width: 560px;
+        }
+
+        .profile-details {
+            display: flex;
+            gap: 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .btn-edit {
+            position: absolute;
+            top: 16px;
+            right: 32px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-edit:hover { background: white; }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 4px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.2s;
+            border: none;
+            background: none;
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab:hover:not(.active) {
+            background: var(--bg);
+        }
+
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .grid-post {
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .grid-post:hover {
+            transform: scale(1.02);
+        }
+
+        .grid-post-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .grid-post-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .grid-post-text {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            font-size: 12px;
+            color: white;
+            font-weight: 500;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 32px 40px;
+            margin-top: 40px;
+        }
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-brand { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-copy { font-size: 12px; color: var(--text-secondary); }
+
+        @media (max-width: 800px) {
+            .profile-container { padding: 16px; }
+            .posts-grid { grid-template-columns: repeat(2, 1fr); }
+            .navbar { padding: 0 16px; }
+            .search-box { display: none; }
+            .nav-links { display: none; }
+            .profile-stats { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">趣</div>
+                趣聊
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="profile.html" class="active">个人主页</a></li>
+                <li><a href="post.html">热门帖子</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="搜索帖子、用户、话题...">
+            </div>
+            <div class="nav-avatar">林</div>
+            <a href="signup.html" class="btn-signup">邀请好友</a>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-cover"></div>
+            <div class="profile-info">
+                <button class="btn-edit">编辑资料</button>
+                <div class="profile-avatar-large">林</div>
+                <h1 class="profile-name">林小曼</h1>
+                <div class="profile-handle">@linxiaoman · 2021年加入</div>
+                <p class="profile-bio">设计爱好者 | 咖啡控 | 周末摄影师 📷 喜欢用镜头记录生活中的小确幸。相信每一天都值得被认真记录。坐标杭州，欢迎交流设计、摄影和生活方式。</p>
+                <div class="profile-details">
+                    <span>📍 杭州，浙江</span>
+                    <span>🎨 视觉设计师</span>
+                    <span>📱 @linxiaoman</span>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">326</div>
+                        <div class="stat-label">帖子</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4,821</div>
+                        <div class="stat-label">粉丝</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,203</div>
+                        <div class="stat-label">关注</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12,467</div>
+                        <div class="stat-label">获赞</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active">我的帖子</button>
+            <button class="tab">收藏</button>
+            <button class="tab">关注中</button>
+            <button class="tab">粉丝</button>
+        </div>
+
+        <div class="posts-grid">
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#F6D365,#FDA085);">🌅</div>
+                <div class="grid-post-text">西湖边的金色黄昏</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">☕</div>
+                <div class="grid-post-text">手冲咖啡日常</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#89f7fe,#66a6ff);">🌿</div>
+                <div class="grid-post-text">阳台小花园</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">📐</div>
+                <div class="grid-post-text">设计工作中的小灵感</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#ff9a9e,#fecfef);">🍰</div>
+                <div class="grid-post-text">周末烘焙时间</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">🌊</div>
+                <div class="grid-post-text">国庆去海边的照片</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">🐱</div>
+                <div class="grid-post-text">我家橘猫又拆家了</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#fa709a,#fee140);">🎵</div>
+                <div class="grid-post-text">最近超爱的歌单</div>
+            </div>
+            <div class="grid-post">
+                <div class="grid-post-bg" style="background:linear-gradient(135deg,#667eea,#764ba2);">🌙</div>
+                <div class="grid-post-text">失眠时看到的月亮</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">趣聊</div>
+            <div class="footer-links">
+                <a href="index.html">首页</a>
+                <a href="signup.html">加入我们</a>
+                <a href="#">用户协议</a>
+                <a href="#">隐私政策</a>
+            </div>
+            <div class="footer-copy">© 2025 趣聊 · 记录生活，分享快乐</div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

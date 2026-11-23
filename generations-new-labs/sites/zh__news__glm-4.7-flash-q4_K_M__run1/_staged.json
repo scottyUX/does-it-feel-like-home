@@ -1,0 +1,88 @@
+{
+  "id": "zh__news__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "news",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13209,
+  "seconds": 121,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/newsroom/600/400",
+      "file": "assets/image-79c12601a02442a7.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person1/200/200",
+      "file": "assets/image-5fee0785fdb25983.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person2/200/200",
+      "file": "assets/image-b083c5f3c58a0117.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/person3/200/200",
+      "file": "assets/image-d0c67b665c07ffc9.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/coffee/800/450",
+      "file": "assets/image-70e83bd7da9ca314.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/wang/100/100",
+      "file": "assets/image-f5aef97c73a76090.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/market/400/300",
+      "file": "assets/image-95ace0f8c7462084.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/industry/400/300",
+      "file": "assets/image-4dba8226885e7393.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/house/400/300",
+      "file": "assets/image-5e550a6368ca2f40.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/oil/400/300",
+      "file": "assets/image-8a4ba30e9973a854.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/tech1/800/600",
+      "file": "assets/image-75c7ae5561fcd54c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/finance/400/300",
+      "file": "assets/image-b16a6d837818746a.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/health/400/300",
+      "file": "assets/image-1951dd60dd369d34.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/travel/400/300",
+      "file": "assets/image-7aa46196e53d4406.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/sports/400/300",
+      "file": "assets/image-e7c3a41698c37a3d.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/ai/400/300",
+      "file": "assets/image-796f50ac20fc2ca5.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/robot/400/300",
+      "file": "assets/image-487da8c3da4f4943.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/space/400/300",
+      "file": "assets/image-3084e8e8d9857e43.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/gpu/400/300",
+      "file": "assets/image-1cd1fd3e9046988e.jpg"
+    }
+  ]
+}

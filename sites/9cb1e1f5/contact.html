@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 长川银行</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #0047AB 0%, #00265a 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .logo span {
+            color: #FFD700;
+            margin-left: 5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .page-title {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, #0047AB 0%, #00265a 100%);
+            color: white;
+        }
+        .page-title h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        .page-title p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        .contact-section {
+            padding: 60px 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .contact-card h3 {
+            color: #0047AB;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .contact-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .map-section {
+            margin: 60px 0;
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        .map-container {
+            background: #e0e0e0;
+            height: 400px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .map-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #666;
+        }
+        .form-section {
+            background: white;
+            padding: 60px 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #0047AB;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #003380;
+        }
+        footer {
+            background: #00265a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">长川银行<span>·</span>金融生活</div>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="personal.html">个人银行</a>
+                    <a href="credit.html">信用卡服务</a>
+                    <a href="contact.html">联系我们</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>全国超过 500 家分行，随时为您提供专业服务</p>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>客户服务</h3>
+                    <div class="contact-item">
+                        <strong>客服热线</strong>
+                        400-888-5888 (24 小时服务)
+                    </div>
+                    <div class="contact-item">
+                        <strong>投诉电话</strong>
+                        400-888-5899
+                    </div>
+                    <div class="contact-item">
+                        <strong>电子邮箱</strong>
+                        service@changchuanbank.cn
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h3>工作时间</h3>
+                    <div class="contact-item">
+                        <strong>对公业务</strong>
+                        周一至周五 9:00-17:00
+                    </div>
+                    <div class="contact-item">
+                        <strong>个人业务</strong>
+                        周一至周日 8:30-18:00
+                    </div>
+                    <div class="contact-item">
+                        <strong>线上服务</strong>
+                        7×24 小时不间断
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h3>总部信息</h3>
+                    <div class="contact-item">
+                        <strong>地址</strong>
+                        北京市东城区东长安街 1 号
+                    </div>
+                    <div class="contact-item">
+                        <strong>邮编</strong>
+                        100005
+                    </div>
+                    <div class="contact-item">
+                        <strong>传真</strong>
+                        010-88885555
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">分行网点分布</h2>
+            <div class="map-container">
+                <div class="map-overlay">
+                    <p>此处展示全国 500+ 分行网点位置地图</p>
+                    <p style="font-size: 14px; margin-top: 10px;">(交互式地图功能)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container form-container">
+            <h2 style="text-align: center; margin-bottom: 40px;">在线预约服务</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">联系电话</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">服务类型</label>
+                    <select id="service">
+                        <option>个人贷款咨询</option>
+                        <option>信用卡申请</option>
+                        <option>账户开户</option>
+                        <option>理财咨询</option>
+                        <option>其他服务</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">需求描述</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交预约</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>服务支持</h4>
+                    <ul class="footer-links">
+                        <li><a href="personal.html">个人账户</a></li>
+                        <li><a href="credit.html">信用卡中心</a></li>
+                        <li><a href="contact.html">网点查询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>安全提示</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">防诈骗指南</a></li>
+                        <li><a href="#">安全用卡须知</a></li>
+                        <li><a href="#">隐私保护政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li>客服热线：400-888-5888</li>
+                        <li>邮箱：service@changchuanbank.cn</li>
+                        <li>营业时间：9:00-17:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 长川银行股份有限公司 京 ICP 备 12345678 号 金融许可证编码：J0002H22100001</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

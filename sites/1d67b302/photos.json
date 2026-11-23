@@ -1,0 +1,65 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "profile.html",
+   "selector": "div.grid-post-cover",
+   "index": 2,
+   "url": "assets/photo-604aa9ec52cb6f37.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Delicious gourmet dish served at a restaurant highlighting tender meat undefined.jpg",
+   "license": "CC BY 2.0",
+   "subject": "delicious restaurant dish",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Delicious_gourmet_dish_served_at_a_restaurant_highlighting_tender_meat_undefined.jpg/960px-Delicious_gourmet_dish_served_at_a_restaurant_highlighting_tender_meat_undefined.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.grid-post-cover",
+   "index": 4,
+   "url": "assets/photo-7bf5c5bf4e94fe52.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Pirogue running on the Mekong at sunset with pink clouds in Don Det Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "sunset landscape",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Pirogue_running_on_the_Mekong_at_sunset_with_pink_clouds_in_Don_Det_Laos.jpg/960px-Pirogue_running_on_the_Mekong_at_sunset_with_pink_clouds_in_Don_Det_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.grid-post-cover",
+   "index": 5,
+   "url": "assets/photo-d29a4d0809ac0fde.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Cozy reading nook with a person holding a floral mug and a stack of colorful books in a warm, inviting space.jpg",
+   "license": "CC BY 2.0",
+   "subject": "cozy reading nook",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Cozy_reading_nook_with_a_person_holding_a_floral_mug_and_a_stack_of_colorful_books_in_a_warm%2C_inviting_space.jpg/960px-Cozy_reading_nook_with_a_person_holding_a_floral_mug_and_a_stack_of_colorful_books_in_a_warm%2C_inviting_space.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.grid-post-cover",
+   "index": 7,
+   "url": "assets/photo-20ca8b31d6160a4f.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Afternoon Coffee -11 366- (6682090613).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "afternoon coffee",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Afternoon_Coffee_-11_366-_%286682090613%29.jpg/960px-Afternoon_Coffee_-11_366-_%286682090613%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.grid-post-cover",
+   "index": 8,
+   "url": "assets/photo-c9542ab7752f4ded.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:Manvel Mamoyan fitness and workout trainer in moscow (guinness world record holder).jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "fitness workout",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Manvel_Mamoyan_fitness_and_workout_trainer_in_moscow_%28guinness_world_record_holder%29.jpg/960px-Manvel_Mamoyan_fitness_and_workout_trainer_in_moscow_%28guinness_world_record_holder%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

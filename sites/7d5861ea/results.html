@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6600;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --border-color: #dddddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .back-link {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .back-link:hover { color: var(--primary-color); }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .results-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .filter-title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--bg-light);
+            padding-bottom: 1rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .range-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Hotel Card */
+        .hotel-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .hotel-img {
+            width: 200px;
+            height: 140px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .hotel-info {
+            flex: 1;
+        }
+
+        .hotel-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .hotel-rating {
+            color: #ffb400;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hotel-addr {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .hotel-price {
+            text-align: right;
+            min-width: 120px;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-unit {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 8px 16px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .view-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .hotel-card { flex-direction: column; text-align: center; }
+            .hotel-img { width: 100%; }
+            .hotel-price { text-align: center; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>畅行</span> 旅行
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="results.html">热门目的地</a></li>
+                    <li><a href="#">我的订单</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3 class="filter-title">筛选条件</h3>
+            <div class="filter-group">
+                <label>价格范围 (每晚)</label>
+                <input type="range" min="0" max="2000" value="1000" class="range-slider">
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                    <span>¥0</span><span>¥2000+</span>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>酒店星级</label>
+                <label><input type="checkbox"> 五星级</label>
+                <label><input type="checkbox" checked> 四星级</label>
+                <label><input type="checkbox"> 三星级</label>
+            </div>
+            <div class="filter-group">
+                <label>设施服务</label>
+                <label><input type="checkbox"> 免费 WiFi</label>
+                <label><input type="checkbox"> 游泳池</label>
+                <label><input type="checkbox"> 含早</label>
+            </div>
+        </aside>
+
+        <main class="results-list">
+            <h1 style="margin-bottom: 1rem;">杭州 · 搜索结果</h1>
+            <div style="margin-bottom: 1.5rem; color: var(--text-light);">
+                找到 42 家酒店 · <a href="#" style="color:var(--primary-color); text-decoration:none;">清除筛选</a>
+            </div>
+
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    西湖畔度假酒店
+                </div>
+                <div class="hotel-info">
+                    <a href="hotel.html" class="hotel-name">杭州西湖畔度假酒店</a>
+                    <div class="hotel-rating">
+                        ★★★★★ 4.9 (2856 条评价)
+                    </div>
+                    <p class="hotel-addr">📍 杭州市西湖区龙井路 88 号 (距西湖步行 5 分钟)</p>
+                    <p style="font-size:0.9rem; color: #666;">拥有全景湖景客房，含中式早餐，免费停车。</p>
+                </div>
+                <div class="hotel-price">
+                    <span class="price-tag">¥1,288</span>
+                    <span class="price-unit">/ 每晚</span><br>
+                    <a href="booking.html" class="view-btn">立即预订</a>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    城市中心大饭店
+                </div>
+                <div class="hotel-info">
+                    <a href="booking.html" class="hotel-name">杭州城市中心大饭店</a>
+                    <div class="hotel-rating">
+                        ★★★★☆ 4.5 (1203 条评价)
+                    </div>
+                    <p class="hotel-addr">📍 杭州市上城区延安路 123 号 (市中心商圈)</p>
+                    <p style="font-size:0.9rem; color: #666;">交通便利，邻近地铁站，商务休闲两宜。</p>
+                </div>
+                <div class="hotel-price">
+                    <span class="price-tag">¥650</span>
+                    <span class="price-unit">/ 每晚</span><br>
+                    <a href="booking.html" class="view-btn">立即预订</a>
+                </div>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    禅意精品民宿
+                </div>
+                <div class="hotel-info">
+                    <a href="booking.html" class="hotel-name">西湖禅意精品民宿</a>
+                    <div class="hotel-rating">
+                        ★★★★☆ 4.7 (890 条评价)
+                    </div>
+                    <p class="hotel-addr">📍 杭州市西湖区梅家坞 45 号</p>
+                    <p style="font-size:0.9rem; color: #666;">藏在茶山里的静谧住所，体验茶文化。</p>
+                </div>
+                <div class="hotel-price">
+                    <span class="price-tag">¥899</span>
+                    <span class="price-unit">/ 每晚</span><br>
+                    <a href="booking.html" class="view-btn">立即预订</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 畅行旅行。保留所有权利。 | 关于我们 | 隐私政策</p>
+    </footer>
+
+</body>
+</html>

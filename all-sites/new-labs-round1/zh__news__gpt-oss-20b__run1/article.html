@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>每日视界 - 新闻报道</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;}
+  header{background:#003366;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+  nav a{color:#fff;text-decoration:none;margin-left:20px;}
+  nav a:hover{color:#ffcc00;}
+  .toggle{display:none;cursor:pointer;font-size:1.5em;}
+  main{max-width:1200px;margin:auto;padding:20px;background:#fff;}
+  article{line-height:1.6;}
+  article h2{margin:0 0 10px;color:#003366;}
+  article p{margin:15px 0;}
+  footer{background:#003366;color:#fff;text-align:center;padding:10px 0;}
+  @media (max-width:768px){
+    nav a{display:block;margin:10px 0;}
+    nav{display:none;}
+    .toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>每日视界</div>
+  <div class="toggle" onclick="document.getElementById('nav').style.display='block'">&#9776;</div>
+  <nav id="nav">
+    <a href="index.html">首页</a>
+    <a href="finance.html">财经</a>
+    <a href="tech.html">科技</a>
+    <a href="about.html">关于我们</a>
+  </nav>
+</header>
+<main>
+  <article>
+    <h2>国内外最新头条：全球经济复苏步伐加快</h2>
+    <p>2026年7月14日，全球经济复苏步伐加快，多国经济数据显示复苏进程稳中向好。随着政策刺激的持续实施，市场对未来增长前景保持乐观预期。美国、欧盟、中国等主要经济体的增长率均在1.5%~2.5%之间。</p>
+    <p>在此背景下，全球金融市场表现出较强的韧性。投资者对风险资产的兴趣逐步回升，股票市场呈现稳中有升趋势。与此同时，货币政策的宽松程度正在逐步收窄，市场对通胀的担忧得到一定缓解。</p>
+    <p>业内专家指出，经济复苏的关键在于消费需求的持续复苏与企业投资的进一步扩大。政府的财政政策与货币政策在配合下将继续发挥重要作用。</p>
+    <p>未来几个月，市场关注的重点将集中在企业盈利、就业数据以及宏观政策的变化。投资者需保持警惕，合理配置资产，以应对潜在风险。</p>
+  </article>
+</main>
+<footer>
+  © 2026 每日视界，保留所有权利
+</footer>
+<script>
+  window.addEventListener('click',function(e){
+    if(e.target.className!='toggle' && e.target.parentNode.id!='nav'){
+      document.getElementById('nav').style.display='none';
+    }
+  });
+</script>
+</body>
+</html>

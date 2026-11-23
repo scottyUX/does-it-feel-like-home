@@ -1,0 +1,11 @@
+{
+  "id": "zh__news__nemotron3-33b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "news",
+  "model": "nemotron3:33b",
+  "completionTokens": 9583,
+  "seconds": 52,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

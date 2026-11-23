@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预约保洁 - 洁家家政</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333;}
+        header{background:#2c7dfa;color:#fff;padding:20px;}
+        .container{width:90%;max-width:800px;margin:auto;}
+        nav ul{display:flex;list-style:none;flex-wrap:wrap;}
+        nav li{margin-right:20px;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        h1{margin-top:30px;text-align:center;color:#2c7dfa;}
+        .contact-form{background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .contact-form label{display:block;margin-bottom:5px;font-weight:bold;}
+        .contact-form input,.contact-form textarea, .contact-form select{
+            width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:4px;
+        }
+        .contact-form button{
+            background:#ff7f50;color:#fff;padding:12px 20px;border:none;border-radius:4px;cursor:pointer;width:100%;
+        }
+        .note{font-size:0.9rem;color:#555;margin-top:10px;}
+        footer{background:#333;color:#fff;padding:20px;text-align:center;font-size:0.9rem;margin-top:40px;}
+        @media (max-width:768px){
+            nav ul{flex-direction:column;}
+            nav li{margin-bottom:10px;}
+        }
+    </style>
+    <script>
+        function validateForm(event){
+            var name=document.getElementById('name').value.trim();
+            var phone=document.getElementById('phone').value.trim();
+            var date=document.getElementById('date').value;
+            if(!name||!phone||!date){
+                alert('请完整填写必填信息！');
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>洁家家政</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="contact.html">预约保洁</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>预约保洁服务</h1>
+        <form class="contact-form" onsubmit="return validateForm(event);" action="#" method="post">
+            <label for="name">姓名 <span style="color:#ff0000;">*</span></label>
+            <input type="text" id="name" name="name" placeholder="请输入您的姓名">
+
+            <label for="phone">联系电话 <span style="color:#ff0000;">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="请输入手机号码">
+
+            <label for="service">服务项目</label>
+            <select id="service" name="service">
+                <option value="单次深度清洁">单次深度清洁</option>
+                <option value="每周保洁">每周保洁</option>
+                <option value="月度全包套餐">月度全包套餐</option>
+                <option value="搬家清洁">搬家清洁</option>
+                <option value="消毒除螨套餐">消毒除螨套餐</option>
+            </select>
+
+            <label for="date">预约日期 <span style="color:#ff0000;">*</span></label>
+            <input type="date" id="date" name="date">
+
+            <label for="time">预约时间段</label>
+            <select id="time" name="time">
+                <option value="上午9-12点">上午9-12点</option>
+                <option value="下午14-17点">下午14-17点</option>
+                <option value="晚上18-21点">晚上18-21点</option>
+            </select>
+
+            <label for="remark">其他需求或备注</label>
+            <textarea id="remark" name="remark" rows="4" placeholder="如有特殊需求请填写"></textarea>
+
+            <button type="submit">提交预约请求</button>
+            <p class="note">我们将在收到信息后1个工作日内与您联系确认。</p>
+        </form>
+    </div>
+
+    <footer>
+        © 2026 洁家家政 · 北京市朝阳区建国路88号 · 电话: 010-1234-5678
+    </footer>
+</body>
+</html>

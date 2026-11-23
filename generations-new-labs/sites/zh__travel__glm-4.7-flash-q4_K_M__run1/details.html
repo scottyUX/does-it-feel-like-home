@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店详情 - 三亚亚特兰蒂斯酒店</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #0052a3;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .back-link {
+            color: var(--primary-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .hero-gallery {
+            width: 100%;
+            height: 500px;
+            background-image: url('assets/image-7616d7cb60ebf35d.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .details-container {
+            max-width: 1400px;
+            margin: -60px auto 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .header-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .hotel-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-box {
+            background: #fff8e1;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .rating-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffa500;
+        }
+
+        .rating-count {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray);
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .description p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .amenity-icon {
+            font-size: 1.2rem;
+        }
+
+        .booking-sidebar {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .date-selector {
+            margin-bottom: 1.5rem;
+        }
+
+        .date-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .price-summary {
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #eee;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn-checkout:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .cancellation-info {
+            font-size: 0.85rem;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .details-container {
+                grid-template-columns: 1fr;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="window.location.href='index.html'">畅行旅行</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="results.html">酒店</a>
+                <a href="#">我的订单</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-gallery"></div>
+
+    <div class="details-container">
+        <!-- Main Info -->
+        <main class="main-info">
+            <div class="header-block">
+                <div>
+                    <h1 class="hotel-title">三亚亚特兰蒂斯酒店</h1>
+                    <div class="meta-info">
+                        <span>⭐ 4.9 (1,240+ 评价)</span>
+                        <span>📍 三亚市海棠湾</span>
+                        <span>⏰ 开放中 (365天)</span>
+                    </div>
+                </div>
+                <div class="rating-box">
+                    <div class="rating-score">4.9</div>
+                    <div class="rating-count">非常棒</div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab(event, 'desc')">酒店介绍</div>
+                <div class="tab" onclick="switchTab(event, 'amenities')">酒店设施</div>
+                <div class="tab" onclick="switchTab(event, 'reviews')">住客评价</div>
+            </div>
+
+            <div id="desc" class="tab-content active">
+                <div class="description">
+                    <p>亚特兰蒂斯酒店坐落于海棠湾，由著名的建筑设计事务所设计。酒店拥有超过1700间豪华客房及套房，每间客房均可饱览壮丽的海景或园区景观。</p>
+                    <p>酒店最大的亮点在于其独有的“失落的空间”水族馆。您可以在这里与珍稀海洋生物共舞，感受海底世界的奇妙。此外，酒店还拥有四个主题水上乐园、多家米其林及五星级餐厅，满足您的一切需求。</p>
+                    <p>无论是家庭亲子游、情侣蜜月度假，还是商务活动，亚特兰蒂斯都能为您提供一站式的奢华体验。这里的每一处细节都经过精心雕琢，旨在为您打造一个难忘的梦幻之旅。</p>
+                </div>
+            </div>
+
+            <div id="amenities" class="tab-content">
+                <h3 style="margin-bottom: 1rem;">酒店设施与服务</h3>
+                <div class="amenities-list">
+                    <div class="amenity-item"><span class="amenity-icon">🏊</span> 无边泳池</div>
+                    <div class="amenity-item"><span class="amenity-icon">🐠</span> 失落空间水族馆</div>
+                    <div class="amenity-item"><span class="amenity-icon">💆</span> 亚特兰蒂斯水疗中心</div>
+                    <div class="amenity-item"><span class="amenity-icon">🍽️</span> 多家特色餐厅</div>
+                    <div class="amenity-item"><span class="amenity-icon">📶</span> 免费高速WiFi</div>
+                    <div class="amenity-item"><span class="amenity-icon">🚗</span> 停车场</div>
+                    <div class="amenity-item"><span class="amenity-icon">🏨</span> 24小时礼宾服务</div>
+                    <div class="amenity-item"><span class="amenity-icon">🏖️</span> 私人海滩通道</div>
+                    <div class="amenity-item"><span class="amenity-icon">👶</span> 儿童俱乐部</div>
+                </div>
+            </div>
+
+            <div id="reviews" class="tab-content">
+                <div style="margin-bottom: 1rem;">
+                    <h3>住客综合评价</h3>
+                    <div style="color: #ffa500; font-size: 1.2rem; margin-top: 0.5rem;">★★★★★ (5/5)</div>
+                </div>
+                <div style="background: #f9f9f9; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <strong>张先生</strong>
+                    <div style="color: #ffa500; font-size: 0.8rem; margin-top: 5px;">★★★★★</div>
+                    <p style="margin-top: 5px;">非常棒的海景房！水族馆也很值得看，孩子非常喜欢。服务人员态度很好，房间每天打扫得很干净。</p>
+                </div>
+                <div style="background: #f9f9f9; padding: 1rem; border-radius: 6px;">
+                    <strong>李女士</strong>
+                    <div style="color: #ffa500; font-size: 0.8rem; margin-top: 5px;">★★★★☆</div>
+                    <p style="margin-top: 5px;">位置很好，设施很新。就是吃饭稍微有点贵，建议提前查好餐厅价格。</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Booking Sidebar -->
+        <aside class="booking-sidebar">
+            <div class="cancellation-info">可免费取消 · 预订后24小时内</div>
+            
+            <div class="date-selector">
+                <div class="date-row">
+                    <div class="form-group">
+                        <label style="font-size:0.8rem; color:#666;">入住</label>
+                        <input type="date" class="form-input" value="2023-03-15">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-size:0.8rem; color:#666;">退房</label>
+                        <input type="date" class="form-input" value="2023-03-18">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-input" placeholder="房间数量 (1-3)" type="number"></div>
+            <div class="form-input" placeholder="姓名"></div>
+            <div class="form-input" placeholder="联系电话"></div>
+
+            <div class="price-summary">
+                <div class="summary-row">
+                    <span>¥1,299 x 3晚</span>
+                    <span>¥3,897</span>
+                </div>
+                <div class="summary-row">
+                    <span>税费与服务费</span>
+                    <span>¥150</span>
+                </div>
+                <div class="total-row">
+                    <span>总价</span>
+                    <span>¥4,047</span>
+                </div>
+            </div>
+
+            <button class="btn-checkout" onclick="window.location.href='booking.html'">立即预订</button>
+            <p style="font-size: 0.8rem; color: #999; text-align: center; margin-top: 1rem;">点击预订即表示您同意我们的预订条款</p>
+        </aside>
+    </div>
+
+    <script>
+        function switchTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

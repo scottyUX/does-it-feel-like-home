@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 洁家家政</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00a8e8;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+        }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text-color); background-color: var(--white); line-height: 1.6; margin: 0; padding: 0; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        ul { list-style: none; margin: 0; padding: 0; }
+        img { max-width: 100%; display: block; }
+
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .top-bar { background-color: var(--primary-color); color: var(--white); text-align: center; font-size: 0.85rem; padding: 0.5rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .logo span { color: var(--text-color); margin-left: 0.5rem; font-weight: normal; font-size: 1rem; }
+        nav ul { display: flex; gap: 2rem; }
+        nav a { font-weight: 500; color: var(--text-color); }
+        nav a:hover, nav a.active { color: var(--primary-color); }
+        .cta-btn { background-color: var(--accent-color); color: var(--white); padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: bold; }
+
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+
+        .about-header { text-align: center; margin-bottom: 3rem; }
+        .about-header h1 { color: var(--primary-color); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .about-header p { color: #666; }
+
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        
+        .about-text h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .about-text p { margin-bottom: 1rem; text-align: justify; }
+
+        .about-img-box {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img-placeholder {
+            height: 400px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .team-section { margin-top: 4rem; }
+        .team-section h2 { text-align: center; margin-bottom: 2rem; color: var(--primary-color); }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card { text-align: center; }
+        .team-avatar { 
+            width: 120px; height: 120px; 
+            background-color: #ddd; 
+            border-radius: 50%; 
+            margin: 0 auto 1rem; 
+            display: flex; align-items: center; justify-content: center;
+            color: #666;
+            font-size: 2rem;
+            background: #e0e0e0;
+        }
+        .team-name { font-weight: bold; margin-bottom: 0.3rem; }
+        .team-role { color: #666; font-size: 0.9rem; }
+
+        footer { background-color: #2c3e50; color: #bdc3c7; padding: 2rem; text-align: center; margin-top: 4rem; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-img-placeholder { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">服务覆盖北京全境 | 员工全保险 | 满意才结款</div>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">洁家家政<span>您的家庭健康卫士</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html" class="active">关于我们</a></li>
+                    <li><a href="booking.html">在线预约</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="cta-btn">预约服务</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="about-header">
+            <h1>关于洁家家政</h1>
+            <p>专注家庭清洁服务8年，用心守护您的港湾</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>我们的理念</h3>
+                <p>洁家家政成立于2015年，总部位于北京。我们深知现代都市生活的忙碌，家政服务不仅仅是打扫卫生，更是为了给忙碌的您节省宝贵的时间，让您在下班回家后能享受一个干净、温馨、放心的环境。</p>
+                <p>我们始终坚持“客户满意是我们唯一的标准”，拒绝形式主义清洁，只做实实在在的清洁服务。</p>
+                
+                <h3>员工培训与保障</h3>
+                <p>每一位保洁员在上岗前都需通过严格的背景调查，并接受不少于40小时的专业技能培训。我们不仅教保洁技巧，更教礼仪和沟通。此外，所有员工均购买工伤保险，公司还额外为员工购买了人身意外伤害险，确保您的财产安全与员工人身安全双重保障。</p>
+                
+                <h3>环保清洁理念</h3>
+                <p>我们承诺使用正规厂家生产的中性环保清洁剂，无毒无害，不伤家人皮肤和家具，特别适合有孕妇、小孩或老人的家庭使用。</p>
+            </div>
+            <div class="about-img-box">
+                <div class="about-img-placeholder">
+                    我们的团队<br>专业·耐心·细致
+                </div>
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>认识我们的团队</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👩‍🍳</div>
+                    <div class="team-name">张阿姨</div>
+                    <div class="team-role">资深主管，金牌技师</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧</div>
+                    <div class="team-name">李师傅</div>
+                    <div class="team-role">开荒清洗专家</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩</div>
+                    <div class="team-name">王大姐</div>
+                    <div class="team-role">日常保洁专员</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨</div>
+                    <div class="team-name">赵师傅</div>
+                    <div class="team-role">空调/家电清洗技师</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 洁家家政 北京有限公司</p>
+        <p>地址：北京市朝阳区建国路88号SOHO现代城A座</p>
+        <p>服务热线：010-8888-6666</p>
+    </footer>
+</body>
+</html>

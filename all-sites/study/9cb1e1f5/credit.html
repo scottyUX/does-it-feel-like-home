@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡服务 - 长川银行</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #0047AB 0%, #00265a 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .logo span {
+            color: #FFD700;
+            margin-left: 5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .page-title {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, #0047AB 0%, #00265a 100%);
+            color: white;
+        }
+        .page-title h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        .page-title p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        .card-section {
+            padding: 80px 0;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .credit-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .credit-card:hover {
+            transform: translateY(-10px);
+        }
+        .card-header {
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+        }
+        .card-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .card-price {
+            font-size: 32px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        .card-body {
+            padding: 30px;
+            background: white;
+        }
+        .card-features {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+        }
+        .card-features li:before {
+            content: "🎁";
+            position: absolute;
+            left: 0;
+        }
+        .apply-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #FFD700;
+            color: #00265a;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        .apply-btn:hover {
+            transform: scale(1.05);
+        }
+        .special-offer {
+            background: #fff5e6;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto;
+            border: 2px solid #FFD700;
+        }
+        .special-offer h3 {
+            color: #e60012;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .special-offer p {
+            font-size: 18px;
+        }
+        footer {
+            background: #00265a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">长川银行<span>·</span>金融生活</div>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="personal.html">个人银行</a>
+                    <a href="credit.html">信用卡服务</a>
+                    <a href="contact.html">联系我们</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title">
+        <div class="container">
+            <h1>信用卡服务</h1>
+            <p>满足各类消费场景的专属用卡体验</p>
+        </div>
+    </div>
+
+    <section class="card-section">
+        <div class="card-grid">
+            <div class="credit-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+                    <div class="card-title">商旅尊享卡</div>
+                    <div class="card-price">年费 500 元</div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-features">
+                        <li>机场贵宾厅全年无限次</li>
+                        <li>消费 1 元积 2 积分</li>
+                        <li>境外消费免货币转换费</li>
+                        <li>专属旅行保险保障</li>
+                    </ul>
+                    <button class="apply-btn">立即申请</button>
+                </div>
+            </div>
+            <div class="credit-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%);">
+                    <div class="card-title">生活优享卡</div>
+                    <div class="card-price">免年费</div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-features">
+                        <li>餐饮购物双倍积分</li>
+                        <li>每月 10 元观影优惠</li>
+                        <li>超市消费满 200 减 20</li>
+                        <li>生日月 10 倍积分</li>
+                    </ul>
+                    <button class="apply-btn">立即申请</button>
+                </div>
+            </div>
+            <div class="credit-card">
+                <div class="card-header" style="background: linear-gradient(135deg, #000428 0%, #004e92 100%);">
+                    <div class="card-title">数字虚拟卡</div>
+                    <div class="card-price">完全免费</div>
+                </div>
+                <div class="card-body">
+                    <ul class="card-features">
+                        <li>手机银行即时发卡</li>
+                        <li>专属网络支付优惠</li>
+                        <li>消费实时通知</li>
+                        <li>动态安全锁功能</li>
+                    </ul>
+                    <button class="apply-btn">立即申请</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="special-offer">
+            <h3>新户专享礼遇</h3>
+            <p>申请任意信用卡首刷 3000 元，即可获得 200 元购物卡</p>
+            <p style="margin-top: 15px; color: #666;">*活动有效期至 2023 年 12 月 31 日</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>服务支持</h4>
+                    <ul class="footer-links">
+                        <li><a href="personal.html">个人账户</a></li>
+                        <li><a href="credit.html">信用卡中心</a></li>
+                        <li><a href="contact.html">网点查询</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>安全提示</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">防诈骗指南</a></li>
+                        <li><a href="#">安全用卡须知</a></li>
+                        <li><a href="#">隐私保护政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li>客服热线：400-888-5888</li>
+                        <li>邮箱：service@changchuanbank.cn</li>
+                        <li>营业时间：9:00-17:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 长川银行股份有限公司 京 ICP 备 12345678 号 金融许可证编码：J0002H22100001</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>每日视界 - 科技</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+        header{background:#004d7a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:1.5rem;}
+        nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        .container{max-width:1440px;margin:auto;padding:1rem 2rem;}
+        .article-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:1rem;}
+        .article-item{background:#fff;padding:1rem;border-radius:6px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+        .article-item h3{margin:0 0 .5rem;font-size:1.2rem;}
+        .article-item p{margin:0;font-size:.9rem;color:#555;}
+        .article-item a{display:inline-block;margin-top:.5rem;color:#004d7a;text-decoration:none;font-weight:bold;}
+        footer{background:#222;color:#ddd;padding:1rem 2rem;text-align:center;font-size:.9rem;}
+        @media(max-width:768px){
+            header{flex-direction:column;align-items:flex-start;}
+            nav ul{flex-direction:column;gap:0.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>每日视界</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="finance.html">财经</a></li>
+                <li><a href="tech.html">科技</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>科技栏目</h2>
+        <p>聚焦人工智能、移动互联网、半导体等前沿科技，快速捕捉行业动态。</p>
+
+        <div class="article-list">
+            <div class="article-item">
+                <h3>量子计算突破：新算法将算力提升十倍</h3>
+                <p>研究团队公布的最新量子算法在实验中实现前所未有的计算加速。</p>
+                <a href="article.html?title=量子计算突破：新算法将算力提升十倍">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>5G基站全覆盖计划进入倒计时</h3>
+                <p>运营商宣布将在年底前完成全国主要城市的5G基站部署。</p>
+                <a href="article.html?title=5G基站全覆盖计划进入倒计时">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>国产操作系统获得全球认证</h3>
+                <p>该系统通过ISO安全标准认证，标志着国产软件在国际舞台的突破。</p>
+                <a href="article.html?title=国产操作系统获得全球认证">阅读全文 &raquo;</a>
+            </div>
+            <div class="article-item">
+                <h3>AI生成内容监管新规出台</h3>
+                <p>监管部门发布《人工智能内容生成管理办法》，对平台责任进行明确。</p>
+                <a href="article.html?title=AI生成内容监管新规出台">阅读全文 &raquo;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 每日视界 | 版权所有
+    </footer>
+</body>
+</html>

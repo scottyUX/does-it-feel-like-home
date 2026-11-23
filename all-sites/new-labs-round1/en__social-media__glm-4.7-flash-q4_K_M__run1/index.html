@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>趣聊 - 分享你的生活点滴</title>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+            position: relative;
+            display: none; /* Desktop hidden */
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.6rem 1rem 0.6rem 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            background: var(--bg-body);
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #eff6ff;
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 主布局 */
+        .layout {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 240px 1fr 300px;
+            gap: 1.5rem;
+        }
+
+        /* 左侧边栏 */
+        .sidebar-left {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(0,0,0,0.04);
+        }
+
+        .menu-item.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+        }
+
+        /* 中间内容区 */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .create-post {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .post-input {
+            width: 100%;
+            border: none;
+            background: var(--bg-body);
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            resize: none;
+            height: 80px;
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-input:focus {
+            background: #e5e7eb;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 0.75rem;
+        }
+
+        .post-tools {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tool-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0.4rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .tool-btn:hover {
+            background: rgba(0,0,0,0.05);
+        }
+
+        /* 帖子卡片 */
+        .post-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .post-header {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .user-meta h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .user-meta span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .post-content {
+            padding: 0 1rem 1rem 1rem;
+            font-size: 1rem;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .post-stats {
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .post-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        .action-btn.liked {
+            color: #ef4444;
+        }
+
+        /* 右侧边栏 */
+        .sidebar-right {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .widget {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trend-item {
+            display: block;
+            margin-bottom: 1rem;
+            text-decoration: none;
+        }
+
+        .trend-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .trend-name {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .trend-count {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .suggestion-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 99px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .btn-small:hover {
+            background: #f3f4f6;
+        }
+
+        /* 响应式适配 */
+        @media (min-width: 768px) {
+            .search-bar {
+                display: block;
+            }
+            .nav-actions .btn-primary {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .layout {
+                grid-template-columns: 80px 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-left {
+                display: none;
+            }
+            .nav-link span {
+                display: none;
+            }
+            .nav-actions {
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                趣聊
+            </a>
+
+            <div class="search-bar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute; left:10px; top:10px;">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" class="search-input" placeholder="搜索有趣的人、话题或话题">
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.html" class="nav-link active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>首页</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>好友</span>
+                </a>
+                <a href="post.html" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <span>探索</span>
+                </a>
+                <a href="signup.html" class="btn-primary">注册</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主体布局 -->
+    <div class="layout">
+        <!-- 左侧菜单 -->
+        <aside class="sidebar-left">
+            <a href="#" class="menu-item active">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>首页</span>
+            </a>
+            <a href="#" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                <span>视频</span>
+            </a>
+            <a href="#" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>好友</span>
+            </a>
+            <a href="#" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>消息</span>
+                <span style="background:red; color:white; font-size:0.7rem; padding:2px 5px; border-radius:10px; margin-left:auto;">3</span>
+            </a>
+            <a href="profile.html" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>个人主页</span>
+            </a>
+            <a href="#" class="menu-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>钱包</span>
+            </a>
+        </aside>
+
+        <!-- 中间内容流 -->
+        <main class="content-area">
+            <!-- 创建新帖子 -->
+            <div class="create-post">
+                <textarea class="post-input" placeholder="分享你的新鲜事..."></textarea>
+                <div class="post-actions">
+                    <div class="post-tools">
+                        <button class="tool-btn" title="添加图片">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </button>
+                        <button class="tool-btn" title="视频">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        </button>
+                        <button class="tool-btn" title="投票">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                        </button>
+                    </div>
+                    <button class="btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">发布</button>
+                </div>
+            </div>
+
+            <!-- 帖子列表 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="user-info">
+                        <img src="assets/image-7875d7942e3864ad.jpg" alt="Avatar" class="avatar">
+                        <div class="user-meta">
+                            <h4>林晓雨</h4>
+                            <span>2小时前 · 北京</span>
+                        </div>
+                    </div>
+                    <button class="tool-btn">⋯</button>
+                </div>
+                <div class="post-content">
+                    <p>今天尝试自己做手工拉面，虽然手抖了两次，但味道真的很不错！🍜 大家周末都去哪里玩了？周末快乐！☀️ #美食 #周末去哪儿 #手作</p>
+                </div>
+                <img src="assets/image-2146044e8f9ebfba.jpg" alt="Post Image" class="post-image" onclick="location.href='post.html'">
+                <div class="post-stats">
+                    <span class="stat-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        128
+                    </span>
+                    <span class="stat-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        42
+                    </span>
+                    <span class="stat-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        56
+                    </span>
+                    <span class="stat-item">
+                        1.2k
+                    </span>
+                </div>
+                <div class="post-footer">
+                    <button class="action-btn" onclick="this.classList.toggle('liked')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        赞
+                    </button>
+                    <a href="post.html" class="action-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        评论
+                    </a>
+                    <button class="action-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        分享
+                    </button>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="post-header">
+                    <div class="user-info">
+                        <img src="assets/image-7b3e314cbf25761f.jpg" alt="Avatar" class="avatar">
+                        <div class="user-meta">
+                            <h4>科技观察者</h4>
+                            <span>5小时前 · 上海</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>刚刚发布了新的版本更新，这个新功能简直是黑科技！特别是夜景模式的表现，完全颠覆了以往的体验。大家觉得怎么样？#科技 #数码 #产品体验</p>
+                </div>
+                <div class="post-footer">
+                    <button class="action-btn" onclick="this.classList.toggle('liked')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        赞
+                    </button>
+                    <button class="action-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        评论
+                    </button>
+                    <button class="action-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        分享
+                    </button>
+                </div>
+            </article>
+        </main>
+
+        <!-- 右侧推荐 -->
+        <aside class="sidebar-right">
+            <div class="widget">
+                <h3 class="widget-title">大家都在看</h3>
+                <a href="#" class="trend-item">
+                    <span class="trend-name">热门话题 · 电影</span>
+                    <span class="trend-count">#周末看什么电影#</span>
+                </a>
+                <a href="#" class="trend-item">
+                    <span class="trend-name">热门话题 · 音乐</span>
+                    <span class="trend-count">#周杰伦新歌#</span>
+                </a>
+                <a href="#" class="trend-item">
+                    <span class="trend-name">热门话题 · 摄影</span>
+                    <span class="trend-count">#手机摄影大赛#</span>
+                </a>
+                <a href="#" class="trend-item">
+                    <span class="trend-name">热门话题 · 旅行</span>
+                    <span class="trend-count">#最想去的海边#</span>
+                </a>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">为你推荐</h3>
+                <div class="suggestion-item">
+                    <div class="suggestion-info">
+                        <img src="assets/image-fd535dbc4dec3004.jpg" alt="Avatar" class="avatar" style="width:40px; height:40px;">
+                        <div>
+                            <div style="font-weight:600; font-size:0.9rem;">旅行摄影师阿杰</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">3.5万粉丝</div>
+                        </div>
+                    </div>
+                    <button class="btn-small">关注</button>
+                </div>
+                <div class="suggestion-item">
+                    <div class="suggestion-info">
+                        <img src="assets/image-5a9b9376df81d780.jpg" alt="Avatar" class="avatar" style="width:40px; height:40px;">
+                        <div>
+                            <div style="font-weight:600; font-size:0.9rem;">健身达人Tony</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">8.2万粉丝</div>
+                        </div>
+                    </div>
+                    <button class="btn-small">关注</button>
+                </div>
+                <div class="suggestion-item">
+                    <div class="suggestion-info">
+                        <img src="assets/image-68c1be5e0113de22.jpg" alt="Avatar" class="avatar" style="width:40px; height:40px;">
+                        <div>
+                            <div style="font-weight:600; font-size:0.9rem;">猫咪控</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">12万粉丝</div>
+                        </div>
+                    </div>
+                    <button class="btn-small">关注</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>

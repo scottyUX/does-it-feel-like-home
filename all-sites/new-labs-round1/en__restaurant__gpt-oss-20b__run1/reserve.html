@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>预订 - 家味餐厅</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:"Helvetica Neue","Arial","Noto Sans","sans-serif";background:#fafafa;color:#333;}
+  header{background:#fff;padding:20px 0;border-bottom:1px solid #e0e0e0;}
+  .container{width:90%;max-width:800px;margin:0 auto;}
+  nav a{margin:0 15px;color:#333;text-decoration:none;font-weight:500;}
+  nav a:hover{color:#d9534f;}
+  h1{font-size:2.5rem;margin-top:40px;color:#d9534f;text-align:center;}
+  form{background:#fff;padding:20px;margin-top:20px;border-radius:8px;border:1px solid #e0e0e0;}
+  .field{margin-bottom:15px;}
+  label{display:block;font-weight:600;margin-bottom:5px;}
+  input[type="text"],input[type="tel"],input[type="date"],input[type="time"],textarea{width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;}
+  textarea{resize:vertical;height:80px;}
+  .submit{display:block;width:100%;padding:12px;background:#d9534f;color:#fff;border:none;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;}
+  .submit:hover{background:#c9302c;}
+  .msg{margin-top:10px;font-size:0.9rem;color:#d9534f;}
+  footer{background:#222;color:#aaa;padding:20px 0;text-align:center;font-size:0.9rem;}
+  @media(max-width:768px){
+    h1{font-size:1.8rem;}
+  }
+</style>
+<script>
+  function validateForm(e){
+    e.preventDefault();
+    var name=document.getElementById('name').value.trim();
+    var phone=document.getElementById('phone').value.trim();
+    var date=document.getElementById('date').value;
+    var time=document.getElementById('time').value;
+    var guests=document.getElementById('guests').value;
+    var msg=document.getElementById('msg');
+    if(!name||!phone||!date||!time||!guests){
+      msg.textContent='请完整填写所有必填项。';
+      return;
+    }
+    msg.textContent='预订已提交，稍后我们将与您确认。';
+  }
+</script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="menu.html">菜单</a>
+      <a href="about.html">关于我们</a>
+      <a href="reserve.html">预订</a>
+    </nav>
+  </div>
+</header>
+<div class="container">
+  <h1>餐桌预订</h1>
+  <form onsubmit="validateForm(event)">
+    <div class="field">
+      <label for="name">姓名 *</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="field">
+      <label for="phone">联系电话 *</label>
+      <input type="tel" id="phone" required>
+    </div>
+    <div class="field">
+      <label for="date">预订日期 *</label>
+      <input type="date" id="date" required>
+    </div>
+    <div class="field">
+      <label for="time">预订时间 *</label>
+      <input type="time" id="time" required>
+    </div>
+    <div class="field">
+      <label for="guests">人数 *</label>
+      <input type="text" id="guests" placeholder="例如 4" required>
+    </div>
+    <div class="field">
+      <label for="notes">特殊需求</label>
+      <textarea id="notes" placeholder="例如：无烟区、儿童座椅等"></textarea>
+    </div>
+    <button type="submit" class="submit">提交预订</button>
+    <div id="msg" class="msg"></div>
+  </form>
+</div>
+<footer>
+  &copy; 2026 家味餐厅 保留所有权利
+</footer>
+</body>
+</html>

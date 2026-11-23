@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服务项目与价格 - 悦容美发美容</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --dark: #2c2c2c;
+  --darker: #1a1a1a;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --gray: #6b6b6b;
+  --light-gray: #f5f3f0;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; color: var(--dark); background: var(--cream); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+  padding: 0 60px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 22px; font-weight: 700; color: var(--dark); letter-spacing: 2px; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links a { font-size: 15px; color: var(--gray); transition: color 0.3s; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--white) !important; padding: 10px 28px; border-radius: 4px; font-weight: 600; transition: all 0.3s; }
+.nav-cta:hover { background: #b8944f; transform: translateY(-1px); }
+
+.page-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2520 100%);
+  padding: 140px 60px 80px; text-align: center;
+}
+.page-header h1 { font-size: 42px; color: var(--white); margin-bottom: 16px; }
+.page-header p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto; }
+.page-header .breadcrumb { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); }
+.page-header .breadcrumb a { color: var(--gold); }
+
+.section { padding: 80px 60px; }
+.category { margin-bottom: 64px; }
+.category-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
+  padding-bottom: 16px; border-bottom: 2px solid var(--gold-light);
+}
+.category-icon {
+  width: 48px; height: 48px; background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: var(--white);
+}
+.category-header h2 { font-size: 26px; font-weight: 700; }
+.category-header .cat-desc { font-size: 14px; color: var(--gray); margin-top: 2px; }
+
+.price-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+.price-table tr { background: var(--white); }
+.price-table td { padding: 18px 24px; vertical-align: middle; }
+.price-table tr td:first-child { border-radius: 6px 0 0 6px; width: 25%; font-weight: 600; font-size: 15px; }
+.price-table tr td:nth-child(2) { width: 55%; font-size: 14px; color: var(--gray); }
+.price-table tr td:last-child { border-radius: 0 6px 6px 0; font-size: 18px; font-weight: 700; color: var(--gold); text-align: right; white-space: nowrap; }
+.price-table tr:hover td { background: #fdf9f3; }
+
+.note-box {
+  background: var(--white); border-left: 4px solid var(--gold); padding: 24px 28px;
+  border-radius: 0 8px 8px 0; margin-top: 40px;
+}
+.note-box h4 { font-size: 15px; margin-bottom: 8px; color: var(--dark); }
+.note-box p { font-size: 14px; color: var(--gray); }
+
+.cta-bar {
+  background: linear-gradient(135deg, var(--gold), #d4a056);
+  padding: 50px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.cta-bar h3 { font-size: 24px; color: var(--white); }
+.cta-bar p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+.btn-white { background: var(--white); color: var(--dark); padding: 14px 36px; border-radius: 4px; font-size: 15px; font-weight: 600; transition: all 0.3s; }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+.footer { background: var(--darker); padding: 50px 60px 24px; color: rgba(255,255,255,0.6); }
+.footer-bottom { display: flex; justify-content: space-between; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+@media (max-width: 768px) {
+  .navbar { padding: 0 20px; }
+  .nav-links { gap: 16px; }
+  .page-header { padding: 120px 20px 60px; }
+  .page-header h1 { font-size: 30px; }
+  .section { padding: 50px 20px; }
+  .price-table td { padding: 14px 12px; font-size: 13px; }
+  .price-table tr td:last-child { font-size: 15px; }
+  .cta-bar { padding: 40px 20px; text-align: center; justify-content: center; }
+  .footer { padding: 40px 20px 20px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">悦容<span>·</span>美发美容</a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="services.html" class="active">服务项目</a></li>
+    <li><a href="team.html">团队介绍</a></li>
+    <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <h1>服务项目与价格</h1>
+  <p>透明定价，无隐形消费。所有价格已包含产品材料与基础洗护。</p>
+  <div class="breadcrumb"><a href="index.html">首页</a> / 服务项目</div>
+</header>
+
+<section class="section">
+  <!-- 剪发 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">✂</div>
+      <div>
+        <h2>专业剪发与造型</h2>
+        <div class="cat-desc">根据脸型与气质定制，包含洗护与基础造型</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>男士精剪</td><td>总监级造型师操刀，含洗护+定型造型，适合商务与日常</td><td>¥128</td></tr>
+      <tr><td>女士时尚剪</td><td>资深设计师一对一定制，含头皮清洁+洗护+吹风造型</td><td>¥168</td></tr>
+      <tr><td>儿童剪发（12岁以下）</td><td>耐心细致，含简单造型，家长可陪同</td><td>¥88</td></tr>
+      <tr><td>女士层次/线条剪裁</td><td>进阶剪裁技法，适合追求时尚层次的客人</td><td>¥228</td></tr>
+      <tr><td>碎发/鬓角修整</td><td>日常维护，随时可加做</td><td>¥38</td></tr>
+      <tr><td>吹发造型</td><td>日常吹风造型、卷发棒造型、发蜡造型</td><td>¥98</td></tr>
+    </table>
+  </div>
+
+  <!-- 染发 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🎨</div>
+      <div>
+        <h2>时尚染发</h2>
+        <div class="cat-desc">进口环保染剂，色彩持久，显白高级</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>单色全头染</td><td>进口染膏，一次上色，自然均匀，适合首次染发</td><td>¥298</td></tr>
+      <tr><td>挑染 / 挂耳染</td><td>局部时尚点缀，自然不突兀，拍照很出片</td><td>¥388</td></tr>
+      <tr><td>法式渐变染</td><td>多色过渡，发尾轻盈，显脸小</td><td>¥468</td></tr>
+      <tr><td>全头漂染（浅色系）</td><td>需先漂后染，含两次护理，适合银灰/奶茶/雾蓝等色</td><td>¥688</td></tr>
+      <tr><td>发尾补色</td><td>针对新长出黑发区域的补色</td><td>¥198</td></tr>
+      <tr><td>植物纯染（无氨）</td><td>温和配方，适合敏感头皮</td><td>¥368</td></tr>
+    </table>
+  </div>
+
+  <!-- 烫发 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">💫</div>
+      <div>
+        <h2>烫发设计</h2>
+        <div class="cat-desc">低温数码烫护发配方，卷度自然持久</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>数码直发烫</td><td>拉直造型，适合自然卷或毛躁发质</td><td>¥468</td></tr>
+      <tr><td>韩式纹理烫</td><td>自然蓬松小卷，好打理，日常百搭</td><td>¥498</td></tr>
+      <tr><td>法式慵懒烫</td><td>大卷弧度，氛围感强，适合长发</td><td>¥568</td></tr>
+      <tr><td>男士纹理烫</td><td>增加顶部蓬松感与线条，帅气自然</td><td>¥398</td></tr>
+      <tr><td>离子烫（拉直）</td><td>顺滑直发效果，适合长发女性</td><td>¥528</td></tr>
+      <tr><td>冷烫（短发）</td><td>短发专属烫发方案，造型感强</td><td>¥428</td></tr>
+    </table>
+  </div>
+
+  <!-- 护理 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🌿</div>
+      <div>
+        <h2>深层护理与修复</h2>
+        <div class="cat-desc">从头皮到发丝的全面养护方案</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>头皮深层清洁SPA</td><td>头皮检测+深层去油+舒缓按摩，45分钟</td><td>¥268</td></tr>
+      <tr><td>深层滋养护理</td><td>富含氨基酸精华，修复干枯分叉</td><td>¥228</td></tr>
+      <tr><td>角蛋白修复</td><td>高温封层技术，修复烫染损伤，效果持续2-3个月</td><td>¥328</td></tr>
+      <tr><td>护发精油护理</td><td>摩洛哥坚果油滋养，增加光泽与柔顺度</td><td>¥198</td></tr>
+      <tr><td>头皮抗衰疗程（6次）</td><td>周期性头皮护理方案，改善出油与脱发</td><td>¥1,280</td></tr>
+      <tr><td>发膜深层护理</td><td> salon专用发膜，15分钟快速修复</td><td>¥128</td></tr>
+    </table>
+  </div>
+
+  <!-- 护肤 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">🌸</div>
+      <div>
+        <h2>面部护肤与美容</h2>
+        <div class="cat-desc">专业肤质分析，定制护理方案</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>基础清洁护理</td><td>深层清洁+保湿+面膜，适合日常维护</td><td>¥168</td></tr>
+      <tr><td>深层补水焕活</td><td>微针导入+玻尿酸精华，解决干燥暗沉</td><td>¥228</td></tr>
+      <tr><td>美白亮肤护理</td><td>维C精华+烟酰胺导入，提亮肤色均匀肤色</td><td>¥368</td></tr>
+      <tr><td>抗衰紧致护理</td><td>射频提拉+胶原蛋白导入，改善细纹松弛</td><td>¥468</td></tr>
+      <tr><td>清透祛痘护理</td><td>深层净痘+消炎修复，适合痘痘肌</td><td>¥288</td></tr>
+      <tr><td>眼部抗衰护理</td><td>针对黑眼圈、细纹、浮肿的专项护理</td><td>¥258</td></tr>
+      <tr><td>身体肩颈放松</td><td>精油推拿+热敷，缓解久坐疲劳</td><td>¥198</td></tr>
+    </table>
+  </div>
+
+  <!-- 特殊造型 -->
+  <div class="category">
+    <div class="category-header">
+      <div class="category-icon">👰</div>
+      <div>
+        <h2>婚礼与活动造型</h2>
+        <div class="cat-desc">重要时刻，值得完美呈现</div>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><td>新娘全日跟妆</td><td>含试妆+当天造型+补妆，全程专属造型师</td><td>¥1,688</td></tr>
+      <tr><td>新娘发型造型（半日）</td><td>婚礼当天发型设计与固定，含盘发或披发造型</td><td>¥688</td></tr>
+      <tr><td>年会/派对造型</td><td>精致妆容+发型设计，适合各类活动</td><td>¥388</td></tr>
+      <tr><td>写真/拍摄造型</td><td>根据拍摄主题定制造型，含妆发</td><td>¥468</td></tr>
+      <tr><td>妈妈妆/长辈造型</td><td>端庄得体，适合家庭聚会与寿宴</td><td>¥288</td></tr>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <h4>📌 温馨提示</h4>
+    <p>1. 以上价格均为含产品费的标准价，无需额外加购材料。&nbsp;&nbsp;2. 长发（过肩）染发、烫发加收 ¥50-100。&nbsp;&nbsp;3. 首次到店可免洗护费体验基础服务。&nbsp;&nbsp;4. 会员卡享 8.8 折优惠，充 2000 送 300。&nbsp;&nbsp;5. 所有服务均含基础咨询与效果预览，不满意可调整。</p>
+  </div>
+</section>
+
+<div class="cta-bar">
+  <div>
+    <h3>找到适合你的服务了吗？</h3>
+    <p>在线预约锁定时间，到店免排队直接开始</p>
+  </div>
+  <a href="booking.html" class="btn-white">立即预约 →</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <span>© 2024 悦容美发美容 版权所有</span>
+    <span>广州市天河区 · 美发美容服务</span>
+  </div>
+</footer>
+
+</body>
+</html>

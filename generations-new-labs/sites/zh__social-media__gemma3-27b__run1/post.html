@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情 - 趣聊</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #262626;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3897f6;
+        }
+
+        .search-bar {
+            width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #262626;
+            font-weight: bold;
+        }
+
+        .post-detail {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-author {
+            font-weight: bold;
+        }
+
+        .post-time {
+            font-size: 0.8em;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        .post-content {
+            margin-bottom: 10px;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">趣聊</div>
+        <input type="text" class="search-bar" placeholder="搜索您感兴趣的人或内容">
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="profile.html">我的主页</a>
+            <a href="register.html">注册</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="post-detail">
+            <div class="post-header">
+                <img class="post-avatar" src="assets/image-73308e8b4212f64f.png" alt="头像">
+                <div class="post-author">用户D</div>
+                <div class="post-time">3天前</div>
+            </div>
+            <div class="post-content">
+                今天去了一个新的咖啡馆，环境很不错，咖啡也很好喝。推荐给大家！
+            </div>
+            <img class="post-image" src="assets/image-a3731e0a021008c6.png" alt="图片">
+
+            <div class="comments">
+                <h3>评论</h3>
+                <div class="comment">
+                    <div class="comment-author">用户E</div>
+                    <div>这个咖啡馆我也去过，确实很不错！</div>
+                </div>
+                <div class="comment">
+                    <div class="comment-author">用户F</div>
+                    <div>有机会也要去试试！</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2023 趣聊 - 版权所有
+    </footer>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 - 可衣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        .product-image {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+        .product-info {
+        }
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .product-price {
+            color: #ff6b6b;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .product-description {
+            margin-bottom: 2rem;
+        }
+        .size-selector {
+            margin-bottom: 2rem;
+        }
+        .size-option {
+            display: inline-block;
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .size-option.active {
+            background-color: #4ECDC4;
+            color: white;
+            border-color: #4ECDC4;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #4ECDC4;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-secondary {
+            display: inline-block;
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn {
+            display: inline-block;
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">可衣</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="products.html">商品列表</a></li>
+                <li><a href="cart.html">购物车</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/500x500" alt="商品图片">
+            </div>
+            <div class="product-info">
+                <h1 class="product-title">简约白衬衫</h1>
+                <p class="product-price">¥199</p>
+                <div class="product-description">
+                    <p>经典百搭的白色衬衫，采用优质棉质面料，穿着舒适透气。简约的剪裁设计，适合各种场合穿着。无论是搭配牛仔裤还是半身裙，都能展现出优雅的气质。</p>
+                    <p>尺码：S、M、L、XL</p>
+                    <p>颜色：纯白</p>
+                </div>
+                
+                <div class="size-selector">
+                    <h3>选择尺码</h3>
+                    <div class="size-option active" data-size="S">S</div>
+                    <div class="size-option" data-size="M">M</div>
+                    <div class="size-option" data-size="L">L</div>
+                    <div class="size-option" data-size="XL">XL</div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="cart.html" class="btn-primary">加入购物车</a>
+                    <a href="products.html" class="btn-secondary">返回商品列表</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="products.html" class="back-btn">返回商品列表</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 可衣 - 上海网上女装店</p>
+            <p>上海市徐汇区XX路XX号</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sizeOptions = document.querySelectorAll('.size-option');
+            
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // 移除所有active类
+                    sizeOptions.forEach(opt => opt.classList.remove('active'));
+                    // 添加active类到当前点击的选项
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

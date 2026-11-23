@@ -1,0 +1,24 @@
+{
+  "id": "en__bank__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "bank",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13210,
+  "seconds": 121,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/map/1000/500",
+      "file": "assets/image-f909737e9198dc15.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "file": "assets/image-4e200b57192b4925.jpg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "file": "assets/image-113c944da9e89ee8.jpg"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>注册报名 - 学途</title>
+    <style>
+        body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f2f2f2;color:#333;}
+        a{color:#0066cc;text-decoration:none;}
+        a:hover{color:#004999;}
+        header{background:#0066cc;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        .logo{font-size:1.6em;font-weight:bold;}
+        nav a{margin:0 15px;color:#fff;font-size:1em;}
+        .wrapper{max-width:600px;margin:auto;padding:40px;background:#fff;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.1);margin-top:30px;}
+        h1{font-size:2em;margin-bottom:20px;text-align:center;}
+        form{display:flex;flex-direction:column;}
+        label{margin-top:15px;font-weight:bold;}
+        input, select, textarea{margin-top:5px;padding:10px;border:1px solid #ccc;border-radius:4px;font-size:1em;width:100%;box-sizing:border-box;}
+        textarea{resize:vertical;height:100px;}
+        .btn{margin-top:25px;background:#ff6600;color:#fff;padding:12px;border:none;border-radius:4px;font-size:1.1em;cursor:pointer;}
+        .btn:hover{background:#e65c00;}
+        .message{margin-top:15px;color:#d00;display:none;}
+        .footer{background:#333;color:#ccc;padding:30px 40px;text-align:center;font-size:0.9em;margin-top:60px;}
+        @media (max-width:600px){
+            .wrapper{margin:20px;padding:20px;}
+        }
+    </style>
+    <script>
+        function validateForm(event){
+            event.preventDefault();
+            const name=document.getElementById('name').value.trim();
+            const email=document.getElementById('email').value.trim();
+            const phone=document.getElementById('phone').value.trim();
+            const course=document.getElementById('course').value;
+            const msg=document.getElementById('msg');
+            if(!name||!email||!phone||!course){
+                msg.textContent='请完整填写必填信息';
+                msg.style.display='block';
+                return;
+            }
+            // 简单的邮箱验证
+            const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!emailPattern.test(email)){
+                msg.textContent='请输入有效的邮箱地址';
+                msg.style.display='block';
+                return;
+            }
+            // 简单的手机验证（11位数字）
+            const phonePattern=/^\d{11}$/;
+            if(!phonePattern.test(phone)){
+                msg.textContent='请输入有效的11位手机号码';
+                msg.style.display='block';
+                return;
+            }
+            msg.style.color='#090';
+            msg.textContent='报名信息已提交（演示页面不实际发送）';
+            msg.style.display='block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">学途</div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="courses.html">课程列表</a>
+            <a href="register.html">注册报名</a>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <h1>课程报名</h1>
+        <form onsubmit="validateForm(event)">
+            <label for="name">姓名 *</label>
+            <input type="text" id="name" placeholder="请输入真实姓名">
+
+            <label for="email">邮箱 *</label>
+            <input type="email" id="email" placeholder="example@domain.com">
+
+            <label for="phone">手机号码 *</label>
+            <input type="text" id="phone" placeholder="如：13800138000">
+
+            <label for="course">选择课程 *</label>
+            <select id="course">
+                <option value="">--请选择--</option>
+                <option value="english">实用英语口语</option>
+                <option value="japanese">日语入门Ⅰ</option>
+                <option value="python">Python零基础实战</option>
+                <option value="data">Excel & PowerBI数据分析</option>
+                <option value="greenglish">考研英语高分突破</option>
+                <option value="cpp">计算机二级（C语言）</option>
+            </select>
+
+            <label for="notes">备注（可选）</label>
+            <textarea id="notes" placeholder="如有特殊需求，请在此说明"></textarea>
+
+            <button type="submit" class="btn">提交报名</button>
+            <div id="msg" class="message"></div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        © 2026 学途 在线学习平台
+    </footer>
+</body>
+</html>

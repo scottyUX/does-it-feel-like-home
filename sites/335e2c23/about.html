@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>每日视界 - 关于我们</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f9f9f9;color:#333;}
+        header{background:#004d7a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:1.5rem;}
+        nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        .container{max-width:900px;margin:auto;padding:2rem 1rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        h2{color:#004d7a;}
+        p{line-height:1.6;}
+        .team{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem;}
+        .member{flex:1 1 200px;background:#e6f2ff;padding:1rem;border-radius:6px;}
+        .member h4{margin:0 0 .5rem;}
+        footer{background:#222;color:#ddd;padding:1rem 2rem;text-align:center;font-size:.9rem;margin-top:2rem;}
+        @media(max-width:768px){
+            header{flex-direction:column;align-items:flex-start;}
+            nav ul{flex-direction:column;gap:0.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>每日视界</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="finance.html">财经</a></li>
+                <li><a href="tech.html">科技</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>关于每日视界</h2>
+        <p>每日视界是一家覆盖全国的网络新闻媒体，致力于为上班路上或休息时间的读者提供及时、准确、易读的新闻内容。我们坚持新闻真实、观点客观、报道快速的原则，让每一位读者都能在最短时间内获取到最重要的信息。</p>
+
+        <h3>核心价值</h3>
+        <ul>
+            <li>快速：在第一时间发布重要新闻。</li>
+            <li>专业：拥有经验丰富的编辑团队和行业分析师。</li>
+            <li>可信：严格遵循新闻伦理，确保信息来源可靠。</li>
+        </ul>
+
+        <h3>编辑团队</h3>
+        <div class="team">
+            <div class="member">
+                <h4>李晨</h4>
+                <p>总编辑，拥有15年新闻从业经验，擅长宏观经济与时事评论。</p>
+            </div>
+            <div class="member">
+                <h4>王晓梅</h4>
+                <p>科技编辑，专注人工智能、5G和移动互联网领域报道。</p>
+            </div>
+            <div class="member">
+                <h4>张涛</h4>
+                <p>财经编辑，负责金融市场、企业动态及产业链深度报道。</p>
+            </div>
+            <div class="member">
+                <h4>陈丽</h4>
+                <p>多媒体编辑，负责视频、图表和交互式内容制作。</p>
+            </div>
+        </div>
+
+        <h3>联系我们</h3>
+        <p>如有合作或新闻线索，请发送邮件至 <strong>contact@dailyvision.cn</strong>（仅作演示，实际不发送）。</p>
+    </main>
+
+    <footer>
+        © 2026 每日视界 | 版权所有
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "zh__clothing__glm4-9b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "clothing",
+  "model": "glm4:9b",
+  "completionTokens": 2017,
+  "seconds": 27,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

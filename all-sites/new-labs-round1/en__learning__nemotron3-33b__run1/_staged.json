@@ -1,0 +1,48 @@
+{
+  "id": "en__learning__nemotron3-33b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "learning",
+  "model": "nemotron3:33b",
+  "completionTokens": 11674,
+  "seconds": 63,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/1200x300",
+      "file": "assets/image-85fdf8ba44b57dd2.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=英语",
+      "file": "assets/image-1ca45a9cacfb7937.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=日语",
+      "file": "assets/image-1b9406492635d893.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=Python",
+      "file": "assets/image-0059a040e09e4b98.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=Excel",
+      "file": "assets/image-b58acb1346a4fd55.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=CET-4",
+      "file": "assets/image-6f843f86443cc125.png"
+    },
+    {
+      "url": "https://via.placeholder.com/120x80?text=考研",
+      "file": "assets/image-d0c74526b18f6557.png"
+    },
+    {
+      "url": "https://via.placeholder.com/350x200?text=课程+特色",
+      "file": "assets/image-3288b1f23829e0ba.png"
+    },
+    {
+      "url": "https://via.placeholder.com/800x200",
+      "file": "assets/image-79adf10ad1a842c0.png"
+    }
+  ]
+}

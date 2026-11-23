@@ -1,0 +1,11 @@
+{
+  "id": "zh__learning__glm4-9b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "learning",
+  "model": "glm4:9b",
+  "completionTokens": 2006,
+  "seconds": 14,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

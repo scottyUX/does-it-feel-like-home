@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即预约 - 洁家家政</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        .booking-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #222;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        @media (max-width: 768px) {
+            .booking-container { margin: 1rem; padding: 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">✨ 洁家家政</a>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="services.html">服务项目</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="booking.html">立即预约</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="booking-container">
+    <h1>预约清洁服务</h1>
+    <form onsubmit="event.preventDefault(); alert('预约请求已提交，我们的客服将在1小时内与您联系确认！');">
+        <div class="form-group">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">联系电话</label>
+            <input type="tel" id="phone" name="phone" placeholder="请输入手机号" required>
+        </div>
+        <div class="form-group">
+            <label for="address">详细地址 (北京)</label>
+            <input type="text" id="address" name="address" placeholder="例如：朝阳区XX路XX小区X号楼" required>
+        </div>
+        <div class="form-group">
+            <label for="service">选择服务项目</label>
+            <select id="service" name="service" required>
+                <option value="">-- 请选择服务 --</option>
+                <option value="basic">基础保洁 (￥180/次)</option>
+                <option value="deep">深度保洁 (￥350/次)</option>
+                <option value="movein">开荒保洁 (￥30/平米)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">预约日期</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">特殊要求/备注</label>
+            <textarea id="notes" name="notes" placeholder="例如：重点清理厨房油烟机，或宠物狗在场等"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">提交预约申请</button>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="services.html">服务项目</a>
+        <a href="about.html">关于我们</a>
+        <a href="booking.html">立即预约</a>
+    </div>
+    <p>&copy; 2023 洁家家政服务中心 - 北京</p>
+</footer>
+
+</body>
+</html>

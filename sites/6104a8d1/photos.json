@@ -1,0 +1,15 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "course-detail.html",
+   "selector": "div.instructor-avatar",
+   "match": "张华 资深数据科学家，拥有 10 年互联网数据分",
+   "url": "assets/photo-792506de39344daa.jpg",
+   "hideText": false,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

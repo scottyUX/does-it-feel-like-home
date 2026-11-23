@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洁家家政 - 预约保洁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background-color: #f8f8f8;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 1440px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+        }
+        ul li {
+            margin-left: 1.5rem;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #ff6b6b;
+        }
+        section {
+            padding: 4rem 2rem;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        .success {
+            color: #2ecc71;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">洁家家政</div>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">服务项目</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="appointment.html">预约保洁</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>预约保洁服务</h2>
+            
+            <div class="form-container">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="serviceType">服务类型</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">请选择服务类型</option>
+                            <option value="basic">基础保洁</option>
+                            <option value="deep">深度保洁</option>
+                            <option value="newHome">开荒保洁</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="area">服务面积</label>
+                        <input type="number" id="area" name="area" min="30" placeholder="平方米" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDate">预约日期</label>
+                        <input type="date" id="appointmentDate" name="appointmentDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentTime">预约时间</label>
+                        <select id="appointmentTime" name="appointmentTime" required>
+                            <option value="">请选择时间段</option>
+                            <option value="09:00-11:00">上午 9:00-11:00</option>
+                            <option value="11:00-13:00">中午 11:00-13:00</option>
+                            <option value="14:00-16:00">下午 14:00-16:00</option>
+                            <option value="16:00-18:00">傍晚 16:00-18:00</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequirements">特殊需求</label>
+                        <textarea id="specialRequirements" name="specialRequirements" placeholder="如有特殊需求请在此说明"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">提交预约</button>
+                </form>
+                
+                <div id="successMessage" class="success" style="display: none;">
+                    <h3>预约成功！</h3>
+                    <p>我们已收到您的预约申请，我们的客服人员将在1小时内与您联系确认。</p>
+                    <p>预约单号：<span id="orderNumber"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 洁家家政 版权所有</p>
+            <p>联系电话：400-123-4567</p>
+            <p>地址：北京市朝阳区建国路88号</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 模拟表单提交
+            const orderNumber = Math.floor(Math.random() * 10000);
+            document.getElementById('orderNumber').textContent = orderNumber;
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('appointmentForm').reset();
+        });
+    </script>
+</body>
+</html>

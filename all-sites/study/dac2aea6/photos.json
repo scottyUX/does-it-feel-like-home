@@ -1,0 +1,63 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.post-image",
+   "match": "苏 苏雨桐 2小时前 · 杭州 周末去西湖边骑车",
+   "url": "assets/photo-1d93d209444a0957.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:The Sunset Of The West Lake (187914505).jpeg",
+   "license": "CC BY 3.0",
+   "subject": "west lake sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Sunset_Of_The_West_Lake_%28187914505%29.jpeg/960px-The_Sunset_Of_The_West_Lake_%28187914505%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.post-image",
+   "match": "赵 赵子轩 昨天 21:30 · 成都 在家做了",
+   "url": "assets/photo-cb996aee91ca20ab.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:麻辣火锅汤 Sichuan Hotpot (1648194463).jpg",
+   "license": "CC BY-SA 2.0",
+   "subject": "homemade spicy hotpot",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/%E9%BA%BB%E8%BE%A3%E7%81%AB%E9%94%85%E6%B1%A4_Sichuan_Hotpot_%281648194463%29.jpg/960px-%E9%BA%BB%E8%BE%A3%E7%81%AB%E9%94%85%E6%B1%A4_Sichuan_Hotpot_%281648194463%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "post.html",
+   "selector": "div.post-detail-image",
+   "match": "苏 苏雨桐 今天 14:23 · 杭州 · 已分",
+   "url": "assets/photo-1d93d209444a0957.jpg",
+   "hideText": true,
+   "source": "Wikimedia Commons",
+   "title": "File:The Sunset Of The West Lake (187914505).jpeg",
+   "license": "CC BY 3.0",
+   "subject": "west lake sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/The_Sunset_Of_The_West_Lake_%28187914505%29.jpeg/960px-The_Sunset_Of_The_West_Lake_%28187914505%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.profile-cover",
+   "index": 0,
+   "url": "assets/photo-46236a9bb6662a62.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Top Workspace Office.jpg",
+   "license": "CC0",
+   "subject": "creative workspace desk",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Top_Workspace_Office.jpg/960px-Top_Workspace_Office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.profile-avatar-large",
+   "match": "编辑资料 林小曼 @linxiaoman · 2",
+   "url": "assets/photo-cda7a83e4b974073.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

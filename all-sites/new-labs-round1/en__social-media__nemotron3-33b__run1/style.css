@@ -1,0 +1,20 @@
+body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; margin:0; padding:0; max-width:1440px; margin:auto; background:#fafafa;}
+header {background:#fff; border-bottom:1px solid #ddd; padding:10px 20px; display:flex; justify-content:space-between; align-items:center;}
+nav a {margin-right:15px; text-decoration:none; color:#333; font-size:14px;}
+nav a:hover {color:#007bff;}
+.container {padding:20px;}
+.post {border:1px solid #ddd; border-radius:5px; padding:15px; margin-bottom:20px; background:#fff;}
+.post .title {font-size:18px; font-weight:bold; margin-bottom:8px;}
+.post .content {font-size:14px; color:#555; margin-bottom:10px;}
+.post .meta {font-size:12px; color:#999; margin-bottom:10px;}
+.read-more {display:inline-block; padding:8px 12px; background:#007bff; color:#fff; text-decoration:none; border-radius:4px;}
+.comments {margin-top:20px;}
+.comment {border-bottom:1px solid #eee; padding:8px 0;}
+.comment .author {font-weight:bold; margin-right:5px;}
+.comment .text {display:inline-block; max-width:80%;}
+.form-group {margin-bottom:15px;}
+.form-group label {display:block; margin-bottom:5px; font-weight:bold;}
+.form-group input, .form-group textarea {width:100%; padding:8px; box-sizing:border-box; border:1px solid #ccc; border-radius:4px;}
+.form-group button {padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;}
+footer {text-align:center; padding:10px; margin-top:30px; color:#777; font-size:12px; border-top:1px solid #ddd;}
+.back {display:inline-block; margin-top:20px; padding:8px 12px; background:#28a745; color:#fff; text-decoration:none; border-radius:4px;}

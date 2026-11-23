@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>悦容美发美容 - 预约</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f9f9f9;color:#333;}
+  header{background:#fff;border-bottom:1px solid #e0e0e0;padding:20px 0;}
+  nav{display:flex;justify-content:center;gap:20px;}
+  nav a{color:#333;text-decoration:none;font-weight:600;}
+  nav a:hover{color:#d32f2f;}
+  main{max-width:600px;margin:auto;padding:40px 20px;}
+  h1{font-size:2rem;color:#d32f2f;text-align:center;}
+  form{background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+  label{display:block;margin-bottom:5px;font-weight:600;}
+  input,select{width:100%;padding:8px;margin-bottom:15px;border:1px solid #ccc;border-radius:4px;}
+  button{background:#d32f2f;color:#fff;border:none;padding:10px 20px;border-radius:4px;cursor:pointer;}
+  button:hover{background:#b71c1c;}
+  footer{background:#fff;border-top:1px solid #e0e0e0;text-align:center;padding:20px 0;color:#777;}
+  @media(max-width:768px){
+    nav{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="services.html">服务项目</a>
+    <a href="team.html">团队介绍</a>
+    <a href="booking.html">预约</a>
+  </nav>
+</header>
+<main>
+  <h1>预约服务</h1>
+  <form>
+    <label for="name">姓名</label>
+    <input type="text" id="name" placeholder="请输入您的姓名">
+    <label for="phone">电话</label>
+    <input type="tel" id="phone" placeholder="如 13812345678">
+    <label for="service">选择服务</label>
+    <select id="service">
+      <option>基础剪发</option>
+      <option>染发服务</option>
+      <option>深层护发</option>
+      <option>专业护肤</option>
+    </select>
+    <label for="date">预约时间</label>
+    <input type="datetime-local" id="date">
+    <button type="button">提交预约</button>
+  </form>
+</main>
+<footer>
+  © 2024 悦容美发美容 | 广州 | 联系我们: 020-12345678
+</footer>
+</body>
+</html>

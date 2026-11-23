@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif; color: #2d3748; background: #f8fafc; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .top-bar { background: #0f2440; color: #a0b8d4; font-size: 13px; padding: 6px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #a0b8d4; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #1a3a5c; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        header .container { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #e8a020, #f5c84e); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 22px; }
+        .logo-text { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+        .logo-sub { color: #8ab4d4; font-size: 11px; display: block; letter-spacing: 1px; }
+        nav { display: flex; gap: 8px; }
+        nav a { color: #c8dce8; padding: 10px 18px; border-radius: 6px; font-size: 15px; transition: all .2s; }
+        nav a:hover, nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+        .header-cta { background: #e8a020; color: #fff; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+        .header-cta:hover { background: #d4911a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .page-hero { background: linear-gradient(135deg, #1a3a5c, #2c5f8a); color: #fff; padding: 60px 0; text-align: center; }
+        .page-hero h1 { font-size: 36px; margin-bottom: 12px; }
+        .page-hero p { color: #b8d4e8; font-size: 16px; max-width: 600px; margin: 0 auto; }
+
+        .section { padding: 64px 0; }
+        .section-alt { background: #fff; }
+
+        /* Contact Info */
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 56px; }
+        .contact-box { background: #fff; border-radius: 12px; padding: 32px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.04); border: 1px solid #e8edf2; }
+        .contact-box .icon { font-size: 36px; margin-bottom: 16px; }
+        .contact-box h3 { font-size: 16px; color: #1a3a5c; font-weight: 700; margin-bottom: 8px; }
+        .contact-box p { font-size: 14px; color: #64748b; }
+        .contact-box .big { font-size: 22px; font-weight: 700; color: #e8a020; margin: 8px 0; }
+
+        /* Branches */
+        .branches-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.04); }
+        .branches-table th { background: #1a3a5c; color: #fff; padding: 14px 18px; font-size: 14px; text-align: left; }
+        .branches-table td { padding: 14px 18px; font-size: 14px; border-bottom: 1px solid #e8edf2; }
+        .branches-table tr:last-child td { border-bottom: none; }
+        .branches-table tr:hover td { background: #f8fafc; }
+        .branch-city { font-weight: 600; color: #1a3a5c; }
+        .tag { display: inline-block; background: #eef4fa; color: #2c6fad; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+
+        /* Form */
+        .form-section { max-width: 640px; margin: 0 auto; }
+        .form-section h2 { text-align: center; font-size: 24px; color: #1a3a5c; margin-bottom: 8px; }
+        .form-section > p { text-align: center; font-size: 14px; color: #64748b; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; transition: border .2s; background: #fff; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #2c6fad; box-shadow: 0 0 0 3px rgba(44,111,173,.1); }
+        .form-group textarea { height: 120px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-submit { text-align: center; margin-top: 28px; }
+        .btn { display: inline-block; padding: 13px 36px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+        .btn-primary { background: #e8a020; color: #fff; }
+        .btn-primary:hover { background: #d4911a; transform: translateY(-1px); }
+        .form-note { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 12px; }
+
+        /* Hours */
+        .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .hours-card { background: #fff; border-radius: 10px; padding: 24px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.03); }
+        .hours-card h4 { font-size: 15px; color: #1a3a5c; margin-bottom: 8px; }
+        .hours-card p { font-size: 14px; color: #64748b; }
+        .hours-card .time { font-size: 18px; font-weight: 700; color: #e8a020; margin: 6px 0; }
+
+        footer { background: #0f2440; color: #8ab4d4; padding: 48px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .footer-grid h4 { color: #fff; font-size: 15px; margin-bottom: 14px; }
+        .footer-grid a { display: block; font-size: 13px; color: #8ab4d4; margin-bottom: 10px; }
+        .footer-grid a:hover { color: #f5c84e; }
+        .footer-about p { font-size: 13px; line-height: 1.8; margin-top: 12px; }
+        .footer-bottom { text-align: center; padding: 18px 0; font-size: 12px; color: #5a7a96; }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .hours-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一客服热线：400-888-6600</span>
+            <div>
+                <a href="index.html">首页</a>
+                <a href="services.html">个人银行服务</a>
+                <a href="cards.html">信用卡</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">川</div>
+                <div>
+                    <span class="logo-text">长川银行</span>
+                    <span class="logo-sub">CHANGCHUAN BANK</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="services.html">个人银行服务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html" class="active">联系我们</a>
+            </nav>
+            <a href="#form" class="header-cta">在线留言</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>无论您有任何疑问、建议或合作意向，长川银行的服务团队随时为您服务。以下是我们的联系方式和全国主要网点信息。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <div class="icon">📞</div>
+                    <h3>客服热线</h3>
+                    <div class="big">400-888-6600</div>
+                    <p>7×24 小时人工服务<br>信用卡专线：400-888-6601</p>
+                </div>
+                <div class="contact-box">
+                    <div class="icon">📧</div>
+                    <h3>电子邮箱</h3>
+                    <div class="big" style="font-size:16px;">service@changchuan-bank.cn</div>
+                    <p>工作日 24 小时内回复<br>投诉邮箱：tousu@changchuan-bank.cn</p>
+                </div>
+                <div class="contact-box">
+                    <div class="icon">🏢</div>
+                    <h3>总行地址</h3>
+                    <div class="big" style="font-size:15px;">杭州市西湖区文一路 168 号</div>
+                    <p>长川银行总部大厦<br>邮编：310012</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 style="font-size:24px;color:#1a3a5c;text-align:center;margin-bottom:12px;">全国主要网点</h2>
+            <p style="text-align:center;font-size:14px;color:#64748b;margin-bottom:32px;">长川银行在全国 18 个省市设有 320+ 营业网点，以下为部分代表性网点</p>
+            <div style="overflow-x:auto;">
+                <table class="branches-table">
+                    <thead>
+                        <tr>
+                            <th>城市</th>
+                            <th>网点名称</th>
+                            <th>地址</th>
+                            <th>电话</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="branch-city">杭州</td>
+                            <td>西湖支行（总行）</td>
+                            <td>西湖区文一路168号</td>
+                            <td>0571-8823-6600</td>
+                            <td><span class="tag">旗舰</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">杭州</td>
+                            <td>滨江支行</td>
+                            <td>滨江区江南大道288号</td>
+                            <td>0571-8823-6601</td>
+                            <td><span class="tag">24h自助</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">上海</td>
+                            <td>陆家嘴支行</td>
+                            <td>浦东新区世纪大道88号</td>
+                            <td>021-6888-3300</td>
+                            <td><span class="tag">旗舰</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">上海</td>
+                            <td>静安支行</td>
+                            <td>静安区南京西路1266号</td>
+                            <td>021-6888-3301</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">北京</td>
+                            <td>朝阳支行</td>
+                            <td>朝阳区建国路88号</td>
+                            <td>010-6555-8800</td>
+                            <td><span class="tag">旗舰</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">北京</td>
+                            <td>海淀支行</td>
+                            <td>海淀区中关村大街27号</td>
+                            <td>010-6555-8801</td>
+                            <td><span class="tag">24h自助</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">深圳</td>
+                            <td>福田支行</td>
+                            <td>福田区深南大道2008号</td>
+                            <td>0755-8333-2200</td>
+                            <td><span class="tag">旗舰</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">广州</td>
+                            <td>天河支行</td>
+                            <td>天河区珠江新城华穗路38号</td>
+                            <td>020-3888-9900</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">成都</td>
+                            <td>锦江支行</td>
+                            <td>锦江区红星路三段1号</td>
+                            <td>028-8666-5500</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">武汉</td>
+                            <td>武昌支行</td>
+                            <td>武昌区中南路99号</td>
+                            <td>027-8777-4400</td>
+                            <td><span class="tag">24h自助</span></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">南京</td>
+                            <td>鼓楼支行</td>
+                            <td>鼓楼区中山路18号</td>
+                            <td>025-8333-6600</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="branch-city">西安</td>
+                            <td>雁塔支行</td>
+                            <td>雁塔区小寨西路56号</td>
+                            <td>029-8555-7700</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="font-size:24px;color:#1a3a5c;text-align:center;margin-bottom:32px;">营业时间表</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h4>柜台业务</h4>
+                    <div class="time">9:00 - 17:00</div>
+                    <p>周一至周五（节假日除外）<br>周六 9:00-12:00（部分网点）</p>
+                </div>
+                <div class="hours-card">
+                    <h4>自助银行</h4>
+                    <div class="time">24 小时</div>
+                    <p>ATM / CRS / 智能柜员机<br>7×24 小时不间断服务</p>
+                </div>
+                <div class="hours-card">
+                    <h4>客服热线</h4>
+                    <div class="time">7×24 小时</div>
+                    <p>400-888-6600<br>全天候人工接听</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="form">
+        <div class="container">
+            <div class="form-section">
+                <h2>在线留言</h2>
+                <p>填写以下信息，我们的客服团队将在 1 个工作日内与您联系（本表单仅用于演示，不会实际发送）</p>
+                <form onsubmit="event.preventDefault(); alert('感谢您的留言！我们将尽快与您联系。（演示提示：此表单不实际提交）');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>您的姓名</label>
+                            <input type="text" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label>联系电话</label>
+                            <input type="tel" placeholder="请输入手机号码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>您想了解的业务</label>
+                        <select>
+                            <option value="">请选择</option>
+                            <option value="savings">储蓄存款</option>
+                            <option value="loan">个人贷款</option>
+                            <option value="credit-card">信用卡</option>
+                            <option value="wealth">投资理财</option>
+                            <option value="business">企业/小微服务</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>您所在的城市</label>
+                        <input type="text" placeholder="例如：杭州">
+                    </div>
+                    <div class="form-group">
+                        <label>留言内容</label>
+                        <textarea placeholder="请描述您的需求或问题，例如：我想了解大额存单的具体办理流程……"></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">提交留言</button>
+                        <p class="form-note">提交即表示您同意长川银行依据《个人信息保护条例》处理您的信息</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <div class="logo-icon" style="width:36px;height:36px;font-size:18px;">川</div>
+                        <span class="logo-text" style="font-size:18px;">长川银行</span>
+                    </div>
+                    <p>长川银行成立于1999年，总部位于杭州，是全国性股份制商业银行。秉承"稳健、专业、客户至上"的经营理念，致力于为广大个人和小微企业提供优质的金融服务。</p>
+                </div>
+                <div>
+                    <h4>产品服务</h4>
+                    <a href="services.html">储蓄存款</a>
+                    <a href="services.html">个人贷款</a>
+                    <a href="cards.html">信用卡</a>
+                    <a href="services.html">投资理财</a>
+                </div>
+                <div>
+                    <h4>关于长川</h4>
+                    <a href="contact.html">联系我们</a>
+                    <a href="contact.html">网点查询</a>
+                    <a href="index.html">返回首页</a>
+                    <a href="cards.html">信用卡专区</a>
+                </div>
+                <div>
+                    <h4>客户服务</h4>
+                    <a href="contact.html">客服热线 400-888-6600</a>
+                    <a href="contact.html">投诉与建议</a>
+                    <a href="services.html">安全提示</a>
+                    <a href="contact.html">营业时间</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 长川银行 版权所有 | 银行许可证编号 B0312H133010001 | 浙ICP备12038866号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

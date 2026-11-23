@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商家列表 - 快送外卖</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+                <span>快送外卖</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html" class="active">商家列表</a>
+                <a href="#">我的订单</a>
+            </nav>
+            <a href="order.html" class="btn btn-primary" style="padding: 6px 15px; font-size: 12px;">
+                🛒 <span class="cart-badge">2</span> 去结算
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="checkout-layout">
+            <!-- Sidebar Filters -->
+            <aside>
+                <div class="info-box">
+                    <h4 style="margin-bottom: 15px;">筛选条件</h4>
+                    <div class="form-group">
+                        <label class="form-label">配送范围</label>
+                        <select class="form-input" style="background:#fff;">
+                            <option>全部范围</option>
+                            <option>1公里内</option>
+                            <option>3公里内</option>
+                            <option>3公里以上</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">商家类型</label>
+                        <div class="radio-group">
+                            <label class="radio-item"><input type="checkbox" checked> 川菜</label>
+                            <label class="radio-item"><input type="checkbox" checked> 简餐</label>
+                            <label class="radio-item"><input type="checkbox"> 西餐</label>
+                            <label class="radio-item"><input type="checkbox"> 日料</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">排序方式</label>
+                        <div class="radio-group">
+                            <label class="radio-item"><input type="radio" name="sort" checked> 距离优先</label>
+                            <label class="radio-item"><input type="radio" name="sort"> 评分优先</label>
+                            <label class="radio-item"><input type="radio" name="sort"> 营业中</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Restaurant List -->
+            <main>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <h3>附近商家 (24)</h3>
+                    <span style="font-size: 13px; color: #666;">显示全部</span>
+                </div>
+
+                <div class="grid-4">
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food5/300/200" alt="龙抄手" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">成都龙抄手</div>
+                            <div class="card-tags">
+                                <span>中式快餐</span>
+                                <span>满30减5</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.6</span>
+                                <span>0.5km | ¥5运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food6/300/200" alt="肯德基" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">肯德基 (建设路店)</div>
+                            <div class="card-tags">
+                                <span>西式快餐</span>
+                                <span>新品尝鲜</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.8</span>
+                                <span>0.8km | 免运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food7/300/200" alt="寿司" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">鲜寿司 (太古里店)</div>
+                            <div class="card-tags">
+                                <span>日韩料理</span>
+                                <span>寿司拼盘</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.7</span>
+                                <span>1.0km | ¥8运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food8/300/200" alt="烤肉" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">炭火烤肉·烤串</div>
+                            <div class="card-tags">
+                                <span>宵夜</span>
+                                <span>套餐优惠</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.4</span>
+                                <span>1.5km | ¥6运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                     <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food9/300/200" alt="奶茶" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">一点点奶茶店</div>
+                            <div class="card-tags">
+                                <span>饮品</span>
+                                <span>新品上架</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.9</span>
+                                <span>0.3km | 免运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food10/300/200" alt="兰州拉面" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">马子禄牛肉面</div>
+                            <div class="card-tags">
+                                <span>清真</span>
+                                <span>小份面</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.8</span>
+                                <span>2.0km | ¥3运费</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="restaurant.html" class="card">
+                        <img src="https://picsum.photos/seed/food11/300/200" alt="披萨" class="card-img">
+                        <div class="card-body">
+                            <div class="card-title">必胜客 (旗舰店)</div>
+                            <div class="card-tags">
+                                <span>披萨</span>
+                                <span>送外卖</span>
+                            </div>
+                            <div class="card-info">
+                                <span class="star">★4.6</span>
+                                <span>2.2km | 免运费</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="main-footer">
+        <p>快送外卖 · 成都站 © 2023</p>
+    </div>
+</body>
+</html>

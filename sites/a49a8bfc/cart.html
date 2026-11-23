@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物袋 - 可衣 KEEWEAR</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c2c2c; background: #fff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .top-bar { background: #2c2c2c; color: #fff; font-size: 12px; padding: 6px 0; text-align: center; }
+        .top-bar span { margin: 0 15px; }
+        .header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1440px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+        .logo span { color: #b8860b; }
+        .nav { display: flex; gap: 32px; }
+        .nav a { font-size: 15px; color: #555; padding: 8px 0; border-bottom: 2px solid transparent; transition: all .3s; }
+        .nav a:hover, .nav a.active { color: #2c2c2c; border-bottom-color: #b8860b; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .search-box { display: flex; align-items: center; background: #f5f5f5; border-radius: 20px; padding: 6px 14px; }
+        .search-box input { border: none; background: none; outline: none; font-size: 13px; width: 140px; }
+        .search-box svg { margin-right: 8px; opacity: .4; }
+        .cart-icon { position: relative; cursor: pointer; }
+        .cart-icon .badge { position: absolute; top: -6px; right: -6px; background: #c0392b; color: #fff; font-size: 10px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .breadcrumb { max-width: 1440px; margin: 0 auto; padding: 20px 40px 0; font-size: 13px; color: #999; }
+        .breadcrumb a { color: #b8860b; }
+
+        .cart-layout { max-width: 1440px; margin: 0 auto; padding: 30px 40px 80px; display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: flex-start; }
+
+        .cart-header { font-size: 22px; font-weight: 500; margin-bottom: 24px; }
+        .cart-header span { font-size: 14px; color: #999; font-weight: 400; margin-left: 12px; }
+
+        .cart-table-header { display: grid; grid-template-columns: 4px 100px 1fr 120px 120px 40px; gap: 16px; padding: 0 12px 12px; font-size: 12px; color: #999; border-bottom: 1px solid #eee; }
+
+        .cart-item { display: grid; grid-template-columns: 4px 100px 1fr 120px 120px 40px; gap: 16px; padding: 24px 12px; border-bottom: 1px solid #f5f5f5; align-items: center; }
+        .cart-item .c-checkbox { width: 18px; height: 18px; accent-color: #b8860b; }
+        .cart-item .c-img { width: 100px; height: 100px; border-radius: 4px; overflow: hidden; }
+        .cart-item .c-img .fill { width: 100%; height: 100%; }
+        .cart-item .c-info h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+        .cart-item .c-info .c-spec { font-size: 12px; color: #999; }
+        .cart-item .c-info .c-tag { display: inline-block; font-size: 11px; background: #fff3e0; color: #b8860b; padding: 1px 6px; border-radius: 2px; margin-top: 6px; }
+        .cart-item .c-price { font-size: 15px; font-weight: 600; color: #c0392b; }
+        .cart-item .c-price .c-original { font-size: 11px; color: #aaa; text-decoration: line-through; display: block; }
+
+        .qty-ctrl { display: flex; align-items: center; border: 1px solid #ddd; }
+        .qty-ctrl button { width: 30px; height: 30px; border: none; background: #fff; cursor: pointer; font-size: 14px; }
+        .qty-ctrl button:hover { background: #f5f5f5; }
+        .qty-ctrl input { width: 36px; height: 30px; border: none; border-left: 1px solid #ddd; border-right: 1px solid #ddd; text-align: center; font-size: 13px; outline: none; }
+
+        .c-remove { font-size: 18px; color: #ccc; cursor: pointer; transition: color .2s; }
+        .c-remove:hover { color: #c0392b; }
+
+        .cart-actions-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 12px; margin-top: 8px; }
+        .cart-actions-bar .select-all { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #666; }
+        .cart-actions-bar .select-all input { accent-color: #b8860b; }
+        .cart-actions-bar .clear { font-size: 13px; color: #999; cursor: pointer; }
+        .cart-actions-bar .clear:hover { color: #c0392b; }
+
+        /* Summary */
+        .summary { background: #fafafa; border-radius: 4px; padding: 32px; position: sticky; top: 100px; }
+        .summary h3 { font-size: 16px; font-weight: 600; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 14px; color: #555; }
+        .summary-row .label { color: #888; }
+        .summary-row .value { font-weight: 500; }
+        .summary-row .value.discount { color: #c0392b; }
+        .summary-divider { border: none; border-top: 1px dashed #e0e0e0; margin: 16px 0; }
+        .summary-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; }
+        .summary-total .t-label { font-size: 14px; color: #555; }
+        .summary-total .t-value { font-size: 24px; font-weight: 700; color: #c0392b; }
+        .summary-total .t-original { font-size: 13px; color: #aaa; text-decoration: line-through; margin-left: 8px; }
+
+        .promo-row { display: flex; gap: 8px; margin: 20px 0; }
+        .promo-row input { flex: 1; padding: 10px 12px; border: 1px solid #ddd; font-size: 13px; outline: none; }
+        .promo-row button { padding: 10px 16px; background: #f5f5f5; border: 1px solid #ddd; font-size: 13px; cursor: pointer; }
+        .promo-row button:hover { background: #eee; }
+
+        .btn-checkout { width: 100%; padding: 16px; background: #2c2c2c; color: #fff; border: none; font-size: 15px; letter-spacing: 2px; cursor: pointer; margin-top: 20px; transition: background .3s; }
+        .btn-checkout:hover { background: #b8860b; }
+
+        .summary-notes { margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee; font-size: 12px; color: #999; line-height: 2; }
+        .summary-notes .note-icon { margin-right: 6px; }
+
+        .gift-row { margin-top: 16px; padding: 12px; background: #fff9e6; border-radius: 4px; font-size: 12px; color: #8b6f00; }
+
+        /* Empty state (hidden by default) */
+        .cart-empty { display: none; text-align: center; padding: 80px 40px; }
+        .cart-empty .empty-icon { font-size: 64px; margin-bottom: 20px; opacity: .3; }
+        .cart-empty h3 { font-size: 18px; font-weight: 400; margin-bottom: 12px; }
+        .cart-empty p { font-size: 14px; color: #999; margin-bottom: 24px; }
+        .cart-empty a { display: inline-block; padding: 12px 32px; background: #2c2c2c; color: #fff; font-size: 14px; letter-spacing: 1px; }
+        .cart-empty a:hover { background: #b8860b; }
+
+        .footer { background: #2c2c2c; color: #aaa; padding: 40px; text-align: center; font-size: 12px; }
+
+        @media (max-width: 1024px) {
+            .cart-layout { grid-template-columns: 1fr; }
+            .summary { position: static; }
+        }
+        @media (max-width: 768px) {
+            .cart-layout { padding: 20px; }
+            .cart-item { grid-template-columns: 80px 1fr 40px; }
+            .cart-item .c-price, .cart-item .qty-ctrl { display: none; }
+            .cart-table-header { display: none; }
+            .nav { display: none; }
+            .header-inner { padding: 14px 20px; }
+            .breadcrumb { padding: 16px 20px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <span>全场满 599 元免运费</span>
+        <span>|</span>
+        <span>新客首单享 9 折优惠</span>
+        <span>|</span>
+        <span>30 天无忧退换</span>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">可<span>衣</span></a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="products.html">全部商品</a>
+                <a href="products.html">日常系列</a>
+                <a href="products.html">职场系列</a>
+                <a href="cart.html" class="active">购物车</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <input type="text" placeholder="搜索商品...">
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2c2c2c" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="badge">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb"><a href="index.html">首页</a> / 购物袋</div>
+
+    <div class="cart-layout">
+        <div>
+            <div class="cart-header">我的购物袋 <span>共 3 件商品</span></div>
+
+            <div class="cart-table-header">
+                <span></span>
+                <span>商品</span>
+                <span>名称 / 规格</span>
+                <span>单价</span>
+                <span>数量</span>
+                <span></span>
+            </div>
+
+            <!-- Item 1 -->
+            <div class="cart-item">
+                <input type="checkbox" class="c-checkbox" checked>
+                <div class="c-img"><div class="fill" style="background:linear-gradient(160deg,#e8d5c4,#c9a88c);"></div></div>
+                <div class="c-info">
+                    <h3>「云感」羊绒混纺开衫</h3>
+                    <p class="c-spec">颜色：驼色 · 尺码：M · 80% 羊绒</p>
+                    <span class="c-tag">已优惠 ¥ 400</span>
+                </div>
+                <div class="c-price">
+                    <span class="c-original">¥ 1,299</span>
+                    ¥ 899
+                </div>
+                <div class="qty-ctrl">
+                    <button type="button">−</button>
+                    <input type="text" value="1" readonly>
+                    <button type="button">+</button>
+                </div>
+                <span class="c-remove" title="移除">✕</span>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="cart-item">
+                <input type="checkbox" class="c-checkbox" checked>
+                <div class="c-img"><div class="fill" style="background:linear-gradient(160deg,#d6dce5,#a8b8cc);"></div></div>
+                <div class="c-info">
+                    <h3>「轻语」真丝方领衬衫</h3>
+                    <p class="c-spec">颜色：雾霾蓝 · 尺码：S · 19 姆米真丝</p>
+                    <span class="c-tag">新品 · 已优惠 ¥ 240</span>
+                </div>
+                <div class="c-price">
+                    <span class="c-original">¥ 899</span>
+                    ¥ 659
+                </div>
+                <div class="qty-ctrl">
+                    <button type="button">−</button>
+                    <input type="text" value="1" readonly>
+                    <button type="button">+</button>
+                </div>
+                <span class="c-remove" title="移除">✕</span>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="cart-item">
+                <input type="checkbox" class="c-checkbox" checked>
+                <div class="c-img"><div class="fill" style="background:linear-gradient(160deg,#3c3c3c,#5a5a5a);"></div></div>
+                <div class="c-info">
+                    <h3>通勤高腰直筒九分裤</h3>
+                    <p class="c-spec">颜色：深灰 · 尺码：M · 醋酸混纺</p>
+                    <span class="c-tag">职场必备</span>
+                </div>
+                <div class="c-price">¥ 459</div>
+                <div class="qty-ctrl">
+                    <button type="button">−</button>
+                    <input type="text" value="1" readonly>
+                    <button type="button">+</button>
+                </div>
+                <span class="c-remove" title="移除">✕</span>
+            </div>
+
+            <div class="cart-actions-bar">
+                <label class="select-all"><input type="checkbox" checked> 全选</label>
+                <span class="clear">清空购物袋</span>
+            </div>
+        </div>
+
+        <aside class="summary">
+            <h3>订单摘要</h3>
+
+            <div class="summary-row">
+                <span class="label">商品小计（3 件）</span>
+                <span class="value">¥ 2,757</span>
+            </div>
+            <div class="summary-row">
+                <span class="label">活动优惠</span>
+                <span class="value discount">- ¥ 640</span>
+            </div>
+            <div class="summary-row">
+                <span class="label">运费</span>
+                <span class="value" style="color:#b8860b;">免运费 ✓</span>
+            </div>
+            <hr class="summary-divider">
+            <div class="summary-row">
+                <span class="label">积分抵扣（可用 2,000 分）</span>
+                <span class="value discount">- ¥ 20</span>
+            </div>
+
+            <div class="promo-row">
+                <input type="text" placeholder="输入优惠码 / 兑换码">
+                <button type="button">应用</button>
+            </div>
+
+            <div class="summary-total">
+                <span class="t-label">应付合计</span>
+                <span><span class="t-value">¥ 2,097</span><span class="t-original">¥ 2,757</span></span>
+            </div>
+
+            <button class="btn-checkout" type="button">去结算（3 件商品）</button>
+
+            <div class="gift-row">
+                🎁 您已满足满 ¥599 免运费条件。再购 ¥343 即可获赠「薄雾」丝巾一条（限 1 条 / 人）。
+            </div>
+
+            <div class="summary-notes">
+                <p><span class="note-icon">🚚</span>预计发货时间：2024年12月24日（周二）前</p>
+                <p><span class="note-icon">🔄</span>签收后 30 天内可无理由退换</p>
+                <p><span class="note-icon">🔒</span>支持支付宝 / 微信支付 / 银行卡</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Empty state (for reference) -->
+    <div class="cart-empty" id="cartEmpty">
+        <div class="empty-icon">🛍️</div>
+        <h3>购物袋还是空的</h3>
+        <p>去逛逛，找到今天想穿的那件衣服吧。</p>
+        <a href="products.html">去选购 →</a>
+    </div>
+
+    <footer class="footer">
+        © 2024 可衣 KEEWEAR · 沪ICP备 2019-08623 号 · 上海市静安区常德路 1155 号 · 客服电话 400-820-6633
+    </footer>
+
+    <script>
+        // Remove item
+        document.querySelectorAll('.c-remove').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.cart-item');
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(20px)';
+                item.style.transition = 'all .3s';
+                setTimeout(() => {
+                    item.remove();
+                    updateCart();
+                }, 300);
+            });
+        });
+
+        // Quantity
+        document.querySelectorAll('.qty-ctrl button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.nextElementSibling;
+                let val = parseInt(input.value);
+                if (this.textContent === '+') {
+                    if (val < 10) input.value = val + 1;
+                } else {
+                    if (val > 1) input.value = val - 1;
+                }
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            const items = document.querySelectorAll('.cart-item');
+            const badge = document.querySelector('.cart-icon .badge');
+            let total = 0;
+            items.forEach(item => {
+                const price = parseFloat(item.querySelector('.c-price').textContent.replace(/[¥,]/g, '').trim().split(/\s+/).pop());
+                const qty = parseInt(item.querySelector('.qty-ctrl input').value);
+                total += price * qty;
+            });
+            badge.textContent = items.length;
+            const header = document.querySelector('.cart-header span');
+            if (header) header.textContent = '共 ' + items.length + ' 件商品';
+
+            if (items.length === 0) {
+                document.querySelector('.cart-layout').style.display = 'none';
+                document.getElementById('cartEmpty').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

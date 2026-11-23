@@ -1,0 +1,11 @@
+{
+  "id": "zh__home-cleaning__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "home-cleaning",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 12493,
+  "seconds": 114,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

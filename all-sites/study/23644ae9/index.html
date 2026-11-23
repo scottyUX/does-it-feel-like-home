@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅行旅行 - 国内旅行预订平台</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f5f7fa;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --success-color: #28a745;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+        .nav-buttons a {
+            margin-left: 15px;
+        }
+        .btn-login { color: var(--primary-color); border: 1px solid var(--primary-color); padding: 8px 20px; border-radius: 4px; }
+        .btn-register { background: var(--primary-color); color: #fff; padding: 8px 20px; border-radius: 4px; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 18px; margin-bottom: 40px; opacity: 0.9; }
+        
+        /* Search Box */
+        .search-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            color: var(--text-dark);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        .search-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        .search-item label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+        .search-item input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .search-btn {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 40px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .search-btn:hover { background: #0052a3; }
+
+        /* Popular Destinations */
+        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 28px; margin-bottom: 30px; text-align: center; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background: #fff;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card-img {
+            height: 180px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        .card-body { padding: 20px; }
+        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+        .card-desc { font-size: 14px; color: var(--text-light); margin-bottom: 15px; }
+        .card-link { color: var(--primary-color); font-weight: 500; }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 { margin-bottom: 20px; color: #fff; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col a { color: #bdc3c7; font-size: 14px; }
+        .footer-col a:hover { color: #fff; }
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .search-container { flex-direction: column; }
+            .search-btn { padding: 12px; width: 100%; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">畅行旅行</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="search-results.html">酒店</a></li>
+                <li><a href="#">机票</a></li>
+                <li><a href="#">度假</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-register">注册</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>探索美好旅程</h1>
+        <p>国内旅行预订，轻松规划您的下一个假期</p>
+        <form class="search-container" onsubmit="event.preventDefault(); window.location.href='search-results.html';">
+            <div class="search-item">
+                <label>目的地</label>
+                <input type="text" placeholder="输入城市或酒店名" value="北京">
+            </div>
+            <div class="search-item">
+                <label>入住日期</label>
+                <input type="date">
+            </div>
+            <div class="search-item">
+                <label>退房日期</label>
+                <input type="date">
+            </div>
+            <div class="search-item">
+                <label>人数</label>
+                <input type="text" value="2 位成人" readonly>
+            </div>
+            <button type="submit" class="search-btn">搜索</button>
+        </form>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">热门目的地</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img">北京图片</div>
+                <div class="card-body">
+                    <h3 class="card-title">北京</h3>
+                    <p class="card-desc">历史文化名城，故宫与长城的故乡。</p>
+                    <a href="search-results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">上海图片</div>
+                <div class="card-body">
+                    <h3 class="card-title">上海</h3>
+                    <p class="card-desc">现代化国际大都市，外滩夜景迷人。</p>
+                    <a href="search-results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img">成都图片</div>
+                <div class="card-body">
+                    <h3 class="card-title">成都</h3>
+                    <p class="card-desc">悠闲城市，大熊猫与美食天堂。</p>
+                    <a href="search-results.html" class="card-link">查看酒店 &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>畅行旅行</h4>
+                <p style="font-size:14px; color:#bdc3c7;">致力于为您提供最优质的国内旅行预订服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>服务</h4>
+                <ul>
+                    <li><a href="search-results.html">酒店查询</a></li>
+                    <li><a href="#">机票预订</a></li>
+                    <li><a href="#">行程规划</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">合作商</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>电话：400-123-4567</li>
+                    <li>邮箱：support@changxing.com</li>
+                    <li>地址：北京市朝阳区</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 畅行旅行 版权所有
+        </div>
+    </footer>
+</body>
+</html>

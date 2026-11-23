@@ -1,0 +1,11 @@
+{
+  "id": "en__bank__llama4-scout__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "bank",
+  "model": "llama4:scout",
+  "completionTokens": 2598,
+  "seconds": 46,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

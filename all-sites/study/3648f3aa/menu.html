@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>家味餐厅 - 菜单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{margin:0;font-family:Arial,sans-serif;background:#fafafa;color:#333;}
+        header{background:#d33;color:#fff;padding:15px 20px;}
+        header h1{margin:0;font-size:1.8rem;}
+        nav a{margin-right:12px;color:#fff;}
+        .container{max-width:1200px;margin:auto;padding:20px;}
+        .section{margin-bottom:40px;}
+        .section h2{color:#d33;border-bottom:2px solid #d33;padding-bottom:5px;}
+        .dish{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e0e0e0;}
+        .dish-name{font-weight:bold;}
+        .price{color:#d33;}
+        .footer{background:#222;color:#ccc;padding:15px;text-align:center;font-size:0.9rem;}
+        @media(max-width:768px){
+            .dish{flex-direction:column;align-items:flex-start;}
+            .price{margin-top:5px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>家味餐厅 - 菜单</h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="menu.html">菜单</a>
+            <a href="about.html">关于我们</a>
+            <a href="reservation.html">预订座位</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>热菜</h2>
+            <div class="dish">
+                <div class="dish-name">西湖醋鱼</div>
+                <div class="price">¥68</div>
+            </div>
+            <div class="dish"><div class="dish-name">东坡肉</div><div class="price">¥88</div></div>
+            <div class="dish"><div class="dish-name">叫化鸡</div><div class="price">¥78</div></div>
+            <div class="dish"><div class="dish-name">清蒸鲈鱼</div><div class="price">¥98</div></div>
+        </section>
+
+        <section class="section">
+            <h2>凉菜</h2>
+            <div class="dish"><div class="dish-name">酱鸭胸肉</div><div class="price">¥45</div></div>
+            <div class="dish"><div class="dish-name">拌海带丝</div><div class="price">¥28</div></div>
+            <div class="dish"><div class="dish-name">杭帮酱菜</div><div class="price">¥32</div></div>
+        </section>
+
+        <section class="section">
+            <h2>汤羹</h2>
+            <div class="dish"><div class="dish-name">东坡肉汤</div><div class="price">¥38</div></div>
+            <div class="dish"><div class="dish-name">龙井虾仁汤</div><div class="price">¥42</div></div>
+        </section>
+
+        <section class="section">
+            <h2>主食</h2>
+            <div class="dish"><div class="dish-name">杭三鲜面</div><div class="price">¥30</div></div>
+            <div class="dish"><div class="dish-name">西湖莼菜粥</div><div class="price">¥26</div></div>
+            <div class="dish"><div class="dish-name">酱爆虾仁炒饭</div><div class="price">¥35</div></div>
+        </section>
+
+        <section class="section">
+            <h2>甜点 & 饮品</h2>
+            <div class="dish"><div class="dish-name">西湖藕粉圆子</div><div class="price">¥22</div></div>
+            <div class="dish"><div class="dish-name">龙井茶</div><div class="price">¥15</div></div>
+            <div class="dish"><div class="dish-name">桂花酒酿圆子</div><div class="price">¥28</div></div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        © 2026 家味餐厅 | 杭州市西湖区文一路88号 | 电话：0571-12345678
+    </footer>
+</body>
+</html>

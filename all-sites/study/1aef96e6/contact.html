@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系网点 - 长川银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2c3e50; line-height: 1.6; background: #fff; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .top-bar { background: #1a2a4a; color: #b8c6db; font-size: 13px; padding: 8px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #b8c6db; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #fff; border-bottom: 1px solid #e8ecf1; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        header .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #1a5fb4, #2d8cf0); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700; }
+        .logo-text { font-size: 22px; font-weight: 700; color: #1a2a4a; }
+        .logo-text span { color: #1a5fb4; }
+        nav { display: flex; gap: 8px; }
+        nav a { padding: 10px 18px; border-radius: 6px; font-size: 15px; font-weight: 500; color: #4a5568; transition: all .2s; }
+        nav a:hover, nav a.active { background: #ebf3ff; color: #1a5fb4; }
+        nav a.cta { background: #1a5fb4; color: #fff; }
+        nav a.cta:hover { background: #1552a0; }
+
+        .page-hero { background: linear-gradient(135deg, #0f2242, #1a5fb4); color: #fff; padding: 72px 0 56px; }
+        .page-hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+        .page-hero p { font-size: 16px; color: #c5d5e8; max-width: 600px; }
+        .breadcrumb { font-size: 13px; color: #8ab0d8; margin-bottom: 20px; }
+        .breadcrumb a:hover { color: #fff; }
+
+        .section { padding: 72px 0; }
+        .section-alt { background: #f6f9fc; }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 28px; font-weight: 700; color: #1a2a4a; margin-bottom: 8px; }
+        .section-header p { font-size: 15px; color: #6b7c93; max-width: 560px; margin: 0 auto; }
+
+        .search-bar { max-width: 640px; margin: 0 auto 40px; display: flex; gap: 12px; }
+        .search-bar input { flex: 1; padding: 14px 18px; border: 1px solid #d1dce8; border-radius: 8px; font-size: 15px; font-family: inherit; }
+        .search-bar input:focus { outline: none; border-color: #1a5fb4; box-shadow: 0 0 0 3px rgba(26,95,180,.1); }
+        .search-bar select { padding: 14px 16px; border: 1px solid #d1dce8; border-radius: 8px; font-size: 14px; font-family: inherit; background: #fff; }
+        .search-bar select:focus { outline: none; border-color: #1a5fb4; }
+        .search-bar .btn-search { padding: 14px 28px; background: #1a5fb4; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s; }
+        .search-bar .btn-search:hover { background: #1552a0; }
+
+        .branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .branch-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 28px; transition: all .3s; }
+        .branch-card:hover { box-shadow: 0 8px 28px rgba(26,95,180,.08); border-color: #b8d4f7; }
+        .branch-card .city-tag { display: inline-block; background: #ebf3ff; color: #1a5fb4; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; }
+        .branch-card h3 { font-size: 17px; font-weight: 600; color: #1a2a4a; margin-bottom: 12px; }
+        .branch-card .info-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; font-size: 14px; color: #4a5568; }
+        .branch-card .info-row .icon { font-size: 14px; margin-top: 2px; }
+        .branch-card .hours { margin-top: 14px; padding-top: 14px; border-top: 1px solid #eef2f7; font-size: 13px; color: #6b7c93; }
+        .branch-card .hours strong { color: #1a2a4a; }
+
+        .contact-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .contact-method { text-align: center; padding: 36px 24px; background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; }
+        .contact-method .icon { font-size: 36px; margin-bottom: 14px; }
+        .contact-method h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+        .contact-method p { font-size: 14px; color: #6b7c93; }
+        .contact-method .value { font-size: 18px; font-weight: 700; color: #1a5fb4; margin-top: 10px; }
+
+        .feedback-form { background: #fff; border: 1px solid #e8ecf1; border-radius: 12px; padding: 40px; max-width: 720px; margin: 0 auto; }
+        .feedback-form h3 { font-size: 20px; font-weight: 600; margin-bottom: 24px; color: #1a2a4a; text-align: center; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #4a5568; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #d1dce8; border-radius: 8px; font-size: 14px; font-family: inherit; transition: border-color .2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #1a5fb4; box-shadow: 0 0 0 3px rgba(26,95,180,.1); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { text-align: center; margin-top: 24px; }
+        .form-submit .btn { padding: 12px 40px; background: #1a5fb4; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s; }
+        .form-submit .btn:hover { background: #1552a0; }
+
+        .map-placeholder { height: 360px; background: linear-gradient(135deg, #e8f0fe, #f0f7ff); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 32px; border: 1px solid #d1e5f5; }
+        .map-placeholder .pin { font-size: 48px; margin-bottom: 12px; }
+        .map-placeholder p { font-size: 14px; color: #6b7c93; }
+
+        footer { background: #0f1c30; color: #8a9bb5; padding: 48px 0 28px; font-size: 14px; }
+        footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+        footer h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a { color: #8a9bb5; transition: color .2s; }
+        footer ul a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #1e3050; margin-top: 36px; padding-top: 24px; text-align: center; font-size: 13px; }
+
+        @media (max-width: 1024px) {
+            .branch-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-methods { grid-template-columns: 1fr; }
+            footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .branch-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .search-bar { flex-direction: column; }
+            .page-hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一服务热线：95577</span>
+            <div>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系网点</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">长</div>
+                <div class="logo-text">长川<span>银行</span></div>
+            </a>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人业务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html" class="active">联系网点</a>
+                <a href="personal.html" class="cta">立即开户</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">首页</a> / 联系网点</div>
+            <h1>联系网点</h1>
+            <p>全国486家营业网点覆盖32个省市，总有一家离您很近。查找附近网点或联系我们，随时为您服务。</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>查找附近网点</h2>
+                <p>输入城市或地区名称，快速定位到您附近的营业网点</p>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="branchSearch" placeholder="输入城市名称，如：上海、北京、深圳..." oninput="filterBranches()">
+                <select id="branchRegion" onchange="filterBranches()">
+                    <option value="">全部地区</option>
+                    <option value="华东">华东地区</option>
+                    <option value="华北">华北地区</option>
+                    <option value="华南">华南地区</option>
+                    <option value="西南">西南地区</option>
+                    <option value="华中">华中地区</option>
+                </select>
+            </div>
+
+            <div class="branch-grid" id="branchList">
+                <div class="branch-card" data-city="上海" data-region="华东">
+                    <span class="city-tag">上海 · 华东</span>
+                    <h3>长川银行上海浦东分行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 浦东新区世纪大道1088号长川金融大厦1-3层</div>
+                    <div class="info-row"><span class="icon">📞</span> 021-6888-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁2号线/4号线 世纪大道站 3号口</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+
+                <div class="branch-card" data-city="北京" data-region="华北">
+                    <span class="city-tag">北京 · 华北</span>
+                    <h3>长川银行北京海淀分行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 海淀区中关村大街27号中关村大厦B座1层</div>
+                    <div class="info-row"><span class="icon">📞</span> 010-8288-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁4号线 中关村站 A口 步行200米</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+
+                <div class="branch-card" data-city="深圳" data-region="华南">
+                    <span class="city-tag">深圳 · 华南</span>
+                    <h3>长川银行深圳南山支行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 南山区科技园南路168号长川国际中心1层</div>
+                    <div class="info-row"><span class="icon">📞</span> 0755-8688-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁1号线/5号线 科技园站 C口</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+
+                <div class="branch-card" data-city="广州" data-region="华南">
+                    <span class="city-tag">广州 · 华南</span>
+                    <h3>长川银行广州天河支行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 天河区天河路385号太古汇M区1层</div>
+                    <div class="info-row"><span class="icon">📞</span> 020-3888-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁1号线/3号线 体育西路站 E出口</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+
+                <div class="branch-card" data-city="成都" data-region="西南">
+                    <span class="city-tag">成都 · 西南</span>
+                    <h3>长川银行成都春熙路支行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 锦江区红星路三段99号长川金融中心1层</div>
+                    <div class="info-row"><span class="icon">📞</span> 028-8688-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁2号线 春熙路站 D口 步行150米</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+
+                <div class="branch-card" data-city="杭州" data-region="华东">
+                    <span class="city-tag">杭州 · 华东</span>
+                    <h3>长川银行杭州西湖支行</h3>
+                    <div class="info-row"><span class="icon">📍</span> 上城区解放路118号长川银行大楼1层</div>
+                    <div class="info-row"><span class="icon">📞</span> 0571-8888-6666</div>
+                    <div class="info-row"><span class="icon">🚇</span> 地铁1号线 龙翔桥站 B口 步行300米</div>
+                    <div class="hours"><strong>营业时间：</strong>周一至周六 9:00-17:00 | 周日及节假日 9:30-15:00</div>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                <div class="pin">📍</div>
+                <p>全国486家网点分布图（请使用手机银行App查看实时位置导航）</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>联系我们</h2>
+                <p>无论您有任何疑问或建议，我们都乐意倾听</p>
+            </div>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="icon">📞</div>
+                    <h4>客服热线</h4>
+                    <p>7×24小时全天候服务</p>
+                    <div class="value">95577</div>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">💬</div>
+                    <h4>在线客服</h4>
+                    <p>工作时间内30秒响应</p>
+                    <div class="value">App / 官网在线</div>
+                </div>
+                <div class="contact-method">
+                    <div class="icon">✉️</div>
+                    <h4>电子邮箱</h4>
+                    <p>一般问题48小时内回复</p>
+                    <div class="value">service@changchuan.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>意见反馈与建议</h2>
+                <p>您的每一条反馈都是我们进步的动力</p>
+            </div>
+            <div class="feedback-form">
+                <h3>反馈表单</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>您的称呼</label>
+                        <input type="text" placeholder="请输入姓名或昵称">
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <input type="tel" placeholder="方便我们回访">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>反馈类型</label>
+                    <select>
+                        <option>产品咨询</option>
+                        <option>服务建议</option>
+                        <option>投诉与意见</option>
+                        <option>合作洽谈</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>反馈内容</label>
+                    <textarea placeholder="请详细描述您的问题或建议，我们会认真对待每一条反馈"></textarea>
+                </div>
+                <div class="form-submit">
+                    <button class="btn" onclick="alert('感谢您的反馈！我们将在2个工作日内回复。')">提交反馈</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <h4>长川银行</h4>
+                <p style="margin-top:12px;line-height:1.8;">长川银行股份有限公司成立于2003年，总部位于上海市浦东新区。现有营业网点覆盖全国32个省市，致力于为客户提供全面、专业、有温度的金融服务。</p>
+            </div>
+            <div>
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal.html">个人业务</a></li>
+                    <li><a href="cards.html">信用卡</a></li>
+                    <li><a href="contact.html">联系网点</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="contact.html">网点查询</a></li>
+                    <li><a href="contact.html">在线客服</a></li>
+                    <li><a href="contact.html">投诉建议</a></li>
+                    <li><a href="contact.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <ul>
+                    <li>服务热线：95577</li>
+                    <li>邮箱：service@changchuan.com</li>
+                    <li>地址：上海市浦东新区世纪大道1088号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 长川银行股份有限公司 版权所有 | 沪ICP备05012345号 | 中国银保监会批准设立</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterBranches() {
+            const search = document.getElementById('branchSearch').value.toLowerCase();
+            const region = document.getElementById('branchRegion').value;
+            const branches = document.querySelectorAll('.branch-card');
+
+            branches.forEach(card => {
+                const city = card.getAttribute('data-city').toLowerCase();
+                const cardRegion = card.getAttribute('data-region');
+                const text = card.textContent.toLowerCase();
+
+                const matchSearch = !search || text.includes(search);
+                const matchRegion = !region || cardRegion === region;
+
+                if (matchSearch && matchRegion) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

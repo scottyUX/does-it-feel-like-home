@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>长川银行 - 信用卡</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+        header{background:#004080;color:#fff;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:24px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .container{max-width:1200px;margin:20px auto;padding:20px;background:#fff;box-shadow:0 2px5px rgba(0,0,0,0.1);}
+        h2{color:#004080;}
+        .card-list{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px;}
+        .card{border:1px solid #ddd;padding:20px;width:calc(33% - 20px);box-sizing:border-box;background:#fafafa;position:relative;}
+        .card h3{margin-top:0;color:#0066cc;}
+        .card ul{padding-left:20px;}
+        .badge{position:absolute;top:10px;right:10px;background:#ff6600;color:#fff;padding:4px 8px;font-size:12px;border-radius:4px;}
+        .apply-btn{display:inline-block;margin-top:10px;background:#ff6600;color:#fff;padding:8px 16px;text-decoration:none;border-radius:4px;}
+        .footer{background:#002040;color:#ccc;padding:20px 40px;text-align:center;font-size:14px;}
+        @media(max-width:992px){
+            .card{width:calc(50% - 20px);}
+        }
+        @media(max-width:600px){
+            .card{width:100%;}
+            header, .container, .footer{padding:15px;}
+            nav a{margin:0 8px;font-size:14px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>长川银行</h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="personal.html">个人业务</a>
+            <a href="cards.html">信用卡</a>
+            <a href="contact.html">网点与联系</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>信用卡产品</h2>
+        <p>我们提供多款信用卡，满足购物、出行、商务及家庭的不同需求。每张卡片均配备积分奖励、免年费、旅行保险等专属权益。</p>
+
+        <div class="card-list">
+            <div class="card">
+                <div class="badge">新客专享</div>
+                <h3>长川金卡</h3>
+                <ul>
+                    <li>年费免除（首年）</li>
+                    <li>积分返现 1%（每消费1元累积1积分）</li>
+                    <li>国内外机场贵宾厅免费进出</li>
+                    <li>最高30%分期手续费减免</li>
+                </ul>
+                <a href="#" class="apply-btn" onclick="alert('申请已提交（演示）');return false;">立即申请</a>
+            </div>
+            <div class="card">
+                <h3>长川白金卡</h3>
+                <ul>
+                    <li>年费 880元（可用积分抵扣）</li>
+                    <li>积分加速 2%（每消费1元累积2积分）</li>
+                    <li>全球旅行保险 最高200万人民币</li>
+                    <li>专属客服 7×24小时快速响应</li>
+                </ul>
+                <a href="#" class="apply-btn" onclick="alert('申请已提交（演示）');return false;">立即申请</a>
+            </div>
+            <div class="card">
+                <h3>长川商务卡</h3>
+                <ul>
+                    <li>针对企业主和自由职业者</li>
+                    <li>企业费用自动分类报表</li>
+                    <li>商务旅行优惠与租车折扣</li>
+                    <li>信用额度最高 200 万元</li>
+                </ul>
+                <a href="#" class="apply-btn" onclick="alert('申请已提交（演示）');return false;">立即申请</a>
+            </div>
+            <div class="card">
+                <h3>长川学生卡</h3>
+                <ul>
+                    <li>年费全免</li>
+                    <li>消费返现 0.5%（学习、生活类消费）</li>
+                    <li>每月最高 1,000 元消费额度</li>
+                    <li>线上支付安全保障</li>
+                </ul>
+                <a href="#" class="apply-btn" onclick="alert('申请已提交（演示）');return false;">立即申请</a>
+            </div>
+            <div class="card">
+                <h3>长川航空联名卡</h3>
+                <ul>
+                    <li>航空里程累计 1.5 倍</li>
+                    <li>首年免年费，次年可用积分抵免</li>
+                    <li>免费托运行李额 2 件（国内）</li>
+                    <li>航空延误险</li>
+                </ul>
+                <a href="#" class="apply-btn" onclick="alert('申请已提交（演示）');return false;">立即申请</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2026 长川银行 版权所有 | 京ICP备12345678号
+    </footer>
+</body>
+</html>

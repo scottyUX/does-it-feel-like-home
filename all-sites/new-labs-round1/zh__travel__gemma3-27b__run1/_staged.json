@@ -1,0 +1,11 @@
+{
+  "id": "zh__travel__gemma3-27b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "travel",
+  "model": "gemma3:27b",
+  "completionTokens": 3273,
+  "seconds": 70,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订座 - 家味餐厅</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .nav a:hover {
+            color: #ccc;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .reservation {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .reservation h2 {
+            margin-top: 0;
+        }
+        .reservation form {
+            margin-top: 20px;
+        }
+        .reservation label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .reservation input, .reservation textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .reservation button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .reservation button:hover {
+            background-color: #444;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>家味餐厅</h1>
+    </div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="menu.html">菜单</a>
+        <a href="about.html">关于我们</a>
+        <a href="reservation.html">订座</a>
+    </div>
+    <div class="main">
+        <div class="reservation">
+            <h2>订座</h2>
+            <form>
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name">
+                <label for="phone">电话:</label>
+                <input type="text" id="phone" name="phone">
+                <label for="date">日期:</label>
+                <input type="date" id="date" name="date">
+                <label for="time">时间:</label>
+                <input type="time" id="time" name="time">
+                <label for="people">人数:</label>
+                <input type="number" id="people" name="people">
+                <label for="remark">备注:</label>
+                <textarea id="remark" name="remark"></textarea>
+                <button>提交</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 家味餐厅</p>
+    </div>
+</body>
+</html>

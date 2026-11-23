@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册报名 - 学途</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .btn-register {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 5rem auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .form-header p {
+            color: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            .form-container {
+                margin: 2rem 1rem;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">学途 XUETU</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="courses.html">所有课程</a></li>
+                <li><a href="register.html" class="btn-register">立即报名</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h1>加入学途</h1>
+            <p>填写以下信息，我们的课程顾问将在 24 小时内联系您</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('提交成功！我们将尽快与您联系。');">
+            <div class="form-group">
+                <label for="fullname">全名</label>
+                <input type="text" id="fullname" placeholder="请输入您的真实姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">电子邮箱</label>
+                <input type="email" id="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">手机号码</label>
+                <input type="tel" id="phone" placeholder="请输入联系电话" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">感兴趣的课程</label>
+                <select id="course" required>
+                    <option value="">请选择课程</option>
+                    <option value="python">Python 从零到数据分析师</option>
+                    <option value="ielts">雅思高效冲刺班</option>
+                    <option value="cfa">CFA Level I 核心精讲</option>
+                    <option value="web">全栈 Web 开发实战营</option>
+                    <option value="other">其他/咨询</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="status">当前状态</label>
+                <select id="status" required>
+                    <option value="student">在校大学生</option>
+                    <option value="professional">职场人士</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">提交申请</button>
+        </form>
+
+        <div class="form-footer">
+            已有账户？<a href="#">立即登录</a>
+        </div>
+    </div>
+
+</body>
+</html>

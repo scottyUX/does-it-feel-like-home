@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情 - 趣聊</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-signup {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .post-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .user-info .name {
+            font-weight: 600;
+            font-size: 16px;
+            display: block;
+        }
+
+        .user-info .time {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .post-body {
+            padding: 0 20px 20px 20px;
+        }
+
+        .post-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(45deg, #fbc2eb 0%, #a6c1ee 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .post-actions {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 24px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .comments-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+        }
+
+        .comments-section h3 {
+            margin-top: 0;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .comment-input-area {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .comment-input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .btn-send {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .comment {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f9fafb;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .comment-user {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .comment-time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .comment-text {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">趣聊</a>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="profile.html">个人主页</a>
+            <a href="signup.html" class="btn-signup">立即加入</a>
+        </div>
+    </header>
+
+    <div class="post-container">
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar" style="background-color: #ff9a9e;"></div>
+                <div class="user-info">
+                    <span class="name">林子涵</span>
+                    <span class="time">2小时前发布</span>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="post-text">
+                    终于完成了这次的毕业旅行！在成都度过了完美的五天，火锅太辣了但真的超级好吃！🥘✨ 推荐大家去逛逛太古里，氛围感拉满。
+                </div>
+                <div class="post-image">
+                    [ 成都太古里高分辨率街拍照片 ]
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn">❤️ 1.2k 点赞</button>
+                <button class="action-btn">💬 84 条评论</button>
+                <button class="action-btn">🔄 分享</button>
+            </div>
+        </div>
+
+        <div class="comments-section">
+            <h3>评论 (84)</h3>
+            <div class="comment-input-area">
+                <input type="text" placeholder="写下你的想法...">
+                <button class="btn-send">发布</button>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar" style="background-color: #a1c4fd;"></div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-user">陈墨</span>
+                        <span class="comment-time">1小时前</span>
+                    </div>
+                    <div class="comment-text">成都的火锅真的绝了，尤其是那种社区小店！</div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar" style="background-color: #fad0c4;"></div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-user">苏小雨</span>
+                        <span class="comment-time">45分钟前</span>
+                    </div>
+                    <div class="comment-text">照片拍得太美了！求出调色参数！📸</div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar" style="background-color: #c2e9fb;"></div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-user">张伟</span>
+                        <span class="comment-time">30分钟前</span>
+                    </div>
+                    <div class="comment-text">羡慕！我也想去成都看大熊猫。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

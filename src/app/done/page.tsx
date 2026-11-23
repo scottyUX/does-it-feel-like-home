@@ -1,5 +1,6 @@
 import { StudyShell } from "@/components/study-shell";
 import { redirect } from "next/navigation";
+import { restartStudy } from "@/lib/actions";
 import { copy } from "@/lib/copy";
 import { readVisit } from "@/lib/session";
 
@@ -12,7 +13,7 @@ export default async function DonePage() {
   if (visit.phase === "background") redirect("/background");
   const text = copy[visit.locale];
   return (
-    <StudyShell locale={visit.locale}>
+    <StudyShell locale={visit.locale} lockHistory>
       <div className="static-page">
         <main className="thank-you-card">
           <div className="completion-mark" aria-hidden="true">
@@ -23,6 +24,9 @@ export default async function DonePage() {
           <p>{text.thanksBody}</p>
           <strong>{text.thanksClose}</strong>
           <small>{text.thanksContact}</small>
+          <form action={restartStudy} className="restart-study">
+            <button type="submit">Start again (testing)</button>
+          </form>
         </main>
       </div>
     </StudyShell>

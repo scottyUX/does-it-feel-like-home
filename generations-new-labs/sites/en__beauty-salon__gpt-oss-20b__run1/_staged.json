@@ -1,0 +1,11 @@
+{
+  "id": "en__beauty-salon__gpt-oss-20b__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "beauty-salon",
+  "model": "gpt-oss:20b",
+  "completionTokens": 3571,
+  "seconds": 23,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

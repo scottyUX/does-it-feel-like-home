@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学途 - 在线学习平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #2980b9;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .course-card img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>学途</h1>
+        <p>提升技能，成就未来</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="courses.html">课程列表</a>
+        <a href="about.html">关于我们</a>
+        <a href="signup.html">注册</a>
+    </nav>
+
+    <div class="container">
+        <h2>热门课程</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <img src="assets/image-a12fd5023d50def9.png" alt="英语口语">
+                <h3>英语口语</h3>
+                <p>提高您的英语口语能力，自信交流。</p>
+                <p>价格: ￥399</p>
+                <a href="course-detail.html?course=english">了解更多</a>
+            </div>
+            <div class="course-card">
+                <img src="assets/image-a12fd5023d50def9.png" alt="Python 编程">
+                <h3>Python 编程</h3>
+                <p>学习 Python 编程，开启您的数据科学之旅。</p>
+                <p>价格: ￥599</p>
+                <a href="course-detail.html?course=python">了解更多</a>
+            </div>
+            <div class="course-card">
+                <img src="assets/image-a12fd5023d50def9.png" alt="雅思备考">
+                <h3>雅思备考</h3>
+                <p>全面备考雅思，提升您的分数。</p>
+                <p>价格: ￥499</p>
+                <a href="course-detail.html?course=ielts">了解更多</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 学途 - 版权所有</p>
+    </footer>
+</body>
+</html>

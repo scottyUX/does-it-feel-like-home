@@ -1,0 +1,125 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "details.html",
+   "selector": "div.gallery-item.main-img",
+   "match": "西湖悦榕庄 浙江省杭州市西湖区 极力推荐 4.9",
+   "url": "assets/photo-07dd2c4e853c45cf.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Exterior facade of Residence Bassac at blue hour, town of Champasak, Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "banyan tree hangzhou hotel exterior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg/960px-Exterior_facade_of_Residence_Bassac_at_blue_hour%2C_town_of_Champasak%2C_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "details.html",
+   "selector": "div.gallery-item.side-img-1",
+   "match": "西湖悦榕庄 浙江省杭州市西湖区 极力推荐 4.9",
+   "url": "assets/photo-3df7f977a311ad25.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Reception lounge at Amantaka luxury Resort & Hotel at blue hour in Luang Prabang Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "banyan tree hangzhou hotel exterior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Reception_lounge_at_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg/960px-Reception_lounge_at_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "details.html",
+   "selector": "div.gallery-item.side-img-2",
+   "match": "西湖悦榕庄 浙江省杭州市西湖区 极力推荐 4.9",
+   "url": "assets/photo-f04a491ef565b521.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Interior of the library at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "banyan tree hangzhou hotel exterior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Interior_of_the_library_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/960px-Interior_of_the_library_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "杭州 · 诗意江南 漫步西湖边，感受南宋的古韵与",
+   "url": "assets/photo-89ee3cb272b67ab7.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:West Lake IMG 8757 hangzhou panorama.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "west lake hangzhou panorama",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/West_Lake_IMG_8757_hangzhou_panorama.jpg/960px-West_Lake_IMG_8757_hangzhou_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "西安 · 十三朝古都 探索秦砖汉瓦，在兵马俑与大",
+   "url": "assets/photo-4c428ae1096c80b3.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Xi-an city wall.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "xi'an historic cityscape",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Xi-an_city_wall.jpg/960px-Xi-an_city_wall.jpg"
+  },
+  {
+   "page": "index.html",
+   "selector": "div.card-img",
+   "match": "三亚 · 热带天堂 阳光、沙滩、椰林，在湛蓝的海",
+   "url": "assets/photo-3e411ca879dc49a9.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Sanya - panoramio (15).jpg",
+   "license": "CC BY 3.0",
+   "subject": "sanya beach sunset",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Sanya_-_panoramio_%2815%29.jpg/960px-Sanya_-_panoramio_%2815%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "西湖悦榕庄 (Banyan Tree Hangz",
+   "url": "assets/photo-3df7f977a311ad25.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Reception lounge at Amantaka luxury Resort & Hotel at blue hour in Luang Prabang Laos.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "banyan tree hangzhou luxury hotel",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Reception_lounge_at_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg/960px-Reception_lounge_at_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "杭州四季酒店 (Four Seasons Hot",
+   "url": "assets/photo-6de1c22b87ce147d.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Hotel Bonne Nuit – exterior view, Labuan Bajo, Indonesia.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "four seasons hotel hangzhou exterior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg/960px-Hotel_Bonne_Nuit_%E2%80%93_exterior_view%2C_Labuan_Bajo%2C_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "西溪悦榕庄 (Banyan Tree Xixi)",
+   "url": "assets/photo-bd2db5b9418685a6.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Cherry Resort inside Temi Tea Garden, Namchi, Sikkim.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "banyan tree xixi resort",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Cherry_Resort_inside_Temi_Tea_Garden%2C_Namchi%2C_Sikkim.jpg/960px-Cherry_Resort_inside_Temi_Tea_Garden%2C_Namchi%2C_Sikkim.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "杭州漫步精品民宿 (Stroll Boutiqu",
+   "url": "assets/photo-81ae535ddd6501c7.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Four Seasons Hotel Hangzhou West Lake 20201001.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "stroll boutique stay boutique hotel hangzhou",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg/960px-Four_Seasons_Hotel_Hangzhou_West_Lake_20201001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

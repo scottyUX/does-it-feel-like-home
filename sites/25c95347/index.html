@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日视界 - 综合性全国新闻门户与深度财经科技资讯</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span>2026年5月19日 星期二 农历四月初三</span>
+        <span>北京 晴 26°C 空气优</span>
+      </div>
+      <div class="market-ticker">
+        <span>上证指数 <strong class="ticker-up">3,418.65 +0.84%</strong></span>
+        <span>深证成指 <strong class="ticker-up">11,092.14 +1.12%</strong></span>
+        <span>创业板指 <strong class="ticker-up">2,265.40 +1.45%</strong></span>
+        <span>恒生指数 <strong class="ticker-down">19,842.10 -0.18%</strong></span>
+      </div>
+      <div class="top-bar-right">
+        <a href="about.html">关于我们</a>
+        <a href="about.html#contact">新闻报料</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">视界</div>
+        <div class="brand-text">
+          <h1>每日视界</h1>
+          <span>全国主流综合新闻门户 · 读懂今日中国与世界</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <form class="search-box" onsubmit="event.preventDefault(); filterSearch();">
+          <input type="text" id="searchInput" placeholder="搜索要闻、政策、行业动态...">
+          <button type="submit">搜索</button>
+        </form>
+        <button class="commute-btn" onclick="toggleCommuteModal()">
+          <span>⚡ 3分钟通勤早报</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="active">首页要闻</a>
+        <a href="category.html">财经科技 <span class="nav-tag">核心频道</span></a>
+        <a href="category.html">时政民生</a>
+        <a href="category.html">产业观察</a>
+        <a href="article.html">深度调查</a>
+        <a href="category.html">国际视野</a>
+        <a href="category.html">智库评论</a>
+        <a href="about.html">关于视界</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breaking News Bar -->
+  <div class="breaking-bar">
+    <div class="breaking-inner">
+      <span class="breaking-label">最新快讯</span>
+      <div class="breaking-content">
+        <span class="breaking-time">08:42</span>
+        <a href="article.html">国家发展改革委、国家数据局联合印发《全国一体化算力网协同调度实施方案》，首批8个核心枢纽节点今日全面并网运行。</a>
+      </div>
+      <a href="article.html" style="font-size: 13px; color: var(--primary); font-weight: 600; white-space: nowrap;">查看详情 &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <main class="container">
+    <div class="home-grid">
+
+      <!-- Left Column: 24H Live Flash -->
+      <aside class="home-left-col">
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">24小时电报</h2>
+            <span class="panel-more">实时更新</span>
+          </div>
+          <div class="flash-list">
+            <div class="flash-item important">
+              <span class="flash-time">08:45</span>
+              <p class="flash-text"><a href="article.html">工信部：前4个月我国规上高技术制造业增加值同比增长9.8%，固态电池产线投产加速。</a></p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">08:30</span>
+              <p class="flash-text"><a href="category.html">央行今日开展500亿元7天期逆回购操作，中标利率维持1.50%不变，银行间流动性充裕。</a></p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">08:12</span>
+              <p class="flash-text"><a href="category.html">长三角跨省市地铁“一码通行”今日扩容，新增苏锡常与嘉兴共14条城际公交与轨交线路。</a></p>
+            </div>
+            <div class="flash-item important">
+              <span class="flash-time">07:55</span>
+              <p class="flash-text"><a href="article.html">全国首条跨海低空物流货运航线（深圳—珠海—中山）今日清晨完成第10000架次商业飞行。</a></p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">07:40</span>
+              <p class="flash-text"><a href="category.html">国家医保局：新一批高值医用耗材集中带量采购将于下月落地，人工耳蜗平均降价超65%。</a></p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">07:18</span>
+              <p class="flash-text"><a href="category.html">中国科学院长春光机所发布新一代高分辨率商业遥感卫星载荷，空间分辨率达0.3米级。</a></p>
+            </div>
+            <div class="flash-item">
+              <span class="flash-time">06:50</span>
+              <p class="flash-text"><a href="category.html">农业农村部：全国夏粮主产区小麦进入灌浆中后期，冬小麦一二类苗比例高于常年同期。</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">通勤话题投票</h2>
+          </div>
+          <p style="font-size: 14px; font-weight: 700; margin-bottom: 12px;">多地推行早高峰地铁“静音车厢”与“商务快线”，您最期待哪项通勤改进？</p>
+          <form id="pollForm" onsubmit="event.preventDefault(); submitPoll();">
+            <label style="display: block; font-size: 13px; margin-bottom: 8px; cursor: pointer;">
+              <input type="radio" name="poll" value="1" checked> 增加大站快车，缩短跨区通勤时间
+            </label>
+            <label style="display: block; font-size: 13px; margin-bottom: 8px; cursor: pointer;">
+              <input type="radio" name="poll" value="2"> 严格管理车厢外放声音，推广静音车厢
+            </label>
+            <label style="display: block; font-size: 13px; margin-bottom: 12px; cursor: pointer;">
+              <input type="radio" name="poll" value="3"> 增设地铁口便民早餐车与共享单车泊位
+            </label>
+            <button type="submit" id="pollBtn" style="width: 100%; background: var(--bg-subtle); border: 1px solid var(--border); padding: 7px; font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 3px;">提交观点查看结果</button>
+          </form>
+          <div id="pollResult" style="display: none; margin-top: 12px; font-size: 12px; color: var(--text-secondary);">
+            <div>大站快车：<strong>54%</strong> (8,412票)</div>
+            <div>静音车厢：<strong>31%</strong> (4,820票)</div>
+            <div>便民接驳：<strong>15%</strong> (2,310票)</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center Column: Top Headline & News Stream -->
+      <section>
+        <!-- Lead Story -->
+        <article class="lead-story">
+          <a href="article.html" class="lead-image-wrap">
+            <img src="assets/image-f7028227ed2dd356.jpg" alt="国家算力枢纽数据中心">
+            <span class="lead-badge">今日重磅 · 封面深度</span>
+          </a>
+          <div class="lead-body">
+            <h2 class="lead-title">
+              <a href="article.html">全国一体化算力网迎关键突破：绿电直供比例超八成，中西部算力成本下降24%</a>
+            </h2>
+            <p class="lead-excerpt">
+              随着宁夏中卫、甘肃庆阳、贵州贵安等国家算力枢纽节点完成超高速全光网升级，跨区域算力调度时延已压缩至5毫秒以内。本报记者历时半月实地探访四大枢纽，为您拆解“东数西算”如何真正改写中国制造与人工智能企业的成本账本。
+            </p>
+            <div class="meta-info">
+              <span class="meta-tag">深度调查</span>
+              <span>本报首席记者 林振华 发自庆阳、贵阳</span>
+              <span>18分钟前</span>
+              <span class="read-time">⏱ 预计阅读 4分钟</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sub-Lead Stories -->
+        <div class="sub-leads">
+          <article class="sub-card">
+            <a href="article.html">
+              <img src="assets/image-a50249459cb0242f.jpg" alt="智能制造车间">
+            </a>
+            <div class="sub-card-body">
+              <h3 class="sub-card-title">
+                <a href="article.html">新能源汽车电池迎来“半固态”规模上车潮：续航破千公里成标配</a>
+              </h3>
+              <div class="meta-info">
+                <span class="meta-tag">产业一线</span>
+                <span>08:15</span>
+                <span class="read-time">3分钟读完</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="sub-card">
+            <a href="category.html">
+              <img src="assets/image-4243ddc8ab32fdf1.jpg" alt="城市金融中心">
+            </a>
+            <div class="sub-card-body">
+              <h3 class="sub-card-title">
+                <a href="category.html">多地首套房公积金贷款额度上调30%，二季度重点城市二手房成交持续回暖</a>
+              </h3>
+              <div class="meta-info">
+                <span class="meta-tag">宏观经济</span>
+                <span>07:50</span>
+                <span class="read-time">2分钟读完</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- News Stream with Tabs -->
+        <div class="panel" style="margin-bottom: 0;">
+          <div class="feed-tabs">
+            <button class="feed-tab active" onclick="filterFeed('all', this)">精选推荐</button>
+            <button class="feed-tab" onclick="filterFeed('biz', this)">财经商业</button>
+            <button class="feed-tab" onclick="filterFeed('tech', this)">前沿科技</button>
+            <button class="feed-tab" onclick="filterFeed('society', this)">城市民生</button>
+          </div>
+
+          <div id="newsFeedContainer">
+            <article class="news-item" data-cat="biz">
+              <div class="news-content">
+                <div>
+                  <h3 class="news-title"><a href="article.html">前4月全国外贸进出口增长6.3%：机电产品与船舶出口订单排期至2028年</a></h3>
+                  <p class="news-summary">海关总署最新数据显示，长三角与珠三角高端装备出口保持强劲韧性，其中LNG大型运输船、光伏逆变器及工业机器人出口金额同比分别增长34.2%和21.8%。</p>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-tag">宏观财经</span>
+                  <span>每日视界记者 陈默</span>
+                  <span>35分钟前</span>
+                  <span class="read-time">⏱ 3分钟</span>
+                </div>
+              </div>
+              <a href="article.html" class="news-thumb">
+                <img src="assets/image-8a92328b38916d96.jpg" alt="港口集装箱">
+              </a>
+            </article>
+
+            <article class="news-item" data-cat="tech">
+              <div class="news-content">
+                <div>
+                  <h3 class="news-title"><a href="article.html">国产工业软件突围战：从汽车碰撞仿真到芯片EDA，本土替代率三年翻番</a></h3>
+                  <p class="news-summary">在工业制造研发设计环节，国产CAD与CAE流体仿真软件正加速进入主机厂核心研发流程，多家制造业龙头宣布完成全栈国产化工具链切换。</p>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-tag">硬核科技</span>
+                  <span>每日视界科技组</span>
+                  <span>1小时前</span>
+                  <span class="read-time">⏱ 5分钟</span>
+                </div>
+              </div>
+              <a href="article.html" class="news-thumb">
+                <img src="assets/image-f07c4d5cfd9fe893.jpg" alt="芯片电路">
+              </a>
+            </article>
+
+            <article class="news-item" data-cat="society">
+              <div class="news-content">
+                <div>
+                  <h3 class="news-title"><a href="category.html">“延时门诊”与“周末专家号”覆盖全国300余家三甲医院，破解上班族看病请假难</a></h3>
+                  <p class="news-summary">针对职场人群工作日就医不便痛点，北京、上海、广州、成都等地公立医院普遍增设17:30至20:30夜间门诊，检验检查同步开放且纳入医保常规报销。</p>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-tag">民生聚焦</span>
+                  <span>记者 周晓燕</span>
+                  <span>1小时前</span>
+                  <span class="read-time">⏱ 2分钟</span>
+                </div>
+              </div>
+              <a href="category.html" class="news-thumb">
+                <img src="assets/image-dd63728950ee944e.jpg" alt="医疗服务">
+              </a>
+            </article>
+
+            <article class="news-item" data-cat="biz">
+              <div class="news-content">
+                <div>
+                  <h3 class="news-title"><a href="category.html">县域咖啡馆与连锁茶饮进入“万店深耕期”：供应链下沉重塑三四线商业生态</a></h3>
+                  <p class="news-summary">冷链物流基础设施完善让鲜果与烘焙原料实现县城次日达。报告显示，2026年一季度全国县城现制饮品消费频次同比增长28%，客单价稳定在12至16元区间。</p>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-tag">消费观察</span>
+                  <span>记者 赵思源</span>
+                  <span>2小时前</span>
+                  <span class="read-time">⏱ 3分钟</span>
+                </div>
+              </div>
+              <a href="category.html" class="news-thumb">
+                <img src="assets/image-56d28df9c2c22b85.jpg" alt="商业街区咖啡">
+              </a>
+            </article>
+
+            <article class="news-item" data-cat="tech">
+              <div class="news-content">
+                <div>
+                  <h3 class="news-title"><a href="article.html">商业航天迎高密度发射季：海南商业航天发射场二号工位完成全系统合练</a></h3>
+                  <p class="news-summary">液体可回收火箭试验进展顺利，民营火箭企业与低轨卫星互联网星座组网进入协同爆发期，单星制造成本较三年前下降超过50%。</p>
+                </div>
+                <div class="meta-info">
+                  <span class="meta-tag">空天科技</span>
+                  <span>特约撰稿 王凯</span>
+                  <span>3小时前</span>
+                  <span class="read-time">⏱ 4分钟</span>
+                </div>
+              </div>
+              <a href="article.html" class="news-thumb">
+                <img src="https://images.unsplash.com/photo-1517976487468-f20514c4450b?auto=format&fit=crop&w=400&q=80" alt="航天发射">
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Commute Brief & Hot Ranking -->
+      <aside>
+        <!-- Commute Morning Brief -->
+        <div class="panel commute-card">
+          <div class="commute-header">
+            <span class="commute-badge">今日早班车 · 5月19日</span>
+            <span style="font-size: 12px; color: var(--text-muted);">1分钟速览天下</span>
+          </div>
+          <ul class="commute-list">
+            <li><span class="commute-num">01</span><a href="article.html"><strong>算力并网：</strong>全国8大算力枢纽实现跨省毫秒级协同，中小企业算力补贴券同步发放。</a></li>
+            <li><span class="commute-num">02</span><a href="category.html"><strong>医惠民生：</strong>人工耳蜗及外周血管介入耗材集采落地，预计年省费用超百亿元。</a></li>
+            <li><span class="commute-num">03</span><a href="category.html"><strong>交通出行：</strong>京津冀、长三角城际铁路今起加密早晚高峰车次，最小发车间隔缩至4分钟。</a></li>
+            <li><span class="commute-num">04</span><a href="article.html"><strong>外贸亮点：</strong>前4月我国对共建“一带一路”国家进出口增长8.1%，占外贸总值比重突破51%。</a></li>
+            <li><span class="commute-num">05</span><a href="category.html"><strong>海外市场：</strong>欧洲央行释放二季度降息信号，国际金价与铜价维持高位震荡。</a></li>
+          </ul>
+          <button class="commute-btn" style="width: 100%; justify-content: center; margin-top: 12px;" onclick="toggleCommuteModal()">
+            展开完整版早报解读
+          </button>
+        </div>
+
+        <!-- Hot Ranking -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">全网热读榜</h2>
+            <span class="panel-more">每小时更新</span>
+          </div>
+          <ol class="rank-list">
+            <li>
+              <span class="rank-num">1</span>
+              <a href="article.html" class="rank-title">全国一体化算力网迎关键突破：中西部算力成本下降24%</a>
+            </li>
+            <li>
+              <span class="rank-num">2</span>
+              <a href="category.html" class="rank-title">多地明确取消公摊面积计价试点细节，购房者得房率将如何变化？</a>
+            </li>
+            <li>
+              <span class="rank-num">3</span>
+              <a href="article.html" class="rank-title">新能源汽车“半固态电池”规模装车，充电10分钟续航600公里实测</a>
+            </li>
+            <li>
+              <span class="rank-num">4</span>
+              <a href="category.html" class="rank-title">三甲医院普遍开设“夜间延时门诊”，挂号费与报销比例完全一致</a>
+            </li>
+            <li>
+              <span class="rank-num">5</span>
+              <a href="category.html" class="rank-title">个人养老金制度全面推开满周年：专属商业保险与指数基金最受青睐</a>
+            </li>
+            <li>
+              <span class="rank-num">6</span>
+              <a href="article.html" class="rank-title">前4月船舶出口订单排至2028年，中国造船三大指标领跑全球</a>
+            </li>
+            <li>
+              <span class="rank-num">7</span>
+              <a href="category.html" class="rank-title">2026年高校毕业生春招收官观察：先进制造与低空经济岗位激增</a>
+            </li>
+            <li>
+              <span class="rank-num">8</span>
+              <a href="category.html" class="rank-title">铁路端午小长假车票明起开售，多条新开通高铁线路迎来首秀</a>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Columnist / Editorial -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">视界社论</h2>
+            <a href="article.html" class="panel-more">更多评论</a>
+          </div>
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">
+            <a href="article.html">让算力像水电一样即取即用，是数字经济下半场的基石</a>
+          </h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px;">
+            过去三年，各地抢建智算中心解决了“有没有”的问题；而今天启动的全国一体化协同调度，则真正着手解决“好不好用、贵不贵”的痛点。
+          </p>
+          <div class="meta-info">
+            <span>每日视界评论员 秦朔</span>
+            <span class="read-time">社评</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- 3-Minute Commute Modal -->
+  <div class="modal-overlay" id="commuteModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <h3>⚡ 每日视界 · 3分钟通勤早报</h3>
+          <span style="font-size: 12px; opacity: 0.9;">2026年5月19日 星期二 | 专为早高峰快速阅读定制</span>
+        </div>
+        <button class="modal-close" onclick="toggleCommuteModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-item">
+          <h4>1. 【政策重磅】全国一体化算力网八大枢纽今日全面并网</h4>
+          <p><strong>核心看点：</strong>国家发改委、国家数据局联合推进，跨省算力调度时延降至5毫秒以内，绿电使用比例超80%，中小型科技企业可通过“算力券”直接抵扣30%调用成本。<a href="article.html" style="color: var(--primary); font-weight: 600;">[阅读全文]</a></p>
+        </div>
+        <div class="modal-item">
+          <h4>2. 【产业突围】前4月高技术制造业同比增长9.8%，半固态电池量产提速</h4>
+          <p><strong>核心看点：</strong>工信部数据显示新能源车、商业航天、智能电网装备增速领跑。国内多家车企本季度密集交付搭载半固态电池车型，实测续航突破1000公里。<a href="category.html" style="color: var(--primary); font-weight: 600;">[进入频道]</a></p>
+        </div>
+        <div class="modal-item">
+          <h4>3. 【钱袋子】多地住房公积金贷款额度上调，首套房最高可贷160万元</h4>
+          <p><strong>核心看点：</strong>二线核心城市密集优化公积金政策，支持提取公积金直接支付新建商品房首付款，多孩家庭及绿色建筑购房额度上浮20%至30%。</p>
+        </div>
+        <div class="modal-item">
+          <h4>4. 【医疗便民】全国超300家三甲医院常态化开设夜间及周末门诊</h4>
+          <p><strong>核心看点：</strong>门诊服务延长至晚间20:30，覆盖内科、外科、口腔、眼科及儿科，B超与CT检查当天可约，解决上班族“看病必须请假”难题。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>每日视界 (Daily Horizon)</h4>
+          <p style="line-height: 1.7; margin-bottom: 12px;">
+            《每日视界》是面向全国读者的综合性数字新闻门户。我们坚持现场采写、数据核查与深度解读，为每一个在清晨通勤路上、午休片刻关注时代脉搏的读者，提供高信噪比的权威资讯。
+          </p>
+          <p>新闻热线：400-810-2026 | 违法和不良信息举报：jubao@meirishijie.cn</p>
+        </div>
+        <div class="footer-col">
+          <h4>核心频道</h4>
+          <ul>
+            <li><a href="index.html">要闻首页</a></li>
+            <li><a href="category.html">财经科技</a></li>
+            <li><a href="article.html">深度调查</a></li>
+            <li><a href="category.html">时政民生</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>特色栏目</h4>
+          <ul>
+            <li><a href="index.html">3分钟通勤早报</a></li>
+            <li><a href="index.html">24小时实时电报</a></li>
+            <li><a href="article.html">视界数据实验室</a></li>
+            <li><a href="category.html">智库评论</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>关于我们</h4>
+          <ul>
+            <li><a href="about.html">媒体简介与采编团队</a></li>
+            <li><a href="about.html#standards">新闻采编规范</a></li>
+            <li><a href="about.html#contact">商务合作与投稿</a></li>
+            <li><a href="about.html">版权声明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 每日视界传媒集团 版权所有 | 京ICP备2026008192号-1 | 互联网新闻信息服务许可证：10120260015</span>
+        <span>专注事实 · 敬畏专业 · 服务公共利益</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCommuteModal() {
+      const modal = document.getElementById('commuteModal');
+      modal.classList.toggle('open');
+    }
+
+    function filterFeed(category, btn) {
+      const tabs = document.querySelectorAll('.feed-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('#newsFeedContainer .news-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-cat') === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function filterSearch() {
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      const items = document.querySelectorAll('#newsFeedContainer .news-item');
+      if (!query) {
+        items.forEach(item => item.style.display = 'flex');
+        return;
+      }
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    }
+
+    function submitPoll() {
+      document.getElementById('pollBtn').innerText = '感谢参与投票';
+      document.getElementById('pollBtn').disabled = true;
+      document.getElementById('pollResult').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

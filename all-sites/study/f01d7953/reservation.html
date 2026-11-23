@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>预订座位 - 家味餐厅</title>
+    <style>
+        body {font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;margin:0;background:#f9f9f9;color:#333;}
+        header {background:#fff;border-bottom:1px solid #e0e0e0;}
+        .nav {max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:15px;}
+        .logo {font-size:24px;font-weight:bold;color:#d9534f;}
+        .menu {display:flex;gap:20px;}
+        .menu a {padding:5px 10px;font-size:16px;color:#333;}
+        .menu a:hover {color:#d9534f;}
+        .container {max-width:800px;margin:auto;padding:40px 20px;}
+        h1 {font-size:36px;color:#d9534f;margin-bottom:20px;}
+        form {background:#fff;padding:30px;border-radius:5px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+        .form-group {margin-bottom:15px;}
+        label {display:block;margin-bottom:5px;font-weight:bold;}
+        input, select, textarea {width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;font-size:14px;}
+        textarea {resize:vertical;height:100px;}
+        .submit-btn {background:#d9534f;color:#fff;padding:10px 20px;border:none;border-radius:4px;font-size:16px;cursor:pointer;}
+        .submit-btn:hover {background:#c43d2b;}
+        .message {margin-top:20px;color:#d9534f;font-weight:bold;}
+        .footer {background:#333;color:#fff;text-align:center;padding:20px;font-size:14px;margin-top:40px;}
+        @media (max-width:768px){
+            .nav{flex-direction:column;align-items:flex-start;}
+            .menu{flex-direction:column;gap:10px;}
+        }
+    </style>
+    <script>
+        function validateForm(event){
+            event.preventDefault();
+            var name=document.getElementById('name').value.trim();
+            var phone=document.getElementById('phone').value.trim();
+            var date=document.getElementById('date').value;
+            var time=document.getElementById('time').value;
+            var people=document.getElementById('people').value;
+            var msg=document.getElementById('msg');
+            if(!name||!phone||!date||!time||!people){
+                msg.textContent='请填写所有必填项！';
+                return;
+            }
+            // 简单的手机号验证
+            var phoneRegex=/^1[3-9]\\d{9}$/;
+            if(!phoneRegex.test(phone)){
+                msg.textContent='请输入有效的手机号码！';
+                return;
+            }
+            msg.style.color='#5cb85c';
+            msg.textContent='预订成功！我们会尽快与您联系确认。';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">家味餐厅</div>
+            <nav class="menu">
+                <a href="index.html">首页</a>
+                <a href="menu.html">菜品菜单</a>
+                <a href="about.html">关于我们</a>
+                <a href="reservation.html">预订座位</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>预订座位</h1>
+        <form onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label for="name">姓名 *</label>
+                <input type="text" id="name" placeholder="请输入您的姓名">
+            </div>
+            <div class="form-group">
+                <label for="phone">手机号码 *</label>
+                <input type="tel" id="phone" placeholder="如：13800138000">
+            </div>
+            <div class="form-group">
+                <label for="date">用餐日期 *</label>
+                <input type="date" id="date">
+            </div>
+            <div class="form-group">
+                <label for="time">用餐时间 *</label>
+                <select id="time">
+                    <option value="">请选择时间段</option>
+                    <option>11:30 - 12:30</option>
+                    <option>12:30 - 13:30</option>
+                    <option>17:30 - 18:30</option>
+                    <option>18:30 - 19:30</option>
+                    <option>19:30 - 20:30</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="people">人数 *</label>
+                <select id="people">
+                    <option value="">请选择人数</option>
+                    <option>1-2 人</option>
+                    <option>3-4 人</option>
+                    <option>5-6 人</option>
+                    <option>7-8 人</option>
+                    <option>9 人以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="notes">特殊需求（可选）</label>
+                <textarea id="notes" placeholder="如需要儿童座椅、过敏食材等"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">立即预订</button>
+            <div id="msg" class="message"></div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        © 2026 家味餐厅 | 杭州市西湖区文三路88号 | 电话：0571-1234 5678
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "zh__travel__gpt-oss-20b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "travel",
+  "model": "gpt-oss:20b",
+  "completionTokens": 3266,
+  "seconds": 22,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

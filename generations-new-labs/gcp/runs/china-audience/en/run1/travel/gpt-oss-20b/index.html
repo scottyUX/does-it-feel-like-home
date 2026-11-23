@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>畅行旅行 - 首页</title>
+    <style>
+        body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#f5f5f5;color:#333;}
+        header{background:#fff;padding:15px 30px;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+        nav a{margin-right:20px;color:#333;text-decoration:none;font-weight:500;}
+        nav a:hover{color:#0077cc;}
+        .hero{background:url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIxNzAiIHZpZXdCb3g9IjAgMCAxNDQwIDE3MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIxNzAiIGZpbGw9IiNGRjAwMDAiIC8+PHJlY3Qgd2lkdGg9IjE0NDAiIGhlaWdodD0iMTcwIiBmaWxsPSIjRkZGIiBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iNSIgLz48L3N2Zz4=');height:300px;background-size:cover;background-position:center;color:#fff;display:flex;align-items:center;justify-content:center;}
+        .hero h1{font-size:48px;text-shadow:0 2px 4px rgba(0,0,0,.5);}
+        .search-box{background:#fff;padding:20px 30px;margin:30px auto;max-width:800px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);display:flex;flex-wrap:wrap;gap:10px;}
+        .search-box label{flex-basis:100%;font-weight:600;margin-top:10px;}
+        .search-box input{flex:1;padding:8px;border:1px solid #ccc;border-radius:4px;}
+        .search-box button{padding:10px 20px;background:#0077cc;color:#fff;border:none;border-radius:4px;font-weight:600;cursor:pointer;margin-top:15px;}
+        .search-box button:hover{background:#005fa3;}
+        footer{background:#333;color:#eee;padding:20px 30px;text-align:center;font-size:14px;}
+        @media(max-width:600px){
+            .search-box{flex-direction:column;}
+            .search-box input{width:100%;}
+            .search-box button{width:100%;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="results.html">酒店</a>
+        <a href="booking.html">预订</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>畅行旅行</h1>
+</div>
+
+<div class="search-box">
+    <label for="destination">目的地</label>
+    <input type="text" id="destination" placeholder="输入城市或景点">
+    <label for="start-date">出发日期</label>
+    <input type="date" id="start-date">
+    <label for="end-date">返回日期</label>
+    <input type="date" id="end-date">
+    <button type="button" onclick="location.href='results.html'">搜索酒店</button>
+</div>
+
+<footer>
+    © 2026 畅行旅行
+</footer>
+</body>
+</html>

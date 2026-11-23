@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>每日视界 - 新闻详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f9f9f9;color:#333;}
+        header{background:#004d7a;color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+        header h1{margin:0;font-size:1.5rem;}
+        nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;}
+        nav a{color:#fff;text-decoration:none;font-weight:bold;}
+        .container{max-width:900px;margin:auto;padding:2rem 1rem;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+        .article-title{margin-top:0;font-size:2rem;color:#004d7a;}
+        .meta{color:#777;font-size:.9rem;margin-bottom:1rem;}
+        .content p{line-height:1.6;margin:0 0 1rem;}
+        .back{display:inline-block;margin-top:2rem;color:#004d7a;text-decoration:none;font-weight:bold;}
+        footer{background:#222;color:#ddd;padding:1rem 2rem;text-align:center;font-size:.9rem;margin-top:2rem;}
+        @media(max-width:768px){
+            header{flex-direction:column;align-items:flex-start;}
+            nav ul{flex-direction:column;gap:0.5rem;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>每日视界</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="finance.html">财经</a></li>
+                <li><a href="tech.html">科技</a></li>
+                <li><a href="about.html">关于我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="article-title" id="title">新闻标题加载中…</h1>
+        <div class="meta" id="meta">发布时间：2026-11-10 08:30 | 作者：每日视界编辑部</div>
+        <div class="content" id="content">
+            <p>正文加载中，请稍候。</p>
+        </div>
+        <a href="javascript:history.back()" class="back">返回上一页 &laquo;</a>
+    </main>
+
+    <footer>
+        © 2026 每日视界 | 版权所有
+    </footer>
+
+    <script>
+        // 简单的查询参数解析
+        function getQuery(name){
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name) || '';
+        }
+        const titleMap = {
+            "全球股市在美联储加息预期中波动":"全球股市在美联储加息预期中波动",
+            "AI芯片突破：国产芯片性能逼近国际领先水平":"AI芯片突破：国产芯片性能逼近国际领先水平",
+            "中国消费市场回暖，零售额同比增长7%":"中国消费市场回暖，零售额同比增长7%",
+            "人民币汇率再创新高，背后因素解析":"人民币汇率再创新高，背后因素解析",
+            "新能源车企市值突增，行业格局或将重塑":"新能源车企市值突增，行业格局或将重塑",
+            "央行发布最新贷款基准利率，企业融资成本下降":"央行发布最新贷款基准利率，企业融资成本下降",
+            "全球债市动荡：美债收益率上升背后的风险":"全球债市动荡：美债收益率上升背后的风险",
+            "量子计算突破：新算法将算力提升十倍":"量子计算突破：新算法将算力提升十倍",
+            "5G基站全覆盖计划进入倒计时":"5G基站全覆盖计划进入倒计时",
+            "国产操作系统获得全球认证":"国产操作系统获得全球认证",
+            "AI生成内容监管新规出台":"AI生成内容监管新规出台"
+        };
+        const contentMap = {
+            "全球股市在美联储加息预期中波动":`<p>受美联储可能在下月再次加息的预期影响，全球主要股指出现不同程度的震荡。美国标普500指数在昨日收盘时下跌0.6%，而欧洲股市则表现相对稳健。分析师指出，若美联储继续收紧货币政策，市场波动性将进一步上升。</p>`,
+            "AI芯片突破：国产芯片性能逼近国际领先水平":`<p>最新发布的国产AI芯片在多项基准测试中取得显著提升，单芯片算力已逼近国际领先水平。该芯片采用7nm工艺，搭载新一代神经网络加速单元，预计将在云计算和边缘计算领域广泛应用。</p>`,
+            "中国消费市场回暖，零售额同比增长7%":`<p>随着居民收入提升和消费信心增强，最新统计显示全国零售额实现同比增长7%。其中线上零售增速保持在12%，实体零售则回暖至5%。业内人士认为，政策刺激和新消费模式是主要驱动因素。</p>`,
+            "人民币汇率再创新高，背后因素解析":`<p>受多重宏观因素影响，人民币对美元汇率突破关键阻力位。国内外资金流入、外汇储备增加以及美国利率预期下降均对人民币形成支撑。短期内市场预计将保持相对稳定。</p>`,
+            "新能源车企市值突增，行业格局或将重塑":`<p>过去半年，新能源车企市值翻倍，主要受政府补贴、技术进步以及消费需求提升的推动。特斯拉在华销量创新高，国产品牌也在加速抢占市场份额。</p>`,
+            "央行发布最新贷款基准利率，企业融资成本下降":`<p>本次降息幅度为0.25个百分点，基准贷款利率从4.35%下调至4.10%。分析认为，此举将降低企业融资成本，刺激制造业投资和产业升级。</p>`,
+            "全球债市动荡：美债收益率上升背后的风险":`<p>美国财政赤字扩大导致美债收益率上升，全球债券市场出现波动。投资者需关注利率走向及潜在的通胀压力，做好资产配置。</p>`,
+            "量子计算突破：新算法将算力提升十倍":`<p>研究团队公布的最新量子算法在实验中实现算力提升十倍，标志着量子计算进入实用化阶段。该技术有望在药物研发和材料科学等领域带来突破。</p>`,
+            "5G基站全覆盖计划进入倒计时":`<p>运营商宣布将在年底前完成全国主要城市的5G基站部署，预计全国5G覆盖率将超过80%。这将为移动互联网、物联网等新业务提供坚实基础。</p>`,
+            "国产操作系统获得全球认证":`<p>该系统通过ISO安全标准认证，标志着国产软件在国际舞台的突破。业内人士认为，这将提升国内信息安全自主可控水平。</p>`,
+            "AI生成内容监管新规出台":`<p>监管部门发布《人工智能内容生成管理办法》，对平台责任进行明确，要求对AI生成的文本、图像进行标识并建立审查机制。</p>`
+        };
+        const title = getQuery('title');
+        const realTitle = titleMap[title] || '未找到对应新闻';
+        document.getElementById('title').textContent = realTitle;
+        document.getElementById('content').innerHTML = contentMap[realTitle] || '<p>暂无详细内容。</p>';
+    </script>
+</body>
+</html>

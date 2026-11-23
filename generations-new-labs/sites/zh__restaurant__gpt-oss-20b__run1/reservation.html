@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>预订座位 - 家味餐厅</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5;color:#333;}
+header{background:#fff;border-bottom:1px solid #ddd;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
+nav a{margin:0 10px;text-decoration:none;color:#555;}
+nav a:hover{color:#000;}
+section{padding:20px;}
+h1{font-size:2em;margin-bottom:0.5em;}
+form{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:4px;box-shadow:0 0 5px rgba(0,0,0,0.1);}
+label{display:block;margin-top:10px;font-weight:bold;}
+input,select,textarea{width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:4px;}
+button{margin-top:15px;padding:10px 20px;background:#e6d8c9;border:none;border-radius:4px;color:#333;font-size:1em;cursor:pointer;}
+button:hover{background:#d5c7a8;}
+@media (max-width:600px){
+h1{font-size:1.8em;}
+}
+</style>
+<script>
+function validateForm(){
+var name=document.getElementById('name').value;
+var phone=document.getElementById('phone').value;
+var date=document.getElementById('date').value;
+var time=document.getElementById('time').value;
+var people=document.getElementById('people').value;
+if(!name||!phone||!date||!time||!people){
+alert('请完整填写所有必填字段。');
+return false;
+}
+alert('预订成功！我们将尽快与您确认。');
+return false; // 阻止表单真正提交
+}
+</script>
+</head>
+<body>
+<header>
+<div>家味餐厅</div>
+<nav>
+<a href="index.html">首页</a>
+<a href="menu.html">菜单</a>
+<a href="about.html">关于我们</a>
+<a href="reservation.html">预订</a>
+</nav>
+</header>
+<section>
+<h1>预订座位</h1>
+<form onsubmit="return validateForm();">
+<label for="name">姓名（必填）</label>
+<input type="text" id="name" name="name" required>
+<label for="phone">联系电话（必填）</label>
+<input type="tel" id="phone" name="phone" required>
+<label for="date">预订日期（必填）</label>
+<input type="date" id="date" name="date" required>
+<label for="time">预订时间（必填）</label>
+<input type="time" id="time" name="time" required>
+<label for="people">人数（必填）</label>
+<input type="number" id="people" name="people" min="1" required>
+<label for="note">备注</label>
+<textarea id="note" name="note" rows="3"></textarea>
+<button type="submit">提交预订</button>
+</form>
+</section>
+<footer style="text-align:center;padding:10px 0;background:#fff;border-top:1px solid #ddd;color:#777;">© 2024 家味餐厅 All Rights Reserved</footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "王桂英 星级保洁员 从业经验 8 年，擅长收纳整",
+   "url": "assets/photo-ba4b2f415dabe8a4.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "李强 家电清洗专家 持有电工证，精通空调、油烟机",
+   "url": "assets/photo-34725f536e3f587f.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "张丽 金牌管家 海归背景，接受过西式保洁培训，注",
+   "url": "assets/photo-d78c94c65f790d76.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

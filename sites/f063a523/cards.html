@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡产品 - 长川银行</title>
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --accent-gold: #C5A059;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .hero-cards {
+            background: linear-gradient(135deg, #003366 0%, #0055aa 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-cards h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .card-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card-box {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+            background: white;
+        }
+
+        .card-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-visual {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .gold-card { background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); color: #444; }
+        .platinum-card { background: linear-gradient(45deg, #e5e4e2, #ffffff, #b4b4b4); color: #333; }
+        .business-card { background: linear-gradient(45deg, #2c3e50, #4ca1af); }
+
+        .card-details {
+            padding: 30px;
+        }
+
+        .card-details h3 {
+            margin: 0 0 15px 0;
+            color: var(--primary-blue);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+            text-align: left;
+            color: var(--text-light);
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            display: block;
+            background-color: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .apply-btn:hover {
+            background-color: #004a94;
+        }
+
+        .info-banner {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px dashed var(--accent-gold);
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">长川银行</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="personal.html">个人银行</a></li>
+                <li><a href="cards.html">信用卡</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero-cards">
+    <h1>开启便捷金融生活</h1>
+    <p>多样化的信用卡产品，满足您从日常消费到高端旅行的所有需求</p>
+</div>
+
+<div class="container">
+    <div class="card-comparison">
+        <!-- Gold Card -->
+        <div class="card-box">
+            <div class="card-visual gold-card">长川 · 金卡</div>
+            <div class="card-details">
+                <h3>经典金卡</h3>
+                <ul class="feature-list">
+                    <li>新户首年免年费</li>
+                    <li>超市与餐饮消费 1% 返现</li>
+                    <li>每月 2 张免费电影票</li>
+                    <li>便捷的手机端额度管理</li>
+                </ul>
+                <a href="#" class="apply-btn">立即申请</a>
+            </div>
+        </div>
+
+        <!-- Platinum Card -->
+        <div class="card-box">
+            <div class="card-visual platinum-card">长川 · 白金卡</div>
+            <div class="card-details">
+                <h3>尊享白金卡</h3>
+                <ul class="feature-list">
+                    <li>全球机场贵宾厅免费进入</li>
+                    <li>高端酒店预订 8 折优惠</li>
+                    <li>专属私人客户经理服务</li>
+                    <li>更高额度，满足大额消费</li>
+                </ul>
+                <a href="#" class="apply-btn">立即申请</a>
+            </div>
+        </div>
+
+        <!-- Business Card -->
+        <div class="card-box">
+            <div class="card-visual business-card">长川 · 商业卡</div>
+            <div class="card-details">
+                <h3>商务精英卡</h3>
+                <ul class="feature-list">
+                    <li>企业差旅费用一键导出报告</li>
+                    <li>办公用品采购专项折扣</li>
+                    <li>最高 5 万免息分期期</li>
+                    <li>支持多持卡人管理</li>
+                </ul>
+                <a href="#" class="apply-btn">立即申请</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-banner">
+        <h3>为什么选择长川银行信用卡？</h3>
+        <p>我们提供极简的在线申请流程，审核速度快，且所有卡片均支持全天候 24/7 智能客服支持。现在申请，即可享受首年双倍积分奖励！</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 长川银行股份有限公司. 保留所有权利。</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡中心 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4af37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f0f4f8;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 0;
+        }
+
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); }
+        .nav a { margin-left: 20px; font-weight: 500; }
+        .nav a:hover, .nav a.active { color: var(--secondary-color); }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 { font-size: 32px; margin-bottom: 10px; }
+
+        main { padding: 50px 0; }
+
+        /* Card Display */
+        .card-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .card-mockup {
+            background: white;
+            width: 340px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .card-mockup:hover { transform: translateY(-10px); }
+
+        .card-img-header {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content { padding: 20px; text-align: center; }
+        .card-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; color: var(--primary-color); }
+        .card-subtitle { font-size: 13px; color: var(--text-light); margin-bottom: 15px; }
+
+        .card-features { text-align: left; margin-bottom: 20px; background: #f9f9f9; padding: 15px; border-radius: 8px; }
+        .card-features li { font-size: 13px; margin-bottom: 8px; display: flex; align-items: center; }
+        .card-features li::before { content: "✓"; color: var(--accent-color); font-weight: bold; margin-right: 8px; }
+
+        .btn-card { display: inline-block; padding: 10px 25px; background: var(--primary-color); color: white; border-radius: 20px; font-size: 14px; margin-top: 10px; }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .comparison-table th { background: #f8f9fa; color: var(--primary-color); }
+        .comparison-table td { font-weight: 500; }
+
+        /* Application Form */
+        .apply-section {
+            margin-top: 50px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        textarea { height: 100px; }
+
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .card-showcase { flex-direction: column; align-items: center; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">长川银行</a>
+            <div class="nav">
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人银行</a>
+                <a href="credit_card.html" class="active">信用卡</a>
+                <a href="contact.html">网点信息</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>长川信用卡</h1>
+            <p>精选卡种，专享权益。不仅是支付工具，更是您品质生活的通行证。</p>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Cards -->
+        <div class="card-showcase">
+            <div class="card-mockup">
+                <div class="card-img-header" style="background-image: linear-gradient(to right, #003366, #0056b3);">
+                    <div style="padding: 30px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; font-size: 20px;">长川标准卡</span>
+                        <span style="font-weight: bold; font-size: 24px; color: #d4af37;">★</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">长川标准金卡</div>
+                    <div class="card-subtitle">免首年年费 | 刷6次免次年年费</div>
+                    <ul class="card-features">
+                        <li>消费满100元积1分</li>
+                        <li>生日月消费双倍积分</li>
+                        <li>支持银联/Visa/MasterCard</li>
+                    </ul>
+                    <a href="#" class="btn-card">申请此卡</a>
+                </div>
+            </div>
+
+            <div class="card-mockup">
+                <div class="card-img-header" style="background-image: linear-gradient(to right, #8B0000, #D32F2F);">
+                    <div style="padding: 30px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; font-size: 20px;">长川尊尚卡</span>
+                        <span style="font-weight: bold; font-size: 24px; color: #FFD700;">★</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">长川白金信用卡</div>
+                    <div class="card-subtitle">刚性年费 | 额度较高</div>
+                    <ul class="card-features">
+                        <li>首年全额免年费 (消费满5笔)</li>
+                        <li>全国机场贵宾厅免费通行</li>
+                        <li>1000万航意险赠送</li>
+                        <li>指定商户5%返现</li>
+                    </ul>
+                    <a href="#" class="btn-card">申请此卡</a>
+                </div>
+            </div>
+
+            <div class="card-mockup">
+                <div class="card-img-header" style="background-image: linear-gradient(to right, #4682B4, #87CEEB);">
+                    <div style="padding: 30px; color: white; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; font-size: 20px;">长川车主卡</span>
+                        <span style="font-weight: bold; font-size: 24px; color: #32CD32;">⛽</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">长川车主信用卡</div>
+                    <div class="card-subtitle">0预借现费 | 油费优惠</div>
+                    <ul class="card-features">
+                        <li>加油95折优惠 (每月上限200元)</li>
+                        <li>ETC快速扣费服务</li>
+                        <li>高速公路停车费双倍积分</li>
+                        <li>道路救援服务</li>
+                    </ul>
+                    <a href="#" class="btn-card">申请此卡</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="comparison-section">
+            <h2 style="text-align: center; margin-bottom: 20px; color: var(--primary-color);">卡种权益对比</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>权益</th>
+                        <th>长川标准金卡</th>
+                        <th>长川白金信用卡</th>
+                        <th>长川车主卡</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>年费政策</td>
+                        <td>首年免年费</td>
+                        <td>首年免年费 (刷5次)</td>
+                        <td>首年免年费</td>
+                    </tr>
+                    <tr>
+                        <td>机场贵宾厅</td>
+                        <td>×</td>
+                        <td>全国3+1机场贵宾厅</td>
+                        <td>×</td>
+                    </tr>
+                    <tr>
+                        <td>保险保障</td>
+                        <td>100万航班延误险</td>
+                        <td>1000万航空意外险</td>
+                        <td>50万意外险</td>
+                    </tr>
+                    <tr>
+                        <td>外币支付</td>
+                        <td>支持</td>
+                        <td>支持</td>
+                        <td>支持</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Application -->
+        <div class="apply-section">
+            <h2 style="margin-bottom: 20px; color: var(--primary-color);">在线申请通道</h2>
+            <form>
+                <div class="form-grid">
+                    <div>
+                        <input type="text" placeholder="姓名" required>
+                        <input type="text" placeholder="身份证号" required>
+                        <input type="tel" placeholder="手机号码" required>
+                        <input type="text" placeholder="工作单位">
+                    </div>
+                    <div>
+                        <select required>
+                            <option>选择申请卡种</option>
+                            <option>长川标准金卡</option>
+                            <option>长川白金信用卡</option>
+                            <option>长川车主卡</option>
+                        </select>
+                        <select required>
+                            <option>居住城市</option>
+                            <option>北京</option>
+                            <option>上海</option>
+                            <option>广州</option>
+                            <option>其他</option>
+                        </select>
+                        <textarea placeholder="备注信息 (如推荐人代码...)" style="height: 100px;"></textarea>
+                    </div>
+                </div>
+                <button type="button" style="background: var(--primary-color); color: white; border: none; padding: 12px 30px; border-radius: 4px; font-size: 16px; cursor: pointer; margin-top: 10px;">提交申请</button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 长川银行 版权所有 | 信用卡申请需年满18周岁</p>
+        </div>
+    </footer>
+
+</body>
+</html>

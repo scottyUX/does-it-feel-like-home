@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帖子详情</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .comments {
+            padding: 20px;
+        }
+        .nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="profile.html">个人资料</a>
+        <a href="signup.html">注册</a>
+    </div>
+    <div class="container">
+        <h1>帖子详情</h1>
+        <div class="post">
+            <img src="https://via.placeholder.com/800x150" alt="post image">
+            <p>这是来自 @username 的帖子！</p>
+            <p>2023-02-20 14:30:00</p>
+        </div>
+        <div class="comments">
+            <h2>评论</h2>
+            <div class="comment">
+                <p>@username2：这是一个有趣的帖子！</p>
+                <p>2023-02-20 15:00:00</p>
+            </div>
+            <div class="comment">
+                <p>@username3：我也觉得很有趣！</p>
+                <p>2023-02-20 16:00:00</p>
+            </div>
+            <form>
+                <textarea placeholder="请输入评论内容"></textarea>
+                <button>发表评论</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

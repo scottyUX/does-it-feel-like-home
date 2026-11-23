@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+        .booking-form input[type="text"] {
+            width: 50%;
+            height: 2em;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+        }
+        .booking-form button[type="submit"] {
+            width: 20%;
+            height: 2em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>畅行旅行</h1>
+        <p><a href="index.html">首页</a> > <a href="search.html">搜索结果</a> > <a href="hotel.html">酒店详情</a> > 预订页面</p>
+    </div>
+    <form class="booking-form">
+        <input type="text" placeholder="姓名">
+        <input type="text" placeholder="身份证号">
+        <input type="date" placeholder="入住日期">
+        <input type="date" placeholder="退房日期">
+        <button type="submit">提交预订</button>
+    </form>
+    <div class="footer">
+        <p>&copy; 2023 畅行旅行</p>
+    </div>
+</body>
+</html>

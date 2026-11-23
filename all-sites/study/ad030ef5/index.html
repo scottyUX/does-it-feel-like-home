@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 杭城地道浙菜，温暖如家</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #B22222;
+            --text-color: #333;
+            --bg-color: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #C4A484;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #8B0000;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><span>家</span>味餐厅</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">特色菜单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="reservation.html">预约订座</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>在杭州，寻回家的味道</h1>
+        <p>我们坚持选用当地时令食材，传承三代浙菜秘方。无论是快节奏的职场午餐，还是温馨的家庭团聚，这里都有最纯正的杭帮风味在等着您。</p>
+        <a href="reservation.html" class="cta-button">立即预约订座</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>地道食材</h3>
+            <p>每日从西湖周边的农场采购新鲜时蔬与水产，确保每一道菜品都原汁原味。</p>
+        </div>
+        <div class="feature-card">
+            <h3>匠心烹饪</h3>
+            <p>主厨深耕浙菜三十载，将传统工艺与现代口感完美结合，慢火细炖，细心慢制。</p>
+        </div>
+        <div class="feature-card">
+            <h3>温馨环境</h3>
+            <p>融合中式古典与现代极简的装修风格，为您提供舒适、安静的用餐空间。</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅 - 杭州市西湖区温馨路128号</p>
+        <p>营业时间：11:00 - 22:00</p>
+    </footer>
+
+</body>
+</html>

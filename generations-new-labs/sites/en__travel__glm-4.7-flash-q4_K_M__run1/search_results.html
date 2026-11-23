@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 畅行旅行</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #ff9900;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f5f7fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .search-bar-hero {
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .search-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-bar-container a {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .search-bar-container input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .search-bar-container input:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+
+        /* Sidebar Filters */
+        .filters {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            height: fit-content;
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+        }
+
+        .filter-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        /* Results List */
+        .results-header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .results-header h2 {
+            font-size: 20px;
+        }
+
+        .sort-select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .hotel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hotel-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .hotel-image {
+            position: relative;
+            background: #eee;
+        }
+
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 200px;
+        }
+
+        .hotel-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+
+        .hotel-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hotel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .hotel-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .hotel-location {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .hotel-features {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .rating-box {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .price-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .price-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .price-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d93025;
+        }
+
+        .btn-select {
+            padding: 10px 25px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-select:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #aaa;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .hotel-card {
+                grid-template-columns: 1fr;
+            }
+            .hotel-image {
+                height: 200px;
+            }
+            .filters {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">畅行 <span>旅行</span></a>
+    </div>
+</header>
+
+<div class="search-bar-hero">
+    <div class="search-bar-container">
+        <a href="index.html">&larr; 返回首页</a>
+        <input type="text" placeholder="搜索其他目的地..." id="searchInput">
+        <button class="btn-select" style="padding: 8px 15px; background:#ccc; color:#333;" onclick="document.getElementById('searchInput').value=''; window.location.href='search_results.html'">搜索</button>
+    </div>
+</div>
+
+<main class="main-container">
+    <!-- Sidebar -->
+    <aside class="filters">
+        <div class="filter-section">
+            <h3>筛选条件</h3>
+            <div class="filter-group">
+                <label class="checkbox-group">
+                    <input type="checkbox" checked> 
+                    <span>价格范围: ¥0 - ¥2000</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>价格范围: ¥2000 - ¥4000</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>价格范围: ¥4000+</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>酒店设施</h3>
+            <div class="filter-group">
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>免费Wi-Fi</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>含早餐</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>停车场</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>游泳池</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>好评星级</h3>
+            <div class="filter-group">
+                <label class="checkbox-group">
+                    <input type="checkbox" checked> 
+                    <span>4星及4星以上</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>3星</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>取消政策</h3>
+            <div class="filter-group">
+                <label class="checkbox-group">
+                    <input type="checkbox" checked> 
+                    <span>免费取消</span>
+                </label>
+                <label class="checkbox-group">
+                    <input type="checkbox"> 
+                    <span>随时取消</span>
+                </label>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Results -->
+    <section>
+        <div class="results-header">
+            <h2>北京市 · 3晚 · 2成人</h2>
+            <select class="sort-select">
+                <option>综合排序</option>
+                <option>价格从低到高</option>
+                <option>评分从高到低</option>
+                <option>距离最近</option>
+            </select>
+        </div>
+
+        <div class="hotel-list">
+            <!-- Hotel 1 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="assets/image-738685252afcaefd.jpg" alt="北京丽思卡尔顿">
+                    <span class="hotel-tag">特惠</span>
+                </div>
+                <div class="hotel-info">
+                    <div>
+                        <div class="hotel-header">
+                            <div>
+                                <div class="hotel-name">北京王府井丽思卡尔顿酒店</div>
+                                <div class="hotel-location">📍 王府井商业区</div>
+                            </div>
+                        </div>
+                        <div class="rating-box">⭐ 4.9 分 · 超五星级</div>
+                        <div class="hotel-features">
+                            <span>❄️ 免费取消</span>
+                            <span>🍳 包含早餐</span>
+                            <span>🚗 停车场</span>
+                            <span>📶 高速Wi-Fi</span>
+                        </div>
+                    </div>
+                    <div class="price-action">
+                        <div class="price-info">
+                            <span class="price-label">每晚价格</span>
+                            <span class="price-value">¥2,380</span>
+                        </div>
+                        <button class="btn-select" onclick="window.location.href='hotel_detail.html'">选择房间</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="assets/image-1573e56edf353712.jpg" alt="北京诺金酒店">
+                </div>
+                <div class="hotel-info">
+                    <div>
+                        <div class="hotel-header">
+                            <div>
+                                <div class="hotel-name">北京诺金酒店</div>
+                                <div class="hotel-location">📍 东城区金宝街</div>
+                            </div>
+                        </div>
+                        <div class="rating-box">⭐ 4.8 分 · 超五星级</div>
+                        <div class="hotel-features">
+                            <span>❄️ 免费取消</span>
+                            <span>📶 高速Wi-Fi</span>
+                            <span>🏛️ 艺术设计</span>
+                        </div>
+                    </div>
+                    <div class="price-action">
+                        <div class="price-info">
+                            <span class="price-label">每晚价格</span>
+                            <span class="price-value">¥1,899</span>
+                        </div>
+                        <button class="btn-select" onclick="window.location.href='hotel_detail.html'">选择房间</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="assets/image-19dda69ba8fe2e13.jpg" alt="北京瑰丽酒店">
+                </div>
+                <div class="hotel-info">
+                    <div>
+                        <div class="hotel-header">
+                            <div>
+                                <div class="hotel-name">北京瑰丽酒店</div>
+                                <div class="hotel-location">📍 国贸CBD商圈</div>
+                            </div>
+                        </div>
+                        <div class="rating-box">⭐ 4.9 分 · 超五星级</div>
+                        <div class="hotel-features">
+                            <span>❄️ 免费取消</span>
+                            <span>💆 水疗中心</span>
+                            <span>📶 高速Wi-Fi</span>
+                            <span>🏊 室内恒温泳池</span>
+                        </div>
+                    </div>
+                    <div class="price-action">
+                        <div class="price-info">
+                            <span class="price-label">每晚价格</span>
+                            <span class="price-value">¥3,200</span>
+                        </div>
+                        <button class="btn-select" onclick="window.location.href='hotel_detail.html'">选择房间</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Hotel 4 -->
+             <div class="hotel-card">
+                <div class="hotel-image">
+                    <img src="assets/image-a56a6a7007accbf9.jpg" alt="如家精选">
+                    <span class="hotel-tag" style="background:#2ecc71">经济优选</span>
+                </div>
+                <div class="hotel-info">
+                    <div>
+                        <div class="hotel-header">
+                            <div>
+                                <div class="hotel-name">如家精选·北京王府井店</div>
+                                <div class="hotel-location">📍 前门东大街</div>
+                            </div>
+                        </div>
+                        <div class="rating-box">⭐ 4.6 分 · 四星级</div>
+                        <div class="hotel-features">
+                            <span>❄️ 免费取消</span>
+                            <span>🍳 精致早餐</span>
+                            <span>📶 高速Wi-Fi</span>
+                            <span>🚶 步行可达天安门</span>
+                        </div>
+                    </div>
+                    <div class="price-action">
+                        <div class="price-info">
+                            <span class="price-label">每晚价格</span>
+                            <span class="price-value">¥480</span>
+                        </div>
+                        <button class="btn-select" onclick="window.location.href='hotel_detail.html'">选择房间</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="copyright">
+        &copy; 2023 畅行旅行. 保留所有权利.
+    </div>
+</footer>
+
+</body>
+</html>

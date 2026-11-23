@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预订页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .booking-form input, .booking-form select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .booking-form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>畅行旅行</h1>
+    </div>
+    <div class="container">
+        <div class="booking-form">
+            <h2>预订信息</h2>
+            <form>
+                <input type="text" placeholder="姓名">
+                <input type="text" placeholder="手机号">
+                <select>
+                    <option value="">请选择入住时间</option>
+                    <option value="1">1天</option>
+                    <option value="2">2天</option>
+                    <option value="3">3天</option>
+                </select>
+                <button>提交预订</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 畅行旅行</p>
+    </div>
+</body>
+</html>

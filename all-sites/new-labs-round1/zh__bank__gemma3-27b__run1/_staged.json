@@ -1,0 +1,11 @@
+{
+  "id": "zh__bank__gemma3-27b__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "bank",
+  "model": "gemma3:27b",
+  "completionTokens": 3574,
+  "seconds": 76,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

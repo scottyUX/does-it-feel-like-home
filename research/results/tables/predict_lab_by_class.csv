@@ -1,0 +1,16 @@
+task,label,sites,recall,most_confused_with
+Arena sites: which of 11 labs,Alibaba,47,0.0426,Google
+Arena sites: which of 11 labs,Anthropic,64,0.2969,OpenAI
+Arena sites: which of 11 labs,DeepSeek,42,0.2143,Anthropic
+Arena sites: which of 11 labs,Google,81,0.5556,Anthropic
+Arena sites: which of 11 labs,Meituan,3,0.0,Anthropic
+Arena sites: which of 11 labs,MiniMax,19,0.0,Anthropic
+Arena sites: which of 11 labs,Moonshot,46,0.2826,OpenAI
+Arena sites: which of 11 labs,OpenAI,46,0.2391,Anthropic
+Arena sites: which of 11 labs,Xiaomi,24,0.125,Google
+Arena sites: which of 11 labs,Zhipu,22,0.0455,Anthropic
+Arena sites: which of 11 labs,xAI,12,0.0,DeepSeek
+Study sites: which of 4 models,gemma-4-31b,20,0.85,qwen3.5-122b
+Study sites: which of 4 models,gpt-oss-120b,20,1.0,
+Study sites: which of 4 models,qwen3.5-122b,20,0.65,gemma-4-31b
+Study sites: which of 4 models,qwen3.8-27b,20,0.95,qwen3.5-122b

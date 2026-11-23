@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>课程列表 - 学途</title>
+<style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;line-height:1.6;color:#333;background:#f9f9f9;}
+    .container{max-width:1440px;margin:0 auto;background:#fff;padding:20px;}
+    header{background:#004e8a;color:#fff;padding:15px 0;text-align:center;}
+    header h1{font-size:28px;margin-bottom:5px;}
+    nav{margin-top:10px;}
+    nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+    .filter{margin:30px 0;padding:15px;background:#f0f0f0;border-radius:6px;}
+    .filter select{padding:8px;border:1px solid #ccc;border-radius:4px;}
+    .cards{display:flex;flex-wrap:wrap;gap:20px;}
+    .card{background:#fff;padding:20px;border-radius:6px;flex:1 1 calc(33.333% - 20px);box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .card h3{margin-bottom:8px;font-size:18px;}
+    .card p{margin-bottom:12px;font-size:14px;color:#666;}
+    .card .price{font-weight:bold;color:#ff6600;}
+    .card .duration{font-size:13px;color:#999;}
+    .card a{color:#004e8a;text-decoration:none;}
+    footer{background:#222;color:#ddd;text-align:center;padding:20px 0;font-size:14px;}
+    @media (max-width:768px){
+        .cards{flex-direction:column;}
+        .card{flex:1 1 100%;}
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>课程列表</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="register.html">注册</a>
+</nav>
+</header>
+
+<section class="filter">
+<label for="category">分类：</label>
+<select id="category">
+<option value="all">全部</option>
+<option value="language">语言</option>
+<option value="computer">计算机技能</option>
+<option value="exam">考试备考</option>
+</select>
+</section>
+
+<section class="cards">
+<div class="card">
+<h3>Python基础入门</h3>
+<p>适合零基础学习者，系统讲解编程概念与实战。</p>
+<span class="price">¥199</span>
+<span class="duration">40学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+<div class="card">
+<h3>英语口语提升</h3>
+<p>针对大学生和职场人士，强化实际交流能力。</p>
+<span class="price">¥299</span>
+<span class="duration">30学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+<div class="card">
+<h3>CET-4考试冲刺</h3>
+<p>专注考试重点，提供真题解析与模拟卷。</p>
+<span class="price">¥399</span>
+<span class="duration">60学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+<div class="card">
+<h3>JavaScript进阶实战</h3>
+<p>提升前端开发能力，涵盖框架与项目实战。</p>
+<span class="price">¥349</span>
+<span class="duration">50学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+<div class="card">
+<h3>西班牙语入门</h3>
+<p>从发音、基础语法到日常交流全覆盖。</p>
+<span class="price">¥269</span>
+<span class="duration">35学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+<div class="card">
+<h3>SQL数据库基础</h3>
+<p>掌握数据库查询、建表与优化技巧。</p>
+<span class="price">¥229</span>
+<span class="duration">25学时</span>
+<a href="course_detail.html">查看详情</a>
+</div>
+</section>
+
+<footer>
+© 2025 学途 · 版权所有
+</footer>
+</div>
+</body>
+</html>

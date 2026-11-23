@@ -1,0 +1,72 @@
+{
+  "id": "zh__learning__glm-4.7-flash-q4_K_M__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "learning",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 13808,
+  "seconds": 128,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/py/800/400",
+      "file": "assets/image-50fb7e8407860dd0.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/py1/200/150",
+      "file": "assets/image-46020aadc944e61f.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/py2/200/150",
+      "file": "assets/image-c2ae65e6d5b3bbba.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/py3/200/150",
+      "file": "assets/image-21d4f63b00303951.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/py4/200/150",
+      "file": "assets/image-d1cbcac101586dc8.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/teacher1/100/100",
+      "file": "assets/image-4b55e0297140b181.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/py/400/250",
+      "file": "assets/image-6f6e11a9df6c0933.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/web/400/250",
+      "file": "assets/image-43c0426d1b5f8034.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/english/400/250",
+      "file": "assets/image-74aab99feab27f73.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/exam/400/250",
+      "file": "assets/image-0f8aae36bf42aab4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/uiux/400/250",
+      "file": "assets/image-9535a95fe667e4a4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/java/400/250",
+      "file": "assets/image-63064a2c8a46f7dc.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/piano/400/250",
+      "file": "assets/image-e3dcb4613e7dc465.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/marketing/400/250",
+      "file": "assets/image-a2a3a074a8275a0d.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/ui/400/250",
+      "file": "assets/image-27b72f2b7bc8c115.jpg"
+    }
+  ]
+}

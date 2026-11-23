@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日视界 — 全国网络新闻媒体</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; color:#1a1a1a; background:#f5f6f8; line-height:1.6; }
+  a { text-decoration:none; color:inherit; }
+  .topbar { background:#0d1b2a; color:#fff; }
+  .topbar-inner { max-width:1440px; margin:0 auto; padding:14px 40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .logo { font-size:28px; font-weight:bold; letter-spacing:2px; }
+  .logo span { color:#e63946; }
+  .date { font-size:13px; color:#9fb3c8; }
+  nav.mainnav { background:#e63946; }
+  nav.mainnav ul { max-width:1440px; margin:0 auto; padding:0 40px; display:flex; list-style:none; flex-wrap:wrap; }
+  nav.mainnav a { display:block; padding:12px 22px; color:#fff; font-size:15px; }
+  nav.mainnav a:hover, nav.mainnav a.active { background:#c1121f; }
+  .container { max-width:1440px; margin:0 auto; padding:24px 40px; }
+  .breaking { background:#fff3f3; border-left:4px solid #e63946; padding:10px 16px; margin-bottom:24px; font-size:14px; }
+  .breaking b { color:#e63946; margin-right:8px; }
+  .grid { display:grid; grid-template-columns:2fr 1fr; gap:32px; }
+  .hero { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .hero img { width:100%; height:380px; object-fit:cover; display:block; }
+  .hero-body { padding:20px 24px 24px; }
+  .hero h2 { font-size:26px; line-height:1.4; margin-bottom:10px; }
+  .hero h2 a:hover { color:#e63946; }
+  .meta { font-size:13px; color:#888; margin-bottom:10px; }
+  .hero p { color:#444; font-size:15px; }
+  .side-title { font-size:18px; font-weight:bold; border-bottom:3px solid #e63946; padding-bottom:8px; margin-bottom:16px; }
+  .top-list { list-style:none; counter-reset:n; }
+  .top-list li { counter-increment:n; padding:10px 0; border-bottom:1px solid #e5e7eb; font-size:15px; }
+  .top-list li::before { content:counter(n); display:inline-block; width:22px; height:22px; line-height:22px; text-align:center; background:#ddd; color:#fff; border-radius:4px; font-size:13px; margin-right:10px; }
+  .top-list li:nth-child(1)::before, .top-list li:nth-child(2)::before, .top-list li:nth-child(3)::before { background:#e63946; }
+  .top-list a:hover { color:#e63946; }
+  .section-block { margin-top:36px; }
+  .section-head { display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid #0d1b2a; padding-bottom:10px; margin-bottom:20px; }
+  .section-head h3 { font-size:20px; }
+  .section-head a { font-size:13px; color:#e63946; }
+  .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .card img { width:100%; height:170px; object-fit:cover; display:block; }
+  .card-body { padding:16px 18px 20px; }
+  .card h4 { font-size:16px; line-height:1.5; margin-bottom:8px; }
+  .card h4 a:hover { color:#e63946; }
+  .card p { font-size:13px; color:#666; }
+  footer { background:#0d1b2a; color:#9fb3c8; margin-top:48px; padding:32px 40px; font-size:13px; }
+  footer .inner { max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  footer a:hover { color:#fff; }
+  @media (max-width:960px){ .grid{grid-template-columns:1fr;} .cards{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .cards{grid-template-columns:1fr;} .container{padding:16px;} }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">每日<span>视界</span></div>
+    <div class="date">2025年6月12日 星期四 · 农历五月十七 · 北京 晴 26℃</div>
+  </div>
+</header>
+<nav class="mainnav">
+  <ul>
+    <li><a href="index.html" class="active">首页</a></li>
+    <li><a href="section-tech.html">科技</a></li>
+    <li><a href="section-tech.html">财经</a></li>
+    <li><a href="section-tech.html">社会</a></li>
+    <li><a href="section-tech.html">文化</a></li>
+    <li><a href="article.html">深度报道</a></li>
+    <li><a href="about.html">关于我们</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="breaking"><b>突发</b>国家发展改革委公布新一轮促消费措施，涵盖家电以旧换新与新能源汽车补贴。</div>
+
+  <div class="grid">
+    <div class="hero">
+      <img src="assets/image-4eea518fbbf4484b.jpg" alt="头条新闻">
+      <div class="hero-body">
+        <h2><a href="article.html">国产大模型集中发布新版本，人工智能应用加速走进千家万户</a></h2>
+        <div class="meta">记者 李思远 · 2025年6月12日 07:30 · 科技频道</div>
+        <p>本周，多家国内科技企业相继发布新一代人工智能大模型，在文本理解、图像生成与语音识别等方面取得明显进展。业内专家指出，随着算力成本持续下降，人工智能正从实验室走向日常办公、教育和医疗场景。</p>
+      </div>
+    </div>
+    <aside>
+      <div class="side-title">今日热闻</div>
+      <ul class="top-list">
+        <li><a href="article.html">全国铁路暑运预计发送旅客超9亿人次</a></li>
+        <li><a href="article.html">央行开展中期借贷便利操作维护流动性合理充裕</a></li>
+        <li><a href="article.html">南方多地迎强降雨，防汛应急响应启动</a></li>
+        <li><a href="article.html">新能源汽车5月销量同比增长32%</a></li>
+        <li><a href="article.html">国家博物馆推出丝绸之路文物特展</a></li>
+        <li><a href="article.html">多部门联合整治网络虚假营销行为</a></li>
+        <li><a href="article.html">全国夏粮收购进度过半，价格总体平稳</a></li>
+        <li><a href="article.html">高校毕业生就业帮扶政策再加码</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="section-block">
+    <div class="section-head"><h3>科技前沿</h3><a href="section-tech.html">更多 →</a></div>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/image-0dd42357e6484ce4.jpg" alt="芯片">
+        <div class="card-body">
+          <h4><a href="article.html">新一代国产芯片实现量产，性能提升四成</a></h4>
+          <p>该款芯片采用先进制程工艺，将首先应用于数据中心与智能终端设备。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/image-c04688ebf9ce1c9e.jpg" alt="卫星">
+        <div class="card-body">
+          <h4><a href="article.html">商业航天发射次数创新高，低轨卫星组网提速</a></h4>
+          <p>今年上半年全国商业航天发射同比增长五成，卫星互联网建设进入快车道。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/image-7bbf5b7b3fca1d44.jpg" alt="机器人">
+        <div class="card-body">
+          <h4><a href="article.html">服务机器人走进社区养老院，试点覆盖二十城</a></h4>
+          <p>送餐、陪护、健康监测一体化服务机器人正在多个城市开展规模化试点。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-head"><h3>财经观察</h3><a href="section-tech.html">更多 →</a></div>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/image-af33954e19695885.jpg" alt="股市">
+        <div class="card-body">
+          <h4><a href="article.html">A股三大指数收涨，科技板块领涨两市</a></h4>
+          <p>市场交投活跃，北向资金连续五个交易日净流入。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/image-fcf187d372a6190f.jpg" alt="楼市">
+        <div class="card-body">
+          <h4><a href="article.html">多地优化住房信贷政策，刚需购房者成本下降</a></h4>
+          <p>首套房贷款利率降至历史低位，市场成交量逐步回暖。</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/image-8ddcb0b08560557e.jpg" alt="消费">
+        <div class="card-body">
+          <h4><a href="article.html">端午假期消费数据出炉：出游人次同比增长8%</a></h4>
+          <p>文旅、餐饮、电影票房均创同期新高，县域旅游成为新热点。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="inner">
+    <div>© 2025 每日视界 版权所有<br>互联网新闻信息服务许可证：国新网备2025001号</div>
+    <div><a href="about.html">关于我们</a> · <a href="about.html">联系方式</a> · <a href="about.html">加入我们</a></div>
+  </div>
+</footer>
+</body>
+</html>

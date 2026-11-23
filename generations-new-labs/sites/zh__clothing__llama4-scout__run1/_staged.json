@@ -1,0 +1,11 @@
+{
+  "id": "zh__clothing__llama4-scout__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "clothing",
+  "model": "llama4:scout",
+  "completionTokens": 2649,
+  "seconds": 138,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

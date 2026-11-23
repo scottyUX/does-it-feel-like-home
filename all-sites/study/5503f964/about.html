@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 可衣</title>
+    <style>
+        :root {
+            --primary-color: #a6937c;
+            --bg-color: #faf9f6;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        .about-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        .about-header h1 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            text-align: center;
+            font-size: 18px;
+            color: var(--light-text);
+        }
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            text-align: left;
+        }
+        .about-img {
+            width: 100%;
+            height: 400px;
+            background-color: #ede8e2;
+            border-radius: 4px;
+        }
+        .about-text h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        footer {
+            background-color: #f0efed;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--light-text);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">可衣 KĚ YĪ</a>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="shop.html">全部商品</a>
+                    <a href="about.html">关于我们</a>
+                    <a href="cart.html">购物车</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="about-header">
+            <h1>关于可衣</h1>
+            <p>简约而不简单，优雅且自在</p>
+        </div>
+
+        <div class="about-content">
+            <p>可衣诞生于上海，一个将传统精致与现代快节奏完美融合的城市。我们致力于为 20 到 40 岁的现代女性打造一套能够陪她们走过每一个重要时刻的衣橱。</p>
+        </div>
+
+        <div class="about-section">
+            <div class="about-img"></div>
+            <div class="about-text">
+                <h2>我们的理念</h2>
+                <p>我们相信服装不应是束缚，而应是自信的延伸。可衣的设计核心在于“减法”——去掉繁琐的装饰，专注于剪裁的流畅度与面料的触感，让每一件衣服都能在不同的场景中轻松切换。</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-text">
+                <h2>匠心工艺</h2>
+                <p>从上海的创意工作室到严选的布料供应商，我们坚持使用高品质的天然面料，如桑蚕丝、精纺羊毛和有机棉。我们与本地资深裁缝合作，确保每一件成品都符合极高水准的质量标准。</p>
+            </div>
+            <div class="about-img" style="background-color: #dcd7d0;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="about.html">品牌故事</a>
+                <a href="#">配送政策</a>
+                <a href="#">退换货指南</a>
+                <a href="#">联系我们</a>
+            </div>
+            <p>&copy; 2024 可衣 (KĚ YĪ) 上海工作室. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

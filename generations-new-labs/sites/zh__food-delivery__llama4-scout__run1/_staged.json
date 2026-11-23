@@ -1,0 +1,24 @@
+{
+  "id": "zh__food-delivery__llama4-scout__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "food-delivery",
+  "model": "llama4:scout",
+  "completionTokens": 3449,
+  "seconds": 61,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://via.placeholder.com/200x150?text=%E4%B8%AD%E6%96%87",
+      "file": "assets/image-381727097431fa7f.png"
+    },
+    {
+      "url": "https://via.placeholder.com/200x150?text=%E8%A5%B2%E9%A1%B5",
+      "file": "assets/image-2235210ba339473d.png"
+    },
+    {
+      "url": "https://via.placeholder.com/200x150?text=%E7%BE%8A%E9%A3%9F",
+      "file": "assets/image-0b3dea2118d5424d.png"
+    }
+  ]
+}

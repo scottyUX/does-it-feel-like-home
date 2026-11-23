@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快送外卖 - 成都美食极速送达</title>
+    <style>
+        :root {
+            --primary-color: #ff4d4f;
+            --secondary-color: #ffec3d;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/image-aa7762f1f3385acf.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e04345;
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 3rem;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .category-img {
+            height: 180px;
+            width: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .category-name {
+            padding: 1.5rem;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚀 快送外卖</a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="restaurants.html">所有餐厅</a>
+                <a href="checkout.html">我的订单</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>成都美食，极速送达</h1>
+        <p>无论是深夜加班还是课间小憩，最好的味道就在这里</p>
+        <a href="restaurants.html" class="cta-button">立即订餐</a>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">选择您的美食类别</h2>
+        <div class="categories">
+            <a href="restaurants.html" class="category-card">
+                <div class="category-img" style="background-color: #ffebe9;">🌶️</div>
+                <div class="category-name">经典川菜</div>
+            </a>
+            <a href="restaurants.html" class="category-card">
+                <div class="category-img" style="background-color: #fef9e7;">🍔</div>
+                <div class="category-name">快餐便捷</div>
+            </a>
+            <a href="restaurants.html" class="category-card">
+                <div class="category-img" style="background-color: #f0f7ff;">🍵</div>
+                <div class="category-name">饮品甜点</div>
+            </a>
+            <a href="restaurants.html" class="category-card">
+                <div class="category-img" style="background-color: #f2fff2;">🥗</div>
+                <div class="category-name">健康轻食</div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 快送外卖服务 成都 | 为生活添味</p>
+    </footer>
+
+</body>
+</html>

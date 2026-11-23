@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦容美发美容 - 预约</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .appointment-form {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>悦容美发美容</h1>
+        <p>广州市高端美发美容服务</p>
+    </header>
+
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="services.html">服务项目</a>
+        <a href="team.html">团队介绍</a>
+        <a href="appointment.html">预约</a>
+    </nav>
+
+    <main>
+        <h2>预约</h2>
+
+        <div class="appointment-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">电话</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">服务项目</label>
+                    <select id="service" name="service">
+                        <option value="haircut">女士剪发</option>
+                        <option value="menshaircut">男士造型</option>
+                        <option value="haircolor">专业染发</option>
+                        <option value="facial">基础面部护理</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">预约日期</label>
+                    <input type="text" id="date" name="date" placeholder="选择日期">
+                </div>
+                <div class="form-group">
+                    <label for="time">预约时间</label>
+                    <input type="text" id="time" name="time" placeholder="选择时间">
+                </div>
+                <button type="submit">提交预约</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 悦容美发美容</p>
+    </footer>
+
+</body>
+</html>

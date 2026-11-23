@@ -1,0 +1,35 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "赵明远 创始人 / 总经理 前酒店运营经理，8年",
+   "url": "assets/photo-792506de39344daa.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "林晓薇 服务总监 负责80余名保洁人员的培训、排",
+   "url": "assets/photo-77c138770ef933c6.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.team-avatar",
+   "match": "陈国栋 首席技师 / 培训主管 15年保洁行业经",
+   "url": "assets/photo-e0fd347b0eeaa7b9.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

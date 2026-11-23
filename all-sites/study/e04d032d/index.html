@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悦容美发美容 - 广州高端美发护肤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+            color: #2c2c2c;
+            background: #fafafa;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c2c2c;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: #a07840;
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(160, 120, 64, 0.35);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+            padding: 100px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(196, 162, 101, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(196, 162, 101, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(196, 162, 101, 0.2);
+            border: 1px solid rgba(196, 162, 101, 0.4);
+            color: #c4a265;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(160, 120, 64, 0.4);
+        }
+
+        .btn-outline {
+            border: 1.5px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: #c4a265;
+            color: #c4a265;
+        }
+
+        /* Stats */
+        .stats {
+            background: #fff;
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: #a07840;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #888;
+            margin-top: 6px;
+        }
+
+        /* Services Preview */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #888;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .section-header .line {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #c4a265, #a07840);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(196,162,101,0.1), rgba(196,162,101,0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c2c2c;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        .service-card .price {
+            display: inline-block;
+            margin-top: 16px;
+            color: #a07840;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Why Us */
+        .why-us {
+            background: #fff;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-image {
+            background: linear-gradient(135deg, #f5f0e8, #ede5d8);
+            border-radius: 20px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-image::before {
+            content: '✨';
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        .why-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .why-content p {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #444;
+        }
+
+        .why-list li::before {
+            content: '✓';
+            color: #a07840;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .stars {
+            color: #c4a265;
+            font-size: 16px;
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8ddd0, #d4c5b0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #a07840;
+        }
+
+        .author-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: #888;
+            font-size: 14px;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c4a265;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 24px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Mobile Nav */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @media (max-width: 900px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 6px 25px rgba(160, 120, 64, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">悦</div>
+                <span class="logo-text">悦容美发美容</span>
+            </a>
+            <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="services.html">服务项目</a>
+                <a href="team.html">我们的团队</a>
+                <a href="appointment.html" class="btn-book">立即预约</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">广州 · 天河路 · 专注品质美业</div>
+            <h1>遇见最美的自己<br>从悦容开始</h1>
+            <p>十年匠心美发美容，为每一位客人定制专属美丽方案。进口产品，资深造型师，让您在舒适中焕发自信光彩。</p>
+            <div class="hero-btns">
+                <a href="appointment.html" class="btn-primary">立即预约体验</a>
+                <a href="services.html" class="btn-outline">浏览服务项目</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10年</h3>
+                    <p>行业深耕经验</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50,000+</h3>
+                    <p>满意顾客</p>
+                </div>
+                <div class="stat-item">
+                    <h3>8位</h3>
+                    <p>资深造型师</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9分</h3>
+                    <p>平均满意度</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门服务</h2>
+                <p>从日常护理到高端定制，满足您每一个美丽需求</p>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>精剪造型</h3>
+                    <p>根据个人脸型、发质和风格偏好，量身定制发型方案。含洗护、造型吹干。</p>
+                    <span class="price">¥168 起</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>时尚染发</h3>
+                    <p>采用进口低敏染膏，色彩持久亮丽。提供挑染、渐变、全染等多种工艺。</p>
+                    <span class="price">¥480 起</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆‍♀️</div>
+                    <h3>深层护肤</h3>
+                    <p>日本进口护肤产品，深层清洁、补水修复、抗衰紧致，还原肌肤健康光泽。</p>
+                    <span class="price">¥388 起</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section why-us">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-image"></div>
+                <div class="why-content">
+                    <h2>为什么选择悦容？</h2>
+                    <p>我们不仅仅是一家美发沙龙，更是您美丽旅程的贴心伙伴。每一位造型师都经过严格培训，持续进修，只为给您最专业、最舒适的服务体验。</p>
+                    <ul class="why-list">
+                        <li>全部使用进口或国产一线品牌产品，安全无忧</li>
+                        <li>一对一沟通，根据您的气质定制专属方案</li>
+                        <li>独立操作间，专属私密空间</li>
+                        <li>免费茶水、WiFi、充电设备</li>
+                        <li>预约制服务，零等待，时间完全属于您</li>
+                        <li>不满意免费返工，让您安心变美</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>顾客真实评价</h2>
+                <p>来自50,000+位顾客的信任与好评</p>
+                <div class="line"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>在悦容做了三年头发了，每次Tony老师都会先和我聊很久，了解我的日常习惯再给建议。染出来的颜色特别高级，朋友都问在哪做的。强烈推荐林姐！</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">陈</div>
+                        <div class="author-info">
+                            <h4>陈小姐</h4>
+                            <span>天河区 · 染发动画</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>平时工作忙，很少有空做护肤。悦容的预约制太方便了，下班后直接过来，不用等。做完皮肤明显透亮了一个色号，已经办了年卡。</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">王</div>
+                        <div class="author-info">
+                            <h4>王先生</h4>
+                            <span>珠江新城 · 深层护肤</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>从大学到工作一直在这剪头发，环境升级了好几轮但服务始终在线。上次做了个锁骨发，第二天被同事夸了一整天，开心！价格也合理。</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">林</div>
+                        <div class="author-info">
+                            <h4>林同学</h4>
+                            <span>体育西路 · 精剪造型</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>准备好焕然一新了吗？</h2>
+            <p>首次到店享受全场8折优惠，现在预约还可免排队优先接待</p>
+            <a href="appointment.html" class="btn-primary">免费预约 →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>悦容美发美容</h3>
+                    <p>扎根广州天河，专注美发护肤十年。我们相信，美丽不是千篇一律的标准，而是每个人最自信、最自在的状态。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <a href="index.html">首页</a>
+                    <a href="services.html">服务项目</a>
+                    <a href="team.html">我们的团队</a>
+                    <a href="appointment.html">在线预约</a>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <a href="appointment.html">预约电话：020-8888-6666</a>
+                    <a href="appointment.html">微信：YRBeauty2024</a>
+                    <a href="appointment.html">地址：天河区体育西路101号</a>
+                </div>
+                <div class="footer-col">
+                    <h4>营业时间</h4>
+                    <a href="#">周一至周日</a>
+                    <a href="#">10:00 - 21:30</a>
+                    <a href="#">节假日不休</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 悦容美发美容 · 粤ICP备2024088866号</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="appointment.html" class="floating-cta">📅 立即预约</a>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                document.querySelector('nav').classList.toggle('open');
+            });
+        }
+
+        // Close nav on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

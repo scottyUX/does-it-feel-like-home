@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程列表 - 学途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .course-list {
+            padding: 2rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .course-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .course-image {
+            height: 200px;
+            background-color: #eee;
+        }
+        .course-content {
+            padding: 1.5rem;
+        }
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .course-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .course-description {
+            margin-bottom: 1.5rem;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .filter-section {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .filter-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .filter-option {
+            padding: 0.3rem 0.8rem;
+            background-color: #f1f1f1;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .filter-option.active {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">学途</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="courses.html">课程列表</a></li>
+                    <li><a href="register.html">注册报名</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-list">
+        <div class="container">
+            <h2 class="section-title">所有课程</h2>
+            
+            <div class="filter-section">
+                <h3 class="filter-title">筛选课程</h3>
+                <div class="filter-group">
+                    <label for="category">课程类别</label>
+                    <div class="filter-options" id="category-filters">
+                        <div class="filter-option active" data-category="all">全部</div>
+                        <div class="filter-option" data-category="language">语言课程</div>
+                        <div class="filter-option" data-category="computer">计算机课程</div>
+                        <div class="filter-option" data-category="exam">考试备考</div>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label for="price">价格范围</label>
+                    <div class="filter-options" id="price-filters">
+                        <div class="filter-option active" data-price="all">全部</div>
+                        <div class="filter-option" data-price="0-500">¥0-¥500</div>
+                        <div class="filter-option" data-price="501-1000">¥501-¥1000</div>
+                        <div class="filter-option" data-price="1001-1500">¥1001-¥1500</div>
+                        <div class="filter-option" data-price="1501-2000">¥1501-¥2000</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">英语进阶课程</h3>
+                        <div class="course-price">¥1999/期</div>
+                        <p class="course-description">适合有基础的学习者，提升听说读写能力，助力留学和职场发展。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 语言课程</span>
+                            <span>课时: 120小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">Python编程基础</h3>
+                        <div class="course-price">¥1599/期</div>
+                        <p class="course-description">从零开始学习Python编程，掌握数据处理、自动化脚本等实用技能。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 计算机课程</span>
+                            <span>课时: 96小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">托福备考冲刺</h3>
+                        <div class="course-price">¥2599/期</div>
+                        <p class="course-description">针对托福考试设计，全面提升听、说、读、写能力，助你取得理想成绩。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 考试备考</span>
+                            <span>课时: 80小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">日语入门课程</h3>
+                        <div class="course-price">¥1799/期</div>
+                        <p class="course-description">适合零基础学习者，系统学习日语发音、词汇和基本语法。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 语言课程</span>
+                            <span>课时: 112小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">Java编程进阶</h3>
+                        <div class="course-price">¥1999/期</div>
+                        <p class="course-description">深入学习Java编程，掌握面向对象编程、设计模式等核心概念。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 计算机课程</span>
+                            <span>课时: 104小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">雅思考试冲刺</h3>
+                        <div class="course-price">¥2899/期</div>
+                        <p class="course-description">针对雅思考试设计，全面提升听说读写能力，助你取得理想成绩。</p>
+                        <div class="course-meta">
+                            <span>课程类型: 考试备考</span>
+                            <span>课时: 120小时</span>
+                        </div>
+                        <a href="course-detail.html" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 学途在线学习平台. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有筛选按钮
+            const categoryFilters = document.querySelectorAll('.filter-option[data-category]');
+            const priceFilters = document.querySelectorAll('.filter-option[data-price]');
+            
+            // 初始化筛选状态
+            let currentCategory = 'all';
+            let currentPrice = 'all';
+            
+            // 添加事件监听器
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // 移除所有按钮的active类
+                    categoryFilters.forEach(f => f.classList.remove('active'));
+                    // 添加active类到当前按钮
+                    filter.classList.add('active');
+                    // 更新当前类别
+                    currentCategory = filter.dataset.category;
+                    // 执行筛选
+                    filterCourses();
+                });
+            });
+            
+            priceFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // 移除所有按钮的active类
+                    priceFilters.forEach(f => f.classList.remove('active'));
+                    // 添加active类到当前按钮
+                    filter.classList.add('active');
+                    // 更新当前价格范围
+                    currentPrice = filter.dataset.price;
+                    // 执行筛选
+                    filterCourses();
+                });
+            });
+            
+            // 筛选课程函数
+            function filterCourses() {
+                const allCourses = document.querySelectorAll('.course-card');
+                
+                allCourses.forEach(course => {
+                    const courseCategory = course.querySelector('.course-meta span:first-child').textContent;
+                    const coursePrice = parseInt(course.querySelector('.course-meta span:last-child').textContent.replace('¥', ''));
+                    
+                    // 检查是否符合筛选条件
+                    const categoryMatch = currentCategory === 'all' || courseCategory.includes(currentCategory);
+                    const priceMatch = currentPrice === 'all' || coursePrice >= parseInt(currentPrice.split('-')[0]) && coursePrice <= parseInt(currentPrice.split('-')[1]);
+                    
+                    // 显示或隐藏课程
+                    course.style.display = categoryMatch && priceMatch ? 'block' : 'none';
+                });
+            }
+            
+            // 初始化筛选
+            filterCourses();
+        });
+    </script>
+</body>
+</html>

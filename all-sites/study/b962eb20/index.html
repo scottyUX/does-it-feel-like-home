@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 杭州家庭浙菜</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; color: #2C2C2C; background: #FDF8F0; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        .site-header { background: #8B2E2E; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 72px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(139,46,46,0.3); }
+        .logo { font-size: 26px; font-weight: 700; color: #FFF; letter-spacing: 2px; }
+        .logo span { color: #E8C96A; }
+        nav { display: flex; gap: 36px; }
+        nav a { color: #F5E6D3; font-size: 15px; font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+        nav a:hover, nav a.active { color: #FFF; border-bottom-color: #E8C96A; }
+
+        /* Hero */
+        .hero { position: relative; height: 580px; background: linear-gradient(135deg, #3D1F1F 0%, #6B2C2C 40%, #8B2E2E 100%); display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        .hero::before { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .hero-content { position: relative; z-index: 1; max-width: 700px; padding: 0 24px; }
+        .hero h1 { font-size: 52px; color: #FFF; margin-bottom: 16px; font-weight: 700; letter-spacing: 4px; }
+        .hero p { font-size: 20px; color: #F0D9B5; margin-bottom: 36px; font-weight: 300; }
+        .btn-primary { display: inline-block; background: #C4963C; color: #FFF; padding: 14px 42px; border-radius: 4px; font-size: 16px; font-weight: 600; letter-spacing: 1px; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn-primary:hover { background: #A87D2E; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196,150,60,0.4); }
+        .btn-outline { display: inline-block; border: 2px solid #E8C96A; color: #E8C96A; padding: 12px 36px; border-radius: 4px; font-size: 15px; font-weight: 500; margin-left: 16px; transition: all 0.3s; }
+        .btn-outline:hover { background: #E8C96A; color: #3D1F1F; }
+
+        /* Sections */
+        .section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 34px; margin-bottom: 12px; color: #3D1F1F; font-weight: 700; }
+        .section-sub { text-align: center; font-size: 16px; color: #7A6B5A; margin-bottom: 50px; }
+        .divider { width: 60px; height: 3px; background: #C4963C; margin: 16px auto 0; border-radius: 2px; }
+
+        /* Highlights */
+        .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .highlight-card { background: #FFF; border-radius: 8px; padding: 36px 28px; text-align: center; box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; }
+        .highlight-card:hover { transform: translateY(-6px); box-shadow: 0 8px 30px rgba(139,46,46,0.12); }
+        .highlight-icon { font-size: 42px; margin-bottom: 18px; }
+        .highlight-card h3 { font-size: 18px; color: #3D1F1F; margin-bottom: 10px; }
+        .highlight-card p { font-size: 14px; color: #6B5D4F; line-height: 1.8; }
+
+        /* Featured dishes */
+        .featured-dishes { background: #FFF; }
+        .dish-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .dish-card { border-radius: 8px; overflow: hidden; background: #FDF8F0; transition: transform 0.3s; }
+        .dish-card:hover { transform: translateY(-4px); }
+        .dish-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+        .dish-img-1 { background: linear-gradient(135deg, #F4E4C1, #E8D5A8); }
+        .dish-img-2 { background: linear-gradient(135deg, #D4A574, #C4963C); }
+        .dish-img-3 { background: linear-gradient(135deg, #A8D5A2, #7CB874); }
+        .dish-img-4 { background: linear-gradient(135deg, #F0C9C9, #E8A8A8); }
+        .dish-info { padding: 16px 18px; }
+        .dish-info h4 { font-size: 15px; color: #3D1F1F; margin-bottom: 4px; }
+        .dish-info p { font-size: 13px; color: #8B7B6A; }
+        .dish-price { font-size: 15px; color: #C4963C; font-weight: 700; margin-top: 8px; }
+
+        /* CTA Banner */
+        .cta-banner { background: linear-gradient(135deg, #8B2E2E, #6B2222); padding: 70px 40px; text-align: center; }
+        .cta-banner h2 { color: #FFF; font-size: 30px; margin-bottom: 14px; }
+        .cta-banner p { color: #F0D9B5; font-size: 16px; margin-bottom: 28px; }
+
+        /* Info strip */
+        .info-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #FFF; border-top: 1px solid #EDE5D8; }
+        .info-item { padding: 40px; text-align: center; border-right: 1px solid #EDE5D8; }
+        .info-item:last-child { border-right: none; }
+        .info-item h4 { font-size: 15px; color: #8B2E2E; margin-bottom: 6px; }
+        .info-item p { font-size: 14px; color: #6B5D4F; }
+
+        /* Footer */
+        .site-footer { background: #2C1A1A; padding: 50px 40px 30px; color: #B8A99A; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
+        .footer-grid h4 { color: #E8C96A; font-size: 15px; margin-bottom: 14px; }
+        .footer-grid p, .footer-grid a { font-size: 13px; line-height: 2; color: #B8A99A; }
+        .footer-grid a:hover { color: #E8C96A; }
+        .footer-bottom { text-align: center; font-size: 12px; padding-top: 24px; border-top: 1px solid #4A3535; color: #7A6B5A; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .highlights { grid-template-columns: 1fr; }
+            .dish-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-strip { grid-template-columns: 1fr; }
+            .info-item { border-right: none; border-bottom: 1px solid #EDE5D8; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 36px; }
+            .site-header { padding: 0 20px; }
+            nav { gap: 20px; }
+            nav a { font-size: 13px; }
+        }
+        @media (max-width: 600px) {
+            .dish-grid { grid-template-columns: 1fr; }
+            .btn-outline { margin-left: 0; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">家味<span>餐厅</span></a>
+        <nav>
+            <a href="index.html" class="active">首页</a>
+            <a href="menu.html">菜品菜单</a>
+            <a href="about.html">餐厅故事</a>
+            <a href="reservation.html">预订订座</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>家的味道，杭州的记忆</h1>
+            <p>三十年匠心传承，每一道菜都是外婆的手艺</p>
+            <a href="reservation.html" class="btn-primary">立即订座</a>
+            <a href="menu.html" class="btn-outline">浏览菜单</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">为什么选择家味</h2>
+        <div class="divider"></div>
+        <p class="section-sub">三代人的坚守，只为那一口熟悉的家乡味</p>
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="highlight-icon">🍲</div>
+                <h3>地道浙菜</h3>
+                <p>坚持传统浙菜做法，选用西湖、千岛湖当季食材，每一口都是杭州的味道。不追求花哨，只追求本味。</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">👨‍👩‍👧</div>
+                <h3>家庭氛围</h3>
+                <p>从1994年开业至今，我们一直由陈家人经营。没有连锁的标准化，只有妈妈记了三十年的老方子。</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">📍</div>
+                <h3>核心地段</h3>
+                <p>坐落于南山路，步行五分钟到西湖。无论是家庭聚餐、朋友小聚还是游客打卡，都很方便。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-dishes">
+        <div class="section">
+            <h2 class="section-title">招牌推荐</h2>
+            <div class="divider"></div>
+            <p class="section-sub">来家味，这几道是必须点的</p>
+            <div class="dish-grid">
+                <div class="dish-card">
+                    <div class="dish-img dish-img-1">🐟</div>
+                    <div class="dish-info">
+                        <h4>西湖醋鱼</h4>
+                        <p>选用西湖草鱼，糖醋汁醇厚</p>
+                        <div class="dish-price">¥68</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img dish-img-2">🥩</div>
+                    <div class="dish-info">
+                        <h4>东坡肉</h4>
+                        <p>慢火炖煮三小时，肥而不腻</p>
+                        <div class="dish-price">¥88</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img dish-img-3">🦐</div>
+                    <div class="dish-info">
+                        <h4>龙井虾仁</h4>
+                        <p>明前龙井入菜，鲜爽清雅</p>
+                        <div class="dish-price">¥128</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-img dish-img-4">🐔</div>
+                    <div class="dish-info">
+                        <h4>叫花童子鸡</h4>
+                        <p>荷叶包裹，泥土煨烤，皮酥骨香</p>
+                        <div class="dish-price">¥108</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <h2>今晚，给家人留个位子</h2>
+        <p>南山路128号 · 每天 10:30 - 21:30 · 电话 0571-8866-2288</p>
+        <a href="reservation.html" class="btn-primary">在线预订</a>
+    </section>
+
+    <div class="info-strip">
+        <div class="info-item">
+            <h4>营业时间</h4>
+            <p>周一至周五 10:30–14:00 / 17:00–21:30<br>周末及节假日 10:30–21:30</p>
+        </div>
+        <div class="info-item">
+            <h4>餐厅地址</h4>
+            <p>杭州市西湖区南山路128号<br>（近长桥公园，步行至西湖约5分钟）</p>
+        </div>
+        <div class="info-item">
+            <h4>联系方式</h4>
+            <p>订座电话：0571-8866-2288<br>微信：jiawei_hz1994</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>家味餐厅</h4>
+                <p>家味餐厅创立于1994年，位于杭州市西湖区南山路。我们是一家由陈家人经营了三代的小型餐厅，专注浙菜，坚持手工烹饪，不加盟、不扩张，只做让家人放心的菜。</p>
+            </div>
+            <div>
+                <h4>快速链接</h4>
+                <a href="index.html">首页</a><br>
+                <a href="menu.html">菜品菜单</a><br>
+                <a href="about.html">餐厅故事</a><br>
+                <a href="reservation.html">预订订座</a>
+            </div>
+            <div>
+                <h4>联系我们</h4>
+                <p>电话：0571-8866-2288<br>地址：南山路128号<br>停车：可停长桥停车场</p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2024 家味餐厅 · 浙ICP备12345678号</div>
+    </footer>
+</body>
+</html>

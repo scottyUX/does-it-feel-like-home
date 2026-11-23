@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车 | 可衣 KE YI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">可衣 KE YI</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">系列商品</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="cart.html">🛒</a>
+                <div class="cart-count">2</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container cart-page">
+        <h1 style="font-family: var(--font-serif); margin-bottom: 30px; font-size: 28px;">我的购物车</h1>
+        
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>商品信息</th>
+                    <th style="text-align: center;">单价</th>
+                    <th style="text-align: center;">数量</th>
+                    <th style="text-align: right;">小计</th>
+                    <th style="text-align: right;">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <img src="assets/image-c1a6226a11edfef2.jpg" class="cart-item-img" alt="真丝衬衫">
+                            <div>
+                                <h4 style="font-size: 14px; font-weight: 600;">浅灰真丝印花衬衫</h4>
+                                <p style="font-size: 12px; color: var(--light-text);">尺码：S | 颜色：浅灰</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">¥899.00</td>
+                    <td style="text-align: center;">
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <input type="text" value="1" class="qty-input">
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </td>
+                    <td style="text-align: right;">¥899.00</td>
+                    <td style="text-align: right;">
+                        <button class="remove-btn">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="cart-item-info">
+                            <img src="assets/image-72c3f9670873c1f7.jpg" class="cart-item-img" alt="手提包">
+                            <div>
+                                <h4 style="font-size: 14px; font-weight: 600;">手工编织真皮托特包</h4>
+                                <p style="font-size: 12px; color: var(--light-text);">尺码：均码 | 颜色：棕色</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">¥799.00</td>
+                    <td style="text-align: center;">
+                        <div class="qty-control">
+                            <button class="qty-btn">-</button>
+                            <input type="text" value="1" class="qty-input">
+                            <button class="qty-btn">+</button>
+                        </div>
+                    </td>
+                    <td style="text-align: right;">¥799.00</td>
+                    <td style="text-align: right;">
+                        <button class="remove-btn">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>商品总额</span>
+                <span>¥1,698.00</span>
+            </div>
+            <div class="summary-row">
+                <span>运费</span>
+                <span>¥20.00</span>
+            </div>
+            <div class="summary-row">
+                <span>折扣</span>
+                <span style="color: #28a745;">- ¥0.00</span>
+            </div>
+            <div class="total-row">
+                <span>总计</span>
+                <span>¥1,718.00</span>
+            </div>
+            <button class="checkout-btn">去结算</button>
+            <p style="font-size: 12px; color: var(--light-text); margin-top: 15px; text-align: center;">
+                已包含税费，预计3-5个工作日内送达。
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">可衣 KE YI</div>
+                    <p style="font-size: 14px; color: var(--text-color);">我们致力于为现代都市女性提供高品质、设计感与舒适度并存的服饰。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul>
+                        <li><a href="products.html">所有商品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>客户服务</h4>
+                    <ul>
+                        <li><a href="about.html">品牌故事</a></li>
+                        <li><a href="#">配送说明</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>订阅我们</h4>
+                    <p style="font-size: 13px; margin-bottom: 10px;">获取最新款通知与独家折扣。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 8px; border: 1px solid #ccc; margin-bottom: 10px;">
+                    <button class="btn" style="padding: 8px 15px; font-size: 12px;">订阅</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 可衣 KE YI 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的购物车操作逻辑
+        document.querySelectorAll('.qty-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.qty-input');
+                let val = parseInt(input.value);
+                if (this.innerText === '+') {
+                    val++;
+                } else {
+                    if (val > 1) val--;
+                }
+                input.value = val;
+            });
+        });
+
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(confirm('确定要删除这件商品吗？')) {
+                    this.closest('tr').remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

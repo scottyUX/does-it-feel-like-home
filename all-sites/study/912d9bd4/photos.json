@@ -1,0 +1,37 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "about.html",
+   "selector": "div.about-image",
+   "match": "从家庭厨房到西湖畔 家味餐厅成立于 2010 年",
+   "url": "assets/photo-74906cc280f72e37.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:TW 台灣 Taiwan 台北 Taipei 杭州小籠湯包 Hangzhou Xiaolingbao Restaurant interior March 2024 R12S.jpg",
+   "license": "CC0",
+   "subject": "hangzhou restaurant interior",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/TW_%E5%8F%B0%E7%81%A3_Taiwan_%E5%8F%B0%E5%8C%97_Taipei_%E6%9D%AD%E5%B7%9E%E5%B0%8F%E7%B1%A0%E6%B9%AF%E5%8C%85_Hangzhou_Xiaolingbao_Restaurant_interior_March_2024_R12S.jpg/960px-TW_%E5%8F%B0%E7%81%A3_Taiwan_%E5%8F%B0%E5%8C%97_Taipei_%E6%9D%AD%E5%B7%9E%E5%B0%8F%E7%B1%A0%E6%B9%AF%E5%8C%85_Hangzhou_Xiaolingbao_Restaurant_interior_March_2024_R12S.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.member-photo",
+   "match": "林师傅 行政总厨 20 年杭帮菜烹饪经验，擅长改",
+   "url": "assets/photo-d09bd1cc1c46073e.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "about.html",
+   "selector": "div.member-photo",
+   "match": "陈师傅 面点主管 专注江南小吃与手工制作面点。",
+   "url": "assets/photo-801784fb98807fb5.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

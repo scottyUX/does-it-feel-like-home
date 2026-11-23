@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡服务 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #c5a059;
+            --text-color: #333;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+        }
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .page-header {
+            background-color: #e9eff2;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 0;
+        }
+        .card-item {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-item:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-visual {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        .card-standard { background: linear-gradient(135deg, #4a90e2, #357abd); }
+        .card-gold { background: linear-gradient(135deg, #f6d365, #c5a059); }
+        .card-platinum { background: linear-gradient(135deg, #bdc3c7, #2c3e50); }
+        .card-business { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+        .card-details {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-details h3 {
+            margin: 0 0 15px 0;
+            color: var(--primary-color);
+        }
+        .card-details ul {
+            padding: 0;
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .card-details li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .card-details li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .application-form {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #002244;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        @media (max-width: 992px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">长川银行 CHANGCHUAN BANK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="personal.html">个人银行</a></li>
+                <li><a href="cards.html">信用卡</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-header">
+    <div class="container">
+        <h1>信用卡中心</h1>
+        <p>选择最适合您生活方式的金融伙伴</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card-grid">
+        <div class="card-item">
+            <div class="card-visual card-standard">长川标准卡</div>
+            <div class="card-details">
+                <h3>标准信用卡</h3>
+                <ul>
+                    <li>入门级门槛，快速审核</li>
+                    <li>日常消费 0.5% 返现</li>
+                    <li>免首年年费</li>
+                    <li>便捷的手机银行管理</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card-visual card-gold">长川金卡</div>
+            <div class="card-details">
+                <h3>卓越金卡</h3>
+                <ul>
+                    <li>更高信用额度</li>
+                    <li>商超购物 1.5% 返现</li>
+                    <li>季度消费达标免年费</li>
+                    <li>免费提供信用额度提升通道</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card-visual card-platinum">长川白金卡</div>
+            <div class="card-details">
+                <h3>尊享白金卡</h3>
+                <ul>
+                    <li>全球机场贵宾厅权益</li>
+                    <li>高端酒店入住礼遇</li>
+                    <li>专属私人客服 24/7</li>
+                    <li>全年度最高等级积分累积</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card-visual card-business">长川企业卡</div>
+            <div class="card-details">
+                <h3>商旅企业卡</h3>
+                <ul>
+                    <li>企业支出统一管理</li>
+                    <li>差旅消费专项返现</li>
+                    <li>灵活的账单周期调整</li>
+                    <li>配套企业信用额度支持</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Placeholder cards to fill space -->
+        <div class="card-item">
+            <div class="card-visual card-standard" style="filter: grayscale(0.5);">长川青年卡</div>
+            <div class="card-details">
+                <h3>青年成长卡</h3>
+                <ul>
+                    <li>专为职场新人设计</li>
+                    <li>餐饮娱乐类消费优惠</li>
+                    <li>低门槛信用额度</li>
+                    <li>数字化管理体验</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-item">
+            <div class="card-visual card-gold" style="filter: hue-rotate(45deg);">长川购物卡</div>
+            <div class="card-details">
+                <h3>购物达人卡</h3>
+                <ul>
+                    <li>主流电商平台高额返现</li>
+                    <li>节日购物季双倍积分</li>
+                    <li>专属商圈折扣券</li>
+                    <li>灵活的分期付款方案</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="application-form">
+    <div class="container">
+        <div class="form-container">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">在线申请信用卡</h2>
+            <form onsubmit="event.preventDefault(); alert('申请已提交，我们的工作人员将在3个工作日内联系您。');">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" placeholder="请输入真实姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>手机号码</label>
+                    <input type="tel" placeholder="请输入联系电话" required>
+                </div>
+                <div class="form-group">
+                    <label>申请卡种</label>
+                    <select>
+                        <option>标准信用卡</option>
+                        <option>卓越金卡</option>
+                        <option>尊享白金卡</option>
+                        <option>商旅企业卡</option>
+                        <option>青年成长卡</option>
+                        <option>购物达人卡</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>预估月消费金额</label>
+                    <select>
+                        <option>3,000 元以下</option>
+                        <option>3,000 - 10,000 元</option>
+                        <option>10,000 - 30,000 元</option>
+                        <option>30,000 元以上</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">提交申请</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        &copy; 2023 长川银行 版权所有。
+    </div>
+</footer>
+
+</body>
+</html>

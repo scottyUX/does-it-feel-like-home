@@ -1,0 +1,11 @@
+{
+  "id": "zh__learning__llama4-scout__run1",
+  "language": "zh",
+  "run": "run1",
+  "type": "learning",
+  "model": "llama4:scout",
+  "completionTokens": 2912,
+  "seconds": 52,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": []
+}

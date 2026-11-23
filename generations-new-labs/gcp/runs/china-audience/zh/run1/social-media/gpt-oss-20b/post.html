@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>趣聊 | 帖子详情</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f4f4f4;color:#333}
+    .header{background:#fff;padding:15px 30px;box-shadow:0 2px 4px rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:1.5em;font-weight:bold;color:#ff5a5f}
+    .nav a{margin-left:20px;color:#555;text-decoration:none;font-size:1em}
+    .nav a:hover{color:#ff5a5f}
+    .container{max-width:800px;margin:20px auto;padding:0 15px}
+    .post{background:#fff;padding:15px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    .post-header{display:flex;align-items:center}
+    .avatar{width:40px;height:40px;border-radius:50%;margin-right:10px}
+    .post-username{font-weight:bold}
+    .post-time{margin-left:auto;color:#777;font-size:.9em}
+    .post-content{margin-top:10px;font-size:1.1em}
+    .post-image{margin-top:10px;max-width:100%}
+    .comments{margin-top:20px}
+    .comment{background:#f9f9f9;padding:10px;border-radius:5px;margin-bottom:10px}
+    .comment-header{display:flex;align-items:center}
+    .comment-username{font-weight:bold;margin-left:5px}
+    .comment-time{margin-left:auto;color:#777;font-size:.8em}
+    .comment-text{margin-top:5px;font-size:.95em}
+    .add-comment{background:#fff;padding:10px;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    .add-comment textarea{width:100%;height:80px;border:1px solid #ddd;border-radius:4px;padding:8px;resize:none}
+    .add-comment button{background:#ff5a5f;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;margin-top:8px}
+    .footer{background:#fff;text-align:center;padding:15px;color:#777;font-size:.9em;margin-top:30px;border-top:1px solid #ddd}
+    @media(max-width:600px){
+        .header{flex-direction:column;align-items:flex-start}
+        .nav{margin-top:10px}
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">趣聊</div>
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="profile.html">我的主页</a>
+        <a href="register.html">注册</a>
+    </div>
+</div>
+<div class="container">
+    <div class="post">
+        <div class="post-header">
+            <img class="avatar" src="avatar2.png" alt="头像">
+            <span class="post-username">小明</span>
+            <span class="post-time">1天前</span>
+        </div>
+        <div class="post-content">新鲜烤鸡，配酱料，香气四溢！🍗 #美食</div>
+        <img class="post-image" src="photo2.jpg" alt="照片">
+    </div>
+
+    <div class="comments">
+        <h3>评论</h3>
+        <div class="comment">
+            <div class="comment-header">
+                <img class="avatar" src="avatar3.png" alt="头像">
+                <span class="comment-username">小华</span>
+                <span class="comment-time">2小时前</span>
+            </div>
+            <div class="comment-text">好好吃啊，下次我也去试试！</div>
+        </div>
+        <div class="comment">
+            <div class="comment-header">
+                <img class="avatar" src="avatar4.png" alt="头像">
+                <span class="comment-username">小丽</span>
+                <span class="comment-time">3小时前</span>
+            </div>
+            <div class="comment-text">配上啤酒更赞。</div>
+        </div>
+    </div>
+
+    <div class="add-comment">
+        <textarea placeholder="写下你的评论..."></textarea>
+        <button>发送</button>
+    </div>
+</div>
+<div class="footer">© 2026 趣聊，保留所有权利</div>
+</body>
+</html>

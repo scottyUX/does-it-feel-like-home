@@ -1,34 +1,896 @@
 {
-  "generatedAt": "2026-10-27T22:15:44.983014+00:00",
-  "note": "Demo review: ready regenerated clothing sites are active; other samples remain available until replacements finish.",
+  "generatedAt": "2026-11-10T17:30:00+00:00",
+  "note": "Demo of open models run locally on the NVIDIA DGX Spark, for all 10 site types: Gemma 4 31B (US) vs Qwen 3.8 27B (China), and gpt-oss 120B (US) vs Qwen 3.5 122B (China). Each type rotates through those pairs, made from either the English or the Chinese prompt. Broken photos (made-up Unsplash links from Gemma, fake embedded images from gpt-oss) were replaced with checked photos; see photoFixes in generations/. The earlier Gemini/Kimi/Qwen Max sites stay listed for the gallery.",
   "sites": [
     {
-      "id": "f4f682d4",
-      "type": "clothing",
-      "country": "China",
-      "model": "moonshotai/kimi-k3",
-      "createdAt": "2026-10-27T21:54:03.710Z"
-    },
-    {
-      "id": "f35d06f9",
+      "id": "1a2ad2a5",
       "type": "clothing",
       "country": "US",
-      "model": "anthropic/claude-opus-5",
-      "createdAt": "2026-10-27T22:23:10.406Z"
+      "model": "qwen/qwen3.8-max (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-03T04:51:03.725Z"
     },
     {
-      "id": "08fa13e6",
-      "type": "clothing",
-      "country": "US",
-      "model": "google/gemini-4-argon",
-      "createdAt": "2026-10-27T22:05:23.173Z"
-    },
-    {
-      "id": "0d18b012",
+      "id": "d3f41bd2",
       "type": "clothing",
       "country": "China",
-      "model": "qwen/qwen3.8-max",
-      "createdAt": "2026-10-27T22:11:41.812Z"
+      "model": "qwen/qwen3.8-max (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-03T04:56:02.990Z"
+    },
+    {
+      "id": "25c95347",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemini-4-argon (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-03T23:12:53.898Z"
+    },
+    {
+      "id": "2208b7c2",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemini-4-argon (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-03T23:11:49.073Z"
+    },
+    {
+      "id": "77fc1e3d",
+      "type": "news",
+      "country": "China",
+      "model": "moonshotai/kimi-k3 (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-03T23:09:11.900Z"
+    },
+    {
+      "id": "61224bfb",
+      "type": "news",
+      "country": "China",
+      "model": "moonshotai/kimi-k3 (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-03T23:09:46.344Z"
+    },
+    {
+      "id": "f063a523",
+      "type": "bank",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:52:30-0800"
+    },
+    {
+      "id": "1aef96e6",
+      "type": "bank",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:03:38-0800"
+    },
+    {
+      "id": "ea9e38c2",
+      "type": "beauty-salon",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:23:20-0800"
+    },
+    {
+      "id": "e04d032d",
+      "type": "beauty-salon",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:33:31-0800"
+    },
+    {
+      "id": "5503f964",
+      "type": "clothing",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T22:38:20-0800"
+    },
+    {
+      "id": "ee80a1b7",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T22:49:08-0800"
+    },
+    {
+      "id": "12668563",
+      "type": "food-delivery",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:10:17-0800"
+    },
+    {
+      "id": "eabec02f",
+      "type": "food-delivery",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:19:00-0800"
+    },
+    {
+      "id": "3c5b3a35",
+      "type": "home-cleaning",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:52:29-0800"
+    },
+    {
+      "id": "406a84c5",
+      "type": "home-cleaning",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T01:01:13-0800"
+    },
+    {
+      "id": "08669a26",
+      "type": "learning",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:39:30-0800"
+    },
+    {
+      "id": "4779caea",
+      "type": "learning",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T00:48:19-0800"
+    },
+    {
+      "id": "923fdd19",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:07:10-0800"
+    },
+    {
+      "id": "645ae8dc",
+      "type": "news",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:15:47-0800"
+    },
+    {
+      "id": "ad030ef5",
+      "type": "restaurant",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T22:53:39-0800"
+    },
+    {
+      "id": "b962eb20",
+      "type": "restaurant",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:01:12-0800"
+    },
+    {
+      "id": "7e8650d1",
+      "type": "social-media",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:21:22-0800"
+    },
+    {
+      "id": "dac2aea6",
+      "type": "social-media",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:31:03-0800"
+    },
+    {
+      "id": "4f3aef2b",
+      "type": "travel",
+      "country": "US",
+      "model": "google/gemma-4-31b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:36:52-0800"
+    },
+    {
+      "id": "63f555da",
+      "type": "travel",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-09T23:47:15-0800"
+    },
+    {
+      "id": "bd26a3a1",
+      "type": "bank",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:27:18-0800"
+    },
+    {
+      "id": "1cdb7f6f",
+      "type": "bank",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:37:55-0800"
+    },
+    {
+      "id": "241b404c",
+      "type": "beauty-salon",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:57:43-0800"
+    },
+    {
+      "id": "769ce841",
+      "type": "beauty-salon",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T03:07:48-0800"
+    },
+    {
+      "id": "332d42f8",
+      "type": "clothing",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:06:36-0800"
+    },
+    {
+      "id": "a49a8bfc",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:19:00-0800"
+    },
+    {
+      "id": "f0f375d1",
+      "type": "food-delivery",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:43:20-0800"
+    },
+    {
+      "id": "f36585d5",
+      "type": "food-delivery",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:52:59-0800"
+    },
+    {
+      "id": "65942129",
+      "type": "home-cleaning",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T03:29:07-0800"
+    },
+    {
+      "id": "e3b6d972",
+      "type": "home-cleaning",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T03:39:10-0800"
+    },
+    {
+      "id": "ba2b7fe8",
+      "type": "learning",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T03:13:40-0800"
+    },
+    {
+      "id": "9f32fdfd",
+      "type": "learning",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T03:24:01-0800"
+    },
+    {
+      "id": "aa047bb5",
+      "type": "news",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:40:12-0800"
+    },
+    {
+      "id": "718b1d4d",
+      "type": "news",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:49:19-0800"
+    },
+    {
+      "id": "d3ef1b6d",
+      "type": "restaurant",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:23:30-0800"
+    },
+    {
+      "id": "3cb9af3c",
+      "type": "restaurant",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:33:24-0800"
+    },
+    {
+      "id": "c1349459",
+      "type": "social-media",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T01:56:16-0800"
+    },
+    {
+      "id": "140bd5a5",
+      "type": "social-media",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:04:43-0800"
+    },
+    {
+      "id": "9cabc279",
+      "type": "travel",
+      "country": "US",
+      "model": "google/gemma-4-31b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:12:03-0800"
+    },
+    {
+      "id": "35900885",
+      "type": "travel",
+      "country": "China",
+      "model": "qwen/qwen3.8-27b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T02:21:49-0800"
+    },
+    {
+      "id": "eebb25e5",
+      "type": "bank",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:37:31-0800"
+    },
+    {
+      "id": "bec0e302",
+      "type": "bank",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:44:07-0800"
+    },
+    {
+      "id": "327e89a9",
+      "type": "beauty-salon",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:56:38-0800"
+    },
+    {
+      "id": "1224f28f",
+      "type": "beauty-salon",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T10:03:31-0800"
+    },
+    {
+      "id": "5976c2d7",
+      "type": "clothing",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T08:45:21-0800"
+    },
+    {
+      "id": "750e078e",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T08:52:43-0800"
+    },
+    {
+      "id": "60b46f9a",
+      "type": "food-delivery",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:46:39-0800"
+    },
+    {
+      "id": "da51185a",
+      "type": "food-delivery",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:54:34-0800"
+    },
+    {
+      "id": "490eb774",
+      "type": "home-cleaning",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T10:16:36-0800"
+    },
+    {
+      "id": "c47bff5d",
+      "type": "home-cleaning",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T10:22:01-0800"
+    },
+    {
+      "id": "ef0dafe2",
+      "type": "learning",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T10:06:12-0800"
+    },
+    {
+      "id": "392166b0",
+      "type": "learning",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T10:13:44-0800"
+    },
+    {
+      "id": "6baa50c3",
+      "type": "news",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:04:30-0800"
+    },
+    {
+      "id": "7fec7461",
+      "type": "news",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:13:34-0800"
+    },
+    {
+      "id": "f01d7953",
+      "type": "restaurant",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T08:54:58-0800"
+    },
+    {
+      "id": "142e55d9",
+      "type": "restaurant",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:02:40-0800"
+    },
+    {
+      "id": "14051729",
+      "type": "social-media",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:15:55-0800"
+    },
+    {
+      "id": "91df879f",
+      "type": "social-media",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:24:44-0800"
+    },
+    {
+      "id": "22d85f08",
+      "type": "travel",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:27:38-0800"
+    },
+    {
+      "id": "7d5861ea",
+      "type": "travel",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (English prompt)",
+      "promptLanguage": "en",
+      "createdAt": "2026-11-10T09:35:20-0800"
+    },
+    {
+      "id": "28732125",
+      "type": "bank",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:45:42-0800"
+    },
+    {
+      "id": "9cb1e1f5",
+      "type": "bank",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:53:47-0800"
+    },
+    {
+      "id": "6c52119b",
+      "type": "beauty-salon",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:07:58-0800"
+    },
+    {
+      "id": "aa7104a7",
+      "type": "beauty-salon",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:16:04-0800"
+    },
+    {
+      "id": "67b6baef",
+      "type": "clothing",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T10:24:28-0800"
+    },
+    {
+      "id": "19f99ad7",
+      "type": "clothing",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T10:34:24-0800"
+    },
+    {
+      "id": "2511725a",
+      "type": "food-delivery",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:57:28-0800"
+    },
+    {
+      "id": "467f71d7",
+      "type": "food-delivery",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:05:41-0800"
+    },
+    {
+      "id": "1ebc68c9",
+      "type": "home-cleaning",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:27:43-0800"
+    },
+    {
+      "id": "bd964b49",
+      "type": "home-cleaning",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:34:32-0800"
+    },
+    {
+      "id": "96c0c239",
+      "type": "learning",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:19:02-0800"
+    },
+    {
+      "id": "6104a8d1",
+      "type": "learning",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T12:25:41-0800"
+    },
+    {
+      "id": "335e2c23",
+      "type": "news",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:00:11-0800"
+    },
+    {
+      "id": "93b25dc2",
+      "type": "news",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:09:32-0800"
+    },
+    {
+      "id": "3648f3aa",
+      "type": "restaurant",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T10:49:59-0800"
+    },
+    {
+      "id": "912d9bd4",
+      "type": "restaurant",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T10:57:31-0800"
+    },
+    {
+      "id": "03955467",
+      "type": "social-media",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:25:20-0800"
+    },
+    {
+      "id": "1d67b302",
+      "type": "social-media",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:32:29-0800"
+    },
+    {
+      "id": "92cd304e",
+      "type": "travel",
+      "country": "US",
+      "model": "openai/gpt-oss-120b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:35:11-0800"
+    },
+    {
+      "id": "23644ae9",
+      "type": "travel",
+      "country": "China",
+      "model": "qwen/qwen3.5-122b (Chinese prompt)",
+      "promptLanguage": "zh",
+      "createdAt": "2026-11-10T11:43:56-0800"
+    }
+  ],
+  "pairs": [
+    {
+      "type": "news",
+      "us": "923fdd19",
+      "china": "645ae8dc"
+    },
+    {
+      "type": "news",
+      "us": "aa047bb5",
+      "china": "718b1d4d"
+    },
+    {
+      "type": "news",
+      "us": "6baa50c3",
+      "china": "7fec7461"
+    },
+    {
+      "type": "news",
+      "us": "335e2c23",
+      "china": "93b25dc2"
+    },
+    {
+      "type": "clothing",
+      "us": "5503f964",
+      "china": "ee80a1b7"
+    },
+    {
+      "type": "clothing",
+      "us": "332d42f8",
+      "china": "a49a8bfc"
+    },
+    {
+      "type": "clothing",
+      "us": "5976c2d7",
+      "china": "750e078e"
+    },
+    {
+      "type": "clothing",
+      "us": "67b6baef",
+      "china": "19f99ad7"
+    },
+    {
+      "type": "restaurant",
+      "us": "ad030ef5",
+      "china": "b962eb20"
+    },
+    {
+      "type": "restaurant",
+      "us": "d3ef1b6d",
+      "china": "3cb9af3c"
+    },
+    {
+      "type": "restaurant",
+      "us": "f01d7953",
+      "china": "142e55d9"
+    },
+    {
+      "type": "restaurant",
+      "us": "3648f3aa",
+      "china": "912d9bd4"
+    },
+    {
+      "type": "social-media",
+      "us": "7e8650d1",
+      "china": "dac2aea6"
+    },
+    {
+      "type": "social-media",
+      "us": "c1349459",
+      "china": "140bd5a5"
+    },
+    {
+      "type": "social-media",
+      "us": "14051729",
+      "china": "91df879f"
+    },
+    {
+      "type": "social-media",
+      "us": "03955467",
+      "china": "1d67b302"
+    },
+    {
+      "type": "travel",
+      "us": "4f3aef2b",
+      "china": "63f555da"
+    },
+    {
+      "type": "travel",
+      "us": "9cabc279",
+      "china": "35900885"
+    },
+    {
+      "type": "travel",
+      "us": "22d85f08",
+      "china": "7d5861ea"
+    },
+    {
+      "type": "travel",
+      "us": "92cd304e",
+      "china": "23644ae9"
+    },
+    {
+      "type": "bank",
+      "us": "f063a523",
+      "china": "1aef96e6"
+    },
+    {
+      "type": "bank",
+      "us": "bd26a3a1",
+      "china": "1cdb7f6f"
+    },
+    {
+      "type": "bank",
+      "us": "eebb25e5",
+      "china": "bec0e302"
+    },
+    {
+      "type": "bank",
+      "us": "28732125",
+      "china": "9cb1e1f5"
+    },
+    {
+      "type": "food-delivery",
+      "us": "12668563",
+      "china": "eabec02f"
+    },
+    {
+      "type": "food-delivery",
+      "us": "f0f375d1",
+      "china": "f36585d5"
+    },
+    {
+      "type": "food-delivery",
+      "us": "60b46f9a",
+      "china": "da51185a"
+    },
+    {
+      "type": "food-delivery",
+      "us": "2511725a",
+      "china": "467f71d7"
+    },
+    {
+      "type": "beauty-salon",
+      "us": "ea9e38c2",
+      "china": "e04d032d"
+    },
+    {
+      "type": "beauty-salon",
+      "us": "241b404c",
+      "china": "769ce841"
+    },
+    {
+      "type": "beauty-salon",
+      "us": "327e89a9",
+      "china": "1224f28f"
+    },
+    {
+      "type": "beauty-salon",
+      "us": "6c52119b",
+      "china": "aa7104a7"
+    },
+    {
+      "type": "learning",
+      "us": "08669a26",
+      "china": "4779caea"
+    },
+    {
+      "type": "learning",
+      "us": "ba2b7fe8",
+      "china": "9f32fdfd"
+    },
+    {
+      "type": "learning",
+      "us": "ef0dafe2",
+      "china": "392166b0"
+    },
+    {
+      "type": "learning",
+      "us": "96c0c239",
+      "china": "6104a8d1"
+    },
+    {
+      "type": "home-cleaning",
+      "us": "3c5b3a35",
+      "china": "406a84c5"
+    },
+    {
+      "type": "home-cleaning",
+      "us": "65942129",
+      "china": "e3b6d972"
+    },
+    {
+      "type": "home-cleaning",
+      "us": "490eb774",
+      "china": "c47bff5d"
+    },
+    {
+      "type": "home-cleaning",
+      "us": "1ebc68c9",
+      "china": "bd964b49"
     }
   ]
 }

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程中心 - 学途</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #1f2937; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        .header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 24px; font-weight: 700; color: #1e40af; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 700; }
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a { font-size: 15px; color: #4b5563; font-weight: 500; transition: color .2s; }
+        .nav a:hover, .nav a.active { color: #2563eb; }
+        .nav-btn { background: #2563eb; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; transition: background .2s; }
+        .nav-btn:hover { background: #1d4ed8; }
+
+        .page-header { background: linear-gradient(135deg, #1e3a5f, #2563eb); padding: 56px 24px; text-align: center; }
+        .page-header h1 { font-size: 36px; color: #fff; font-weight: 700; margin-bottom: 10px; }
+        .page-header p { font-size: 16px; color: #bfdbfe; }
+
+        .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        .filter-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+        .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-tab { padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 500; background: #f3f4f6; color: #4b5563; cursor: pointer; border: 1px solid transparent; transition: all .2s; }
+        .filter-tab:hover { background: #e5e7eb; }
+        .filter-tab.active { background: #2563eb; color: #fff; }
+        .sort-select { padding: 8px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; color: #374151; background: #fff; }
+
+        .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .course-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+        .course-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 44px; }
+        .course-body { padding: 20px; flex: 1; }
+        .course-tag { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 10px; }
+        .course-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+        .course-desc { font-size: 13px; color: #6b7280; margin-bottom: 12px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .course-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #6b7280; margin-bottom: 14px; flex-wrap: wrap; }
+        .course-price { font-size: 20px; font-weight: 700; color: #2563eb; }
+        .course-price span { font-size: 13px; color: #9ca3af; text-decoration: line-through; margin-left: 8px; font-weight: 400; }
+        .course-footer { padding: 0 20px 20px; }
+        .btn-course { display: block; width: 100%; text-align: center; padding: 10px; background: #eff6ff; color: #2563eb; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background .2s; }
+        .btn-course:hover { background: #dbeafe; }
+        .badge-hot { position: relative; }
+        .badge-hot::after { content: "🔥 热门"; position: absolute; top: 12px; right: 12px; background: #ef4444; color: #fff; font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; }
+
+        .load-more { text-align: center; margin-top: 40px; }
+        .load-more a { display: inline-block; padding: 12px 36px; background: #2563eb; color: #fff; border-radius: 8px; font-size: 15px; font-weight: 600; transition: background .2s; }
+        .load-more a:hover { background: #1d4ed8; }
+
+        .footer { background: #111827; padding: 48px 24px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+        .footer p, .footer a { font-size: 13px; color: #9ca3af; line-height: 2; }
+        .footer a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 20px; text-align: center; font-size: 12px; color: #6b7280; }
+
+        @media (max-width: 900px) {
+            .courses-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 600px) {
+            .courses-grid { grid-template-columns: 1fr; }
+            .nav a:not(.nav-btn) { display: none; }
+            .page-header h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">学</div>
+                学途
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="courses.html" class="active">课程中心</a>
+                <a href="course-detail.html">课程详情</a>
+                <a href="register.html" class="nav-btn">免费注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>课程中心</h1>
+        <p>86 门精品课程，覆盖语言、计算机技能和考试备考三大方向</p>
+    </div>
+
+    <div class="main">
+        <div class="filter-bar">
+            <div class="filter-tabs">
+                <span class="filter-tab active">全部课程</span>
+                <span class="filter-tab">语言课程</span>
+                <span class="filter-tab">计算机技能</span>
+                <span class="filter-tab">考试备考</span>
+            </div>
+            <select class="sort-select">
+                <option>综合排序</option>
+                <option>价格从低到高</option>
+                <option>价格从高到低</option>
+                <option>评分最高</option>
+                <option>最新上架</option>
+            </select>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-img badge-hot" style="background:linear-gradient(135deg,#dbeafe,#eff6ff);">🗣️</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#eff6ff;color:#2563eb;">语言课程</span>
+                    <h3>雅思写作冲刺 7 分班</h3>
+                    <p class="course-desc">系统掌握 Task 1 图表描述和 Task 2 议论文写作，每周批改两篇作文，八周从 5.5 提升至 7 分。</p>
+                    <div class="course-meta">
+                        <span>⏱ 24课时</span>
+                        <span>⭐ 4.9</span>
+                        <span>👥 1,280人</span>
+                    </div>
+                    <div class="course-price">¥2,980 <span>¥3,680</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#fef3c7,#fffbeb);">💻</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#fef3c7;color:#d97706;">计算机技能</span>
+                    <h3>Python 数据分析实战</h3>
+                    <p class="course-desc">从零学起，掌握 Pandas、NumPy、Matplotlib 和 Scikit-learn，完成 3 个真实业务项目。</p>
+                    <div class="course-meta">
+                        <span>⏱ 36课时</span>
+                        <span>⭐ 4.8</span>
+                        <span>👥 2,050人</span>
+                    </div>
+                    <div class="course-price">¥3,480 <span>¥4,280</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img badge-hot" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">📖</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#f0fdf4;color:#16a34a;">考试备考</span>
+                    <h3>考研英语一 全程通关</h3>
+                    <p class="course-desc">覆盖阅读理解、翻译、新题型、大小作文五大板块，12周系统训练，配套 10 套模拟卷。</p>
+                    <div class="course-meta">
+                        <span>⏱ 48课时</span>
+                        <span>⭐ 4.9</span>
+                        <span>👥 3,420人</span>
+                    </div>
+                    <div class="course-price">¥4,280 <span>¥5,180</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#fce7f3,#fdf2f8);">🇯🇵</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#fce7f3;color:#db2777;">语言课程</span>
+                    <h3>日语 N2 考前强化</h3>
+                    <p class="course-desc">针对 JLPT N2 四个部分进行专项突破，重点攻克语法和听力，含 6 次全真模考。</p>
+                    <div class="course-meta">
+                        <span>⏱ 30课时</span>
+                        <span>⭐ 4.7</span>
+                        <span>👥 860人</span>
+                    </div>
+                    <div class="course-price">¥2,580 <span>¥3,280</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#f3e8ff,#faf5ff);">🎨</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#f3e8ff;color:#7c3aed;">计算机技能</span>
+                    <h3>前端开发入门到就业</h3>
+                    <p class="course-desc">HTML/CSS/JavaScript/React 全栈学习路径，5 个渐进式项目，适合零基础转前端方向。</p>
+                    <div class="course-meta">
+                        <span>⏱ 60课时</span>
+                        <span>⭐ 4.8</span>
+                        <span>👥 1,560人</span>
+                    </div>
+                    <div class="course-price">¥4,980 <span>¥5,880</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#fff7ed,#fffbeb);">📐</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#f0fdf4;color:#16a34a;">考试备考</span>
+                    <h3>公务员行测 高效突破</h3>
+                    <p class="course-desc">数量关系、资料分析、判断推理三大模块精讲，搭配 2000+ 真题精练和技巧速成。</p>
+                    <div class="course-meta">
+                        <span>⏱ 40课时</span>
+                        <span>⭐ 4.8</span>
+                        <span>👥 2,340人</span>
+                    </div>
+                    <div class="course-price">¥3,680 <span>¥4,480</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);">🇬🇧</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#eff6ff;color:#2563eb;">语言课程</span>
+                    <h3>商务英语沟通实战</h3>
+                    <p class="course-desc">邮件写作、会议发言、跨文化谈判三大场景，用真实商业案例进行角色扮演训练。</p>
+                    <div class="course-meta">
+                        <span>⏱ 20课时</span>
+                        <span>⭐ 4.7</span>
+                        <span>👥 680人</span>
+                    </div>
+                    <div class="course-price">¥2,280 <span>¥2,880</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#fef3c7,#fefce8);">🔢</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#fef3c7;color:#d97706;">计算机技能</span>
+                    <h3>SQL 数据库与数据建模</h3>
+                    <p class="course-desc">MySQL 核心语法、索引优化、多表关联查询和基础数据仓库设计，适合运营和产品同学。</p>
+                    <div class="course-meta">
+                        <span>⏱ 24课时</span>
+                        <span>⭐ 4.9</span>
+                        <span>👥 1,120人</span>
+                    </div>
+                    <div class="course-price">¥2,680 <span>¥3,280</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-img" style="background:linear-gradient(135deg,#dbeafe,#eff6ff);">📝</div>
+                <div class="course-body">
+                    <span class="course-tag" style="background:#f0fdf4;color:#16a34a;">考试备考</span>
+                    <h3>六级听力 满分突破班</h3>
+                    <p class="course-desc">精听 + 泛听 + 场景词汇三管齐下，专攻长对话和篇章听力，四周提升 1-2 个档位。</p>
+                    <div class="course-meta">
+                        <span>⏱ 16课时</span>
+                        <span>⭐ 4.8</span>
+                        <span>👥 920人</span>
+                    </div>
+                    <div class="course-price">¥1,680 <span>¥2,180</span></div>
+                </div>
+                <div class="course-footer">
+                    <a href="course-detail.html" class="btn-course">查看详情</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="load-more">
+            <a href="courses.html">加载更多课程（共 86 门）</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h4>学途</h4>
+                    <p style="margin-bottom:12px;">专注大学生与职场新人的在线学习平台，提供语言、计算机技能和考试备考三大类课程。</p>
+                    <p>客服热线：400-8826-5500<br>服务时间：周一至周日 9:00-21:00</p>
+                </div>
+                <div>
+                    <h4>课程分类</h4>
+                    <a href="courses.html">英语课程</a><br>
+                    <a href="courses.html">日语 / 韩语课程</a><br>
+                    <a href="courses.html">Python / 数据分析</a><br>
+                    <a href="courses.html">前端开发</a><br>
+                    <a href="courses.html">考研备考</a>
+                </div>
+                <div>
+                    <h4>关于我们</h4>
+                    <a href="index.html">平台介绍</a><br>
+                    <a href="register.html">加入我们</a><br>
+                    <a href="courses.html">讲师团队</a><br>
+                    <a href="index.html">学员故事</a>
+                </div>
+                <div>
+                    <h4>帮助支持</h4>
+                    <a href="register.html">注册指南</a><br>
+                    <a href="courses.html">课程政策</a><br>
+                    <a href="index.html">退费说明</a><br>
+                    <a href="index.html">常见问题</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 学途 XuTou Learning. 保留所有权利。 | 京ICP备2025018836号
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

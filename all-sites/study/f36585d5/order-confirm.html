@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>订单确认 - 快送外卖</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #333; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.header { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: #ff5722; }
+.logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, #ff5722, #ff9800); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+.nav { display: flex; gap: 32px; }
+.nav a { font-size: 15px; color: #555; padding: 6px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+.nav a:hover, .nav a.active { color: #ff5722; border-bottom-color: #ff5722; }
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-actions .btn-order { background: #ff5722; color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; cursor: pointer; font-weight: 600; }
+
+.order-layout { display: flex; gap: 30px; padding: 40px 0 60px; }
+.order-main { flex: 1; }
+.order-sidebar { width: 360px; flex-shrink: 0; }
+
+.section-card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.section-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.section-card h3 .icon { width: 32px; height: 32px; background: #fff3e0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+.shop-info-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.shop-avatar { width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #ff6b35, #ff9a56); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+.shop-name { font-size: 16px; font-weight: 600; }
+.shop-meta { font-size: 13px; color: #888; }
+
+.order-items-table { width: 100%; border-collapse: collapse; }
+.order-items-table th { text-align: left; font-size: 13px; color: #999; font-weight: 500; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+.order-items-table td { padding: 14px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+.order-items-table .item-name { font-weight: 500; }
+.order-items-table .item-qty { color: #888; font-size: 13px; }
+.order-items-table .item-price { text-align: right; font-weight: 600; color: #333; }
+
+.address-block { padding: 16px; background: #f9f9f9; border-radius: 10px; }
+.address-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.address-detail { font-size: 14px; color: #666; }
+.address-phone { font-size: 13px; color: #999; margin-top: 4px; }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #555; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 14px; outline: none; transition: border-color 0.3s; font-family: inherit; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #ff5722; }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-row { display: flex; gap: 14px; }
+.form-row .form-group { flex: 1; }
+
+.coupon-options { display: flex; gap: 10px; flex-wrap: wrap; }
+.coupon-item { padding: 10px 16px; border: 1px solid #e0e0e0; border-radius: 10px; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.coupon-item.selected { border-color: #ff5722; background: #fff3e0; color: #ff5722; font-weight: 600; }
+.coupon-item:hover { border-color: #ff9800; }
+
+.payment-options { display: flex; flex-direction: column; gap: 10px; }
+.payment-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+.payment-item.selected { border-color: #ff5722; background: #fff8f4; }
+.payment-item .pay-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.payment-item .pay-name { font-size: 14px; font-weight: 500; }
+.payment-item .pay-desc { font-size: 12px; color: #999; }
+.payment-radio { width: 18px; height: 18px; border: 2px solid #ccc; border-radius: 50%; margin-left: auto; position: relative; }
+.payment-item.selected .payment-radio { border-color: #ff5722; }
+.payment-item.selected .payment-radio::after { content: ""; position: absolute; width: 10px; height: 10px; background: #ff5722; border-radius: 50%; top: 2px; left: 2px; }
+
+.summary-card { position: sticky; top: 88px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; color: #555; }
+.summary-row .label { color: #888; }
+.summary-divider { border: none; border-top: 1px dashed #e0e0e0; margin: 12px 0; }
+.summary-total { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; }
+.summary-total .amount { font-size: 24px; font-weight: 800; color: #ff5722; }
+.summary-total .label { font-size: 14px; color: #555; }
+.btn-confirm { width: 100%; margin-top: 20px; padding: 16px; background: linear-gradient(135deg, #ff5722, #ff9800); color: #fff; border: none; border-radius: 12px; font-size: 17px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
+.btn-confirm:hover { opacity: 0.9; }
+.btn-confirm:active { transform: scale(0.98); }
+.summary-note { margin-top: 14px; font-size: 12px; color: #999; text-align: center; }
+
+.success-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+.success-overlay.show { display: flex; }
+.success-box { background: #fff; border-radius: 20px; padding: 48px; text-align: center; max-width: 400px; width: 90%; }
+.success-box .check { font-size: 64px; margin-bottom: 16px; }
+.success-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+.success-box p { font-size: 14px; color: #666; margin-bottom: 24px; }
+.success-box .order-no { background: #f5f5f5; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; display: inline-block; margin-bottom: 24px; }
+.success-box .btn-close { padding: 12px 32px; background: #ff5722; color: #fff; border: none; border-radius: 24px; font-size: 15px; cursor: pointer; font-weight: 600; }
+
+.footer { background: #222; color: #aaa; padding: 40px 0 24px; }
+.footer-bottom { border-top: 1px solid #444; padding-top: 16px; font-size: 13px; text-align: center; color: #777; }
+
+@media (max-width: 900px) {
+  .order-layout { flex-direction: column; }
+  .order-sidebar { width: 100%; }
+  .summary-card { position: static; }
+  .form-row { flex-direction: column; gap: 0; }
+  .nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🍜</div>
+      快送外卖
+    </a>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="restaurants.html">全部餐厅</a>
+      <a href="restaurant-detail.html">热门餐厅</a>
+      <a href="order-confirm.html" class="active">我的订单</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-order">立即点餐</button>
+    </div>
+  </div>
+</header>
+
+<div class="container order-layout">
+  <div class="order-main">
+    <div class="section-card">
+      <h3><span class="icon">🏪</span> 商家信息</h3>
+      <div class="shop-info-row">
+        <div class="shop-avatar">🐉</div>
+        <div>
+          <div class="shop-name">蜀香小馆 · 家常川菜</div>
+          <div class="shop-meta">⭐ 4.9分 | 锦江区春熙路 | 预计出餐 12分钟</div>
+        </div>
+      </div>
+      <table class="order-items-table">
+        <thead>
+          <tr><th>菜品</th><th>数量</th><th style="text-align:right;">小计</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="item-name">水煮鱼片</span></td><td class="item-qty">× 1</td><td class="item-price">¥42</td></tr>
+          <tr><td><span class="item-name">麻婆豆腐</span></td><td class="item-qty">× 1</td><td class="item-price">¥22</td></tr>
+          <tr><td><span class="item-name">宫保鸡丁</span></td><td class="item-qty">× 1</td><td class="item-price">¥28</td></tr>
+          <tr><td><span class="item-name">白米饭（大碗）</span></td><td class="item-qty">× 2</td><td class="item-price">¥8</td></tr>
+          <tr><td><span class="item-name">番茄蛋花汤</span></td><td class="item-qty">× 1</td><td class="item-price">¥12</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-card">
+      <h3><span class="icon">📍</span> 配送地址</h3>
+      <div class="address-block">
+        <div class="address-title">张同学 · 锦江区 东御街18号 万科天荟 1203室</div>
+        <div class="address-detail">近春熙路地铁站A口，电梯到12层，左手边</div>
+        <div class="address-phone">138****6621</div>
+      </div>
+      <div class="form-row" style="margin-top:16px;">
+        <div class="form-group">
+          <label>配送时段</label>
+          <select>
+            <option>尽快送达（预计 14:32 - 14:57）</option>
+            <option>指定时间：15:00 - 15:30</option>
+            <option>指定时间：17:00 - 17:30</option>
+            <option>明天 11:00 - 11:30</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>配送方式</label>
+          <select>
+            <option>骑手配送</option>
+            <option>放门口/前台</option>
+            <option>自提（到店取餐）</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>备注（选填）</label>
+        <textarea placeholder="例如：不要香菜、少辣、多放米饭、放门口不用敲门…"></textarea>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3><span class="icon">🎫</span> 优惠券</h3>
+      <div class="coupon-options">
+        <div class="coupon-item selected">新客立减 ¥5</div>
+        <div class="coupon-item">满50减8（川菜专用）</div>
+        <div class="coupon-item">满80减15（全场通用）</div>
+        <div class="coupon-item">不使用优惠</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3><span class="icon">💳</span> 支付方式</h3>
+      <div class="payment-options">
+        <div class="payment-item selected" onclick="selectPayment(this)">
+          <div class="pay-icon" style="background:#f0f7ff;">💚</div>
+          <div>
+            <div class="pay-name">微信支付</div>
+            <div class="pay-desc">推荐 · 安全便捷</div>
+          </div>
+          <div class="payment-radio"></div>
+        </div>
+        <div class="payment-item" onclick="selectPayment(this)">
+          <div class="pay-icon" style="background:#fff8e1;">💙</div>
+          <div>
+            <div class="pay-name">支付宝</div>
+            <div class="pay-desc">花呗/余额支付</div>
+          </div>
+          <div class="payment-radio"></div>
+        </div>
+        <div class="payment-item" onclick="selectPayment(this)">
+          <div class="pay-icon" style="background:#fce4ec;">💳</div>
+          <div>
+            <div class="pay-name">银行卡</div>
+            <div class="pay-desc">支持储蓄卡/信用卡</div>
+          </div>
+          <div class="payment-radio"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-sidebar">
+    <div class="section-card summary-card">
+      <h3><span class="icon">🧾</span> 订单摘要</h3>
+      <div class="summary-row">
+        <span class="label">商品合计</span>
+        <span>¥112</span>
+      </div>
+      <div class="summary-row">
+        <span class="label">配送费</span>
+        <span style="color:#4caf50;">¥0（免配送）</span>
+      </div>
+      <div class="summary-row">
+        <span class="label">包装费</span>
+        <span>¥2</span>
+      </div>
+      <div class="summary-row">
+        <span class="label">新客优惠</span>
+        <span style="color:#ff5722;">-¥5</span>
+      </div>
+      <div class="summary-row">
+        <span class="label">平台补贴</span>
+        <span style="color:#ff5722;">-¥3</span>
+      </div>
+      <hr class="summary-divider">
+      <div class="summary-total">
+        <span class="label">应付金额</span>
+        <span class="amount">¥106</span>
+      </div>
+      <button class="btn-confirm" onclick="confirmOrder()">确认下单 · ¥106</button>
+      <div class="summary-note">下单即表示同意《快送外卖服务协议》<br>预计送达时间：14:32 - 14:57</div>
+    </div>
+  </div>
+</div>
+
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="check">✅</div>
+    <h2>下单成功！</h2>
+    <p>商家已接单，正在为您准备餐品<br>骑手将在出餐后取餐配送</p>
+    <div class="order-no">订单号：KS202501182836</div>
+    <br>
+    <button class="btn-close" onclick="closeOverlay()">返回首页</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      © 2025 快送外卖 版权所有 | 蜀ICP备2025001234号
+    </div>
+  </div>
+</footer>
+
+<script>
+function selectPayment(el) {
+  document.querySelectorAll('.payment-item').forEach(item => item.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function confirmOrder() {
+  document.getElementById('successOverlay').classList.add('show');
+}
+
+function closeOverlay() {
+  document.getElementById('successOverlay').classList.remove('show');
+  window.location.href = 'index.html';
+}
+
+document.querySelectorAll('.coupon-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.coupon-item').forEach(c => c.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+</script>
+
+</body>
+</html>
+=====

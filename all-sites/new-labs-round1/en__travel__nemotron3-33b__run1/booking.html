@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>预订 - 畅行旅行</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>畅行旅行</h1>
+<nav>
+<a href="index.html">首页</a>
+<a href="about.html">关于我们</a>
+<a href="results.html">目的地</a>
+<a href="hotel_detail.html">酒店</a>
+<a href="booking.html">预订</a>
+</nav>
+</header>
+
+<main>
+<section class="booking-section">
+<h2>预订酒店</h2>
+<form id="bookingForm" action="#" method="GET">
+<input type="hidden" name="hotel" value="beijing_wangfu">
+
+<label for="checkin">入住日期:</label>
+<input type="date" id="checkin" name="checkin" required>
+
+<label for="checkout">离开日期:</label>
+<input type="date" id="checkout" name="checkout" required>
+
+<label for="room">房型:</label>
+<select id="room" name="room" required>
+<option value="standard">标准间</option>
+<option value="deluxe">高级间</option>
+<option value="suite">套房</option>
+</select>
+
+<label for="guests">入住人数:</label>
+<input type="number" id="guests" name="guests" min="1" value="2" required>
+
+<label for="name">您的姓名:</label>
+<input type="text" id="name" name="name" placeholder="张三" required>
+
+<label for="phone">联系电话:</label>
+<input type="tel" id="phone" name="phone" placeholder="13800138000" required>
+
+<label for="notes">备注（可选）:</label>
+<textarea id="notes" name="notes" rows="3" placeholder="如需加床或特殊要求"></textarea>
+
+<button type="submit" class="btn">搜索房型</button>
+<button type="button" id="bookingBtn" class="btn">预订</button>
+
+<div id="message" class="message"></div>
+</form>
+</section>
+</main>
+
+<footer>
+<p>© 2025 畅行旅行. 版权所有.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

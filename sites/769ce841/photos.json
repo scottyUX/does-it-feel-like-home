@@ -1,0 +1,55 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar",
+   "match": "林嘉怡 首席发型设计师 / 创始人 12年一线造",
+   "url": "assets/photo-0af54f80718c9def.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar",
+   "match": "陈墨白 资深染发师 / 色彩顾问 8年染发专精经",
+   "url": "assets/photo-e0fd347b0eeaa7b9.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar",
+   "match": "苏婉清 美容护肤师 / 皮肤管理 10年美容护肤",
+   "url": "assets/photo-2c32262e7690c49d.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar",
+   "match": "周子航 时尚造型师 / 男士专家 6年男士造型专",
+   "url": "assets/photo-34725f536e3f587f.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a man",
+   "original": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&h=800&q=80"
+  },
+  {
+   "page": "team.html",
+   "selector": "div.team-avatar",
+   "match": "方乐怡 美容师 / 身体护理 4年身体护理与肩颈",
+   "url": "assets/photo-9c74415436e48214.jpg",
+   "hideText": true,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

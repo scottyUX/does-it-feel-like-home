@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长川银行 - 您的财富伙伴</title>
+    <style>
+        :root {
+            --primary-red: #c8102e;
+            --primary-gold: #d4af37;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Header */
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-red); display: flex; align-items: center; }
+        .logo span { margin-left: 10px; color: #333; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-red); }
+        .login-btn { background: var(--primary-red); color: white; padding: 8px 20px; border-radius: 4px; font-size: 14px; }
+        .login-btn:hover { background: #a00d25; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; color: var(--text-dark); }
+        .hero p { font-size: 18px; color: var(--text-light); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-group { display: flex; justify-content: center; gap: 20px; }
+        .btn-primary { background: var(--primary-red); color: white; padding: 12px 30px; border-radius: 4px; font-weight: bold; transition: 0.3s; }
+        .btn-primary:hover { background: #a00d25; }
+        .btn-secondary { border: 2px solid var(--primary-red); color: var(--primary-red); padding: 12px 30px; border-radius: 4px; font-weight: bold; transition: 0.3s; }
+        .btn-secondary:hover { background: var(--primary-red); color: white; }
+
+        /* Quick Links / Features */
+        .features { max-width: 1200px; margin: 60px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px; }
+        .feature-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon { font-size: 40px; color: var(--primary-gold); margin-bottom: 20px; display: block; }
+        .feature-card h3 { margin-bottom: 15px; }
+        .feature-card p { color: var(--text-light); font-size: 14px; }
+
+        /* Rates Section */
+        .rates-section { background: var(--bg-light); padding: 60px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 32px; margin-bottom: 10px; }
+        .rate-table { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .rate-table th { background: var(--primary-red); color: white; padding: 15px; text-align: left; }
+        .rate-table td { padding: 15px; border-bottom: 1px solid #eee; }
+        .rate-table tr:last-child td { border-bottom: none; }
+        .rate-value { font-weight: bold; color: var(--primary-red); }
+
+        /* Footer */
+        footer { background: #333; color: #aaa; padding: 40px 20px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-bottom { text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .nav-links { display: none; } /* Simplified mobile handling */
+            .logo { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M16 12a4 4 0 0 1-8 0"></path>
+                    <path d="M12 2v4"></path>
+                    <path d="M12 18v4"></path>
+                </svg>
+                <span>长川银行</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人金融</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="#" class="login-btn" onclick="alert('请先注册或联系银行客服获取登录权限。')">个人网银登录</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>稳健相伴，财富无忧</h1>
+            <p>长川银行致力于为个人及小微企业提供安全、高效的金融服务。无论是储蓄存款、信用卡消费还是个人贷款，我们都为您量身定制解决方案。</p>
+            <div class="cta-group">
+                <a href="personal.html" class="btn-primary">查看个人业务</a>
+                <a href="contact.html" class="btn-secondary">查询网点</a>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-title">
+                <h2>为什么选择长川银行</h2>
+                <p>30 年深耕本土，服务百万家庭</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3>优质存款利率</h3>
+                    <p>大额存单起存金额低，年化利率优惠，助您资产稳健增值。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💳</span>
+                    <h3>灵活信用卡</h3>
+                    <p>积分当钱花，商旅出行享贵宾服务，网购返现最高 5%。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>指尖银行</h3>
+                    <p>手机银行 App 支持 24 小时转账、理财购买及生活缴费，随时随心管理。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="rates-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>最新存款利率 (2023 年 10 月更新)</h2>
+                </div>
+                <table class="rate-table">
+                    <thead>
+                        <tr>
+                            <th>存款种类</th>
+                            <th>期限</th>
+                            <th>年利率 (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>活期存款</td>
+                            <td>--</td>
+                            <td class="rate-value">0.25</td>
+                        </tr>
+                        <tr>
+                            <td>整存整取</td>
+                            <td>3 个月</td>
+                            <td class="rate-value">1.65</td>
+                        </tr>
+                        <tr>
+                            <td>整存整取</td>
+                            <td>6 个月</td>
+                            <td class="rate-value">1.85</td>
+                        </tr>
+                        <tr>
+                            <td>整存整取</td>
+                            <td>1 年</td>
+                            <td class="rate-value">2.10</td>
+                        </tr>
+                        <tr>
+                            <td>整存整取</td>
+                            <td>3 年</td>
+                            <td class="rate-value">3.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于长川</h4>
+                <ul>
+                    <li><a href="#">银行简介</a></li>
+                    <li><a href="#">企业文化</a></li>
+                    <li><a href="#">投资者关系</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>业务服务</h4>
+                <ul>
+                    <li><a href="personal.html">个人账户管理</a></li>
+                    <li><a href="cards.html">信用卡申请</a></li>
+                    <li><a href="contact.html">网点查询</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li>24 小时客服热线：95588</li>
+                    <li>服务监督：010-12345678</li>
+                    <li>地址：中国北京市朝阳区金融大街 1 号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 长川银行 版权所有 | 金融许可证号：B0001H211000001</p>
+        </div>
+    </footer>
+</body>
+</html>

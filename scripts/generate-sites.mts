@@ -469,24 +469,32 @@ const runExperiment = async (key: string, name: string) => {
   const config = JSON.parse(
     await readFile(path.join(dir, "experiment.json"), "utf8"),
   ) as ExperimentConfig;
-  const results = [];
-  for (const run of config.runs) {
-    const model = MODELS.find((candidate) => candidate.id === run.model);
-    if (!model) throw new Error(`Unknown model ${run.model}`);
-    const record = await generateOne(
-      key,
-      model,
-      run.siteType,
-      (await readFile(path.join(dir, run.prompt), "utf8")).trim(),
-      (await readFile(path.join(dir, run.instructions), "utf8")).trim(),
-      {
-        sourceDir: path.join(ROOT, "sources", "experiments", name, run.label),
-        repairMessage: run.repair,
-        minPages: config.minPages,
-      },
-    );
-    results.push({ label: run.label, ...record });
-  }
+  // Runs go in parallel, and one failed run keeps the others.
+  const settled = await Promise.allSettled(
+    config.runs.map(async (run) => {
+      const model = MODELS.find((candidate) => candidate.id === run.model);
+      if (!model) throw new Error(`Unknown model ${run.model}`);
+      const record = await generateOne(
+        key,
+        model,
+        run.siteType,
+        (await readFile(path.join(dir, run.prompt), "utf8")).trim(),
+        (await readFile(path.join(dir, run.instructions), "utf8")).trim(),
+        {
+          sourceDir: path.join(ROOT, "sources", "experiments", name, run.label),
+          repairMessage: run.repair,
+          minPages: config.minPages,
+        },
+      );
+      return { label: run.label, ...record };
+    }),
+  );
+  const results = settled.flatMap((outcome, index) => {
+    if (outcome.status === "fulfilled") return [outcome.value];
+    console.error(`${config.runs[index].label} failed: ${outcome.reason}`);
+    return [];
+  });
+  if (results.length === 0) throw new Error(`experiment ${name} produced no sites`);
   await mkdir(path.join(ROOT, "data", "experiments"), { recursive: true });
   await writeFile(
     path.join(ROOT, "data", "experiments", `${name}.json`),

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可衣 - 购物车</title>
+<style>
+  body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+  .header { background: #f4f4f4; padding: 10px 0; }
+  .header-container { width: 1440px; margin: 0 auto; }
+  .logo { float: left; font-size: 24px; color: #333; }
+  .nav { float: right; }
+  .nav a { text-decoration: none; color: #333; padding: 0 20px; }
+  .nav a:hover { color: #0066cc; }
+  .cart-container { padding: 40px; }
+  .cart-item { border-bottom: 1px solid #ddd; padding: 10px 0; }
+  .cart-image { float: left; width: 100px; }
+  .cart-info { margin-left: 120px; }
+  .cart-name { font-size: 18px; }
+  .cart-price { color: #f00; }
+  .cart-quantity { margin-top: 10px; }
+  .cart-total { margin-top: 20px; }
+  .footer { background: #333; color: white; text-align: center; padding: 20px 0; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-container">
+      <div class="logo">可衣</div>
+      <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="products.html">产品列表</a>
+        <a href="cart.html">购物车</a>
+      </div>
+    </div>
+  </div>
+  <div class="cart-container">
+    <h1>购物车</h1>
+    <div class="cart-item">
+      <img src="tops.jpg" alt="优雅上衣" class="cart-image">
+      <div class="cart-info">
+        <p class="cart-name">优雅上衣</p>
+        <p class="cart-price">¥ 299</p>
+        <p class="cart-quantity">数量：1</p>
+      </div>
+    </div>
+    <div class="cart-total">
+      <p>商品总价：¥ 299</p>
+    </div>
+  </div>
+  <div class="footer">
+    <p>版权所有 &copy; 可衣</p>
+  </div>
+</body>
+</html>

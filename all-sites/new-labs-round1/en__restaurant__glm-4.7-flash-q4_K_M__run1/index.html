@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家味餐厅 - 西湖边的地道杭帮菜</title>
+    <style>
+        :root {
+            --primary-color: #8E354A;
+            --secondary-color: #F4A460;
+            --bg-color: #FAFAFA;
+            --text-color: #333333;
+            --light-text: #666666;
+            --white: #FFFFFF;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 通用布局 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 首页特有样式 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%23F0F0F0"/><circle cx="50" cy="50" r="40" fill="%23E6E6E6"/></svg>'); /* 纯CSS背景模拟 */
+            background-color: #3E2723;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #6D2936;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .food-highlight {
+            background-color: var(--white);
+            padding: 50px 0;
+            margin-bottom: 60px;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .highlight-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .highlight-text p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .highlight-img {
+            height: 300px;
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 18px;
+            background-image: linear-gradient(45deg, #ddd 25%, transparent 25%), linear-gradient(-45deg, #ddd 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ddd 75%), linear-gradient(-45deg, transparent 75%, #ddd 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #999;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 14px;
+            }
+            .hero h1 { font-size: 32px; }
+            .highlight-grid { grid-template-columns: 1fr; }
+            .hero { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="index.html" class="logo">
+            <span style="font-size: 28px;">道</span> 家味
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">菜单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="reservation.html">预订</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>在西湖边品味家味</h1>
+            <p>传承百年杭帮菜手艺，为您和家人提供最地道的西湖醋鱼与东坡肉。现炒现做，回归味蕾最初的感动。</p>
+            <div>
+                <a href="reservation.html" class="btn">立即预订</a>
+                <a href="menu.html" class="btn btn-outline">查看菜单</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">我们的特色</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏮</div>
+                <h3>地道正宗</h3>
+                <p>由杭州本地名厨主理，坚持食材新鲜，严格把控油盐，还原老底子的味道。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3>家庭氛围</h3>
+                <p>餐厅装修温馨雅致，无论是带孩子的家庭还是商务聚餐，都能找到舒适的位置。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>时令精选</h3>
+                <p>根据西湖周边的季节变化，每日推出当日最新鲜的当季时蔬与河鲜。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-highlight">
+        <div class="container highlight-grid">
+            <div class="highlight-img"></div>
+            <div class="highlight-text">
+                <h2>精选招牌菜</h2>
+                <h3>浓油赤酱，入口即化</h3>
+                <p>我们的东坡肉选用五花三层精肉，以绍兴黄酒慢火焖煮三天。肥而不腻，瘦而不柴，每一块都散发着浓郁的酱香，是无数食客必点的经典。</p>
+                <p>搭配上新鲜采摘的时令蔬菜与清淡的杭帮小炒，酸甜适中，老少皆宜。</p>
+                <a href="menu.html" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">浏览完整菜单 &rarr;</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>地址：杭州市西湖区龙井路1号<br>电话：0571-88888888 | 营业时间：11:00 - 21:00</p>
+        <p style="margin-top: 10px;">&copy; 2023 家味餐厅 版权所有</p>
+    </div>
+</footer>
+
+</body>
+</html>

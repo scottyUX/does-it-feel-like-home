@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用卡 - 长川银行</title>
+    <style>
+        :root {
+            --primary-red: #c8102e;
+            --primary-dark: #2c3e50;
+            --text-light: #555;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", sans-serif; color: #333; background: #f8f8f8; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Header */
+        header { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 15px 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 22px; font-weight: bold; color: var(--primary-red); }
+        .nav-links a { margin-left: 25px; font-weight: 500; }
+        .nav-links a.active { color: var(--primary-red); }
+        .apply-btn { background: var(--primary-red); color: white; padding: 8px 20px; border-radius: 4px; }
+
+        /* Hero */
+        .card-hero { background: var(--primary-dark); color: white; padding: 60px 20px; text-align: center; margin-bottom: 50px; }
+        .card-hero h2 { font-size: 36px; margin-bottom: 15px; }
+        .card-hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Cards Grid */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        /* Individual Card Component */
+        .card-component { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; display: flex; flex-direction: column; }
+        .card-component:hover { transform: translateY(-10px); }
+        
+        /* Credit Card Visual */
+        .credit-card-visual { height: 200px; padding: 25px; position: relative; border-bottom: 1px solid #eee; color: white; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
+        .card-visa { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .card-gold { background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #d4af37 100%); color: #333; }
+        .card-platinum { background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); }
+        
+        .chip { width: 40px; height: 30px; background: #d4af37; border-radius: 6px; display: inline-block; margin-bottom: auto; box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
+        .chip.glow { box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        .card-logo { font-size: 20px; font-weight: bold; font-style: italic; letter-spacing: 2px; }
+        .card-number { font-family: monospace; font-size: 22px; letter-spacing: 2px; text-align: right; }
+        .card-name { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-align: right; }
+
+        .card-details { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-details h3 { margin-bottom: 15px; font-size: 20px; }
+        .card-details ul { margin-bottom: 25px; flex-grow: 1; }
+        .card-details li { margin-bottom: 10px; font-size: 14px; color: var(--text-light); position: relative; padding-left: 20px; }
+        .card-details li::before { content: "✔"; color: var(--primary-red); position: absolute; left: 0; font-weight: bold; }
+        
+        .fees { background: #f9f9f9; padding: 10px; border-radius: 4px; font-size: 12px; color: #888; margin-bottom: 20px; display: flex; justify-content: space-between; }
+        
+        .apply-btn { background: var(--primary-red); color: white; text-align: center; padding: 12px; border-radius: 6px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .apply-btn:hover { background: #a00d25; }
+
+        /* Footer */
+        footer { background: #333; color: #888; text-align: center; padding: 30px 0; margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">长川银行</a>
+            <nav class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="personal.html">个人金融</a>
+                <a href="cards.html" class="active">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="#" onclick="alert('申请需审核，请稍后提交资料。')" class="apply-btn">立即申请</a>
+        </div>
+    </header>
+
+    <section class="card-hero">
+        <h2>智享生活，随心所愿</h2>
+        <p>长川银行信用卡，为您提供最贴心的支付体验与丰富的权益回馈。新用户首刷享多重好礼。</p>
+    </section>
+
+    <main class="container">
+        <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <div class="card-component">
+                <div class="credit-card-visual card-visa">
+                    <div>
+                        <div class="chip glow"></div>
+                        <div class="card-logo">CCB VISA</div>
+                    </div>
+                    <div>
+                        <div class="card-number">4912 8888 6666 1234</div>
+                        <div class="card-name">CHANG CHUAN</div>
+                    </div>
+                </div>
+                <div class="card-details">
+                    <h3>长川商旅白金卡</h3>
+                    <p style="font-size: 14px; color: #888; margin-bottom: 15px;">专为商务出行打造</p>
+                    <ul>
+                        <li>全年无限次机场贵宾厅</li>
+                        <li>高额航空意外险（800 万）</li>
+                        <li>境外消费返现 2%</li>
+                        <li>全球酒店集团金卡会籍</li>
+                    </ul>
+                    <div class="fees">
+                        <span>年费：2000 元</span>
+                        <span>积分抵免</span>
+                    </div>
+                    <div class="apply-btn" onclick="alert('申请：商旅白金卡')">在线申请</div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-component">
+                <div class="credit-card-visual card-gold">
+                    <div>
+                        <div class="chip"></div>
+                        <div class="card-logo">CCB GOLD</div>
+                    </div>
+                    <div>
+                        <div class="card-number">5210 3333 4444 5555</div>
+                        <div class="card-name">SMART SHOPPER</div>
+                    </div>
+                </div>
+                <div class="card-details">
+                    <h3>长川悦享金卡</h3>
+                    <p style="font-size: 14px; color: #888; margin-bottom: 15px;">日常消费首选，积分当钱花</p>
+                    <ul>
+                        <li>超市、外卖消费 5 倍积分</li>
+                        <li>每月 10 元看电影，2 张 5 折券</li>
+                        <li>生日当月积分双倍</li>
+                        <li>首年免年费，刷卡 5 次免次年年费</li>
+                    </ul>
+                    <div class="fees">
+                        <span>年费：200 元</span>
+                        <span>刷卡减免</span>
+                    </div>
+                    <div class="apply-btn" onclick="alert('申请：悦享金卡')">在线申请</div>
+                </div>
+            </div>
+
+             <!-- Card 3 -->
+             <div class="card-component">
+                <div class="credit-card-visual card-platinum">
+                    <div>
+                        <div class="chip glow" style="background: silver;"></div>
+                        <div class="card-logo">CCB PLATINUM</div>
+                    </div>
+                    <div>
+                        <div class="card-number">6011 0009 9999 8888</div>
+                        <div class="card-name">FAMILY CARD</div>
+                    </div>
+                </div>
+                <div class="card-details">
+                    <h3>长川亲子家庭卡</h3>
+                    <p style="font-size: 14px; color: #888; margin-bottom: 15px;">关爱家人，从一张卡开始</p>
+                    <ul>
+                        <li>可办理 3 张附属卡，共享额度</li>
+                        <li>儿童体检、牙科护理优惠</li>
+                        <li>亲子乐园门票买一送一</li>
+                        <li>0.01 元购少儿意外险</li>
+                    </ul>
+                    <div class="fees">
+                        <span>年费：1000 元</span>
+                        <span>积分兑换</span>
+                    </div>
+                    <div class="apply-btn" onclick="alert('申请：亲子家庭卡')">在线申请</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 长川银行 版权所有</p>
+    </footer>
+</body>
+</html>

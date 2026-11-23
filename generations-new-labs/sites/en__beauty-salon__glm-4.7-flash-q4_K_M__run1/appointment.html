@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线预约 - 悦容美发美容</title>
+    <style>
+        :root {
+            --primary: #b07d4d;
+            --primary-dark: #8a5e3a;
+            --bg-light: #f9f8f6;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        header { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-book { background: var(--primary); color: #fff; padding: 0.6rem 1.5rem; border-radius: 20px; }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--text-dark); }
+
+        .appointment-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-col { flex: 1; min-width: 300px; }
+        .info-col { flex: 1; min-width: 300px; background: #fafafa; padding: 30px; border-radius: var(--border-radius); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: var(--primary-dark); }
+
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { color: var(--primary); margin-bottom: 5px; }
+        .info-item p { color: var(--text-gray); margin-bottom: 2px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">✦ 悦容美发美容</div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html">关于我们</a>
+                <a href="services.html">服务项目</a>
+                <a href="stylists.html">专家团队</a>
+                <a href="appointment.html" style="color: var(--primary); font-weight: bold;">立即预约</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>在线预约</h2>
+            <p>请填写下方表格，我们会尽快通过电话或微信与您确认。</p>
+        </div>
+
+        <div class="appointment-wrapper">
+            <div class="form-col">
+                <form id="bookingForm" onsubmit="event.preventDefault(); alert('感谢您的预约申请！我们已收到您的信息，工作人员将在15分钟内致电您确认时间。');">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" placeholder="请输入真实姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" placeholder="请输入手机号码" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">性别</label>
+                        <select id="gender">
+                            <option value="女士">女士</option>
+                            <option value="男士">男士</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">期望项目</label>
+                        <select id="service">
+                            <option value="剪发造型">剪发造型</option>
+                            <option value="染发护理">染发护理</option>
+                            <option value="烫发造型">烫发造型</option>
+                            <option value="皮肤管理">皮肤管理</option>
+                            <option value="美甲服务">美甲服务</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stylist">指定发型师（可选）</label>
+                        <select id="stylist">
+                            <option value="不指定">不指定（随机安排）</option>
+                            <option value="李安娜">李安娜（首席发型师）</option>
+                            <option value="张伟">张伟（资深造型师）</option>
+                            <option value="赵雅琳">赵雅琳（资深化妆师）</option>
+                            <option value="陈志强">陈志强（创意发型师）</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">期望日期</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">期望时段</label>
+                        <select id="time">
+                            <option value="09:00">09:00 - 10:30</option>
+                            <option value="10:00">10:00 - 11:30</option>
+                            <option value="11:30">11:30 - 13:00</option>
+                            <option value="14:00">14:00 - 15:30</option>
+                            <option value="15:30">15:30 - 17:00</option>
+                            <option value="17:00">17:00 - 18:30</option>
+                            <option value="19:00">19:00 - 20:30</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">备注信息</label>
+                        <textarea id="notes" rows="3" placeholder="如有特殊发质说明或需要携带的东西，请在此备注"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">确认提交预约</button>
+                </form>
+            </div>
+
+            <div class="info-col">
+                <h3 style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">预约须知</h3>
+                <div class="info-item">
+                    <h4>确认流程</h4>
+                    <p>提交表单后，我们的前台将核对您的预约时间与项目。如确认无误，会拨打您预留的电话进行最终确认。</p>
+                </div>
+                <div class="info-item">
+                    <h4>取消或改期</h4>
+                    <p>如需更改或取消预约，请至少提前4小时致电本店。</p>
+                </div>
+                <div class="info-item">
+                    <h4>到店指引</h4>
+                    <p>地址：广州市天河区珠江新城花城大道123号（搜“悦容美发美容”导航即可）</p>
+                </div>
+                <div class="info-item">
+                    <h4>温馨提示</h4>
+                    <p>为了您有更好的体验，请提前10分钟到店洗护，并提前告知美发师您的诉求。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

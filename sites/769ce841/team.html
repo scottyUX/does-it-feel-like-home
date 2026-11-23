@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>团队介绍 - 悦容美发美容</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --dark: #2c2c2c;
+  --darker: #1a1a1a;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --gray: #6b6b6b;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif; color: var(--dark); background: var(--cream); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+  padding: 0 60px; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 22px; font-weight: 700; color: var(--dark); letter-spacing: 2px; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links a { font-size: 15px; color: var(--gray); transition: color 0.3s; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--white) !important; padding: 10px 28px; border-radius: 4px; font-weight: 600; transition: all 0.3s; }
+.nav-cta:hover { background: #b8944f; transform: translateY(-1px); }
+
+.page-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2520 100%);
+  padding: 140px 60px 80px; text-align: center;
+}
+.page-header h1 { font-size: 42px; color: var(--white); margin-bottom: 16px; }
+.page-header p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; }
+.page-header .breadcrumb { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); }
+.page-header .breadcrumb a { color: var(--gold); }
+
+.section { padding: 80px 60px; }
+.section-sub { text-align: center; margin-bottom: 56px; }
+.section-sub h2 { font-size: 30px; margin-bottom: 12px; }
+.section-sub p { font-size: 15px; color: var(--gray); max-width: 500px; margin: 0 auto; }
+
+/* Team Grid */
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; }
+.team-card {
+  background: var(--white); border-radius: 10px; overflow: hidden;
+  display: flex; flex-direction: column; transition: all 0.3s;
+  border: 1px solid #f0ede8;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); border-color: var(--gold-light); }
+.team-avatar {
+  height: 200px; display: flex; align-items: center; justify-content: center;
+  font-size: 64px; position: relative;
+}
+.team-avatar::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(transparent, rgba(255,255,255,0.8));
+}
+.team-info { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+.team-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.team-role { font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+.team-bio { font-size: 14px; color: var(--gray); line-height: 1.8; flex: 1; }
+.team-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.team-tag {
+  background: var(--cream); border: 1px solid #e8e4dd; padding: 4px 12px;
+  border-radius: 20px; font-size: 12px; color: var(--gray);
+}
+
+/* Senior */
+.senior-card {
+  background: linear-gradient(135deg, #2a2220, #3a3028);
+  border: none;
+}
+.senior-card .team-avatar { background: linear-gradient(135deg, #4a3d32, #5a4d40); }
+.senior-card .team-name { color: var(--white); }
+.senior-card .team-bio { color: rgba(255,255,255,0.7); }
+.senior-card .team-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+
+/* Culture Section */
+.culture { background: var(--white); }
+.culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.culture-item { text-align: center; padding: 32px 24px; }
+.culture-icon { font-size: 40px; margin-bottom: 16px; }
+.culture-item h3 { font-size: 18px; margin-bottom: 10px; }
+.culture-item p { font-size: 14px; color: var(--gray); }
+
+/* CTA */
+.cta-bar {
+  background: linear-gradient(135deg, var(--gold), #d4a056);
+  padding: 50px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.cta-bar h3 { font-size: 24px; color: var(--white); }
+.cta-bar p { font-size: 15px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+.btn-white { background: var(--white); color: var(--dark); padding: 14px 36px; border-radius: 4px; font-size: 15px; font-weight: 600; transition: all 0.3s; }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+.footer { background: var(--darker); padding: 50px 60px 24px; color: rgba(255,255,255,0.6); }
+.footer-bottom { display: flex; justify-content: space-between; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+@media (max-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .culture-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .navbar { padding: 0 20px; }
+  .page-header { padding: 120px 20px 60px; }
+  .page-header h1 { font-size: 30px; }
+  .section { padding: 50px 20px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .cta-bar { padding: 40px 20px; text-align: center; justify-content: center; }
+  .footer { padding: 40px 20px 20px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">悦容<span>·</span>美发美容</a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="services.html">服务项目</a></li>
+    <li><a href="team.html" class="active">团队介绍</a></li>
+    <li><a href="booking.html" class="nav-cta">立即预约</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <h1>我们的造型师团队</h1>
+  <p>每一位都经过严格考核与持续进修，用专业与热情成就你的每一次美丽蜕变</p>
+  <div class="breadcrumb"><a href="index.html">首页</a> / 团队介绍</div>
+</header>
+
+<section class="section">
+  <div class="section-sub">
+    <h2>核心造型师</h2>
+    <p>资深设计师团队，擅长风格各异的高级定制方案</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card senior-card">
+      <div class="team-avatar">👩‍🎤</div>
+      <div class="team-info">
+        <div class="team-name">林嘉怡</div>
+        <div class="team-role">首席发型设计师 / 创始人</div>
+        <p class="team-bio">12年一线造型经验，前广州某高端连锁技术总监。擅长日系层次剪裁与高级灰调染发，曾为多位艺人及品牌活动提供造型支持。设计理念：「不追赶潮流，只塑造属于你的风格」。</p>
+        <div class="team-tags">
+          <span class="team-tag">日系剪裁</span>
+          <span class="team-tag">高级灰染</span>
+          <span class="team-tag">商务造型</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background: linear-gradient(135deg, #e8d5b0, #d4c5a0);">👨‍🎨</div>
+      <div class="team-info">
+        <div class="team-name">陈墨白</div>
+        <div class="team-role">资深染发师 / 色彩顾问</div>
+        <p class="team-bio">8年染发专精经验，深研色彩学与人肤匹配。擅长奶茶色系、雾面灰、莫兰迪色等低饱和高级色。坚持"先测肤色后配色"，确保染后自然显白、不假不艳。</p>
+        <div class="team-tags">
+          <span class="team-tag">色彩设计</span>
+          <span class="team-tag">低饱和系</span>
+          <span class="team-tag">无氨染发</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background: linear-gradient(135deg, #d4a0a0, #c9909a);">👩‍⚕️</div>
+      <div class="team-info">
+        <div class="team-name">苏婉清</div>
+        <div class="team-role">美容护肤师 / 皮肤管理</div>
+        <p class="team-bio">10年美容护肤经验，国家认证高级美容师。擅长敏感肌修复、抗衰方案设计与问题肌肤管理。手法温柔细致，注重"养"而非"做"，帮客户建立长期健康护肤习惯。</p>
+        <div class="team-tags">
+          <span class="team-tag">敏感肌修复</span>
+          <span class="team-tag">抗衰管理</span>
+          <span class="team-tag">问题肌</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background: linear-gradient(135deg, #b8c9d4, #a0b5c4);">💇‍♂️</div>
+      <div class="team-info">
+        <div class="team-name">周子航</div>
+        <div class="team-role">时尚造型师 / 男士专家</div>
+        <p class="team-bio">6年男士造型专注经验，对各类脸型与发质有深入研究。擅长短寸、纹理、逗号刘海等当下流行发型。风格利落不拖沓，沟通高效，深受男性客户信赖。</p>
+        <div class="team-tags">
+          <span class="team-tag">男士精剪</span>
+          <span class="team-tag">纹理烫</span>
+          <span class="team-tag">商务风</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-sub">
+    <h2>美容护理团队</h2>
+    <p>专注面部与身体护理的专业技术力量</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar" style="background: linear-gradient(135deg, #c5d4b8, #b0c4a0);">🧴</div>
+      <div class="team-info">
+        <div class="team-name">何雨桐</div>
+        <div class="team-role">美容师 / 面部护理</div>
+        <p class="team-bio">5年美容护理经验，擅长日常清洁、补水与美白护理。操作规范、手法轻柔，注重客户体验感。每次护理前会详细讲解产品成分与操作步骤，让客人安心又放心。</p>
+        <div class="team-tags">
+          <span class="team-tag">深层清洁</span>
+          <span class="team-tag">补水保湿</span>
+          <span class="team-tag">美白亮肤</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background: linear-gradient(135deg, #d4b8c5, #c4a0b0);">💆</div>
+      <div class="team-info">
+        <div class="team-name">方乐怡</div>
+        <div class="team-role">美容师 / 身体护理</div>
+        <p class="team-bio">4年身体护理与肩颈放松经验，持有中医推拿辅助证书。擅长精油开背、肩颈疏通与腿部淋巴排毒。手法力度恰到好处，特别适合久坐办公室的职场人士。</p>
+        <div class="team-tags">
+          <span class="team-tag">肩颈放松</span>
+          <span class="team-tag">精油推拿</span>
+          <span class="team-tag">淋巴疏通</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section culture">
+  <div class="section-sub">
+    <h2>我们的团队理念</h2>
+    <p>不仅追求技术的精进，更看重对人的用心</p>
+  </div>
+  <div class="culture-grid">
+    <div class="culture-item">
+      <div class="culture-icon">🎓</div>
+      <h3>持续进修</h3>
+      <p>每位造型师每年至少参加2次外部培训或行业展览，紧跟国际潮流趋势，保持技术领先。</p>
+    </div>
+    <div class="culture-item">
+      <div class="culture-icon">🤝</div>
+      <h3>真诚沟通</h3>
+      <p>不推销、不夸大。先了解你的需求与预算，再给出最合适的方案。做你信任的美容顾问，而非销售。</p>
+    </div>
+    <div class="culture-item">
+      <div class="culture-icon">🏅</div>
+      <h3>品质底线</h3>
+      <p>只使用正规渠道的合格产品，操作严格执行卫生标准。对每一位客人负责，对每一份作品较真。</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-bar">
+  <div>
+    <h3>想指定某位造型师为你服务？</h3>
+    <p>预约时备注你喜欢的老师，我们为你优先安排</p>
+  </div>
+  <a href="booking.html" class="btn-white">预约指定造型师 →</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-bottom">
+    <span>© 2024 悦容美发美容 版权所有</span>
+    <span>广州市天河区 · 美发美容服务</span>
+  </div>
+</footer>
+
+</body>
+</html>

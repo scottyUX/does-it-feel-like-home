@@ -1,0 +1,92 @@
+{
+  "id": "en__clothing__glm-4.7-flash-q4_K_M__run1",
+  "language": "en",
+  "run": "run1",
+  "type": "clothing",
+  "model": "glm-4.7-flash:q4_K_M",
+  "completionTokens": 26715,
+  "seconds": 261,
+  "runtime": "ollama on GCP A100 80GB",
+  "imageAudit": [
+    {
+      "url": "https://picsum.photos/seed/shanghaishop/800/600",
+      "file": "assets/image-cd86653d878eb92c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/silkblouse/200/200",
+      "file": "assets/image-c1a6226a11edfef2.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/bag2/200/200",
+      "file": "assets/image-72c3f9670873c1f7.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/workwear1/600/400",
+      "file": "assets/image-fcc6a7526b9564f5.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/casual2/600/400",
+      "file": "assets/image-366fb2c131b94e51.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/lifestyle3/600/400",
+      "file": "assets/image-ea453c926e3608ea.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/silkblouse/400/500",
+      "file": "assets/image-1f8677bb66c29a47.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/woolcoat/400/500",
+      "file": "assets/image-00ebfb4662df498c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/casualdress/400/500",
+      "file": "assets/image-6e731a6248a22935.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/totebag/400/500",
+      "file": "assets/image-e32fc50f76fce6f4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/silkblouse/800/1000",
+      "file": "assets/image-e5b76992a33c1047.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/waistcoat/400/500",
+      "file": "assets/image-41b3145c95695d1c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/belt/400/500",
+      "file": "assets/image-89c140ec88d45985.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/shoes1/400/500",
+      "file": "assets/image-eaf29572141a1d99.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/tights/400/500",
+      "file": "assets/image-ce46cf96b4e11a5f.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/pants1/400/500",
+      "file": "assets/image-cf944f7adeac37f4.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/jacket/400/500",
+      "file": "assets/image-0ee8c0e4de6b9a4c.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/dress2/400/500",
+      "file": "assets/image-243138a0ec6a3e0b.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/bag2/400/500",
+      "file": "assets/image-3e183747f2a105bd.jpg"
+    },
+    {
+      "url": "https://picsum.photos/seed/coat2/400/500",
+      "file": "assets/image-e88417c3037b78a2.jpg"
+    }
+  ]
+}

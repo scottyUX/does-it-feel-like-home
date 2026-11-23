@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人业务 - 长川银行</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #D4AF37;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: var(--nav-height);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: var(--bg-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: var(--text-light);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 60px 0;
+        }
+
+        .service-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            color: var(--text-dark);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.1);
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .service-details {
+            font-size: 13px;
+            color: #888;
+            border-top: 1px dashed #eee;
+            padding-top: 10px;
+        }
+
+        .service-details span {
+            margin-right: 15px;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background-color: #eef5ff;
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .info-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .info-text ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .info-text ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .info-image {
+            flex: 1;
+            height: 200px;
+            background: url('assets/image-113c944da9e89ee8.jpg') center/cover;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+            font-size: 14px;
+            margin-top: 80px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            .info-banner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">长川银行<span>Changchuan</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="personal-banking.html" class="active">个人业务</a></li>
+                    <li><a href="credit-cards.html">信用卡</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="login-btn">申请开户</a>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>个人银行业务</h1>
+            <p>为您和家人提供全方位、一站式的金融服务</p>
+        </div>
+    </div>
+
+    <div class="container services-section">
+        
+        <div class="service-category">
+            <h2 class="category-title">储蓄与理财</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>活期存款</h3>
+                    <p>资金灵活存取，随存随取，享受活期存款利率，保障资金流动性。</p>
+                    <div class="service-details">
+                        <span>起存金额：1元</span>
+                        <span>支持：网银/手机银行</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>整存整取</h3>
+                    <p>期限灵活选择（3个月、6个月、1年、3年、5年），利率优于活期，安全稳健。</p>
+                    <div class="service-details">
+                        <span>最新利率：3.45%</span>
+                        <span>适合：闲置资金理财</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>大额存单</h3>
+                    <p>20万元起购，额度有限，支持质押贷款，流动性更强，收益更优。</p>
+                    <div class="service-details">
+                        <span>起购金额：20万</span>
+                        <span>期限：1/3/5年</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <h2 class="category-title">信贷服务</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>工薪贷</h3>
+                    <p>专为在职员工设计，凭工资流水申请，无需抵押，纯信用贷款。</p>
+                    <div class="service-details">
+                        <span>额度：1-50万</span>
+                        <span>利率：低至4.2%</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>装修贷款</h3>
+                    <p>用于自有住房装修，额度高，还款期长，减轻装修资金压力。</p>
+                    <div class="service-details">
+                        <span>额度最高：30万</span>
+                        <span>期限：最长5年</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>个人经营贷</h3>
+                    <p>支持个体工商户及小微企业经营周转，手续简便，放款迅速。</p>
+                    <div class="service-details">
+                        <span>额度：5-500万</span>
+                        <span>特点：随借随还</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <div class="info-image"></div>
+            <div class="info-text">
+                <h3>长川银行财富管理</h3>
+                <p>长川银行拥有专业的理财经理团队，根据您的风险承受能力，为您推荐合适的理财产品。从低风险的货币基金到高收益的信托计划，我们助力您实现资产增值。</p>
+                <ul>
+                    <li>👉 理财产品：稳赢系列、进取系列</li>
+                    <li>👉 资产配置：股票、基金、债券一站式服务</li>
+                    <li>👉 专家咨询：一对一专属理财师规划</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2023 长川银行 版权所有 | 京ICP备12345678号 | 本页面仅为研究展示用途，不构成投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

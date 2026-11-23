@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学途 - 在线学习平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #1f2937; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Header */
+        .header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 24px; font-weight: 700; color: #1e40af; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #2563eb, #7c3aed); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; font-weight: 700; }
+        .nav { display: flex; align-items: center; gap: 32px; }
+        .nav a { font-size: 15px; color: #4b5563; font-weight: 500; transition: color .2s; }
+        .nav a:hover { color: #2563eb; }
+        .nav-btn { background: #2563eb; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 600; transition: background .2s; }
+        .nav-btn:hover { background: #1d4ed8; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); padding: 80px 24px; text-align: center; }
+        .hero-inner { max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 48px; color: #fff; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 18px; color: #bfdbfe; margin-bottom: 36px; line-height: 1.7; }
+        .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: #fff; color: #2563eb; padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 600; display: inline-block; transition: transform .2s, box-shadow .2s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+        .btn-secondary { background: rgba(255,255,255,.15); color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 600; display: inline-block; border: 1px solid rgba(255,255,255,.3); transition: background .2s; }
+        .btn-secondary:hover { background: rgba(255,255,255,.25); }
+
+        /* Stats */
+        .stats { background: #fff; padding: 48px 24px; }
+        .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .stat-item h3 { font-size: 36px; font-weight: 800; color: #2563eb; }
+        .stat-item p { font-size: 14px; color: #6b7280; margin-top: 4px; }
+
+        /* Features */
+        .features { padding: 80px 24px; background: #f9fafb; }
+        .features-inner { max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 { font-size: 36px; font-weight: 700; color: #111827; margin-bottom: 12px; }
+        .section-title p { font-size: 16px; color: #6b7280; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .feature-card { background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: transform .2s, box-shadow .2s; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+        .feature-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: #6b7280; line-height: 1.7; }
+
+        /* Popular Courses */
+        .popular { padding: 80px 24px; }
+        .popular-inner { max-width: 1200px; margin: 0 auto; }
+        .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .course-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+        .course-img { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+        .course-body { padding: 20px; }
+        .course-tag { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 10px; }
+        .course-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+        .course-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #6b7280; margin-bottom: 14px; }
+        .course-price { font-size: 20px; font-weight: 700; color: #2563eb; }
+        .course-price span { font-size: 13px; color: #9ca3af; text-decoration: line-through; margin-left: 8px; }
+        .course-footer { padding: 0 20px 20px; }
+        .btn-course { display: block; width: 100%; text-align: center; padding: 10px; background: #eff6ff; color: #2563eb; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background .2s; }
+        .btn-course:hover { background: #dbeafe; }
+
+        /* Testimonials */
+        .testimonials { padding: 80px 24px; background: #f9fafb; }
+        .testimonials-inner { max-width: 1000px; margin: 0 auto; }
+        .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .testi-card { background: #fff; border-radius: 12px; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+        .testi-stars { color: #f59e0b; font-size: 16px; margin-bottom: 12px; }
+        .testi-card p { font-size: 14px; color: #4b5563; line-height: 1.8; margin-bottom: 16px; }
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+        .testi-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #fff; }
+        .testi-author-info h4 { font-size: 14px; font-weight: 600; }
+        .testi-author-info span { font-size: 12px; color: #9ca3af; }
+
+        /* CTA */
+        .cta { padding: 80px 24px; text-align: center; background: linear-gradient(135deg, #1e3a5f, #374151); }
+        .cta h2 { font-size: 36px; color: #fff; font-weight: 700; margin-bottom: 16px; }
+        .cta p { font-size: 16px; color: #9ca3af; margin-bottom: 32px; }
+
+        /* Footer */
+        .footer { background: #111827; padding: 48px 24px 24px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+        .footer p, .footer a { font-size: 13px; color: #9ca3af; line-height: 2; }
+        .footer a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 20px; text-align: center; font-size: 12px; color: #6b7280; }
+
+        @media (max-width: 900px) {
+            .features-grid, .courses-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 36px; }
+            .nav { gap: 16px; }
+        }
+        @media (max-width: 600px) {
+            .features-grid, .courses-grid { grid-template-columns: 1fr; }
+            .nav a:not(.nav-btn) { display: none; }
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">学</div>
+                学途
+            </a>
+            <nav class="nav">
+                <a href="index.html">首页</a>
+                <a href="courses.html">课程中心</a>
+                <a href="course-detail.html">课程详情</a>
+                <a href="register.html" class="nav-btn">免费注册</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>让每一次学习<br>都通往更好的未来</h1>
+            <p>学途为大学生和职场新人提供高质量的语言培训、计算机技能提升和考试备考课程。名师授课、灵活安排，助你从容应对每一场挑战。</p>
+            <div class="hero-actions">
+                <a href="courses.html" class="btn-primary">浏览全部课程</a>
+                <a href="register.html" class="btn-secondary">免费注册体验</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <h3>12,600+</h3>
+                <p>注册学员</p>
+            </div>
+            <div class="stat-item">
+                <h3>86</h3>
+                <p>精品课程</p>
+            </div>
+            <div class="stat-item">
+                <h3>97.2%</h3>
+                <p>学员满意度</p>
+            </div>
+            <div class="stat-item">
+                <h3>42</h3>
+                <p>认证讲师</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-inner">
+            <div class="section-title">
+                <h2>为什么选择学途</h2>
+                <p>我们专注于为年轻学习者打造最优质的在线学习体验</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#eff6ff;">📚</div>
+                    <h3>体系化课程</h3>
+                    <p>每门课程都经过教研团队精心设计，从基础到进阶层层递进，帮助你建立完整知识框架，避免碎片化学习。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fef3c7;">👨‍🏫</div>
+                    <h3>名师一对一辅导</h3>
+                    <p>所有讲师均持有相关专业认证，具备5年以上教学经验。支持课后一对一答疑，确保你每个问题都能得到解答。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#f0fdf4;">📅</div>
+                    <h3>灵活时间管理</h3>
+                    <p>课程支持随时回放，每周提供多个时段直播课。无论你的课表多满，都能找到适合自己的学习节奏。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fce7f3;">📝</div>
+                    <h3>实战项目驱动</h3>
+                    <p>理论结合实践，每门课程包含真实项目案例和实操练习，让你学完即可应用于实际工作或考试中。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#f3e8ff;">📊</div>
+                    <h3>学习进度追踪</h3>
+                    <p>内置学习仪表盘，实时记录你的完成进度、练习得分和薄弱环节，用数据驱动你的学习策略。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fff7ed;">🎯</div>
+                    <h3>目标达成保障</h3>
+                    <p>报名前进行免费水平测试，量身定制学习计划。未达目标可免费重修一次，让你学习无后顾之忧。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular">
+        <div class="popular-inner">
+            <div class="section-title">
+                <h2>热门课程推荐</h2>
+                <p>最受学员欢迎的精选课程，限时优惠进行中</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background:linear-gradient(135deg,#dbeafe,#eff6ff);">🗣️</div>
+                    <div class="course-body">
+                        <span class="course-tag" style="background:#eff6ff;color:#2563eb;">语言课程</span>
+                        <h3>雅思写作冲刺 7 分班</h3>
+                        <div class="course-meta">
+                            <span>⏱ 24课时</span>
+                            <span>⭐ 4.9分</span>
+                            <span>👥 1,280人</span>
+                        </div>
+                        <div class="course-price">¥2,980 <span>¥3,680</span></div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="course-detail.html" class="btn-course">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background:linear-gradient(135deg,#fef3c7,#fffbeb);">💻</div>
+                    <div class="course-body">
+                        <span class="course-tag" style="background:#fef3c7;color:#d97706;">计算机</span>
+                        <h3>Python 数据分析实战</h3>
+                        <div class="course-meta">
+                            <span>⏱ 36课时</span>
+                            <span>⭐ 4.8分</span>
+                            <span>👥 2,050人</span>
+                        </div>
+                        <div class="course-price">¥3,480 <span>¥4,280</span></div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="course-detail.html" class="btn-course">查看详情</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">📖</div>
+                    <div class="course-body">
+                        <span class="course-tag" style="background:#f0fdf4;color:#16a34a;">考试备考</span>
+                        <h3>考研英语一 全程通关</h3>
+                        <div class="course-meta">
+                            <span>⏱ 48课时</span>
+                            <span>⭐ 4.9分</span>
+                            <span>👥 3,420人</span>
+                        </div>
+                        <div class="course-price">¥4,280 <span>¥5,180</span></div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="course-detail.html" class="btn-course">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="courses.html" class="btn-secondary" style="color:#2563eb;border-color:#bfdbfe;background:#fff;">查看全部 86 门课程 →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <div class="section-title">
+                <h2>学员真实评价</h2>
+                <p>听听他们怎么说</p>
+            </div>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>大三的时候感觉英语底子很差，备考雅思完全没有方向。跟了林老师的写作班八周，从5.5提到7分，最后拿到了dream school的offer。课程结构特别清晰，每次作业都有详细的批改反馈。</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:#3b82f6;">陈</div>
+                        <div class="testi-author-info">
+                            <h4>陈思远</h4>
+                            <span>2024届 · 某985高校 · 雅思写作班</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>工作两年后想转数据分析方向，报了这个Python课程。王老师讲解特别有耐心，项目案例都是真实业务场景，学完直接用在公司报表自动化里，领导都夸效率翻倍。周末上课也完全不影响工作日。</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:#8b5cf6;">李</div>
+                        <div class="testi-author-info">
+                            <h4>李雨桐</h4>
+                            <span>某互联网公司运营 · Python数据分析班</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★☆</div>
+                    <p>考研英语一开始觉得阅读是老大难，周老师的解题方法论真的管用。最感谢的是模拟考环节，每周一次的限时训练让我考试时心态很稳。最终138分，超了自己预期的目标。</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:#10b981;">王</div>
+                        <div class="testi-author-info">
+                            <h4>王浩然</h4>
+                            <span>2025考研 · 某211高校 · 考研英语一</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>作为职场新人，CET-6一直卡在我简历上。赵老师的口语班氛围特别好，小组讨论环节让我敢开口了。两个半月后一次通过，而且面试时英语自我介绍也顺利了很多。</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:#f59e0b;">张</div>
+                        <div class="testi-author-info">
+                            <h4>张明轩</h4>
+                            <span>某咨询公司分析师 · CET-6口语班</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>准备好开始你的学习之旅了吗？</h2>
+        <p>注册即可免费试听任意一门课程的第一节课，无需绑定支付方式</p>
+        <a href="register.html" class="btn-primary">立即免费注册</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <h4>学途</h4>
+                    <p style="margin-bottom:12px;">专注大学生与职场新人的在线学习平台，提供语言、计算机技能和考试备考三大类课程，帮助每一位年轻学习者实现目标。</p>
+                    <p>客服热线：400-8826-5500<br>服务时间：周一至周日 9:00-21:00</p>
+                </div>
+                <div>
+                    <h4>课程分类</h4>
+                    <a href="courses.html">英语课程</a><br>
+                    <a href="courses.html">日语 / 韩语课程</a><br>
+                    <a href="courses.html">Python / 数据分析</a><br>
+                    <a href="courses.html">前端开发</a><br>
+                    <a href="courses.html">考研备考</a>
+                </div>
+                <div>
+                    <h4>关于我们</h4>
+                    <a href="index.html">平台介绍</a><br>
+                    <a href="register.html">加入我们</a><br>
+                    <a href="courses.html">讲师团队</a><br>
+                    <a href="index.html">学员故事</a>
+                </div>
+                <div>
+                    <h4>帮助支持</h4>
+                    <a href="register.html">注册指南</a><br>
+                    <a href="courses.html">课程政策</a><br>
+                    <a href="index.html">退费说明</a><br>
+                    <a href="index.html">常见问题</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 学途 XuTou Learning. 保留所有权利。 | 京ICP备2025018836号
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

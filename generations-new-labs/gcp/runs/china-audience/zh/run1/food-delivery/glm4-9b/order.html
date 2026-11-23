@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快送外卖 - 订单确认</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; width: 1440px; }
+        header { background: #333; color: #fff; padding: 10px 20px; }
+        header h1 { margin: 0; }
+        nav { background: #444; padding: 5px 20px; }
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { display: inline; margin-right: 10px; }
+        nav ul li a { color: #fff; text-decoration: none; }
+        main { padding: 20px; }
+        .order-summary { margin-bottom: 20px; }
+        .order-summary h2 { margin-top: 0; }
+        .order-summary table { width: 100%; border-collapse: collapse; }
+        .order-summary th, .order-summary td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .order-summary th { background-color: #f2f2f2; }
+        .order-summary td:nth-child(3) { text-align: right; }
+        .footer { background: #333; color: #fff; text-align: center; padding: 10px 20px; position: relative; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>快送外卖</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="restaurants.html">餐厅列表</a></li>
+            <li><a href="order.html">订单确认</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>订单确认</h2>
+        <div class="order-summary">
+            <h2>您的订单</h2>
+            <table>
+                <tr>
+                    <th>菜品</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                </tr>
+                <tr>
+                    <td>宫保鸡丁</td>
+                    <td>1</td>
+                    <td>¥25</td>
+                </tr>
+                <tr>
+                    <td>麻婆豆腐</td>
+                    <td>1</td>
+                    <td>¥20</td>
+                </tr>
+                <tr>
+                    <td>回锅肉</td>
+                    <td>1</td>
+                    <td>¥22</td>
+                </tr>
+                <tr>
+                    <td>小计</td>
+                    <td colspan="2">¥67</td>
+                </tr>
+                <tr>
+                    <td>配送费</td>
+                    <td colspan="2">¥5</td>
+                </tr>
+                <tr>
+                    <td>总计</td>
+                    <td colspan="2">¥72</td>
+                </tr>
+            </table>
+        </div>
+        <form action="#" method="post">
+            <input type="submit" value="确认订单">
+        </form>
+    </main>
+    <footer>
+        <p>快送外卖版权所有 &copy; 2023</p>
+    </footer>
+</body>
+</html>

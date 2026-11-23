@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长川银行 - 值得信赖的全国性商业银行</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif; color: #2d3748; background: #f8fafc; line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; }
+
+        /* Header */
+        .top-bar { background: #0f2440; color: #a0b8d4; font-size: 13px; padding: 6px 0; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: #a0b8d4; margin-left: 16px; transition: color .2s; }
+        .top-bar a:hover { color: #fff; }
+
+        header { background: #1a3a5c; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        header .container { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, #e8a020, #f5c84e); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 22px; }
+        .logo-text { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+        .logo-sub { color: #8ab4d4; font-size: 11px; display: block; letter-spacing: 1px; }
+
+        nav { display: flex; gap: 8px; }
+        nav a { color: #c8dce8; padding: 10px 18px; border-radius: 6px; font-size: 15px; transition: all .2s; }
+        nav a:hover, nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+        .header-cta { background: #e8a020; color: #fff; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background .2s; }
+        .header-cta:hover { background: #d4911a; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 50%, #1a3a5c 100%); color: #fff; padding: 90px 0 100px; position: relative; overflow: hidden; }
+        .hero::before { content: ""; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,160,32,.15) 0%, transparent 70%); border-radius: 50%; }
+        .hero::after { content: ""; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,.05) 0%, transparent 70%); border-radius: 50%; }
+        .hero .container { position: relative; z-index: 1; display: flex; align-items: center; gap: 60px; }
+        .hero-content { flex: 1; }
+        .hero h1 { font-size: 42px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+        .hero h1 span { color: #f5c84e; }
+        .hero p { font-size: 17px; color: #b8d4e8; margin-bottom: 32px; max-width: 520px; }
+        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 13px 30px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; }
+        .btn-primary { background: #e8a020; color: #fff; }
+        .btn-primary:hover { background: #d4911a; transform: translateY(-1px); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+        .hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.15); }
+        .hero-stat { text-align: center; }
+        .hero-stat .num { font-size: 32px; font-weight: 700; color: #f5c84e; }
+        .hero-stat .label { font-size: 13px; color: #8ab4d4; margin-top: 4px; }
+
+        /* Sections */
+        .section { padding: 72px 0; }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 { font-size: 32px; font-weight: 700; color: #1a3a5c; margin-bottom: 12px; }
+        .section-title p { font-size: 16px; color: #64748b; max-width: 560px; margin: 0 auto; }
+        .section-title .line { width: 50px; height: 4px; background: #e8a020; margin: 16px auto 0; border-radius: 2px; }
+
+        /* Service Cards */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { background: #fff; border-radius: 12px; padding: 32px 28px; box-shadow: 0 2px 12px rgba(0,0,0,.04); transition: all .3s; border: 1px solid #e8edf2; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,58,92,.1); border-color: #c8dce8; }
+        .service-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #eef4fa, #dce8f2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 18px; font-weight: 700; color: #1a3a5c; margin-bottom: 10px; }
+        .service-card p { font-size: 14px; color: #64748b; line-height: 1.8; }
+        .service-card .link { display: inline-block; margin-top: 16px; color: #2c6fad; font-size: 14px; font-weight: 600; }
+        .service-card .link:hover { color: #1a3a5c; }
+
+        /* Popular Products */
+        .products-section { background: #fff; }
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .product-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; text-align: center; transition: all .2s; }
+        .product-card:hover { border-color: #e8a020; box-shadow: 0 4px 16px rgba(232,160,32,.12); }
+        .product-card .rate { font-size: 28px; font-weight: 700; color: #e8a020; margin: 12px 0 4px; }
+        .product-card .rate small { font-size: 14px; color: #64748b; font-weight: 400; }
+        .product-card h4 { font-size: 15px; color: #1a3a5c; font-weight: 600; }
+        .product-card .desc { font-size: 12px; color: #94a3b8; margin-top: 6px; }
+
+        /* News */
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .news-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+        .news-img { height: 180px; background: linear-gradient(135deg, #dce8f2, #eef4fa); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+        .news-body { padding: 20px 24px; }
+        .news-body .date { font-size: 12px; color: #94a3b8; margin-bottom: 8px; }
+        .news-body h4 { font-size: 15px; color: #1a3a5c; font-weight: 600; line-height: 1.5; }
+
+        /* CTA Banner */
+        .cta-banner { background: linear-gradient(135deg, #1a3a5c, #2c5f8a); padding: 60px 0; text-align: center; color: #fff; }
+        .cta-banner h2 { font-size: 28px; margin-bottom: 12px; }
+        .cta-banner p { color: #b8d4e8; margin-bottom: 28px; font-size: 16px; }
+
+        /* Footer */
+        footer { background: #0f2440; color: #8ab4d4; padding: 56px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .footer-grid h4 { color: #fff; font-size: 15px; margin-bottom: 16px; }
+        .footer-grid a { display: block; font-size: 13px; color: #8ab4d4; margin-bottom: 10px; transition: color .2s; }
+        .footer-grid a:hover { color: #f5c84e; }
+        .footer-about p { font-size: 13px; line-height: 1.8; margin-top: 12px; }
+        .footer-bottom { text-align: center; padding: 20px 0; font-size: 12px; color: #5a7a96; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hero .container { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 30px; }
+            .hero-btns { justify-content: center; }
+            .hero-stats { justify-content: center; flex-wrap: wrap; gap: 24px; }
+            nav { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr 1fr; }
+            .news-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>全国统一客服热线：400-888-6600</span>
+            <div>
+                <a href="services.html">个人银行</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">川</div>
+                <div>
+                    <span class="logo-text">长川银行</span>
+                    <span class="logo-sub">CHANGCHUAN BANK</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html" class="active">首页</a>
+                <a href="services.html">个人银行服务</a>
+                <a href="cards.html">信用卡</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <a href="contact.html" class="header-cta">立即咨询</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>让每一分财富<br>都<span>安心增值</span></h1>
+                <p>长川银行深耕金融二十余年，为全国超过 1,200 万个人客户和 86 万小企业提供专业、安全、便捷的金融服务。无论您需要储蓄、理财还是信贷支持，我们都在这里。</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn btn-primary">了解个人服务</a>
+                    <a href="cards.html" class="btn btn-outline">浏览信用卡</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><div class="num">1,200万+</div><div class="label">个人客户</div></div>
+                    <div class="hero-stat"><div class="num">320+</div><div class="label">全国网点</div></div>
+                    <div class="hero-stat"><div class="num">26年</div><div class="label">稳健经营</div></div>
+                    <div class="hero-stat"><div class="num">A级</div><div class="label">信用评级</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心服务</h2>
+                <p>从日常储蓄到重大融资，长川银行为您提供一站式个人金融解决方案</p>
+                <div class="line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏦</div>
+                    <h3>储蓄与存款</h3>
+                    <p>活期、定期、大额存单多种存款产品，年化利率最高可达 3.45%，让闲置资金持续生息。</p>
+                    <a href="services.html" class="link">查看详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💳</div>
+                    <h3>信用卡</h3>
+                    <p>尊享卡、商旅卡、年轻卡等多款信用卡，涵盖购物返现、机场贵宾厅、里程兑换等丰富权益。</p>
+                    <a href="cards.html" class="link">查看卡种 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>个人贷款</h3>
+                    <p>房贷、消费贷、经营贷，最长期限 30 年，最快 1 个工作日放款，利率透明无隐藏费用。</p>
+                    <a href="services.html" class="link">了解贷款 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>投资理财</h3>
+                    <p>基金、理财、保险等多元配置方案，专业投顾一对一服务，帮您实现财富稳健增长。</p>
+                    <a href="services.html" class="link">了解详情 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔐</div>
+                    <h3>安全支付</h3>
+                    <p>多因子认证、实时风控、交易短信提醒，全方位守护您的账户安全与资金安全。</p>
+                    <a href="services.html" class="link">了解更多 →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>移动银行</h3>
+                    <p>长川银行 APP 支持转账、缴费、理财、贷款申请等 200+ 项功能，随时随地轻松办理。</p>
+                    <a href="services.html" class="link">下载体验 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门产品利率</h2>
+                <p>以下为当前执行利率（2025年6月），具体以网点实际报价为准</p>
+                <div class="line"></div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h4>活期存款</h4>
+                    <div class="rate">0.20<small>% / 年</small></div>
+                    <div class="desc">随存随取，灵活方便</div>
+                </div>
+                <div class="product-card">
+                    <h4>三年定期</h4>
+                    <div class="rate">2.65<small>% / 年</small></div>
+                    <div class="desc">5万元起存，利息更高</div>
+                </div>
+                <div class="product-card">
+                    <h4>大额存单（3年）</h4>
+                    <div class="rate">3.45<small>% / 年</small></div>
+                    <div class="desc">20万元起，可转让</div>
+                </div>
+                <div class="product-card">
+                    <h4>个人消费贷</h4>
+                    <div class="rate">4.35<small>% 起 / 年</small></div>
+                    <div class="desc">最高50万，随借随还</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>最新资讯</h2>
+                <div class="line"></div>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img">📰</div>
+                    <div class="news-body">
+                        <div class="date">2025年6月18日</div>
+                        <h4>长川银行推出"新市民安居计划"，首付贷款利率下调至3.10%</h4>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">🎉</div>
+                    <div class="news-body">
+                        <div class="date">2025年6月10日</div>
+                        <h4>长川银行信用卡夏季回馈：满500减80，覆盖全国30+城市</h4>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">🏅</div>
+                    <div class="news-body">
+                        <div class="date">2025年5月28日</div>
+                        <h4>长川银行荣获"2025年度最佳中小零售银行"称号</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h2>准备好开启您的金融之旅了吗？</h2>
+            <p>无论您是想开立一个新账户、申请一张信用卡，还是咨询贷款方案，我们的专业团队随时为您服务。</p>
+            <a href="contact.html" class="btn btn-primary">联系我们的理财顾问</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo">
+                        <div class="logo-icon" style="width:36px;height:36px;font-size:18px;">川</div>
+                        <span class="logo-text" style="font-size:18px;">长川银行</span>
+                    </div>
+                    <p>长川银行成立于1999年，总部位于杭州，是全国性股份制商业银行。秉承"稳健、专业、客户至上"的经营理念，致力于为广大个人和小微企业提供优质的金融服务。</p>
+                </div>
+                <div>
+                    <h4>产品服务</h4>
+                    <a href="services.html">储蓄存款</a>
+                    <a href="services.html">个人贷款</a>
+                    <a href="cards.html">信用卡</a>
+                    <a href="services.html">投资理财</a>
+                </div>
+                <div>
+                    <h4>关于长川</h4>
+                    <a href="contact.html">联系我们</a>
+                    <a href="contact.html">网点查询</a>
+                    <a href="services.html">服务介绍</a>
+                    <a href="cards.html">信用卡专区</a>
+                </div>
+                <div>
+                    <h4>客户服务</h4>
+                    <a href="contact.html">客服热线 400-888-6600</a>
+                    <a href="contact.html">投诉与建议</a>
+                    <a href="services.html">安全提示</a>
+                    <a href="contact.html">营业时间</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 长川银行 版权所有 | 银行许可证编号 B0312H133010001 | 浙ICP备12038866号</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

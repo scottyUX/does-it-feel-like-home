@@ -12,6 +12,7 @@ import {
 import { copy } from "@/lib/copy";
 import {
   createParticipantSession,
+  forgetSession,
   saveBackground,
   savePair,
 } from "@/lib/session";
@@ -150,6 +151,12 @@ export const submitBackground = async (input: BackgroundAnswers) => {
   const result = await saveBackground(answers);
   if (result.error) return { error: copy.en.storeUnavailable };
   redirect("/done");
+};
+
+// While the study is in testing, anyone can take it again from the start.
+export const restartStudy = async () => {
+  await forgetSession();
+  redirect("/");
 };
 
 export const unlockGallery = async (formData: FormData) => {

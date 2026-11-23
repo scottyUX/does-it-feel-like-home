@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约订座 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --accent-color: #B22222;
+            --text-color: #333;
+            --bg-color: #FAF9F6;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .res-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 0 20px;
+        }
+
+        .res-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .res-info h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .res-info p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .contact-detail span {
+            margin-right: 10px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .res-form-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #8B0000;
+        }
+
+        footer {
+            background-color: #333;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .res-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><span>家</span>味餐厅</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="menu.html">特色菜单</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="reservation.html">预约订座</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="res-container">
+        <div class="res-info">
+            <h1>期待您的光临</h1>
+            <p>为了给您提供最优质的服务，建议您提前预约，尤其是周末及法定节假日。</p>
+            <div class="contact-detail"><span>📍 地址：</span>杭州市西湖区温馨路128号</div>
+            <div class="contact-detail"><span>📞 电话：</span>0571-8888-XXXX</div>
+            <div class="contact-detail"><span>⏰ 营业时间：</span>11:00 - 22:00</div>
+            <p style="margin-top: 20px; font-style: italic; color: #666;">* 超过10人的团体请直接电话预约，以便我们为您预留大厅包间。</p>
+        </div>
+
+        <div class="res-form-card">
+            <form onsubmit="return false;">
+                <div class="form-group">
+                    <label>姓名</label>
+                    <input type="text" placeholder="请输入您的姓名" required>
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="tel" placeholder="请输入手机号码" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="form-group">
+                        <label>预约日期</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>预约时间</label>
+                        <select required>
+                            <option value="">请选择时间</option>
+                            <option>12:00</option>
+                            <option>13:00</option>
+                            <option>17:30</option>
+                            <option>18:30</option>
+                            <option>19:30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>就餐人数</label>
+                    <input type="number" min="1" max="20" placeholder="请输入人数" required>
+                </div>
+                <div class="form-group">
+                    <label>特殊要求</label>
+                    <textarea rows="3" placeholder="例如：过敏原、庆生需求、窗边位置等..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">提交预约申请</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅 - 杭州市西湖区温馨路128号</p>
+        <p>营业时间：11:00 - 22:00</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>悦容美发美容 - 首页</title>
+    <style>
+        body{font-family:Arial,sans-serif;margin:0;color:#333;background:#f9f9f9;}
+        header{background:#2c3e50;color:#fff;padding:20px 0;}
+        .container{max-width:1200px;margin:auto;padding:0 20px;}
+        nav a{color:#fff;margin:0 15px;text-decoration:none;font-size:16px;}
+        nav a:hover{text-decoration:underline;}
+        .hero{background:url('assets/image-7e62080fe58f6629.jpg') center/cover;height:400px;display:flex;align-items:center;justify-content:center;color:#fff;}
+        .hero h1{font-size:48px;background:rgba(0,0,0,0.5);padding:20px 40px;border-radius:5px;}
+        .section{padding:60px 0;background:#fff;margin-top:20px;}
+        .section h2{font-size:32px;margin-bottom:20px;text-align:center;}
+        .services-preview{display:flex;justify-content:space-around;flex-wrap:wrap;}
+        .service-item{width:30%;min-width:260px;background:#ecf0f1;margin:10px;padding:20px;border-radius:8px;text-align:center;}
+        .service-item img{max-width:100%;border-radius:5px;}
+        .service-item h3{margin:15px 0 10px;}
+        .cta{background:#e74c3c;color:#fff;padding:40px 0;text-align:center;}
+        .cta button{background:#c0392b;color:#fff;border:none;padding:15px 30px;font-size:18px;border-radius:5px;cursor:pointer;}
+        .cta button:hover{background:#a93226;}
+        footer{background:#2c3e50;color:#bbb;padding:20px 0;text-align:center;font-size:14px;}
+        @media(max-width:768px){
+            .services-preview{flex-direction:column;align-items:center;}
+            .service-item{width:80%;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1 style="margin:0;">悦容美发美容</h1>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="services.html">服务项目</a>
+            <a href="team.html">团队介绍</a>
+            <a href="appointment.html">预约</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>让美丽绽放，从悦容开始</h1>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>我们的特色服务</h2>
+        <div class="services-preview">
+            <div class="service-item">
+                <img src="assets/image-0bbbb1b350f4641d.jpg" alt="剪发">
+                <h3>专业剪发</h3>
+                <p>根据脸型与气质量身定制，打造自然时尚造型。</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/image-f290f0aed604c1d1.jpg" alt="染发">
+                <h3>时尚染发</h3>
+                <p>精选进口染发剂，颜色持久亮泽，呵护发质。</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/image-0f2c376ac2c35c45.jpg" alt="护肤">
+                <h3>深层护肤</h3>
+                <p>针对不同肤质的护理方案，让肌肤焕发光彩。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta">
+    <h2>立即预约，享受专属美丽时光</h2>
+    <button onclick="location.href='appointment.html'">立即预约</button>
+</div>
+
+<footer>
+    <div class="container">
+        <p>广州天河区珠江新城中信广场B座 101室 | 电话: 020-1234 5678</p>
+        <p>© 2026 悦容美发美容 版权所有</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "index.html",
+   "selector": "div.post-image",
+   "match": "旅行达人 刚从巴厘岛回来，海岛的日落真的美到窒息",
+   "url": "assets/photo-f3946c64c79b28df.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Sunset, Kuta, Bali, Indonesia, 20220825 1755 0879.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "bali sunset beach",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Sunset%2C_Kuta%2C_Bali%2C_Indonesia%2C_20220825_1755_0879.jpg/960px-Sunset%2C_Kuta%2C_Bali%2C_Indonesia%2C_20220825_1755_0879.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "post.html",
+   "selector": "div.post-image",
+   "match": "旅行达人 刚从巴厘岛回来，海岛的日落真的美到窒息",
+   "url": "assets/photo-f3946c64c79b28df.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Sunset, Kuta, Bali, Indonesia, 20220825 1755 0879.jpg",
+   "license": "CC BY-SA 4.0",
+   "subject": "bali sunset beach",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Sunset%2C_Kuta%2C_Bali%2C_Indonesia%2C_20220825_1755_0879.jpg/960px-Sunset%2C_Kuta%2C_Bali%2C_Indonesia%2C_20220825_1755_0879.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "page": "profile.html",
+   "selector": "div.avatar",
+   "match": "张晓华 热爱旅行、音乐与美食的社交达人。欢迎关注",
+   "url": "assets/photo-9c74415436e48214.jpg",
+   "hideText": false,
+   "source": "Unsplash",
+   "subject": "portrait of a woman",
+   "original": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&h=800&q=80"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "note": "Photos added after generation: the model drew these image placeholders without photos. Applied by /study-frame.js; the model's HTML is unchanged.",
+ "photos": [
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "北京东方假日酒店 位于北京市中心，靠近天安门广场",
+   "url": "assets/photo-58bd7bc269e75c1e.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:SJOHI Exterior Atardecer 3.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "beijing dongfang holiday hotel exterior",
+   "original": "https://upload.wikimedia.org/wikipedia/commons/c/c1/SJOHI_Exterior_Atardecer_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  {
+   "page": "results.html",
+   "selector": "div.hotel-img",
+   "match": "上海外滩茂悦大酒店 坐拥黄浦江景观，靠近外滩和南",
+   "url": "assets/photo-5f908330aa943a11.jpg",
+   "hideText": false,
+   "source": "Wikimedia Commons",
+   "title": "File:Budapest (ship, 1988), Budapest Marriott Hotel, Cathedral of the Assumption, 2017 Budapest.jpg",
+   "license": "CC BY-SA 3.0",
+   "subject": "shanghai bund marriott hotel river view",
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Budapest_%28ship%2C_1988%29%2C_Budapest_Marriott_Hotel%2C_Cathedral_of_the_Assumption%2C_2017_Budapest.jpg/960px-Budapest_%28ship%2C_1988%29%2C_Budapest_Marriott_Hotel%2C_Cathedral_of_the_Assumption%2C_2017_Budapest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ ]
+}

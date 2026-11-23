@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单 - 家味餐厅</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --accent-color: #D2691E;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FAF9F6;
+            --white: #FFFFFF;
+            --border-color: #E0E0E0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-reserve {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+        }
+
+        /* Menu Layout */
+        .menu-header {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+            background: white;
+        }
+
+        .menu-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-header p {
+            color: var(--text-light);
+        }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .item-details .spicy {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 1px 4px;
+            border-radius: 2px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .tag-hot {
+            background-color: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ddd;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            nav ul { display: none; } /* Simplified mobile menu */
+            .menu-item { flex-direction: column; gap: 0.5rem; }
+            .item-price { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>家味</span> 餐厅
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="menu.html" class="active">特色菜单</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="reserve.html" class="btn-reserve">预定座位</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="menu-header">
+        <h1>精选菜单</h1>
+        <p>食材每日新鲜采购，价格仅供参考，以店内为准</p>
+    </div>
+
+    <div class="menu-container">
+        <!-- 凉菜 -->
+        <div class="menu-category">
+            <h2 class="category-title">经典凉菜</h2>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>桂花糖藕 <span class="tag-hot">推荐</span></h3>
+                    <p class="item-desc">精选糯米与莲藕，桂花蜜汁浸泡，香甜软糯。</p>
+                </div>
+                <div class="item-price">¥28</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>绍兴醉鸡</h3>
+                    <p class="item-desc">传统绍兴酒糟腌制，皮滑肉嫩，酒香浓郁。</p>
+                </div>
+                <div class="item-price">¥32</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>陈年花雕醉虾</h3>
+                    <p class="item-desc">生醉鲜虾，口感滑嫩如蟹肉。</p>
+                </div>
+                <div class="item-price">¥58</div>
+            </div>
+        </div>
+
+        <!-- 热菜 -->
+        <div class="menu-category">
+            <h2 class="category-title">招牌热菜</h2>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>秘制东坡肉 <span class="tag-hot">必点</span></h3>
+                    <p class="item-desc">选用三层五花肉，文火慢炖 3 小时，色泽红亮。</p>
+                </div>
+                <div class="item-price">¥68</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>龙井虾仁 <span class="tag-hot">推荐</span></h3>
+                    <p class="item-desc">特级河虾仁，配以明前龙井茶叶清炒。</p>
+                </div>
+                <div class="item-price">¥88</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>西湖醋鱼 <span class="tag-hot">经典</span></h3>
+                    <p class="item-desc">选用草鱼，酸甜适口，带有独特的蟹肉风味。</p>
+                </div>
+                <div class="item-price">¥58</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>龙井茶香排骨 <span class="spicy">微辣</span></h3>
+                    <p class="item-desc">排骨裹上龙井茶粉油炸，外酥里嫩，茶香解腻。</p>
+                </div>
+                <div class="item-price">¥52</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>响油鳝糊</h3>
+                    <p class="item-desc">鲜活黄鳝丝，勾芡后淋上热油，蒜香浓郁。</p>
+                </div>
+                <div class="item-price">¥62</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>干菜焖肉</h3>
+                    <p class="item-desc">绍兴霉干菜与五花肉同焖，咸鲜下饭。</p>
+                </div>
+                <div class="item-price">¥48</div>
+            </div>
+        </div>
+
+        <!-- 时蔬 -->
+        <div class="menu-category">
+            <h2 class="category-title">时令时蔬</h2>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>清炒龙井豆</h3>
+                    <p class="item-desc">当季新鲜蚕豆，简单清炒，保留清甜。</p>
+                </div>
+                <div class="item-price">¥38</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>上汤芦笋</h3>
+                    <p class="item-desc">高汤煨制芦笋，口感清脆爽口。</p>
+                </div>
+                <div class="item-price">¥32</div>
+            </div>
+        </div>
+
+        <!-- 主食 -->
+        <div class="menu-category">
+            <h2 class="category-title">主食 & 点心</h2>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>片儿川</h3>
+                    <p class="item-desc">杭州传统面食，雪菜、笋片、瘦肉丝拌面。</p>
+                </div>
+                <div class="item-price">¥22</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>葱油拌面</h3>
+                    <p class="item-desc">手工面条，熬制葱油，简单却美味。</p>
+                </div>
+                <div class="item-price">¥12</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3>鲜肉小笼包 (4 只)</h3>
+                    <p class="item-desc">皮薄汁多，一口一个鲜。</p>
+                </div>
+                <div class="item-price">¥18</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 家味餐厅。杭州市西湖区龙井路 88 号 | 0571-8888 6666</p>
+    </footer>
+
+</body>
+</html>

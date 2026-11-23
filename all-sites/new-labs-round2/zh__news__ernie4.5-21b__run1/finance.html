@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财经 - 每日视界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .main-content {
+            max-width: 1440px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .finance-header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        .finance-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .finance-header p {
+            font-size: 1rem;
+        }
+        .finance-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .finance-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .finance-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .finance-content {
+            padding: 1rem;
+        }
+        .finance-content h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .finance-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .finance-excerpt {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        .finance-readmore {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #1a5276;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">每日视界</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="finance.html">财经</a></li>
+                    <li><a href="tech.html">科技</a></li>
+                    <li><a href="sports.html">体育</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="finance-header">
+            <h1>财经新闻</h1>
+            <p>关注经济动态，把握市场脉搏</p>
+        </section>
+
+        <section class="finance-articles">
+            <div class="finance-card">
+                <img src="https://via.placeholder.com/600x400?text=股市动态" alt="股市动态" class="finance-image">
+                <div class="finance-content">
+                    <div class="finance-meta">
+                        <span>2023-06-15 09:30</span>
+                        <span>作者：财经观察</span>
+                    </div>
+                    <h2>A股市场震荡上行 创业板指创近3个月新高</h2>
+                    <p class="finance-excerpt">今日A股市场整体呈现震荡上行态势，沪指收涨0.5%，深成指上涨0.8%，创业板指表现更为突出，涨幅超过1%...</p>
+                    <a href="article.html" class="finance-readmore">阅读全文 &raquo;</a>
+                </div>
+            </div>
+            <div class="finance-card">
+                <img src="https://via.placeholder.com/600x400?text=货币政策" alt="货币政策" class="finance-image">
+                <div class="finance-content">
+                    <div class="finance-meta">
+                        <span>2023-06-14 15:20</span>
+                        <span>作者：金融分析</span>
+                    </div>
+                    <h2>央行释放流动性 短期利率小幅回落</h2>
+                    <p class="finance-excerpt">为支持实体经济，中国人民银行今日开展100亿元逆回购操作，中标利率维持2.20%不变。市场资金面保持宽松...</p>
+                    <a href="article.html" class="finance-readmore">阅读全文 &raquo;</a>
+                </div>
+            </div>
+            <div class="finance-card">
+                <img src="https://via.placeholder.com/600x400?text=企业财报" alt="企业财报" class="finance-image">
+                <div class="finance-content">
+                    <div class="finance-meta">
+                        <span>2023-06-13 10:45</span>
+                        <span>作者：商业观察</span>
+                    </div>
+                    <h2>茅台集团发布年度财报：营收突破千亿</h2>
+                    <p class="finance-excerpt">贵州茅台集团今日发布年度财报显示，公司2022年实现营业收入1241.98亿元，同比增长16.53%，净利润627.16亿元...</p>
+                    <a href="article.html" class="finance-readmore">阅读全文 &raquo;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 每日视界 版权所有</p>
+        <p>联系我们：service@meiri.com | 客服电话：400-123-4567</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 家味餐厅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --accent: #C0392B;
+            --bg-cream: #FDF8F0;
+            --bg-warm: #FAF3E8;
+            --text-dark: #2C1810;
+            --text-mid: #5C4033;
+            --text-light: #8B7355;
+            --white: #FFFFFF;
+            --border: #E8D5C0;
+            --shadow: rgba(139, 69, 19, 0.1);
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-mid);
+            transition: all 0.25s;
+        }
+
+        .nav-links a:hover {
+            background: var(--bg-warm);
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: #A93226 !important;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #2C1810, #4A2C17);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #D4B896;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 70px 40px 90px;
+        }
+
+        .about-section {
+            margin-bottom: 56px;
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-section p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .about-highlight {
+            background: var(--bg-warm);
+            border-left: 4px solid var(--primary);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+
+        .about-highlight p {
+            font-size: 15px;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .chef-card {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        .chef-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .chef-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .chef-info .chef-title {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .chef-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .value-item {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .value-item .value-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .value-item h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .value-item p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+            margin-top: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-cream);
+        }
+
+        .timeline-item .time {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .event {
+            font-size: 14px;
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+
+        .env-desc {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .env-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .env-card .env-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .env-card h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .env-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #A93226;
+        }
+
+        .footer {
+            background: var(--text-dark);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #7A6B5A;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-container {
+                padding: 40px 20px 60px;
+            }
+
+            .chef-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .env-desc {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">家</div>
+                <span class="nav-logo-text">家味餐厅</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="menu.html">菜单</a>
+                <a href="about.html" class="active">关于我们</a>
+                <a href="reserve.html" class="nav-cta">在线订座</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>我们的故事</h1>
+        <p>从一间小厨房到一家有温度的餐厅，二十年的坚持</p>
+    </header>
+
+    <div class="about-container">
+        <!-- Origin Story -->
+        <div class="about-section">
+            <h2>🏠 家的味道</h2>
+            <p>2004 年的春天，周建国师傅在文三路一间不到六十平米的小厨房里，支起了两口灶。那时候没有招牌、没有装修，只有一张手写菜单和一把用了十几年的炒锅。邻居们下班路过，闻着锅里飘出的酱香味，就走进来坐一坐、吃一碗面。</p>
+            <p>周师傅是绍兴人，十二岁跟着外婆学做饭，十八岁在杭州各大酒店的浙菜后厨待了十年。他常说："酒店里的菜是给别人看的，家里的菜是喂饱肚子的。我想做的，就是让人吃一口就想家的那种味道。"</p>
+            <p>就这样，"家味"这两个字，成了那间小厨房的名字，也成了这家餐厅二十年来从未变过的信念。</p>
+
+            <div class="about-highlight">
+                <p>我们的承诺：不用冻货、不用预制菜、不用香精。每一道菜都从洗菜、切配、调味到出锅，全部由后厨现场完成。您坐在这里吃的，和您在家灶台边吃到的，是同一个标准。</p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="about-section">
+            <h2>📅 二十年，一步一个脚印</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">2004 年</div>
+                    <div class="event">周建国师傅在文三路 128 号开出第一家"家味小厨"，仅设 6 张桌子，主打家常热菜和面。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2009 年</div>
+                    <div class="event">搬迁至现址，扩大至 200 平方米，增设包间，正式定名"家味餐厅"。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2014 年</div>
+                    <div class="event">推出"当日鲜材"采购体系，与千岛湖、临安、余杭多个农户建立长期直供合作。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2018 年</div>
+                    <div class="event">入选大众点评"杭州年度必吃榜"，当年接待食客超 12 万人次。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2021 年</div>
+                    <div class="event">完成门店翻新升级，增设家庭儿童区、无障碍通道和更多包间。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024 年</div>
+                    <div class="event">二十周年。菜单保留经典，新增 6 道时令创新菜，继续用老办法做新味道。</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chef -->
+        <div class="about-section">
+            <h2>👨‍🍳 主厨团队</h2>
+            <div class="chef-card">
+                <div class="chef-avatar">周</div>
+                <div class="chef-info">
+                    <h3>周建国</h3>
+                    <div class="chef-title">创始人 · 行政主厨</div>
+                    <p>绍兴人，1968 年生。12 岁随外婆学习传统绍兴家常菜，18 岁进入杭州多家星级酒店浙菜部任职，累计后厨经验超过 30 年。他坚持每天凌晨 5 点亲自到市场选菜，认为"好的菜是选出来的，不是炒出来的"。招牌菜东坡肉、西湖醋鱼、叫花鸡的烹制均出自他手。</p>
+                </div>
+            </div>
+            <div class="chef-card">
+                <div class="chef-avatar">林</div>
+                <div class="chef-info">
+                    <h3>林小梅</h3>
+                    <div class="chef-title">副主厨 · 冷菜与甜品负责人</div>
+                    <p>杭州本地人，浙江旅游职业学院烹饪专业毕业。擅长冷菜拼盘和传统甜品的创新改良，桂花酒酿圆子、西湖藕粉羹等甜品均由她把控。她负责每周时令菜单的更新，确保食客每个月来都能吃到不一样的新鲜味道。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="about-section">
+            <h2>💡 我们的经营信念</h2>
+            <p>开了二十年，我们最在意的不是赚多少钱，而是客人吃完全程、放下筷子时，心里说一句："嗯，这个味道对。"</p>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🌱</div>
+                    <h4>食材本味</h4>
+                    <p>尊重食材本身的鲜甜，少用调料覆盖，让味道自己说话。</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h4>对顾客诚实</h4>
+                    <p>不夸大、不忽悠，分量实在，价格透明，吃完不心疼。</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🏡</div>
+                    <h4>像在家一样</h4>
+                    <p>没有距离感，孩子跑进来、老人慢慢吃，我们都觉得自在。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Environment -->
+        <div class="about-section">
+            <h2>🪑 用餐环境</h2>
+            <p>我们的餐厅不算大，但每一处都为了"待客如待家人"而设计。200 平方米的开放式大厅明亮通透，配有 8 个包间（可容纳 4 至 12 人），适合家庭聚餐、同事小聚或朋友闲谈。</p>
+            <div class="env-desc">
+                <div class="env-card">
+                    <div class="env-icon">👶</div>
+                    <h4>儿童友好</h4>
+                    <p>每个座位旁配有儿童座椅，备有宝宝餐（粥、蒸蛋、小馄饨），大厅设有小型玩具角。</p>
+                </div>
+                <div class="env-card">
+                    <div class="env-icon">🍵</div>
+                    <h4>茶歇等候区</h4>
+                    <p>等候时提供免费茶水、时令水果和现磨绿豆沙，不再干坐。</p>
+                </div>
+                <div class="env-card">
+                    <div class="env-icon">♿</div>
+                    <h4>无障碍通道</h4>
+                    <p>门口设坡道，卫生间配置无障碍设施，轮椅可直达包间。</p>
+                </div>
+                <div class="env-card">
+                    <div class="env-icon">📱</div>
+                    <h4>全店 Wi-Fi</h4>
+                    <p>覆盖高速无线网络，方便用餐时处理工作、拍照分享。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 16px; color: var(--text-mid); margin-bottom: 20px;">想体验一下"家味"是什么样的？</p>
+            <a href="reserve.html" class="btn btn-primary">预订一桌好菜</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 家味餐厅 · 杭州市西湖区文三路 128 号 · 订座电话：0571-8888-6666</p>
+    </footer>
+</body>
+</html>
+=====

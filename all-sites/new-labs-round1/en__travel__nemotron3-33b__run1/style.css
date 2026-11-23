@@ -1,0 +1,30 @@
+/* style.css */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background:#f9f9f9; }
+header { background:#004080; color:#fff; padding:15px; display:flex; justify-content:space-between; align-items:center; }
+header h1 { margin:0; font-size:1.8em; }
+nav a { color:#fff; margin-right:15px; text-decoration:none; font-weight:bold; }
+nav a:hover { text-decoration:underline; }
+main { max-width:1200px; margin:30px auto; padding:0 15px; }
+section { margin-bottom:40px; }
+h2 { margin-bottom:15px; color:#004080; }
+.search-section, .results-section, .detail-section, .booking-section { background:#fff; padding:20px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.result-list { display:flex; flex-wrap:wrap; gap:15px; }
+.result-item { width:calc(50% - 15px); }
+.result-item img { width:100%; height:auto; border-radius:4px; }
+.price { font-weight:bold; color:#e67e22; }
+.detail-image { width:100%; max-height:300px; object-fit:cover; margin-bottom:15px; }
+.detail-body { display:flex; flex-direction:column; }
+.detail-header { display:flex; align-items:center; margin-bottom:15px; }
+.detail-header h2 { margin:0; flex:1; }
+.rating { margin-left:10px; }
+.star { font-size:1.2em; color:#ffcc00; }
+.location { margin-left:10px; font-size:0.9em; color:#666; }
+.price { font-size:1.2em; color:#e67e22; margin-top:10px; }
+.btn { display:inline-block; padding:8px 15px; background:#004080; color:#fff; text-decoration:none; border-radius:4px; margin-top:10px; }
+.btn:hover { background:#003060; }
+footer { text-align:center; padding:15px; background:#eee; margin-top:40px; font-size:0.9em; color:#666; }
+.message { margin-top:10px; font-weight:bold; }
+@media (max-width:768px) {
+  .result-item { width:100%; }
+}

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的团队 - 悦容美发美容</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+            color: #2c2c2c;
+            background: #fafafa;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c2c2c;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #555;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: #a07840;
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(160, 120, 64, 0.35);
+        }
+
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .page-hero p {
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            font-size: 15px;
+        }
+
+        .section-header .line {
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #c4a265, #a07840);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .team-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+        }
+
+        .team-avatar {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+        }
+
+        .team-avatar.bg1 { background: linear-gradient(135deg, #f5f0e8, #e8ddd0); }
+        .team-avatar.bg2 { background: linear-gradient(135deg, #eef2f7, #dde5ef); }
+        .team-avatar.bg3 { background: linear-gradient(135deg, #f0f0f5, #e2e2ec); }
+        .team-avatar.bg4 { background: linear-gradient(135deg, #f5f2e8, #e8e2d0); }
+        .team-avatar.bg5 { background: linear-gradient(135deg, #eef5f0, #dcece2); }
+        .team-avatar.bg6 { background: linear-gradient(135deg, #f5eef5, #e8dce8); }
+
+        .team-info {
+            padding: 24px;
+        }
+
+        .team-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            color: #a07840;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .team-info p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .team-tags {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .team-tags span {
+            background: rgba(196, 162, 101, 0.08);
+            color: #a07840;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .about-section {
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .about-text p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.9;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, #f8f5f0, #ede5d8);
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-visual .emoji {
+            font-size: 80px;
+            opacity: 0.4;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #fafafa;
+            border-radius: 12px;
+        }
+
+        .value-card .v-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .value-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .value-card p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta-banner h3 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c4a265, #a07840);
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(160, 120, 64, 0.4);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 50px 0 24px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .nav-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            nav.open {
+                display: flex;
+            }
+            .page-hero h1 {
+                font-size: 30px;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">悦</div>
+                <span class="logo-text">悦容美发美容</span>
+            </a>
+            <button class="nav-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="services.html">服务项目</a>
+                <a href="team.html" class="active">我们的团队</a>
+                <a href="appointment.html" class="btn-book">立即预约</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>我们的团队</h1>
+            <p>每一位造型师都是美学爱好者，用专业与热情为您打造独一无二的自己</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>造型师团队</h2>
+                <p>平均从业经验8年以上，每年赴日本、韩国、上海参加行业研修</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar bg1">👩‍🦰</div>
+                    <div class="team-info">
+                        <h3>林婉清</h3>
+                        <div class="team-role">创始人 / 首席造型师</div>
+                        <p>15年美发经验，擅长根据脸型与气质定制发型。曾在东京、首尔参加国际美发比赛并获奖。风格自然高级，深受职场女性喜爱。</p>
+                        <div class="team-tags">
+                            <span>精剪造型</span>
+                            <span>气质定制</span>
+                            <span>色彩设计</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar bg2">👨‍🦱</div>
+                    <div class="team-info">
+                        <h3>张子墨</h3>
+                        <div class="team-role">总监 / 色彩专家</div>
+                        <p>12年染发经验，精通日系渐变、欧美挑染、创意彩色。对色彩理论有深入研究，能精确调配出最贴合肤色的发色。</p>
+                        <div class="team-tags">
+                            <span>时尚染发</span>
+                            <span>创意色彩</span>
+                            <span>漂发技巧</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar bg3">👩</div>
+                    <div class="team-info">
+                        <h3>苏雅琪</h3>
+                        <div class="team-role">高级造型师 / 烫发专家</div>
+                        <p>10年烫发经验，擅长韩式微卷、法式慵懒卷、日系纹理烫。手法轻柔，最大程度减少热损伤，卷度自然持久。</p>
+                        <div class="team-tags">
+                            <span>冷烫</span>
+                            <span>数码烫</span>
+                            <span>卷度设计</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar bg4">👨</div>
+                    <div class="team-info">
+                        <h3>陈嘉豪</h3>
+                        <div class="team-role">男士造型师</div>
+                        <p>专注男士发型8年，熟悉各种脸型的最佳发型方案。从商务正发到潮流短发，都能精准拿捏。客户多为金融、法律、设计行业。</p>
+                        <div class="team-tags">
+                            <span>男士精剪</span>
+                            <span>商务造型</span>
+                            <span>造型建议</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar bg5">👩‍🦳</div>
+                    <div class="team-info">
+                        <h3>何静怡</h3>
+                        <div class="team-role">高级美容师 / 护肤专家</div>
+                        <p>8年面部护理经验，国家高级美容师资质。擅长敏感肌修复、抗衰护理。手法轻柔细致，客户反馈"像做了一场面部SPA"。</p>
+                        <div class="team-tags">
+                            <span>深层护肤</span>
+                            <span>抗衰紧致</span>
+                            <span>敏感肌护理</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar bg6">👩</div>
+                    <div class="team-info">
+                        <h3>周雨桐</h3>
+                        <div class="team-role">美容师 / 皮肤管理</div>
+                        <p>6年皮肤管理经验，擅长问题肌肤改善和日常保养方案制定。沟通耐心，会根据皮肤状态动态调整护理步骤。</p>
+                        <div class="team-tags">
+                            <span>补水保湿</span>
+                            <span>祛痘修复</span>
+                            <span>美白焕颜</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>悦容的故事</h2>
+                    <p>2014年，创始人林婉清在天河路一间30平方米的小工作室里开始了"悦容"。最初只有两张椅子、一把剪刀和一腔热情。</p>
+                    <p>十年来，我们从一间小工作室成长为拥有200平方米、6个独立操作间的专业美发美容空间。但不变的是我们的初心——每一位客人都值得被认真对待，每一种美丽都应该被看见。</p>
+                    <p>我们相信，好的服务不只是技术的堆叠，更是沟通、理解和用心的结果。所以每次服务前，我们至少会花10分钟和您聊聊，了解您的需求和期待。</p>
+                </div>
+                <div class="about-visual">
+                    <span class="emoji">💐</span>
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="v-icon">🤝</div>
+                    <h4>真诚沟通</h4>
+                    <p>不推销、不套路，只给最合适的建议</p>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">🎯</div>
+                    <h4>专业精准</h4>
+                    <p>每次操作前都经过仔细评估和规划</p>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">🌱</div>
+                    <h4>温和安全</h4>
+                    <p>精选低刺激产品，保护您每一根发丝和每一寸肌肤</p>
+                </div>
+                <div class="value-card">
+                    <div class="v-icon">✨</div>
+                    <h4>持续精进</h4>
+                    <p>每年投入培训预算，追踪全球最新美业趋势</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-banner">
+                <h3>想指定哪位造型师为您服务？</h3>
+                <p>预约时可以备注您喜欢的造型师，我们会尽力安排</p>
+                <a href="appointment.html" class="btn-primary">选择造型师并预约 →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 悦容美发美容 · 广州市天河区体育西路101号 · 020-8888-6666</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                document.querySelector('nav').classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
